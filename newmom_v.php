@@ -66,9 +66,23 @@
 <div style="display: none;"><a id="flashcardmom" href="https://s3.amazonaws.com/motherhood.com.my/assets/images/newNewmom/newmom-popup-final.png"> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/newNewmom/newmom-popup-final.png" /> </a></div>
 <div style="display: none;"><a id="flashcardmomExist" href="https://s3.amazonaws.com/motherhood.com.my/assets/images/newNewmom/newmom-popup-final.png"> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/newNewmom/newmom-popup-final.png" /> </a></div>
 <div class="row step1" style="background-image: url('https://s3.amazonaws.com/motherhood.com.my/assets/images/newNewmom/Background-Newmom.png'); background-size: cover; background-position: top center; background-repeat: no-repeat; padding-top: 20px; padding-bottom: 20px;">
-<div class="col-md-12" style="padding-right: 23px;"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/newNewmom/hello.png" class="hello-image" width="60%" alt="helloImage" /> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/newNewmom/meet-mmy.png" width="60%" alt="meetMmy" /> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/newNewmom/q1.png" width="80%" alt="q1Image" />
-<div class="col-md-6" style="margin-top: 30px;"><a class="step1btnv1"> <img id="imPregnant1" value="pregnant" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/newNewmom/im-pregnant.png" width="70%" alt="imPregnant" /> <img id="imPregnant2" style="display: none;" value="pregnant" src="https://s3.amazonaws.com/motherhood.com.my/mobile/icon/im-pregnant-1.png" width="70%" alt="imPregnant" /> </a></div>
-<div class="col-md-6" style="margin-top: 30px;"><a class="step1btnv2"> <img id="babyOut1" value="babyOut" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/April/Newmom/imnewmom-button0.png" width="70%" alt="myBabyIsOut" /> <img id="babyOut2" style="display: none;" value="babyOut" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/April/Newmom/imnewmom-button1.png" width="70%" alt="myBabyIsOut" /> <input type="hidden" name="subscriber_question4" id="subscriber_question4" /> </a></div>
+<div class="col-md-12" style="padding-right: 23px;">
+	<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/newNewmom/hello.png" class="hello-image" width="60%" alt="helloImage" /> 
+	<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/newNewmom/meet-mmy.png" width="60%" alt="meetMmy" /> 
+	<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/newNewmom/q1.png" width="80%" alt="q1Image" />
+	<div class="col-md-6" style="margin-top: 30px;">
+		<a class="step1btnv1"> 
+			<img id="imPregnant1" value="pregnant" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/newNewmom/im-pregnant.png" width="70%" alt="imPregnant" /> 
+			<img id="imPregnant2" style="display: none;" value="pregnant" src="https://s3.amazonaws.com/motherhood.com.my/mobile/icon/im-pregnant-1.png" width="70%" alt="imPregnant" /> 
+		</a>
+	</div>
+<div class="col-md-6" style="margin-top: 30px;">
+	<a class="step1btnv2"> 
+		<img id="babyOut1" value="babyOut" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/April/Newmom/imnewmom-button0.png" width="70%" alt="myBabyIsOut" /> 
+		<img id="babyOut2" style="display: none;" value="babyOut" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/April/Newmom/imnewmom-button1.png" width="70%" alt="myBabyIsOut" /> 
+		<input type="hidden" name="subscriber_question4" id="subscriber_question4" />
+	</a>
+</div>
 </div>
 <div class="clearfix"></div>
 </div>
@@ -319,7 +333,6 @@
 </div>
 <p>
 <script>// <![CDATA[
- 
  
 var toTop = function(){
 	$('html,body').animate({ scrollTop: 0 }, 'slow');
@@ -588,7 +601,6 @@ $(document).ready(function($){
             $('#letsGo1').show();
                 $("img").trigger("unveil");
         });
- 
  
 // ]]></script>
 </p>
