@@ -405,48 +405,11 @@
          <div class="clearfix"></div>
          <div class="col-md-4 text-left question-welcomekit"><label>Your Date of Birth</label> <input name="subscriber_question14" type="date" id="dobParent" required="required" placeholder="DOB" class="form-control dob-parent" /> <small class="error-msg"></small></div>
          <div class="clearfix"></div>
-         <div class="col-md-4 col-md-offset-4" style="padding-top: 20px;"><button type="button" name="submit" id="btn-submit-form1" class="btn btn-default btn-step1 "> Submit </button></div>
+         <div class="col-md-4 col-md-offset-4" style="padding-top: 20px;">
+			<button type="submit" name="submit" id="btn-submit-form1" class="btn btn-default btn-step1 "> Submit </button>
+		</div>
       </div>
    </div>
-</div>
-<div class="row edd-row" style="display: none;">
-   <p style="font-size: 3em; color: #005b9c; font-weight: bold; padding-top: 20px; padding-bottom: 20px; line-height: 1;">Winner of the month!</p>
-   <div class="container" style="position: relative; text-align: center; margin-bottom: 30px;"><img src="https://via.placeholder.com/300x100?text=Visit+Blogging.com+Now" width="100%" /></div>
-   <p class="question-font">Complete your Estimated date of delivery (EDD) and a chance to win</p>
-   <div class="col-md-4 text-left" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px;">
-      <select id="momYear" style="width: 100%; font-size: 1.1em; box-shadow: none!IMPORTANT; color: #512f2e;">
-         <option value="" disabled="disabled" selected="selected">Year</option>
-         <option value="2021">2021</option>
-         <option value="2022">2022</option>
-      </select>
-      <small class="error-msg"></small>
-   </div>
-   <div class="col-md-4 text-left" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px;">
-      <select id="momMonth" disabled="disabled" style="width: 100%; font-size: 1.1em; box-shadow: none!IMPORTANT; color: #512f2e;">
-         <option value="" disabled="disabled" selected="selected">Month</option>
-         <option value="1">January</option>
-         <option value="2">February</option>
-         <option value="3">March</option>
-         <option value="4">April</option>
-         <option value="5">May</option>
-         <option value="6">June</option>
-         <option value="7">July</option>
-         <option value="8">August</option>
-         <option value="9">September</option>
-         <option value="10">October</option>
-         <option value="11">November</option>
-         <option value="12">December</option>
-      </select>
-      <small class="error-msg"></small>
-   </div>
-   <div class="col-md-4 text-left" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px;">
-      <select id="momDay" disabled="disabled" style="width: 100%; font-size: 1.1em; box-shadow: none!IMPORTANT; color: #512f2e;">
-         <option value="" disabled="disabled" selected="selected">Day</option>
-      </select>
-      <small class="error-msg"></small> <input type="hidden" name="subscriber_question2" id="subscriber_question2" /> <!-- date EDD -->
-   </div>
-   <div class="clearfix"></div>
-   <div class="col-md-4 col-md-offset-4" style="padding-top: 20px;"><button type="button" name="submit" id="btn-submit-form2" class="btn btn-default btn-step1 " disabled="disabled"> Submit </button></div>
 </div>
 <p>
    <script>// <![CDATA[
@@ -687,59 +650,24 @@
       			{
       				arrFocus[0].focus();
       			}
-      			else
-      			{
-      				var typePregnancy = $('body').find('#subscriber_question4').val();
-      				if(typePregnancy.toLowerCase() == 'pregnant')
-      				{
-      					$('body').find('.edd-row').show();
-      					$('body').find('.main-div-nemum').hide('fast');
-      				}
-      				else
-      				{
-      					$('body').find('.main-div-nemum').show('fast');
-      					$('body').find('.edd-row').hide();
-      				}
-      			}
       		}
-      		
-      		var manageBtnKit = function(){
-      			var typePregnancy = $('body').find('#subscriber_question4').val();
-      			if(typePregnancy.toLowerCase() == 'pregnant')
-      			{
-      				$('body').find('#btn-submit-form1').attr('type', 'button');
-      				$('body').find('#btn-submit-form2').attr('type', 'submit');
-      				$('body').find('#btn-submit-form1').html('Next');
-      				$('body').find('#momYear').prop('required',true);
-      				$('body').find('#momMonth').prop('required',true);
-      				$('body').find('#momDay').prop('required',true);
-      			}
-      			else if(typePregnancy.toLowerCase() == 'babyout')
-      			{
-      				$('body').find('#btn-submit-form1').attr('type', 'submit');
-      				$('body').find('#btn-submit-form2').attr('type', 'button');
-      				$('body').find('#btn-submit-form1').html('Submit');
-      				$('body').find('#momYear').prop('required',false);
-      				$('body').find('#momMonth').prop('required',false);
-      				$('body').find('#momDay').prop('required',false);
-      			}
-      		}
-      		
-      		var manageBtnSubmitEdd = function(){
-      			var eddYear  = $('body').find('#momYear').val();
-      			var eddMonth = $('body').find('#momMonth').val();
-      			var eddDay   = $('body').find('#momDay').val();
-      			
-      			if((eddYear != '' && eddYear != null) && (eddMonth != '' && eddMonth != null) && (eddDay != '' && eddDay != null))
-      			{
-      				$('body').find('#btn-submit-form2').prop('disabled', false);
-      			}
-      			else
-      			{
-      				$('body').find('#btn-submit-form2').prop('disabled', true)
-      			}
-      		}
-      		
+			
+			var manageBtnKit = function(){
+				var typePregnancy = $('body').find('#subscriber_question4').val();
+				if(typePregnancy.toLowerCase() == 'pregnant')
+				{
+					$('body').find('#momYear').prop('required',true);
+					$('body').find('#momMonth').prop('required',true);
+					$('body').find('#momDay').prop('required',true);
+				}
+				else if(typePregnancy.toLowerCase() == 'babyout')
+				{
+					$('body').find('#momYear').prop('required',false);
+					$('body').find('#momMonth').prop('required',false);
+					$('body').find('#momDay').prop('required',false);
+				}
+			}
+		
       		$(document).ready(function(){
       			$('body').on('click', '#btn-submit-form1', function(){
       				checkingForm();
@@ -838,93 +766,6 @@
       				
       			});
       			
-      			$("#momYear").on("change",function(){
-      				$('#momMonth').prop('disabled', false);
-      				var year = $(this).val()
-      				if(year != '' && year != null)
-      				{
-      					$('#momYear').removeClass(hasValidation);
-      					$('#momYear').closest('div').find(errorSelector).html('');
-      				}
-      				manageBtnSubmitEdd();
-      			});
-      			
-      			$("#momMonth").on("change",function(){
-      				var year  = $('#momYear').val();
-      				var month = $('#momMonth').val();
-      				if(year !== '' && month !== ''){
-      					$('#momDay').prop('disabled', false);
-      					$('#momDay').find('option').remove().end();
-      					$('#momMonth').removeClass(hasValidation);
-      					$('#momMonth').closest('div').find(errorSelector).html('');
-      				}
-      				
-      				var days = new Date(year, month, 0).getDate(); 
-      				$('#momDay').append('<option value=" " disabled selected> Day </option>');
-      				for (var i = 1; i <= days; i++) {
-      					$('#momDay').append('<option value="' + i + '">' + i + '</option>');
-      				}
-      				
-      				manageBtnSubmitEdd();
-      			});
-      			
-                    $("#momDay").on("change",function(){
-      					var year  = $('#momYear').val();
-      					var month = $('#momMonth').val();
-      					var day	  = $('#momDay').val();
-      					var month = ("0" + month).slice(-2);
-      					var day   = ("0" + day).slice(-2);
-      					$('#subscriber_question2').val(day+'-'+month+'-'+year);
-      					$('#momDay').removeClass(hasValidation);
-      					$('#momDay').closest('div').find(errorSelector).html('');
-      					manageBtnSubmitEdd();
-                    });
-      			
-      			$('body').on('click', '#btn-submit-form2', function(e){
-      				var year  = $('#momYear').val();
-      				var month = $('#momMonth').val();
-      				var day   = $('#momDay').val();
-      				var flagError = false; 
-      				
-      				if(year == ''|| year == null)
-      				{
-      					flagError = true;
-      					msg = icon + " Please select year";
-      					$('#momYear').addClass(hasValidation);
-      					$('#momYear').closest('div').find(errorSelector).html(msg);
-      				}
-      				else
-      				{
-      					$('#momYear').removeClass(hasValidation);
-      					$('#momYear').closest('div').find(errorSelector).html('');
-      				}
-      				
-      				if(month == '' || month == null)
-      				{
-      					flagError = true;
-      					msg = icon + " Please select month";
-      					$('#momMonth').addClass(hasValidation);
-      					$('#momMonth').closest('div').find(errorSelector).html(msg);
-      				}
-      				else
-      				{
-      					$('#momMonth').removeClass(hasValidation);
-      					$('#momMonth').closest('div').find(errorSelector).html('');
-      				}
-      				
-      				if(day == '' || day == null)
-      				{
-      					flagError = true;
-      					msg = icon + " Please select day";
-      					$('#momDay').addClass(hasValidation);
-      					$('#momDay').closest('div').find(errorSelector).html(msg);
-      				}
-      				else
-      				{
-      					$('#momDay').removeClass(hasValidation);
-      					$('#momDay').closest('div').find(errorSelector).html('');
-      				}
-      			});
       			
       			$('.step3v2btn').on('click',function(event){
       				var year  = $('#babyYear').val();
