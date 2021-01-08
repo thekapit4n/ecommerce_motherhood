@@ -513,6 +513,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 			$city=$currentResult[0]['city'];
 			$id_state=$currentResult[0]['id_state'];
 		
+			$result[0]['event_description'] =str_ireplace('{{isredeem}}',1,$result[0]['event_description']);
 			$result[0]['event_description'] =str_ireplace('{{currentEmail}}',$currentEmail,$result[0]['event_description']);
 			$result[0]['event_description'] =str_ireplace('{{firstname}}',$firstname,$result[0]['event_description']);
 			$result[0]['event_description'] =str_ireplace('{{lastname}}',$lastname,$result[0]['event_description']);
@@ -525,6 +526,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 		}else if ($event_id == 93){
 			$submittedSuperkids=0;
 			
+			$result[0]['event_description'] =str_ireplace('{{isredeem}}',0,$result[0]['event_description']);
 			$result[0]['event_description'] =str_ireplace('{{currentEmail}}',"",$result[0]['event_description']);
 			$result[0]['event_description'] =str_ireplace('{{firstname}}',"",$result[0]['event_description']);
 			$result[0]['event_description'] =str_ireplace('{{lastname}}',"",$result[0]['event_description']);
@@ -628,16 +630,14 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 			}
 			else
 			{
-				$sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = " . $referEventId . " LIMIT 1"; # page that handle facebook question for new mom
-				$querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
-				$event_slug  = $querySlug[0]['event_slug'];
-				$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug;
+				// $sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = " . $referEventId . " LIMIT 1"; # page that handle facebook question for new mom
+				// $querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
+				// $event_slug  = $querySlug[0]['event_slug'];
+				// $redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug;
 				echo "<script type='text/javascript'>alert('Sorry, You not eligible to access this page.');</script>";
-				echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
+				// echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
 			}
 		}
-		
-		
 		
 		$result[0]['event_description'] = str_ireplace('/s3.amazonaws.com/motherhood.com.my/',"/cdn.motherhood.com.my/",$result[0]['event_description']);
 		
@@ -963,7 +963,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					$newFirstName = pSQL(Tools::getValue('subscriber_question13'));
 					$newLastName = pSQL(Tools::getValue('subscriber_question14'));
 				}
-				if($event_id == 100 || $event_id == 222){
+				if($event_id == 100 || $event_id == 212 || $event_id == 222){
 					$add = "6";
 					$subscriber_question1 = $add.$subscriber_question1;
 				}
@@ -1174,13 +1174,20 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 				echo "<script type='text/javascript'>window.location.href='https://www.motherhood.com.my/monthly-promotions'</script>";
 			}
 			
+			// frisgold sample
+			if($event_id == 115){
+				echo "<script type='text/javascript'>alert('Thank you for requesting a free sample. Your sample request submission is successful.');</script>";
+				echo "<script type='text/javascript'>alert('Hi parents, due to overwhelming demand, our samples have run out of stocks temporarily. We appreciate your understanding that they will be a delay in fulfilling your sample request. We will send out the samples once they are available. Thank you for your patience.');</script>";
+				echo "<script type='text/javascript'>window.location.href='https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."'</script>";
+			}
+			
 			if($event_id == 98)
 			{
+				echo "<script type='text/javascript'>alert('Congratulations, you are also rewarded a 50% discount on Parentcraft.');</script>";
 				$sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = 99 LIMIT 1"; # page that handle facebook question for new mom
 				$querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
 				$event_slug  = $querySlug[0]['event_slug'];
 				$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug;
-				echo "<script type='text/javascript'>alert('Your info has been saved.');</script>";
 				echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
 			}
 
@@ -1769,7 +1776,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 							$sql = 'DELETE FROM ps_cart_rule_category WHERE id_cart_rule = '.$cartRule->id;
 							Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
 					
-							if ($event_id==100){
+							if ($event_id==100 || $event_id == 212){
 								if(($this->context->cart) && $this->context->cart->id){
 									$cart = new Cart($this->context->cart->id);
 								}else{
@@ -1869,17 +1876,21 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 												WHERE id_product_rule = "'.$resultIPR.'"
 												';	
 										if(Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($updatePID)){
-											echo "<script type='text/javascript'>alert('ParentCraft Voucher Created successfully.');</script>";
-											echo "<script type='text/javascript'>alert('Thank you! For your submission');</script>";
-											
 											if(isset($subscriber_question4) && $subscriber_question4 != '')
 											{
 												if(strtolower($subscriber_question4) == 'pregnant') # if user select pregnant then will proceed other event page
 												{
+													echo "<script type='text/javascript'>alert('Thank you for your submission! Continue to fill in the next section and stand a chance to win monthly attractive lucky draw prizes!');</script>";
 													$sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = 98 LIMIT 1"; # page that handle edd question
 													$querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
 													$event_slug  = $querySlug[0]['event_slug'];
 													$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug;
+													echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
+												}
+												else
+												{
+													echo "<script type='text/javascript'>alert('Congratulations, you are also rewarded a 50% discount on Parentcraft.');</script>";
+													$redirectUrl = "https://www.motherhood.com.my/address?back=order.php";
 													echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
 												}
 											}
@@ -1963,7 +1974,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 							
 							
 								echo "<script type='text/javascript'>
-								alert('Thank You for joining motherhood.com.my');
+								alert('Congratulations. You are awarded RM20 voucher and please continue to redeem your Mom to be Free Gift');
 								window.location='/quick-order';
 								</script>";
 								// echo "<script type='text/javascript'></script>";
@@ -2288,12 +2299,14 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 				if ( $event_id==125 ){
 					$this->context->smarty->assign("showErrors",'THANK YOU! Your submission has been received. See you at the event.');
 				}
-				else if( $event_id==100){
+				else if($event_id == 100 || $event_id == 212){
 					//Check if this is a newmom registration in 2020
+					// event_id LIVE = 100
+					// event_id UAT = 212
 					$newmom2020Check = '
 					SELECT COUNT(1) as exist
 					FROM ps_events_subscriber
-					WHERE newEmail="'.$email.'" AND subscriber_event_id = 100 
+					WHERE newEmail="'.$email.'" AND subscriber_event_id = "' . $event_id . '" 
 					AND subscriber_created_at > "2019-12-31 23:59:59"';
 					$nmc = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($newmom2020Check);
 					if($nmc[0]['exist'] > 1){
@@ -2345,7 +2358,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 						$sql = 'DELETE FROM ps_cart_rule_category WHERE id_cart_rule = '.$cartRule->id;
 						Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
 				
-						if ($event_id==100){
+						if ($event_id == 100 || $event_id == 212){
 							if(($this->context->cart) && $this->context->cart->id){
 								$cart = new Cart($this->context->cart->id);
 							}else{
@@ -2446,6 +2459,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 									';	
 						if(Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($updatePID)){
 							echo "<script type='text/javascript'>alert('ParentCraft Voucher Created successfully.');</script>";
+							
 						}else{
 						echo "<script type='text/javascript'>alert('There was error creating the voucher.');</script>";
 						echo "<script type='text/javascript'>window.location.href='https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."'</script>";

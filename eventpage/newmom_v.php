@@ -135,8 +135,8 @@
             </div>
             <div class="row">
                <div class="col-md-12" style="margin-top: 30px;">
-                  <div class="col-md-offset-2 col-md-4 col-xs-12" style="margin-bottom: 10px;"><button class="btn btn-default btn-step1 step1btnv1" data-typepregnancy="pregnant" data-formstep="1"> I'm Pregnant </button></div>
-                  <div class="col-md-3 col-xs-12"><button class="btn btn-default btn-step1 step1btnv1" data-typepregnancy="babyOut" data-formstep="2"> I'm a New Mum </button></div>
+                  <div class="col-md-offset-2 col-md-4 col-xs-12" style="margin-bottom: 10px;"><button class="btn btn-default btn-step1 step1btnv1" data-typepregnancy="pregnant" data-formstep="1"> Pregnant </button></div>
+                  <div class="col-md-3 col-xs-12"><button class="btn btn-default btn-step1 step1btnv1" data-typepregnancy="babyOut" data-formstep="2"> New Mom </button></div>
                   <input type="hidden" name="subscriber_question4" id="subscriber_question4" style="margin-bottom: 10px;" /><!-- input for type of preganancy -->
                </div>
             </div>
@@ -153,21 +153,21 @@
             <div class="col-md-4 col-xs-6">
                <div class="benefit-div">
                   <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/March/TLM+Baby+Expo/pc2.png" width="100%" alt="flashcard" />
-                  <p style="font-size: 17px; font-weight: bold; padding-top: 20px; padding-bottom: 0px; line-height: 1; min-height: 53px;" class="main-title-color">- 50% Parentcraft Online Class</p>
-                  <p style="font-size: 13px; font-weight: normal; padding-top: 0px; padding-bottom: 0px; line-height: 1;" class="tnc-word-color">Get 50% off to prepare for labour &amp; the birth of your new baby.</p>
+                  <p style="font-size: 17px; font-weight: bold; padding-top: 20px; padding-bottom: 0px; line-height: 1; min-height: 53px;" class="main-title-color"> Parentcraft Online Class</p>
+                  <p style="font-size: 13px; font-weight: normal; padding-top: 0px; padding-bottom: 0px; line-height: 1;" class="tnc-word-color">Get 50% off to prepare for your pregnancy journey</p>
                </div>
             </div>
             <div class="col-md-4 col-xs-6">
                <div class="benefit-div">
                   <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/discount.png" width="100%" alt="newmomcardandgiftcard" />
-                  <p style="font-size: 17px; font-weight: bold; padding-top: 20px; padding-bottom: 0px; line-height: 1; min-height: 53px;" class="main-title-color">#NewMom eCard Member</p>
-                  <p style="font-size: 13px; font-weight: normal; padding-top: 0; padding-bottom: 0px; line-height: 1; min-height: 10px;" class="tnc-word-color">Get EXTRA 5% discount &amp; RM20 gift card.</p>
+                  <p style="font-size: 17px; font-weight: bold; padding-top: 20px; padding-bottom: 0px; line-height: 1; min-height: 53px;" class="main-title-color">Free New Mom Membership</p>
+                  <p style="font-size: 13px; font-weight: normal; padding-top: 0; padding-bottom: 0px; line-height: 1; min-height: 10px;" class="tnc-word-color">RM20 Giftcard + 5% Discount</p>
                </div>
             </div>
             <div class="col-md-4 col-xs-6">
                <div class="benefit-div">
                   <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/cards.png" width="100%" alt="flashcard" />
-                  <p style="font-size: 17px; font-weight: bold; padding-top: 20px; padding-bottom: 0px; line-height: 1; min-height: 53px;" class="main-title-color">Learn with Motherhood</p>
+                  <p style="font-size: 17px; font-weight: bold; padding-top: 20px; padding-bottom: 0px; line-height: 1; min-height: 53px;" class="main-title-color">Mom to be Free Gift</p>
                   <p style="font-size: 13px; font-weight: normal; padding-top: 0px; padding-bottom: 0px; line-height: 1; min-height: 10px;" class="tnc-word-color">Get limited-edition flashcards</p>
                </div>
             </div>
@@ -175,9 +175,10 @@
                <div class="benefit-div">
                   <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/enfamama.png" width="100%" alt="" />
                   <p style="font-size: 17px; font-weight: bold; padding-top: 20px; padding-bottom: 0px; line-height: 1; min-height: 53px;" class="main-title-color"><span style="color: fc439f;">FREE</span> Enfamama A+ Sample!*</p>
-                  <p style="font-size: 13px; font-weight: normal; padding-top: 0; padding-bottom: 0px; line-height: 1;" class="tnc-word-color">Refer T&amp;C</p>
+                  <p style="font-size: 13px; font-weight: normal; padding-top: 0; padding-bottom: 0px; line-height: 1;" class="tnc-word-color">Refer to T&amp;C</p>
                </div>
             </div>
+			<!--
             <div class="col-md-4 col-xs-6">
                <div class="benefit-div">
                   <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/tips.png" width="100%" alt="newmomcardandgiftcard" />
@@ -192,6 +193,7 @@
                   <p style="font-size: 13px; font-weight: normal; padding-top: 0; padding-bottom: 0px; line-height: 1;" class="tnc-word-color">1 lucky new mum will be selected monthly to win attractive prizes!</p>
                </div>
             </div>
+			-->
          </div>
       </div>
       <div class="col-hidden-xs col-hidden-sm col-md-2 col-lg-2"></div>
@@ -213,7 +215,7 @@
          <div class="col-md-6" style="text-align: left;">
             <p style="font-size: 2em; font-weight: bold;">Terms &amp; Conditions</p>
             <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- I agree that Mead Johnson Nutrition (Malaysia) Sdn Bhd (&ldquo;MJN&rdquo;), Reckitt Benckiser (Malaysia) Sdn Bhd and/or its affiliates (collectively, &ldquo;RB&rdquo;) and/or any third party under contract with MJN or RB, may contact me from time to time, by telephone, mail, or other electronic <span id="seeMore1" style="font-weight: bold;"> see more </span> <span id="seeMoreContent1" style="display: none;"> means to market/promote/sell MJN and/or RB products and services and/or information related to Enfamama A+ Club (collectively referred to as &ldquo;Purpose&rdquo;). I agree the collection and use of my information by MJN and/or RB is in accordance with the Privacy Policy that I have read and understood. I have the option to withdraw at any time from receiving calls, SMS, mail, or other electronic communications about information related to the Purpose.</span></p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Only pregnant moms are eligible to receive Enfamama samples.</p>
+            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Only pregnant moms are eligible to receive Enfamama A+ samples.</p>
             <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Each registered family is entitled to receive ONE (1) New Mom gift set (includes RM20 cash voucher, New Mom member card, limited-edition flashcards, special VIP invites). Multiple registrations from the same family will be disqualified.</p>
             <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Gifts may vary depend on the availability.</p>
             <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Motherhood.com.my will not be responsible nor liable for unsuccessful registrations due to interruptions in internet connectivity.</p>
@@ -232,18 +234,18 @@
       <div class="col-md-8 text-left" style="margin-top: 50px;">
          <div class="row" style="margin-bottom: 15px;">
             <p class="question-font">Do you want to learn more about Cord Blood Stem Cells Banking?</p>
-            <div class="col-md-6"><label class="label-custom lblcordblood"> <input type="radio" name="subscriber_question12" class="cordblood" value="Yes" />Yes </label></div>
+            <div class="col-md-6"><label class="label-custom lblcordblood"> <input type="radio" name="subscriber_question12" class="cordblood maincordblood" value="Yes" required/>Yes </label></div>
             <div class="col-md-6"><label class="label-custom lblcordblood"> <input type="radio" name="subscriber_question12" class="cordblood" value="No" />No </label></div>
          </div>
          <div class="row">
             <p class="question-font">Are you planning to deliver at a private or government hospital?</p>
-            <div class="col-md-6"><label class="label-custom lblhospquest"> <input type="radio" name="subscriber_question13" class="hospitalquestion" value="PRIVATE" />Private </label></div>
+            <div class="col-md-6"><label class="label-custom lblhospquest"> <input type="radio" name="subscriber_question13" class="hospitalquestion mainhospitalquestion" value="PRIVATE" required/>Private </label></div>
             <div class="col-md-6"><label class="label-custom lblhospquest"> <input type="radio" name="subscriber_question13" class="hospitalquestion" value="GOVERNMENT" />Government </label></div>
          </div>
          <div class="clearfix"></div>
       </div>
       <div class="col-hidden-xs col-hidden-sm col-md-2 col-lg-2"></div>
-      <div class="col-md-4 col-md-offset-4" style="padding-top: 20px;"><button type="button" class="btn btn-default btn-step1 step3btn"> Next </button></div>
+      <div class="col-md-4 col-md-offset-4" style="padding-top: 20px;"><button type="button" id="step3btn" class="btn btn-default btn-step1 step3btn"> Next </button></div>
    </div>
    <!-- Step 2 version 2-->
    <div class="row step2v2" style="display: none; padding-top: 20px; padding-bottom: 20px;">
@@ -253,25 +255,26 @@
          <div class="row">
             <div class="col-md-4 col-xs-6">
                <div class="benefit-div">
-                  <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/March/TLM+Baby+Expo/pc2.png" width="100%" alt="flashcard" />
-                  <p style="font-size: 17px; font-weight: bold; padding-top: 20px; padding-bottom: 0px; line-height: 1; min-height: 53px;" class="main-title-color">- 50% Parentcraft Online Class</p>
-                  <p style="font-size: 13px; font-weight: normal; padding-top: 0px; padding-bottom: 0px; line-height: 1;" class="tnc-word-color">Get 50% off to prepare for labour &amp; the birth of your new baby.</p>
+					<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/March/TLM+Baby+Expo/pc2.png" width="100%" alt="flashcard" />
+					<p style="font-size: 17px; font-weight: bold; padding-top: 20px; padding-bottom: 0px; line-height: 1; min-height: 53px;" class="main-title-color"> Parentcraft Online Class</p>
+					<p style="font-size: 13px; font-weight: normal; padding-top: 0px; padding-bottom: 0px; line-height: 1;" class="tnc-word-color">Get 50% off to prepare for your pregnancy journey</p>
                </div>
             </div>
-            <div class="col-md-4 col-xs-6">
+             <div class="col-md-4 col-xs-6">
                <div class="benefit-div">
                   <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/discount.png" width="100%" alt="newmomcardandgiftcard" />
-                  <p style="font-size: 17px; font-weight: bold; padding-top: 20px; padding-bottom: 0px; line-height: 1; min-height: 53px;" class="main-title-color">#NewMom eCard Member</p>
-                  <p style="font-size: 13px; font-weight: normal; padding-top: 0; padding-bottom: 0px; line-height: 1; min-height: 10px;" class="tnc-word-color">Get EXTRA 5% discount &amp; RM20 gift card.</p>
+                  <p style="font-size: 17px; font-weight: bold; padding-top: 20px; padding-bottom: 0px; line-height: 1; min-height: 53px;" class="main-title-color">Free New Mom Membership</p>
+                  <p style="font-size: 13px; font-weight: normal; padding-top: 0; padding-bottom: 0px; line-height: 1; min-height: 10px;" class="tnc-word-color">RM20 Giftcard + 5% Discount</p>
                </div>
             </div>
             <div class="col-md-4 col-xs-6">
                <div class="benefit-div">
                   <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/cards.png" width="100%" alt="flashcard" />
-                  <p style="font-size: 17px; font-weight: bold; padding-top: 20px; padding-bottom: 0px; line-height: 1; min-height: 53px;" class="main-title-color">Learn with Motherhood</p>
+                  <p style="font-size: 17px; font-weight: bold; padding-top: 20px; padding-bottom: 0px; line-height: 1; min-height: 53px;" class="main-title-color">Mom to be Free Gift</p>
                   <p style="font-size: 13px; font-weight: normal; padding-top: 0px; padding-bottom: 0px; line-height: 1; min-height: 10px;" class="tnc-word-color">Get limited-edition flashcards</p>
                </div>
             </div>
+			<!--
             <div class="col-md-4 col-xs-6">
                <div class="benefit-div">
                   <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/tips.png" width="100%" alt="newmomcardandgiftcard" />
@@ -286,6 +289,7 @@
                   <p style="font-size: 13px; font-weight: normal; padding-top: 0; padding-bottom: 0px; line-height: 1;" class="tnc-word-color">1 lucky new mum will be selected monthly to win attractive prizes!</p>
                </div>
             </div>
+			-->
          </div>
       </div>
       <div class="col-hidden-xs col-hidden-sm col-md-2 col-lg-2"></div>
@@ -307,7 +311,7 @@
          <div class="col-md-6" style="text-align: left;">
             <p style="font-size: 2em; font-weight: bold;">Terms &amp; Conditions</p>
             <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- I agree that Mead Johnson Nutrition (Malaysia) Sdn Bhd (&ldquo;MJN&rdquo;), Reckitt Benckiser (Malaysia) Sdn Bhd and/or its affiliates (collectively, &ldquo;RB&rdquo;) and/or any third party under contract with MJN or RB, may contact me from time to time, by telephone, mail, or other electronic <span id="seeMore" style="font-weight: bold;"> see more </span> <span id="seeMoreContent" style="display: none;"> means to market/promote/sell MJN and/or RB products and services and/or information related to Enfamama A+ Club (collectively referred to as &ldquo;Purpose&rdquo;). I agree the collection and use of my information by MJN and/or RB is in accordance with the Privacy Policy that I have read and understood. I have the option to withdraw at any time from receiving calls, SMS, mail, or other electronic communications about information related to the Purpose.</span></p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Only pregnant moms are eligible to receive Enfamama samples.</p>
+            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Only pregnant moms are eligible to receive Enfamama A+ samples.</p>
             <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Each registered family is entitled to receive ONE (1) New Mom gift set (includes RM20 cash voucher, New Mom member card, limited-edition flashcards, special VIP invites). Multiple registrations from the same family will be disqualified.</p>
             <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Gifts may vary depend on the availability.</p>
             <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Motherhood.com.my will not be responsible nor liable for unsuccessful registrations due to interruptions in internet connectivity.</p>
@@ -650,18 +654,39 @@
       			{
       				arrFocus[0].focus();
       			}
+				else
+				{
+					var typePregnancy = $('body').find('#subscriber_question4').val();
+					if(typePregnancy.toLowerCase() == 'pregnant')
+					{
+						$('body').find('.step3').hide();
+						toTop();
+						$('body').find('#step3btn').attr('type', 'submit');
+						$('body').find('#step3btn').attr('name', 'submit');
+						$('body').find('#step3btn').html('Submit');
+						$('body').find('.step3v1').show('fast');
+					}
+				}
       		}
 			
 			var manageBtnKit = function(){
 				var typePregnancy = $('body').find('#subscriber_question4').val();
 				if(typePregnancy.toLowerCase() == 'pregnant')
 				{
+					$('body').find('#btn-submit-form1').attr('type', 'button');
+					$('body').find('#btn-submit-form1').html('Next');
+					$('body').find('.maincordblood').prop('required',true);
+					$('body').find('.mainhospitalquestion').prop('required',true);
 					$('body').find('#momYear').prop('required',true);
 					$('body').find('#momMonth').prop('required',true);
 					$('body').find('#momDay').prop('required',true);
 				}
 				else if(typePregnancy.toLowerCase() == 'babyout')
 				{
+					$('body').find('#btn-submit-form1').attr('type', 'submit');
+					$('body').find('#btn-submit-form1').html('Submit');
+					$('body').find('.maincordblood').prop('required',false);
+					$('body').find('.mainhospitalquestion').prop('required',false);
 					$('body').find('#momYear').prop('required',false);
 					$('body').find('#momMonth').prop('required',false);
 					$('body').find('#momDay').prop('required',false);
@@ -706,11 +731,13 @@
       				manageBtnKit();
       			});
       			
+				/* next button after pregnant benenfit  */
       			$('body').on('click', '.step2btnv1', function(){
                       $('body').find('.step2v1').hide();
                       $('body').find('.step2v2').hide();
             			toTop();
-                      $('body').find('.step3v1').show('fast');
+                      $('body').find('.step3v1').hide();
+                      $('body').find('.step3').show('fast');
                   });
       			
       			$('body').on('click', '.step2btn', function(){
@@ -729,8 +756,8 @@
       				{
       					$('body').find('.step2v1').hide();
       					$('body').find('.step2v2').hide();
-      					$('body').find('.step3v1').hide();
-      					$('body').find('.step3').show();
+      					// $('body').find('.step3v1').hide();
+      					// $('body').find('.step3').show();
       				}
       				else
       				{
@@ -762,8 +789,6 @@
       				{
       					$('body').find('.lblhospquest').removeClass('has-error-validation');
       				}
-      					
-      				
       			});
       			
       			
@@ -847,8 +872,6 @@
       				$('#seeMore3').hide();
       				$("img").trigger("unveil");
       			});
-      
-      			
             
                     $('.step4btn').on('click',function(event){
                         $('.step4').hide();
