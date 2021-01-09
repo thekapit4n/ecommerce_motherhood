@@ -78,7 +78,7 @@
     </main><!-- /.container -->
 	<script type="text/javascript">
 	 var filter = function(statusfilter, sort){
-		window.location.href='event_report_form_v.php?statusfilter='+statusfilter+'&sort='+sort;
+		window.location.href='event_report_form.php?statusfilter='+statusfilter+'&sort='+sort;
 	}
 
 	$(function(){

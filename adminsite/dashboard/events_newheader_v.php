@@ -91,9 +91,6 @@
 						<a class="nav-link" href="eventt_listbox.php">Listbox</a>
 					</li>
 				</ul>
-				
-				
-				
 			<?php } ?>
 		</div>
     </nav>

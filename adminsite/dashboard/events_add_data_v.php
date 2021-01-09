@@ -23,7 +23,7 @@
 				Swal.fire({
 					icon: 'info',
 					title: 'No data',
-					text: 'No data availabled for selected id',
+					text: 'No data available for selected id',
 				}).then(function() {
 					window.location.href='events_index.php';
 				});
@@ -192,7 +192,7 @@
 						<div class="col-md-5 pr-2">
 							<table class="table table-borderless">
 								<tr>
-									<th class="pt-2 pb-2 pr-3 pl-3" style="width:157px">ID<font class="color-compulsory">*</font> </th>
+									<th class="pt-2 pb-2 pr-3 pl-3" style="width:170px">ID<font class="color-compulsory">*</font> </th>
 									<td class="pt-2 pb-2 pr-3 pl-3">
 										<input type="text" class="form-control form-control-sm event-id" placeholder="00" name="events_id" value="<?php echo (isset($fetched_row) && is_array($fetched_row) && isset($fetched_row['event_id']) && $fetched_row['event_id'] != "") ? $fetched_row['event_id'] : ''; ?>" required>
 									</td>

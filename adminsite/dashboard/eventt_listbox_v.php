@@ -1,11 +1,6 @@
 <?php
 	include 'events_db_config.php';
 	require 'events_newheader_v.php';
-	
-	if(isset($_GET['search']))
-	{
-		$STRWHERE = "WHERE event_id = '".$_GET['search']."'";
-	}
 ?>
 	<main role="main" class="container-fluid">
 		<div class="starter-template">
@@ -33,8 +28,7 @@
 												ini_set('display_errors', '1');
 												
 												echo mysqli_error($conn);
-												$sql =  
-													"SELECT * FROM `ps_events` ORDER BY `event_name` ";       
+												$sql = "SELECT * FROM `ps_events` ORDER BY `event_name` ";       
 												$result = $conn->query($sql);
 												
 												while ($r = mysqli_fetch_row($result)) {

@@ -96,7 +96,7 @@
 				</div>
 				<div class="col-md-3 text-center">
 					<a href="events_add_data.php" class="btn btn-success btn-sm"> <i class="fas fa-plus"></i> &nbsp;Add New Event</a>
-					<a href="events_index_v.php" class="btn btn-danger btn-sm">Clear</a>
+					<a href="events_index.php" class="btn btn-danger btn-sm">Clear</a>
 				</div>
 			</div>
 			<div class="row row-motherhood">
