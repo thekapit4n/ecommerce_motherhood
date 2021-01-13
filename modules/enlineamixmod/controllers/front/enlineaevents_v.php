@@ -974,45 +974,6 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 				if($event_id == 53){
 					$subscriber_question14 = implode(",", $subscriber_question14);
 				}
-				
-				/* 
-				* we need to check for newmom event if customer already exist so we must make sure email and password is correct, 
-				* so we can link their info with our sso part then we can link for cart info otherwise we did not proceed
-				*/
-				if($event_id == 100 || $event_id == 212)
-				{
-					$sqlC 	 = 'SELECT COUNT(id_customer) as ccount	FROM `ps_customer` WHERE email="'. trim($email) . '" LIMIT 1';
-					$resultC = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlC);
-					if ($resultC[0]['ccount'] > 0){
-						$password	= trim($newPassword);
-						$firstname	= trim($newFirstName);
-						$last_name  = trim($newLastName);
-						if($last_name == ""){
-							$last_name = ".";
-						}
-						
-						$public_key = _SSO_PUBLIC_KEY_;
-						$nonce 	 	=  Tools::generateRandomNonce();
-						$signature  =  Tools::generateSignature($nonce);
-
-					// ********** create sso user ********************
-
-						$post_data = array(
-							'email' => $newEmail,
-							'password' => $password,
-							'public_key' => $public_key,
-							'nonce' =>  $nonce,
-							'signature' => $signature
-						);
-						$post_result = Tools::post_data(_SSO_API_LOGIN_ACCOUNT_, $post_data);
-						$post_result = json_decode($post_result, true);
-						if ($post_result['succeeded'] != true ){
-							// echo "<script type='text/javascript'>alert('You email already exist for motherhood.com.my, to sign up for program, kindly fill in the email and password of your motherhood account when register');</script>";
-							// echo "<script type='text/javascript'>window.location.href='https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."'</script>";
-						}
-					}
-				}
-				
 				$sql = '
 					INSERT INTO
 					`'._DB_PREFIX_.'events_subscriber` (subscriber_customer_id, subscriber_event_id, subscriber_question1,
@@ -2344,7 +2305,6 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					$this->context->smarty->assign("showErrors",'THANK YOU! Your submission has been received. See you at the event.');
 				}
 				else if($event_id == 100 || $event_id == 212){
-					
 					//Check if this is a newmom registration in 2020
 					// event_id LIVE = 100
 					// event_id UAT = 212
@@ -2357,45 +2317,6 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					
 					$getCustomerIDsql = 'SELECT id_customer FROM ps_customer WHERE email = "'. trim($email) .'"';
 					$customerID 	  = Db::getInstance(_PS_USE_SQL_SLAVE_)->getValue($getCustomerIDsql);
-					$resultCustomer   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($getCustomerIDsql);
-					$customer 		  = new Customer($resultCustomer[0]['id_customer']);
-					// code to auto sign in ------------------
-					$context=$this->context;
-									
-					$context->cookie->id_compare = isset($context->cookie->id_compare) ? $context->cookie->id_compare: CompareProduct::getIdCompareByIdCustomer($customer->id);
-					$context->cookie->id_customer = (int)($customer->id);
-					$context->cookie->customer_lastname = $customer->lastname;
-					$context->cookie->customer_firstname = $customer->firstname;
-					$context->cookie->logged = 1;
-					$customer->logged = 1;
-					$context->cookie->is_guest = $customer->isGuest();
-					$context->cookie->passwd = $customer->passwd;
-					$context->cookie->email = $customer->email;
-					// Add customer to the context
-					$context->customer = $customer;
-
-					if (Configuration::get('PS_CART_FOLLOWING') && (empty($context->cookie->id_cart) || Cart::getNbProducts($context->cookie->id_cart) == 0) && $id_cart = (int)Cart::lastNoneOrderedCart($context->customer->id))
-						$context->cart = new Cart($id_cart);
-					else
-					{
-						$id_carrier = (int)$context->cart->id_carrier;
-						$context->cart->id_carrier = 0;
-						$context->cart->setDeliveryOption(null);
-						$context->cart->id_address_delivery = (int)Address::getFirstCustomerAddressId((int)($customer->id));
-						$context->cart->id_address_invoice = (int)Address::getFirstCustomerAddressId((int)($customer->id));
-					}
-					$context->cart->id_customer = (int)$customer->id;
-					$context->cart->secure_key = $customer->secure_key;
-
-					$context->cart->save();
-					$context->cookie->id_cart = (int)$context->cart->id;
-					
-					$ssocookie = Tools::getSSOCookie();
-					$ssocookie->ssoUser= $context->customer->email;
-					$context->cookie->__set("customerEmail", $context->customer->email);
-					$context->cart->autosetProductAddress();
-					
-					$context->cookie->write();
 					
 					#if customer has joined this event before
 					if($nmc[0]['exist'] > 1){
@@ -2561,7 +2482,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 							}
 							
 							$cart->updateQty(1,25142);
-							$cart->updateQty(1,38999); # id - for parentcraft (online)
+							$cart->updateQty(1,38999);
 							//$cart->addCartRule(113057 );
 						}
 						
@@ -2739,6 +2660,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 						);
 					$post_result = Tools::post_data(_SSO_API_LOGIN_ACCOUNT_, $post_data);
 					$post_result = json_decode($post_result, true);
+					
 					
 					if ($post_result['succeeded']==1){
 								

@@ -1,6 +1,6 @@
 <?php
 	include 'events_db_config.php';
-	require 'events_newheader_v.php';
+	require 'events_newheader.php';
 ?>
 	<main role="main" class="container-fluid">
 		<div class="starter-template">

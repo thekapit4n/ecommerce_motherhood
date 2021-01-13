@@ -1,6 +1,6 @@
 <?php
 	include 'events_db_config.php';
-	require 'events_newheader_v.php';
+	require 'events_newheader.php';
 	if(isset($_GET['search']))
 	{
 		$STRWHERE = "AND (event_id = '".$_GET['search']."' OR event_name LIKE '%".$_GET['search']."%' OR event_slug LIKE '%".$_GET['search']."%' ) ";
@@ -17,7 +17,8 @@
 	if(isset($_GET['sort'])){
 		if($_GET['sort'] == "name"){
 			$orderby = 'ORDER BY event_name';
-		}}
+		}
+	}
 
 		
 	if(isset($_GET['fromDate']) && $_GET['fromDate']){
@@ -116,7 +117,7 @@
 						// $res1= $conn->query($SQL);
 						// $count = mysqli_num_rows($res1);
 					?>
-					<table class="table table-bordered table-sm table-striped">
+					<table class="table table-bordered table-sm">
 						<thead>
 							<tr>
 								<th>ID</th>

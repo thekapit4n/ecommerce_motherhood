@@ -1,7 +1,7 @@
 <?php
 	include 'events_db_config.php';
 	if (!$_GET['exportExcel']){
-		require 'events_newheader_v.php';
+		require 'events_newheader.php';
 	}
 	$whereSql 	 = '';
 	$tableReportView = '';

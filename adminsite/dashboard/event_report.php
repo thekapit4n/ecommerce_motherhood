@@ -122,10 +122,6 @@
 ?>
 <link href="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/DataTables/datatables.min.css" rel="stylesheet" type="text/css" />
 <script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/DataTables/datatables.min.js" type="text/javascript"></script>
-<!--<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/DataTables/Scroller-2.0.3/js/dataTables.scroller.min.js" type="text/javascript"></script>-->
-<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/DataTables/Scroller-2.0.3/js/scroller.bootstrap4.min.js" type="text/javascript"></script>
-
-https://cdn.datatables.net/scroller/2.0.3/js/dataTables.scroller.min.js
 	<main role="main" class="container-fluid">
 		<div class="starter-template">
 			<div class="row row-motherhood">
@@ -193,33 +189,6 @@ https://cdn.datatables.net/scroller/2.0.3/js/dataTables.scroller.min.js
 			</div>
 			<div class="row row-motherhood">
 				<div class="col-md-6">
-					<form action="event_process_report_listing.php" method="post">
-						<div class="input-group input-group-sm mb-3">
-							<input type="text" class="form-control searchField" name="eventID" placeholder="Search ID/Name" value='<?php echo (isset($arrEventDetails) && is_array($arrEventDetails) && sizeof($arrEventDetails) > 0 && isset($arrEventDetails['event_id']) && $arrEventDetails['event_id'] != '') ? $arrEventDetails['event_id']  : '' ?>'>
-							<div class="input-group-append">
-								<button class="btn btn-primary" type="submit"><i class="fas fa-search"></i> Search</button>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-			<div class="row row-motherhood">
-				<div class="col-md-12">
-					<table id="ajaxtable" class="table-bordered table-sm table-striped" style="width:100%">
-						<thead>
-							<tr>
-								<th>ID</th>
-								<th>First name</th>
-								<th>Last name</th>
-								<th>ZIP / Post code</th>
-								<th>Country</th>
-							</tr>
-						</thead>
-					</table>
-				</div>
-			</div>
-			<div class="row row-motherhood">
-				<div class="col-md-6">
 					<a href="<?php echo (isset($exportCSVlink) && $exportCSVlink != '') ? $exportCSVlink : '#' ?>" class="btn btn-dark btn-sm"><i class="fas fa-file-csv"></i> &nbsp;Export as CSV file</a>
 				</div>
 			</div>
@@ -232,31 +201,7 @@ https://cdn.datatables.net/scroller/2.0.3/js/dataTables.scroller.min.js
     </main><!-- /.container -->
 	<script type="text/javascript">
 	$(function(){
-		$('#ajaxtable').DataTable( {
-			serverSide: true,
-			ordering: false,
-			searching: false,
-			ajax: function ( data, callback, settings ) {
-				var out = [];
-	 
-				for ( var i=data.start, ien=data.start+data.length ; i<ien ; i++ ) {
-					out.push( [ i+'-1', i+'-2', i+'-3', i+'-4', i+'-5' ] );
-				}
-	 
-				setTimeout( function () {
-					callback( {
-						draw: data.draw,
-						data: out,
-						recordsTotal: 5000000,
-						recordsFiltered: 5000000
-					} );
-				}, 50 );
-			},
-			scrollY: 200,
-			scroller: {
-				loadingIndicator: true
-			},
-		});
+		// $('#example').DataTable();
 	});
 	</script>
   </body>

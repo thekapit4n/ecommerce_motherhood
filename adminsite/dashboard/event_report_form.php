@@ -1,6 +1,6 @@
 <?php
 	include 'events_db_config.php';
-	require 'events_newheader_v.php';
+	require 'events_newheader.php';
 	if(isset($_GET['statusfilter'])){
 		if($_GET['statusfilter'] == ''){
 			$statusfilter = '';
@@ -58,9 +58,9 @@
 											$result = $conn->query($sql);
 											
 											  while ($r = mysqli_fetch_row($result)) {
-												  $name=$r[1];
-												  $id=$r[0];
-												  echo "<option value='$id'>$name</option>";
+												  $name = $r[1];
+												  $id = $r[0];
+												  echo "<option value='$id'>$id - $name</option>";
 											  }
 										?>
 									</select>

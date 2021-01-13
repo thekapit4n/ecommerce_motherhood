@@ -5,7 +5,7 @@
 </style>
 <?php
 	include 'events_db_config.php';
-	require 'events_newheader_v.php';
+	require 'events_newheader.php';
 	
 	$editId = 0;
 	$arr_errormsg = array();
@@ -48,10 +48,11 @@
 		 $Events_mini_banner 	  = addslashes($_POST['events_mini_banner']);
 		 $Events_default 		  = $_POST['events_default'];
 		 $Events_url 			  = addslashes($_POST['events_url']);
-		 $Events_start_date 	  = $_POST['events_start_date'];
-		 $Events_end_date 		  = $_POST['events_end_date'];
+		 $Events_start_date 	  = trim($_POST['events_start_date']);
+		 $Events_end_date 		  = trim($_POST['events_end_date']);
 		 $Events_email_template   = addslashes($_POST['events_email_template']);
 		 $Events_submit_msg 	  = addslashes($_POST['events_submit_msg']);
+		 $Events_active 		  = addslashes($_POST['events_active']);
 		 $backgroundcolor 		  = addslashes($_POST['backgroundcolor']);
 		 $floatball 			  = addslashes($_POST['customfloatingball']);
 		 $floatballlink 		  = addslashes($_POST['customfloatingballlink']);
@@ -137,9 +138,7 @@
 							icon: 'success',
 							title: 'Success',
 							text: 'Data are updated successfully',
-						}).then(function() {
-							window.location.href='';
-						});
+						})
 					</script>
 				<?php
 				}
