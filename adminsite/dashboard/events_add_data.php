@@ -35,6 +35,7 @@
 	if(isset($_POST['btn-update']))
 	{
 		// variables for input data
+		 $arr_errormsg 			  = array();
 		 $Events_Id 		 	  = $_POST['events_id'];
 		 $Events_name 		 	  = addslashes($_POST['events_name']);
 		 $Events_title 		 	  = addslashes($_POST['events_title']);
@@ -138,7 +139,9 @@
 							icon: 'success',
 							title: 'Success',
 							text: 'Data are updated successfully',
-						})
+						}).then(function(){
+							window.location.href="";
+						});
 					</script>
 				<?php
 				}

@@ -5,20 +5,25 @@
 		  }
 		  
 	.btn-typeof-course{
-		width: 90%;
+		width: 100%;
 		font-size: 35px;
 		border-radius: 5px;
 		padding-top: 1px;
 		padding-bottom: 1px;
-		background-color: #265e70;
-		border: 3px solid #fae2e7;
-		color: #fae2e7;	  
 	}
 	
-	.btn-typeof-course:hover, .btn-typeof-course:active, .btn-typeof-course:focus, .btn-typeof-course-focus{
+	.btn-online-course, .btn-online-course:hover, .btn-online-course:active, .btn-online-course:focus{
 		background-color: #fae2e7;
-		border: 3px solid #265e70;
+		border: 3px solid #fae2e7;
 		color: #265e70;	 
+		outline: transparent;
+	}
+	
+	.btn-offline-course, .btn-offline-course:hover, .btn-offline-course:active, .btn-offline-course:focus{
+		background-color: #265e70;
+		border: 3px solid #265e70;
+		color: #fae2e7;	 
+		outline: transparent;
 	}
 	
 	.row-btn-typecouse{
@@ -27,17 +32,7 @@
 	}
 		  
 		  
-	 /*  .onofflinebutton {
-		font-size: 5em;
-		color: #5d5d5d;
-		cursor: pointer;
-	  }
-	  .onofflinebutton:hover {
-		border-bottom: 15px solid #265e70;
-	  }
-	  .onofflinebutton.focus {
-		border-bottom: 15px solid #265e70;
-	  } */
+
 		  .speakerName {
 			border-bottom: 5px solid #265e70;
 			color: #5d5d5d;
@@ -60,6 +55,7 @@
 			padding-bottom: 10px;
 			min-height: 355px;
 			margin-bottom: 20px;
+			background-color: white;
 		  }
 		  .checklistText {
 			text-align: left;
@@ -127,12 +123,13 @@
 	  }
 	
 	  .parentcraftDescription {
-		line-height: 1.3;
-		color: grey;
-		font-weight: medium;
+		 line-height: 1.3;
+		color: #444444;
 		font-size: 15px;
 		font-family: GothamRounded-medium;
 		text-align: justify;
+		padding-left: 20px;
+		padding-right: 20px;
 	  }
 	  .parentcraftTitle {
 		color: #265e70;
@@ -180,7 +177,8 @@
 	{
 		min-height: 53px;
 	}
-.speaker-webinar
+	
+	.speaker-webinar
 	{
 		min-height: 37px;
 	}
@@ -206,7 +204,10 @@
 	.schedule-div{
 		min-height:193px
 	}
-                  		
+    
+	.div-web-desc{
+		color: #444444;
+	}	
 	@media only screen and (max-width: 600px) 
 	{
 		#topBtn {
@@ -255,6 +256,7 @@
 		.bx-wrapper{
 			max-width:1183px!important;
 		} 
+		
 		.epTitle{
 			font-size:19px;
 		}
@@ -337,18 +339,23 @@
 			margin-bottom:1px;
 			margin-top:15px;
 		}
+		
+		.ytp-cued-thumbnail-overlay-image{
+			height: 122%;
+		}
 	}
       -->
 </style>
 <!-- Online Offline button-->
+<div class="bg-color-change" style="background-color:#fae2e7">
 <div class="row row-btn-typecouse" >
    <div class="col-md-6 col-lg-6 col-xs-6">
       <!--<h1 class="onlineBtn onofflinebutton focus">ONLINE</h1>-->
-	  <button type="button" class="btn btn-primary btn-typeof-course onlineBtn btn-typeof-course-focus">Online</button>
+	  <button type="button" class="btn btn-primary btn-typeof-course onlineBtn btn-online-course btn-typeof-course-focus">Online</button>
    </div>
    <div class="col-md-6 col-lg-6 col-xs-6">
       <!--<h1 class="offlineBtn onofflinebutton">OFFLINE</h1>-->
-	  <button type="button" class="btn btn-primary btn-typeof-course offlineBtn">Offline</button>
+	  <button type="button" class="btn btn-primary btn-typeof-course btn-offline-course offlineBtn">Offline</button>
    </div>
 </div>
 <!-- Online Offline Button END-->
@@ -378,32 +385,34 @@
       </div>
       <div class="clearfix"></div>
       <!-- Gallery slider -->
-      <div id="slider_row" class="col-md-6 col-lg-6 col-xs-12" style="margin-bottom: 10px; padding: 0;">
-         <div id="homepage-slidersecond" class="home_slider" style="padding-top: 0;">
-            <ul id="homeslidersecond">
-               <li class="homeslider-container">
-                  <div class="col-xs-12 col-md-12 col-lg-12" style="padding-right: 0; padding-left: 0;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/slide1_speaker.png" width="100%" /></div>
-               </li>
-               <li class="homeslider-container">
-                  <div class="col-xs-12 col-md-12 col-lg-12" style="padding-right: 0; padding-left: 0;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/parentkit.png" width="100%" /></div>
-               </li>
-               <li class="homeslider-container">
-                  <div class="col-xs-12 col-md-12 col-lg-12" style="padding-right: 0; padding-left: 0;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/onlineprogrammehighlight3.png" width="100%" /></div>
-               </li>
-            </ul>
-         </div>
-      </div>
-      <!-- Gallery Slider END -->
-      <div class="col-md-6 col-lg-6 col-xs-12" style="background-color: #265e70; padding: 58px 50px; height: 100%; color: white; line-height: 1.5; display: block;">
-         <p class="sliderTextTitle">This Course Includes:</p>
-         <p class="sliderTextPoints">⭐ Learn Everything from Pregnancy to Newborn Care.</p>
-         <p class="sliderTextPoints">⭐ 1-Year Access to Learning Portal.</p>
-         <p class="sliderTextPoints">⭐ Learn 17 Key Topics - Easy to Watch Video Classes.</p>
-         <p class="sliderTextPoints">⭐ Access to Over 10 Panel of Experts.</p>
-         <p class="sliderTextPoints">⭐ Watch Whenever and Wherever You Like.</p>
-         <p class="sliderTextPoints">⭐ Bi-weekly Webinars on Selected Topics with Panel of Expert.</p>
-         <p class="sliderTextPoints">⭐ Receive FREE Motherhood Parentcraft Kit worth RM75 delivered to your home.</p>
-      </div>
+	  <div style="padding-right:15px;padding-left:15px;">
+		  <div id="slider_row" class="col-md-6 col-lg-6 col-xs-12" style="margin-bottom: 10px; padding: 0;">
+			 <div id="homepage-slidersecond" class="home_slider" style="padding-top: 0;">
+				<ul id="homeslidersecond">
+				   <li class="homeslider-container">
+					  <div class="col-xs-12 col-md-12 col-lg-12" style="padding-right: 0; padding-left: 0;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/slide1_speaker.png" width="100%" /></div>
+				   </li>
+				   <li class="homeslider-container">
+					  <div class="col-xs-12 col-md-12 col-lg-12" style="padding-right: 0; padding-left: 0;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/parentkit.png" width="100%" /></div>
+				   </li>
+				   <li class="homeslider-container">
+					  <div class="col-xs-12 col-md-12 col-lg-12" style="padding-right: 0; padding-left: 0;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/onlineprogrammehighlight3.png" width="100%" /></div>
+				   </li>
+				</ul>
+			 </div>
+		  </div>
+		  <!-- Gallery Slider END -->
+		  <div class="col-md-6 col-lg-6 col-xs-12" style="background-color: #265e70; padding: 24px 50px; height: 100%; color: white; line-height: 1.5; display: block;">
+			 <p class="sliderTextTitle">This Course Includes:</p>
+			 <p class="sliderTextPoints">⭐ Learn Everything from Pregnancy to Newborn Care.</p>
+			 <p class="sliderTextPoints">⭐ 1-Year Access to Learning Portal.</p>
+			 <p class="sliderTextPoints">⭐ Learn 17 Key Topics - Easy to Watch Video Classes.</p>
+			 <p class="sliderTextPoints">⭐ Access to Over 10 Panel of Experts.</p>
+			 <p class="sliderTextPoints">⭐ Watch Whenever and Wherever You Like.</p>
+			 <p class="sliderTextPoints">⭐ Bi-weekly Webinars on Selected Topics with Panel of Expert.</p>
+			 <p class="sliderTextPoints">⭐ Receive FREE Motherhood Parentcraft Kit worth RM75 delivered to your home.</p>
+		  </div>
+	  </div>
       <div class="clearfix"></div>
       <!-- Content under programme highlight -->
       <div class="col-md-12 col-lg-12 col-xs-12" style="padding-right: 0; padding-left: 0; margin-top: 25px;">
@@ -944,46 +953,48 @@
       <h2 class="parentcraftTitle">Topics</h2>
       <img class="love-image-small" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/love-03.png" style="width: 35px; margin-top: -40px;" alt="love" />
    </div>
-   <div class="row" style="margin-left: -10px; margin-right: -10px; color: #265e70; background: #ffcfda; padding: 50px 10px; text-align: left;">
-      <div class="col-md-3 col-lg-3 hidden-xs"></div>
-      <div class="col-md-7 col-lg-7 col-xs-12">
-         <h3 class="epTitle">EPISODE 1 :</h3>
-         <p class="epDesc">CHANGES IN HORMONES AND POSTURES</p>
-         <h3 class="epTitle">EPISODE 2 :</h3>
-         <p class="epDesc">COMMON ACHES AND PAIN</p>
-         <h3 class="epTitle">EPISODE 3 :</h3>
-         <p class="epDesc">DELIVERY PROCESS AND PROCEDURES - VAGINAL BIRTH AND CESAREAN BIRTH</p>
-         <h3 class="epTitle">EPISODE 4 :</h3>
-         <p class="epDesc">CONTRACTION AND RELAXATION</p>
-         <h3 class="epTitle">EPISODE 5 :</h3>
-         <p class="epDesc">PREGNANCY NUTRITION</p>
-         <h3 class="epTitle">EPISODE 6 :</h3>
-         <p class="epDesc">PRE-NATAL PILATES PRACTICAL SESSIONS</p>
-         <h3 class="epTitle">EPISODE 7 :</h3>
-         <p class="epDesc">HOW TO PREPARE YOUR MIND DURING AND AFTER PREGNANCY</p>
-         <h3 class="epTitle">EPISODE 8 :</h3>
-         <p class="epDesc">INFANT AND TODDLER NUTRITION</p>
-         <h3 class="epTitle">EPISODE 9 :</h3>
-         <p class="epDesc">CHILDBIRTH - ASSISTED VAGINAL BIRTH</p>
-         <h3 class="epTitle">EPISODE 10 :</h3>
-         <p class="epDesc"><a href="https://story.motherhood.com.my/blog/how-to-get-a-good-deep-latch-the-key-to-successful-breastfeeding/" style="text-decoration: none;"> SUCCESSFUL BREASTFEEDING</a></p>
-         <h3 class="epTitle">EPISODE 11 :</h3>
-         <p class="epDesc">BABY BATH &amp; BABY BURPING &amp; BABY MASSAGE</p>
-         <h3 class="epTitle">EPISODE 12 :</h3>
-         <p class="epDesc">DENTISTRY IN PREGNANCY &amp; NEWBORN ORAL CARE</p>
-         <h3 class="epTitle">EPISODE 13 :</h3>
-         <p class="epDesc">PAEDIATRIC - DECISIONS TO MAKE ABOUT YOUR NEWBORN</p>
-         <h3 class="epTitle">EPISODE 14 :</h3>
-         <p class="epDesc">PAEDIATRIC - CARING FOR NEWBORN DURING THE FIRST 30 DAYS</p>
-         <h3 class="epTitle">EPISODE 15 :</h3>
-         <p class="epDesc">WHEN DOES A NEWBORN NEED TO GO THROUGH SURGERY?</p>
-         <h3 class="epTitle">EPISODE 16 :</h3>
-         <p class="epDesc">NEWBORN SLEEPING TIPS FOR NEW PARENTS</p>
-         <h3 class="epTitle">EPISODE 17 :</h3>
-         <p class="epDesc">FIRST AID - BABY CPR AND BABY CHOKING</p>
-         <p style="float: right; font-size: bold; font-style: italic;">*Subject to change.</p>
-      </div>
-      <!--<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/Parencraft_websitedesigntopicnew.png" width="100%" alt="topicImage" />-->
+   <div style="padding-right:9px;padding-left:9px;">
+	   <div class="row" style="margin-left: -10px; margin-right: -10px; color: #265e70; background: #ffcfda; padding: 50px 10px; text-align: left;">
+		  <div class="col-md-3 col-lg-3 hidden-xs"></div>
+		  <div class="col-md-7 col-lg-7 col-xs-12">
+			 <h3 class="epTitle">EPISODE 1 :</h3>
+			 <p class="epDesc">CHANGES IN HORMONES AND POSTURES</p>
+			 <h3 class="epTitle">EPISODE 2 :</h3>
+			 <p class="epDesc">COMMON ACHES AND PAIN</p>
+			 <h3 class="epTitle">EPISODE 3 :</h3>
+			 <p class="epDesc">DELIVERY PROCESS AND PROCEDURES - VAGINAL BIRTH AND CESAREAN BIRTH</p>
+			 <h3 class="epTitle">EPISODE 4 :</h3>
+			 <p class="epDesc">CONTRACTION AND RELAXATION</p>
+			 <h3 class="epTitle">EPISODE 5 :</h3>
+			 <p class="epDesc">PREGNANCY NUTRITION</p>
+			 <h3 class="epTitle">EPISODE 6 :</h3>
+			 <p class="epDesc">PRE-NATAL PILATES PRACTICAL SESSIONS</p>
+			 <h3 class="epTitle">EPISODE 7 :</h3>
+			 <p class="epDesc">HOW TO PREPARE YOUR MIND DURING AND AFTER PREGNANCY</p>
+			 <h3 class="epTitle">EPISODE 8 :</h3>
+			 <p class="epDesc">INFANT AND TODDLER NUTRITION</p>
+			 <h3 class="epTitle">EPISODE 9 :</h3>
+			 <p class="epDesc">CHILDBIRTH - ASSISTED VAGINAL BIRTH</p>
+			 <h3 class="epTitle">EPISODE 10 :</h3>
+			 <p class="epDesc"><a href="https://story.motherhood.com.my/blog/how-to-get-a-good-deep-latch-the-key-to-successful-breastfeeding/" style="text-decoration: none;"> SUCCESSFUL BREASTFEEDING</a></p>
+			 <h3 class="epTitle">EPISODE 11 :</h3>
+			 <p class="epDesc">BABY BATH &amp; BABY BURPING &amp; BABY MASSAGE</p>
+			 <h3 class="epTitle">EPISODE 12 :</h3>
+			 <p class="epDesc">DENTISTRY IN PREGNANCY &amp; NEWBORN ORAL CARE</p>
+			 <h3 class="epTitle">EPISODE 13 :</h3>
+			 <p class="epDesc">PAEDIATRIC - DECISIONS TO MAKE ABOUT YOUR NEWBORN</p>
+			 <h3 class="epTitle">EPISODE 14 :</h3>
+			 <p class="epDesc">PAEDIATRIC - CARING FOR NEWBORN DURING THE FIRST 30 DAYS</p>
+			 <h3 class="epTitle">EPISODE 15 :</h3>
+			 <p class="epDesc">WHEN DOES A NEWBORN NEED TO GO THROUGH SURGERY?</p>
+			 <h3 class="epTitle">EPISODE 16 :</h3>
+			 <p class="epDesc">NEWBORN SLEEPING TIPS FOR NEW PARENTS</p>
+			 <h3 class="epTitle">EPISODE 17 :</h3>
+			 <p class="epDesc">FIRST AID - BABY CPR AND BABY CHOKING</p>
+			 <p style="float: right; font-size: bold; font-style: italic;">*Subject to change.</p>
+		  </div>
+		  <!--<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/Parencraft_websitedesigntopicnew.png" width="100%" alt="topicImage" />-->
+	   </div>
    </div>
    <div class="clearfix"></div>
    <!-- Reviews -->
@@ -1177,7 +1188,7 @@
    <!--====================== CTA BUTTON ==========================-->
    <div class="row">
       <div class="col-lg-12">
-         <div style="margin-top: 16px; margin-bottom: 16px; padding-left: 27px; padding-right: 27px;"><a href="../../../campaign-nurengroup/education/baby-learning/baby-enrichment-classes/parentcraft-class-limited-seats-available.html" target="_blank" rel="noopener"> <img class="" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/gif/joinnowbutton.gif" width="100%" /> </a></div>
+         <div style="margin-top: 16px; margin-bottom: 16px; padding-left: 40px; padding-right: 40px;"><a href="../../../campaign-nurengroup/education/baby-learning/baby-enrichment-classes/parentcraft-class-limited-seats-available.html" target="_blank" rel="noopener"> <img class="" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/gif/joinnowbutton.gif" width="100%" /> </a></div>
       </div>
    </div>
    <!--==================== SPEAKER ====================-->
@@ -1223,12 +1234,12 @@
    </p>
    <div class="clearfix"></div>
    <div class="col-md-12 col-lg-12 col-xs-12" style="margin-bottom: 3px !important; padding-bottom: 4px;">
-      <div class="row" style="margin-top: 16px;">
+      <div class="row" style="margin-top: 16px;    padding-left: 15px; padding-right: 15px;">
          <h2 class="parentcraftTitle">Itinerary</h2>
          <img class="love-image-small" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/love-03.png" style="width: 35px; margin-top: -40px;" alt="love" />
          <div class="clearfix"></div>
          <!-- Offline Itinerary Background -->
-         <div class="col-lg-12 col-md-12" style="padding-left: 0px; padding-right: 0px; background-color: #265e70;">
+         <div class="col-lg-12 col-md-12" style="padding-left: 15px; padding-right: 15px; background-color: #265e70;">
             <div class="offlineItineraryRow">
                <div class="offlineItineraryTimeBox">
                   <p class="ItinerarytimeDate">8.00 am - 8.45 am</p>
@@ -1363,16 +1374,17 @@
       </div>
    </div>
    <!-- Offline Itinerary Background END -->
-   <div class="col-lg-12" style="margin-bottom: 16px;"><a href="../../../campaign-nurengroup/education/baby-learning/baby-enrichment-classes/parentcraft-class-limited-seats-available.html" target="_blank" rel="noopener"> <img class="" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/gif/joinnowbutton.gif" width="100%" /></a></div>
+   <div class="col-lg-12" style="margin-bottom: 16px;padding-left: 40px; padding-right: 40px;"><a href="../../../campaign-nurengroup/education/baby-learning/baby-enrichment-classes/parentcraft-class-limited-seats-available.html" target="_blank" rel="noopener"> <img class="" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/gif/joinnowbutton.gif" width="100%" /></a></div>
    <p>
       <!--================== TAGLINE =================-->
    </p>
    <div class="clearfix"></div>
-   <div class="col-lg-12 col-md-12" style="padding-left: 0px; padding-right: 0px;"><img class="" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/tagline01-pc.png" width="100%" /></div>
+   <div class="col-lg-12 col-md-12" style="padding-left: 15px; padding-right: 15px;"><img class="" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/tagline01-pc.png" width="100%" /></div>
 </div>
 <p><a href="#" onclick="topFunction()" id="topBtn" title="Go to top"> <i class="fa fa-arrow-up" aria-hidden="true"></i> </a></p>
 <!-- Offline Content END -->
 <p>
+</div>
    <script>// <![CDATA[
       $(window).load(function () {
                   		$(".offline-content").addClass("visuallyhidden");
@@ -1397,26 +1409,27 @@
                   	$(document).ready(function(){
                   		// When the user scrolls down 20px from the top of the document, show the button
                   		window.onscroll = function() {scrollFunction()};
+					
                   		$(".onlineBtn").on("click", function () {
                               //$('.online-content').show();
                               //$('.offline-content').hide();
-                              $(".offlineBtn").removeClass("btn-typeof-course-focus");
-                              $(".onlineBtn").addClass("btn-typeof-course-focus");
                               $(".offline-content").addClass("visuallyhidden");
                               $(".online-content").removeClass("visuallyhidden");
                               $(window).resize();
                               $("img").trigger("unveil");
+							  $('body').find('.nbs-flexisel-inner').addClass('bg-color-change');
+							  $('body').find('.bg-color-change').css('background-color', "#fae2e7");
                   		});
                   		
                   		$(".offlineBtn").on("click", function () {
                               //$('.offline-content').show();
                               //$('.online-content').hide();
-                              $(".onlineBtn").removeClass("btn-typeof-course-focus");
-                              $(".offlineBtn").addClass("btn-typeof-course-focus");
                               $(".online-content").addClass("visuallyhidden");
                               $(".offline-content").removeClass("visuallyhidden");
                               $(window).resize();
                               $("img").trigger("unveil");
+							  $('body').find('.nbs-flexisel-inner').addClass('bg-color-change');
+							  $('body').find('.bg-color-change').css('background-color', "#265e70");
                   		});
             			
             			$('body').find('.section_slidethekapitan').flexisel({
@@ -1427,6 +1440,9 @@
             				clone: false,
             				autoPlay: false
             			});
+						
+						$('body').find('.nbs-flexisel-inner').addClass('bg-color-change');
+						$('body').find('.bg-color-change').css('background-color', "#fae2e7");
                   	});
        
       // ]]>

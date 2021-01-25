@@ -5,22 +5,26 @@
             }
       -->
 </style>
-<div class="col-lg-12" style="padding-left: 0px; padding-right: 0px;"><a href="../../../events/motherhood-superkids" target="_blank" rel="noopener"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Online+Sale/page/super-kids-1.png" alt="" width="100%" height="100%" /></a></div>
-<div class="col-lg-12" style="padding-left: 0px; padding-right: 0px;"><a href="../../../events/motherhood-superkids" target="_blank" rel="noopener"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Online+Sale/page/2.png" alt="" width="100%" height="100%" /></a></div>
+<div class="col-lg-12" style="padding-left: 0px; padding-right: 0px;"><a href="../../../events/motherhood-superkids" target="_blank" rel="noopener">
+<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Online+Sale/page/super-kids-1.png" alt="" width="100%"/></a></div>
+<div class="col-lg-12" style="padding-left: 0px; padding-right: 0px;"><a href="../../../events/motherhood-superkids" target="_blank" rel="noopener">
+<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Online+Sale/page/2.png" alt="" width="100%" /></a></div>
 <div class="clearfix"></div>
 <!--====================USP ====================-->
 <div class="clearfix"></div>
-<div class="col-lg-12" style="padding-left: 0px; padding-right: 0px;"><a href="../../../events/motherhood-superkids" target="_blank" rel="noopener"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/usp2.png" alt="" width="100%" height="100%" /></a></div>
+<div class="col-lg-12" style="padding-left: 0px; padding-right: 0px;"><a href="../../../events/motherhood-superkids" target="_blank" rel="noopener">
+<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/usp2.png" alt="" width="100%"/></a></div>
 <div class="clearfix"></div>
 <!--====================LUCKYDRAW ====================-->
 <div class="clearfix"></div>
-<div class="col-lg-12" style="padding-left: 0px; padding-right: 0px;"><a href="../../../events/motherhood-superkids" target="_blank" rel="noopener"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/new2.png" alt="" width="100%" height="100%" /></a></div>
+<div class="col-lg-12" style="padding-left: 0px; padding-right: 0px;"><a href="../../../events/motherhood-superkids" target="_blank" rel="noopener">
+<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/new2.png" alt="" width="100%"/></a></div>
 <div class="clearfix"></div>
 <!--====================REWARDS ====================-->
 <div class="clearfix"></div>
-<div id="reward-product">
+
    <p>{{productlist}}</p>
-</div>
+
 <div class="clearfix"></div>
 <div class="col-md-10 col-md-offset-1" style="background: rgba(255, 255, 255, 0.8); background-size: cover; padding-top: 20px; padding-bottom: 20px; border-radius: 10px;">
    <p style="font-size: 24px; color: #4c4c4d; font-weight: bold; padding-top: 20px; padding-bottom: 20px; line-height: 1;">Ready to be a Motherhood Super Kid?</p>
@@ -68,7 +72,7 @@
       <p style="font-size: 1.6em; color: #4c4c4d; font-weight: bold; padding-top: 20px; line-height: 1; text-align: left;">Child #1</p>
       <hr style="border: 2px solid; margin-top: 2px;" />
       <div class="col-md-6" style="padding-right: 5px; padding-left: 5px; padding-top: 5px;"><input type="text" id="subscriber_question11" name="subscriber_question11" style="width: 100%; font-size: 1.2em; box-shadow: none!IMPORTANT; border-radius: 0!IMPORTANT;" placeholder="Child Name" required="required" /></div>
-      <div class="col-md-6" style="padding-right: 5px; padding-left: 5px; padding-top: 5px;"><input type="text" id="subscriber_question12" name="subscriber_question12" style="width: 100%; font-size: 1.2em; box-shadow: none!IMPORTANT; border-radius: 0!IMPORTANT;" placeholder="MyKid IC" required="required" pattern="^[a-zA-Z,]*$"/></div>
+      <div class="col-md-6" style="padding-right: 5px; padding-left: 5px; padding-top: 5px;"><input type="text" id="subscriber_question12" name="subscriber_question12" style="width: 100%; font-size: 1.2em; box-shadow: none!IMPORTANT; border-radius: 0!IMPORTANT;" placeholder="MyKid IC" required="required"/></div>
       <div class="clearfix"></div>
       <div class="col-md-6" style="padding-right: 5px; padding-left: 5px; padding-top: 5px;"><input type="date" id="subscriber_question13" name="subscriber_question13" style="width: 100%; font-size: 1.2em; box-shadow: none!IMPORTANT; border-radius: 0!IMPORTANT;" placeholder="DD/MM/YYYY" required="required" /></div>
       <div class="col-md-6" style="padding-right: 5px; padding-left: 5px; padding-top: 5px;"><input type="text" id="subscriber_question14" name="subscriber_question14" style="width: 100%; font-size: 1.2em; box-shadow: none!IMPORTANT; border-radius: 0!IMPORTANT;" placeholder="Child Contact (Optional)" /></div>
@@ -326,84 +330,84 @@
 <p>
    <script>// <![CDATA[
       $(document).ready(function($){
-      			$('#subscriber_question1').on('change',function(event){
-      				var phonenumber = $('#subscriber_question1').val();
-      				var phonenumber = phonenumber.replace(/-/g, ' ');
-      				var phonenumber = phonenumber.trim();
-      				if ($.trim(phonenumber) != "") {
-      					var prefix = phonenumber.substring(0,3);
-      					var firstNo = phonenumber.substring(0,1);
-      					var phoneLength = phonenumber.length;
-      					if(firstNo !== 0 || firstNo !== 5){
-      						$('#phoneNoError').show();
-      						$("#subscriber_question1").css('background-color', 'red');
-      						$("#submitBtn").attr("disabled", true);
-      					}
-      					if(firstNo == '0'){
-      						if(prefix == '010' || prefix == '011' || prefix == '012' || prefix == '013' || prefix == '014' || prefix == '015' || prefix == '016' || prefix == '017' || prefix == '018' || prefix == '019'){
-      							$('#phoneNoPrefixError').hide();
-      							$("#subscriber_question1").css('background-color', 'white'); 
-      							$("#submitBtn").attr("disabled", false);
-      								if(prefix == '011'){
-      									if(phoneLength < 10 || phoneLength > 11){
-      										$('#phoneNoError').show();
-      										$("#subscriber_question1").css('background-color', 'red');
-      										$("#submitBtn").attr("disabled", true);
-      									}else{
-      										$('#phoneNoError').hide();
-      										$('#phoneNoErrorSg').hide();
-      										$("#subscriber_question1").css('background-color', 'white');
-      										$("#submitBtn").attr("disabled", false);
-      									}
-      								}else{
-      									if(phoneLength < 10 || phoneLength > 10){
-      										$('#phoneNoError').show();
-      										$("#subscriber_question1").css('background-color', 'red');
-      										$("#submitBtn").attr("disabled", true);
-      									}else{
-      										$('#phoneNoError').hide();
-      										$('#phoneNoErrorSg').hide();
-      										$("#subscriber_question1").css('background-color', 'white');
-      										$("#submitBtn").attr("disabled", false);
-      									}
-      								}  
-      							}else{
-      							$('#phoneNoPrefixError').show();
-      							$("#subscriber_question1").css('background-color', 'red');
-      							$("#submitBtn").attr("disabled", true);
-      						} 
-      					}else if(firstNo == '5'){
-      							$('#phoneNoErrorSg').hide();
-      							$('#phoneNoError').hide();
-      							$("#subscriber_question1").css('background-color', 'white'); 
-      							$("#submitBtn").attr("disabled", false);
-      						if(phoneLength < 9 || phoneLength > 9){
-      							$('#phoneNoErrorSg').show();
-      							$("#subscriber_question1").css('background-color', 'red');
-      							$("#submitBtn").attr("disabled", true);
-      						}else{
-      							$('#phoneNoErrorSg').hide();
-      							$('#phoneNoError').hide();
-      							$("#subscriber_question1").css('background-color', 'white');
-      							$("#submitBtn").attr("disabled", false);
-      						}
-      					}else{
-      						$('#phoneNoPrefixError').show();
-      						$("#subscriber_question1").css('background-color', 'red');
-      						$("#submitBtn").attr("disabled", true);
-      					}
-      				}
-      			});
+      	$('#subscriber_question1').on('change',function(event){
+			var phonenumber = $('#subscriber_question1').val();
+			var phonenumber = phonenumber.replace(/-/g, ' ');
+			var phonenumber = phonenumber.trim();
+			if ($.trim(phonenumber) != "") {
+				var prefix = phonenumber.substring(0,3);
+				var firstNo = phonenumber.substring(0,1);
+				var phoneLength = phonenumber.length;
+				if(firstNo !== 0 || firstNo !== 5){
+					$('#phoneNoError').show();
+					$("#subscriber_question1").css('background-color', 'red');
+					$("#submitBtn").attr("disabled", true);
+				}
+				if(firstNo == '0'){
+					if(prefix == '010' || prefix == '011' || prefix == '012' || prefix == '013' || prefix == '014' || prefix == '015' || prefix == '016' || prefix == '017' || prefix == '018' || prefix == '019'){
+						$('#phoneNoPrefixError').hide();
+						$("#subscriber_question1").css('background-color', 'white'); 
+						$("#submitBtn").attr("disabled", false);
+							if(prefix == '011'){
+								if(phoneLength < 10 || phoneLength > 11){
+									$('#phoneNoError').show();
+									$("#subscriber_question1").css('background-color', 'red');
+									$("#submitBtn").attr("disabled", true);
+								}else{
+									$('#phoneNoError').hide();
+									$('#phoneNoErrorSg').hide();
+									$("#subscriber_question1").css('background-color', 'white');
+									$("#submitBtn").attr("disabled", false);
+								}
+							}else{
+								if(phoneLength < 10 || phoneLength > 10){
+									$('#phoneNoError').show();
+									$("#subscriber_question1").css('background-color', 'red');
+									$("#submitBtn").attr("disabled", true);
+								}else{
+									$('#phoneNoError').hide();
+									$('#phoneNoErrorSg').hide();
+									$("#subscriber_question1").css('background-color', 'white');
+									$("#submitBtn").attr("disabled", false);
+								}
+							}  
+						}else{
+						$('#phoneNoPrefixError').show();
+						$("#subscriber_question1").css('background-color', 'red');
+						$("#submitBtn").attr("disabled", true);
+					} 
+				}else if(firstNo == '5'){
+						$('#phoneNoErrorSg').hide();
+						$('#phoneNoError').hide();
+						$("#subscriber_question1").css('background-color', 'white'); 
+						$("#submitBtn").attr("disabled", false);
+					if(phoneLength < 9 || phoneLength > 9){
+						$('#phoneNoErrorSg').show();
+						$("#subscriber_question1").css('background-color', 'red');
+						$("#submitBtn").attr("disabled", true);
+					}else{
+						$('#phoneNoErrorSg').hide();
+						$('#phoneNoError').hide();
+						$("#subscriber_question1").css('background-color', 'white');
+						$("#submitBtn").attr("disabled", false);
+					}
+				}else{
+					$('#phoneNoPrefixError').show();
+					$("#subscriber_question1").css('background-color', 'red');
+					$("#submitBtn").attr("disabled", true);
+				}
+			}
+      	});
             		
-      			$('body').find('.section_slidethekapitan').flexisel({
-      				visibleItems: 5,
-      				flipPage: true,
-      				animationSpeed: 500,
-      				animationLoop: true,
-      				clone: false,
-      				autoPlay: false
-      			});
-      		});
+		$('body').find('.section_slidethekapitan').flexisel({
+			visibleItems: 5,
+			flipPage: true,
+			animationSpeed: 500,
+			animationLoop: true,
+			clone: false,
+			autoPlay: false
+		});
+    });
        
       // ]]>
    </script>

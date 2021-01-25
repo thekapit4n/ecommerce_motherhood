@@ -13,15 +13,23 @@
 	$productList  	 = array();
 	$whereReport 	 = '';
 	$tableReportView = '';
+	
+	if (isset($_GET['pageno'])) {
+		$pageno = $_GET['pageno'];
+	} else {
+		$pageno = 1;
+	}
+	
+	$no_of_records_per_page = 2000;
 	if (isset($_GET['event_type']) && $_GET['event_type'] > 0)
 	{
 		$sql_eventdetails = "SELECT * FROM `ps_events` WHERE `event_id` = '". $_GET['event_type'] ."' LIMIT 1 ";
 		$result_set  	  = mysqli_query($conn, $sql_eventdetails);
 		$arrEventDetails  = mysqli_fetch_array($result_set);
-		$whereReport  	  =	($whereReport == '' ? ' WHERE ' : ' AND ') . '`subscriber_event_id` = "' . trim($_GET['event_type']) . '" ';
-		$sqlreport		  =  "SELECT b.`event_name`, CONCAT(c.firstname, c.lastname) AS NAME, c.email, IF(d.phone = '', phone_mobile, phone) AS phone, a.*
+		$whereReport  	  =	($whereReport == '' ? ' WHERE ' : ' AND ') . 'a.`subscriber_event_id` = "' . trim($_GET['event_type']) . '" ';
+		$sqltotalCount	  =  "SELECT COUNT(a.subscriber_id)
 								FROM ps_events_subscriber a
-								JOIN ps_events b ON
+								INNER JOIN ps_events b ON
 									b.event_id = a.subscriber_event_id
 								LEFT JOIN ps_customer c ON
 									a.subscriber_customer_id = c.id_customer
@@ -34,13 +42,36 @@
 										id_customer
 								) d
 								ON
-									c.id_customer = d.id_customer" . $whereReport . " ORDER BY `subscriber_id`DESC";
+									c.id_customer = d.id_customer" . $whereReport . " ORDER BY a.`subscriber_id`DESC";
+		$offset 		  = ($pageno-1) * $no_of_records_per_page;
+		$resultCount 	  = mysqli_query($conn,$sqltotalCount);
+		$total_rows 	  = mysqli_fetch_array($resultCount)[0];
+		$total_pages 	  = ceil($total_rows / $no_of_records_per_page);
+		$sqllimit 		  = "LIMIT " . $offset . "," . $no_of_records_per_page;
+		$sqlreport		  =  "SELECT b.`event_name`, CONCAT(c.firstname, c.lastname) AS NAME, c.email, IF(d.phone = '', phone_mobile, phone) AS phone, a.*
+								FROM ps_events_subscriber a
+								INNER JOIN ps_events b ON
+									b.event_id = a.subscriber_event_id
+								LEFT JOIN ps_customer c ON
+									a.subscriber_customer_id = c.id_customer
+								LEFT JOIN(
+									SELECT
+										*
+									FROM
+										ps_address
+									GROUP BY
+										id_customer
+								) d
+								ON
+									c.id_customer = d.id_customer" . $whereReport . " ORDER BY a.`subscriber_id`DESC " . $sqllimit;
+									
+		
 		$result = $conn->query($sqlreport);
 		
 		if(is_object($result)){
 			$exportCSVlink = "https://" . $_SERVER[HTTP_HOST] . $_SERVER[REQUEST_URI] . "&exportExcel=1";
 			if (!$_GET['exportExcel']){
-				$tableReportView =  mysql_result_all_html($result);
+				$tableReportView =  mysql_result_all_html($result, $offset);
 			}else{
 				mysql_result_all_csv($result);
 			}
@@ -87,10 +118,10 @@
 		}
 	}
 	
-	function mysql_result_all_html($result) {
+	function mysql_result_all_html($result, $offset = 0) {
 		$noFields 	 = mysqli_num_fields($result);
 		$table 	= "";
-		$table .= "<table class='table-bordered table-sm table-striped'>";
+		$table .= "<table class='table-bordered table-sm table-hover'>";
 		$table .= "<tr>";
 		$table .= "<th>No.</th>";
 		# for header
@@ -101,7 +132,14 @@
 		$table .= "</tr>";
 		
 		#rowdata
-		$ccount = 0;
+		if(isset($offset))
+		{
+			$ccount = $offset;
+		}
+		else{
+			$ccount = 0;
+		}
+		
 		while ($r = mysqli_fetch_row($result)) {
 			$ccount++;
 			$table .= "<tr><td>" . $ccount . "</td>";
@@ -120,8 +158,9 @@
 		return is_object($properties) ? $properties->name : null;
 	}
 ?>
-<link href="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/DataTables/datatables.min.css" rel="stylesheet" type="text/css" />
-<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/DataTables/datatables.min.js" type="text/javascript"></script>
+<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/twbs-pagination/jquery.twbsPagination.min.js" type="text/javascript"></script>
+<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/simplePagination/jquery.simplePagination.js" type="text/javascript"></script>
+ <!--<link href="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/simplePagination/simplePagination.css" rel="stylesheet" type="text/css" />-->
 	<main role="main" class="container-fluid">
 		<div class="starter-template">
 			<div class="row row-motherhood">
@@ -187,21 +226,70 @@
 					</table>
 				</div>
 			</div>
+			<?php
+				$starting = (isset($pageno) && $pageno > 0) ? $pageno  : 0;
+				if($starting > 0)
+				{
+					$showingLimit = $starting * $no_of_records_per_page;
+					if($showingLimit >= $total_rows)
+					{
+						$showingLimit = $total_rows;
+					}
+				}
+				
+				$urlPagination = "";
+				if(isset($_GET['event_type']) && $_GET['event_type'] > 0)
+				{
+					$urlPagination .= ($urlPagination == "" ? '?' : '&') . "event_type=" . $_GET['event_type'];
+				}
+				
+				if(isset($pageno) && $pageno > 0)
+				{
+					$urlPagination .= ($urlPagination == "" ? '?' : '&') . "pageno=";
+				}
+			?>
 			<div class="row row-motherhood">
 				<div class="col-md-6">
 					<a href="<?php echo (isset($exportCSVlink) && $exportCSVlink != '') ? $exportCSVlink : '#' ?>" class="btn btn-dark btn-sm"><i class="fas fa-file-csv"></i> &nbsp;Export as CSV file</a>
 				</div>
 			</div>
 			<div class="row row-motherhood">
-				<div class="col-md-12" style="width:100%">
-					<?php echo (isset($tableReportView) && $tableReportView != '') ? $tableReportView : ''; ?>
-				</div>
+				<div class="col-md-12 div-table" style="width:100%">
+				<p>Showing <?php echo isset($offset) ? ($offset + 1) : 0  ?> to <?php echo $showingLimit ?> of <?php echo $total_rows  ?> entries</p>
+				<?php echo (isset($tableReportView) && $tableReportView != '') ? $tableReportView : ''; ?>
+				<p>Showing <?php echo isset($offset) ? ($offset + 1) : 0  ?> to <?php echo $showingLimit ?> of <?php echo $total_rows  ?> entries</p>
+				<nav style="margin-top:10px;">
+					<ul class="pagination pagination-sm" id="pagination-ulkapitan">
+					</ul>
+				</nav>
 			</div>
 		</div>
     </main><!-- /.container -->
 	<script type="text/javascript">
+	
+	
 	$(function(){
-		// $('#example').DataTable();
+		var totpages = '<?php echo (isset($total_pages) && $total_pages > 0) ? $total_pages  : 1?>'; //We store the number of pages in a variable to use it below
+		totpages = parseInt(totpages);
+		var curentpage = '<?php echo  (isset($pageno) && $pageno > 0) ? $pageno : 1?>';
+		curentpage = parseInt(curentpage);
+		$('#pagination-ulkapitan').twbsPagination({
+			totalPages: totpages,
+			startPage : curentpage,
+			visiblePages: 10,
+			onPageClick: function (event, page) {
+				if(curentpage != page)
+				{
+					console.log(page);
+					location.href = '<?php echo isset($urlPagination) ? $urlPagination : '' ?>' + page;
+				}
+				else
+				{
+					console.log('curentpage' + curentpage);
+					console.log('page' + page);
+				}
+			}
+		});
 	});
 	</script>
   </body>

@@ -481,7 +481,9 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 		
 		
 		
-		if($this->context->customer->id && $event_id == 93){
+		if($this->context->customer->id && ($event_id == 93 || $event_id == 99999)){
+			# 93 - LIVE
+			#99999 - UAT
 			$submittedSuperkids=0;
 			
 			$currentSQL = '
@@ -523,7 +525,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 			$result[0]['event_description'] =str_ireplace('{{city}}',$city,$result[0]['event_description']);
 			$result[0]['event_description'] =str_ireplace('{{stateSelected'.$id_state.'}}','SELECTED',$result[0]['event_description']);
 			
-		}else if ($event_id == 93){
+		}else if ($event_id == 93 || $event_id == 99999){
 			$submittedSuperkids=0;
 			
 			$result[0]['event_description'] =str_ireplace('{{isredeem}}',0,$result[0]['event_description']);
@@ -537,7 +539,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 			
 		}
 		
-		if ( $event_id==93 ){
+		if ( $event_id==93 || $event_id == 99999){
 			$this->context->controller->addCSS(_PS_MODULE_DIR_.'enlineamixmod/views/css/enlineavipdeals.css');
 			$productListStr="";
 			$currentSQL = '
@@ -589,20 +591,35 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					$clickStr=' onclick="document.getElementById(\'newEmail\').focus();"';
 					$redeemStr='Sign Up Below';
 				}
-				$productListStr.='
-                <div class="col-lg-4 col-xs-6 dealsBox freeitem dealsBoxCat668" '.$clickStr.'>
-					<div class="col-md-12 dealsImageBox">
-					<a><img style="img-responsive dealsImage" src="'.$getImageLink.'" alt="" width="100%" height="100%" /></a>
-					</div>
-					<div class="col-md-12 dealsBoxContent" style="text-align:center">
-						<h4 class="dealsName" style="margin-bottom:0px">'.$oneResult['name'].'</h4>
-						<button type="button" class="btn btn-default button button-medium pull-center" style="padding:8px;width:90%;font-size:smaller">'.$redeemStr.'</button>
-					</div>
-					
-				</div>
-				';
 				
-				
+				if($event_id == 99999)
+				{
+					$productListStr.='
+					<div class="col-lg-4 col-xs-6 dealsBox freeitem dealsBoxCat668" '.$clickStr.'>
+						<div class="col-md-12 dealsImageBox">
+						<a><img style="img-responsive dealsImage" src="'.$getImageLink.'" alt="" width="100%" /></a>
+						</div>
+						<div class="col-md-12 dealsBoxContent" style="text-align:center">
+							<h4 class="dealsName" style="margin-bottom:0px">'.$oneResult['name'].'</h4>
+						</div>
+					</div>
+					';
+				}
+				else
+				{
+					$productListStr.='
+					<div class="col-lg-4 col-xs-6 dealsBox freeitem dealsBoxCat668" '.$clickStr.'>
+						<div class="col-md-12 dealsImageBox">
+						<a><img style="img-responsive dealsImage" src="'.$getImageLink.'" alt="" width="100%" /></a>
+						</div>
+						<div class="col-md-12 dealsBoxContent" style="text-align:center">
+							<h4 class="dealsName" style="margin-bottom:0px">'.$oneResult['name'].'</h4>
+							<button type="button" class="btn btn-default button button-medium pull-center" style="padding:8px;width:90%;font-size:smaller">'.$redeemStr.'</button>
+						</div>
+						
+					</div>
+					';
+				}
 			}
 				$productListStr.='<div class="row"></div>';
 			
@@ -616,26 +633,54 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 			* to retrieve previous event data so we can link data between event.
 			* DESC order because we want to latest info 
 			*/
-			$referEventId = 212;
-			$currentSQL = '
-				SELECT count(1) AS ccount
-				FROM  `ps_events_subscriber` 
-				WHERE `subscriber_event_id` = "' . $referEventId .  '"AND `newEmail` = "' . $this->context->customer->email . '" ORDER BY `subscriber_id` DESC LIMIT 1 
-			';
-			
-			$currentResult = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($currentSQL); 
-			
-			if ($currentResult[0]['ccount']>0)	{	
-				$result[0]['event_description'] = str_ireplace('{{currentEmail}}', $this->context->customer->email, $result[0]['event_description']);
-			}
-			else
+			$subscriber_id = 0;
+			$referEventId  = 100;
+			$eddPage 	   = 98;
+			if(isset($_GET['id']) && $_GET['id'] != '')
 			{
-				// $sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = " . $referEventId . " LIMIT 1"; # page that handle facebook question for new mom
-				// $querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
-				// $event_slug  = $querySlug[0]['event_slug'];
-				// $redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug;
-				echo "<script type='text/javascript'>alert('Sorry, You not eligible to access this page.');</script>";
-				// echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
+				$subscriber_id = base64_decode($_GET['id']);
+				if($subscriber_id <= 0)
+				{
+					echo "<script type='text/javascript'>alert('Sorry, You not eligible to access this page.');</script>";
+				}
+				else
+				{
+					/* to check this user is from main event id or not because this event page is sub page from main */
+					$currentSQL = 'SELECT count(1) AS ccount FROM `ps_events_subscriber` WHERE `subscriber_event_id` = "' . trim($referEventId) .  '"AND `subscriber_id` = "' . trim($subscriber_id) . '" LIMIT 1';
+					$currentResult = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($currentSQL);
+					
+					if ($currentResult[0]['ccount']>0)	{
+						
+						/* for now we save foreignkey in question 30, but proper way is save in better column 13/01/2021 - haiqal */
+						$checkHaveAnsw = 'SELECT count(1) AS ccount FROM `ps_events_subscriber` WHERE `subscriber_event_id` = "' . trim($eddPage) .  '"AND `subscriber_question30` = "' . trim($subscriber_id) . '" LIMIT 1';
+						$resultAns 	   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($checkHaveAnsw);
+						if($resultAns[0]['ccount']  == 0)
+						{
+							$result[0]['event_description'] = str_ireplace('{{currentEmail}}', $this->context->customer->email, $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{foreignkey}}', $subscriber_id, $result[0]['event_description']);
+						}
+						else
+						{
+							$sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = 99 LIMIT 1"; # page that handle facebook question for new mom
+							$querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
+							$event_slug  = $querySlug[0]['event_slug'];
+							$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug;
+						
+							echo "<script type='text/javascript'>alert('Sorry, You already submitted this info');</script>";
+							echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
+							
+						}
+					}
+					else
+					{
+						// $sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = " . $referEventId . " LIMIT 1"; # page that handle facebook question for new mom
+						// $querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
+						// $event_slug  = $querySlug[0]['event_slug'];
+						// $redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug;
+						echo "<script type='text/javascript'>alert('Sorry, You not eligible to access this page.');</script>";
+						// echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
+					}
+				}
 			}
 		}
 		
@@ -975,44 +1020,6 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					$subscriber_question14 = implode(",", $subscriber_question14);
 				}
 				
-				/* 
-				* we need to check for newmom event if customer already exist so we must make sure email and password is correct, 
-				* so we can link their info with our sso part then we can link for cart info otherwise we did not proceed
-				*/
-				if($event_id == 100 || $event_id == 212)
-				{
-					$sqlC 	 = 'SELECT COUNT(id_customer) as ccount	FROM `ps_customer` WHERE email="'. trim($email) . '" LIMIT 1';
-					$resultC = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlC);
-					if ($resultC[0]['ccount'] > 0){
-						$password	= trim($newPassword);
-						$firstname	= trim($newFirstName);
-						$last_name  = trim($newLastName);
-						if($last_name == ""){
-							$last_name = ".";
-						}
-						
-						$public_key = _SSO_PUBLIC_KEY_;
-						$nonce 	 	=  Tools::generateRandomNonce();
-						$signature  =  Tools::generateSignature($nonce);
-
-					// ********** create sso user ********************
-
-						$post_data = array(
-							'email' => $newEmail,
-							'password' => $password,
-							'public_key' => $public_key,
-							'nonce' =>  $nonce,
-							'signature' => $signature
-						);
-						$post_result = Tools::post_data(_SSO_API_LOGIN_ACCOUNT_, $post_data);
-						$post_result = json_decode($post_result, true);
-						if ($post_result['succeeded'] != true ){
-							// echo "<script type='text/javascript'>alert('You email already exist for motherhood.com.my, to sign up for program, kindly fill in the email and password of your motherhood account when register');</script>";
-							// echo "<script type='text/javascript'>window.location.href='https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."'</script>";
-						}
-					}
-				}
-				
 				$sql = '
 					INSERT INTO
 					`'._DB_PREFIX_.'events_subscriber` (subscriber_customer_id, subscriber_event_id, subscriber_question1,
@@ -1063,6 +1070,8 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					
 					);';
 				Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+				$lastInsertid = (int)Db::getInstance()->Insert_ID();
+				$encryptedID  = trim(base64_encode($lastInsertid), '=.');
 			
 			if($event_email_template){
 				
@@ -1928,7 +1937,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 												$sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = 98 LIMIT 1"; # page that handle edd question
 												$querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
 												$event_slug  = $querySlug[0]['event_slug'];
-												$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug;
+												$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug . "?id=" . $encryptedID;
 												echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
 											}
 											else
@@ -2266,10 +2275,12 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 				
 				if (!$errors){
 					if (!$post_result['succeeded']){
-							
-						$this->context->smarty->assign("check","0");
-						$this->context->smarty->assign("showErrors",'Welcome back Wedding.com.my user! You have now been registered to Motherhood.com.my. Please use your previous password to login.');
 						
+						if($event_id != 93 && $event_id != 99999)
+						{
+							$this->context->smarty->assign("check","0");
+							$this->context->smarty->assign("showErrors",'Welcome back Wedding.com.my user! You have now been registered to Motherhood.com.my. Please use your previous password to login.');
+						}
 					}
 					
 					if ($event_id==100 || $event_id==101 || $event_id==103 || $event_id==78){
@@ -2318,9 +2329,97 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 						echo"
 						  <script type='text/javascript'>
 						  alert('Thank You for registering.. Please choose your Super Kids Rewards!');
-						  window.location='/events/motherhood-superkids';
 						  </script>
 						";
+						
+						$this->sendSuperkidEmail($last_name,$firstname,$email);
+						
+					}
+					else if($event_id==99999 ){ #superkid UAT
+						
+						$context=$this->context;
+						$context->cookie->id_compare = isset($context->cookie->id_compare) ? $context->cookie->id_compare: CompareProduct::getIdCompareByIdCustomer($customer->id);
+						$context->cookie->id_customer = (int)($customer->id);
+						$context->cookie->customer_lastname = $customer->lastname;
+						$context->cookie->customer_firstname = $customer->firstname;
+						$context->cookie->logged = 1;
+						$customer->logged = 1;
+						$context->cookie->is_guest = $customer->isGuest();
+						$context->cookie->passwd = $customer->passwd;
+						$context->cookie->email = $customer->email;
+
+						// Add customer to the context
+						$context->customer = $customer;
+						
+						if (Configuration::get('PS_CART_FOLLOWING') && (empty($context->cookie->id_cart) || Cart::getNbProducts($context->cookie->id_cart) == 0) && $id_cart = (int)Cart::lastNoneOrderedCart($context->customer->id))
+							$context->cart = new Cart($id_cart);
+						else
+						{
+							$id_carrier = (int)$context->cart->id_carrier;
+							$context->cart->id_carrier = 0;
+							$context->cart->setDeliveryOption(null);
+							$context->cart->id_address_delivery = (int)Address::getFirstCustomerAddressId((int)($customer->id));
+							$context->cart->id_address_invoice = (int)Address::getFirstCustomerAddressId((int)($customer->id));
+						}
+							
+						$context->cart->id_customer = (int)$customer->id;
+						$context->cart->secure_key = $customer->secure_key;
+						
+						if($context->cart->id > 0)
+						{
+							$isClaimed = false;
+							#to check if customer has claimed before this, 
+							# limit 1 because we only need to get one data as indicator this customer has claimed
+							$sqlOrdered    = "SELECT COUNT(a.id_order) as totalorder FROM ps_orders a 
+												LEFT JOIN ps_order_detail b ON a.id_order = b.id_order
+												WHERE b.product_id = 43435 AND id_customer = " . trim($customer->id) . " LIMIT 1";
+							$resultOrdered = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlOrdered);
+							$totalOrdered  = $resultOrdered[0]['totalorder'];
+							
+							if($totalOrdered == 0)
+							{
+								#to check item ID already exist or not in the cart
+								$sqlCheck 	 = "SELECT COUNT(id_cart) as total FROM `ps_cart_product` WHERE `id_product` = 43435 AND `id_cart` = " . trim($context->cart->id) . " LIMIT 1";
+								$resultCheck = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlCheck);
+								$total 		 = $resultCheck[0]['total'];
+								
+								if($total == 0) # item not exist in this cart id, we add
+								{
+									$context->cart->updateQty(1,43435);# item id for superkid
+								}
+							}
+							else
+							{
+								$isClaimed = true;
+							}
+						}
+
+						$context->cart->save();
+						$context->cookie->id_cart = (int)$context->cart->id;
+						
+						$ssocookie = Tools::getSSOCookie();
+						$ssocookie->ssoUser= $context->customer->email;
+						$context->cookie->__set("customerEmail", $context->customer->email);
+						$context->cart->autosetProductAddress();
+					
+						$context->cookie->write();
+						// auto sign in code end --------------------------]]
+							
+						if(isset($isClaimed) && $isClaimed == true)
+						{
+							$this->context->smarty->assign("showErrors",'Thank you for your submission. You have already redeemed this activity box.');
+						}
+						else
+						{
+							$sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = 94 LIMIT 1"; # page that handle
+							$querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
+							$event_slug  = $querySlug[0]['event_slug'];
+							$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug;
+							echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
+						}
+					
+						// $this->sendSuperkidEmail($last_name,$firstname,$email);
+						
 					}else{ 
 						
 						echo"
@@ -2463,7 +2562,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 											$sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = 98 LIMIT 1"; # page that handle edd question
 											$querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
 											$event_slug  = $querySlug[0]['event_slug'];
-											$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug;
+											$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug . "?id=" . $encryptedID;
 											echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
 										}
 										else
@@ -2652,7 +2751,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 									$sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = 98 LIMIT 1"; # page that handle edd question
 									$querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
 									$event_slug  = $querySlug[0]['event_slug'];
-									$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug;
+									$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug . "?id=" . $encryptedID;
 									echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
 								}
 								else
@@ -2788,7 +2887,134 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 							
 							$context->cookie->write();
 							// auto sign in code end --------------------------]]
-					}else{
+							
+							$this->sendSuperkidEmail($last_name,$firstname,$email);
+					}
+					else{
+						$this->context->smarty->assign("showErrors","Login/Password incorrect");
+						
+					}
+				}
+				else if( $event_id == 99999){#superkid event uat
+					
+					$password=trim($newPassword);
+					$firstname=trim($newFirstName);
+					$last_name = trim($newLastName);
+					if($last_name == ""){
+						$last_name = ".";
+					}
+					
+					$public_key = _SSO_PUBLIC_KEY_;
+					$nonce =  Tools::generateRandomNonce();
+					$signature =  Tools::generateSignature($nonce);
+
+				// ********** create sso user ********************
+
+					$post_data = array(
+								'email' => $email,
+								'password' => $password,
+								'public_key' => $public_key,
+								'nonce' =>  $nonce,
+								'signature' => $signature
+						);
+					$post_result = Tools::post_data(_SSO_API_LOGIN_ACCOUNT_, $post_data);
+					$post_result = json_decode($post_result, true);
+					
+					if ($post_result['succeeded']==1){
+						$sql='
+							SELECT id_customer FROM ps_customer
+							WHERE email="'.$email.'"
+						';
+						$resultCustomer = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+						$customer = new Customer($resultCustomer[0]['id_customer']);
+						// code to auto sign in ------------------
+						$context=$this->context;
+										
+						$context->cookie->id_compare = isset($context->cookie->id_compare) ? $context->cookie->id_compare: CompareProduct::getIdCompareByIdCustomer($customer->id);
+						$context->cookie->id_customer = (int)($customer->id);
+						$context->cookie->customer_lastname = $customer->lastname;
+						$context->cookie->customer_firstname = $customer->firstname;
+						$context->cookie->logged = 1;
+						$customer->logged = 1;
+						$context->cookie->is_guest = $customer->isGuest();
+						$context->cookie->passwd = $customer->passwd;
+						$context->cookie->email = $customer->email;
+						
+
+						// Add customer to the context
+						$context->customer = $customer;
+						
+						if (Configuration::get('PS_CART_FOLLOWING') && (empty($context->cookie->id_cart) || Cart::getNbProducts($context->cookie->id_cart) == 0) && $id_cart = (int)Cart::lastNoneOrderedCart($context->customer->id))
+							$context->cart = new Cart($id_cart);
+						else
+						{
+							$id_carrier = (int)$context->cart->id_carrier;
+							$context->cart->id_carrier = 0;
+							$context->cart->setDeliveryOption(null);
+							$context->cart->id_address_delivery = (int)Address::getFirstCustomerAddressId((int)($customer->id));
+							$context->cart->id_address_invoice = (int)Address::getFirstCustomerAddressId((int)($customer->id));
+						}
+							
+						$context->cart->id_customer = (int)$customer->id;
+						$context->cart->secure_key = $customer->secure_key;
+							
+						if($context->cart->id > 0)
+						{
+							$isClaimed = false;
+							#to check if customer has claimed before this, 
+							# limit 1 because we only need to get one data as indicator this customer has claimed
+							$sqlOrdered    = "SELECT COUNT(a.id_order) as totalorder FROM ps_orders a 
+												LEFT JOIN ps_order_detail b ON a.id_order = b.id_order
+												WHERE b.product_id = 43435 AND id_customer = " . trim($customer->id) . " LIMIT 1";
+							$resultOrdered = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlOrdered);
+							$totalOrdered  = $resultOrdered[0]['totalorder'];
+							
+							if($totalOrdered == 0)
+							{
+								#to check item ID already exist or not in the cart
+								$sqlCheck 	 = "SELECT COUNT(id_cart) as total FROM `ps_cart_product` WHERE `id_product` = 43435 AND `id_cart` = " . trim($context->cart->id) . " LIMIT 1";
+								$resultCheck = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlCheck);
+								$total 		 = $resultCheck[0]['total'];
+								
+								if($total == 0) # item not exist in this cart id, we add
+								{
+									$context->cart->updateQty(1,43435);# item id for superkid
+								}
+							}
+							else
+							{
+								$isClaimed = true;
+							}
+						}
+
+						$context->cart->save();
+						$context->cookie->id_cart = (int)$context->cart->id;
+						
+						$ssocookie = Tools::getSSOCookie();
+						$ssocookie->ssoUser= $context->customer->email;
+						$context->cookie->__set("customerEmail", $context->customer->email);
+						$context->cart->autosetProductAddress();
+						
+						$context->cookie->write();
+						// auto sign in code end --------------------------]]
+							
+						if(isset($isClaimed) && $isClaimed == true)
+						{
+							$this->context->smarty->assign("showErrors",'Thank you for your submission. You have already redeemed this activity box.');
+						}
+						else
+						{
+							$sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = 94 LIMIT 1"; # page that handle
+							$querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
+							$event_slug  = $querySlug[0]['event_slug'];
+							$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug;
+							echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
+						}
+						
+							
+						// $this->sendSuperkidEmail($last_name,$firstname,$email);
+					}
+					else{
 						$this->context->smarty->assign("showErrors","Login/Password incorrect");
 						
 					}
@@ -2873,5 +3099,31 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 			return Mail::Send(1, $template, $subject, $data, $mail, $name, Configuration::get('PS_SHOP_EMAIL'), Configuration::get('PS_SHOP_NAME'), NULL, NULL, dirname(__FILE__).'/mails/', NULL);
 		}
 	
+	}
+	
+	public function sendSuperkidEmail($lastname,$firstname,$email)
+	{
+		$customer = $lastname . " " . $firstname;
+		$id_lang = 1;
+		$data = array(
+			'{customer_name}' => $customer,
+		);
+		$mail= $email;
+		$name = $customer;
+		$template = "SuperkidsClub";
+		$iso = "en";
+		$shopemail = 'hi@motherhood.com.my';
+		$shopname = 'motherhood.com.my';
+		$subject = "Congratulations! Welcome to Motherhood.com.my SuperKids Club!" ;
+
+		if (file_exists(_PS_MODULE_DIR_.'/enlineamixmod/mails/'.$iso.'/'.$template.'.txt') && file_exists(_PS_MODULE_DIR_.'/enlineamixmod/mails/'.$iso.'/'.$template.'.html')) {
+			$this->context->smarty->assign("check","0");
+			return Mail::Send(1, $template, $subject, $data, $mail, $name, Configuration::get('PS_SHOP_EMAIL'), Configuration::get('PS_SHOP_NAME'), NULL, NULL, dirname(__FILE__).'/mails/', NULL);
+			
+		}
+		else if (file_exists(_PS_MODULE_DIR_.'/enlineamixmod/mails/en/'.$template.'.txt') && file_exists(_PS_MODULE_DIR_.'/enlineamixmod/mails/en/'.$template.'html')) {
+			$id_lang = Language::getIdByIso('en');
+			return Mail::Send(1, $template, $subject, $data, $mail, $name, Configuration::get('PS_SHOP_EMAIL'), Configuration::get('PS_SHOP_NAME'), NULL, NULL, dirname(__FILE__).'/mails/', NULL);
+		}	
 	}
 }
