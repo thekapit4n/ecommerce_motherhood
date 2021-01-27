@@ -1,8 +1,62 @@
+<p>
+	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/fontawesome-v5.15.1/js/all.min.js"></script>
+</p>
 <style>
    <!--
-      .nbs-flexisel-container{
-            	border:0px;
-            }
+	.nbs-flexisel-container{
+	   border:0px;
+	}
+		
+	.div-item-calendar{
+		margin-bottom:10px; 
+		padding-left:10px; 
+		padding-top:10px; 
+		padding-right:10px;
+	}
+		
+	.speakerBox-calendar{
+		background-color:#f7f7f8;
+	}
+		
+	.title-webinar{
+		font-weight: 700; 
+		font-size:17px;
+		min-height:35px;
+	}
+		
+	.div-web-desc{
+		color:#4c4c4d;
+	}
+		
+	.desc-time, .desc-by, .desc-info{
+		font-size:14px;
+	}
+		
+	.product-box item
+	{
+		backgound
+	}
+		
+	@media only screen and (max-width: 600px) 
+	{
+		.img-calendar{
+			width:70%;
+		}
+		
+		.title-webinar{
+			padding-top:15px;
+			min-height:68px;
+		}
+		
+		.desc-info{
+			min-height: 36px;
+
+		}
+		
+		.swipe-text{
+			display:block !important;
+		}
+	}
       -->
 </style>
 <div class="col-lg-12" style="padding-left: 0px; padding-right: 0px;"><a href="../../../events/motherhood-superkids" target="_blank" rel="noopener">
@@ -22,10 +76,115 @@
 <div class="clearfix"></div>
 <!--====================REWARDS ====================-->
 <div class="clearfix"></div>
-
-   <p>{{productlist}}</p>
-
-<div class="clearfix"></div>
+	<div class="col-md-12 enlinea_slider div-row-calendar-slider" style="padding-top: 20px;margin-top: 20px;margin-bottom: 20px;">
+		<p style="font-size: 24px; color: #4c4c4d; font-weight: bold;     padding-top: 20px;  padding-bottom: 7px; line-height: 1;">Upcoming Webinar</p>
+		<p style="font-size: 12px; color: #4c4c4d; font-weight: bold; padding-top: 0px; padding-bottom: 9px; line-height: 1;" class="swipe-text" style="display:none">swipe right to see more webinar</p>
+		<div class="slider_container">
+			<ul class="calendar-slider-superkid">
+				<li class="product-box item" style="min-width: 150px;">
+				  <div class="reviewBox-calendar">
+					 <div class="speakerBox-calendar">
+						<div class="row div-item-calendar">
+							<div class="col-md-5">
+								<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Superkids/date/7feb.png" class="img-calendar" width="100%" alt="7feb2021" />
+							</div>
+							<div class="col-md-7 div-web-desc text-left">
+								<p class="title-webinar">Video Sensing-Collect the Ang Pow!</p>
+								<p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m</p>
+								<p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Aimsity</p>
+								<p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 10 years old</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<a href="https://docs.google.com/forms/d/e/1FAIpQLSeW3kbLxoiGJaMFyBz69n_TbChFuwqDS1nXJphiGv5IiDNXmQ/viewform" class="btn btn-default btn-view-event" style="width: 100%; background-color:#69bd45;color:white;">
+									VIEW EVENT
+								</a>
+							</div>
+						</div>
+					 </div>
+				  </div>
+				</li>
+			   <li class="product-box item" style="min-width: 150px;">
+				  <div class="reviewBox-calendar">
+					 <div class="speakerBox-calendar">
+						<div class="row div-item-calendar">
+							<div class="col-md-5">
+								<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Superkids/date/27feb.png" class="img-calendar" width="100%" alt="7feb2021" />
+							</div>
+							<div class="col-md-7 div-web-desc text-left">
+								<p class="title-webinar">What are these shapes?</p>
+								<p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m</p>
+								<p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Teacher Jolly</p>
+								<p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 4 years old</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<a href="https://docs.google.com/forms/d/e/1FAIpQLSeW3kbLxoiGJaMFyBz69n_TbChFuwqDS1nXJphiGv5IiDNXmQ/viewform"  class="btn btn-default btn-view-event" style="width: 100%; background-color:#69bd45;color:white;">
+								VIEW EVENT
+								</a>
+							</div>
+						</div>
+					 </div>
+				  </div>
+			   </li> 
+			   <li class="product-box item" style="min-width: 150px;">
+				  <div class="reviewBox-calendar">
+					 <div class="speakerBox-calendar">
+						<div class="row div-item-calendar">
+							<div class="col-md-5">
+								<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Superkids/date/27mar.png" class="img-calendar" width="100%" alt="7feb2021" />
+							</div>
+							<div class="col-md-7 div-web-desc text-left">
+								<p class="title-webinar">Eye Magic</p>
+								<p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m</p>
+								<p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Teacher Bobby</p>
+								<p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 4 years old</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<a href="https://docs.google.com/forms/d/e/1FAIpQLSeW3kbLxoiGJaMFyBz69n_TbChFuwqDS1nXJphiGv5IiDNXmQ/viewform" class="btn btn-default btn-view-event" style="width: 100%; background-color:#69bd45;color:white;">
+								VIEW EVENT
+								</a>
+							</div>
+						</div>
+					 </div>
+				  </div>
+			   </li>
+			   <li class="product-box item" style="min-width: 150px;">
+					<div class="reviewBox-calendar">
+						<div class="speakerBox-calendar">
+							<div class="row div-item-calendar">
+								<div class="col-md-5">
+									<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Superkids/date/28mar.png" class="img-calendar" width="100%" alt="7feb2021" />
+								</div>
+								<div class="col-md-7 div-web-desc text-left">
+									<p class="title-webinar">Decorate your Easter Egg!</p>
+									<p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m</p>
+									<p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Aimsity</p>
+									<p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 10 years old</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<a href="https://docs.google.com/forms/d/e/1FAIpQLSeW3kbLxoiGJaMFyBz69n_TbChFuwqDS1nXJphiGv5IiDNXmQ/viewform" class="btn btn-default btn-view-event" style="width: 100%; background-color:#69bd45;color:white;">
+									VIEW EVENT
+									</a>
+								</div>
+							</div>
+						 </div>
+					</div>
+			   </li>
+			</ul>
+		</div>
+    </div>
+    
+	<div class="clearfix"></div>
+    <!-- Content under programme highlight -->
+	<p>{{productlist}}</p>
+	<div class="clearfix"></div>
 <div class="col-md-10 col-md-offset-1" style="background: rgba(255, 255, 255, 0.8); background-size: cover; padding-top: 20px; padding-bottom: 20px; border-radius: 10px;">
    <p style="font-size: 24px; color: #4c4c4d; font-weight: bold; padding-top: 20px; padding-bottom: 20px; line-height: 1;">Ready to be a Motherhood Super Kid?</p>
    <p style="font-size: 1.6em; color: #4c4c4d; font-weight: bold; padding-top: 20px; line-height: 1; text-align: left;">Parents</p>
@@ -310,7 +469,7 @@
    </div>
 </div>
 <div class="clearfix" style="margin-bottom: 5%;"></div>
-<div style="padding-left: 30px; padding-right: 30px;"><a href="https://www.instagram.com/explore/tags/motherhoodsuperkid/" class="btn btn-default button button-medium" target="_blank" style="padding: 8px 40px; background-color: #ec3c65;" rel="noopener"><i class="fa fa-instagram"></i> &nbsp; See more on Instagram </a> <a href="https://www.facebook.com/hashtag/motherhoodsuperkid/?_rdc=1&amp;_rdr" class="btn btn-default button button-medium" target="_blank" style="padding: 8px 40px; background-color: #4474b6;" rel="noopener"><i class="fa fa-facebook"></i> &nbsp; See more on Facebook </a></div>
+<div style="padding-left: 30px; padding-right: 30px;"><a href="https://www.instagram.com/explore/tags/motherhoodsuperkid/" class="btn btn-default button button-medium" target="_blank" style="padding: 8px 40px; background-color: #ec3c65;" rel="noopener"><i class="fab fa-instagram"></i> &nbsp; See more on Instagram </a> <a href="https://www.facebook.com/hashtag/motherhoodsuperkid/?_rdc=1&amp;_rdr" class="btn btn-default button button-medium" target="_blank" style="padding: 8px 40px; background-color: #4474b6;" rel="noopener"><i class="fab fa-facebook-square"></i> &nbsp; See more on Facebook </a></div>
 <!--====================T&C ====================-->
 <div class="clearfix"></div>
 <div style="margin-top: 30px; padding: 70px 20px 20px 20px; display: inline-block; background: white; background-size: cover; background-position: top center; background-repeat: no-repeat;">
