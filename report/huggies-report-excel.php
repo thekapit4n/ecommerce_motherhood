@@ -1,6 +1,6 @@
 <?php
 /** Include PHPExcel */
-require_once dirname(__FILE__) . '/PHPExcel-1.8/Classes/PHPExcel.php';
+require_once dirname(__FILE__) . '/../tools/PHPExcel-1.8/Classes/PHPExcel.php'; #this file location will be use for next report onwards 01/02/2021 - haiqal halim
 require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_config_excel.php';
 
 	$secretOfTheDay = "K@p1T4n S4Y T0d4Y 1$" . date('Y-m-d');
@@ -30,7 +30,7 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 		$searchStart ="";
 		$searchEnd 	 ="";
 		$wheresql  	 = "";
-		$limitsql    = " LIMIT 500";
+		$limitsql    = " LIMIT 2000";
 		$strDateMsg  = "";
 		if(isset($_POST['searchDateStart']) && $_POST['searchDateStart'] != '')
 		{
@@ -58,23 +58,27 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 			}
 		}
 		
-		
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "a.subscriber_event_id=115";
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "a.subscriber_event_id = 100";
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "b.subscriber_event_id = 98";
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "a.subscriber_question15 != ''";
 		if($searchStart != '')
 		{
-			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " subscriber_created_at >= '" . trim($searchStart . " 00:00:00") . "'";
+			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " a.subscriber_created_at >= '" . trim($searchStart . " 00:00:00") . "'";
 		}
 		
 		if($searchEnd != '')
 		{
-			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " subscriber_created_at <= '" . trim($searchEnd . " 23:59:59") . "'";
+			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " a.subscriber_created_at <= '" . trim($searchEnd . " 23:59:59") . "'";
 		}
 		
 		$sql = "SELECT
-				a.newFirstName as FullName, a.newEmail as Email, a.subscriber_question1 as Mobile, a.subscriber_question4 as ChildDOB,
-				a.subscriber_question3 as CurrentMilkBrand, a.subscriber_question5 as address1, a.subscriber_question7 as address2, a.subscriber_question8 as Postcode, 
-				a.subscriber_question9 as City, a.subscriber_question10 as States,a.subscriber_question12 as tnc, a.subscriber_created_at as DateSubmit
-				FROM ps_events_subscriber a " . $wheresql . " GROUP BY newEmail	ORDER BY subscriber_created_at ASC " . $limitsql;    
+				a.newEmail as Email, CONCAT(a.newFirstName, ' ', a.newLastName) AS NAME, a.subscriber_question1 as Mobile, a.subscriber_question8 as Address, a.subscriber_question9 as Postcode, a.subscriber_question10 as City, 
+				a.subscriber_question11 as States,b.subscriber_question2 as EDD, a.subscriber_question15 as 'Product size', a.subscriber_question16 as 'Product type', a.subscriber_question17 as 'Preferred language', a.subscriber_created_at as 'Date registered'
+				FROM ps_events_subscriber a
+				LEFT JOIN ps_events_subscriber AS b 
+				ON a.subscriber_id = b.subscriber_question30
+				
+				" . $wheresql . " GROUP BY a.newEmail	ORDER BY a.subscriber_id ASC " . $limitsql;
 		$result = $conn->query($sql);
 		
 		if(is_object($result)){
@@ -83,7 +87,7 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 			$objPHPExcel = new PHPExcel();
 
 			// Add some data
-			$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A2', 'Friso Gold Sample Request Report | Motherhood.com.my Malaysia');
+			$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A2', 'Huggies Leads Report | Motherhood.com.my Malaysia');
 			$objPHPExcel->getActiveSheet()->getStyle("A2:C2")->getFont()->setSize(18);
 			$objPHPExcel->getActiveSheet()->getRowDimension("2")->setRowHeight(20);
 			$objPHPExcel->getActiveSheet()->mergeCells('A2:C2');
@@ -108,19 +112,15 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 				$objPHPExcel->getActiveSheet()->getStyle($headerColumn. '5')->getFont()->setBold( true );
 				// $objPHPExcel->getActiveSheet()->getColumnDimensionByColumn($headerColumn)->setAutoSize(false);
 				
-				if(in_array($headerColumn, array("A", "D", "E", "M", "J")))
+				if(in_array($headerColumn, array("F", "G","H","I","J","K", "L", "M")))
 				{
 					$objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(20);
-				}
-				elseif(in_array($headerColumn, array("I", "L")))
-				{
-					$objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(15);
 				}
 				elseif(in_array($headerColumn, array("F")))
 				{
 					$objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(30);
 				}
-				elseif(in_array($headerColumn, array("G", "H")))
+				elseif(in_array($headerColumn, array("E")))
 				{
 					$objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(100);
 				}
@@ -139,8 +139,20 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 				$colData = 'B';
 				$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A' . $rowData , ++$ccount);
 				foreach ($r as $kolonne) {
-					$objPHPExcel->setActiveSheetIndex(0)->setCellValue($colData . $rowData , $kolonne);
-					if($colData == 'D'|| $colData == "I"){
+					if($colData == 'C') #name
+					{
+						$objPHPExcel->setActiveSheetIndex(0)->setCellValue($colData . $rowData , ucwords(strtolower($kolonne)));
+					}
+					if($colData == 'M') #date
+					{
+						$objPHPExcel->setActiveSheetIndex(0)->setCellValue($colData . $rowData , date("d-m-Y H:i:s", strtotime($kolonne)));
+					}
+					else
+					{
+						$objPHPExcel->setActiveSheetIndex(0)->setCellValue($colData . $rowData , $kolonne);
+					}
+					
+					if($colData == 'D'|| $colData == "F"){
 						$objPHPExcel->getActiveSheet()->getStyle($colData . $rowData)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_TEXT);
 						$objPHPExcel->getActiveSheet()->getStyle($colData . $rowData)->getAlignment()->applyFromArray(array('horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_LEFT));
 					}
@@ -171,7 +183,7 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 
 			// Redirect output to a client’s web browser (Excel2007)
 			header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-			header('Content-Disposition: attachment;filename="friso-gold-sample.xlsx"');
+			header('Content-Disposition: attachment;filename="huggies-lead-report.xlsx"');
 			header('Cache-Control: max-age=0');
 			header ('Cache-Control: cache, must-revalidate'); // HTTP/1.1
 			header ('Pragma: public'); // HTTP/1.0

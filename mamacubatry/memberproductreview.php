@@ -122,17 +122,9 @@ class enlineamixmodmemberproductreviewModuleFrontController extends ModuleFrontC
 			'moderation_active' => (int)Configuration::get('PRODUCT_COMMENTS_MODERATE')
         ));
 		
-		#testing purpose
-		if(in_array($this->context->customer->id, $this->arry_id_test))
-		{
-			$this->setTemplate('membersproductreview_v.tpl');
-			// $this->setTemplate('membersproductreview.tpl');
-		}
-		else
-		{
-			#live using this tpl
-			$this->setTemplate('membersproductreview.tpl');
-		}
+		#live using this tpl
+		$this->setTemplate('membersproductreview.tpl');
+		
     }
     
 	public function getProductReviewList() 

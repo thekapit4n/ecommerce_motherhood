@@ -230,6 +230,35 @@ $(document).ready(function () {
             infiniteLoop: false,
             hideControlOnEnd: false
         });
+		
+		
+		if($(window).width() <= 680)
+		{
+			preganancyMinSlide = 1
+			pregnancyMaxSlide = 1
+			pregnancySliderWidth = 180
+		}
+		else
+		{
+			preganancyMinSlide = 6
+			pregnancyMaxSlide = 8
+			var pregnancySliderWidth = sliderWidth - 40;
+			var pregnancySliderWidth = (pregnancySliderWidth / 3) - 20;
+		}
+
+        $('.pregnancy-tracker').bxSlider({
+            minSlides: preganancyMinSlide,
+            maxSlides: pregnancyMaxSlide,
+            slideWidth: pregnancySliderWidth,
+            slideMargin: 8,
+            pager: false,
+            nextText: '',
+            prevText: '',
+            moveSlides: 1,
+            infiniteLoop: false,
+            hideControlOnEnd: false
+        });
+		
     }
 });
 

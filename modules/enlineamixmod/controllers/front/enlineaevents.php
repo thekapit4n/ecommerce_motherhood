@@ -684,6 +684,136 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 			}
 		}
 		
+		#new essentials mom - nestle
+		if($event_id == 102)
+		{
+			if($this->context->customer->email != '' && $this->context->customer->id > 0)
+			{
+				$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `subscriber_event_id` = '" . trim($event_id) . "'";
+				$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `newEmail` = '" . trim($this->context->customer->email) . "'";
+				
+				$sql 		 = "SELECT * FROM `ps_events_subscriber`" . $whereSql . " ORDER BY `subscriber_id` DESC LIMIT 1";
+				$queryResult = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+				
+				if(is_array($queryResult[0]) && sizeof($queryResult[0]) > 0)
+				{
+					$firstname    = isset($queryResult[0]['newFirstName']) ? $queryResult[0]['newFirstName'] : '';
+					$lastname     = isset($queryResult[0]['newLastName']) ? $queryResult[0]['newLastName'] : '';
+					$email        = isset($queryResult[0]['newEmail']) ? $queryResult[0]['newEmail'] : '';
+					$mobile       = isset($queryResult[0]['subscriber_question1']) ? $queryResult[0]['subscriber_question1'] : '';
+					$dobParent    = isset($queryResult[0]['subscriber_question2']) ? $queryResult[0]['subscriber_question2'] : '';
+					$fulladdress  = isset($queryResult[0]['subscriber_question3']) ? $queryResult[0]['subscriber_question3'] : '';
+					$postcode     = isset($queryResult[0]['subscriber_question4']) ? $queryResult[0]['subscriber_question4'] : '';
+					$city 		  = isset($queryResult[0]['subscriber_question5']) ? $queryResult[0]['subscriber_question5'] : '';
+					$state 		  = isset($queryResult[0]['subscriber_question7']) ? $queryResult[0]['subscriber_question7'] : '';
+					$eddDate 	  = isset($queryResult[0]['subscriber_question8']) ? $queryResult[0]['subscriber_question8'] : '';
+					$subscribe_id = isset($queryResult[0]['subscriber_id']) ? $queryResult[0]['subscriber_id'] : '';
+					
+					if($state != '')
+					{
+						$stateName   = str_replace(' ', '_', $state);
+						$replaceword = "dataselected-" . $stateName;
+						$result[0]['event_description'] = str_ireplace($replaceword, "selected='selected'", $result[0]['event_description']);
+					}
+					
+					if($eddDate != '')
+					{
+						$babypregnantdate = strtotime($eddDate);
+						$today 			  = strtotime(date("d-m-Y")); 
+						$diff 			  = $today - $babypregnantdate;
+						$days 			  = floor($diff/ (60*60*24)); 
+						$weeks 			  = floor($days / 7);
+						
+						if($weeks > 0 && $weeks <= 40){
+							$weeks;
+							$result[0]['event_description'] = str_ireplace('{{pre-define-display-eddform}}', "none", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{pre-define-display-pregnancytracker}}', "block", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{pre-define-babyweek}}', $weeks, $result[0]['event_description']);
+						}
+						else
+						{
+							$result[0]['event_description'] = str_ireplace('{{pre-define-display-eddform}}', "none", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{pre-define-display-pregnancytracker}}', "block", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('Your baby is on week {{pre-define-babyweek}}!', "Your edd has more than 40 weeks !", $result[0]['event_description']);
+						}
+					}
+					else
+					{
+						$result[0]['event_description'] = str_ireplace('{{pre-define-display-eddform}}', "block", $result[0]['event_description']);
+						$result[0]['event_description'] = str_ireplace('{{pre-define-display-pregnancytracker}}', "none", $result[0]['event_description']);
+						$result[0]['event_description'] = str_ireplace('{{pre-define-babyweek}}', "", $result[0]['event_description']);
+					}
+					
+					$result[0]['event_description'] = str_ireplace('{{pre-subscribe-id}}', $subscribe_id, $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-email}}', $this->context->customer->email, $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-fistname}}', $firstname, $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-lastname}}', $lastname, $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-mobileno}}', $mobile, $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-dob}}', $dobParent, $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-fulladdress}}', $fulladdress, $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-postcode}}', $postcode, $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-city}}', $city, $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-display-overlay}}', "none", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-display-class-overlay}}', "", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-scrolling-val}}', "yes", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-unclickable-class}}', "", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{greybg-readonly-class}}', "background-grey-readonly", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{display-password-input}}', "none", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{display-btn-submit-form1}}', "none", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('data-input-disabled', "disabled='disabled'", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-titleform}}', "You have registered!", $result[0]['event_description']);
+				}
+				else
+				{
+					$result[0]['event_description'] = str_ireplace('{{pre-subscribe-id}}', 0, $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-email}}',"",$result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-fistname}}',"",$result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-lastname}}',"",$result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-mobileno}}',"",$result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-dob}}', "", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-fulladdress}}', "", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-postcode}}', "", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-city}}', "", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-display-overlay}}', "block", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-display-class-overlay}}', "box-overlay-display", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-scrolling-val}}', "no", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-unclickable-class}}', "unclickable", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-display-eddform}}', "block", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-display-pregnancytracker}}', "none", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-babyweek}}', "", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{greybg-readonly-class}}', "", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{display-password-input}}', "block", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{display-btn-submit-form1}}', "block", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('data-input-disabled', "", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-titleform}}', "Fill up your information", $result[0]['event_description']);
+				}
+			}
+			else
+			{
+				$result[0]['event_description'] = str_ireplace('{{pre-subscribe-id}}', 0, $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-define-email}}',"",$result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-define-fistname}}',"",$result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-define-lastname}}',"",$result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-define-mobileno}}',"",$result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-define-dob}}', "", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-define-fulladdress}}', "", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-define-postcode}}', "", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-define-city}}', "", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-define-display-overlay}}', "block", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-define-display-class-overlay}}', "box-overlay-display", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-scrolling-val}}', "no", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-define-unclickable-class}}', "unclickable", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-define-display-eddform}}', "block", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-define-display-pregnancytracker}}', "none", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-define-babyweek}}', "", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{greybg-readonly-class}}', "", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{display-password-input}}', "block", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{display-btn-submit-form1}}', "block", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('data-input-disabled', "", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-define-titleform}}', "Fill up your information", $result[0]['event_description']);
+			}
+		}
+		
 		$result[0]['event_description'] = str_ireplace('/s3.amazonaws.com/motherhood.com.my/',"/cdn.motherhood.com.my/",$result[0]['event_description']);
 		
         $this->context->smarty->assign(array(

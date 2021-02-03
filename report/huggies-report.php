@@ -6,22 +6,22 @@ $arr_allowUser = array(
 	'tech',
 	'megan',
 	'hooishan',
-	'frisogoldsamplerequest',
 	'haiqal',
+	'huggies',
 );
 
-if ((in_array($_POST['login'], $arr_allowUser)) && $_POST['password']=='frisogoldsamplerequest123'){
-	$_SESSION['frisogoldsamplerequestlogin']=1;
+if ((in_array($_POST['login'], $arr_allowUser)) && $_POST['password']=='huggies123'){
+	$_SESSION['huggies_login'] = true;
 }
 
-if ($_SESSION['frisogoldsamplerequestlogin']==1){
+if ($_SESSION['huggies_login'] == true){
 
 }
 else{
 ?><!DOCTYPE html>
 <head>
 <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico"/>
-<title>Friso Gold Sample Request Report | Motherhood.com.my Malaysia</title>
+<title>Huggies Leads Report | Motherhood.com.my Malaysia</title>
 <style>
 	body 
 {
@@ -115,7 +115,7 @@ div.form-container
 </style>
 </head>
 
-<form action='friso-gold-sample-request-report.php' method='post'>
+<form action='huggies-report.php' method='post'>
 		<div style="row">
 			<div style="text-align:center;">
 				<img style="vertical-align: middle;width:10%;" 
@@ -123,7 +123,7 @@ div.form-container
 			</div>
 			<div class="form-container">
 				<div class="text-header">
-				Friso Gold Sample Request Report | Motherhood.com.my Malaysia
+				Huggies Leads Report | Motherhood.com.my Malaysia
 				</div>
 				<div class="form">
 					<div class="text">
@@ -174,7 +174,7 @@ $productList=array();
 	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/sweetalert2-v10.13.0/dist/sweetalert2.all.min.js" type="text/javascript"></script>
     <link href="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/sweetalert2-v10.13.0/dist/sweetalert2.min.css" rel="stylesheet" type="text/css" />
 	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/Inputmask-5.x/dist/jquery.inputmask.js" type="text/javascript"></script>
-<title>Friso Gold Sample Request Report | Motherhood.com.my Malaysia</title>
+<title>Huggies Leads Report | Motherhood.com.my Malaysia</title>
 <style>
 body{
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -218,20 +218,22 @@ li:not(.leftmenu) a:hover:not(.active):not(.leftmenu) {
 	margin-bottom:10px
 }
 
-
+.class-nowrap{
+	white-space : nowrap;
+}
 </style>
 </head>
 
 <?php
-   $currPath = $_SERVER['REQUEST_URI'];
-   $baseprog=explode("?",basename($currPath));
-   $checkName=explode("-",basename($baseprog[0]));
+   $currPath  = $_SERVER['REQUEST_URI'];
+   $baseprog  = explode("?",basename($currPath));
+   $checkName = explode("-",basename($baseprog[0]));
    $secretOfTheDay = "K@p1T4n S4Y T0d4Y 1$" . date('Y-m-d');
    $encrypt  		= md5($secretOfTheDay);
 	$searchStart ="";
 	$searchEnd 	 ="";
 	$wheresql  	 = "";
-	$limitsql    = " LIMIT 500";
+	$limitsql    = " LIMIT 2000";
 	
 	if(isset($_POST['searchDateStart']) && $_POST['searchDateStart'] != '')
 	{
@@ -258,22 +260,27 @@ li:not(.leftmenu) a:hover:not(.active):not(.leftmenu) {
 	}
 	
 	
-	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "a.subscriber_event_id=115";
+	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "a.subscriber_event_id = 100";
+	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "b.subscriber_event_id = 98";
+	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "a.subscriber_question15 != ''";
 	if($searchStart != '')
 	{
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " subscriber_created_at >= '" . trim($searchStart . " 00:00:00") . "'";
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " a.subscriber_created_at >= '" . trim($searchStart . " 00:00:00") . "'";
 	}
 	
 	if($searchEnd != '')
 	{
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " subscriber_created_at <= '" . trim($searchEnd . " 23:59:59") . "'";
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " a.subscriber_created_at <= '" . trim($searchEnd . " 23:59:59") . "'";
 	}
 	
     $sql = "SELECT
-			a.newFirstName as FullName, a.newEmail as Email, a.subscriber_question1 as Mobile, a.subscriber_question4 as ChildDOB,
-			a.subscriber_question3 as CurrentMilkBrand, a.subscriber_question5 as address1, a.subscriber_question7 as address2, a.subscriber_question8 as Postcode, 
-			a.subscriber_question9 as City, a.subscriber_question10 as States,a.subscriber_question12 as tnc, a.subscriber_created_at as DateSubmit
-			FROM ps_events_subscriber a " . $wheresql . " GROUP BY newEmail	ORDER BY subscriber_created_at ASC " . $limitsql;    
+			a.newEmail as Email, CONCAT(a.newFirstName, ' ', a.newLastName) AS NAME, a.subscriber_question1 as Mobile, a.subscriber_question8 as Address, a.subscriber_question9 as Postcode, a.subscriber_question10 as City, 
+			a.subscriber_question11 as States,b.subscriber_question2 as EDD, a.subscriber_question15 as 'Product size', a.subscriber_question16 as 'Product type', a.subscriber_question17 as 'Preferred language', a.subscriber_created_at as 'Date registered'
+			FROM ps_events_subscriber a
+			LEFT JOIN ps_events_subscriber AS b 
+			ON a.subscriber_id = b.subscriber_question30
+			
+			" . $wheresql . " GROUP BY a.newEmail	ORDER BY a.subscriber_id ASC " . $limitsql;    
     $result = $conn->query($sql);
 	
 	if(is_object($result)){
@@ -294,7 +301,12 @@ li:not(.leftmenu) a:hover:not(.active):not(.leftmenu) {
 		# for header
 		for ($i = 0; $i < $noFields; $i++) {
 			$field 	= mysqli_field_name($result, $i);
-			$table .= "<th>" . $field . "</th>";
+			if(in_array($field, array('EDD', 'Product size', 'Product type', 'Preferred language', 'Date registered')))
+			{
+				$table .= "<th class='class-nowrap'>" . $field . "</th>";
+			}
+			else
+				$table .= "<th>" . $field . "</th>";
 			
 		}
 		$table .= "</tr>";
@@ -303,8 +315,17 @@ li:not(.leftmenu) a:hover:not(.active):not(.leftmenu) {
 		while ($r = mysqli_fetch_row($result)) {
 			$ccount++;
 			$table .= "<tr><td>" . $ccount . "</td>";
-			foreach ($r as $kolonne) {
-				$table .= "<td>" . $kolonne . "</td>";
+			foreach ($r as $index => $kolonne) {
+				if(in_array($index, array(7,8,9,10,11)))
+				{
+					$table .= "<td class='class-nowrap'>" . $kolonne . "</td>";
+				}
+				elseif($index == 1)
+				{
+					$table .= "<td>" . ucwords(strtolower($kolonne)) . "</td>";
+				}
+				else
+					$table .= "<td>" . $kolonne . "</td>";
 			}
 			$table .= "</tr>";
 		}
@@ -319,18 +340,18 @@ li:not(.leftmenu) a:hover:not(.active):not(.leftmenu) {
 	}
 ?>
 	<ul>
-		<li><a href="aptago-report.php" <?php if ($checkName[0].$checkName[1]=='frisogold' ) echo "class='active'"; ?> >Friso Gold Sample Request MMY</a></li>
+		<li><a href="aptago-report.php" <?php if ($checkName[0].$checkName[1]=='huggiesreport.php' ) echo "class='active'"; ?> >Huggies Lead Report MMY</a></li>
 	</ul>
 	<main role="main" class="container-fluid">
 		<div class="starter-template">
 			<div class="row row-motherhood" style="margin-top:40px;">
 				<div class="col-md-8">
 					<div class="page-header">
-						<h3>Friso Gold Sample Request Report | Motherhood.com.my Malaysia</h3>
+						<h3>Huggies Lead Report | Motherhood.com.my Malaysia</h3>
 					</div>
 				</div>
 			</div>
-			<form id="form-request" method='post' action="friso-gold-sample-request-report.php">
+			<form id="form-request" method='post' action="huggies-report.php">
 				<div class="row row-motherhood">
 					<div class="col-md-5">
 						<div class="input-group input-group-sm mb-3">
@@ -444,11 +465,11 @@ li:not(.leftmenu) a:hover:not(.active):not(.leftmenu) {
 			console.log(isExport);
 			if(isExport)
 			{
-				$('body').find('#form-request').attr('action', 'friso-gold-sample-request-report-excel.php');
+				$('body').find('#form-request').attr('action', 'huggies-report-excel.php');
 			}
 			else
 			{
-				$('body').find('#form-request').attr('action', 'friso-gold-sample-request-report.php');
+				$('body').find('#form-request').attr('action', 'huggies-report.php');
 			}
 			
 			$('body').find('#form-request').submit();

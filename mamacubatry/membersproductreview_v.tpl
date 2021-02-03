@@ -100,6 +100,30 @@ var myAddress='{$currentAddressId}';
 		border-color: #ec3a47 !important;
 	}
 	
+	.btn-approved-color, .btn-approved-color:hover, .btn-approved-color:focus{
+		background-color: #36a7ac !important;
+		color: white;
+		border-color: #36a7ac !important;
+	}
+	
+	.btn-complete-color, .btn-complete-color:hover, .btn-complete-color:focus{
+		background-color: #f5a700 !important;
+		color: white;
+		border-color: #f5a700 !important;
+	}
+	
+	.btn-pending-color, .btn-pending-color:hover, .btn-pending-color:focus{
+		background-color: #d6d4d4 !important;
+		color: white;
+		border-color: #d6d4d4 !important;
+	}
+	
+	.btn-apply-color, .btn-apply-color:hover, .btn-apply-color:focus{
+		background-color: #ea3d4c !important;
+		color: white;
+		border-color: #ea3d4c !important;
+	}
+	
 	.star-align{
 		display: flex;
 		align-items: center;
@@ -387,9 +411,9 @@ var myAddress='{$currentAddressId}';
 							
         
                      <div class="required dni edit-address-group" style='visibility:hidden;display:none'>
-        <label for="dni">Identification number <sup class="red">*</sup></label>
-        <input class="is_required form-control" data-validate="isDniLite" type="text" name="dni" id="dni" value=""/>
-        <span class="form_info">DNI / NIF / NIE</span> </div>
+						<label for="dni">Identification number <sup class="red">*</sup></label>
+						<input class="is_required form-control" data-validate="isDniLite" type="text" name="dni" id="dni" value=""/>
+						<span class="form_info">DNI / NIF / NIE</span> </div>
 		
 									   <div class="clearfix"></div>
 								<div class="col-md-12" style="margin-top:15px;">
@@ -469,48 +493,33 @@ var myAddress='{$currentAddressId}';
 								<img src="{$product.tester_cover_image}" height="{$mediumSize.height}" width="{$mediumSize.width}" alt="{$product.name|escape:html:'UTF-8'}" />
 							</td>
 							<td style="border-right: 0px solid !important; border-left : 0px solid !important;">
-								<a class="open-comment-form" href="#large_product_desc" onclick='setProductFullDesc(this)' >
+								<a class="open-comment-form" href="#large_product_desc" onclick='setProductFullDesc(this)' style="color:#36a7ac">
 									<span >{$product.name|escape:'strval'} <span>
 								</a><br>
 								<textarea style='visibility:hidden;display:none'>{$product.description}</textarea>
 								<input style='visibility:hidden;display:none' value='{$product.id_product}'>				
 								{if $product.description_short}<br>
-									<div style='border:1px solid black'>{$product.description_short}</div></td>
+									<div style='color:#555454'class="text-left">{$product.description_short}</div></td>
 								{/if}
-							<td style="border-right: 0px solid !important; border-left : 0px solid !important;">
+							<td style="border-right: 0px solid !important; border-left : 0px solid !important; color:#555454">
 								{$product.tester_start_date|date_format:"%d-%m-%Y"}
 							</td>
 							<td style="border-right: 0px solid !important; border-left : 0px solid !important;">
 								{if $product.approved}
-									<button type="button" class="btn btn-default btn-pill btn-pill-color">Approved</button>
-									
-									<a id="new_comment_tab_btn" class="btn btn-default btn-pill btn-pill-color open-comment-form" href="#new_information_form">
-										<span  onclick='document.getElementById("tester_id").value={$product.tester_id}';'>Complete Form</span>
-									</a>
-									
-									<button type="button" class="btn btn-default btn-pill btn-pill-color">Pending</button>
-									
-									<a class="btn btn-default btn-pill btn-pill-color" onclick='applyReview({$product.tester_id})' >
-										<span>Apply Now</span>
-									</a>
-									
-									<a id="new_comment_tab_btn" class="btn btn-default btn-pill btn-pill-color open-comment-form" href="#address_form">
-										<span  onclick='document.getElementById("tester_id").value={$product.tester_id};'>Complete Address</span>
-									</a>
+									<button type="button" class="btn btn-default btn-pill btn-pill-color btn-approved-color">Approved</button>
 								{else}
 									{if $product.applied}
-										<button type="button" class="btn btn-default btn-pill btn-pill-color">Pending</button>
-										
+										<button type="button" class="btn btn-default btn-pill btn-pill-color btn-pending-color">Pending</button>
 									{else}
 										<div>
 											<p class="align_center">
 											{if $additionalInfo.children_under_12}
 												{if $currentAddressId>0}
-													<a class="btn btn-default btn-pill btn-pill-color" onclick='applyReview({$product.tester_id})' >
+													<a class="btn btn-default btn-pill btn-pill-color btn-apply-color" onclick='applyReview({$product.tester_id})' >
 														<span>Apply Now</span>
 													</a>
 												{else}
-													<a id="new_comment_tab_btn" class="btn btn-default btn-pill btn-pill-color open-comment-form" href="#address_form">
+													<a id="new_comment_tab_btn" class="btn btn-default btn-pill btn-pill-color btn-complete-color open-comment-form" href="#address_form">
 														<span  onclick='document.getElementById("tester_id").value={$product.tester_id};'>Complete Address</span>
 													</a>
 												{/if}
@@ -518,7 +527,7 @@ var myAddress='{$currentAddressId}';
 												{if !$logged}
 													<a href='/login?back=my-product-review'>Login / Sign Up</a> 
 												{else}
-													<a id="new_comment_tab_btn" class="btn btn-default btn-pill btn-pill-color open-comment-form" href="#new_information_form">
+													<a id="new_comment_tab_btn" class="btn btn-default btn-pill btn-pill-color btn-complete-color open-comment-form" href="#new_information_form">
 														<span  onclick='document.getElementById("tester_id").value={$product.tester_id}';'>Complete Form</span>
 													</a>
 																 
