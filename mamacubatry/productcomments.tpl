@@ -65,7 +65,7 @@
 	<div id="product_comments_block_tab" class="kapitan-product-details">
 		<div class="row" style="margin-bottom: 15px;">
 			<div class="col-xs-6 col-md-6">
-				<span style="font-size:25px" class="font-weight-7x"><font style="font-size:32px;color:#555454">{$averageTotal}</font>/5</span>
+				<span style="font-size:25px" class="font-weight-7x"><font style="font-size:32px;color:#555454">{$averageTotal|string_format:"%.1f"}</font>/5</span>
 				
 				<div class="clearfix"  itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
 					{section name="i" start=0 loop=5 step=1}

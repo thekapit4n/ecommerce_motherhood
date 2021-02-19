@@ -14,6 +14,12 @@
 		align-items: center;
 		justify-content: center;
 	}
+	
+	.featured-highlight{
+		border-left: 4px solid #38a7aa;
+		padding: 8px;
+		box-shadow: 4px 1px 11px 1px #b4b3b473;
+	}
 </style>
 
 <!-- MODULE enlineaproductreview -->
@@ -55,7 +61,7 @@ $(document).ready(function() {
 					<div class="panel panel-default" style="border: 0px;box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);">
 						<div class="panel-body">
 							<div class="clearfix"></div>
-							<div class="comment row" itemscope itemtype="http://schema.org/Product" style= border-top:0px;'>
+							<div class="comment row {if $comment.highlight}featured-highlight{/if}" itemscope itemtype="http://schema.org/Product" style= 'border-top:0px;'>
 								<div class="comment_author col-sm-2" itemprop="review" itemscope itemtype="http://schema.org/Review" >
 									<!-- /Edited by Keith Yeoh, 04:58 p.m -->
 									<!--
@@ -100,7 +106,7 @@ $(document).ready(function() {
 									</div>
 								</div> <!-- .comment_author -->
 
-								<div class="comment_details col-sm-10 " style="border-left:0px; {if $comment.highlight};background-color:#f6f6f6;{/if}" >
+								<div class="comment_details col-sm-10 " style="border-left:0px;" >
 									<div class="row" style="padding-top: 20px;">
 										<div class="col-md-10 col-xs-10">
 											<div style="padding-left:3px;">

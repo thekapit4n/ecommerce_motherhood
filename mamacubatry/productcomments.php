@@ -867,7 +867,12 @@ class ProductComments extends Module
 		foreach ($averages as $average)
 			$averageTotal += (float)($average);
 		$averageTotal = count($averages) ? ($averageTotal / count($averages)) : 0;
-
+		
+		if($averageTotal > 0 && $averageTotal < 5)
+		{
+			$averageTotal = number_format($averageTotal, 1);
+		}
+			
 		$product = $this->context->controller->getProduct();
 		$image = Product::getCover((int)Tools::getValue('id_product'));
 		$cover_image = $this->context->link->getImageLink($product->link_rewrite, $image['id_image'], 'medium_default');

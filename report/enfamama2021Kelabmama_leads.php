@@ -267,6 +267,8 @@ Start Date: <input type='date' name='searchDateStart' value="<?php echo $_POST['
 // No | Email | First Name | Last Name | Created Date | Phone | DOB | Kids 1-6
 $searchStart="";
 $searchEnd="";
+$limit = "";
+$limit = " LIMIT 800 ";
 if ($_POST['searchDateStart'])
 	$searchStart=" AND Subscribed_Date >='".$_POST['searchDateStart']."' ";
 
@@ -283,10 +285,7 @@ WHERE 1=1 AND subscriber_event_id=1 AND newEmail != 'chris.tan@nurengroup.com' A
 AND (subscriber_created_at >= '2021-01-01 00:00:00' AND subscriber_created_at <= '2021-12-31 23:59:59')
 
 GROUP BY newEmail
-ORDER BY subscriber_created_at ASC
-LIMIT 400
-) B WHERE 1=1 $searchStart $searchEnd
-";
+ORDER BY subscriber_created_at ASC " . $limit . ") B WHERE 1=1 $searchStart $searchEnd";
 // ) B WHERE 1=1 AND Subscribed_Date <= '".$datetoday." 00:00:00' $searchStart $searchEnd
 //AND subscriber_created_at <= '2020-07-13 13:02:00' OR subscriber_created_at > '2020-07-31 23:59:59')
 	$result = $conn2->query($sql);

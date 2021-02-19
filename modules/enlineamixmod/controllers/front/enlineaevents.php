@@ -168,8 +168,10 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 						';
 					$newMomEssentialData = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($newMomEssentialDatasql);
 					$babypregnantdate = $newMomEssentialData[0]['subscriber_question3'];
-					$babypregnantdate = strtotime($babypregnantdate);$today = strtotime(date("d-m-Y")); $diff = $today - $babypregnantdate;
-					$days = floor($diff/ (60*60*24)); $weeks = floor($days / 7);
+					$babypregnantdate = strtotime($babypregnantdate);$today = strtotime(date("d-m-Y")); 
+					$diff = $today - $babypregnantdate;
+					$days = floor($diff/ (60*60*24)); 
+					$weeks = floor($days / 7);
 					if($weeks < 0 || $weeks > 40){
 						$result[0]['event_description'] = str_ireplace('Your baby is on Week {{yourbabyweek}}!',' ', $result[0]['event_description']);
 					 }else{
@@ -684,9 +686,28 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 			}
 		}
 		
-		#new essentials mom - nestle
+		#new essentials mom - nestle (when load event page)
 		if($event_id == 102)
 		{
+			$arr_maternalmilk = array(
+				"Frisomum Gold", 
+				"NatureOne Dairy Pregnancy Formula",
+				"Anmum Materna",
+				"Similac Mom",
+				"Aptamom",
+				"Bellamy's Equimum",
+				"Enfamama",
+				"Nestle Mom & Me",
+				"Wyeth Promama",
+				"Momma",
+				"Dumex Mamil Mama",
+				"Natrel Milk",
+			);
+			asort($arr_maternalmilk);
+			$arr_maternalmilk[] = "Others";
+			$arr_maternalmilk[] = "Not consuming any milk";
+			
+			#customer already login
 			if($this->context->customer->email != '' && $this->context->customer->id > 0)
 			{
 				$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `subscriber_event_id` = '" . trim($event_id) . "'";
@@ -694,7 +715,8 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 				
 				$sql 		 = "SELECT * FROM `ps_events_subscriber`" . $whereSql . " ORDER BY `subscriber_id` DESC LIMIT 1";
 				$queryResult = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
-				
+			
+				#if customer already register
 				if(is_array($queryResult[0]) && sizeof($queryResult[0]) > 0)
 				{
 					$firstname    = isset($queryResult[0]['newFirstName']) ? $queryResult[0]['newFirstName'] : '';
@@ -707,6 +729,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					$city 		  = isset($queryResult[0]['subscriber_question5']) ? $queryResult[0]['subscriber_question5'] : '';
 					$state 		  = isset($queryResult[0]['subscriber_question7']) ? $queryResult[0]['subscriber_question7'] : '';
 					$eddDate 	  = isset($queryResult[0]['subscriber_question8']) ? $queryResult[0]['subscriber_question8'] : '';
+					$milkbrand 	  = isset($queryResult[0]['subscriber_question9']) ? $queryResult[0]['subscriber_question9'] : '';
 					$subscribe_id = isset($queryResult[0]['subscriber_id']) ? $queryResult[0]['subscriber_id'] : '';
 					
 					if($state != '')
@@ -720,30 +743,53 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					{
 						$babypregnantdate = strtotime($eddDate);
 						$today 			  = strtotime(date("d-m-Y")); 
-						$diff 			  = $today - $babypregnantdate;
+						$diff 			  = $babypregnantdate - $today;
 						$days 			  = floor($diff/ (60*60*24)); 
-						$weeks 			  = floor($days / 7);
+						$weeks 			  = 40 - (floor($days / 7));
 						
+						$result[0]['event_description'] = str_ireplace('{{pre-define-display-eddform}}', "visuallyhidden", $result[0]['event_description']);
+						$result[0]['event_description'] = str_ireplace('{{pre-define-display-pregnancytracker}}', "", $result[0]['event_description']);
 						if($weeks > 0 && $weeks <= 40){
 							$weeks;
-							$result[0]['event_description'] = str_ireplace('{{pre-define-display-eddform}}', "none", $result[0]['event_description']);
-							$result[0]['event_description'] = str_ireplace('{{pre-define-display-pregnancytracker}}', "block", $result[0]['event_description']);
 							$result[0]['event_description'] = str_ireplace('{{pre-define-babyweek}}', $weeks, $result[0]['event_description']);
 						}
-						else
+						elseif($weeks <= 0)
 						{
-							$result[0]['event_description'] = str_ireplace('{{pre-define-display-eddform}}', "none", $result[0]['event_description']);
-							$result[0]['event_description'] = str_ireplace('{{pre-define-display-pregnancytracker}}', "block", $result[0]['event_description']);
-							$result[0]['event_description'] = str_ireplace('Your baby is on week {{pre-define-babyweek}}!', "Your edd has more than 40 weeks !", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('Your baby is on week {{pre-define-babyweek}}!', "Error, please enter your EDD again", $result[0]['event_description']);
 						}
+						elseif($weeks > 40)
+						{
+							$result[0]['event_description'] = str_ireplace('Your baby is on week {{pre-define-babyweek}}!', "Overdue pregnancy", $result[0]['event_description']);
+						}
+						$result[0]['event_description'] = str_ireplace('{{div-class-display-edd-milk}}', "", $result[0]['event_description']);
+						$result[0]['event_description'] = str_ireplace('{{div-class-question-edd}}', "visuallyhidden", $result[0]['event_description']);
+						$result[0]['event_description'] = str_ireplace('{{pre-define-edd}}', $eddDate, $result[0]['event_description']);
 					}
 					else
 					{
-						$result[0]['event_description'] = str_ireplace('{{pre-define-display-eddform}}', "block", $result[0]['event_description']);
-						$result[0]['event_description'] = str_ireplace('{{pre-define-display-pregnancytracker}}', "none", $result[0]['event_description']);
+						
+						$result[0]['event_description'] = str_ireplace('{{div-class-display-edd-milk}}', "visuallyhidden", $result[0]['event_description']);
+						$result[0]['event_description'] = str_ireplace('{{div-class-question-edd}}', "", $result[0]['event_description']);
+						$result[0]['event_description'] = str_ireplace('{{pre-define-display-pregnancytracker}}', "visuallyhidden", $result[0]['event_description']); # reason because bxslider got issue if div use display:none , issue slider only display control not content
 						$result[0]['event_description'] = str_ireplace('{{pre-define-babyweek}}', "", $result[0]['event_description']);
 					}
 					
+					if($milkbrand != '')
+					{
+						$result[0]['event_description'] = str_ireplace('{{pre-define-displaymilkbrad}}', $milkbrand, $result[0]['event_description']);
+						$result[0]['event_description'] = str_ireplace('{{div-class-question-milk-brand}}', "visuallyhidden", $result[0]['event_description']);
+					}
+					else
+					{
+						$result[0]['event_description'] = str_ireplace('{{pre-define-displaymilkbrad}}', "", $result[0]['event_description']);
+						$result[0]['event_description'] = str_ireplace('{{div-class-question-milk-brand}}', "", $result[0]['event_description']);
+					}
+				
+					$result[0]['event_description'] = str_ireplace('{{pre-define-class-collapse-icon}}', "<i class='fas fa-plus'></i>", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-class-collapse}}', "", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{div-class-display-edd-milk}}', "visuallyhidden", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{div-class-question-edd}}', "", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-edd}}', "", $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('{{pre-subscribe-id}}', $subscribe_id, $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('{{pre-define-email}}', $this->context->customer->email, $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('{{pre-define-fistname}}', $firstname, $result[0]['event_description']);
@@ -758,17 +804,26 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					$result[0]['event_description'] = str_ireplace('{{pre-scrolling-val}}', "yes", $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('{{pre-define-unclickable-class}}', "", $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('{{greybg-readonly-class}}', "background-grey-readonly", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{greybg-readonly-email-class}}', "background-grey-readonly", $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('{{display-password-input}}', "none", $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('{{display-btn-submit-form1}}', "none", $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('data-input-disabled', "disabled='disabled'", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('data-input-email-disabled', "disabled='disabled'", $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('{{pre-define-titleform}}', "You have registered!", $result[0]['event_description']);
 				}
+				#customer data exist as member motherhood but not yet register this event
 				else
 				{
+					$result[0]['event_description'] = str_ireplace('{{pre-define-class-collapse-icon}}', "<i class='fas fa-minus'></i>", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-class-collapse}}', "in", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-displaymilkbrad}}', "", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{div-class-question-milk-brand}}', "", $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('{{pre-subscribe-id}}', 0, $result[0]['event_description']);
-					$result[0]['event_description'] = str_ireplace('{{pre-define-email}}',"",$result[0]['event_description']);
-					$result[0]['event_description'] = str_ireplace('{{pre-define-fistname}}',"",$result[0]['event_description']);
-					$result[0]['event_description'] = str_ireplace('{{pre-define-lastname}}',"",$result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-email}}', $this->context->customer->email, $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-fistname}}', $this->context->customer->firstname, $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{display-password-input}}',"none",$result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('data-input-required',"",$result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-lastname}}', $this->context->customer->lastname, $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('{{pre-define-mobileno}}',"",$result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('{{pre-define-dob}}', "", $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('{{pre-define-fulladdress}}', "", $result[0]['event_description']);
@@ -778,18 +833,38 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					$result[0]['event_description'] = str_ireplace('{{pre-define-display-class-overlay}}', "box-overlay-display", $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('{{pre-scrolling-val}}', "no", $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('{{pre-define-unclickable-class}}', "unclickable", $result[0]['event_description']);
-					$result[0]['event_description'] = str_ireplace('{{pre-define-display-eddform}}', "block", $result[0]['event_description']);
-					$result[0]['event_description'] = str_ireplace('{{pre-define-display-pregnancytracker}}', "none", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-display-eddform}}', "", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{pre-define-display-pregnancytracker}}', "visuallyhidden", $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('{{pre-define-babyweek}}', "", $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('{{greybg-readonly-class}}', "", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{greybg-readonly-email-class}}', "background-grey-readonly", $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('{{display-password-input}}', "block", $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('{{display-btn-submit-form1}}', "block", $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('data-input-disabled', "", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('data-input-email-disabled', "readonly='readonly'", $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('{{pre-define-titleform}}', "Fill up your information", $result[0]['event_description']);
 				}
+				
+				$result[0]['event_description'] = str_ireplace('{{div-class-display-edd-milk}}', "visuallyhidden", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{div-class-question-edd}}', "", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-define-edd}}', "", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-user-id}}', $this->context->customer->id, $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-user-login}}', "true", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-define-emailcheckinpt}}', "true", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-define-eddcheckinpt}}', "false", $result[0]['event_description']);
 			}
 			else
 			{
+				#not login
+				$result[0]['event_description'] = str_ireplace('{{pre-define-class-collapse-icon}}', "<i class='fas fa-minus'></i>", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-define-class-collapse}}', "in", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{div-class-display-edd-milk}}', "visuallyhidden", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{div-class-question-edd}}', "", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-define-edd}}', "", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-define-emailcheckinpt}}', "false", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-define-eddcheckinpt}}', "false", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-user-id}}', 0, $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-user-login}}', "false", $result[0]['event_description']);
 				$result[0]['event_description'] = str_ireplace('{{pre-subscribe-id}}', 0, $result[0]['event_description']);
 				$result[0]['event_description'] = str_ireplace('{{pre-define-email}}',"",$result[0]['event_description']);
 				$result[0]['event_description'] = str_ireplace('{{pre-define-fistname}}',"",$result[0]['event_description']);
@@ -803,14 +878,33 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 				$result[0]['event_description'] = str_ireplace('{{pre-define-display-class-overlay}}', "box-overlay-display", $result[0]['event_description']);
 				$result[0]['event_description'] = str_ireplace('{{pre-scrolling-val}}', "no", $result[0]['event_description']);
 				$result[0]['event_description'] = str_ireplace('{{pre-define-unclickable-class}}', "unclickable", $result[0]['event_description']);
-				$result[0]['event_description'] = str_ireplace('{{pre-define-display-eddform}}', "block", $result[0]['event_description']);
-				$result[0]['event_description'] = str_ireplace('{{pre-define-display-pregnancytracker}}', "none", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-define-display-eddform}}', "", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{pre-define-display-pregnancytracker}}', "visuallyhidden", $result[0]['event_description']);
 				$result[0]['event_description'] = str_ireplace('{{pre-define-babyweek}}', "", $result[0]['event_description']);
 				$result[0]['event_description'] = str_ireplace('{{greybg-readonly-class}}', "", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{greybg-readonly-email-class}}', "", $result[0]['event_description']);
 				$result[0]['event_description'] = str_ireplace('{{display-password-input}}', "block", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('data-input-required',"required='required'",$result[0]['event_description']);
 				$result[0]['event_description'] = str_ireplace('{{display-btn-submit-form1}}', "block", $result[0]['event_description']);
 				$result[0]['event_description'] = str_ireplace('data-input-disabled', "", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('data-input-email-disabled', "", $result[0]['event_description']);
 				$result[0]['event_description'] = str_ireplace('{{pre-define-titleform}}', "Fill up your information", $result[0]['event_description']);
+			}
+			
+			$strMilkOpt = "";
+			if(is_array($arr_maternalmilk) && sizeof($arr_maternalmilk) > 0)
+			{
+				foreach($arr_maternalmilk as $valMilk)
+				{
+					$isselected = '';
+					if(isset($milkbrand) && strtolower($milkbrand) == strtolower($valMilk)){
+						$isselected = "selected='selected'";
+					}
+					
+					$strMilkOpt .= '<option value="' . htmlentities(trim($valMilk)) . '" ' . $isselected .'>' . htmlentities(trim($valMilk)) . '</option>';
+				}
+				
+				$result[0]['event_description'] = str_ireplace('<option class="{{milk-brand}}">milkbrand</option>', $strMilkOpt, $result[0]['event_description']);
 			}
 		}
 		
@@ -1642,6 +1736,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					echo "<script type='text/javascript'>window.location.href='https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."'</script>";
 					}
 			}
+			
 			$email = trim($newEmail);
 			$sqlC = '
 				SELECT COUNT(1) as ccount
@@ -1655,6 +1750,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 				$isNewEmail=0;
 			}
 			
+			#customer 
 			if ($newEmail && $isNewEmail)
 			{
 				
@@ -2383,6 +2479,70 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 							}
 							
 						}
+						elseif($event_id==102)#newmom-essential-nestle --> if email not exist in motherhood database-->system create info on sso-->autologin
+						{
+							$sql='SELECT id_customer FROM ps_customer WHERE email="'.$newEmail.'" LIMIT 1';
+							$resultCustomer = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+							if ($newEmail && $resultCustomer[0]['id_customer']){
+								
+								$hasAddress=false;
+								if ($resultCustomer[0]['id_customer']){
+									$sql='
+										SELECT id_address FROM ps_address
+										WHERE id_customer="'.$resultCustomer[0]['id_customer'].'"
+									';
+									$resultAddress = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+									if ($resultAddress[0]){
+										$hasAddress = true;
+									}
+								}
+								
+								#if does not have address in our database then we create
+								if (!$hasAddress){
+									$address  = new Address();
+									$id_state = 0;
+									switch(Tools::getValue('subscriber_question10')){
+										case 'Kuala Lumpur':$id_state=313;break;
+										case 'Labuan':$id_state=314;break;
+										case 'Putrajaya':$id_state=315;break;
+										case 'Johor':$id_state=316;break;
+										case 'Kedah':$id_state=317;break;
+										case 'Kelantan':$id_state=318;break;
+										case 'Melaka':$id_state=319;break;
+										case 'Negeri Sembilan':$id_state=320;break;
+										case 'Pahang':$id_state=321;break;
+										case 'Perak':$id_state=322;break;
+										case 'Perlis':$id_state=323;break;
+										case 'Pulau Pinang':$id_state=324;break;
+										case 'Sabah':$id_state=325;break;
+										case 'Sarawak':$id_state=326;break;
+										case 'Selangor':$id_state=327;break;
+										case 'Terengganu':$id_state=328;break;
+										case 'Langkawi':$id_state=329;break;
+									}
+									
+									$address->id_country  = 136;
+									$address->id_state    = $id_state;;
+									$address->postcode    = trim(Tools::getValue('subscriber_question4'));
+									$address->phone		  = trim(Tools::getValue('subscriber_question1'));
+									$address->alias		  = "home";
+									$address->firstname	  = trim(Tools::getValue('newFirstName'));
+									$address->lastname    = trim(Tools::getValue('newLastName'));
+									$address->id_customer = $resultCustomer[0]['id_customer'];
+									$address->address1	  = trim(Tools::getValue('subscriber_question3'));
+									$address->address2    = "";
+									$address->city		  = trim(Tools::getValue('subscriber_question7'));
+									
+									$address->add();
+									
+									# suppose to place cart logic but we dont finalize yet
+								}
+							}
+							
+							echo "<script type='text/javascript'>alert('Thank you for your submission, now you may access the tools!');</script>";
+							echo "<script type='text/javascript'>window.location.href='https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."'</script>";
+							exit;
+						}
 						else{
 							require_once(_PS_MODULE_DIR_.'/affiliateprogram/affiliateprogram.php');
 							$affiliateprogram = new affiliateprogram();
@@ -2390,10 +2550,8 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 						}
 
 					}
-					
-					
-					
-				}else{
+				}
+				else{
 					if ($event_id==103){
 						$errors =  "Registration Saved!";
 					}else{
@@ -3148,6 +3306,81 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 						$this->context->smarty->assign("showErrors","Login/Password incorrect");
 						
 					}
+				}
+				elseif($event_id == 102)#newmom essential-nestle --> email already exist in motherhood database, then we need to do autologin after user submit details
+				{
+					#if customer already login and signup events
+					if($this->context->customer->email != '' && $this->context->customer->id > 0)
+					{
+						# suppose to place cart logic but we dont finalize yet
+					}
+					else
+					{
+						#customer not login but email already exist in db motherhood
+						$password  =trim($newPassword);
+						$firstname =trim($newFirstName);
+						$last_name = trim($newLastName);
+						if($last_name == ""){
+							$last_name = ".";
+						}
+						
+						$public_key = _SSO_PUBLIC_KEY_;
+						$nonce 		=  Tools::generateRandomNonce();
+						$signature  =  Tools::generateSignature($nonce);
+
+					// ********** create sso user ********************
+
+						$post_data = array(
+									'email' => $email,
+									'password' => $password,
+									'public_key' => $public_key,
+									'nonce' =>  $nonce,
+									'signature' => $signature
+							);
+						$post_result = Tools::post_data(_SSO_API_LOGIN_ACCOUNT_, $post_data);
+						$post_result = json_decode($post_result, true);
+						
+						if ($post_result['succeeded']==1){
+							
+							$sql='SELECT id_customer FROM ps_customer WHERE email="'.$email.'" LIMIT 1';
+							$resultCustomer = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+							
+							$customer = new Customer($resultCustomer[0]['id_customer']);
+							
+							# ===== code to auto sign in ====
+							$context							 = $this->context;
+							$context->cookie->id_compare  		 = isset($context->cookie->id_compare) ? $context->cookie->id_compare: CompareProduct::getIdCompareByIdCustomer($customer->id);
+							$context->cookie->id_customer 		 = (int)($customer->id);
+							$context->cookie->customer_lastname  = $customer->lastname;
+							$context->cookie->customer_firstname = $customer->firstname;
+							$context->cookie->logged 			 = 1;
+							$customer->logged 					 = 1;
+							$context->cookie->is_guest 			 = $customer->isGuest();
+							$context->cookie->passwd 			 = $customer->passwd;
+							$context->cookie->email 			 = $customer->email;
+							$context->customer 					 = $customer;	#Add customer to the context
+							
+							# suppose to place cart logic but we dont finalize yet
+							
+							$ssocookie 			= Tools::getSSOCookie();
+							$ssocookie->ssoUser = $context->customer->email;
+							$context->cookie->__set("customerEmail", $context->customer->email);
+							$context->cart->autosetProductAddress();
+							
+							$context->cookie->write();
+							# ======= end of code ========
+						}
+						
+					}
+					
+					$sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = " . $event_id . " LIMIT 1"; # page that handle
+					$querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
+					$event_slug  = $querySlug[0]['event_slug'];
+					$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug;
+					
+					echo "<script type='text/javascript'>alert('Thank you for your submission, now you may access the tools!');</script>";
+					echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
+					exit;
 				}
 				else{
 

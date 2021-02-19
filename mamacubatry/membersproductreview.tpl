@@ -18,20 +18,17 @@ $('#content').keyup(function() {
   $('#wordscomment').text(length+' characters left to qualify for review reward points');
 });
 
-function setProductReview(clickElement){
-	var name = clickElement.parentElement.parentElement.parentElement.parentElement.cells[2].innerText;
-	$("#newcomment_name").text(name);
+function setProductReview(_this){
+	var productName    = $(_this).closest('td').find('.product-name').val();
+	var productID      = $(_this).closest('td').find('.product-id').val();
+	var productImgSrc  = $(_this).closest('td').find('.product-img-src').val();
+	var productImgAlt  = $(_this).closest('td').find('.product-img-alt').val();
+	var productDesc    = $(_this).closest('td').find('.product-desc').val();
 
-	var desc=clickElement.nextSibling.value;
-	document.getElementById("newcomment_desc").innerHTML=desc;
-	
-	var imgsrc=clickElement.parentElement.parentElement.parentElement.parentElement.cells[0].firstElementChild.src;
-	$("#newcomment_img").attr("src",imgsrc);
-	$("#newcomment_img").attr("alt",name);
-	
-	var product_id=clickElement.nextSibling.nextSibling.value;
-	document.getElementById("id_product_comment_send").value=product_id;
-	
+	$("#newcomment_name").text(productName);
+	$("#newcomment_img").attr("src",productImgSrc);
+	$("#newcomment_img").attr("alt",productImgAlt);
+	$("#id_product_comment_send").val(productID);
 	$("#content").val("");
 	$("#comment_title").val("");
 }
@@ -565,12 +562,17 @@ var myAddress='{$currentAddressId}';
 							<td style="border-right: 0px solid !important; border-left : 0px solid !important;">{$product.reference|escape:'strval'}</td>
 							<td style="border-right: 0px solid !important; border-left : 0px solid !important;">{dateFormat date=$product.date_add full=1}</td>
 							<td style="border-right: 0px solid !important; border-left : 0px solid !important;">
+								<input type="hidden" class="product-name" value="{$product.name|escape:'strval'}">
+								<input type="hidden" class="product-id" value="{$product.id_product}">
+								<input type="hidden" class="product-img-src" value="{$product.productcomment_cover_image}">
+								<input type="hidden" class="product-img-alt" value="{$product.name|escape:html:'UTF-8'}">
+								<textarea  style="display:none" class="product-desc">{$product.description}</textarea>
 							{if ($product.havegrade=='missing')}
 								<div id="product_comments_block_tab">
 									<p class="align_center">
-										<a type="button" class="btn btn-default btn-pill btn-pill-color open-comment-form" href="#new_comment_form"  onclick='setProductReview(this)'>Write Review</a>
-										<textarea style='visibility:hidden;display:none'>{$product.description}</textarea>
-										<input style='visibility:hidden;display:none' value='{$product.id_product}'>
+										<a type="button" class="btn btn-default btn-pill btn-pill-color open-comment-form" href="#new_comment_form"  onclick='setProductReview(this)'>
+										Write Review
+										</a>
 									</p>
 								</div>
 							{else}

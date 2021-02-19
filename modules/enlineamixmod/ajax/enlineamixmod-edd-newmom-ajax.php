@@ -17,42 +17,50 @@ if (!class_exists('enlineamixmod')) {
 $arrMsg   	   = array('status' => false, "status_code" => 'nodata_post', 'msg' => 'no data post', 'succeeded' => null);
 $edd      	   = (isset($_POST["edd"])) ? $_POST["edd"] : '';
 $eventID  	   = (isset($_POST["eventid"])) ? $_POST["eventid"] : 0;
-$subscribe_id  = (isset($_POST["subscribe_id"])) ? $_POST["subscribe_id"] : 0;
+// $subscribe_id  = (isset($_POST["subscribe_id"])) ? $_POST["subscribe_id"] : 0;
 
-if($eventID > 0 && $subscribe_id > 0)
+if($eventID > 0 && $edd != '')
 {
-	$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `subscriber_event_id` = '" . trim($eventID) . "'";
-	$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `subscriber_id` = '" . trim($subscribe_id) . "'";
-	
-	$sql 		 = "UPDATE `ps_events_subscriber` SET `subscriber_question8` = '" . trim($edd)  . "'" . $whereSql . " LIMIT 1";
-	$queryUpdate = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
-	if($queryUpdate)
+	$arr_sortdate = array();
+	$arr_sortdate = explode('-', $edd);
+	if(is_array($arr_sortdate) && sizeof($arr_sortdate) == 3)
 	{
-		$babypregnantdate = strtotime($edd);
-		$today 			  = strtotime(date("Y-m-d")); 
-		$diff 			  = $today - $babypregnantdate;
+		$mysqlformat = $arr_sortdate[2] . "-" . $arr_sortdate[1] . "-" . $arr_sortdate[0];
+		$eddDate = date('Y-m-d', strtotime($mysqlformat));
+		
+		$babypregnantdate = strtotime($eddDate);
+		$today 			  = strtotime(date("d-m-Y")); 
+		$diff 			  = $babypregnantdate - $today;
 		$days 			  = floor($diff/ (60*60*24)); 
-		$weeks      	  = floor($days / 7);
+		$weeks 			  = 40 - (floor($days / 7));
 		
-		$t = date("d-m-Y", strtotime($babypregnantdate));
 		if($weeks > 0 && $weeks <= 40){
+			$arrMsg['status'] 	   = true;
 			$dataCustomer['week']  = $weeks;
-			$arrMsg['msg'] 	       = 'Edd data has been update';
+			$arrMsg['status_code'] = "ok";
+			$arrMsg['msg'] 	       = 'Edd data valid';
 		}
-		else
+		elseif($weeks <= 0)
 		{
+			$arrMsg['status'] 	   = false;
 			$dataCustomer['week']  = $weeks;
-			$arrMsg['msg'] 	       = 'Edd data has been update week exceed';
+			$arrMsg['status_code'] = "negative_edd";
+			$arrMsg['msg'] 	       = 'Error, please enter your EDD again';
+		}
+		elseif($weeks > 40)
+		{
+			$arrMsg['status'] 	   = false;
+			$dataCustomer['week']  = $weeks;
+			$arrMsg['status_code'] = "overdue_pregnancy";
+			$arrMsg['msg'] 	       = 'Overdue Pregnancy';
 		}
 		
-		$arrMsg['status'] 	   = true;
-		$arrMsg['data'] 	   = $dataCustomer;
+		$arrMsg['data'] = $dataCustomer;
 	}
-	else
-	{
+	else{
 		$arrMsg['status'] 	   = false;
-		$arrMsg['status_code'] = 'edd_data_noupdate'; 
-		$arrMsg['msg'] 	       = 'Edd data not has been update';
+		$arrMsg['status_code'] = 'edd_format_error'; 
+		$arrMsg['msg'] 	       = "EDD format date invalid";
 	}
 }
 else

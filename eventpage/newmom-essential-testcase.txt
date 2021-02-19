@@ -1,0 +1,34 @@
+scenario to test
+
+==============================================
+without login
+==============================================
+1. enter email that not exist in motherhood system.
+	--> required to enter password and valid edd to proceed
+	--> "detail information" customer cannot close information section
+	--> system auto login after complete create user account on SSO database.
+
+2. enter email that exist in motherhood system but has not join event yet.
+	--> required to enter valid password and valid edd to proceed
+	--> first name and last name will be pre define by system.
+	--> customer cannot clost details information section.
+	
+3. enter email that already joined event, 
+	--> all input will be unable to edit. type of input for edd and milk brand change from dropdown to normal input
+	--> "detail information" now clickable customer can close information section.
+
+
+======================================================
+login motherhood system
+======================================================
+
+1. first time join event
+	--> password input will be hide. user don't need to fill in password and user email auto predefine by system and cannot edit.
+	--> details information cannot close
+	
+2. Joined
+	--> system auto predefine all infomation that customer field before and cannot edit.
+	--> edd and milk brand has change from dropdown to normal input type.
+	--> details information auto hide when load page. custommer can click details information to view their info.
+	
+	

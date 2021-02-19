@@ -475,8 +475,8 @@
 						{if $sellerinfo->ams_custom_number2==2}
 							<i class="fa fa-truck"></i>&nbsp;&nbsp; <b>Delivery Options</b><br>Same Day Delivery<br>
 						{/if}
-						{if ($sellerinfo->ams_custom_date4>$smarty.now|date_format:"%Y-%m-%d"  )}
-							<br><i class="fa fa-tree"></i>&nbsp;&nbsp; <b>Seller Holiday</b><br>Delivery Starts on {$sellerinfo->ams_custom_date4}</br>
+						{if ($sellerinfo->ams_custom_date4>$smarty.now|date_format:"%d-%m-%Y"  )}
+							<br><font style="color:#e9322d"><i class="fa fa-tree"></i>&nbsp;&nbsp; <b>Seller Holiday</b><br>Delivery Starts on {$sellerinfo->ams_custom_date4}</br></font>
 						{/if}
 						Estimate Delivery Cost : RM 5.00</br>
 					</div>

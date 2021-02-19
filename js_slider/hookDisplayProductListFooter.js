@@ -1,6 +1,7 @@
 $(document).ready(function () {
     if (!!$.prototype.bxSlider) {
-        var sliderWidth = $(".enlinea_slider").width();
+        var sliderWidth       = $(".enlinea_slider").width();
+        var sliderWidthcustom = $(".enlinea_slider_custom").width();
 
         parentcrafttestWidth = sliderWidth - 40;
         parentcrafttestWidth = (parentcrafttestWidth / 2) - 20;
@@ -242,10 +243,10 @@ $(document).ready(function () {
 		{
 			preganancyMinSlide = 6
 			pregnancyMaxSlide = 8
-			var pregnancySliderWidth = sliderWidth - 40;
+			var pregnancySliderWidth = sliderWidthcustom - 40;
 			var pregnancySliderWidth = (pregnancySliderWidth / 3) - 20;
 		}
-
+		
         $('.pregnancy-tracker').bxSlider({
             minSlides: preganancyMinSlide,
             maxSlides: pregnancyMaxSlide,
