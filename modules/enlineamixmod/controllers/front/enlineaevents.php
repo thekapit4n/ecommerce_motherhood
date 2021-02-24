@@ -2616,7 +2616,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					}else if($event_id==93 ){
 						echo"
 						  <script type='text/javascript'>
-						  alert('Thank You for registering.. Please choose your Super Kids Rewards!');
+						  alert('Thank you for registering! Due to overwhelmed support, our SuperKid box is currently out of stock. We will inform you by email once our product is available again. Stay tuned!');
 						  </script>
 						";
 						

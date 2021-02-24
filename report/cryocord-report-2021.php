@@ -239,7 +239,8 @@ li:not(.leftmenu) a:hover:not(.active):not(.leftmenu) {
 	$searchStart ="2021-01-01 00:00:00";
 	$searchEnd 	 ="";
 	$wheresql  	 = "";
-	$limitsql    = " LIMIT " . 1000;
+	$limitsql    = "";
+	// $limitsql    = " LIMIT " . 1000;
 	
 	if(isset($_POST['searchDateStart']) && $_POST['searchDateStart'] != '')
 	{

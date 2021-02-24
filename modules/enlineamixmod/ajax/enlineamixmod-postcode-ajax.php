@@ -35,7 +35,21 @@ if($postcode != '')
 			$datapostcode['city'] 	  	= $val['post_office'];
 			$datapostcode['city'] 	  	= $val['post_office'];
 			$datapostcode['state_code'] = $val['state_code'];
-			$datapostcode['state_name'] = $val['state_name'];
+			
+			if(strtolower($val['state_name']) == 'wilayah persekutuan kuala lumpur')
+			{
+				$datapostcode['state_name'] = "Kuala Lumpur";
+			}
+			elseif(strtolower($val['state_name']) == 'wilayah persekutuan labuan')
+			{
+				$datapostcode['state_name'] = "Labuan";
+			}
+			elseif(strtolower($val['state_name']) == 'wilayah persekutuan putrajaya')
+			{
+				$datapostcode['state_name'] = "Putrajaya";
+			}
+			else
+				$datapostcode['state_name'] = $val['state_name'];
 		}
 		
 		$arrMsg['status'] 	   = true;

@@ -57,12 +57,12 @@ WHERE link_rewrite="'.pSQL(Tools::getValue('product_slug')).'"';
 		
 		$this->context->controller->addJS('themes/default-bootstrap/dashboard-assets/form-wizard-5/js/jquery.steps.js');
 		
-        $sql = '
-			SELECT *
-			FROM `'._DB_PREFIX_.'tester_campaign_header` a join ps_product_lang b
-			on a.tester_product_id=b.id_product and b.id_lang=1
-			JOIN ps_product c ON b.id_product=c.id_product
-			WHERE link_rewrite="'.pSQL(Tools::getValue('product_slug')).'"';
+        $sql	= '
+					SELECT *
+					FROM `'._DB_PREFIX_.'tester_campaign_header` a join ps_product_lang b
+					on a.tester_product_id=b.id_product and b.id_lang=1
+					JOIN ps_product c ON b.id_product=c.id_product
+					WHERE link_rewrite="'.pSQL(Tools::getValue('product_slug')).'"';
         $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
 		
 		$product 	 = new Product((int)$result[0]['id_product']);
@@ -87,11 +87,34 @@ WHERE link_rewrite="'.pSQL(Tools::getValue('product_slug')).'"';
 				'genders' => Gender::getGenders(),
 			));
 			
+		$arr_pastreview = array();
 		if ($customerAdditionalInfo){
+
+			if(is_array($customerAdditionalInfo) && isset($customerAdditionalInfo[0]) && is_array($customerAdditionalInfo[0]) && sizeof($customerAdditionalInfo[0]) > 0)
+			{
+				$string_milkBrand  	 	= $customerAdditionalInfo[0]['favMilk'];
+				$string_diapersBrand 	= $customerAdditionalInfo[0]['favDiaper'];
+				$string_pastReviewBrand = $customerAdditionalInfo[0]['affBrands'];
+				
+				if($string_milkBrand != '')
+				{
+					$arr_milkBrand = explode(',', $string_milkBrand);
+				}
+				
+				if($string_diapersBrand != '')
+				{
+					$arr_diapersBrand = explode(',', $string_diapersBrand);
+				}
+				
+				if($string_pastReviewBrand != '')
+				{
+					$arr_pastreview = explode(',', $string_pastReviewBrand);
+				}
+			}
+			
 			$this->context->smarty->assign(array(
 				'additionalInfo' => $customerAdditionalInfo[0],
 			));
-			
 		}else{
 			$this->context->smarty->assign(array(
 				'additionalInfo' => array(
@@ -110,24 +133,31 @@ WHERE link_rewrite="'.pSQL(Tools::getValue('product_slug')).'"';
 		$sqlstate 	 = "SELECT * FROM motherhood_presta.ps_postcode_state ORDER BY state_name ASC";
 		$resultState = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlstate);
 		
-		$arr_race   = array("Malay", "Chinese", "Indian", "Others");
-		$arr_salary = array("36,000 and below", "36,000 - 60,000", "60,000 - 120,000", "120,000 and above");
+		$arr_race   	  = array("Malay", "Chinese", "Indian", "Others");
+		$arr_salary 	  = array("36,000 and below", "36,000 - 60,000", "60,000 - 120,000", "120,000 and above");
 		
-        $this->context->smarty->assign(array(
-			'campaign'		  => $result[0],
-			'customer'		  => $customer,
-			'productCategory' => $productCategory,
-			'mediumSize' 	  => Image::getSize(ImageType::getFormatedName('medium')),
-			'liststate'	 	  => $resultState,
-			'arr_race'		  => $arr_race,
-			'arr_salary'	  => $arr_salary,
+		$sql_address = "SELECT addr.*,state.name as statename FROM motherhood_presta.ps_address as addr 
+						LEFT JOIN ps_state as state
+						ON addr.id_state = state.id_state
+						WHERE addr.id_customer = " . $this->context->customer->id;
+		/* $sql_address = "SELECT addr.*,state.name as statename FROM motherhood_presta.ps_address as addr 
+						LEFT JOIN ps_state as state
+						ON addr.id_state = state.id_state
+						WHERE addr.id_customer = 1995"; */
+		$resultAddr  = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql_address);
+      
+	  $this->context->smarty->assign(array(
+			'campaign'		   => $result[0],
+			'customer'		   => $customer,
+			'productCategory'  => $productCategory,
+			'mediumSize' 	   => Image::getSize(ImageType::getFormatedName('medium')),
+			'liststate'	 	   => $resultState,
+			'arr_race'		   => $arr_race,
+			'arr_salary'	   => $arr_salary,
+			'arr_pastreview'   => $arr_pastreview,
+			'arr_address'	   => $resultAddr,
+			'mamacubatry_view' => _PS_ROOT_DIR_  . "/modules/enlineamixmod/views",     
         ));
-		
-		// print_r($result[0]);
-		// print_r($customer);
-		// print_r($productCategory);
-		
-		
 		
 		$this->setTemplate('mamacubatryproducts.tpl');
         return parent::postProcess();
