@@ -1,190 +1,161 @@
 <p>
-	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/fontawesome-v5.15.1/js/all.min.js"></script>
+   <script src="../../../themes/default-bootstrap/dashboard-assets/fontawesome-v5.15.1/js/all.min.js"></script>
 </p>
 <style>
    <!--
-	.nbs-flexisel-container{
-	   border:0px;
-	}
-		
-	.div-item-calendar{
-		margin-bottom:10px; 
-		padding-left:10px; 
-		padding-top:10px; 
-		padding-right:10px;
-	}
-		
-	.speakerBox-calendar{
-		background-color:#f7f7f8;
-	}
-		
-	.title-webinar{
-		font-weight: 700; 
-		font-size:17px;
-		min-height:35px;
-	}
-		
-	.div-web-desc{
-		color:#4c4c4d;
-	}
-		
-	.desc-time, .desc-by, .desc-info{
-		font-size:14px;
-	}
-		
-	.product-box item
-	{
-		backgound
-	}
-		
-	@media only screen and (max-width: 600px) 
-	{
-		.img-calendar{
-			width:70%;
-		}
-		
-		.title-webinar{
-			padding-top:15px;
-			min-height:68px;
-		}
-		
-		.desc-info{
-			min-height: 36px;
-
-		}
-		
-		.swipe-text{
-			display:block !important;
-		}
-	}
+      .nbs-flexisel-container{
+      	   border:0px;
+      	}
+      		
+      	.div-item-calendar{
+      		margin-bottom:10px; 
+      		padding-left:10px; 
+      		padding-top:10px; 
+      		padding-right:10px;
+      	}
+      		
+      	.speakerBox-calendar{
+      		background-color:#f7f7f8;
+      	}
+      		
+      	.title-webinar{
+      		font-weight: 700; 
+      		font-size:17px;
+      		min-height:35px;
+      	}
+      		
+      	.div-web-desc{
+      		color:#4c4c4d;
+      	}
+      		
+      	.desc-time, .desc-by, .desc-info{
+      		font-size:14px;
+      	}
+      		
+      	.product-box item
+      	{
+      		backgound
+      	}
+      		
+      	@media only screen and (max-width: 600px) 
+      	{
+      		.img-calendar{
+      			width:70%;
+      		}
+      		
+      		.title-webinar{
+      			padding-top:15px;
+      			min-height:68px;
+      		}
+      		
+      		.desc-info{
+      			min-height: 36px;
+      
+      		}
+      		
+      		.swipe-text{
+      			display:block !important;
+      		}
+      	}
       -->
 </style>
-<div class="col-lg-12" style="padding-left: 0px; padding-right: 0px;"><a href="../../../events/motherhood-superkids" target="_blank" rel="noopener">
-<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Online+Sale/page/super-kids-1.png" alt="" width="100%"/></a></div>
-<div class="col-lg-12" style="padding-left: 0px; padding-right: 0px;"><a href="../../../events/motherhood-superkids" target="_blank" rel="noopener">
-<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Online+Sale/page/2.png" alt="" width="100%" /></a></div>
+<div class="col-lg-12" style="padding-left: 0px; padding-right: 0px;"><a href="../../../events/motherhood-superkids" target="_blank" rel="noopener"> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Online+Sale/page/super-kids-1.png" alt="" width="100%" /></a></div>
+<div class="col-lg-12" style="padding-left: 0px; padding-right: 0px;"><a href="../../../events/motherhood-superkids" target="_blank" rel="noopener"> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Online+Sale/page/2.png" alt="" width="100%" /></a></div>
 <div class="clearfix"></div>
 <!--====================USP ====================-->
 <div class="clearfix"></div>
-<div class="col-lg-12" style="padding-left: 0px; padding-right: 0px;"><a href="../../../events/motherhood-superkids" target="_blank" rel="noopener">
-<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/usp2.png" alt="" width="100%"/></a></div>
+<div class="col-lg-12" style="padding-left: 0px; padding-right: 0px;"><a href="../../../events/motherhood-superkids" target="_blank" rel="noopener"> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/usp2.png" alt="" width="100%" /></a></div>
 <div class="clearfix"></div>
 <!--====================LUCKYDRAW ====================-->
 <div class="clearfix"></div>
-<div class="col-lg-12" style="padding-left: 0px; padding-right: 0px;"><a href="../../../events/motherhood-superkids" target="_blank" rel="noopener">
-<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/new2.png" alt="" width="100%"/></a></div>
+<div class="col-lg-12" style="padding-left: 0px; padding-right: 0px;"><a href="../../../events/motherhood-superkids" target="_blank" rel="noopener"> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/new2.png" alt="" width="100%" /></a></div>
 <div class="clearfix"></div>
 <!--====================REWARDS ====================-->
 <div class="clearfix"></div>
-	<div class="col-md-12 enlinea_slider div-row-calendar-slider" style="padding-top: 20px;margin-top: 20px;margin-bottom: 20px;">
-		<p style="font-size: 24px; color: #4c4c4d; font-weight: bold;     padding-top: 20px;  padding-bottom: 7px; line-height: 1;">Upcoming Webinar</p>
-		<p style="font-size: 12px; color: #4c4c4d; font-weight: bold; padding-top: 0px; padding-bottom: 9px; line-height: 1;" class="swipe-text" style="display:none">swipe right to see more webinar</p>
-		<div class="slider_container">
-			<ul class="calendar-slider-superkid">
-				<li class="product-box item" style="min-width: 150px;">
-				  <div class="reviewBox-calendar">
-					 <div class="speakerBox-calendar">
-						<div class="row div-item-calendar">
-							<div class="col-md-5">
-								<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Superkids/date/7feb.png" class="img-calendar" width="100%" alt="7feb2021" />
-							</div>
-							<div class="col-md-7 div-web-desc text-left">
-								<p class="title-webinar">Video Sensing-Collect the Ang Pow!</p>
-								<p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m</p>
-								<p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Aimsity</p>
-								<p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 10 years old</p>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<a href="https://docs.google.com/forms/d/e/1FAIpQLSeW3kbLxoiGJaMFyBz69n_TbChFuwqDS1nXJphiGv5IiDNXmQ/viewform" class="btn btn-default btn-view-event" style="width: 100%; background-color:#69bd45;color:white;">
-									VIEW EVENT
-								</a>
-							</div>
-						</div>
-					 </div>
-				  </div>
-				</li>
-			   <li class="product-box item" style="min-width: 150px;">
-				  <div class="reviewBox-calendar">
-					 <div class="speakerBox-calendar">
-						<div class="row div-item-calendar">
-							<div class="col-md-5">
-								<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Superkids/date/27feb.png" class="img-calendar" width="100%" alt="7feb2021" />
-							</div>
-							<div class="col-md-7 div-web-desc text-left">
-								<p class="title-webinar">What are these shapes?</p>
-								<p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m</p>
-								<p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Teacher Jolly</p>
-								<p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 4 years old</p>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<a href="https://docs.google.com/forms/d/e/1FAIpQLSeW3kbLxoiGJaMFyBz69n_TbChFuwqDS1nXJphiGv5IiDNXmQ/viewform"  class="btn btn-default btn-view-event" style="width: 100%; background-color:#69bd45;color:white;">
-								VIEW EVENT
-								</a>
-							</div>
-						</div>
-					 </div>
-				  </div>
-			   </li> 
-			   <li class="product-box item" style="min-width: 150px;">
-				  <div class="reviewBox-calendar">
-					 <div class="speakerBox-calendar">
-						<div class="row div-item-calendar">
-							<div class="col-md-5">
-								<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Superkids/date/27mar.png" class="img-calendar" width="100%" alt="7feb2021" />
-							</div>
-							<div class="col-md-7 div-web-desc text-left">
-								<p class="title-webinar">Eye Magic</p>
-								<p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m</p>
-								<p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Teacher Bobby</p>
-								<p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 4 years old</p>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<a href="https://docs.google.com/forms/d/e/1FAIpQLSeW3kbLxoiGJaMFyBz69n_TbChFuwqDS1nXJphiGv5IiDNXmQ/viewform" class="btn btn-default btn-view-event" style="width: 100%; background-color:#69bd45;color:white;">
-								VIEW EVENT
-								</a>
-							</div>
-						</div>
-					 </div>
-				  </div>
-			   </li>
-			   <li class="product-box item" style="min-width: 150px;">
-					<div class="reviewBox-calendar">
-						<div class="speakerBox-calendar">
-							<div class="row div-item-calendar">
-								<div class="col-md-5">
-									<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Superkids/date/28mar.png" class="img-calendar" width="100%" alt="7feb2021" />
-								</div>
-								<div class="col-md-7 div-web-desc text-left">
-									<p class="title-webinar">Decorate your Easter Egg!</p>
-									<p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m</p>
-									<p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Aimsity</p>
-									<p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 10 years old</p>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-12">
-									<a href="https://docs.google.com/forms/d/e/1FAIpQLSeW3kbLxoiGJaMFyBz69n_TbChFuwqDS1nXJphiGv5IiDNXmQ/viewform" class="btn btn-default btn-view-event" style="width: 100%; background-color:#69bd45;color:white;">
-									VIEW EVENT
-									</a>
-								</div>
-							</div>
-						 </div>
-					</div>
-			   </li>
-			</ul>
-		</div>
-    </div>
-    
-	<div class="clearfix"></div>
-    <!-- Content under programme highlight -->
-	<p>{{productlist}}</p>
-	<div class="clearfix"></div>
+<div class="col-md-12 enlinea_slider div-row-calendar-slider" style="padding-top: 20px; margin-top: 20px; margin-bottom: 20px;">
+   <p style="font-size: 24px; color: #4c4c4d; font-weight: bold; padding-top: 20px; padding-bottom: 7px; line-height: 1;">Upcoming Webinar</p>
+   <p style="display: none;" class="swipe-text">swipe right to see more webinar</p>
+   <div class="slider_container">
+      <ul class="calendar-slider-superkid">
+         <li class="product-box item" style="min-width: 150px;">
+            <div class="reviewBox-calendar">
+               <div class="speakerBox-calendar">
+                  <div class="row div-item-calendar">
+                     <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Superkids/date/7feb.png" class="img-calendar" width="100%" alt="7feb2021" /></div>
+                     <div class="col-md-7 div-web-desc text-left">
+                        <p class="title-webinar">Video Sensing-Collect the Ang Pow!</p>
+                        <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m</p>
+                        <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Aimsity</p>
+                        <p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 10 years old</p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12"><a href="https://docs.google.com/forms/d/e/1FAIpQLSeW3kbLxoiGJaMFyBz69n_TbChFuwqDS1nXJphiGv5IiDNXmQ/viewform" class="btn btn-default btn-view-event" style="width: 100%; background-color: #69bd45; color: white;"> VIEW EVENT </a></div>
+                  </div>
+               </div>
+            </div>
+         </li>
+         <li class="product-box item" style="min-width: 150px;">
+            <div class="reviewBox-calendar">
+               <div class="speakerBox-calendar">
+                  <div class="row div-item-calendar">
+                     <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Superkids/date/27feb.png" class="img-calendar" width="100%" alt="7feb2021" /></div>
+                     <div class="col-md-7 div-web-desc text-left">
+                        <p class="title-webinar">What are these shapes?</p>
+                        <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m</p>
+                        <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Teacher Jolly</p>
+                        <p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 4 years old</p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12"><a href="https://forms.gle/982WkzNLdqJ2kdtCA" class="btn btn-default btn-view-event" style="width: 100%; background-color: #69bd45; color: white;"> VIEW EVENT </a></div>
+                  </div>
+               </div>
+            </div>
+         </li>
+         <li class="product-box item" style="min-width: 150px;">
+            <div class="reviewBox-calendar">
+               <div class="speakerBox-calendar">
+                  <div class="row div-item-calendar">
+                     <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Superkids/date/27mar.png" class="img-calendar" width="100%" alt="7feb2021" /></div>
+                     <div class="col-md-7 div-web-desc text-left">
+                        <p class="title-webinar">Eye Magic</p>
+                        <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m</p>
+                        <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Teacher Bobby</p>
+                        <p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 4 years old</p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12"><a href="https://forms.gle/jzgBMwMR7A3LfEVx5" class="btn btn-default btn-view-event" style="width: 100%; background-color: #69bd45; color: white;"> VIEW EVENT </a></div>
+                  </div>
+               </div>
+            </div>
+         </li>
+         <li class="product-box item" style="min-width: 150px;">
+            <div class="reviewBox-calendar">
+               <div class="speakerBox-calendar">
+                  <div class="row div-item-calendar">
+                     <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Superkids/date/28mar.png" class="img-calendar" width="100%" alt="7feb2021" /></div>
+                     <div class="col-md-7 div-web-desc text-left">
+                        <p class="title-webinar">Decorate your Easter Egg!</p>
+                        <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m</p>
+                        <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Aimsity</p>
+                        <p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 10 years old</p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12"><a href="https://forms.gle/rLLrdmJYVmZSj1oc9" class="btn btn-default btn-view-event" style="width: 100%; background-color: #69bd45; color: white;"> VIEW EVENT </a></div>
+                  </div>
+               </div>
+            </div>
+         </li>
+      </ul>
+   </div>
+</div>
+<div class="clearfix"></div>
+<!-- Content under programme highlight -->
+<p>{{productlist}}</p>
+<div class="clearfix"></div>
 <div class="col-md-10 col-md-offset-1" style="background: rgba(255, 255, 255, 0.8); background-size: cover; padding-top: 20px; padding-bottom: 20px; border-radius: 10px;">
    <p style="font-size: 24px; color: #4c4c4d; font-weight: bold; padding-top: 20px; padding-bottom: 20px; line-height: 1;">Ready to be a Motherhood Super Kid?</p>
    <p style="font-size: 1.6em; color: #4c4c4d; font-weight: bold; padding-top: 20px; line-height: 1; text-align: left;">Parents</p>
@@ -231,7 +202,7 @@
       <p style="font-size: 1.6em; color: #4c4c4d; font-weight: bold; padding-top: 20px; line-height: 1; text-align: left;">Child #1</p>
       <hr style="border: 2px solid; margin-top: 2px;" />
       <div class="col-md-6" style="padding-right: 5px; padding-left: 5px; padding-top: 5px;"><input type="text" id="subscriber_question11" name="subscriber_question11" style="width: 100%; font-size: 1.2em; box-shadow: none!IMPORTANT; border-radius: 0!IMPORTANT;" placeholder="Child Name" required="required" /></div>
-      <div class="col-md-6" style="padding-right: 5px; padding-left: 5px; padding-top: 5px;"><input type="text" id="subscriber_question12" name="subscriber_question12" style="width: 100%; font-size: 1.2em; box-shadow: none!IMPORTANT; border-radius: 0!IMPORTANT;" placeholder="MyKid IC" required="required"/></div>
+      <div class="col-md-6" style="padding-right: 5px; padding-left: 5px; padding-top: 5px;"><input type="text" id="subscriber_question12" name="subscriber_question12" style="width: 100%; font-size: 1.2em; box-shadow: none!IMPORTANT; border-radius: 0!IMPORTANT;" placeholder="MyKid IC" required="required" /></div>
       <div class="clearfix"></div>
       <div class="col-md-6" style="padding-right: 5px; padding-left: 5px; padding-top: 5px;"><input type="date" id="subscriber_question13" name="subscriber_question13" style="width: 100%; font-size: 1.2em; box-shadow: none!IMPORTANT; border-radius: 0!IMPORTANT;" placeholder="DD/MM/YYYY" required="required" /></div>
       <div class="col-md-6" style="padding-right: 5px; padding-left: 5px; padding-top: 5px;"><input type="text" id="subscriber_question14" name="subscriber_question14" style="width: 100%; font-size: 1.2em; box-shadow: none!IMPORTANT; border-radius: 0!IMPORTANT;" placeholder="Child Contact (Optional)" /></div>
@@ -246,28 +217,7 @@
       <div class="col-md-6" style="padding-right: 5px; padding-left: 5px; padding-top: 5px;">
          <select name="subscriber_question26" id="subscriber_question26" type="text" style="width: 100%; font-size: 1.2em; box-shadow: none!IMPORTANT; border-radius: 0!IMPORTANT;" required="required">
             <option value="">Current Milk Brand</option>
-            <option value="Anmum Essential">Anmum Essential</option>
-            <option value="Baby Steps BBs-3">Baby Steps BBs-3</option>
-            <option value="Dumex Dugro">Dumex Dugro</option>
-            <option value="Dumex Mamil">Dumex Mamil</option>
-            <option value="Dutch Lady">Dutch Lady</option>
-            <option value="Enfagrow">Enfagrow</option>
-            <option value="Fernleaf">Fernleaf</option>
-            <option value="Friso Gold">Friso Gold</option>
-            <option value="Isomil">Isomil</option>
-            <option value="Karihome">Karihome</option>
-            <option value="Morinaga">Morinaga</option>
-            <option value="Nestle Lactogen">Nestle Lactogen</option>
-            <option value="Nestle Nan">Nestle Nan</option>
-            <option value="Novalac">Novalac</option>
-            <option value="Pediasure">Pediasure</option>
-            <option value="Similac">Similac</option>
-            <option value="Snow">Snow</option>
-            <option value="Spring Sheep">Spring Sheep</option>
-            <option value="Sustagen">Sustagen</option>
-            <option value="Wyeth-S26">Wyeth-S26</option>
-            <option value="Not consuming milk formula">Not consuming milk formula</option>
-            <option value="Others">Others</option>
+			{{option-kidmilk}}
          </select>
       </div>
       <div class="clearfix"></div>
@@ -293,28 +243,7 @@
       <div class="col-md-6" style="padding-right: 5px; padding-left: 5px; padding-top: 5px;">
          <select name="subscriber_question27" id="subscriber_question27" type="text" style="width: 100%; font-size: 1.2em; box-shadow: none!IMPORTANT; border-radius: 0!IMPORTANT;">
             <option value="">Current Milk Brand</option>
-            <option value="Anmum Essential">Anmum Essential</option>
-            <option value="Baby Steps BBs-3">Baby Steps BBs-3</option>
-            <option value="Dumex Dugro">Dumex Dugro</option>
-            <option value="Dumex Mamil">Dumex Mamil</option>
-            <option value="Dutch Lady">Dutch Lady</option>
-            <option value="Enfagrow">Enfagrow</option>
-            <option value="Fernleaf">Fernleaf</option>
-            <option value="Friso Gold">Friso Gold</option>
-            <option value="Isomil">Isomil</option>
-            <option value="Karihome">Karihome</option>
-            <option value="Morinaga">Morinaga</option>
-            <option value="Nestle Lactogen">Nestle Lactogen</option>
-            <option value="Nestle Nan">Nestle Nan</option>
-            <option value="Novalac">Novalac</option>
-            <option value="Pediasure">Pediasure</option>
-            <option value="Similac">Similac</option>
-            <option value="Snow">Snow</option>
-            <option value="Spring Sheep">Spring Sheep</option>
-            <option value="Sustagen">Sustagen</option>
-            <option value="Wyeth-S26">Wyeth-S26</option>
-            <option value="Not consuming milk formula">Not consuming milk formula</option>
-            <option value="Others">Others</option>
+           {{option-kidmilk}}
          </select>
       </div>
       <div class="clearfix"></div>
@@ -340,28 +269,7 @@
       <div class="col-md-6" style="padding-right: 5px; padding-left: 5px; padding-top: 5px;">
          <select name="subscriber_question28" id="subscriber_question28" type="text" style="width: 100%; font-size: 1.2em; box-shadow: none!IMPORTANT; border-radius: 0!IMPORTANT;">
             <option value="">Current Milk Brand</option>
-            <option value="Anmum Essential">Anmum Essential</option>
-            <option value="Baby Steps BBs-3">Baby Steps BBs-3</option>
-            <option value="Dumex Dugro">Dumex Dugro</option>
-            <option value="Dumex Mamil">Dumex Mamil</option>
-            <option value="Dutch Lady">Dutch Lady</option>
-            <option value="Enfagrow">Enfagrow</option>
-            <option value="Fernleaf">Fernleaf</option>
-            <option value="Friso Gold">Friso Gold</option>
-            <option value="Isomil">Isomil</option>
-            <option value="Karihome">Karihome</option>
-            <option value="Morinaga">Morinaga</option>
-            <option value="Nestle Lactogen">Nestle Lactogen</option>
-            <option value="Nestle Nan">Nestle Nan</option>
-            <option value="Novalac">Novalac</option>
-            <option value="Pediasure">Pediasure</option>
-            <option value="Similac">Similac</option>
-            <option value="Snow">Snow</option>
-            <option value="Spring Sheep">Spring Sheep</option>
-            <option value="Sustagen">Sustagen</option>
-            <option value="Wyeth-S26">Wyeth-S26</option>
-            <option value="Not consuming milk formula">Not consuming milk formula</option>
-            <option value="Others">Others</option>
+            {{option-kidmilk}}
          </select>
       </div>
       <div class="clearfix"></div>
@@ -481,7 +389,7 @@
    </div>
    <div class="col-md-6" style="text-align: left;">
       <p class="text-left" style="font-size: 1em; color: #97999b; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How much is the shipping fee?<br /> A: RM15. Kindly note that shipping fee may vary from time to time. In conjunction with the launching of Super Kids Club, first 300 members will be entitled to RM8 shipping fee!</p>
-      <p class="text-left" style="font-size: 1em; color: #97999b; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How long does it take to deliver my gift(s)?<br /> A: About 3&ndash;7 working days upon verification. Kindly expect shipping delays due to a high volume of orders.</p>
+      <p class="text-left" style="font-size: 1em; color: #97999b; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How long does it take to deliver my gift(s)?<br /> A: About 7&ndash;14 working days upon verification. Kindly expect shipping delays due to a high volume of orders at the moment.</p>
       <p class="text-left" style="font-size: 1em; color: #97999b; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: Why are some of the products I received look different from the image on the website?<br /> A: Pictures shown on our website are for illustration purposes only. Gifts may vary depending on the availability. In the case of insufficient stocks, the organiser has the right to use other products for replacement at any time without prior notice.</p>
    </div>
 </div>
@@ -489,84 +397,84 @@
 <p>
    <script>// <![CDATA[
       $(document).ready(function($){
-      	$('#subscriber_question1').on('change',function(event){
-			var phonenumber = $('#subscriber_question1').val();
-			var phonenumber = phonenumber.replace(/-/g, ' ');
-			var phonenumber = phonenumber.trim();
-			if ($.trim(phonenumber) != "") {
-				var prefix = phonenumber.substring(0,3);
-				var firstNo = phonenumber.substring(0,1);
-				var phoneLength = phonenumber.length;
-				if(firstNo !== 0 || firstNo !== 5){
-					$('#phoneNoError').show();
-					$("#subscriber_question1").css('background-color', 'red');
-					$("#submitBtn").attr("disabled", true);
-				}
-				if(firstNo == '0'){
-					if(prefix == '010' || prefix == '011' || prefix == '012' || prefix == '013' || prefix == '014' || prefix == '015' || prefix == '016' || prefix == '017' || prefix == '018' || prefix == '019'){
-						$('#phoneNoPrefixError').hide();
-						$("#subscriber_question1").css('background-color', 'white'); 
-						$("#submitBtn").attr("disabled", false);
-							if(prefix == '011'){
-								if(phoneLength < 10 || phoneLength > 11){
-									$('#phoneNoError').show();
-									$("#subscriber_question1").css('background-color', 'red');
-									$("#submitBtn").attr("disabled", true);
-								}else{
-									$('#phoneNoError').hide();
-									$('#phoneNoErrorSg').hide();
-									$("#subscriber_question1").css('background-color', 'white');
-									$("#submitBtn").attr("disabled", false);
-								}
-							}else{
-								if(phoneLength < 10 || phoneLength > 10){
-									$('#phoneNoError').show();
-									$("#subscriber_question1").css('background-color', 'red');
-									$("#submitBtn").attr("disabled", true);
-								}else{
-									$('#phoneNoError').hide();
-									$('#phoneNoErrorSg').hide();
-									$("#subscriber_question1").css('background-color', 'white');
-									$("#submitBtn").attr("disabled", false);
-								}
-							}  
-						}else{
-						$('#phoneNoPrefixError').show();
-						$("#subscriber_question1").css('background-color', 'red');
-						$("#submitBtn").attr("disabled", true);
-					} 
-				}else if(firstNo == '5'){
-						$('#phoneNoErrorSg').hide();
-						$('#phoneNoError').hide();
-						$("#subscriber_question1").css('background-color', 'white'); 
-						$("#submitBtn").attr("disabled", false);
-					if(phoneLength < 9 || phoneLength > 9){
-						$('#phoneNoErrorSg').show();
-						$("#subscriber_question1").css('background-color', 'red');
-						$("#submitBtn").attr("disabled", true);
-					}else{
-						$('#phoneNoErrorSg').hide();
-						$('#phoneNoError').hide();
-						$("#subscriber_question1").css('background-color', 'white');
-						$("#submitBtn").attr("disabled", false);
-					}
-				}else{
-					$('#phoneNoPrefixError').show();
-					$("#subscriber_question1").css('background-color', 'red');
-					$("#submitBtn").attr("disabled", true);
-				}
-			}
-      	});
-            		
-		$('body').find('.section_slidethekapitan').flexisel({
-			visibleItems: 5,
-			flipPage: true,
-			animationSpeed: 500,
-			animationLoop: true,
-			clone: false,
-			autoPlay: false
-		});
-    });
+            	$('#subscriber_question1').on('change',function(event){
+      			var phonenumber = $('#subscriber_question1').val();
+      			var phonenumber = phonenumber.replace(/-/g, ' ');
+      			var phonenumber = phonenumber.trim();
+      			if ($.trim(phonenumber) != "") {
+      				var prefix = phonenumber.substring(0,3);
+      				var firstNo = phonenumber.substring(0,1);
+      				var phoneLength = phonenumber.length;
+      				if(firstNo !== 0 || firstNo !== 5){
+      					$('#phoneNoError').show();
+      					$("#subscriber_question1").css('background-color', 'red');
+      					$("#submitBtn").attr("disabled", true);
+      				}
+      				if(firstNo == '0'){
+      					if(prefix == '010' || prefix == '011' || prefix == '012' || prefix == '013' || prefix == '014' || prefix == '015' || prefix == '016' || prefix == '017' || prefix == '018' || prefix == '019'){
+      						$('#phoneNoPrefixError').hide();
+      						$("#subscriber_question1").css('background-color', 'white'); 
+      						$("#submitBtn").attr("disabled", false);
+      							if(prefix == '011'){
+      								if(phoneLength < 10 || phoneLength > 11){
+      									$('#phoneNoError').show();
+      									$("#subscriber_question1").css('background-color', 'red');
+      									$("#submitBtn").attr("disabled", true);
+      								}else{
+      									$('#phoneNoError').hide();
+      									$('#phoneNoErrorSg').hide();
+      									$("#subscriber_question1").css('background-color', 'white');
+      									$("#submitBtn").attr("disabled", false);
+      								}
+      							}else{
+      								if(phoneLength < 10 || phoneLength > 10){
+      									$('#phoneNoError').show();
+      									$("#subscriber_question1").css('background-color', 'red');
+      									$("#submitBtn").attr("disabled", true);
+      								}else{
+      									$('#phoneNoError').hide();
+      									$('#phoneNoErrorSg').hide();
+      									$("#subscriber_question1").css('background-color', 'white');
+      									$("#submitBtn").attr("disabled", false);
+      								}
+      							}  
+      						}else{
+      						$('#phoneNoPrefixError').show();
+      						$("#subscriber_question1").css('background-color', 'red');
+      						$("#submitBtn").attr("disabled", true);
+      					} 
+      				}else if(firstNo == '5'){
+      						$('#phoneNoErrorSg').hide();
+      						$('#phoneNoError').hide();
+      						$("#subscriber_question1").css('background-color', 'white'); 
+      						$("#submitBtn").attr("disabled", false);
+      					if(phoneLength < 9 || phoneLength > 9){
+      						$('#phoneNoErrorSg').show();
+      						$("#subscriber_question1").css('background-color', 'red');
+      						$("#submitBtn").attr("disabled", true);
+      					}else{
+      						$('#phoneNoErrorSg').hide();
+      						$('#phoneNoError').hide();
+      						$("#subscriber_question1").css('background-color', 'white');
+      						$("#submitBtn").attr("disabled", false);
+      					}
+      				}else{
+      					$('#phoneNoPrefixError').show();
+      					$("#subscriber_question1").css('background-color', 'red');
+      					$("#submitBtn").attr("disabled", true);
+      				}
+      			}
+            	});
+                  		
+      		$('body').find('.section_slidethekapitan').flexisel({
+      			visibleItems: 5,
+      			flipPage: true,
+      			animationSpeed: 500,
+      			animationLoop: true,
+      			clone: false,
+      			autoPlay: false
+      		});
+          });
        
       // ]]>
    </script>

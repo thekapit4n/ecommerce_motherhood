@@ -8,8 +8,10 @@
 <script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/fontawesome-v5.15.1/js/all.min.js"></script>
 <script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/sweetalert2-v10.13.0/dist/sweetalert2.all.min.js" type="text/javascript"></script>
 <link href="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/sweetalert2-v10.13.0/dist/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+<!--
 <link href="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/signature_pad/docs/css/signature-pad-mmy.css" rel="stylesheet" type="text/css" />
 <script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/signature_pad/docs/js/signature_pad.umd.js" type="text/javascript"></script>
+-->
 <script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/Inputmask-5.x/dist/inputmask.js" type="text/javascript"></script>
 <link href="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
 <script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/tagify/dist/tagify.min.js" type="text/javascript"></script>
@@ -28,9 +30,9 @@
 	}
 
 	.btn-pill-color, btn-pill-color:hover, .btn-pill-color:focus{
-		background-color: #f3866f !important;
+		background-color: #e86b5b !important;
 		color: white;
-		border-color: #f3866f !important;
+		border-color: #e86b5b !important;
 		padding-left: 20px;
 		padding-right: 20px;
 		padding-top: 7px;
@@ -42,6 +44,12 @@
 		background-color: #ec3a47 !important;
 		color: white !important;
 		border-color: #ec3a47 !important;
+	}
+	
+	.btn-cancel, .btn-cancel:hover, .btn-cancel:focus{
+		background-color: #b4b3b4 !important;
+		color: white !important;
+		border-color: #b4b3b4 !important;
 	}
 	
 	.checkbox{
@@ -57,6 +65,13 @@
 		color: #fff !important;
 		background-color: #2ea7ad !important; 
 		border-color: #2ea7ad !important;
+	}
+	
+	.accordian-heading-motherhood-toggle{
+		text-align:left;
+		color: #fff !important;
+		background-color: #1c6f74 !important; 
+		border-color: #1c6f74 !important;
 	}
 	
 	.ikon-collapse-motherhood{
@@ -86,10 +101,16 @@
 		border: 1px solid #b4b3b4;
 		position:relative;
 		margin-bottom: 15px;
-		min-height:220px;
+		min-height:140px;
+	}	
+	
+	.div-address-info-checked{
+		background-color:#b4b3b424;
 	}
 	
-	.btn-edit-address, .btn-edit-address:focus{
+	.btn-edit-address, .btn-edit-address:focus, .btn-edit-address:hover{
+		background-color:#38a7ac;
+		border-color:#38a7ac;
 		position:absolute;
 		top:0;
 		right:0;
@@ -113,27 +134,34 @@
 	}
 	
 	.is-invalid, .is-invalid:focus,.mandotary-field {
-		color: #b94a48;
-		border-color: #e9322d !important;
+		color: #ea3d4c;
+		border-color: #ea3d4c !important;
 	}
 	
 	.mandotary-ico:after{
 		content: '*';
-		color: #b94a48;
+		color: #ea3d4c;
 	}
 	
 	.error-msg{
-		color:#e9322d
+		color:#ea3d4c
 	}
 	
 	.info-tagify-milkbrand
 	{
 		display:none
 	}
+	.address-details {
+	  padding-left:0px;
+	}
 	
 	.tagify-milkbrand, .tagify-diapers, .tagify-pastreviewbrand, .tagify-contractbrand, .tagify-brandlove
 	{
 		display:none
+	}
+	
+	.ballon-icon-tq{
+		width:30%;
 	}
 	
 	/** starting css for form wizard **/
@@ -158,8 +186,6 @@
 	#mamacubatry-wizard {
 		min-height: 834px;
 		background: #fff;
-		/* margin-right: 60px;*/
-		/*padding: 107px 75px 65px;*/ 
 	}
 
 	.steps {
@@ -184,7 +210,7 @@
         background: #f6f6f6 !important;
         border-radius: 3.5px; 
 		outline: unset;
-		
+		pointer-events: none;
 	}
 
 	.steps ul li.first a, .steps ul li.checked a {
@@ -198,7 +224,7 @@
 		content: "Select Product";
 		font-size: 18px;
 		font-family: Arial,Helvetica,sans-serif;
-		color: #333;
+		color: #4c4c4d;
 		top: -27px;
 		position: absolute;
 	}
@@ -207,15 +233,15 @@
 		content: "Your Particulars"; 
 	}
 	
-	.steps ul.step-3:before {
+	/*.steps ul.step-3:before {
 		content: "Campaign Information"; 
-	}
+	}*/
 	
-	.steps ul.step-4:before {
+	.steps ul.step-3:before {
       content: "Your Address"; 
 	}
 	
-	.steps ul.step-5:before {
+	.steps ul.step-4:before {
       content: "Campaign Agreement"; 
 	}
 	.actions ul {
@@ -298,9 +324,9 @@
 	}
 	
 	.actions li:last-child a {
-	  padding-left: 29px;
-	  width: 167px;
-	  font-weight: 400; 
+		padding-left: 29px;
+		width: 115px;
+		font-weight: 400;
 	}
 	
 	.actions li:last-child a:before {
@@ -380,6 +406,18 @@
 		#mamacubatry-wizard {
 			margin-right: 0;
 		} 
+		
+		.address-details {
+		  padding-left:15px;
+		}
+		
+		.motherhood-br{
+			display:none;
+		}
+		
+		.ballon-icon-tq{
+			width:30%;
+		}
 	}
 	
 	@media (max-width: 767px) {
@@ -410,22 +448,37 @@
 		  margin-right: 0;
 		  margin-bottom: 24px; 
 		}
+		
+		.address-details {
+		  padding-left:15px;
+		}
+		
+		.motherhood-br{
+			display:none;
+		}
+		
+		.ballon-icon-tq{
+			width:30%;
+		}
 	}
  /** end of css for form wizard **/
 </style>
 <!-- MODULE mamacubatryproducts -->
 <div class="container" style="font-size:13px;">
-	<div class="row">
+	<div class="row form-application" style="display:{if $applied == 1}none {else} block {/if}">
 		<div class="col-md-12">
 			<div style="margin-bottom:20px;margin-top:20px;line-height: 20px;">
-				<font style="color:#555454; font-weight:700;">Hey {$customer->firstname} {$customer->lastname},<br></font>
+				<font style="color:#4c4c4d; font-weight:700;">Hey {$customer->firstname} {$customer->lastname},<br></font>
 				<font style="color:#30a7ad; font-weight:700;">Please complete the form<br></font>
 				In order for us to offer product tests that suit you, we'll need a few details
 			</div>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row form-application" style="display:{if $applied == 1}none {else} block {/if}">
 		<div class="col-md-12">
+			<input type="hidden" class="cust-id" value="{$customer->id}">
+			<input type="hidden" class="link-rewrite" value="{$campaign.link_rewrite}">
+			<input type="hidden" class="applied-program" value="{$applied}">
 			<input type="hidden" class="input-flag-checking-step" value="false">
 			<div id="mamacubatry-wizard" style="margin-top:35px;">
 				<!-- SECTION 1 -->
@@ -435,7 +488,7 @@
 						<div class="col-md-2">
 							<img src="{$campaign['tester_cover_image']}" height="{$mediumSize.height}" width="{$mediumSize.width}" alt="{$campaign.name|escape:html:'UTF-8'}" />
 						</div>
-						<div class="col-md-8">
+						<div class="col-md-10">
 							<div class="row" style="margin-bottom:20px;">
 								<a class="open-comment-form" href="#large_product_desc" style="color:#36a7ac">
 									<span >{$campaign['name']} <span>
@@ -443,11 +496,6 @@
 							</div>
 							<div class="row">
 								<div style='color:#555454;font-weight:300;'class="text-left">{$campaign['description_short']}</div>
-							</div>
-						</div>
-						<div class="col-md-2" style="text-align:center">
-							<div class="checkbox">
-								<label><input type="checkbox" class="check-campaign-productid" value="{$campaign['tester_product_id']}" data-campaignid="{$campaign['tester_id']}" data-campaignname="{$campaign['name']}" checked></label>
 							</div>
 						</div>
 					</div>
@@ -460,11 +508,11 @@
 					<div class="panel-group" id="accordion" style="margin-top:5px;">
 						<div class="panel panel-default" style="border-color:#2ea7ad!important;">
 							<div class="panel-heading accordian-heading-motherhood">
-								<h4 class="panel-title" data-toggle="collapse" data-parent="#accordion" data-target="#customer-information">
+								<h4 class="panel-title" data-toggle="collapse" data-target="#customer-information">
 									Information <span class="ikon-collapse-motherhood"><i class="fas fa-angle-down"></i></span>
 								</h4>
 							</div>
-							<div id="customer-information" class="panel-collapse collapse in panel-motherhood">
+							<div id="customer-information" class="panel-collapse collapse panel-motherhood">
 								<div class="panel-body">
 									
 									<form id="form-customer-info">
@@ -474,12 +522,6 @@
 												<div class="form-group" style="text-align:end;">
 													<button type="button" id="btn-edit-cust-info" class="btn btn-default btn-pill btn-pill-color btn-edit" >
 														<span>Edit</span>
-													</button>
-													<button type="button" data-typeprocess='save'  class="btn btn-default btn-pill btn-pill-color btn-save btn-action" style="display:none;">
-														<span>Save</span>
-													</button>
-													<button type="button" data-typeprocess='cancel' class="btn btn-default btn-pill btn-pill-color btn-cancel btn-action" style="display:none;">
-														<span>Cancel</span>
 													</button>
 												</div>
 											</div>
@@ -563,12 +605,24 @@
 												</div>
 											</div>
 										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="form-group" style="text-align:end;">
+													<button type="button" data-typeprocess='save'  class="btn btn-default btn-pill btn-pill-color btn-save btn-action" style="display:none;">
+														<span>Save</span>
+													</button>
+													<button type="button" data-typeprocess='cancel' class="btn btn-default btn-pill btn-pill-color btn-cancel btn-action" style="display:none;">
+														<span>Cancel</span>
+													</button>
+												</div>
+											</div>
+										</div>
 									</form>
 								</div>
 							</div>
 						</div>
 						<div class="panel panel-default " style="border-color:#2ea7ad!important;">
-							<div class="panel-heading accordian-heading-motherhood" data-toggle="collapse" data-parent="#accordion" data-target="#customer-about">
+							<div class="panel-heading accordian-heading-motherhood" data-toggle="collapse" data-parent="#accordion"  data-target="#customer-about">
 								<h4 class="panel-title">
 									About <span class="ikon-collapse-motherhood"><i class="fas fa-angle-down"></i></span>
 								</h4>
@@ -582,12 +636,6 @@
 												<div class="form-group" style="text-align:end;">
 													<button type="button" id="btn-edit-cust-about" class="btn btn-default btn-pill btn-pill-color btn-edit" >
 														<span>Edit</span>
-													</button>
-													<button type="button" id="btn-save-cust-about" data-typeprocess='save' class="btn btn-default btn-pill btn-pill-color btn-save btn-action" style="display:none;">
-														<span>Save</span>
-													</button>
-													<button type="button" id="btn-cancel-cust-about" data-typeprocess='cancel' class="btn btn-default btn-pill btn-pill-color btn-cancel btn-action" style="display:none;">
-														<span>Cancel</span>
 													</button>
 												</div>
 											</div>
@@ -660,6 +708,18 @@
 												</div>
 											</div>
 										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="form-group" style="text-align:end;">
+													<button type="button" id="btn-save-cust-about" data-typeprocess='save' class="btn btn-default btn-pill btn-pill-color btn-save btn-action" style="display:none;">
+														<span>Save</span>
+													</button>
+													<button type="button" id="btn-cancel-cust-about" data-typeprocess='cancel' class="btn btn-default btn-pill btn-pill-color btn-cancel btn-action" style="display:none;">
+														<span>Cancel</span>
+													</button>
+												</div>
+											</div>
+										</div>
 									</form>
 								</div>
 							</div>
@@ -680,12 +740,6 @@
 												<div class="form-group" style="text-align:end;">
 													<button type="button" id="btn-edit-cust-family" class="btn btn-default btn-pill btn-pill-color btn-edit" >
 														<span>Edit</span>
-													</button>
-													<button type="button" id="btn-save-cust-family" data-typeprocess='save' class="btn btn-default btn-pill btn-pill-color btn-save btn-action" style="display:none;">
-														<span>Save</span>
-													</button>
-													<button type="button" id="btn-cancel-cust-family" data-typeprocess='cancel' class="btn btn-default btn-pill btn-pill-color btn-cancel btn-action" style="display:none;">
-														<span>Cancel</span>
 													</button>
 												</div>
 											</div>
@@ -740,7 +794,7 @@
 												<div class="form-group">
 													<label for="cust-family-edd"><font class="remark-ico"></font>Expectation Due Date(EDD) ?</label>
 													{if $campaign['tester_campaign_fields']|strstr:"cust-family-edd"}
-														<input type="text" class="form-control input-sm input-info dobinput" name="edd" id="cust-family-edd" value="{if $additionalInfo['edd'] != '0000-00-00'}{$additionalInfo['edd']|date_format:"%d/%m/%Y"}{/if}" style="display:none">
+														<input type="text" class="form-control input-sm input-info dobinput cust-family-edd" name="edd" id="cust-family-edd" value="{if $additionalInfo['edd'] != '0000-00-00'}{$additionalInfo['edd']|date_format:"%d/%m/%Y"}{/if}" style="display:none">
 														<small class="error-msg"></small>
 													{/if}
 													<p class="display-info cust-family-edd-info">{if $additionalInfo['edd'] != '0000-00-00'}{$additionalInfo['edd']|date_format:"%d/%m/%Y"}{/if}</p>
@@ -782,6 +836,18 @@
 											<div class="row child-dob-row">
 											</div>
 										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="form-group" style="text-align:end;">
+													<button type="button" id="btn-save-cust-family" data-typeprocess='save' class="btn btn-default btn-pill btn-pill-color btn-save btn-action" style="display:none;">
+														<span>Save</span>
+													</button>
+													<button type="button" id="btn-cancel-cust-family" data-typeprocess='cancel' class="btn btn-default btn-pill btn-pill-color btn-cancel btn-action" style="display:none;">
+														<span>Cancel</span>
+													</button>
+												</div>
+											</div>
+										</div>
 									</form>
 								</div>
 							</div>
@@ -801,12 +867,6 @@
 												<div class="form-group" style="text-align:end;">
 													<button type="button" id="btn-edit-cust-favorites" class="btn btn-default btn-pill btn-pill-color btn-edit" >
 														<span>Edit</span>
-													</button>
-													<button type="button" id="btn-save-cust-favorites" data-typeprocess='save' class="btn btn-default btn-pill btn-pill-color btn-save btn-action" style="display:none;">
-														<span>Save</span>
-													</button>
-													<button type="button" id="btn-cancel-cust-favorites" data-typeprocess='cancel' class="btn btn-default btn-pill btn-pill-color btn-cancel btn-action" style="display:none;">
-														<span>Cancel</span>
 													</button>
 												</div>
 											</div>
@@ -868,6 +928,18 @@
 												</div>
 											</div>
 										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="form-group" style="text-align:end;">
+													<button type="button" id="btn-save-cust-favorites" data-typeprocess='save' class="btn btn-default btn-pill btn-pill-color btn-save btn-action" style="display:none;">
+														<span>Save</span>
+													</button>
+													<button type="button" id="btn-cancel-cust-favorites" data-typeprocess='cancel' class="btn btn-default btn-pill btn-pill-color btn-cancel btn-action" style="display:none;">
+														<span>Cancel</span>
+													</button>
+												</div>
+											</div>
+										</div>
 									</form>
 								</div>
 							</div>
@@ -887,12 +959,6 @@
 												<div class="form-group" style="text-align:end;">
 													<button type="button" id="btn-edit-cust-interest" class="btn btn-default btn-pill btn-pill-color btn-edit" >
 														<span>Edit</span>
-													</button>
-													<button type="button" id="btn-save-cust-interest" data-typeprocess='save' class="btn btn-default btn-pill btn-pill-color btn-save btn-action" style="display:none;">
-														<span>Save</span>
-													</button>
-													<button type="button" id="btn-cancel-cust-interest" data-typeprocess='cancel' class="btn btn-default btn-pill btn-pill-color btn-cancel btn-action" style="display:none;">
-														<span>Cancel</span>
 													</button>
 												</div>
 											</div>
@@ -998,6 +1064,18 @@
 												</div>
 											</div>
 										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<div class="form-group" style="text-align:end;">
+													<button type="button" id="btn-save-cust-interest" data-typeprocess='save' class="btn btn-default btn-pill btn-pill-color btn-save btn-action" style="display:none;">
+														<span>Save</span>
+													</button>
+													<button type="button" id="btn-cancel-cust-interest" data-typeprocess='cancel' class="btn btn-default btn-pill btn-pill-color btn-cancel btn-action" style="display:none;">
+														<span>Cancel</span>
+													</button>
+												</div>
+											</div>
+										</div>
 									</form>
 								</div>
 							</div>
@@ -1005,7 +1083,8 @@
 					</div> 
 				</section>
 
-				<!-- SECTION 3 -->
+				<!-- SECTION 3 original need to hide first -->
+				<!--
 				<h4></h4>
 				<section style="display:none;">
 					<div class="row">
@@ -1048,18 +1127,19 @@
 						</div>
 					</div>
 				</section>
+				-->
 				
-				<!-- SECTION 4 -->
+				<!-- SECTION 3 -->
 				<h4></h4>
 				<section style="display:none;padding-right: 15px;padding-left: 15px;">
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-6 col-xs-8">
 							Choose a delivery address
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 col-xs-4">
 							<div class="form-group" style="text-align:end;">
-								<button type="button" class="btn btn-default btn-pill btn-pill-color btn-add-address" data-typeaddrform="delivery_address">
-									<span>Add new delivery address</span>
+								<button type="button" class="btn btn-default btn-pill btn-pill-color btn-add-address" style="padding-right:15px;padding-left:15px;" data-typeaddrform="delivery_address">
+									<span>Add address</span>
 								</button>
 							</div>
 						</div>
@@ -1198,11 +1278,11 @@
 							</div>
 							<div class="row">
 								<div class="col-md-12">
-									<div class="form-group">
+									<div class="form-group" style="text-align:end;">
 										<button type="button" id="btn-save-cust-address" data-typeprocess='save' class="btn btn-default btn-pill btn-pill-color btn-action">
 											<span>Save</span>
 										</button>
-										<button type="button" id="btn-cancel-cust-address" data-typeprocess='cancel' class="btn btn-default btn-pill btn-pill-color">
+										<button type="button" id="btn-cancel-cust-address" data-typeprocess='cancel' class="btn btn-default btn-pill btn-pill-color btn-cancel">
 											<span>Cancel</span>
 										</button>
 									</div>
@@ -1211,7 +1291,7 @@
 						</form>
 					</div>
 				</section>
-				<!-- SECTION 5 -->
+				<!-- SECTION 4 -->
 				<h4></h4>
 				<section style="display:none">
 					<div class="row">
@@ -1219,30 +1299,40 @@
 							Agreement Details: {$campaign['tester_agreement']}
 						</div>
 					</div>
-					<div class="body-signature">
-						<div id="signature-pad" class="signature-pad">
-							<div class="signature-pad--body">
-							  <canvas></canvas>
-							</div>
-							<div class="signature-pad--footer">
-							  <div class="description">Sign above</div>
-
-								<div class="signature-pad--actions">
-									<div>
-										<button type="button" class="button btn-clear-signature">Clear</button>
-										<button type="button" class="button btn-changecolor-signature">Change color</button>
-										<button type="button" class="button btn-undo-signature">Undo</button>
-									</div>
-									<div>
-									  <button type="button" class="button save btn-save-png">Save as PNG</button>
-									  <button type="button" class="button save btn-save-jpg">Save as JPG</button>
-									  <button type="button" class="button save btn-save-svg">Save as SVG</button>
-									</div>
+					<div class="row">
+						<div class="col-md-12" style="padding-left: 15px; padding-right: 15px;">
+							<div style="margin-top: 10px; margin-bottom: 10px;">
+								<div class="checkbox">
+									<label style="text-align: left;line-height: 16px;"><input type="checkbox" value="yes" class="check-tnc" name="check_tnc">I have read and agree to the Terms & Conditions of this campaign.</label>
 								</div>
 							</div>
 						</div>
 					</div>
+					<form id="form-tester-campaign">
+						<input type="hidden" class="form-type" name="formtype" value="tester_campaign_details">
+						<input type="hidden" name="tester_product_id" class="tester-product-id" value="{$campaign['tester_product_id']}">
+						<input type="hidden" name="tester_id" class="tester-id" value="{$campaign['tester_id']}">
+						<input type="hidden" name="delivery_id" class="delivery-id" value="">
+						<input type="hidden" name="billing_id" class="billing-id" value="">
+						<input type="hidden" name="same_delivery" class="same-delivery-id" value="">
+					</form>
 				</section>
+			</div>
+		</div>
+	</div>
+	<div class="row success-application" style="display:{if $applied == 1}block {else} none {/if};text-align:center;margin-top:10%;">
+		<div class="container" style="position:relative">
+			<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Feb/Mamacubatry/Balloon.png" alt="ballon-thank-you" class="ballon-icon-tq">
+			<h2 style="font-weight: 700;color: #38a7ac;"> Thank You {$customer->firstname} {$customer->lastname}</h2>
+			<h4 style="color:#4c4c4d;margin-bottom:44px;line-height:25px;">You have successfully subscribe to MamaCubaTry campaign.<br class="motherhood-br">Successful MamaCubaTry testers will be notified via email.</h4>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group" style="text-align:center;">
+						<a href="https://www.motherhood.com.my/" class="btn btn-default btn-pill btn-pill-color btn-action">
+							<span>Keep Shopping</span>
+						</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -1338,6 +1428,11 @@
 						}
 					});
 				}
+				else
+				{
+					$(formElem + ' .' + inputClass).addClass('is-invalid');
+					$(formElem + ' .' + inputClass).focus();
+				}
 			}
 		}
 		
@@ -1411,6 +1506,7 @@
 						if(result.data.html != undefined && result.data.html != '')
 						{
 							$('body').find('.list-address').html(result.data.html);
+							bgColorAddr();
 						}
 					}
 				},
@@ -1425,6 +1521,7 @@
 			});
 		}
 		
+		/*
 		var checkbillingaddr = function(){
 			var ischeck = $('body').find('.check-billing-addr').prop('checked');
 			
@@ -1434,8 +1531,22 @@
 			}
 			else
 			{
+				console.log("diff address");
+				$('body').find('.billing-address').css('overflow', 'initial');
+				$('body').find('.billing-address').css('width','auto');
 				$('body').find('.billing-address').show('fast');
 			}
+		}
+		*/
+		
+		var bgColorAddr = function(){
+			$('body').find('input[name="delivery_address"]').closest('.div-address-info').removeClass('div-address-info-checked');
+			$('body').find('input[name="delivery_address"]:checked').closest('.div-address-info').addClass('div-address-info-checked');	
+			
+			/*
+			$('body').find('input[name="billing_address"]').closest('.div-address-info').removeClass('div-address-info-checked');
+			$('body').find('input[name="billing_address"]:checked').closest('.div-address-info').addClass('div-address-info-checked');
+			*/
 		}
 		
 		/** manage view of number of childer under secton family in step my particular **/
@@ -1454,8 +1565,6 @@
 				remarkfont 			= '<font class="remark-ico"></font>';
 			}
 			
-			console.log("numChild = " + numChild + " statusChilddob = " + statusChilddob);
-			console.log("typrprocess = " + typrprocess + " display_info_child = " + display_info_child + " display_input_child " + display_input_child);
 			if(numChild > 0 && statusChilddob == "true")
 			{
 				var childHtml = '';
@@ -1490,24 +1599,296 @@
 		}
 		/** end manage view number children **/
 		
-		// One could simply use Canvas#toBlob method instead, but it's just to show
-		// that it can be done using result of SignaturePad#toDataURL.
-		dataURLToBlob = function(dataURL) {
-			// Code taken from https://github.com/ebidel/filer.js
-			var parts		= dataURL.split(';base64,');
-			var contentType = parts[0].split(":")[1];
-			var raw 		= window.atob(parts[1]);
-			var rawLength 	= raw.length;
-			var uInt8Array 	= new Uint8Array(rawLength);
-
-			for (var i = 0; i < rawLength; ++i) {
-				uInt8Array[i] = raw.charCodeAt(i);
+		var generalCheck_input = function(){
+			var selectorFirstname 	  = $('body').find('.cust-firstname-input');
+			var selectorLastname  	  = $('body').find('.cust-lastname-input');
+			var selectorEmail 	  	  = $('body').find('.cust-email-input');
+			var selectorPhone	  	  = $('body').find('.cust-phoneno-input');
+			var selectorGender	  	  = $('body').find('.cust-gender-input');
+			var selectorDob	  	  	  = $('body').find('.cust-about-dob');
+			var selectorJob	  	  	  = $('body').find('.cust-occupation');
+			var selectorRace	  	  = $('body').find('.cust-about-race-input');
+			var selectorSelectRace	  = $('body').find('.race-input');
+			var selectorSalary		  = $('body').find('.cust-about-salaryrange');
+			var selectorMaritalStatus = $('body').find('.cust-marital-status');
+			var selectorExpectNewborn = $('body').find('.expect-newborn');
+			var selectorEdd			  = $('body').find('.cust-family-edd');
+			var selectorNumChild	  = $('body').find('.num-child');
+			
+			if(selectorFirstname.val() == '')
+			{
+				selectorFirstname.closest('form').find('.btn-edit').trigger('click');
+				var formid 			= selectorFirstname.closest('form').attr('id');
+				var formElem 		= '#' + formid;
+				var arr_error_field = ['cust-firstname-input'];
+			
+				failedResponse(formElem, arr_error_field);
+				selectorFirstname.closest('.form-group').find(errorSelector).html(icon + " First name required");
+				selectorFirstname.closest('.panel-collapse').addClass('in');
+				
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'First name required',
+				});
+				
+				return false;
 			}
-
-			return new Blob([uInt8Array], { type: contentType });
+			
+			if(selectorLastname.val() == '')
+			{
+				selectorLastname.closest('form').find('.btn-edit').trigger('click');
+				var formid 			= selectorLastname.closest('form').attr('id');
+				var formElem 		= '#' + formid;
+				var arr_error_field = ['cust-lastname-input'];
+			
+				failedResponse(formElem, arr_error_field);
+				selectorLastname.closest('.form-group').find(errorSelector).html(icon + " Last name required");
+				selectorLastname.closest('.panel-collapse').addClass('in');
+				
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Last name required',
+				});
+				
+				return false;
+			}
+			
+			if(selectorEmail.val() == '')
+			{
+				selectorEmail.closest('form').find('.btn-edit').trigger('click');
+				var formid 			= selectorEmail.closest('form').attr('id');
+				var formElem	    = '#' + formid;
+				var arr_error_field = ['cust-email-input'];
+			
+				failedResponse(formElem, arr_error_field);
+				selectorEmail.closest('.form-group').find(errorSelector).html(icon + " Email required");
+				selectorEmail.closest('.panel-collapse').addClass('in');
+				
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Email required',
+				});
+				
+				return false;
+			}
+			
+			if(selectorPhone.val() == '')
+			{
+				selectorPhone.closest('form').find('.btn-edit').trigger('click');
+				var formid 			= selectorPhone.closest('form').attr('id');
+				var formElem	    = '#' + formid;
+				var arr_error_field = ['cust-phoneno-input'];
+			
+				failedResponse(formElem, arr_error_field);
+				selectorPhone.closest('.form-group').find(errorSelector).html(icon + " Mobile no. required");
+				selectorPhone.closest('.panel-collapse').addClass('in');
+				
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Mobile no. required',
+				});
+				
+				return false;
+			}
+			
+			if(selectorDob.val() == '')
+			{
+				selectorDob.closest('form').find('.btn-edit').trigger('click');
+				var formid 			= selectorDob.closest('form').attr('id');
+				var formElem	    = '#' + formid;
+				var arr_error_field = ['cust-about-dob'];
+			
+				failedResponse(formElem, arr_error_field);
+				selectorDob.closest('.form-group').find(errorSelector).html(icon + " Date of birth required");
+				selectorDob.closest('.panel-collapse').addClass('in');
+				
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Date of birth required',
+				});
+				
+				return false;
+			}
+			
+			if(selectorJob.val() == '')
+			{
+				selectorJob.closest('form').find('.btn-edit').trigger('click');
+				var formid 			= selectorJob.closest('form').attr('id');
+				var formElem	    = '#' + formid;
+				var arr_error_field = ['cust-occupation'];
+			
+				failedResponse(formElem, arr_error_field);
+				selectorJob.closest('.form-group').find(errorSelector).html(icon + " Occupation required");
+				selectorJob.closest('.panel-collapse').addClass('in');
+				
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Occupation required',
+				});
+				
+				return false;
+			}
+			
+			if(selectorRace.val() == '')
+			{
+				selectorRace.closest('form').find('.btn-edit').trigger('click');
+				var formid 			= selectorRace.closest('form').attr('id');
+				var formElem	    = '#' + formid;
+				var arr_error_field = ['race-input'];
+			
+				failedResponse(formElem, arr_error_field);
+				selectorRace.closest('.form-group').find(errorSelector).html(icon + " Race required");
+				selectorRace.closest('.panel-collapse').addClass('in');
+				
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Race required',
+				});
+				
+				return false;
+			}
+			
+			if(selectorSalary.val() == '')
+			{
+				selectorSalary.closest('form').find('.btn-edit').trigger('click');
+				var formid 			= selectorSalary.closest('form').attr('id');
+				var formElem	    = '#' + formid;
+				var arr_error_field = ['cust-about-salaryrange'];
+			
+				failedResponse(formElem, arr_error_field);
+				selectorSalary.closest('.form-group').find(errorSelector).html(icon + " Salary range required");
+				selectorSalary.closest('.panel-collapse').addClass('in');
+				
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Salary range required',
+				});
+				
+				return false;
+			}
+			
+			if(selectorMaritalStatus.val() == '')
+			{
+				selectorMaritalStatus.closest('form').find('.btn-edit').trigger('click');
+				var formid 			= selectorMaritalStatus.closest('form').attr('id');
+				var formElem	    = '#' + formid;
+				var arr_error_field = ['cust-marital-status'];
+			
+				failedResponse(formElem, arr_error_field);
+				selectorMaritalStatus.closest('.form-group').find(errorSelector).html(icon + " Marital status required");
+				selectorMaritalStatus.closest('.panel-collapse').addClass('in');
+				
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Marital status required',
+				});
+				
+				return false;
+			}
+			
+			if(selectorMaritalStatus.val() != 'Not Married')
+			{
+				if(selectorExpectNewborn.val() == '')
+				{
+					selectorExpectNewborn.closest('form').find('.btn-edit').trigger('click');
+					var formid 			= selectorExpectNewborn.closest('form').attr('id');
+					var formElem	    = '#' + formid;
+					var arr_error_field = ['cust-marital-status'];
+				
+					failedResponse(formElem, arr_error_field);
+					selectorExpectNewborn.closest('.form-group').find(errorSelector).html(icon + " Please select option for expected newborn");
+					selectorExpectNewborn.closest('.panel-collapse').addClass('in');
+					
+					Swal.fire({
+						icon: 'error',
+						title: 'Error',
+						text: 'Please select option for expected newborn',
+					});
+					
+					return false;
+				}
+				
+				if(selectorExpectNewborn.val() != 'No')
+				{
+					if(selectorEdd.val() == '')
+					{
+						selectorEdd.closest('form').find('.btn-edit').trigger('click');
+						var formid 			= selectorEdd.closest('form').attr('id');
+						var formElem	    = '#' + formid;
+						var arr_error_field = ['cust-marital-status'];
+					
+						failedResponse(formElem, arr_error_field);
+						selectorEdd.closest('.form-group').find(errorSelector).html(icon + " Edd required");
+						selectorEdd.closest('.panel-collapse').addClass('in');
+						
+						Swal.fire({
+							icon: 'error',
+							title: 'Error',
+							text: 'Edd required',
+						});
+						
+						return false;
+					}
+				}
+				
+				if(selectorNumChild.val() > 0)
+				{
+					numChild = selectorNumChild.val();
+					for(var i = 1; i <= numChild; i++)
+					{
+						var dobchild = $('body').find('.child-dob' + i).val();
+						if(dobchild == '')
+						{
+							$('.child-dob' + i).closest('form').find('.btn-edit').trigger('click');
+							var formid 			= $('.child-dob' + i).closest('form').attr('id');
+							var formElem	    = '#' + formid;
+							var arr_error_field = ['child-dob' + i];
+						
+							failedResponse(formElem, arr_error_field);
+							$('.child-dob' + i).closest('.form-group').find(errorSelector).html(icon + " Child dob" + i + " required");
+							$('.child-dob' + i).closest('.panel-collapse').addClass('in');
+							
+							Swal.fire({
+								icon: 'error',
+								title: 'Error',
+								text: 'Child dob' + i + ' required',
+							});
+							
+							return false;
+						}
+					}
+				}
+			}
+			
+			return true;
+		}
+		
+		var validateUserAccess = function(){
+			var user_id   = $('body').find('.cust-id').val();
+			var linkwrite = $('body').find('.link-rewrite').val();
+			if(user_id <= 0)
+			{
+				Swal.fire({
+					icon: 'info',
+					title: "Login Required",
+					text: "You must login before proceed",
+				}).then(function() {
+					window.location = "../../../login?back=mamacubatry/" + linkwrite;
+				});
+			}
 		}
 		
 		$(document).ready(function() {
+			validateUserAccess();
 			$('body').on('click', '.btn-edit' ,function(){
 				var formtype 	= $(this).closest('form').find('.form-type').val();
 				if(formtype == 'customer_about')
@@ -1557,11 +1938,11 @@
 							
 							if(result.status == true)
 							{
-								Swal.fire({
+								/*Swal.fire({
 									icon: 'success',
 									title: 'Saved',
 									text: 'All changes has been saved',
-								});
+								});*/
 								
 								$('body').find('#form-customer-family .input_typeprocess').val('');
 								
@@ -1723,6 +2104,7 @@
 										$('body').find('.billing-address').show('fast');
 										$('body').find('.list-address').show('fast');
 										$('body').find('.form-address').hide('fast');
+										$('body').find('.btn-add-address').show('fast');
 										_this.closest('.panel-motherhood').find('.remark-ico').removeClass('mandotary-ico');
 									}
 								}
@@ -1776,6 +2158,7 @@
 					$(this).closest('.panel-motherhood').find('.tagify-contractbrand').css('display', 'none');
 					$(this).closest('.panel-motherhood').find('.tagify-brandlove').css('display', 'none');
 					$(this).closest('.panel-motherhood').find('.remark-ico').removeClass('mandotary-ico');
+					$(this).closest('.panel-motherhood').find('.error-msg').html('');
 					$('body').find('.cust-about-race-input').hide('fast');
 				}
 			});
@@ -1818,12 +2201,14 @@
 				$('body').find('.billing-address').hide('fast');
 				$('body').find('.list-address').hide('fast');
 				$('body').find('.form-address').show('fast');
+				$(this).hide('fast');
 			})
 			
 			$('body').on('click', '#btn-cancel-cust-address', function(){
 				$('body').find('.billing-address').show('fast');
 				$('body').find('.list-address').show('fast');
 				$('body').find('.form-address').hide('fast');
+				$('body').find('.btn-add-address').show('fast');
 			});
 			
 			$('body').on('change', '.check-billing-addr', function(){
@@ -1918,31 +2303,76 @@
 			})
 			/** end fetch address details **/
 			
-			
 			$('body').find("#mamacubatry-wizard").steps({
 				headerTag			  : "h4",
 				bodyTag				  : "section",
 				transitionEffect	  : "fade",
-				enableAllSteps		  : true,
+				enableAllSteps		  : false,
 				enableKeyNavigation   : false,
 				transitionEffectSpeed : 500,
 				onStepChanging		  : function (event, currentIndex, newIndex) { 
-				
+					
 					if(currentIndex === 0)
 					{
-						validation = checkSelectedProduct();
-						$('body').find('.input-flag-checking-step').val(validation);
-						console.log("validtion = " + validation);
-						if(validation != true)
+						$('body').find('.input-flag-checking-step').val(true);
+					}
+					
+					if(currentIndex == 1)
+					{
+						validation = generalCheck_input();
+						if(!validation)
+						{
+							$('body').find('.input-flag-checking-step').val(false);
+							return false;
+						}
+						else
+						{
+							$('body').find('.input-flag-checking-step').val(true);
+						}
+					}
+					
+					if(currentIndex == 2)
+					{
+						var deliveryAddr = $('body').find('input[name="delivery_address"]:checked').val();
+						var sameDelivery = $('body').find('input[name="same_address_delivery"]:checked').val();
+						var billingAddr  = $('body').find('input[name="billing_address"]:checked').val();
+						
+						if(deliveryAddr == '' || deliveryAddr == undefined)
 						{
 							Swal.fire({
 								icon: 'error',
-								title: 'No product selected',
-								text: 'Please select product before proceed',
+								title: 'Delivery address',
+								text: "Please select delivery address",
 							});
 							
+							$('body').find('.input-flag-checking-step').val(false);
 							return false;
 						}
+						
+						/*
+						if(sameDelivery == '' || sameDelivery == undefined)
+						{
+							if(billingAddr == '' || billingAddr == undefined)
+							{
+								Swal.fire({
+									icon: 'error',
+									title: 'Billing address',
+									text: "Please select billing address",
+								});
+								
+								$('body').find('.input-flag-checking-step').val(false);
+								return false;
+							}
+							else
+							{
+								$('body').find('.input-flag-checking-step').val(true);
+						
+								return true;
+							}
+						}
+						*/
+						
+						$('body').find('.input-flag-checking-step').val(true);
 					}
 					
 					if (newIndex === 1) {
@@ -1957,21 +2387,136 @@
 						$('.steps ul').removeClass('step-3');
 					} 
 					
-					if ( newIndex === 3 ) {
+					/*if ( newIndex === 3 ) {
 						$('.steps ul').addClass('step-4');
 					} else {
 						$('.steps ul').removeClass('step-4');
-					}
+					}*/
 
-					if ( newIndex === 4 ) {
-						$('.steps ul').addClass('step-5');
-						$('.actions ul').addClass('step-last');
+					if ( newIndex === 3 ) {
+						$('.steps ul').addClass('step-4');
+						//$('.actions ul').addClass('step-last');
 					} else {
-						$('.steps ul').removeClass('step-5');
-						$('.actions ul').removeClass('step-last');
+						$('.steps ul').removeClass('step-4');
+						//$('.actions ul').removeClass('step-last');
 					}
 					
 					return true; 
+					
+				},
+				onStepChanged : function(event, currentIndex, priorIndex){
+					
+				},
+				onFinished  : function(){
+					var deliveryAddr  	  = $('body').find('input[name="delivery_address"]:checked').val();
+					var sameDelivery 	  = $('body').find('input[name="same_address_delivery"]:checked').val();
+					var billingAddr  	  = $('body').find('input[name="billing_address"]:checked').val();
+					var campaignId   	  = $('body').find('.tester-id').val();
+					var tester_product_id = $('body').find('.tester-product-id').val();
+					var tncRead			  = $('body').find('.check-tnc').is(":checked");
+					
+					console.log(tncRead);
+					if(tncRead != true)
+					{
+						Swal.fire({
+							icon: 'error',
+							title: 'Terms & Conditions',
+							text: "Please tick the box to confirm that you agree to the Terms & Conditions of this campaign.",
+						});
+						
+						return false;
+					}
+					
+					if(tester_product_id <= 0)
+					{
+						Swal.fire({
+							icon: 'error',
+							title: 'Product id invalid',
+							text: "Please contact admin",
+						});
+						
+						return false;
+					}
+					
+					if(campaignId <= 0)
+					{
+						Swal.fire({
+							icon: 'error',
+							title: 'Campaign id invalid',
+							text: "Please contact admin",
+						});
+						
+						return false;
+					}
+					
+					if(deliveryAddr == '' || deliveryAddr == undefined)
+					{
+						Swal.fire({
+							icon: 'error',
+							title: 'Delivery address',
+							text: "Please select delivery address",
+						});
+						
+						return false;
+					}
+					
+					/*if(sameDelivery == '' || sameDelivery == undefined)
+					{
+						if(billingAddr == '' || billingAddr == undefined)
+						{
+							Swal.fire({
+								icon: 'error',
+								title: 'Billing address',
+								text: "Please select billing address",
+							});
+						}
+						
+						return false;
+					}*/
+					
+					$('body').find('#form-tester-campaign .delivery-id').val(deliveryAddr);
+					$('body').find('#form-tester-campaign .billing-id').val(billingAddr);
+					$('body').find('#form-tester-campaign .same-delivery-id').val(sameDelivery);
+					var dataform = $('#form-tester-campaign').serialize();
+					
+					$.ajax({
+						url		 : '../modules/enlineamixmod/enlineamixmod-tester-campaign-ajaxpost.php', 
+						data	 : dataform,
+						dataType :'json',
+						method 	 : 'post',
+						success	 : function(result){
+							if(result.status == true)
+							{
+								Swal.fire({
+									icon: 'success',
+									title: 'Thank You',
+									text: result.msg,
+								});
+
+								$('body').find('.success-application').css('display', 'block');
+								$('body').find('.form-application').css('display', 'none');
+							}
+							else
+							{
+								
+								Swal.fire({
+									icon: 'warning',
+									title: 'Action Failed',
+									text: result.msg,
+								});
+							}
+						},
+						error: function () {
+							
+							Swal.fire({
+								icon: 'error',
+								title: 'Unexpected server response',
+								text: "Contact admin",
+							});
+						}
+					});
+					
+					
 					
 				},
 				labels: {
@@ -1983,13 +2528,12 @@
 			
 			// Custom Steps Jquery Steps
 			$('.wizard > .steps li a').click(function(){
-				var highLight = $('body').find('.input-flag-checking-step').val();
+				var highlight = $('body').find('.input-flag-checking-step').val();
 				
-				if(highLight == "true")
-				{
+				if(highlight == 'true'){
 					$(this).parent().addClass('checked');
 				}
-				
+			
 				$(this).parent().prevAll().addClass('checked');
 				$(this).parent().nextAll().removeClass('checked');
 			});
@@ -2011,7 +2555,11 @@
 				$(this).addClass('active');
 			})
 			
-			/** need to initilize input mask js after jquery step **/
+			/** 
+			*need to initilize input mask js after jquery step 
+			* if anyting js behaviour not work as expected need to declare after jquery step
+			**/
+			//checkbillingaddr();
 			var selectorDOB = document.getElementsByClassName("dobinput");
 			Inputmask('datetime',{
 				alias 		 :'datetime',
@@ -2069,120 +2617,21 @@
 			var tagifybrandlove = document.querySelector('input[name="love_brand"]');
 			new Tagify(tagifybrandlove);
 			
-			/** signature pad **/
-			var wrapper 		  = document.getElementById("signature-pad");
-			var clearButton 	  = wrapper.querySelector("[data-action=clear]");
-			var changeColorButton = wrapper.querySelector("[data-action=change-color]");
-			var undoButton 		  = wrapper.querySelector("[data-action=undo]");
-			var savePNGButton 	  = wrapper.querySelector("[data-action=save-png]");
-			var saveJPGButton 	  = wrapper.querySelector("[data-action=save-jpg]");
-			var saveSVGButton 	  = wrapper.querySelector("[data-action=save-svg]");
-			var canvas  		  = wrapper.querySelector("canvas");
-			var signaturePad 	  = new SignaturePad(canvas, {
-			  // It's Necessary to use an opaque color when saving image as JPEG; this option can be omitted if only saving as PNG or SVG
-				backgroundColor: 'rgb(255, 255, 255)',
+			$('.panel-collapse').on('shown.bs.collapse', function() {
+				$(this).closest('.panel').find('.accordian-heading-motherhood').addClass('accordian-heading-motherhood-toggle');
+			  });
+
+			$('.panel-collapse').on('hidden.bs.collapse', function() {
+				$(this).closest('.panel').find('.accordian-heading-motherhood').removeClass('accordian-heading-motherhood-toggle');
 			});
 			
-			// Adjust canvas coordinate space taking into account pixel ratio, to make it look crisp on mobile devices. This also causes canvas to be cleared.
-			var resizeCanvas = function() {
-				/*
-				* When zoomed out to less than 100%, for some very strange reason, 
-				* some browsers report devicePixelRatio as less than 1 and only part of the canvas is cleared then. **/
-				var ratio 		= Math.max(window.devicePixelRatio || 1, 1);
-				var canvasWidth = canvas.offsetWidth;
-				var canvasHeight = canvas.offsetHeight;
+			bgColorAddr();
+			$('body').on('change', '.opt-delivery-addr, .opt-billing-addr', function(){
+				$('body').find('.div-delivery-addr span').removeClass('checked');
+				$(this).closest('.div-delivery-addr span').addClass('checked');
 				
-				if(canvasWidth <= 0)
-				{
-					canvasWidth = 664;
-				}
-				
-				if(canvasHeight <= 0)
-				{
-					canvasHeight = 366;
-				}
-			
-				/** This part causes the canvas to be cleared **/
-				canvas.width  = canvasWidth * ratio;
-				canvas.height = canvasHeight * ratio;
-				canvas.getContext("2d").scale(ratio, ratio);
-
-			  // This library does not listen for canvas changes, so after the canvas is automatically
-			  // cleared by the browser, SignaturePad#isEmpty might still return false, even though the
-			  // canvas looks empty, because the internal data of this library wasn't cleared. To make sure
-			  // that the state of this library is consistent with visual state of the canvas, you
-			  // have to clear it manually.
-				signaturePad.clear();
-			}
-
-			// On mobile devices it might make more sense to listen to orientation change,
-			// rather than window resize events.
-			window.onresize = resizeCanvas;
-			resizeCanvas();
-
-			$('body').on('click', '.btn-clear-signature', function(){
-				signaturePad.clear();
+				bgColorAddr();
 			});
-			
-			$('body').on('click', '.btn-undo-signature', function(){
-				var data = signaturePad.toData();
-				if (data) 
-				{
-					data.pop(); // remove the last dot or line
-					signaturePad.fromData(data);
-				}
-			});
-
-			$('body').on('click', '.btn-changecolor-signature', function(){
-				var r 	  = Math.round(Math.random() * 255);
-				var g  	  = Math.round(Math.random() * 255);
-				var b 	  = Math.round(Math.random() * 255);
-				var color = "rgb(" + r + "," + g + "," + b +")";
-				signaturePad.penColor = color;
-			});
-			
-			$('body').on('click', '.btn-save-png', function(){
-				if (signaturePad.isEmpty()) {
-					Swal.fire({
-						icon: 'info',
-						title: 'No signature',
-						text: 'Please provide a signature first.',
-					})
-				}
-				else {
-					var dataURL = signaturePad.toDataURL();
-					downloadSignature(dataURL, "signature.png");
-				}
-			});
-			
-			$('body').on('click', '.btn-save-jpg', function(){
-				if (signaturePad.isEmpty()) {
-					Swal.fire({
-						icon: 'info',
-						title: 'No signature',
-						text: 'Please provide a signature first.',
-					})
-				}
-				else {
-					var dataURL = signaturePad.toDataURL("image/jpeg");
-					downloadSignature(dataURL, "signature.jpg");
-				}
-			});
-
-			$('body').on('click', '.btn-save-svg', function(){
-				if (signaturePad.isEmpty()) {
-					Swal.fire({
-						icon: 'info',
-						title: 'No signature',
-						text: 'Please provide a signature first.',
-					})
-				}
-				else {
-					var dataURL = signaturePad.toDataURL('image/svg+xml');
-					downloadSignature(dataURL, "signature.svg");
-				}
-			});
-			
 		});
 	</script>
 {/literal}

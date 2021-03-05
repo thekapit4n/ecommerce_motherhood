@@ -15,18 +15,15 @@ class enlineamixmodmamacubatryproductsModuleFrontController extends ModuleFrontC
 	
     public function init()
     {
+        $sql 	= 'SELECT *
+					FROM `'._DB_PREFIX_.'tester_campaign_header` a join ps_product_lang b
+					on a.tester_product_id=b.id_product and b.id_lang=1
+					WHERE link_rewrite="'.pSQL(Tools::getValue('product_slug')).'"';
+		$result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
 		
-        $sql = '
-			SELECT *
-FROM `'._DB_PREFIX_.'tester_campaign_header` a join ps_product_lang b
-on a.tester_product_id=b.id_product and b.id_lang=1
-WHERE link_rewrite="'.pSQL(Tools::getValue('product_slug')).'"';
-        $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
-				
-		if (empty($result[0])){
-			Tools::redirect('https://www.motherhood.com.my/productreview');
-			die('ggg');
-			
+		if (empty($result[0]) && strtolower(Tools::getValue('product_slug')) != 'main'){
+			Tools::redirect('https://www.motherhood.com.my/mamacubatry/main');
+			die('no slug');
 		}
 		
 		$meta_title="MamaCubaTry: ".$result[0]['name'];
@@ -64,7 +61,7 @@ WHERE link_rewrite="'.pSQL(Tools::getValue('product_slug')).'"';
 					JOIN ps_product c ON b.id_product=c.id_product
 					WHERE link_rewrite="'.pSQL(Tools::getValue('product_slug')).'"';
         $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
-		
+			
 		$product 	 = new Product((int)$result[0]['id_product']);
 		$image 		 = Product::getCover((int)$result[0]['id_product']);
 		$cover_image = $this->context->link->getImageLink($product->link_rewrite[1], $image['id_image'], 'medium_default');
@@ -133,20 +130,28 @@ WHERE link_rewrite="'.pSQL(Tools::getValue('product_slug')).'"';
 		$sqlstate 	 = "SELECT * FROM motherhood_presta.ps_postcode_state ORDER BY state_name ASC";
 		$resultState = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlstate);
 		
-		$arr_race   	  = array("Malay", "Chinese", "Indian", "Others");
-		$arr_salary 	  = array("36,000 and below", "36,000 - 60,000", "60,000 - 120,000", "120,000 and above");
+		$arr_race    = array("Malay", "Chinese", "Indian", "Others");
+		$arr_salary  = array("36,000 and below", "36,000 - 60,000", "60,000 - 120,000", "120,000 and above");
 		
 		$sql_address = "SELECT addr.*,state.name as statename FROM motherhood_presta.ps_address as addr 
 						LEFT JOIN ps_state as state
 						ON addr.id_state = state.id_state
 						WHERE addr.id_customer = " . $this->context->customer->id;
-		/* $sql_address = "SELECT addr.*,state.name as statename FROM motherhood_presta.ps_address as addr 
-						LEFT JOIN ps_state as state
-						ON addr.id_state = state.id_state
-						WHERE addr.id_customer = 1995"; */
+		
 		$resultAddr  = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql_address);
-      
-	  $this->context->smarty->assign(array(
+		
+		$checkCustomerExist  = "SELECT count(tester_detail_id) as total FROM ps_tester_campaign_detail WHERE tester_id = " . $result[0]['tester_id'] . " AND customer_id = " . $this->context->customer->id . " LIMIT 1";
+		$resultCustomerExist = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($checkCustomerExist);
+		$applied = false;
+		if(is_array($resultCustomerExist) && sizeof($resultCustomerExist) > 0 && isset($resultCustomerExist[0]['total']) && $resultCustomerExist[0]['total'] > 0)
+		{
+			$applied = true;
+		}
+		// echo "<pre>";
+		// print_r($resultCustomerExist);
+		// echo "</pre>";
+		
+		$this->context->smarty->assign(array(
 			'campaign'		   => $result[0],
 			'customer'		   => $customer,
 			'productCategory'  => $productCategory,
@@ -156,10 +161,16 @@ WHERE link_rewrite="'.pSQL(Tools::getValue('product_slug')).'"';
 			'arr_salary'	   => $arr_salary,
 			'arr_pastreview'   => $arr_pastreview,
 			'arr_address'	   => $resultAddr,
+			'applied'	   	   => $applied,
 			'mamacubatry_view' => _PS_ROOT_DIR_  . "/modules/enlineamixmod/views",     
         ));
 		
-		$this->setTemplate('mamacubatryproducts.tpl');
+		if (strtolower(Tools::getValue('product_slug')) == 'main'){
+			$this->setTemplate('mamacubatrylandingpage.tpl');
+		}
+		else
+			$this->setTemplate('mamacubatryproducts.tpl');
+		
         return parent::postProcess();
     }
 

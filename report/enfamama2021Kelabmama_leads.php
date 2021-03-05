@@ -268,7 +268,7 @@ Start Date: <input type='date' name='searchDateStart' value="<?php echo $_POST['
 $searchStart="";
 $searchEnd="";
 $limit = "";
-$limit = " LIMIT 800 ";
+$limit = " LIMIT 1200 ";
 if ($_POST['searchDateStart'])
 	$searchStart=" AND Subscribed_Date >='".$_POST['searchDateStart']."' ";
 

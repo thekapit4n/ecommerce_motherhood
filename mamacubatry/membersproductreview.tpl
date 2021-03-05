@@ -79,6 +79,7 @@ var myAddress='{$currentAddressId}';
 	
 	.btn-pill, .btn-pill-color:hover, .btn-pill-color:focus{
 		border-radius:25px;
+		outline:unset;
 	}
 
 	.btn-pill-color, btn-pill-color:hover, .btn-pill-color:focus{
@@ -127,6 +128,10 @@ var myAddress='{$currentAddressId}';
 		justify-content: center;
 	}
 	
+	.font-weight-7x{
+		font-weight:700;
+	}
+	
 	/* css for other than mobile view */	
 	@media only screen and (max-width: 600px) {
 		
@@ -136,6 +141,14 @@ var myAddress='{$currentAddressId}';
 			padding-top: 13px;
 			padding-bottom: 13px;
 			font-size: 16px;
+		}
+		
+		.br-review-product{
+			display:none;
+		}
+		
+		.label-review-product{
+			min-width:102px;
 		}
 	}
 </style>
@@ -474,34 +487,35 @@ var myAddress='{$currentAddressId}';
 		<div class="tab-content">
 			<!--  tester tab--->
 			<div id="mycampaign" class="tab-pane fade in active">
-				<table class="std table table-rewards">
-					<thead>
-						<tr>
-							<th class="first_item">{l s='Campaign' mod='membersproductreview'}</th>
-							<th class="item" style="width:700px;">{l s='Campaign Infomation' mod='membersproductreview'}</th>
-							<th class="item" style="width:165px;">{l s='Campaign Start Date' mod='membersproductreview'}</th>
-							<th class="item">{l s='Status' mod='membersproductreview'}</th>
-						</tr>
-					</thead>
-					<tbody>
-						{foreach from=$testerlist item=product name=myLoop}
-						<tr>
-							<td style="border-right: 0px solid !important; border-left : 0px solid !important;">
+				{foreach from=$testerlist item=product name=myLoop}
+					<div class="row" style="border: 1px solid #b4b3b463; margin-top: 10px; margin-bottom: 10px;">
+						<div class="col-md-2">
+							<div class="row" style="padding:20px;text-align:center">
 								<img src="{$product.tester_cover_image}" height="{$mediumSize.height}" width="{$mediumSize.width}" alt="{$product.name|escape:html:'UTF-8'}" />
-							</td>
-							<td style="border-right: 0px solid !important; border-left : 0px solid !important;text-align: left;">
-								<a class="open-comment-form" href="#large_product_desc" onclick='setProductFullDesc(this)' style="color:#36a7ac">
-									<span >{$product.name|escape:'strval'} <span>
-								</a><br>
-								<textarea style='visibility:hidden;display:none'>{$product.description}</textarea>
-								<input style='visibility:hidden;display:none' value='{$product.id_product}'>				
-								{if $product.description_short}<br>
-									<div style='color:#555454;font-weight:300;'class="text-left">{$product.description_short}</div></td>
-								{/if}
-							<td style="border-right: 0px solid !important; border-left : 0px solid !important; color:#555454">
-								{$product.tester_start_date|date_format:"%d-%m-%Y"}
-							</td>
-							<td style="border-right: 0px solid !important; border-left : 0px solid !important;">
+							</div>
+						</div>
+						<div class="col-md-8" style="padding-bottom:27px; padding-top:27px;">
+							<div style="padding-left:20px; padding-right:20px;">
+								<div class="row">
+									<h4  style="margin-bottom:-10px;"><b>
+									<a class="open-comment-form" href="#large_product_desc" onclick='setProductFullDesc(this)' style="color:#38a7ac">
+										<span >{$product.name|escape:'strval'} <span>
+									</a></b>
+									</h4>
+									<textarea style='visibility:hidden;display:none'>{$product.description}</textarea>
+									<input style='visibility:hidden;display:none' value='{$product.id_product}'>				
+									{if $product.description_short}<br>
+										<div style='color:#555454;font-weight:300;'class="text-left">{$product.description_short}</div></td>
+									{/if}
+								</div>
+								<div class="row" style="style="color:#38a7ac">
+									<h4><b>{l s='Campaign Start Date' mod='membersproductreview'}</b></h4>
+									<b>{$product.tester_start_date|date_format:"%d-%m-%Y"}</b>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-2" style="padding-top: 30px;padding-bottom: 30px;text-align: center;">
+							<div class="row">
 								{if $product.approved}
 									<button type="button" class="btn btn-default btn-pill btn-pill-color btn-approved-color">Approved</button>
 								{else}
@@ -511,21 +525,21 @@ var myAddress='{$currentAddressId}';
 										<div>
 											<p class="align_center">
 											{if $additionalInfo.children_under_12}
-												{if $currentAddressId>0}
-													<a class="btn btn-default btn-pill btn-pill-color btn-apply-color" onclick='applyReview({$product.tester_id})' >
+												{if $currentAddressId > 0}
+													<a class="btn btn-default btn-pill btn-pill-color btn-apply-color" href="https://www.motherhood.com.my/mamacubatry/{$product.link_rewrite}">
 														<span>Apply Now</span>
 													</a>
 												{else}
-													<a id="new_comment_tab_btn" class="btn btn-default btn-pill btn-pill-color btn-complete-color open-comment-form" href="#address_form">
-														<span  onclick='document.getElementById("tester_id").value={$product.tester_id};'>Complete Address</span>
+													<a class="btn btn-default btn-pill btn-pill-color btn-complete-color open-comment-form" href="https://www.motherhood.com.my/mamacubatry/{$product.link_rewrite}">
+														<span>Complete Address</span>
 													</a>
 												{/if}
 											{else} 
 												{if !$logged}
 													<a href='/login?back=my-product-review'>Login / Sign Up</a> 
 												{else}
-													<a id="new_comment_tab_btn" class="btn btn-default btn-pill btn-pill-color btn-complete-color open-comment-form" href="#new_information_form">
-														<span  onclick='document.getElementById("tester_id").value={$product.tester_id}';'>Complete Form</span>
+													<a id="new_comment_tab_btn" class="btn btn-default btn-pill btn-pill-color btn-complete-color open-comment-form" href="https://www.motherhood.com.my/mamacubatry/{$product.link_rewrite}">
+														<span>Complete Form</span>
 													</a>
 																 
 												{/if}
@@ -534,39 +548,67 @@ var myAddress='{$currentAddressId}';
 										</div>
 									{/if}
 								{/if}
-							</td>
-						</tr>
-						{/foreach}
-					</tbody>
-				</table>
+							</div>
+						</div>
+					</div>
+				{/foreach}
 			</div>
 			<!--  Review tab--->
 			<div id="myreview" class="tab-pane fade">
-				<table class="std table table-rewards">
-					<thead>
-						<tr>
-							<th class="item">{l s='Product' mod='membersproductreview'}</th>
-							<th class="item"></th>
-							<th class="item">{l s='Reference' mod='membersproductreview'}</th>
-							<th class="item">{l s='Order Reference' mod='membersproductreview'}</th>
-							<th class="item">{l s='Order Date' mod='membersproductreview'}</th>
-							<th class="item"></th>
-						</tr>
-					</thead>
-					<tbody>
-					{foreach from=$productlist item=product name=myLoop}
-						<tr class="{if ($smarty.foreach.myLoop.iteration % 2) == 0}item{else}item{/if}">
-							<td style="border-right: 0px solid !important; border-left : 0px solid !important;"><img src="{$product.productcomment_cover_image}" height="{$mediumSize.height}" width="{$mediumSize.width}" alt="{$product.name|escape:html:'UTF-8'}" /></td>
-							<td style="border-right: 0px solid !important; border-left : 0px solid !important;">{$product.name|escape:'strval'}</td>
-							<td style="border-right: 0px solid !important; border-left : 0px solid !important;">{$product.prodreference|escape:'strval'}</td>
-							<td style="border-right: 0px solid !important; border-left : 0px solid !important;">{$product.reference|escape:'strval'}</td>
-							<td style="border-right: 0px solid !important; border-left : 0px solid !important;">{dateFormat date=$product.date_add full=1}</td>
-							<td style="border-right: 0px solid !important; border-left : 0px solid !important;">
-								<input type="hidden" class="product-name" value="{$product.name|escape:'strval'}">
-								<input type="hidden" class="product-id" value="{$product.id_product}">
-								<input type="hidden" class="product-img-src" value="{$product.productcomment_cover_image}">
-								<input type="hidden" class="product-img-alt" value="{$product.name|escape:html:'UTF-8'}">
-								<textarea  style="display:none" class="product-desc">{$product.description}</textarea>
+				{foreach from=$productlist item=product name=myLoop}
+					<div class="row" style="border: 1px solid #b4b3b463; margin-top: 10px; margin-bottom: 10px;">
+						<div class="col-md-2">
+							<div class="row" style="padding:20px;text-align:center">
+								<img src="{$product.productcomment_cover_image}" height="{$mediumSize.height}" width="{$mediumSize.width}" alt="{$product.name|escape:html:'UTF-8'}" />
+							</div>
+						</div>
+						<div class="col-md-7" style="padding-bottom:27px; padding-top:27px;">
+							<div style="padding-left:20px; padding-right:20px;">
+								<div class="row">
+									<div class="col-md-12">
+										<h4>
+											<b>
+												{$product.name|escape:'strval'}
+											</b>
+										</h4>
+									</div>
+								</div>
+								<div class="row" style="style="color:#38a7ac">
+									<div class="col-md-4 col-xs-12">
+										<label class="label-review-product">
+											<b>{l s='Reference' mod='membersproductreview'}</b>
+										</label>
+										<br class="br-review-product">
+										<b>
+											{$product.prodreference|escape:'strval'}
+										</b>
+									</div>
+									<div class="col-md-4 col-xs-12">
+										<label class="label-review-product">
+											<b>
+												{l s='Order Reference' mod='membersproductreview'}
+											</b>
+										</label>
+										<br class="br-review-product">
+										<b>
+											{$product.reference|escape:'strval'}
+										</b>
+									</div>
+									<div class="col-md-4 col-xs-12">
+										<label class="label-review-product">
+											<b>
+												{l s='Order Date' mod='membersproductreview'}
+											</b>
+										</label>
+										<br class="br-review-product">
+										<b>
+											{dateFormat date=$product.date_add full=1}
+										</b>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3" style="padding-top: 30px;padding-bottom: 30px;text-align: center;">
 							{if ($product.havegrade=='missing')}
 								<div id="product_comments_block_tab">
 									<p class="align_center">
@@ -603,11 +645,9 @@ var myAddress='{$currentAddressId}';
 									</div>
 								</div>
 							{/if}
-							</td>
-						</tr>
-					{/foreach}
-					</tbody>
-				</table>
+						</div>
+					</div>
+				{/foreach}
 			</div>
 		</div>
 	</div>

@@ -223,11 +223,11 @@ li:not(.leftmenu) a:hover:not(.active):not(.leftmenu) {
 </head>
 
 <?php
-   $currPath = $_SERVER['REQUEST_URI'];
-   $baseprog=explode("?",basename($currPath));
-   $checkName=explode("-",basename($baseprog[0]));
-   $secretOfTheDay = "K@p1T4n S4Y T0d4Y 1$" . date('Y-m-d');
-   $encrypt  		= md5($secretOfTheDay);
+	$currPath 		= $_SERVER['REQUEST_URI'];
+	$baseprog		= explode("?",basename($currPath));
+	$checkName		= explode("-",basename($baseprog[0]));
+	$secretOfTheDay = "K@p1T4n S4Y T0d4Y 1$" . date('Y-m-d');
+	$encrypt  		= md5($secretOfTheDay);
 	$searchStart ="";
 	$searchEnd 	 ="";
 	$wheresql  	 = "";
@@ -258,7 +258,14 @@ li:not(.leftmenu) a:hover:not(.active):not(.leftmenu) {
 	}
 	
 	
-	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "a.subscriber_event_id=115";
+	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "a.subscriber_event_id=115
+				AND IF(
+					subscriber_created_at < '2021-03-01' OR (
+						SHA2(subscriber_question1,0) NOT IN (SELECT * FROM tbl_friso_hash) 
+						AND SHA2(newEmail,0) IN (SELECT * FROM tbl_friso_hash) )
+					, TRUE
+					, FALSE)";
+					
 	if($searchStart != '')
 	{
 		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " subscriber_created_at >= '" . trim($searchStart . " 00:00:00") . "'";
@@ -275,7 +282,6 @@ li:not(.leftmenu) a:hover:not(.active):not(.leftmenu) {
 			a.subscriber_question9 as City, a.subscriber_question10 as States,a.subscriber_question12 as tnc, a.subscriber_created_at as DateSubmit
 			FROM ps_events_subscriber a " . $wheresql . " GROUP BY newEmail	ORDER BY subscriber_created_at ASC " . $limitsql;    
     $result = $conn->query($sql);
-	
 	if(is_object($result)){
 		$tableReportView =  mysql_result_all_html($result);
 		$result->close();
@@ -283,6 +289,50 @@ li:not(.leftmenu) a:hover:not(.active):not(.leftmenu) {
 	}
 	
     function mysql_result_all_html($result, $tableFeatures="") {
+		$arrChangeBrandToOthers = array(
+			"4m",
+			"Appeton",
+			"AptaGro",
+			"Aptamil",
+			"Awarua",
+			"Baby Bio",
+			"Baby Steps",
+			"Bellamy's",
+			"Colostrum",
+			"Dugro",
+			"Dupro",
+			"Dutch Baby",
+			"Enfalac",
+			"Enfamil",
+			"Farmers",
+			"Frisolac",
+			"G-Star",
+			"Glucerna",
+			"Habib",
+			"Karihome",
+			"Lactogrow",
+			"Lazz",
+			"Mamex",
+			"Merry Nation",
+			"Miwako",
+			"Nana",
+			"Nestle",
+			"Suffy",
+			"Wildan",
+			"Wyeth",
+		);
+		
+		$arrShortNameToFullname = array(
+			"anmum" => "Anmum Essential",			
+			"mamil" => "Dumex Mamil",			
+			"similac" => "Friso Gold",			
+			"friso" => "Gain Kid",			
+			"morinaga milk" => "Morinaga",			
+			"nankid" => "Nan",			
+			"s26" => "S-26",			
+			"not consuming any milk" => "Do not consume milk powder",			
+		);
+		
 		if ($_GET['event_type'])
 			$headerStr=" for ".$_GET['event_type'];
 		
@@ -303,8 +353,30 @@ li:not(.leftmenu) a:hover:not(.active):not(.leftmenu) {
 		while ($r = mysqli_fetch_row($result)) {
 			$ccount++;
 			$table .= "<tr><td>" . $ccount . "</td>";
-			foreach ($r as $kolonne) {
-				$table .= "<td>" . $kolonne . "</td>";
+			foreach ($r as $indx => $kolonne) {
+				if($indx == 4) #index 4 is question about milk brand
+				{
+					$milkbrand = strtolower($kolonne);
+					
+					if(isset($arrShortNameToFullname[$milkbrand]) && $arrShortNameToFullname[$milkbrand] != '')
+					{
+						$milkbrand = $arrShortNameToFullname[$milkbrand];
+					}
+					elseif(in_array($milkbrand, $arrChangeBrandToOthers))
+					{
+						$milkbrand = "Others";
+					}
+					else
+					{
+						$milkbrand = ucwords($milkbrand);
+					}
+					
+					$table .= "<td>" . $milkbrand . "</td>";
+				}
+				else
+				{
+					$table .= "<td>" . $kolonne . "</td>";
+				}
 			}
 			$table .= "</tr>";
 		}
@@ -398,7 +470,7 @@ li:not(.leftmenu) a:hover:not(.active):not(.leftmenu) {
 	
 	var initEnddatepicker = function(){
 		var startDate = $('body').find('.eventdatepicker').val();
-		var endDate = $('body').find('.eventdatepicker-end').val();
+		var endDate   = $('body').find('.eventdatepicker-end').val();
 		var date = startDate;
 		var d	 = new Date(date.split("/").reverse().join("-"));
 		var dd	 = d.getDate();

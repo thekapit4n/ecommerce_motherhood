@@ -352,7 +352,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 			$sql = '		
 					SELECT id_product_attribute FROM ps_cart A
 					JOIN ps_cart_product B ON A.id_cart=B.id_cart
-					WHERE id_product_attribute BETWEEN 30299 AND 30314 
+					WHERE ( id_product_attribute BETWEEN 30303 AND 30314 OR id_product_attribute IN (  32739 ,32742,32744,32745) )
 					AND id_customer='.$this->context->customer->id.' 
 					AND A.id_cart NOT IN (SELECT id_cart FROM ps_orders WHERE id_customer='.$this->context->customer->id.')
 					
@@ -368,13 +368,13 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 			// for pre-warehouse step2, will get the qty of slots left per combination
 			$sql = '		
 					SELECT id_product_attribute , IF(quantity<0,0,quantity) as quantity FROM ps_stock_available
-					WHERE id_product_attribute BETWEEN 30299 AND 30314
+					WHERE id_product_attribute BETWEEN 30303 AND 30314 OR id_product_attribute IN (  32739 ,32742,32744,32745)
 					ORDER BY id_product_attribute 
 				';
 			$resultRegister = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
-			$id_combination=30299;
+			$id_combination=30303;
 			
-			$ddate=3;
+			$ddate=25;
 			$hhour=1;
 			foreach($resultRegister as $oneRow){
 				if ($inCartArray[$oneRow['id_product_attribute']]){
@@ -480,66 +480,125 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 			die();
 		}
 		
-		
-		
-		
-		if($this->context->customer->id && ($event_id == 93 || $event_id == 99999)){
+		if($event_id == 93 || $event_id == 99999){
 			# 93 - LIVE
 			#99999 - UAT
-			$submittedSuperkids=0;
+			$arr_kidmilk = array(
+				'4m',
+				'Abbott',
+				'Anmum',
+				'Appeton',
+				'AptaGro',
+				'Aptamil',
+				'Awarua',
+				'Baby Bio',
+				'Baby Steps',
+				"Bellamy's",
+				'Colostrum',
+				'Dugro',
+				'Dumex',
+				'Dupro',
+				'Dutch Baby',
+				'Dutch Lady',
+				'Enfagrow',
+				'Enfalac',
+				'Enfamil',
+				'Farmers',
+				'Fernleaf',
+				'Friso',
+				'Frisolac',
+				'G-Star',
+				'Glucerna',
+				'Habib',
+				'Karihome',
+				'Lactogen',
+				'Lactogrow',
+				'Lazz',
+				'Mamex',
+				'Mamil',
+				'Merry Nation',
+				'Miwako',
+				'Morinaga Milk',
+				'Nana',
+				'Nankid',
+				'Nestle',
+				'Novalac',
+				'Pediasure',
+				'S26',
+				'Similac',
+				'Snow',
+				'Suffy',
+				'Sustagen',
+				'Wildan',
+				'Wyeth',
+				'Not consuming milk formula',
+				'Others'
+			);
 			
-			$currentSQL = '
-				SELECT count(1) AS ccount
-				FROM  `'._DB_PREFIX_.'events_subscriber` 
-				WHERE subscriber_event_id = 93 AND newEmail="'.$this->context->customer->email.'"
-			';
-			$currentResult = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($currentSQL); 
-			
-			if ($currentResult[0]['ccount']>0)	{	
-				$result[0]['event_description'] =str_ireplace('{{showForm}}',' ;visibility:hidden;display:none',$result[0]['event_description']);
-				$submittedSuperkids=1;
+			$htmlOptKidMilk = "";
+			foreach($arr_kidmilk as $valKMilk)
+			{
+				$htmlOptKidMilk .= '<option value="' . $valKMilk . '">' . $valKMilk . "</option>";
 			}
 			
+			$result[0]['event_description'] = str_ireplace('{{option-kidmilk}}', $htmlOptKidMilk, $result[0]['event_description']);
+			if($this->context->customer->id)
+			{
+				$submittedSuperkids=0;
 			
-			$currentSQL = '
-				SELECT email, A.firstname, A.lastname, address1,phone, postcode, city, id_state FROM ps_customer A LEFT JOIN ps_address B
-				ON A.id_customer=B.id_customer
-				WHERE A.id_customer='.$this->context->customer->id.'
-			';
-			$currentResult = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($currentSQL); 
+				$currentSQL = '
+					SELECT count(1) AS ccount
+					FROM  `'._DB_PREFIX_.'events_subscriber` 
+					WHERE subscriber_event_id = 93 AND newEmail="'.$this->context->customer->email.'"
+				';
+				$currentResult = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($currentSQL); 
+				
+				if ($currentResult[0]['ccount']>0)	{	
+					$result[0]['event_description'] =str_ireplace('{{showForm}}',' ;visibility:hidden;display:none',$result[0]['event_description']);
+					$submittedSuperkids=1;
+				}
+				
+				
+				$currentSQL = '
+					SELECT email, A.firstname, A.lastname, address1,phone, postcode, city, id_state FROM ps_customer A LEFT JOIN ps_address B
+					ON A.id_customer=B.id_customer
+					WHERE A.id_customer='.$this->context->customer->id.'
+				';
+				$currentResult = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($currentSQL); 
+				
+				$currentEmail=$currentResult[0]['email'];
+				$firstname=$currentResult[0]['firstname'];
+				$lastname=$currentResult[0]['lastname'];
+				$address1=$currentResult[0]['address1'];
+				$phone=$currentResult[0]['phone'];
+				$postcode=$currentResult[0]['postcode'];
+				$city=$currentResult[0]['city'];
+				$id_state=$currentResult[0]['id_state'];
 			
-			$currentEmail=$currentResult[0]['email'];
-			$firstname=$currentResult[0]['firstname'];
-			$lastname=$currentResult[0]['lastname'];
-			$address1=$currentResult[0]['address1'];
-			$phone=$currentResult[0]['phone'];
-			$postcode=$currentResult[0]['postcode'];
-			$city=$currentResult[0]['city'];
-			$id_state=$currentResult[0]['id_state'];
-		
-			$result[0]['event_description'] =str_ireplace('{{isredeem}}',1,$result[0]['event_description']);
-			$result[0]['event_description'] =str_ireplace('{{currentEmail}}',$currentEmail,$result[0]['event_description']);
-			$result[0]['event_description'] =str_ireplace('{{firstname}}',$firstname,$result[0]['event_description']);
-			$result[0]['event_description'] =str_ireplace('{{lastname}}',$lastname,$result[0]['event_description']);
-			$result[0]['event_description'] =str_ireplace('{{address1}}',$address1,$result[0]['event_description']);
-			$result[0]['event_description'] =str_ireplace('{{phone}}',$phone,$result[0]['event_description']);
-			$result[0]['event_description'] =str_ireplace('{{postcode}}',$postcode,$result[0]['event_description']);
-			$result[0]['event_description'] =str_ireplace('{{city}}',$city,$result[0]['event_description']);
-			$result[0]['event_description'] =str_ireplace('{{stateSelected'.$id_state.'}}','SELECTED',$result[0]['event_description']);
+				$result[0]['event_description'] =str_ireplace('{{isredeem}}',1,$result[0]['event_description']);
+				$result[0]['event_description'] =str_ireplace('{{currentEmail}}',$currentEmail,$result[0]['event_description']);
+				$result[0]['event_description'] =str_ireplace('{{firstname}}',$firstname,$result[0]['event_description']);
+				$result[0]['event_description'] =str_ireplace('{{lastname}}',$lastname,$result[0]['event_description']);
+				$result[0]['event_description'] =str_ireplace('{{address1}}',$address1,$result[0]['event_description']);
+				$result[0]['event_description'] =str_ireplace('{{phone}}',$phone,$result[0]['event_description']);
+				$result[0]['event_description'] =str_ireplace('{{postcode}}',$postcode,$result[0]['event_description']);
+				$result[0]['event_description'] =str_ireplace('{{city}}',$city,$result[0]['event_description']);
+				$result[0]['event_description'] =str_ireplace('{{stateSelected'.$id_state.'}}','SELECTED',$result[0]['event_description']);
+			}
+			else
+			{
+				$submittedSuperkids=0;
 			
-		}else if ($event_id == 93 || $event_id == 99999){
-			$submittedSuperkids=0;
-			
-			$result[0]['event_description'] =str_ireplace('{{isredeem}}',0,$result[0]['event_description']);
-			$result[0]['event_description'] =str_ireplace('{{currentEmail}}',"",$result[0]['event_description']);
-			$result[0]['event_description'] =str_ireplace('{{firstname}}',"",$result[0]['event_description']);
-			$result[0]['event_description'] =str_ireplace('{{lastname}}',"",$result[0]['event_description']);
-			$result[0]['event_description'] =str_ireplace('{{address1}}',"",$result[0]['event_description']);
-			$result[0]['event_description'] =str_ireplace('{{phone}}',"",$result[0]['event_description']);
-			$result[0]['event_description'] =str_ireplace('{{postcode}}',"",$result[0]['event_description']);
-			$result[0]['event_description'] =str_ireplace('{{city}}',"",$result[0]['event_description']);
-			
-		}
+				$result[0]['event_description'] =str_ireplace('{{isredeem}}',0,$result[0]['event_description']);
+				$result[0]['event_description'] =str_ireplace('{{currentEmail}}',"",$result[0]['event_description']);
+				$result[0]['event_description'] =str_ireplace('{{firstname}}',"",$result[0]['event_description']);
+				$result[0]['event_description'] =str_ireplace('{{lastname}}',"",$result[0]['event_description']);
+				$result[0]['event_description'] =str_ireplace('{{address1}}',"",$result[0]['event_description']);
+				$result[0]['event_description'] =str_ireplace('{{phone}}',"",$result[0]['event_description']);
+				$result[0]['event_description'] =str_ireplace('{{postcode}}',"",$result[0]['event_description']);
+				$result[0]['event_description'] =str_ireplace('{{city}}',"",$result[0]['event_description']);
+			}
+		}	
 		
 		if ( $event_id==93 || $event_id == 99999){
 			$this->context->controller->addCSS(_PS_MODULE_DIR_.'enlineamixmod/views/css/enlineavipdeals.css');
@@ -690,18 +749,26 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 		if($event_id == 102)
 		{
 			$arr_maternalmilk = array(
-				"Frisomum Gold", 
-				"NatureOne Dairy Pregnancy Formula",
+				"a2 Nutrition for Mothers",
+				"Anmum Lacta",
 				"Anmum Materna",
-				"Similac Mom",
 				"Aptamom",
-				"Bellamy's Equimum",
-				"Enfamama",
-				"Nestle Mom & Me",
-				"Wyeth Promama",
-				"Momma",
-				"Dumex Mamil Mama",
+				"Bellamy’s Organic Pregnancy Formula",
+				"Dumex Mamil® Mama",
+				"Enfamama A+",
+				"Fresh Goat Milk",
+				"Fresh Milk",
+				"Frisomum Gold",
+				"MOMMA Evermom Non-GMO Soy",
+				"MOMMA Pregolact",
 				"Natrel Milk",
+				"NatureOne Dairy Pregnancy Formula",
+				"Nestlé MOM",
+				"Similac Mom",
+				"Snow Maternity",
+				"Susu Efferty Ikhtiar Hamil",
+				"WILDAN Mama Premium",
+				"Wyeth Promama",
 			);
 			asort($arr_maternalmilk);
 			$arr_maternalmilk[] = "Others";
@@ -1453,8 +1520,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 			
 			// frisgold sample
 			if($event_id == 115){
-				echo "<script type='text/javascript'>alert('Thank you for requesting a free sample. Your sample request submission is successful.');</script>";
-				echo "<script type='text/javascript'>alert('Hi parents, due to overwhelming demand, our samples have run out of stocks temporarily. We appreciate your understanding that they will be a delay in fulfilling your sample request. We will send out the samples once they are available. Thank you for your patience.');</script>";
+				echo "<script type='text/javascript'>alert('Thank you for signing up! Your application is being processed. Kindly note that only qualified users will receive the trial pack.');</script>";
 				echo "<script type='text/javascript'>window.location.href='https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."'</script>";
 			}
 			

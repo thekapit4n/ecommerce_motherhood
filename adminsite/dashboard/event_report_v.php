@@ -27,6 +27,16 @@
 		$result_set  	  = mysqli_query($conn, $sql_eventdetails);
 		$arrEventDetails  = mysqli_fetch_array($result_set);
 		$whereReport  	  =	($whereReport == '' ? ' WHERE ' : ' AND ') . 'a.`subscriber_event_id` = "' . trim($_GET['event_type']) . '" ';
+		
+		$event115Col = "";
+		if ($_GET['event_type'] == 115){
+			$event115Col =' ,IF (
+							IF(email IS NOT NULL, SHA2(email,0) NOT IN (SELECT * FROM tbl_friso_hash) , TRUE)
+							AND IF(phone IS NOT NULL, SHA2(phone,0) NOT IN (SELECT * FROM tbl_friso_hash), TRUE) 
+							AND SHA2(subscriber_question1,0) NOT IN (SELECT * FROM tbl_friso_hash) 
+							AND SHA2(newEmail,0) IN (SELECT * FROM tbl_friso_hash) ,"ok","duplicated") AS frisoHashCheck';
+		}
+		
 		$sqltotalCount	  =  "SELECT COUNT(a.subscriber_id)
 								FROM ps_events_subscriber a
 								INNER JOIN ps_events b ON
@@ -48,7 +58,7 @@
 		$total_rows 	  = mysqli_fetch_array($resultCount)[0];
 		$total_pages 	  = ceil($total_rows / $no_of_records_per_page);
 		$sqllimit 		  = "LIMIT " . $offset . "," . $no_of_records_per_page;
-		$sqlreport		  =  "SELECT b.`event_name`, CONCAT(c.firstname, c.lastname) AS NAME, c.email, IF(d.phone = '', phone_mobile, phone) AS phone, a.*
+		$sqlreport		  =  "SELECT b.`event_name`, CONCAT(c.firstname, c.lastname) AS NAME, c.email, IF(d.phone = '', phone_mobile, phone) AS phone, a.* $event115Col
 								FROM ps_events_subscriber a
 								INNER JOIN ps_events b ON
 									b.event_id = a.subscriber_event_id
@@ -67,6 +77,7 @@
 									
 		
 		$result = $conn->query($sqlreport);
+		echo $sqlreport;
 		
 		if(is_object($result)){
 			$exportCSVlink = "https://" . $_SERVER[HTTP_HOST] . $_SERVER[REQUEST_URI] . "&exportExcel=1";
@@ -251,6 +262,7 @@
 			<div class="row row-motherhood">
 				<div class="col-md-6">
 					<a href="<?php echo (isset($exportCSVlink) && $exportCSVlink != '') ? $exportCSVlink : '#' ?>" class="btn btn-dark btn-sm"><i class="fas fa-file-csv"></i> &nbsp;Export as CSV file</a>
+					<button type='button' class="btn btn-success btn-sm btn-export" data-filter="filter_email"><i class="far fa-file-excel"></i> &nbsp;Export as excel file [filter email]</button>
 				</div>
 			</div>
 			<div class="row row-motherhood">
@@ -265,6 +277,13 @@
 			</div>
 		</div>
     </main><!-- /.container -->
+	<form id="form-excel-report" action="event_report_excel.php" target="_blank" method="post">
+		<input type="hidden" name="themessage" value="<?php echo $encrypt ?>">
+		<input type="hidden" id="excelEventID"name="subscriber_event_id" value="<?php echo $_GET['event_type'] ?>">
+		<input type="hidden" id="excelStartDate" name="searchDateStart" value="">
+		<input type="hidden" id="excelEndDate" name="searchDateEnd" value="">
+		<input type="hidden" id="excelTyperFilter" name="typefilter" value="">
+	</form>
 	<script type="text/javascript">
 	
 	
@@ -276,7 +295,7 @@
 		$('#pagination-ulkapitan').twbsPagination({
 			totalPages: totpages,
 			startPage : curentpage,
-			visiblePages: 7,
+			visiblePages: 10,
 			onPageClick: function (event, page) {
 				if(curentpage != page)
 				{
@@ -289,6 +308,17 @@
 					console.log('page' + page);
 				}
 			}
+		});
+		
+		$('body').on('click', '.btn-export', function(){
+			var typefiler = $(this).data('filter');
+			
+			if(typefiler == undefined || typefiler == null){
+				typefiler = "";
+			}
+			
+			$('body').find('#excelTyperFilter').val(typefiler);
+			$('body').find('#form-excel-report').submit();
 		});
 	});
 	</script>

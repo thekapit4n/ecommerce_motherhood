@@ -41,7 +41,7 @@ class enlineamixmodmemberproductreviewModuleFrontController extends ModuleFrontC
 			$oneProduct['productcomment_cover_image']=$cover_image;
 			$newProductList[]=$oneProduct;
 		}
-        
+		
 		$this->secure_key = Tools::encrypt('productcomments');
 		
 		
@@ -51,15 +51,15 @@ class enlineamixmodmemberproductreviewModuleFrontController extends ModuleFrontC
 			$newTesterList = array();
 			foreach($testerlist as $oneProduct){
 					
-				$product = new Product($oneProduct['id_product']);
-				$image = Product::getCover((int)$oneProduct['id_product']);
-				$cover_image = $this->context->link->getImageLink($product->link_rewrite[1], $image['id_image'], 'medium_default');
-				$oneProduct['tester_cover_image']=$cover_image;
-				$newTesterList[]=$oneProduct;
+				$product 						   = new Product($oneProduct['id_product']);
+				$image 							   = Product::getCover((int)$oneProduct['id_product']);
+				$cover_image 					   = $this->context->link->getImageLink($product->link_rewrite[1], $image['id_image'], 'medium_default');
+				$oneProduct['tester_cover_image']  = $cover_image;
+				$newTesterList[]				   = $oneProduct;
 				
 				//print_r($oneProduct);
 			}
-			
+		
 			$productreviewheader = new CMS(55);
 			$testerCMS = new CMS(56);
 				
@@ -156,7 +156,7 @@ class enlineamixmodmemberproductreviewModuleFrontController extends ModuleFrontC
 		if(in_array($this->context->customer->id, $this->arry_id_test))
 		{
 			$sql = '
-			SELECT a.*, b.reference AS prodreference, pb.name, pb.id_product, d.active AS applied, d.approved , pb.description_short, pb.description
+			SELECT a.*, b.reference AS prodreference, pb.link_rewrite, pb.name, pb.id_product, d.active AS applied, d.approved , pb.description_short, pb.description
 			FROM ps_tester_campaign_header a
 			JOIN ps_product b ON b.id_product=a.tester_product_id
 			LEFT JOIN ps_product_lang pb ON b.id_product=pb.id_product AND pb.id_lang=1
@@ -169,7 +169,7 @@ class enlineamixmodmemberproductreviewModuleFrontController extends ModuleFrontC
 		{
 			#live using this sql
 			$sql = '
-			SELECT a.*, b.reference AS prodreference, pb.name, pb.id_product, d.active AS applied, d.approved , pb.description_short, pb.description
+			SELECT a.*, b.reference AS prodreference, pb.link_rewrite, pb.name, pb.id_product, d.active AS applied, d.approved , pb.description_short, pb.description
 			FROM ps_tester_campaign_header a
 			JOIN ps_product b ON b.id_product=a.tester_product_id
 			LEFT JOIN ps_product_lang pb ON b.id_product=pb.id_product AND pb.id_lang=1

@@ -11,28 +11,23 @@
 			<div class="row">
 				<div class="col-md-12" >
 					<div class="div-address-info">
-						<button type="button" class="btn btn-xs btn-info btn-edit-address" data-addressid="{$valAddr['id_address']}" title="edit address"><i class="fas fa-pencil-alt"></i></button>
+						<button type="button" class="btn btn-xs btn-info btn-edit-address" data-addressid="{$valAddr['id_address']}"><i class="fas fa-pencil-alt"></i></button>
 						<div class="row">
 							<div class="col-md-1 col-xs-1" style="text-align: center; vertical-align: middle;text-align: center;vertical-align: middle; padding-right: 0px;">
-								<div class="radio div-delivery-addr">
-									<label>
-										<div class="radio">
-											<span class="{$checked}"><input type="radio" name="delivery_address" class="opt-delivery-addr" value="{$valAddr['id_address']}" {$checked}></span>
-										</div>
-									</label>
+								<div class="radio">
+									<label><input type="radio" name="delivery_address" class="opt-delivery-addr" value="{$valAddr['id_address']}" {$checked}></label>
 								</div>
 							</div>
-							<div class="col-md-8 col-xs-8 address-details">
-								<b>{$valAddr['alias']}</b></font>
-								<br/>
-								{$valAddr['firstname']} {{$valAddr['lastname']}}<br/>
+							<div class="col-md-8 col-xs-8" style="padding-left:0px;">
+								<p><b>{$valAddr['alias']}</b></p>
+								<p>{$valAddr['firstname']} {{$valAddr['lastname']}}</p>
 								<p>
 									{$valAddr['address1']},
 									{if $valAddr['address2'] != ''}{$valAddr['address2']},{/if} 
-								<br/>
-								{$valAddr['postcode']} {$valAddr['city']},{$valAddr['statename']}, Malaysia<br>
 								</p>
-								<p style="margin-top:7px;">{$valAddr['phone_mobile']}</p>
+								<p>
+								{$valAddr['postcode']} {$valAddr['city']},{$valAddr['statename']}, Malaysia</p>
+								<p>{$valAddr['phone_mobile']}</p>
 							</div>
 						</div>
 					</div>
@@ -45,7 +40,6 @@
 		</div>
 	{/if}
 </div>
-<!--
 <div class="row">
 	<div class="col-md-12" style="padding-left: 15px; padding-right: 15px;">
 		<div style="margin-top: 10px; margin-bottom: 10px;">
@@ -62,24 +56,23 @@
 			<div class="row">
 				<div class="col-md-12" >
 					<div class="div-address-info">
-						<button type="button" class="btn btn-xs btn-info btn-edit-address" data-addressid="{$valAddr['id_address']}" title="edit address"><i class="fas fa-pencil-alt"></i></button>
+						<button type="button" class="btn btn-xs btn-info btn-edit-address" data-addressid="{$valAddr['id_address']}"><i class="fas fa-pencil-alt"></i></button>
 						<div class="row">
-							<div class="col-md-1 col-xs-1" style="text-align: center; vertical-align: middle;text-align: center;vertical-align: middle; padding-right: 0px;">
+							<div class="col-md-2 col-xs-2" style="text-align: center; vertical-align: middle;text-align: center;vertical-align: middle; padding-right: 0px;">
 								<div class="radio">
 									<label><input type="radio" name="billing_address" class="opt-billing-addr" value="{$valAddr['id_address']}"></label>
 								</div>
 							</div>
-							<div class="col-md-8 col-xs-8 address-details">
-								<b>{$valAddr['alias']}</b></font>
-								<br/>
-								{$valAddr['firstname']} {{$valAddr['lastname']}}<br/>
+							<div class="col-md-8 col-xs-8" style="padding-left:0px;">
+								<p><b>{$valAddr['alias']}</b></p>
+								<p>{$valAddr['firstname']} {{$valAddr['lastname']}}</p>
 								<p>
 									{$valAddr['address1']},
 									{if $valAddr['address2'] != ''}{$valAddr['address2']},{/if} 
-								<br/>
-								{$valAddr['postcode']} {$valAddr['city']},{$valAddr['statename']}, Malaysia<br>
 								</p>
-								<p style="margin-top:7px;">{$valAddr['phone_mobile']}</p>
+								<p>
+								{$valAddr['postcode']} {$valAddr['city']},{$valAddr['statename']}, Malaysia</p>
+								<p>{$valAddr['phone_mobile']}</p>
 							</div>
 						</div>
 					</div>
@@ -89,4 +82,3 @@
 		{/if}
 	</div>
 </div>
--->

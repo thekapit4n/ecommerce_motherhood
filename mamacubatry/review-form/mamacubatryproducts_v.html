@@ -86,6 +86,7 @@
 		border: 1px solid #b4b3b4;
 		position:relative;
 		margin-bottom: 15px;
+		min-height:220px;
 	}
 	
 	.btn-edit-address, .btn-edit-address:focus{
@@ -111,9 +112,14 @@
 		margin-top: 0px !important;
 	}
 	
-	.is-invalid, .is-invalid:focus {
+	.is-invalid, .is-invalid:focus,.mandotary-field {
 		color: #b94a48;
 		border-color: #e9322d !important;
+	}
+	
+	.mandotary-ico:after{
+		content: '*';
+		color: #b94a48;
 	}
 	
 	.error-msg{
@@ -125,7 +131,7 @@
 		display:none
 	}
 	
-	.tagify-milkbrand, .tagify-diapers, .tagify-pastreviewbrand
+	.tagify-milkbrand, .tagify-diapers, .tagify-pastreviewbrand, .tagify-contractbrand, .tagify-brandlove
 	{
 		display:none
 	}
@@ -429,7 +435,7 @@
 						<div class="col-md-2">
 							<img src="{$campaign['tester_cover_image']}" height="{$mediumSize.height}" width="{$mediumSize.width}" alt="{$campaign.name|escape:html:'UTF-8'}" />
 						</div>
-						<div class="col-md-8">
+						<div class="col-md-10">
 							<div class="row" style="margin-bottom:20px;">
 								<a class="open-comment-form" href="#large_product_desc" style="color:#36a7ac">
 									<span >{$campaign['name']} <span>
@@ -439,26 +445,23 @@
 								<div style='color:#555454;font-weight:300;'class="text-left">{$campaign['description_short']}</div>
 							</div>
 						</div>
-						<div class="col-md-2" style="text-align:center">
-							<div class="checkbox">
-								<label><input type="checkbox" class="check-campaign-productid" value="{$campaign['tester_product_id']}" data-campaignid="{$campaign['tester_id']}" data-campaignname="{$campaign['name']}" checked></label>
-							</div>
-						</div>
 					</div>
 				</section>
 				
 				<!-- SECTION 2 -->
 				<h4></h4>
 				<section style="display:none;">
-					<div class="panel-group" id="accordion">
-						<div class="panel panel-default">
+					<font class="mandotary-field" style="font-size:14px;">* Mandotary field</font>
+					<div class="panel-group" id="accordion" style="margin-top:5px;">
+						<div class="panel panel-default" style="border-color:#2ea7ad!important;">
 							<div class="panel-heading accordian-heading-motherhood">
-								<h4 class="panel-title" data-toggle="collapse" data-parent="#accordion" data-target="#customer-information">
+								<h4 class="panel-title" data-toggle="collapse" data-target="#customer-information">
 									Information <span class="ikon-collapse-motherhood"><i class="fas fa-angle-down"></i></span>
 								</h4>
 							</div>
 							<div id="customer-information" class="panel-collapse collapse in panel-motherhood">
 								<div class="panel-body">
+									
 									<form id="form-customer-info">
 										<input type="hidden" class="form-type" name="formtype" value="customer_info">
 										<div class="row">
@@ -479,7 +482,7 @@
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group has-feedback">
-													<label for="cust-firstname">First Name</label>
+													<label for="cust-firstname"><font class="remark-ico"></font>First Name</label>
 													{if $campaign['tester_campaign_fields']|strstr:"cust-firstname"}<!-- to check if this input has been set on admin page -->
 														<input type="text" class="form-control input-sm cust-firstname-input input-info" id="cust-name" name="firstname" value="{$customer->firstname}" style="display:none">
 														<small class="error-msg"></small>
@@ -489,7 +492,7 @@
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="cust-lastname">Last Name</label>
+													<label for="cust-lastname"><font class="remark-ico"></font>Last Name</label>
 													{if $campaign['tester_campaign_fields']|strstr:"cust-lastname"}
 														<input type="text" class="form-control input-sm  cust-lastname-input input-info" id="cust-lastname" name="lastname" value="{$customer->lastname}" style="display:none">
 														<small class="error-msg"></small>
@@ -501,7 +504,7 @@
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="cust-email">Email:</label>
+													<label for="cust-email"><font class="remark-ico"></font>Email</label>
 													{if $campaign['tester_campaign_fields']|strstr:"cust-email"}<!-- to check if this input has been set on admin page -->
 														<input type="text" class="form-control input-sm  cust-email-input input-info" id="cust-email" name="email" value="{$customer->email}" style="display:none">
 														<small class="error-msg"></small>
@@ -511,7 +514,7 @@
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="cust-mobile">Mobile No:</label>
+													<label for="cust-mobile"><font class="remark-ico"></font>Mobile No</label>
 													{if $campaign['tester_campaign_fields']|strstr:"cust-mobile"}
 														<input type="text" class="form-control input-sm cust-phoneno-input input-info mobilenumber" id="cust-mobile" name="phone_mobile" value="{$additionalInfo['phone']}" style="display:none">
 														<small class="error-msg"></small>
@@ -523,7 +526,7 @@
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="cust-gender">Gender:</label>
+													<label for="cust-gender"><font class="remark-ico"></font>Gender</label>
 													{if $customer->id_gender == 1}
 														{assign var="gender" value="male"}
 													{elseif $customer->id_gender == 2 || $customer->id_gender == 3}
@@ -544,7 +547,7 @@
 										<div class="row">
 											<div class="col-md-12">
 												<div class="form-group">
-													<label for="cust-abouturself">Tell us about yourself:</label>
+													<label for="cust-abouturself"><font class="remark-ico"></font>Tell us about yourself</label>
 													{if $campaign['tester_campaign_fields']|strstr:"cust-gender"}
 														<textarea class="form-control input-info cust-abouturself-input" rows="5" id="cust-abouturself" name="about_yourself" style="display:none">{$additionalInfo['shortBio']}</textarea>
 														<small class="error-msg"></small>
@@ -559,8 +562,8 @@
 								</div>
 							</div>
 						</div>
-						<div class="panel panel-default">
-							<div class="panel-heading accordian-heading-motherhood" data-toggle="collapse" data-parent="#accordion" data-target="#customer-about">
+						<div class="panel panel-default " style="border-color:#2ea7ad!important;">
+							<div class="panel-heading accordian-heading-motherhood" data-toggle="collapse"  data-target="#customer-about">
 								<h4 class="panel-title">
 									About <span class="ikon-collapse-motherhood"><i class="fas fa-angle-down"></i></span>
 								</h4>
@@ -587,7 +590,7 @@
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="cust-about-dob">Date of Birth:</label>
+													<label for="cust-about-dob"><font class="remark-ico"></font>Date of Birth</label>
 													{if $campaign['tester_campaign_fields']|strstr:"cust-about-dob"}<!-- to check if this input has been set on admin page -->
 														<input type="text" class="form-control input-sm cust-about-dob input-info dobinput" name="dob"  value="{$customer->birthday|date_format:"%d/%m/%Y"}" style="display:none">
 														<small class="error-msg"></small>
@@ -597,7 +600,7 @@
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="cust-about-occupation">Your occupation:</label>
+													<label for="cust-about-occupation"><font class="remark-ico"></font>Your occupation</label>
 													{if $campaign['tester_campaign_fields']|strstr:"cust-about-occupation"}<!-- to check if this input has been set on admin page -->
 														<input type="text" class="form-control input-sm input-info cust-occupation" name="cust_occupation" id="cust-about-occupation" value="{$additionalInfo['occupation']}" style="display:none">
 														<small class="error-msg"></small>
@@ -609,9 +612,9 @@
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="cust-about-race">Your Race:</label>
+													<label for="cust-about-race"><font class="remark-ico"></font>Your Race</label>
 													{if $campaign['tester_campaign_fields']|strstr:"cust-about-race"}
-														{if $additionalInfo['race'] == 'Malays' || $additionalInfo['race'] == 'Chinese' || $additionalInfo['race'] == 'Indian'}
+														{if $additionalInfo['race'] == 'Malay' || $additionalInfo['race'] == 'Chinese' || $additionalInfo['race'] == 'Indian'}
 															{assign var="raceoption" value=$additionalInfo['race']}
 															{assign var="raceoinput" value=$additionalInfo['race']}
 														{else}
@@ -634,7 +637,7 @@
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="cust-about-salaryrange">Your household income range(yearly):</label>
+													<label for="cust-about-salaryrange"><font class="remark-ico"></font>Your household income range(yearly)</label>
 													{if $campaign['tester_campaign_fields']|strstr:"cust-gender"}
 														<select class="input-sm input-info select-mmy cust-about-salaryrange" id="cust-about-salaryrange" name="cust_salaryrange" style="display: none;">
 															<option value="">Select salary range</option>
@@ -656,7 +659,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="panel panel-default">
+						<div class="panel panel-default" style="border-color:#2ea7ad!important;">
 							<div class="panel-heading accordian-heading-motherhood" data-toggle="collapse" data-parent="#accordion" data-target="#customer-family">
 								<h4 class="panel-title">
 									Family <span class="ikon-collapse-motherhood"><i class="fas fa-angle-down"></i></span>
@@ -666,6 +669,7 @@
 								<div class="panel-body">
 									<form id="form-customer-family">
 										<input type="hidden" class="form-type" name="formtype" value="customer_family">
+										<input type="hidden" class="input_typeprocess" value="">
 										<div class="row">
 											<div class="col-md-12">
 												<div class="form-group" style="text-align:end;">
@@ -684,7 +688,7 @@
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="cust-family-maritalstatus">Marital status:</label>
+													<label for="cust-family-maritalstatus"><font class="remark-ico"></font>Marital status:</label>
 													{if $campaign['tester_campaign_fields']|strstr:"cust-family-maritalstatus"}<!-- to check if this input has been set on admin page -->
 														<select class="input-sm input-info select-mmy cust-marital-status" name="marital_status" style="display:none;">
 															<option value="">Please select marital status</option>
@@ -712,7 +716,7 @@
 											
 											<div class="col-md-6 family-div" style="display:{$displayfamily_div};">
 												<div class="form-group">
-													<label for="cust-family-newborn">Are you expecting newborn?</label>
+													<label for="cust-family-newborn"><font class="remark-ico"></font>Are you expecting newborn?</label>
 													{if $campaign['tester_campaign_fields']|strstr:"cust-family-newborn"}<!-- to check if this input has been set on admin page -->
 														<select class="input-sm input-info expect-newborn select-mmy" name="expect_newborn" id="cust-family-newborn" style="display: none;">
 															<option value="No" {if $additionalInfo['pregnant'] == 'No'} selected="selected"{/if}>No</option>
@@ -729,7 +733,7 @@
 										<div class="row family-div " style="display:{$displayfamily_div};">
 											<div class="col-md-6 div-edd-date" style="display:{$expect_edd_display};">
 												<div class="form-group">
-													<label for="cust-family-edd">Expectation Due Date(EDD) ?</label>
+													<label for="cust-family-edd"><font class="remark-ico"></font>Expectation Due Date(EDD) ?</label>
 													{if $campaign['tester_campaign_fields']|strstr:"cust-family-edd"}
 														<input type="text" class="form-control input-sm input-info dobinput" name="edd" id="cust-family-edd" value="{if $additionalInfo['edd'] != '0000-00-00'}{$additionalInfo['edd']|date_format:"%d/%m/%Y"}{/if}" style="display:none">
 														<small class="error-msg"></small>
@@ -739,7 +743,7 @@
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="cust-family-numchild">How many children do you have ?</label>
+													<label for="cust-family-numchild"><font class="remark-ico"></font>How many children do you have ?</label>
 													{if $campaign['tester_campaign_fields']|strstr:"cust-family-numchild"}
 														<select class="input-sm input-info num-child select-mmy" name="num_child" style="display: none;">
 															<option value="0" {if $additionalInfo['childno'] == 0} selected="selected" {/if}>0</option>
@@ -777,7 +781,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="panel panel-default">
+						<div class="panel panel-default" style="border-color:#2ea7ad!important;">
 							<div class="panel-heading accordian-heading-motherhood" data-toggle="collapse" data-parent="#accordion" data-target="#customer-favorites">
 								<h4 class="panel-title">
 									Favorites <span class="ikon-collapse-motherhood"><i class="fas fa-angle-down"></i></span>
@@ -807,7 +811,7 @@
 												<div class="form-group">
 													<label for="favourites-milk">Your child's milk brand:</label>
 													{if $campaign['tester_campaign_fields']|strstr:"favourites-milk"}<!-- to check if this input has been set on admin page -->
-														<input name='milk_brand' class="input-info tagify-milkbrand" value='{$additionalInfo['favMilk']}' id="favourites-milk" style="display:none">
+														<input name='milk_brand' class="input-info tagify-milkbrand" value="{$additionalInfo['favMilk']}" id="favourites-milk" style="display:none">
 													{/if}
 													<p class="display-info milkbrand-info">{$additionalInfo['favDiaper']}</p>
 												</div>
@@ -816,7 +820,7 @@
 												<div class="form-group">
 													<label for="favourites-diapers">Your child's diaper brand:</label>
 													{if $campaign['tester_campaign_fields']|strstr:"favourites-diapers"}<!-- to check if this input has been set on admin page -->
-														<input name='diapers_brand' class="input-info tagify-diapers" value='{$additionalInfo['favDiaper']}' id="favourites-diapers" style="display:none">
+														<input name='diapers_brand' class="input-info tagify-diapers" value="{$additionalInfo['favDiaper']}" id="favourites-diapers" style="display:none">
 													{/if}
 													<p class="display-info diapers-brand-info">{$additionalInfo['favDiaper']}</p>
 												</div>
@@ -830,148 +834,168 @@
 														<input name='past_review_brands' class="input-info tagify-pastreviewbrand" value="{$additionalInfo['affBrands']}" id="favourites-pastreviewbrands" style="display:none">
 													{/if}
 													<p class="display-info past-review-brand-info">
-														{if $arr_pastreview}
-															{foreach from=$arr_pastreview item=pastBrand}
-																<span class="label label-info badge-motherhood-joined">{$pastBrand}</span>
-															{/foreach}
+														{$additionalInfo['affBrands']}
+													</p>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="favourites-contractbrands">Are you tied on a contract with any brand?</label>
+													{if $campaign['tester_campaign_fields']|strstr:"favourites-contractbrands"}<!-- to check if this input has been set on admin page -->
+														<input name='contract_brands' class="input-info tagify-contractbrand" value="{$additionalInfo['contracts']}" id="favourites-contractbrands" style="display:none">
+													{/if}
+													<p class="display-info contract-brand-info">
+														{$additionalInfo['contracts']}
+													</p>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="favourites-favOther">What do you love?</label>
+													{if $campaign['tester_campaign_fields']|strstr:"favourites-favOther"}<!-- to check if this input has been set on admin page -->
+														<input name='love_brand' class="input-info tagify-brandlove" value="{$additionalInfo['favOther']}" id="favourites-favOther" style="display:none">
+													{/if}
+													<p class="display-info love-brand-info">
+														{$additionalInfo['favOther']}
+													</p>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default" style="border-color:#2ea7ad!important;">
+							<div class="panel-heading accordian-heading-motherhood" data-toggle="collapse" data-parent="#accordion" data-target="#customer-interests">
+							<h4 class="panel-title">
+								Interests <span class="ikon-collapse-motherhood"><i class="fas fa-angle-down"></i></span>
+							</h4>
+							</div>
+							<div id="customer-interests" class="panel-collapse collapse panel-motherhood">
+								<div class="panel-body">
+									<form id="form-customer-interest">
+										<input type="hidden" class="form-type" name="formtype" value="customer_interest">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="form-group" style="text-align:end;">
+													<button type="button" id="btn-edit-cust-interest" class="btn btn-default btn-pill btn-pill-color btn-edit" >
+														<span>Edit</span>
+													</button>
+													<button type="button" id="btn-save-cust-interest" data-typeprocess='save' class="btn btn-default btn-pill btn-pill-color btn-save btn-action" style="display:none;">
+														<span>Save</span>
+													</button>
+													<button type="button" id="btn-cancel-cust-interest" data-typeprocess='cancel' class="btn btn-default btn-pill btn-pill-color btn-cancel btn-action" style="display:none;">
+														<span>Cancel</span>
+													</button>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="interest-igaccount">Your ig account:</label>
+													{if $campaign['tester_campaign_fields']|strstr:"interest-igaccount"}<!-- to check if this input has been set on admin page -->
+														<input type="text" class="form-control input-sm input-info" id="interest-igaccount" name="interest_igaccount" value="{$additionalInfo['insta_url']}" style="display:none">
+													{/if}
+													<p class="display-info url-ig-info">{$additionalInfo['insta_url']}</p>
+												</div>
+											</div>
+										</div>
+										<div class="row" style="display:none;">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="favourites-milk">Your posting style:</label>
+													{if $campaign['tester_campaign_fields']|strstr:"interest-postingstyle"}<!-- to check if this input has been set on admin page -->
+														<div class="input-info" style="display:none">
+															<div class="checkbox">
+																<label><input type="checkbox" value="food" id="interest-postingstyle-food" name="interest_postingstyl_food" checked>Food</label>
+															</div>
+															<div class="checkbox">
+																<label><input type="checkbox" value="travelling" id="interest-postingstyle-travelling" name="interest_postingstyle_travelling" checked>Travelling</label>
+															</div>
+															<div class="checkbox">
+																<label><input type="checkbox" value="lifestyle" id="interest-postingstyle-lifestyle" name="interest_postingstyle_lifestyle">Lifestyle</label>
+															</div>
+															<div class="checkbox">
+																<label><input type="checkbox" value="parenting" id="interest-postingstyle-parenting" name="interest_postingstyle_parenting">Parenting</label>
+															</div>
+														</div>
+													{/if}
+													<p class="display-info">
+														<span class="label label-info badge-motherhood-joined">Food</span>
+														<span class="label label-info badge-motherhood-joined">Travelling</span>
+													</p>
+												</div>
+											</div>
+										</div>
+										<div class="row" style="display:none;">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="interest-location">Your location:</label>
+													{if $campaign['tester_campaign_fields']|strstr:"interest-location"}<!-- to check if this input has been set on admin page -->
+														<select class="input-sm input-info interest-location select-mmy" name="interest_location" id="interest-location" style="display: none !important;">
+														
+															<option value="" >Select state</option>
+															{if $liststate}
+																{foreach from=$liststate item=liststate1}
+																	<option value="{$liststate1.state_name}" data-statecode="{$liststate1.state_code}">{$liststate1.state_name}</option>
+																{/foreach}
+															{/if}
+														</select>
+													{/if}
+													<p class="display-info">
+														<span class="label label-info badge-motherhood-joined">Kuala Lumpur</span>
+														<span class="label label-info badge-motherhood-joined">Pulau Pinang</span>
+													</p>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="interest-hostshow">Can host FB/IG live show:</label>
+													{if $campaign['tester_campaign_fields']|strstr:"interest-hostshow"}<!-- to check if this input has been set on admin page -->
+														<div class="input-info" style="display:none">
+															<div class="checkbox">
+																<label><input type="checkbox" value="1" id="interest-hostshow" name="interest_hostshow" {if $additionalInfo['can_host_live'] == 1} checked {/if}>Yes</label>
+															</div>
+														</div>
+													{/if}
+													<p class="display-info url-hostshow-info">
+														{if $additionalInfo['can_host_live'] == 1}
+															Yes
+														{else}
+															No
 														{/if}
 													</p>
 												</div>
 											</div>
 										</div>
-									</fom>
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="interest-fbaccount">Your Facebook account:</label>
+													{if $campaign['tester_campaign_fields']|strstr:"interest-igaccount"}<!-- to check if this input has been set on admin page -->
+														<input type="text" class="form-control input-sm input-info" id="interest-fbaccount" name="interest_fbaccount" value="{$additionalInfo['fbUrl']}" style="display:none">
+													{/if}
+													<p class="display-info url-fb-info">{$additionalInfo['fbUrl']}</p>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label for="interest-blogwebsite">Blogwebsite:</label>
+													{if $campaign['tester_campaign_fields']|strstr:"interest-blogwebsite"}<!-- to check if this input has been set on admin page -->
+														<input type="text" class="form-control input-sm input-info" id="interest-blogwebsite" name="interest_blogwebsite" value="{$additionalInfo['blogUrl']}" style="display:none">
+													{/if}
+													<p class="display-info url-blog-info">{$additionalInfo['blogUrl']}</p>
+												</div>
+											</div>
+										</div>
+									</form>
 								</div>
 							</div>
-						</div>
-						<div class="panel panel-default">
-						  <div class="panel-heading accordian-heading-motherhood" data-toggle="collapse" data-parent="#accordion" data-target="#customer-interests">
-							<h4 class="panel-title">
-								Interests <span class="ikon-collapse-motherhood"><i class="fas fa-angle-down"></i></span>
-							</h4>
-						  </div>
-						  <div id="customer-interests" class="panel-collapse collapse panel-motherhood">
-							<div class="panel-body">
-								
-									<input type="hidden" class="form-type" name="formtype" value="customer_interest">
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group" style="text-align:end;">
-												<button type="button" id="btn-edit-cust-interest" class="btn btn-default btn-pill btn-pill-color btn-edit" >
-													<span>Edit</span>
-												</button>
-												<button type="button" id="btn-save-cust-interest" data-typeprocess='save' class="btn btn-default btn-pill btn-pill-color btn-save btn-action" style="display:none;">
-													<span>Save</span>
-												</button>
-												<button type="button" id="btn-cancel-cust-interest" data-typeprocess='cancel' class="btn btn-default btn-pill btn-pill-color btn-cancel btn-action" style="display:none;">
-													<span>Cancel</span>
-												</button>
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label for="interest-igaccount">Your ig account:</label>
-												{if $campaign['tester_campaign_fields']|strstr:"interest-igaccount"}<!-- to check if this input has been set on admin page -->
-													<input type="text" class="form-control input-sm input-info" id="interest-igaccount" name="interest_igaccount" value="{$additionalInfo['insta_url']}" style="display:none">
-												{/if}
-												<p class="display-info urlig-info">{$additionalInfo['insta_url']}</p>
-											</div>
-										</div>
-									</div>
-									<div class="row" style="display:none;">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label for="favourites-milk">Your posting style:</label>
-												{if $campaign['tester_campaign_fields']|strstr:"interest-postingstyle"}<!-- to check if this input has been set on admin page -->
-													<div class="input-info" style="display:none">
-														<div class="checkbox">
-															<label><input type="checkbox" value="food" id="interest-postingstyle-food" name="interest_postingstyl_food" checked>Food</label>
-														</div>
-														<div class="checkbox">
-															<label><input type="checkbox" value="travelling" id="interest-postingstyle-travelling" name="interest_postingstyle_travelling" checked>Travelling</label>
-														</div>
-														<div class="checkbox">
-															<label><input type="checkbox" value="lifestyle" id="interest-postingstyle-lifestyle" name="interest_postingstyle_lifestyle">Lifestyle</label>
-														</div>
-														<div class="checkbox">
-															<label><input type="checkbox" value="parenting" id="interest-postingstyle-parenting" name="interest_postingstyle_parenting">Parenting</label>
-														</div>
-													</div>
-												{/if}
-												<p class="display-info">
-													<span class="label label-info badge-motherhood-joined">Food</span>
-													<span class="label label-info badge-motherhood-joined">Travelling</span>
-												</p>
-											</div>
-										</div>
-									</div>
-									<div class="row" style="display:none;">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label for="interest-location">Your location:</label>
-												{if $campaign['tester_campaign_fields']|strstr:"interest-location"}<!-- to check if this input has been set on admin page -->
-													<select class="input-sm input-info interest-location select-mmy" name="interest_location" id="interest-location" style="display: none !important;">
-													
-														<option value="" >Select state</option>
-														{if $liststate}
-															{foreach from=$liststate item=liststate1}
-																<option value="{$liststate1.state_name}" data-statecode="{$liststate1.state_code}">{$liststate1.state_name}</option>
-															{/foreach}
-														{/if}
-													</select>
-												{/if}
-												<p class="display-info">
-													<span class="label label-info badge-motherhood-joined">Kuala Lumpur</span>
-													<span class="label label-info badge-motherhood-joined">Pulau Pinang</span>
-												</p>
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label for="interest-hostshow">Can host FB/IG live show:</label>
-												{if $campaign['tester_campaign_fields']|strstr:"interest-hostshow"}<!-- to check if this input has been set on admin page -->
-													<div class="input-info" style="display:none">
-														<div class="checkbox">
-															<label><input type="checkbox" value="1" id="interest-hostshow" name="interest_hostshow" {if $additionalInfo['can_host_live'] == 1} checked {/if}>Yes</label>
-														</div>
-													</div>
-												{/if}
-												<p class="display-info url-hostshow-info">
-													{if $additionalInfo['can_host_live'] == 1}
-														Yes
-													{else}
-														No
-													{/if}
-												</p>
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label for="interest-fbaccount">Your Facebook account:</label>
-												{if $campaign['tester_campaign_fields']|strstr:"interest-igaccount"}<!-- to check if this input has been set on admin page -->
-													<input type="text" class="form-control input-sm input-info" id="interest-fbaccount" name="interest_fbaccount" value="{$additionalInfo['fbUrl']}" style="display:none">
-												{/if}
-												<p class="display-info url-fb-info">{$additionalInfo['fbUrl']}</p>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label for="interest-blogwebsite">Blogwebsite:</label>
-												{if $campaign['tester_campaign_fields']|strstr:"interest-blogwebsite"}<!-- to check if this input has been set on admin page -->
-													<input type="text" class="form-control input-sm input-info" id="interest-blogwebsite" name="interest_blogwebsite" value="{$additionalInfo['blogUrl']}" style="display:none">
-												{/if}
-												<p class="display-info url-blog-info">{$additionalInfo['blogUrl']}</p>
-											</div>
-										</div>
-									</div>
-								</form>
-							</div>
-						  </div>
 						</div>
 					</div> 
 				</section>
@@ -1022,256 +1046,182 @@
 				
 				<!-- SECTION 4 -->
 				<h4></h4>
-				<section style="display:none;">
+				<section style="display:none;padding-right: 15px;padding-left: 15px;">
 					<div class="row">
 						<div class="col-md-6">
 							Choose a delivery address
 						</div>
 						<div class="col-md-6">
 							<div class="form-group" style="text-align:end;">
-								<button type="button" class="btn btn-default btn-pill btn-pill-color btn-add" >
+								<button type="button" class="btn btn-default btn-pill btn-pill-color btn-add-address" data-typeaddrform="delivery_address">
 									<span>Add new delivery address</span>
 								</button>
 							</div>
 						</div>
 					</div>
-					<div class="row list-address">
+					<div class="row list-address" style="padding-left: 20px; padding-right: 20px;">
 						<div class="row">
-							<div class="col-md-6" >
-								<div class="div-address-info">
-									<button type="button" class="btn btn-xs btn-info btn-edit-address"><i class="fas fa-pencil-alt"></i></button>
-									<div class="row">
-										<div class="col-md-2 col-xs-2" style="text-align: center; vertical-align: middle;">
-											<div class="radio">
-												<label><input type="radio" name="optradio"></label>
-											</div>
-										</div>
-										<div class="col-md-8 col-xs-8">
-											<p><b>My office</b></p>
-											<p>Mr. Programmer</p>
-											<p>H-89-1, Block H, Jaya One,</p>
-											<p> 72A Jalan Universiti,</p> 
-											<p>46200 Petaling Jaya,</p> 
-											<p>Selangor, Malaysia</p>
-											<p>012-3456789</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="div-address-info">
-									<button type="button" class="btn btn-xs btn-info btn-edit-address"><i class="fas fa-pencil-alt"></i></button>
-									<div class="row">
-										<div class="col-md-2 col-xs-2" style="text-align: center; vertical-align: middle;">
-											<div class="radio">
-												<label><input type="radio" name="optradio"></label>
-											</div>
-										</div>
-										<div class="col-md-8 col-xs-8">
-											<p><b>My Home</b></p>
-											<p>Mr. Programmer</p>
-											<p>H-89-1, Block H, Jaya One,</p>
-											<p> 72A Jalan Universiti,</p> 
-											<p>46200 Petaling Jaya,</p> 
-											<p>Selangor, Malaysia</p>
-											<p>012-3456789</p>
-										</div>
-									</div>
-								</div>
-							</div>
+							{*	File address list 
+								if change this varibale name 'arrAddress', please change also in file enlineamixmod-tester-campaign-ajaxpost.php
+							*}
+							{include file="$mamacubatry_view/templates/front/mamacubatry_listaddr.tpl"
+								arrAddress = $arr_address
+							}
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-12" style="padding-left:0px;">
-							<div style="margin-top:5px;">
-								<div class="checkbox">
-									<label><input type="checkbox" value="">Billing address same as delivery address</label>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row billing-address">
-						<div class="billing-address-info">
+					<div class="row form-address" style="margin-top:25px;display:none;">
+						<h4> Address Info</h4>
+						<form id="address_form">
+							<input type="hidden" class="form-type" name="formtype" value="customer_address">
+							<input type="hidden" class="type_addres_form" name="type_addres_form" value="">
+							<input type="hidden" class="form-address-id" name="address_id" value="">
 							<div class="row">
-								<div class="col-md-6" >
-									<div class="div-address-info">
-										<button type="button" class="btn btn-xs btn-info btn-edit-address"><i class="fas fa-pencil-alt"></i></button>
-										<div class="row">
-											<div class="col-md-2 col-xs-2" style="text-align: center; vertical-align: middle;">
-												<div class="radio">
-													<label><input type="radio" name="optradio"></label>
-												</div>
-											</div>
-											<div class="col-md-8 col-xs-8">
-												<p><b>My office</b></p>
-												<p>Mr. Programmer</p>
-												<p>H-89-1, Block H, Jaya One,</p>
-												<p> 72A Jalan Universiti,</p> 
-												<p>46200 Petaling Jaya,</p> 
-												<p>Selangor, Malaysia</p>
-												<p>012-3456789</p>
-											</div>
-										</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="cust-name">Address title</label>
+										<input type="text" class="form-control input-sm cust-name-input input-info addr-title" name="addr_title" value="">
+										<small class="error-msg"></small>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="cust-name">First name</label>
+										<input type="text" class="form-control input-sm cust-name-input input-info addr-firstname" name="addr_firstname" value="{$customer->firstname}">
+										<small class="error-msg"></small>
 									</div>
 								</div>
 								<div class="col-md-6">
-									<div class="div-address-info">
-										<button type="button" class="btn btn-xs btn-info btn-edit-address"><i class="fas fa-pencil-alt"></i></button>
-										<div class="row">
-											<div class="col-md-2 col-xs-2" style="text-align: center; vertical-align: middle;">
-												<div class="radio">
-													<label><input type="radio" name="optradio"></label>
-												</div>
-											</div>
-											<div class="col-md-8 col-xs-8">
-												<p><b>My Home</b></p>
-												<p>Mr. Programmer</p>
-												<p>H-89-1, Block H, Jaya One,</p>
-												<p> 72A Jalan Universiti,</p> 
-												<p>46200 Petaling Jaya,</p> 
-												<p>Selangor, Malaysia</p>
-												<p>012-3456789</p>
-											</div>
-										</div>
+									<div class="form-group">
+										<label for="cust-email">Last name</label>
+										<input type="text" class="form-control input-sm  cust-email-input input-info addr-lastname" name="addr_lastname" value="{$customer->lastname}">
+										<small class="error-msg"></small>
 									</div>
 								</div>
 							</div>
-						</div>
-					</div>
-					<div class="row form-address" style="margin-top:25px;">
-						<h4> Address Info</h4>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<label for="cust-name">Address title</label>
-									<input type="text" class="form-control input-sm cust-name-input input-info" name="addr_title" value="">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label for="cust-name">Address 1</label>
+										<input type="text" class="form-control input-sm cust-name-input input-info addr-line1" name="addr_line1" value="">
+										<small class="error-msg"></small>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<label for="cust-name">First name</label>
-									<input type="text" class="form-control input-sm cust-name-input input-info" name="addr_firstname" value="{$customer->firstname}">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label for="cust-name">Address 2</label>
+										<input type="text" class="form-control input-sm cust-name-input input-info addr_line2" name="addr_line2" value="">
+										<small class="error-msg"></small>
+									</div>
 								</div>
 							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-									<label for="cust-email">Last name</label>
-									<input type="text" class="form-control input-sm  cust-email-input input-info" name="addr_lastname" value="{$customer->lastname}">
+							<div class="row">
+								<div class="col-md-4">
+									<div class="form-group">
+										<label for="cust-name">Postcode</label>
+										<input type="text" class="form-control input-sm cust-name-input input-info addr-postcode postcode-address" name="addr_postcode" value="" autocomplete="off">
+										<small class="error-msg"></small>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label for="cust-name">City</label>
+										<input type="text" class="form-control input-sm cust-name-input input-info addr-city" name="addr_city" value="" autocomplete="off">
+										<small class="error-msg"></small>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label for="cust-name">State</label>
+										<select class="input-sm input-info addr-state select-mmy addr-state" name="addr_state" autocomplete="off">
+											<option value="" >Select state</option>
+											{if $liststate}
+												{foreach from=$liststate item=liststate1}
+													{if $liststate1.state_name == 'Wilayah Persekutuan Kuala Lumpur'}
+														{assign var="statename" value="Kuala Lumpur"} 
+													{else if $liststate1.state_name == 'Wilayah Persekutuan Labuan'}
+														{assign var="statename" value="Labuan"} 
+													{else if $liststate1.state_name == 'Wilayah Persekutuan Putrajaya'}
+														{assign var="statename" value="Putrajaya"} 
+													{else}
+														{assign var="statename" value=$liststate1.state_name} 
+													{/if}
+													<option value="{$statename}" data-statecode="{$liststate1.state_code}">{$statename}</option>
+												{/foreach}
+											{/if}
+										</select>
+										<small class="error-msg"></small>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<div class="form-group">
-									<label for="cust-name">Address 1</label>
-									<input type="text" class="form-control input-sm cust-name-input input-info" name="addr_line1" value="">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="cust-name">Country</label>
+										<input type="text" class="form-control input-sm cust-name-input input-info addr-country" name="addr_country" value="Malaysia" autocomplete="off" readonly>
+										<small class="error-msg"></small>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<div class="form-group">
-									<label for="cust-name">Address 2</label>
-									<input type="text" class="form-control input-sm cust-name-input input-info" name="addr_line2" value="">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="cust-name">Mobile no.</label>
+										<input type="text" class="form-control input-sm cust-name-input input-info addr-mobileno" name="addr_mobileno" value="">
+										<small class="error-msg"></small>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label for="cust-name">Home no.</label>
+										<input type="text" class="form-control input-sm cust-name-input input-info addr-homeno" name="addr_homeno" value="">
+										<small class="error-msg"></small>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-4">
-								<div class="form-group">
-									<label for="cust-name">Postcode</label>
-									<input type="text" class="form-control input-sm cust-name-input input-info addr-postcode" name="addr_postcode" value="" autocomplete="off">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label for="cust-name">Additional info.</label>
+										<input type="text" class="form-control input-sm cust-name-input input-info" name="addr_additionalinfo" value="">
+										<small class="error-msg"></small>
+									</div>
 								</div>
 							</div>
-							<div class="col-md-4">
-								<div class="form-group">
-									<label for="cust-name">City</label>
-									<input type="text" class="form-control input-sm cust-name-input input-info addr-city" name="addr_city" value="" autocomplete="off">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<button type="button" id="btn-save-cust-address" data-typeprocess='save' class="btn btn-default btn-pill btn-pill-color btn-action">
+											<span>Save</span>
+										</button>
+										<button type="button" id="btn-cancel-cust-address" data-typeprocess='cancel' class="btn btn-default btn-pill btn-pill-color">
+											<span>Cancel</span>
+										</button>
+									</div>
 								</div>
 							</div>
-							<div class="col-md-4">
-								<div class="form-group">
-									<label for="cust-name">State</label>
-									<select class="input-sm input-info addr-state select-mmy" name="addr_state" autocomplete="off">
-										<option value="" >Select state</option>
-										{if $liststate}
-											{foreach from=$liststate item=liststate1}
-												<option value="{$liststate1.state_name}" data-statecode="{$liststate1.state_code}">{$liststate1.state_name}</option>
-											{/foreach}
-										{/if}
-									</select>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<label for="cust-name">Country</label>
-									<input type="text" class="form-control input-sm cust-name-input input-info" name="addr_country" value="Malaysia" autocomplete="off" readonly>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<label for="cust-name">Mobile no.</label>
-									<input type="text" class="form-control input-sm cust-name-input input-info" name="addr_mobileno" value="">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-									<label for="cust-name">Home no.</label>
-									<input type="text" class="form-control input-sm cust-name-input input-info" name="addr_homeno" value="">
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<div class="form-group">
-									<label for="cust-name">Additional info.</label>
-									<input type="text" class="form-control input-sm cust-name-input input-info" name="addr_additionalinfo" value="">
-								</div>
-							</div>
-						</div>
+						</form>
 					</div>
 				</section>
 				<!-- SECTION 5 -->
 				<h4></h4>
 				<section style="display:none">
-					<div class="body-signature">
-						<div id="signature-pad" class="signature-pad">
-							<div class="signature-pad--body">
-							  <canvas></canvas>
-							</div>
-							<div class="signature-pad--footer">
-							  <div class="description">Sign above</div>
-
-							  <div class="signature-pad--actions">
-								<div>
-									<button type="button" class="button btn-clear-signature">Clear</button>
-									<button type="button" class="button btn-changecolor-signature">Change color</button>
-									<button type="button" class="button btn-undo-signature">Undo</button>
-								</div>
-								<div>
-								  <button type="button" class="button save btn-save-png">Save as PNG</button>
-								  <button type="button" class="button save btn-save-jpg">Save as JPG</button>
-								  <button type="button" class="button save btn-save-svg">Save as SVG</button>
-								</div>
-							  </div>
-							</div>
+					<div class="row">
+						<div class="col-md-12" style="padding-left: 25px; padding-right: 25px;">
+							Agreement Details: {$campaign['tester_agreement']}
 						</div>
 					</div>
-					<table class="table table-rewards">
-						<tbody>
-							<tr>
-								<td style="border-right: 0px solid !important; border-left : 0px solid !important;text-align: left; font-size:13px; width:660px;">
-									Agreement Details: {$campaign['tester_agreement']}
-								</td>
-							</tr>
-						</tbody>
-					</table>
+					<form id="form-tester-campaign">
+						<input type="hidden" class="form-type" name="formtype" value="customer_tester_campaign_details">
+						<input type="hidden" name="tester_product_id" class="tester-product-id" value="{$campaign['tester_product_id']}">
+						<input type="hidden" name="tester_id" class="tester-id" value="{$campaign['tester_id']}">
+						<input type="hidden" name="delivery_id" class="delivery-id" value="">
+						<input type="hidden" name="billing_id" class="billing-id" value="">
+						<input type="hidden" name="same_delivery" class="same-delivery-id" value="">
+					</form>
 				</section>
 			</div>
 		</div>
@@ -1429,17 +1379,59 @@
 			}
 		}
 		
+		var ajx_list_addr = function(){
+			$.ajax({
+				url		 : '../modules/enlineamixmod/enlineamixmod-tester-campaign-ajaxpost.php', 
+				data	 : {'formtype' : 'customer_list_address'},
+				dataType :'json',
+				method 	 : 'post',
+				success	 : function(result){
+					if(result.status == true)
+					{
+						if(result.data.html != undefined && result.data.html != '')
+						{
+							$('body').find('.list-address').html(result.data.html);
+						}
+					}
+				},
+				error: function () {
+					
+					Swal.fire({
+						icon: 'error',
+						title: 'Unexpected server response',
+						text: "Contact admin",
+					});
+				}
+			});
+		}
+		
+		var checkbillingaddr = function(){
+			var ischeck = $('body').find('.check-billing-addr').prop('checked');
+			
+			if(ischeck)
+			{
+				$('body').find('.billing-address').hide('fast');
+			}
+			else
+			{
+				$('body').find('.billing-address').show('fast');
+			}
+		}
+		
+		/** manage view of number of childer under secton family in step my particular **/
 		var optNumChild = function(){
 			var numChild 	   		= $('body').find('.num-child').val();
 			var statusChilddob 		= $('body').find('.status-view-childdob').val();
 			var typrprocess    		= $('body').find('#form-customer-family .input_typeprocess').val();
 			var display_info_child 	= 'none';
 			var display_input_child = 'block';
+			var remarkfont 			= '<font class="remark-ico  mandotary-ico"></font>';
 			
 			if(typrprocess != 'edit')
 			{
-				display_info_child = 'block';
+				display_info_child  = 'block';
 				display_input_child = 'none';
+				remarkfont 			= '<font class="remark-ico"></font>';
 			}
 			
 			console.log("numChild = " + numChild + " statusChilddob = " + statusChilddob);
@@ -1453,7 +1445,7 @@
 				
 					childHtml += '<div class="col-md-6">';
 					childHtml += '<div class="form-group">';
-					childHtml += '<label for="cust-family-childdob">Child ' + i + ' date of birth ?</label>';
+					childHtml += '<label for="cust-family-childdob">' + remarkfont + 'Child ' + i + ' date of birth ?</label>';
 					childHtml += '<input type="text" class="form-control input-sm input-info child-dob' + i + ' childdobinput" name="child_dob[]" value="' + dobChild + '" style="display:' + display_input_child + '">';
 					childHtml += '<small class="error-msg"></small>';
 					childHtml += '<p class="display-info dob-child-info" style="display:' + display_info_child  + '">' + dobChild + '</p>';
@@ -1476,6 +1468,7 @@
 				leapday: "29.02."
 			}).mask(selectorDOB);
 		}
+		/** end manage view number children **/
 		
 		// One could simply use Canvas#toBlob method instead, but it's just to show
 		// that it can be done using result of SignaturePad#toDataURL.
@@ -1510,9 +1503,12 @@
 				$(this).closest('.panel-motherhood').find('.tagify-milkbrand').css('display', 'block');
 				$(this).closest('.panel-motherhood').find('.tagify-diapers').css('display', 'block');
 				$(this).closest('.panel-motherhood').find('.tagify-pastreviewbrand').css('display', 'block');
+				$(this).closest('.panel-motherhood').find('.tagify-contractbrand').css('display', 'block');
+				$(this).closest('.panel-motherhood').find('.tagify-brandlove').css('display', 'block');
 				$(this).closest('.panel-motherhood').find('.display-info').hide('fast');
 				$(this).closest('.panel-motherhood').find('.btn-action').show('fast');
 				$(this).closest('.panel-motherhood').find('.btn-action').show('fast');
+				$(this).closest('.panel-motherhood').find('.remark-ico').addClass('mandotary-ico');
 				$(this).hide('fast');
 			});
 			
@@ -1582,6 +1578,8 @@
 										{
 											$('body').find('.cust-abouturself-info').html(result.data.about_yourself);
 										}
+										
+										_this.closest('.panel-motherhood').find('.remark-ico').removeClass('mandotary-ico');
 									}
 									else if(formtype == 'customer_about')
 									{
@@ -1604,6 +1602,8 @@
 										{
 											$('body').find('.cust-about-salaryrange-info').html(result.data.cust_salaryrange);
 										}
+										
+										_this.closest('.panel-motherhood').find('.remark-ico').removeClass('mandotary-ico');
 									}
 									else if(formtype == 'customer_family')
 									{
@@ -1635,6 +1635,8 @@
 											});
 											optNumChild();
 										}
+										
+										_this.closest('.panel-motherhood').find('.remark-ico').removeClass('mandotary-ico');
 									}
 									else if(formtype == 'customer_favorites')
 									{
@@ -1648,15 +1650,19 @@
 											$('body').find('.diapers-brand-info').html(result.data.string_diaperbrand);
 										}
 										
-										if(result.data.arr_pastbrand != undefined && result.data.arr_pastbrand != '' && $.isArray(result.data.arr_pastbrand))
+										if(result.data.string_pastbrand != undefined && result.data.string_pastbrand != '')
 										{
-											var pastReviewHtml = '';
-											$.each(result.data.arr_pastbrand, function( index, brandVal ) {
-												pastReviewHtml += '<span class="label label-info badge-motherhood-joined">';
-												pastReviewHtml += brandVal;
-												pastReviewHtml += '</span>';
-											});
-											$('body').find('.past-review-brand-info').html(pastReviewHtml);
+											$('body').find('.past-review-brand-info').html(result.data.string_pastbrand);
+										}
+										
+										if(result.data.string_lovebrand != undefined && result.data.string_lovebrand != '')
+										{
+											$('body').find('.love-brand-info').html(result.data.string_lovebrand);
+										}
+										
+										if(result.data.string_contractbrand != undefined && result.data.string_contractbrand != '')
+										{
+											$('body').find('.contract-brand-info').html(result.data.string_contractbrand);
 										}
 									}
 									else if(formtype == 'customer_interest')
@@ -1666,9 +1672,19 @@
 											$('body').find('.url-ig-info').html(result.data.interest_igaccount);
 										}
 										
-										if(result.data.interest_fbaccount != undefined && result.data.interest_fbaccount != '')
+										if(result.data.interest_hostshow != undefined && result.data.interest_hostshow != '')
 										{
-											$('body').find('.url-hostshow-info').html(result.data.interest_fbaccount);
+											var host = 'No';
+											if(result.data.interest_hostshow == 1)
+											{
+												host = 'Yes';
+											}
+											$('body').find('.url-hostshow-info').html(host);
+										}
+										else
+										{
+											console.log('else condition cannot host');
+											$('body').find('.url-hostshow-info').html("No");
 										}
 										
 										if(result.data.interest_fbaccount != undefined && result.data.interest_fbaccount != '')
@@ -1681,6 +1697,14 @@
 											$('body').find('.url-blog-info').html(result.data.interest_blogwebsite);
 										}
 									}
+									else if(formtype == 'customer_address')
+									{
+										ajx_list_addr();
+										$('body').find('.billing-address').show('fast');
+										$('body').find('.list-address').show('fast');
+										$('body').find('.form-address').hide('fast');
+										_this.closest('.panel-motherhood').find('.remark-ico').removeClass('mandotary-ico');
+									}
 								}
 								
 								_this.closest('.panel-motherhood').find('.input-info').hide('fast');
@@ -1690,6 +1714,8 @@
 								_this.closest('.panel-motherhood').find('.tagify-milkbrand').css('display', 'none');
 								_this.closest('.panel-motherhood').find('.tagify-diapers').css('display', 'none');
 								_this.closest('.panel-motherhood').find('.tagify-pastreviewbrand').css('display', 'none');
+								_this.closest('.panel-motherhood').find('.tagify-contractbrand').css('display', 'none');
+								_this.closest('.panel-motherhood').find('.tagify-brandlove').css('display', 'none');
 								$('body').find('.cust-about-race-input').hide('fast');
 							}
 							else
@@ -1727,6 +1753,9 @@
 					$(this).closest('.panel-motherhood').find('.tagify-milkbrand').css('display', 'none');
 					$(this).closest('.panel-motherhood').find('.tagify-diapers').css('display', 'none');
 					$(this).closest('.panel-motherhood').find('.tagify-pastreviewbrand').css('display', 'none');
+					$(this).closest('.panel-motherhood').find('.tagify-contractbrand').css('display', 'none');
+					$(this).closest('.panel-motherhood').find('.tagify-brandlove').css('display', 'none');
+					$(this).closest('.panel-motherhood').find('.remark-ico').removeClass('mandotary-ico');
 					$('body').find('.cust-about-race-input').hide('fast');
 				}
 			});
@@ -1762,33 +1791,122 @@
 				optNumChild();
 			});
 			
-			$('body').find("#mamacubatry-wizard").steps({
-				headerTag: "h4",
-				bodyTag: "section",
-				transitionEffect: "fade",
-				enableAllSteps: true,
-				transitionEffectSpeed: 500,
-				onStepChanging: function (event, currentIndex, newIndex) { 
-					console.log("currentIndex = " + currentIndex);
-					console.log("newIndex = " + newIndex);
-					if(currentIndex === 0)
-					{
-						validation = checkSelectedProduct();
-						$('body').find('.input-flag-checking-step').val(validation);
-						console.log("validtion = " + validation);
-						if(validation != true)
-						{
-							
-							Swal.fire({
-								icon: 'error',
-								title: 'No product selected',
-								text: 'Please select product before proceed',
-							});
-							
-							return false;
+			$('body').on('click', '.btn-add-address', function(){
+				var typeaddrform = $(this).attr('data-typeaddrform');
+				console.log("typeaddrform" + typeaddrform);
+				$('body').find('.type_addres_form').val(typeaddrform);
+				$('body').find('.billing-address').hide('fast');
+				$('body').find('.list-address').hide('fast');
+				$('body').find('.form-address').show('fast');
+			})
+			
+			$('body').on('click', '#btn-cancel-cust-address', function(){
+				$('body').find('.billing-address').show('fast');
+				$('body').find('.list-address').show('fast');
+				$('body').find('.form-address').hide('fast');
+			});
+			
+			$('body').on('change', '.check-billing-addr', function(){
+				checkbillingaddr()
+			});
+			
+			/**  fetch address details from db using ajax **/
+			$('body').on('click', '.btn-edit-address', function(){
+				var addrId = $(this).attr('data-addressid');
+				
+				if(addrId > 0)
+				{
+					$.ajax({
+						url		 : '../modules/enlineamixmod/enlineamixmod-tester-campaign-ajaxpost.php', 
+						data	 : {'formtype' : 'customer_address_details', 'addr_id' : addrId},
+						dataType :'json',
+						method 	 : 'post',
+						success	 : function(result){
+							if(result.status == true)
+							{
+								if(result.data.alias != '' && result.data.alias != undefined && result.data.alias != null)
+								{
+									$('body').find('.addr-title').val(result.data.alias);
+								}
+								
+								if(result.data.firstname != '' && result.data.firstname != undefined && result.data.firstname != null)
+								{
+									$('body').find('.addr-firstname').val(result.data.firstname);
+								}
+								
+								if(result.data.lastname != '' && result.data.lastname != undefined && result.data.lastname != null)
+								{
+									$('body').find('.addr-lastname').val(result.data.lastname);
+								}
+								
+								if(result.data.address1 != '' && result.data.address1 != undefined && result.data.address1 != null)
+								{
+									$('body').find('.addr-line1').val(result.data.address1);
+								}
+								
+								if(result.data.address2 != '' && result.data.address2 != undefined && result.data.address2 != null)
+								{
+									$('body').find('.addr_line2').val(result.data.address2);
+								}								
+								
+								if(result.data.postcode != '' && result.data.postcode != undefined && result.data.postcode != null)
+								{
+									$('body').find('.addr-postcode').val(result.data.postcode);
+								}
+								
+								if(result.data.city != '' && result.data.city != undefined && result.data.city != null)
+								{
+									$('body').find('.addr-city').val(result.data.city);
+								}
+								
+								if(result.data.statename != '' && result.data.statename != undefined && result.data.statename != null)
+								{
+									$('body').find('.addr-state').val(result.data.statename);
+								}
+								
+								if(result.data.phone_mobile != '' && result.data.phone_mobile != undefined && result.data.phone_mobile != null)
+								{
+									$('body').find('.addr-mobileno').val(result.data.phone_mobile);
+								}
+								
+								if(result.data.phone != '' && result.data.phone != undefined && result.data.phone != null)
+								{
+									$('body').find('.addr-homeno').val(result.data.phone);
+								}
+								
+								if(result.data.id != '' && result.data.id != undefined && result.data.id != null)
+								{
+									$('body').find('.form-address-id').val(result.data.id);
+								}
+								
+								$('body').find('.billing-address').hide('fast');
+								$('body').find('.list-address').hide('fast');
+								$('body').find('.form-address').show('fast');
+							}
 						}
-					}
-					
+					})
+				}
+				else
+				{
+					Swal.fire({
+						icon: 'error',
+						title: 'Address id not set',
+						text: "Contact admin",
+					});
+				}
+				
+			})
+			/** end fetch address details **/
+			
+			
+			$('body').find("#mamacubatry-wizard").steps({
+				headerTag			  : "h4",
+				bodyTag				  : "section",
+				transitionEffect	  : "fade",
+				enableAllSteps		  : true,
+				enableKeyNavigation   : false,
+				transitionEffectSpeed : 500,
+				onStepChanging		  : function (event, currentIndex, newIndex) { 
 					
 					if (newIndex === 1) {
 						$('.steps ul').addClass('step-2');
@@ -1819,6 +1937,22 @@
 					return true; 
 					
 				},
+				onFinished  : function(){
+					var deliveryAddr = $('body').find('input[name="delivery_address"]:checked').val();
+					var sameDelivery = $('body').find('.check-billing-addr').val();
+					var billingAddr  = $('body').find('input[name="billing_address"]:checked').val();
+					var campaignId   = $('body').find('.tester-id').val();
+					
+					console.log("deliveryAddr " + deliveryAddr);
+					console.log("billingAddr " + billingAddr);
+					console.log("campaignId " + campaignId);
+					console.log("sameDelivery " + sameDelivery);
+					
+					//$('body').find('#form-tester-campaign .tester-product-id').val();
+					//$('body').find('#form-tester-campaign .delivery-id').val();
+					//$('body').find('#form-tester-campaign .billing-id').val();
+					//$('body').find('#form-tester-campaign .same-delivery-id').val();
+				},
 				labels: {
 					finish: "Submit",
 					next: "Next",
@@ -1828,13 +1962,7 @@
 			
 			// Custom Steps Jquery Steps
 			$('.wizard > .steps li a').click(function(){
-				var highLight = $('body').find('.input-flag-checking-step').val();
-				
-				if(highLight == "true")
-				{
-					$(this).parent().addClass('checked');
-				}
-				
+				$(this).parent().addClass('checked');
 				$(this).parent().prevAll().addClass('checked');
 				$(this).parent().nextAll().removeClass('checked');
 			});
@@ -1908,120 +2036,11 @@
 			var tagifypastbrand = document.querySelector('input[name="past_review_brands"]');
 			new Tagify(tagifypastbrand);
 			
-			/** signature pad **/
-			var wrapper 		  = document.getElementById("signature-pad");
-			var clearButton 	  = wrapper.querySelector("[data-action=clear]");
-			var changeColorButton = wrapper.querySelector("[data-action=change-color]");
-			var undoButton 		  = wrapper.querySelector("[data-action=undo]");
-			var savePNGButton 	  = wrapper.querySelector("[data-action=save-png]");
-			var saveJPGButton 	  = wrapper.querySelector("[data-action=save-jpg]");
-			var saveSVGButton 	  = wrapper.querySelector("[data-action=save-svg]");
-			var canvas  		  = wrapper.querySelector("canvas");
-			var signaturePad 	  = new SignaturePad(canvas, {
-			  // It's Necessary to use an opaque color when saving image as JPEG; this option can be omitted if only saving as PNG or SVG
-				backgroundColor: 'rgb(255, 255, 255)',
-			});
+			var tagifycontract = document.querySelector('input[name="contract_brands"]');
+			new Tagify(tagifycontract);
 			
-			// Adjust canvas coordinate space taking into account pixel ratio, to make it look crisp on mobile devices. This also causes canvas to be cleared.
-			var resizeCanvas = function() {
-				/*
-				* When zoomed out to less than 100%, for some very strange reason, 
-				* some browsers report devicePixelRatio as less than 1 and only part of the canvas is cleared then. **/
-				var ratio 		= Math.max(window.devicePixelRatio || 1, 1);
-				var canvasWidth = canvas.offsetWidth;
-				var canvasHeight = canvas.offsetHeight;
-				
-				if(canvasWidth <= 0)
-				{
-					canvasWidth = 664;
-				}
-				
-				if(canvasHeight <= 0)
-				{
-					canvasHeight = 366;
-				}
-			
-				/** This part causes the canvas to be cleared **/
-				canvas.width  = canvasWidth * ratio;
-				canvas.height = canvasHeight * ratio;
-				canvas.getContext("2d").scale(ratio, ratio);
-
-			  // This library does not listen for canvas changes, so after the canvas is automatically
-			  // cleared by the browser, SignaturePad#isEmpty might still return false, even though the
-			  // canvas looks empty, because the internal data of this library wasn't cleared. To make sure
-			  // that the state of this library is consistent with visual state of the canvas, you
-			  // have to clear it manually.
-				signaturePad.clear();
-			}
-
-			// On mobile devices it might make more sense to listen to orientation change,
-			// rather than window resize events.
-			window.onresize = resizeCanvas;
-			resizeCanvas();
-
-			$('body').on('click', '.btn-clear-signature', function(){
-				signaturePad.clear();
-			});
-			
-			$('body').on('click', '.btn-undo-signature', function(){
-				var data = signaturePad.toData();
-				if (data) 
-				{
-					data.pop(); // remove the last dot or line
-					signaturePad.fromData(data);
-				}
-			});
-
-			$('body').on('click', '.btn-changecolor-signature', function(){
-				var r 	  = Math.round(Math.random() * 255);
-				var g  	  = Math.round(Math.random() * 255);
-				var b 	  = Math.round(Math.random() * 255);
-				var color = "rgb(" + r + "," + g + "," + b +")";
-				signaturePad.penColor = color;
-			});
-			
-			$('body').on('click', '.btn-save-png', function(){
-				if (signaturePad.isEmpty()) {
-					Swal.fire({
-						icon: 'info',
-						title: 'No signature',
-						text: 'Please provide a signature first.',
-					})
-				}
-				else {
-					var dataURL = signaturePad.toDataURL();
-					downloadSignature(dataURL, "signature.png");
-				}
-			});
-			
-			$('body').on('click', '.btn-save-jpg', function(){
-				if (signaturePad.isEmpty()) {
-					Swal.fire({
-						icon: 'info',
-						title: 'No signature',
-						text: 'Please provide a signature first.',
-					})
-				}
-				else {
-					var dataURL = signaturePad.toDataURL("image/jpeg");
-					downloadSignature(dataURL, "signature.jpg");
-				}
-			});
-
-			$('body').on('click', '.btn-save-svg', function(){
-				if (signaturePad.isEmpty()) {
-					Swal.fire({
-						icon: 'info',
-						title: 'No signature',
-						text: 'Please provide a signature first.',
-					})
-				}
-				else {
-					var dataURL = signaturePad.toDataURL('image/svg+xml');
-					downloadSignature(dataURL, "signature.svg");
-				}
-			});
-			
+			var tagifybrandlove = document.querySelector('input[name="love_brand"]');
+			new Tagify(tagifybrandlove);
 		});
 	</script>
 {/literal}

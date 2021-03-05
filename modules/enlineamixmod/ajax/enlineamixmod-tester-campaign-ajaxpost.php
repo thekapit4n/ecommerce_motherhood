@@ -18,7 +18,8 @@ if (!class_exists('enlineamixmod')) {
 $arrMsg   	= array('status' => false, "status_code" => 'nodata_post', 'msg' => 'no data post', 'succeeded' => null);
 $formtype   = (isset($_POST["formtype"])) ? $_POST["formtype"] : '';
 $context	= Context::getContext();
-$customerid = $context->customer->id;
+$customerid = 0;
+$customerid = $context->customer->id > 0 ? $context->customer->id : 0 ;
 
 /**  
 * NOTE TO MYSELF(Haiqal halim)
@@ -35,7 +36,7 @@ $customerid = $context->customer->id;
 * FOR SAVING STATE ID AND COUNTRY ID
 * ====================================
 * data id_state and id_country in table ps_address come from table ps_state and ps_country 
-* but the list os state in view come from table ps_postcode_state.
+* but the list of state in view come from table ps_postcode_state.
 * the reason i use from ps_postcode_state because, 
 * 1- name of state is proper 
 * 2- for auto detect state based on postcode, based on link table ps_postcode & ps_postcode_state.
@@ -44,7 +45,7 @@ $customerid = $context->customer->id;
 
 if($customerid > 0)
 {
-	$cust 		 = new Customer($customerid);
+	$cust = new Customer($customerid);
 	
 	$sqlCheckAdditonalInfo = "SELECT COUNT(id_customer) as total FROM ps_customer_additional_info WHERE id_customer = '" . $customerid . "' LIMIT 1" ;
 	$queryResult = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlCheckAdditonalInfo);
@@ -873,6 +874,141 @@ if($customerid > 0)
 			exit;
 		}
 	}
+	elseif($formtype == 'tester_campaign_details')
+	{
+		
+		// $tester_product_id 	= (isset($_POST["tester_product_id"]) && $_POST["tester_product_id"] != '') ? pSQL(trim($_POST["tester_product_id"])) : '';
+		$tester_id 			= (isset($_POST["tester_id"]) && $_POST["tester_id"] != '') ? pSQL(trim($_POST["tester_id"])) : '';
+		$delivery_id 		= (isset($_POST["delivery_id"]) && $_POST["delivery_id"] != '') ? pSQL(trim($_POST["delivery_id"])) : '';
+		// $billing_id 		= (isset($_POST["billing_id"]) && $_POST["billing_id"] != '') ? pSQL(trim($_POST["billing_id"])) : '';
+		// $same_delivery_addr = (isset($_POST["same_delivery"]) && $_POST["same_delivery"] != '') ? pSQL(trim($_POST["same_delivery"])) : ''; #for now management dont want to ask billing address - 26/2/2021 - haiqal
+		$same_delivery_addr = 'yes';
+		$objCart 			= new Cart($customerid);
+		
+		if($tester_id == '')
+		{
+			$arrMsg['status'] 	   = false;
+			$arrMsg['status_code'] = 'campaign_id_empty'; 
+			$arrMsg['msg'] 	       = "Campaign id invalid";
+			
+			echo json_encode($arrMsg);
+			exit;
+		}
+		
+		if($delivery_id <= 0)
+		{
+			$arrMsg['status'] 	   = false;
+			$arrMsg['status_code'] = 'delivery_id_empty'; 
+			$arrMsg['msg'] 	       = "Please select address or add new address before proceed";
+			
+			echo json_encode($arrMsg);
+			exit;
+		}
+		
+		// if(strtolower($same_delivery_addr) != 'yes')
+		// {
+			// if($billing_id <= 0)
+			// {
+				// $arrMsg['status'] 	   = false;
+				// $arrMsg['status_code'] = 'billing_id_empty'; 
+				// $arrMsg['msg'] 	       = "Please select billing address before proceed";
+				
+				// echo json_encode($arrMsg);
+				// exit;
+			// }
+		// }
+
+		$checkExistCampaign = "SELECT count(tester_id) as total, tester_product_id FROM ps_tester_campaign_header WHERE tester_id = " . $tester_id . " AND tester_product_id > 0 LIMIT 1";
+		$resultCampaign 	= Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($checkExistCampaign);
+		
+		if(is_array($resultCampaign) && sizeof($resultCampaign) > 0 && isset($resultCampaign[0]['total']) && $resultCampaign[0]['total'] > 0)
+		{
+			$tester_product_id = $resultCampaign[0]['tester_product_id'];
+			
+			$checkCustomerExist  = "SELECT count(tester_detail_id) as total FROM ps_tester_campaign_detail WHERE tester_id = " . $tester_id . " AND customer_id = " . $customerid . " LIMIT 1";
+			$resultCustomerExist = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($checkCustomerExist);
+			
+			if(is_array($resultCustomerExist) && sizeof($resultCustomerExist) > 0 && isset($resultCustomerExist[0]['total']) && $resultCustomerExist[0]['total'] > 0)
+			{
+				
+				$objCart->id_address_delivery = $delivery_id;
+				$objCart->id_address_invoice  = $delivery_id;
+				
+				/* if(strtolower($same_delivery_addr) == 'yes')
+				{
+					$objCart->id_address_delivery = $delivery_id;
+					$objCart->id_address_invoice  = $delivery_id;
+				}
+				else
+				{
+					$objCart->id_address_delivery = $delivery_id;
+					$objCart->id_address_invoice  = $billing_id;
+				} */
+				
+				$objCart->save();
+					
+				$arrMsg['status'] 	   	= true; // should be false but for testing purpose
+				$arrMsg['status_code'] 	= 'applied'; 
+				$arrMsg['msg'] 	       	= 'Successful MamaCubaTry testers will be notified via email.';
+				$arrMsg['data']         = '';
+
+				echo json_encode($arrMsg);
+				exit;
+			}
+			else
+			{
+				$insertTester = "INSERT INTO ps_tester_campaign_detail (tester_product_id, tester_id, customer_id, active, add_date) 
+								VALUES ($tester_product_id,$tester_id,$customerid,1,CURRENT_DATE)";
+				$result       = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($insertTester);
+				
+				if($result)
+				{
+					if(strtolower($same_delivery_addr) == 'yes')
+					{
+						$objCart->id_address_delivery = $delivery_id;
+						$objCart->id_address_invoice  = $delivery_id;
+					}
+					else
+					{
+						$objCart->id_address_delivery = $delivery_id;
+						$objCart->id_address_invoice  = $billing_id;
+					}
+					
+					$objCart->save();
+				
+					$arrMsg['status'] 	   	= true;
+					$arrMsg['status_code'] 	= 'apply_success'; 
+					$arrMsg['msg'] 	       	= 'We have received your application and will keep you posted for any updates via email.';
+					$arrMsg['data']         = '';
+
+					echo json_encode($arrMsg);
+					exit;
+				}
+				
+			}
+		}
+		else
+		{
+			$arrMsg['status'] 	   	= false;
+			$arrMsg['status_code'] 	= 'campaign_id_invalid'; 
+			$arrMsg['msg'] 	       	= 'Campaign is not available';
+			$arrMsg['data']         = '';
+
+			echo json_encode($arrMsg);
+			exit;
+			
+		}
+	}
+}
+else
+{
+	$arrMsg['status'] 	   	= false;
+	$arrMsg['status_code'] 	= 'customer_id_empty'; 
+	$arrMsg['msg'] 	       	= 'Please login before proceed';
+	$arrMsg['data']         = '';
+
+	echo json_encode($arrMsg);
+	exit;
 }
 
 echo json_encode($arrMsg)

@@ -127,25 +127,53 @@
 				<li style="float: left; width: 100%;">
 					<select name="subscriber_question3" id="subscriber_question3" required="required" style="line-height: 1; height: 34px; width: 100%; border: none; box-shadow: none;">
 						<option value="">Please select</option>
+						<option value="4m">4m</option>
 						<option value="Abbott">Abbott</option>
-						<option value="Anmum Essential">Anmum Essential</option>
+						<option value="Anmum">Anmum</option>
+						<option value="Appeton">Appeton</option>
+						<option value="AptaGro">AptaGro</option>
+						<option value="Aptamil">Aptamil</option>
+						<option value="Awarua">Awarua</option>
+						<option value="Baby Bio">Baby Bio</option>
+						<option value="Baby Steps">Baby Steps</option>
+						<option value="Bellamy's">Bellamy's</option>
+						<option value="Dugro">Dugro</option>
 						<option value="Dumex">Dumex</option>
-						<option value="Dumex Mamil">Dumex Mamil</option>
+						<option value="Dupro">Dupro</option>
+						<option value="Dutch Baby">Dutch Baby</option>
 						<option value="Dutch Lady">Dutch Lady</option>
 						<option value="Enfagrow">Enfagrow</option>
+						<option value="Enfalac">Enfalac</option>
+						<option value="Enfamil">Enfamil</option>
+						<option value="Farmers">Farmers</option>
 						<option value="Fernleaf">Fernleaf</option>
-						<option value="Friso Gold">Friso Gold </option>
-						<option value="Gain Kid">Gain Kid </option>
-						<option value="Isomil">Isomil</option>
+						<option value="Friso">Friso</option>
+						<option value="Frisolac">Frisolac</option>
+						<option value="G-Star">G-Star</option>
+						<option value="Glucerna">Glucerna</option>
+						<option value="Habib">Habib</option>
+						<option value="Karihome">Karihome</option>
 						<option value="Lactogen">Lactogen</option>
-						<option value="Morinaga">Morinaga</option>
-						<option value="Nan">Nan</option>
+						<option value="Lactogrow">Lactogrow</option>
+						<option value="Lazz">Lazz</option>
+						<option value="Mamex">Mamex</option>
+						<option value="Mamil">Mamil</option>
+						<option value="Merry Nation">Merry Nation</option>
+						<option value="Miwako">Miwako</option>
+						<option value="Morinaga Milk">Morinaga Milk</option>
+						<option value="Nana">Nana</option>
+						<option value="Nankid">Nankid</option>
+						<option value="Nestle">Nestle</option>
 						<option value="Novalac">Novalac</option>
 						<option value="Pediasure">Pediasure</option>
-						<option value="S-26">S-26</option>
-						<option value="Snow">Snow </option>
+						<option value="S26">S26</option>
+						<option value="Similac">Similac</option>
+						<option value="Snow">Snow</option>
+						<option value="Suffy">Suffy</option>
 						<option value="Sustagen">Sustagen</option>
-						<option value="Do not consume milk powder">Do not consume milk powder </option>
+						<option value="Wildan">Wildan</option>
+						<option value="Wyeth">Wyeth</option>
+						<option value="Not consuming any milk">Not consuming any milk</option>
 						<option value="Others">Others</option>
 					</select>
 				</li>
@@ -174,7 +202,7 @@
          <p>Postcode</p>
          <ul style="padding: 10px 0px 30px 0px;">
             <li style="float: left; width: 100%;">
-				<input name="subscriber_question8" id="subscriber_question8" type="text" class="numeric" maxlength="5" placeholder="ex. 12345" required style="padding-top: 10px; padding-bottom: 10px; line-height: 1; border: none; box-shadow: none; width: 100%;"/>
+				<input name="subscriber_question8" id="postcode-address" type="text" class="addr-postcode" required style="padding-top: 10px; padding-bottom: 10px; line-height: 1; border: none; box-shadow: none; width: 100%;"/>
 			</li>
          </ul>
       </div>
@@ -182,7 +210,7 @@
          <br /><br />
          <p>City</p>
          <ul style="padding: 10px 0px 30px 0px;">
-            <li style="float: left; width: 100%;"><input name="subscriber_question9" id="subscriber_question9" type="text" required="required" style="padding-top: 10px; padding-bottom: 10px; line-height: 1; border: none; box-shadow: none; width: 100%;" /></li>
+            <li style="float: left; width: 100%;"><input name="subscriber_question9" id="subscriber_question9" type="text" class="addr-city" required="required" style="padding-top: 10px; padding-bottom: 10px; line-height: 1; border: none; box-shadow: none; width: 100%;" /></li>
          </ul>
       </div>
       <!-- State form-->
@@ -191,24 +219,24 @@
          <p>State</p>
          <ul style="padding: 10px 0px 30px 0px;">
             <li style="float: left; width: 100%;">
-               <select name="subscriber_question10" id="subscriber_question10" type="text" required="required" style="line-height: 1; width: 100%; height: 34px; border: none; box-shadow: none;">
-                  <option value="">Choose</option>
-                  <option value="Johor Darul Takzim">Johor Darul Takzim</option>
-                  <option value="Kedah Darul Aman">Kedah Darul Aman</option>
-                  <option value="Kelantan Darul Naim">Kelantan Darul Naim</option>
-                  <option value="Melaka">Melaka</option>
-                  <option value="Negeri Sembilan Darul Khusus">Negeri Sembilan Darul Khusus</option>
-                  <option value="Pahang Darul Makmur">Pahang Darul Makmur</option>
-                  <option value="Perlis Indera Kayangan">Perlis Indera Kayangan</option>
-                  <option value=" Perak Darul Ridzuan">Perak Darul Ridzuan</option>
-                  <option value="Pulau Pinang">Pulau Pinang</option>
-                  <option value="Sabah">Sabah</option>
-                  <option value="Sarawak">Sarawak</option>
-                  <option value="Selangor Darul Ehsan">Selangor Darul Ehsan</option>
-                  <option value="Terengganu Darul Iman">Terengganu Darul Iman</option>
-                  <option value="Wilayah Persekutuan Kuala Lumpur">Wilayah Persekutuan Kuala Lumpur</option>
-                  <option value="Wilayah Persekutuan Labuan">Wilayah Persekutuan Labuan</option>
-                  <option value="Wilayah Persekutuan Putrajaya">Wilayah Persekutuan Putrajaya</option>
+               <select name="subscriber_question10" id="subscriber_question10" type="text" required="required" class="addr-state" style="line-height: 1; width: 100%; height: 34px; border: none; box-shadow: none;">
+                 <option value="">Choose</option>
+					<option value="Johor">Johor</option>
+					<option value="Kedah">Kedah</option>
+					<option value="Kelantan">Kelantan</option>
+					<option value="Kuala Lumpur">Kuala Lumpur</option>
+					<option value="Labuan">Labuan</option>
+					<option value="Melaka">Melaka</option>
+					<option value="Negeri Sembilan">Negeri Sembilan</option>
+					<option value="Pahang">Pahang</option>
+					<option value="Perak">Perak</option>
+					<option value="Perlis">Perlis</option>
+					<option value="Pulau Pinang">Pulau Pinang</option>
+					<option value="Putrajaya">Putrajaya</option>
+					<option value="Sabah">Sabah</option>
+					<option value="Sarawak">Sarawak</option>
+					<option value="Selangor" >Selangor</option>
+					<option value="Terengganu">Terengganu</option>
                </select>
             </li>
          </ul>
@@ -247,6 +275,34 @@
 <div style="display: none;"><a id="tncpopupimg" href="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Friso/Privacy+policy+for+Friso+Gold.pdf"> </a></div>
 <p>
    <script>// <![CDATA[
+   
+	var validatePostcode = function(_this){
+		var postcode = _this.val();
+		if(postcode != undefined && postcode != '')
+		{
+			$.ajax({
+				url		 : '../modules/enlineamixmod/enlineamixmod-postcode-ajax.php', 
+				data	 :{'postcode': postcode},
+				dataType :'json',
+				method 	 : 'post',
+				success	 : function(result){
+					if(result.status == true)
+					{
+						if(result.data.city != undefined && result.data.city != '')
+						{
+							$('body').find('.addr-city').val(result.data.city);
+						}
+						
+						if(result.data.state_name != undefined && result.data.state_name != '')
+						{
+							$('body').find('.addr-state').val(result.data.state_name);
+						}
+					}
+				}
+			});
+		}
+	}
+	
       $(document).ready(function () {
 		var errorSelector 	 = '.error-msg';
 		var hasValidation 	 = 'has-error-validation';
@@ -381,6 +437,23 @@
                 }
               }
             });
+		var selectorPostcode = document.getElementById("postcode-address");
+		var postcodeSettings = {
+				'mask' : "*****",
+				"placeholder": "",
+				"definitions": {
+					'*': {
+						validator: "[0-9]"
+					}
+				}
+			}
+		Inputmask(postcodeSettings).mask(selectorPostcode);
+		
+		
+		
+		$('body').on('blur', '.addr-postcode', function(){
+			validatePostcode($(this));
+		})
 	});
        
       // ]]>
