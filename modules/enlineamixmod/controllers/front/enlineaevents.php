@@ -113,7 +113,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
     public function initContent()
     {
         parent::initContent();
-		
+		$this->context->controller->addJS('themes/default-bootstrap/dashboard-assets/form-wizard-5/js/jquery.steps.js');
 		
         $sql = '
 			SELECT *, if(event_end_date >= current_date,"ok","end") AS has_ended
@@ -298,10 +298,11 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 			$sql = '		
 					SELECT count(1) as countPurchased FROM ps_orders A JOIN ps_order_detail B
 					ON A.id_order=B.id_order
-					WHERE product_attribute_id BETWEEN 30299 AND 30314
+					WHERE ( product_attribute_id BETWEEN 30303 AND 30314 OR product_attribute_id IN (  32739 ,32742,32744,32745) )
 					AND id_customer='.$this->context->customer->id.' 
 					AND current_state in ( 2,3,4,5 ) 
 				';
+				
 			$resultCheckPurchased = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
 			if ($resultCheckPurchased[0]['countPurchased']>=1 ){
 				echo '<script type="text/javascript">
@@ -334,10 +335,10 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 			$sql = '		
 					SELECT count(1) as countPurchased FROM ps_orders A JOIN ps_order_detail B
 					ON A.id_order=B.id_order
-					WHERE product_attribute_id BETWEEN 30299 AND 30314
+					WHERE ( product_attribute_id BETWEEN 30303 AND 30314 OR product_attribute_id IN (  32739 ,32742,32744,32745) )
 					AND id_customer='.$this->context->customer->id.' 
 					AND current_state in ( 2,3,4,5 ) 
-					and A.date_add>="2020-11-01"
+					and A.date_add>="2021-02-01"
 				';
 			$resultCheckPurchased = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
 			if ($resultCheckPurchased[0]['countPurchased']>=1 ){
@@ -404,7 +405,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 			$sql = '		
 					SELECT product_name, A.id_order FROM ps_orders A JOIN ps_order_detail B
 					ON A.id_order=B.id_order
-					WHERE product_attribute_id BETWEEN 30299 AND 30314
+					WHERE ( product_attribute_id BETWEEN 30303 AND 30314 OR product_attribute_id IN (  32739 ,32742,32744,32745) )
 					AND current_state in ( 2,3,4,5 ) 
 					AND id_customer='.$this->context->customer->id.'
 					and A.date_add>="2020-11-01"
@@ -773,12 +774,21 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 			asort($arr_maternalmilk);
 			$arr_maternalmilk[] = "Others";
 			$arr_maternalmilk[] = "Not consuming any milk";
-			
+		
 			#customer already login
 			if($this->context->customer->email != '' && $this->context->customer->id > 0)
 			{
 				$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `subscriber_event_id` = '" . trim($event_id) . "'";
 				$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `newEmail` = '" . trim($this->context->customer->email) . "'";
+				
+				$id_cart = (int)Cart::lastNoneOrderedCart($this->context->customer->id);
+				if($id_cart > 0)
+				{
+					$this->context->cart = new Cart($id_cart);
+				}
+				
+				
+				$result[0]['event_description'] = str_ireplace('{{dummycartid}}',$this->context->cart->id, $result[0]['event_description']);
 				
 				$sql 		 = "SELECT * FROM `ps_events_subscriber`" . $whereSql . " ORDER BY `subscriber_id` DESC LIMIT 1";
 				$queryResult = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
@@ -797,6 +807,9 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					$state 		  = isset($queryResult[0]['subscriber_question7']) ? $queryResult[0]['subscriber_question7'] : '';
 					$eddDate 	  = isset($queryResult[0]['subscriber_question8']) ? $queryResult[0]['subscriber_question8'] : '';
 					$milkbrand 	  = isset($queryResult[0]['subscriber_question9']) ? $queryResult[0]['subscriber_question9'] : '';
+					$tnc_nestle   = isset($queryResult[0]['subscriber_question10']) ? $queryResult[0]['subscriber_question10'] : '';
+					$tnc_mmy   	  = isset($queryResult[0]['subscriber_question11']) ? $queryResult[0]['subscriber_question11'] : '';
+					$news_promo   = isset($queryResult[0]['subscriber_question12']) ? $queryResult[0]['subscriber_question12'] : '';
 					$subscribe_id = isset($queryResult[0]['subscriber_id']) ? $queryResult[0]['subscriber_id'] : '';
 					
 					if($state != '')
@@ -851,7 +864,10 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 						$result[0]['event_description'] = str_ireplace('{{pre-define-displaymilkbrad}}', "", $result[0]['event_description']);
 						$result[0]['event_description'] = str_ireplace('{{div-class-question-milk-brand}}', "", $result[0]['event_description']);
 					}
-				
+					
+					$result[0]['event_description'] = str_ireplace('{{tnc-nestle}}', strtolower($tnc_nestle), $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{tnc-mmy}}', strtolower($tnc_mmy), $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{news-promo}}', strtolower($news_promo), $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('{{pre-define-class-collapse-icon}}', "<i class='fas fa-plus'></i>", $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('{{pre-define-class-collapse}}', "", $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('{{div-class-display-edd-milk}}', "visuallyhidden", $result[0]['event_description']);
@@ -910,6 +926,9 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					$result[0]['event_description'] = str_ireplace('data-input-disabled', "", $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('data-input-email-disabled', "readonly='readonly'", $result[0]['event_description']);
 					$result[0]['event_description'] = str_ireplace('{{pre-define-titleform}}', "Fill up your information", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{tnc-nestle}}', "", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{tnc-mmy}}', "", $result[0]['event_description']);
+					$result[0]['event_description'] = str_ireplace('{{news-promo}}', "", $result[0]['event_description']);
 				}
 				
 				$result[0]['event_description'] = str_ireplace('{{div-class-display-edd-milk}}', "visuallyhidden", $result[0]['event_description']);
@@ -956,6 +975,9 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 				$result[0]['event_description'] = str_ireplace('data-input-disabled', "", $result[0]['event_description']);
 				$result[0]['event_description'] = str_ireplace('data-input-email-disabled', "", $result[0]['event_description']);
 				$result[0]['event_description'] = str_ireplace('{{pre-define-titleform}}', "Fill up your information", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{tnc-nestle}}', "", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{tnc-mmy}}', "", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{news-promo}}', "", $result[0]['event_description']);
 			}
 			
 			$strMilkOpt = "";
@@ -1016,7 +1038,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 				$sql = '		
 						SELECT A.id_order FROM ps_orders A JOIN ps_order_detail B
 						ON A.id_order=B.id_order
-						WHERE product_attribute_id BETWEEN 30299 AND 30314
+						WHERE ( product_attribute_id BETWEEN 30303 AND 30314 OR product_attribute_id IN (  32739 ,32742,32744,32745) )
 						AND current_state in ( 2,3,4,5 ) 
 						AND id_customer='.$this->context->customer->id.'
 					';
@@ -2587,6 +2609,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 										case 'Langkawi':$id_state=329;break;
 									}
 									
+									
 									$address->id_country  = 136;
 									$address->id_state    = $id_state;;
 									$address->postcode    = trim(Tools::getValue('subscriber_question4'));
@@ -2599,13 +2622,58 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 									$address->address2    = "";
 									$address->city		  = trim(Tools::getValue('subscriber_question7'));
 									
-									$address->add();
+									$address->save();
+								}
+								
+								// Add customer to the context
+								$context->customer = $customer;
+								
+								#cart logic
+								if (Configuration::get('PS_CART_FOLLOWING') && (empty($context->cookie->id_cart) || Cart::getNbProducts($context->cookie->id_cart) == 0) && $id_cart = (int)Cart::lastNoneOrderedCart($context->customer->id))
+									$context->cart = new Cart($id_cart);
+								else
+								{
+									$id_carrier = (int)$context->cart->id_carrier;
+									$context->cart->id_carrier = 0;
+									$context->cart->setDeliveryOption(null);
+									$context->cart->id_address_delivery = (int)Address::getFirstCustomerAddressId((int)($customer->id));
+									$context->cart->id_address_invoice = (int)Address::getFirstCustomerAddressId((int)($customer->id));
+								}
 									
-									# suppose to place cart logic but we dont finalize yet
+								$context->cart->id_customer = (int)$customer->id;
+								$context->cart->secure_key = $customer->secure_key;
+								
+								if($context->cart->id > 0)
+								{
+									$isClaimed = false;
+									#to check if customer has claimed before this, 
+									# limit 1 because we only need to get one data as indicator this customer has claimed
+									$sqlOrdered    = "SELECT COUNT(a.id_order) as totalorder FROM ps_orders a 
+														LEFT JOIN ps_order_detail b ON a.id_order = b.id_order
+														WHERE b.product_id = 45390 AND id_customer = " . trim($customer->id) . " LIMIT 1";
+									$resultOrdered = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlOrdered);
+									$totalOrdered  = $resultOrdered[0]['totalorder'];
+									
+									if($totalOrdered == 0)
+									{
+										#to check item ID already exist or not in the cart
+										$sqlCheck 	 = "SELECT COUNT(id_cart) as total FROM `ps_cart_product` WHERE `id_product` = 45390 AND `id_cart` = " . trim($context->cart->id) . " LIMIT 1";
+										$resultCheck = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlCheck);
+										$total 		 = $resultCheck[0]['total'];
+										
+										if($total == 0) # item not exist in this cart id, we add
+										{
+											$context->cart->updateQty(1,45390);# item id newmom essential nestle
+										}
+									}
+									else
+									{
+										$isClaimed = true;
+									}
 								}
 							}
 							
-							echo "<script type='text/javascript'>alert('Thank you for your submission, now you may access the tools!');</script>";
+							echo "<script type='text/javascript'>alert('Thank you for your submission, your NESTLÉ MOM® Sample Pack is now in the shopping cart. Now you may access the tools!');</script>";
 							echo "<script type='text/javascript'>window.location.href='https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."'</script>";
 							exit;
 						}
@@ -3218,7 +3286,10 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 							// Add customer to the context
 							$context->customer = $customer;
 
-							if (Configuration::get('PS_CART_FOLLOWING') && (empty($context->cookie->id_cart) || Cart::getNbProducts($context->cookie->id_cart) == 0) && $id_cart = (int)Cart::lastNoneOrderedCart($context->customer->id))
+							if (Configuration::get('PS_CART_FOLLOWING') && 
+								(empty($context->cookie->id_cart) || Cart::getNbProducts($context->cookie->id_cart) == 0) && 
+								$id_cart = (int)Cart::lastNoneOrderedCart($context->customer->id))
+								
 								$context->cart = new Cart($id_cart);
 							else
 							{
@@ -3378,13 +3449,59 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					#if customer already login and signup events
 					if($this->context->customer->email != '' && $this->context->customer->id > 0)
 					{
-						# suppose to place cart logic but we dont finalize yet
+						// Add customer to the context
+						$context->customer = $this->context->customer;
+						
+						#cart logic
+						if (Configuration::get('PS_CART_FOLLOWING') && (empty($context->cookie->id_cart) || Cart::getNbProducts($context->cookie->id_cart) == 0) && $id_cart = (int)Cart::lastNoneOrderedCart($context->customer->id)){
+							$context->cart = new Cart($id_cart);
+						}
+						else
+						{
+							$id_carrier = (int)$context->cart->id_carrier;
+							$context->cart->id_carrier = 0;
+							$context->cart->setDeliveryOption(null);
+							$context->cart->id_address_delivery = (int)Address::getFirstCustomerAddressId((int)($customer->id));
+							$context->cart->id_address_invoice = (int)Address::getFirstCustomerAddressId((int)($customer->id));
+						}
+							
+						$context->cart->id_customer = (int)$customer->id;
+						$context->cart->secure_key = $customer->secure_key;
+					
+						if($context->cart->id > 0)
+						{
+							$isClaimed = false;
+							#to check if customer has claimed before this, 
+							# limit 1 because we only need to get one data as indicator this customer has claimed
+							$sqlOrdered    = "SELECT COUNT(a.id_order) as totalorder FROM ps_orders a 
+												LEFT JOIN ps_order_detail b ON a.id_order = b.id_order
+												WHERE b.product_id = 45390 AND id_customer = " . trim($customer->id) . " LIMIT 1";
+							$resultOrdered = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlOrdered);
+							$totalOrdered  = $resultOrdered[0]['totalorder'];
+							
+							if($totalOrdered == 0)
+							{
+								#to check item ID already exist or not in the cart
+								$sqlCheck 	 = "SELECT COUNT(id_cart) as total FROM `ps_cart_product` WHERE `id_product` = 45390 AND `id_cart` = " . trim($context->cart->id) . " LIMIT 1";
+								$resultCheck = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlCheck);
+								$total 		 = $resultCheck[0]['total'];
+								
+								if($total == 0) # item not exist in this cart id, we add
+								{
+									$context->cart->updateQty(1,45390);# item id newmom essential nestle
+								}
+							}
+							else
+							{
+								$isClaimed = true;
+							}
+						}
 					}
 					else
 					{
 						#customer not login but email already exist in db motherhood
-						$password  =trim($newPassword);
-						$firstname =trim($newFirstName);
+						$password  = trim($newPassword);
+						$firstname = trim($newFirstName);
 						$last_name = trim($newLastName);
 						if($last_name == ""){
 							$last_name = ".";
@@ -3425,8 +3542,51 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 							$context->cookie->passwd 			 = $customer->passwd;
 							$context->cookie->email 			 = $customer->email;
 							$context->customer 					 = $customer;	#Add customer to the context
+						
+							#cart logic
+							if (Configuration::get('PS_CART_FOLLOWING') && (empty($context->cookie->id_cart) || Cart::getNbProducts($context->cookie->id_cart) == 0) && $id_cart = (int)Cart::lastNoneOrderedCart($context->customer->id))
+								$context->cart = new Cart($id_cart);
+							else
+							{
+								$id_carrier = (int)$context->cart->id_carrier;
+								$context->cart->id_carrier = 0;
+								$context->cart->setDeliveryOption(null);
+								$context->cart->id_address_delivery = (int)Address::getFirstCustomerAddressId((int)($context->customer->id));
+								$context->cart->id_address_invoice = (int)Address::getFirstCustomerAddressId((int)($context->customer->id));
+							}
+								
+							$context->cart->id_customer = (int)$context->customer->id;
+							$context->cart->secure_key  = $context->customer->id->secure_key;
 							
-							# suppose to place cart logic but we dont finalize yet
+							if($context->cart->id > 0)
+							{
+								$context->cookie->id_cart   = $context->cart->id; # need to save this in cookies so system can get cart id and display item in the cart.
+								$isClaimed = false;
+								#to check if customer has claimed before this, 
+								# limit 1 because we only need to get one data as indicator this customer has claimed
+								$sqlOrdered    = "SELECT COUNT(a.id_order) as totalorder FROM ps_orders a 
+													LEFT JOIN ps_order_detail b ON a.id_order = b.id_order
+													WHERE b.product_id = 45390 AND id_customer = " . trim($context->customer->id) . " LIMIT 1";
+								$resultOrdered = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlOrdered);
+								$totalOrdered  = $resultOrdered[0]['totalorder'];
+								
+								if($totalOrdered == 0)
+								{
+									#to check item ID already exist or not in the cart
+									$sqlCheck 	 = "SELECT COUNT(id_cart) as total FROM `ps_cart_product` WHERE `id_product` = 45390 AND `id_cart` = " . trim($context->cart->id) . " LIMIT 1";
+									$resultCheck = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlCheck);
+									$total 		 = $resultCheck[0]['total'];
+									
+									if($total == 0) # item not exist in this cart id, we add
+									{
+										$context->cart->updateQty(1,45390);# item id newmom essential nestle
+									}
+								}
+								else
+								{
+									$isClaimed = true;
+								}
+							}
 							
 							$ssocookie 			= Tools::getSSOCookie();
 							$ssocookie->ssoUser = $context->customer->email;
@@ -3444,7 +3604,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					$event_slug  = $querySlug[0]['event_slug'];
 					$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug;
 					
-					echo "<script type='text/javascript'>alert('Thank you for your submission, now you may access the tools!');</script>";
+					echo "<script type='text/javascript'>alert('Thank you for your submission, your NESTLÉ MOM® Sample Pack is now in the shopping cart. Now you may access the tools!');</script>";
 					echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
 					exit;
 				}

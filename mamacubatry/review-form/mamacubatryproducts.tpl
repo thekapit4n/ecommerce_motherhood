@@ -221,7 +221,7 @@
 	}
  
 	.steps ul:before {
-		content: "Select Product";
+		content: "Product Information";
 		font-size: 18px;
 		font-family: Arial,Helvetica,sans-serif;
 		color: #4c4c4d;
@@ -230,19 +230,19 @@
 	}
 
 	.steps ul.step-2:before {
-		content: "Your Particulars"; 
+		content: "My Info"; 
 	}
 	
 	/*.steps ul.step-3:before {
-		content: "Campaign Information"; 
+		content: "Precondition Form"; 
 	}*/
 	
 	.steps ul.step-3:before {
-      content: "Your Address"; 
+      content: "My Address"; 
 	}
 	
 	.steps ul.step-4:before {
-      content: "Campaign Agreement"; 
+      content: "Agreement"; 
 	}
 	.actions ul {
 	  display: flex;
@@ -469,8 +469,7 @@
 		<div class="col-md-12">
 			<div style="margin-bottom:20px;margin-top:20px;line-height: 20px;">
 				<font style="color:#4c4c4d; font-weight:700;">Hey {$customer->firstname} {$customer->lastname},<br></font>
-				<font style="color:#30a7ad; font-weight:700;">Please complete the form<br></font>
-				In order for us to offer product tests that suit you, we'll need a few details
+				<font style="color:#30a7ad; font-weight:700;">To be a Mamacubatry tester, <br></font>you are required to update your information and complete the Precondition form. 
 			</div>
 		</div>
 	</div>
@@ -1323,8 +1322,8 @@
 	<div class="row success-application" style="display:{if $applied == 1}block {else} none {/if};text-align:center;margin-top:10%;">
 		<div class="container" style="position:relative">
 			<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Feb/Mamacubatry/Balloon.png" alt="ballon-thank-you" class="ballon-icon-tq">
-			<h2 style="font-weight: 700;color: #38a7ac;"> Thank You {$customer->firstname} {$customer->lastname}</h2>
-			<h4 style="color:#4c4c4d;margin-bottom:44px;line-height:25px;">You have successfully subscribe to MamaCubaTry campaign.<br class="motherhood-br">Successful MamaCubaTry testers will be notified via email.</h4>
+			<h2 style="font-weight: 700;color: #38a7ac;"> Thank You</h2>
+			<h4 style="color:#4c4c4d;margin-bottom:44px;line-height:25px;">You have successfully applied for the Mamacubatry Campaign.<br class="motherhood-br">We will notify you via email if you are shortlisted as a tester.</h4>
 			<div class="row">
 				<div class="col-md-12">
 					<div class="form-group" style="text-align:center;">

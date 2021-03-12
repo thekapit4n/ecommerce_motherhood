@@ -481,8 +481,8 @@ var myAddress='{$currentAddressId}';
 {/if}
 	<div class="container">
 		<ul class="nav nav-tabs">
-			<li class="active"><a data-toggle="tab" class="tab-header" href="#mycampaign">My Campaign List</a></li>
 			<li><a data-toggle="tab" class="tab-header" href="#myreview">My Reviews</a></li>
+			<li class="active"><a data-toggle="tab" class="tab-header" href="#mycampaign">My Campaign List</a></li>
 		</ul>
 		<div class="tab-content">
 			<!--  tester tab--->

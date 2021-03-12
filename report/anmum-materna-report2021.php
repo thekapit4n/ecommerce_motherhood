@@ -6,22 +6,22 @@ $arr_allowUser = array(
 	'tech',
 	'megan',
 	'hooishan',
+	'anmum',
 	'haiqal',
-	'huggies',
 );
 
-if ((in_array($_POST['login'], $arr_allowUser)) && $_POST['password']=='huggies123'){
-	$_SESSION['huggies_login'] = true;
+if ((in_array($_POST['login'], $arr_allowUser)) && $_POST['password']=='anmum123'){
+	$_SESSION['anmummaternaLogin']=1;
 }
 
-if ($_SESSION['huggies_login'] == true){
+if ($_SESSION['anmummaternaLogin']==1){
 
 }
 else{
 ?><!DOCTYPE html>
 <head>
 <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico"/>
-<title>Huggies Leads Report | Motherhood.com.my Malaysia</title>
+<title>Anmum Materna Report 2021 | Motherhood.com.my Malaysia</title>
 <style>
 	body 
 {
@@ -115,7 +115,7 @@ div.form-container
 </style>
 </head>
 
-<form action='huggies-report.php' method='post'>
+<form action='anmum-materna-report2021.php' method='post'>
 		<div style="row">
 			<div style="text-align:center;">
 				<img style="vertical-align: middle;width:10%;" 
@@ -123,7 +123,7 @@ div.form-container
 			</div>
 			<div class="form-container">
 				<div class="text-header">
-				Huggies Leads Report | Motherhood.com.my Malaysia
+				Anmum Materna Report 2021 | Motherhood.com.my Malaysia
 				</div>
 				<div class="form">
 					<div class="text">
@@ -174,41 +174,15 @@ $productList=array();
 	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/sweetalert2-v10.13.0/dist/sweetalert2.all.min.js" type="text/javascript"></script>
     <link href="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/sweetalert2-v10.13.0/dist/sweetalert2.min.css" rel="stylesheet" type="text/css" />
 	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/Inputmask-5.x/dist/jquery.inputmask.js" type="text/javascript"></script>
-<title>Huggies Leads Report | Motherhood.com.my Malaysia</title>
+	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/twbs-pagination/jquery.twbsPagination.min.js" type="text/javascript"></script>
+	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/simplePagination/jquery.simplePagination.js" type="text/javascript"></script>
+<title>Anmum materna report 2021 | Motherhood.com.my Malaysia</title>
 <style>
 body{
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 
-ul:not(.leftmenu){
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
 
-li:not(.leftmenu) {
-    float: left;
-    border-right:1px solid #bbb;
-}
-
-li:last-child:not(.leftmenu) {
-    border-right: none;
-}
-
-li:not(.leftmenu) a:not(.leftmenu) {
-    display: block;
-    color: #265e70;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-weight:bold;
-}
-
-li:not(.leftmenu) a:hover:not(.active):not(.leftmenu) {
-    background-color: #111;
-}
 
 .active:not(.leftmenu) {
     background-color: #ffcfda;
@@ -218,22 +192,29 @@ li:not(.leftmenu) a:hover:not(.active):not(.leftmenu) {
 	margin-bottom:10px
 }
 
-.class-nowrap{
-	white-space : nowrap;
-}
+
 </style>
 </head>
 
 <?php
-   $currPath  = $_SERVER['REQUEST_URI'];
-   $baseprog  = explode("?",basename($currPath));
-   $checkName = explode("-",basename($baseprog[0]));
-   $secretOfTheDay = "K@p1T4n S4Y T0d4Y 1$" . date('Y-m-d');
-   $encrypt  		= md5($secretOfTheDay);
-	$searchStart ="";
-	$searchEnd 	 ="";
-	$wheresql  	 = "";
-	$limitsql    = " LIMIT 3300";
+	$currPath 		= $_SERVER['REQUEST_URI'];
+	$baseprog		= explode("?",basename($currPath));
+	$checkName		= explode("-",basename($baseprog[0]));
+	$secretOfTheDay = "K@p1T4n S4Y T0d4Y 1$" . date('Y-m-d');
+	$encrypt  		= md5($secretOfTheDay);
+	$searchStart 	="";
+	$searchEnd 	 	="";
+	$wheresql  	 	= "";
+	$limitsql    	= "";
+	$currentLimit 	= " LIMIT 1500";
+	
+	if (isset($_GET['pageno'])) {
+		$pageno = $_GET['pageno'];
+	} else {
+		$pageno = 1;
+	}
+	
+	$no_of_records_per_page = 1000;
 	
 	if(isset($_POST['searchDateStart']) && $_POST['searchDateStart'] != '')
 	{
@@ -260,36 +241,64 @@ li:not(.leftmenu) a:hover:not(.active):not(.leftmenu) {
 	}
 	
 	
-	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "a.subscriber_event_id = 100";
-	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "b.subscriber_event_id = 98";
-	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "a.subscriber_question15 != ''";
+	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "a.subscriber_event_id=89";
+					
 	if($searchStart != '')
 	{
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " a.subscriber_created_at >= '" . trim($searchStart . " 00:00:00") . "'";
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " subscriber_created_at >= '" . trim($searchStart . " 00:00:00") . "'";
 	}
 	
 	if($searchEnd != '')
 	{
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " a.subscriber_created_at <= '" . trim($searchEnd . " 23:59:59") . "'";
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " subscriber_created_at <= '" . trim($searchEnd . " 23:59:59") . "'";
+	}
+	
+	if($searchStart == '' && $searchEnd == '')
+	{
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "a.subscriber_created_at >= '2021-01-01 00:00:00'";
+	}
+	
+	$urlPagination = "";
+	
+	if(isset($pageno) && $pageno > 0)
+	{
+		$urlPagination .= ($urlPagination == "" ? '?' : '&') . "pageno=";
+	}
+	
+	$sqltotalCount	  =  "SELECT COUNT(DISTINCT(a.newEmail)) as total FROM ps_events_subscriber a" . $wheresql . " ORDER BY subscriber_created_at ASC " . $currentLimit;
+	$resultCount 	  =  $conn->query($sqltotalCount);
+	$arr_resultCount  =  mysqli_fetch_array($resultCount);
+	$total_rows 	  =  isset($arr_resultCount['total']) ? $arr_resultCount['total'] : 0;
+	$offset 		  = ($pageno-1) * $no_of_records_per_page;
+	
+	$total_pages 	  = ceil($total_rows / $no_of_records_per_page);
+	$limitsql 		  = "LIMIT " . $offset . "," . $no_of_records_per_page;
+	
+	$starting = (isset($pageno) && $pageno > 0) ? $pageno  : 0;
+	if($starting > 0)
+	{
+		$showingLimit = $starting * $no_of_records_per_page;
+		if($showingLimit >= $total_rows)
+		{
+			$showingLimit = $total_rows;
+		}
 	}
 	
     $sql = "SELECT
-			a.newEmail as Email, CONCAT(a.newFirstName, ' ', a.newLastName) AS NAME, a.subscriber_question1 as Mobile, a.subscriber_question8 as Address, a.subscriber_question9 as Postcode, a.subscriber_question10 as City, 
-			a.subscriber_question11 as States,b.subscriber_question2 as EDD, a.subscriber_question15 as 'Product size', a.subscriber_question16 as 'Product type', a.subscriber_question17 as 'Preferred language', a.subscriber_created_at as 'Date registered'
-			FROM ps_events_subscriber a
-			LEFT JOIN ps_events_subscriber AS b 
-			ON a.subscriber_id = b.subscriber_question30
-			
-			" . $wheresql . " GROUP BY a.newEmail	ORDER BY a.subscriber_id ASC " . $limitsql;    
-    $result = $conn->query($sql);
+			a.newEmail as Email, a.newFirstName as FirstName, a.newLastName as LastName, a.subscriber_question1 as Mobile, 
+			a.subscriber_question12 as PregnancyStatus, a.subscriber_question11 as Flavour, a.subscriber_question2 as Address, a.subscriber_question3 as Postcode, 
+			a.subscriber_question5 as City, a.subscriber_question7 as State, a.subscriber_question8 as Brand, a.subscriber_question9 as Language, 
+			a.subscriber_question10 as TnC, a.subscriber_created_at as DateSubmit
+			FROM ps_events_subscriber a" . $wheresql . " GROUP BY newEmail	ORDER BY subscriber_created_at ASC " . $limitsql;  
 	
+    $result = $conn->query($sql);
 	if(is_object($result)){
-		$tableReportView =  mysql_result_all_html($result);
+		$tableReportView =  mysql_result_all_html($result, $offset);
 		$result->close();
 		mysqli_close($conn);
 	}
 	
-    function mysql_result_all_html($result, $tableFeatures="") {
+    function mysql_result_all_html($result, $offset = 0) {
 		if ($_GET['event_type'])
 			$headerStr=" for ".$_GET['event_type'];
 		
@@ -301,31 +310,24 @@ li:not(.leftmenu) a:hover:not(.active):not(.leftmenu) {
 		# for header
 		for ($i = 0; $i < $noFields; $i++) {
 			$field 	= mysqli_field_name($result, $i);
-			if(in_array($field, array('EDD', 'Product size', 'Product type', 'Preferred language', 'Date registered')))
-			{
-				$table .= "<th class='class-nowrap'>" . $field . "</th>";
-			}
-			else
-				$table .= "<th>" . $field . "</th>";
+			$table .= "<th>" . $field . "</th>";
 			
 		}
 		$table .= "</tr>";
 		
-		$ccount=0;
+		if(isset($offset))
+		{
+			$ccount = $offset;
+		}
+		else{
+			$ccount = 0;
+		}
+		
 		while ($r = mysqli_fetch_row($result)) {
 			$ccount++;
 			$table .= "<tr><td>" . $ccount . "</td>";
-			foreach ($r as $index => $kolonne) {
-				if(in_array($index, array(7,8,9,10,11)))
-				{
-					$table .= "<td class='class-nowrap'>" . $kolonne . "</td>";
-				}
-				elseif($index == 1)
-				{
-					$table .= "<td>" . ucwords(strtolower($kolonne)) . "</td>";
-				}
-				else
-					$table .= "<td>" . $kolonne . "</td>";
+			foreach ($r as $indx => $kolonne) {
+				$table .= "<td>" . $kolonne . "</td>";
 			}
 			$table .= "</tr>";
 		}
@@ -339,19 +341,24 @@ li:not(.leftmenu) a:hover:not(.active):not(.leftmenu) {
 		return is_object($properties) ? $properties->name : null;
 	}
 ?>
-	<ul>
-		<li><a href="aptago-report.php" <?php if ($checkName[0].$checkName[1]=='huggiesreport.php' ) echo "class='active'"; ?> >Huggies Lead Report MMY</a></li>
-	</ul>
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	  <!-- Links -->
+		<ul class="navbar-nav">
+			<li class="nav-item">
+			  <a class="nav-link" href="anmum-materna-report2021.php">Anmum materna report 2021 MMY</a>
+			</li>
+		</ul>
+	</nav>
 	<main role="main" class="container-fluid">
 		<div class="starter-template">
 			<div class="row row-motherhood" style="margin-top:40px;">
 				<div class="col-md-8">
 					<div class="page-header">
-						<h3>Huggies Lead Report | Motherhood.com.my Malaysia</h3>
+						<h3>Anmum materna report 2021 | Motherhood.com.my Malaysia</h3>
 					</div>
 				</div>
 			</div>
-			<form id="form-request" method='post' action="huggies-report.php">
+			<form id="form-request" method='post' action="anmum-materna-report2021.php">
 				<div class="row row-motherhood">
 					<div class="col-md-5">
 						<div class="input-group input-group-sm mb-3">
@@ -407,10 +414,21 @@ li:not(.leftmenu) a:hover:not(.active):not(.leftmenu) {
 				</div>
 			</form>
 			<div class="row row-motherhood">
+				
 				<div class="col-md-12" style="width:100%">
+					<nav style="margin-bottom:10px;">
+						<ul class="pagination pagination-sm" id="pagination-ulkapitan-top">
+						</ul>
+					</nav>
+					<p>Showing <?php echo isset($offset) ? ($offset + 1) : 0  ?> to <?php echo $showingLimit ?> of <?php echo $total_rows  ?> entries</p>
 					<div class="table-responsive">
 						<?php echo (isset($tableReportView) && $tableReportView != '') ? $tableReportView : ''; ?>
 					</div>
+					<p>Showing <?php echo isset($offset) ? ($offset + 1) : 0  ?> to <?php echo $showingLimit ?> of <?php echo $total_rows  ?> entries</p>
+					<nav style="margin-top:10px;">
+						<ul class="pagination pagination-sm" id="pagination-ulkapitan-bottom">
+						</ul>
+					</nav>
 				</div>
 			</div>
 		</div>
@@ -419,7 +437,7 @@ li:not(.leftmenu) a:hover:not(.active):not(.leftmenu) {
 	
 	var initEnddatepicker = function(){
 		var startDate = $('body').find('.eventdatepicker').val();
-		var endDate = $('body').find('.eventdatepicker-end').val();
+		var endDate   = $('body').find('.eventdatepicker-end').val();
 		var date = startDate;
 		var d	 = new Date(date.split("/").reverse().join("-"));
 		var dd	 = d.getDate();
@@ -440,6 +458,7 @@ li:not(.leftmenu) a:hover:not(.active):not(.leftmenu) {
 			autoclose: true,
 			todayHighlight: true,
 			format: 'dd/mm/yyyy',
+			startDate: new Date('2021-01-01')
 		});
 		
 		$('body').on('change', '.eventdatepicker', function(){
@@ -465,14 +484,36 @@ li:not(.leftmenu) a:hover:not(.active):not(.leftmenu) {
 			console.log(isExport);
 			if(isExport)
 			{
-				$('body').find('#form-request').attr('action', 'huggies-report-excel.php');
+				$('body').find('#form-request').attr('action', 'anmum-materna-report2021-excel.php');
 			}
 			else
 			{
-				$('body').find('#form-request').attr('action', 'huggies-report.php');
+				$('body').find('#form-request').attr('action', 'anmum-materna-report2021.php');
 			}
 			
 			$('body').find('#form-request').submit();
+		});
+		
+		var totpages = '<?php echo (isset($total_pages) && $total_pages > 0) ? $total_pages  : 1?>'; //We store the number of pages in a variable to use it below
+		totpages = parseInt(totpages);
+		var curentpage = '<?php echo  (isset($pageno) && $pageno > 0) ? $pageno : 1?>';
+		curentpage = parseInt(curentpage);
+		$('#pagination-ulkapitan-top, #pagination-ulkapitan-bottom').twbsPagination({
+			totalPages: totpages,
+			startPage : curentpage,
+			visiblePages: 10,
+			onPageClick: function (event, page) {
+				if(curentpage != page)
+				{
+					console.log(page);
+					location.href = '<?php echo isset($urlPagination) ? $urlPagination : '' ?>' + page;
+				}
+				else
+				{
+					console.log('curentpage' + curentpage);
+					console.log('page' + page);
+				}
+			}
 		});
 		
 		

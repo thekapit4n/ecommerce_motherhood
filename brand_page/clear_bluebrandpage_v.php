@@ -113,7 +113,7 @@
 			 <ul id="nestlekol_list_car">
 				<!--====================ARTICLE 1====================-->
 				<li class="product-box item" style="min-width: 178px;">
-				   <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/jan/clearblue/make-baby-hubby-prep-parenthood-clearblue.png" alt="article2" width="100%" />
+				   <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/5-Old-Wives-Tales-About-Pregnancy-Should-You-Believe-Them.png" alt="article2" width="100%" />
 				   <p class="parent-article-title-cb">5 Old Wives’ Tales About Pregnancy: Should You Believe Them?</p>
 				   <a href="https://story.motherhood.com.my/blog/old-wives-tales-about-pregnancy-believe-them/" target="_blank" rel="noopener" class="btn btn-primary btn-readmore-cb"> Read More </a>
 				</li>
@@ -181,6 +181,7 @@
 	  </div>
    </div>
 	<div class="row">
+		<!--
 		<ul class="clearfix row section_slidethekapitan section5   nbs-flexisel-ul">
             <li class="nbs-flexisel-item" style="width: 262.5px;">
                <div class="product-container">
@@ -267,6 +268,8 @@
                </div>
             </li>
          </ul>
+		 -->
+		<p class="text-center"> COMING SOON</p>
    </div>
    
 </div>
@@ -482,14 +485,14 @@
 			
 			$('body').find(".div-profile").addClass("visuallyhidden-cb");
 			
-			$('body').find('.section_slidethekapitan').flexisel({
+			/* $('body').find('.section_slidethekapitan').flexisel({
       			visibleItems: 5,
       			flipPage: true,
       			animationSpeed: 500,
       			animationLoop: true,
       			clone: false,
       			autoPlay: false
-      		});
+      		}); */
 			
 		});
    </script>

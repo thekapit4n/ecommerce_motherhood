@@ -147,8 +147,10 @@ class enlineamixmodmamacubatryproductsModuleFrontController extends ModuleFrontC
 		{
 			$applied = true;
 		}
+		
+		$sliderCampaign = new CMS(61);
 		// echo "<pre>";
-		// print_r($resultCustomerExist);
+		// print_r($sliderCampaign);
 		// echo "</pre>";
 		
 		$this->context->smarty->assign(array(
@@ -162,6 +164,7 @@ class enlineamixmodmamacubatryproductsModuleFrontController extends ModuleFrontC
 			'arr_pastreview'   => $arr_pastreview,
 			'arr_address'	   => $resultAddr,
 			'applied'	   	   => $applied,
+			'sliderCampaign'   => $sliderCampaign,
 			'mamacubatry_view' => _PS_ROOT_DIR_  . "/modules/enlineamixmod/views",     
         ));
 		

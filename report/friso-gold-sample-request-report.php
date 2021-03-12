@@ -231,7 +231,7 @@ li:not(.leftmenu) a:hover:not(.active):not(.leftmenu) {
 	$searchStart ="";
 	$searchEnd 	 ="";
 	$wheresql  	 = "";
-	$limitsql    = " LIMIT 500";
+	$limitsql    = " LIMIT 833";
 	
 	if(isset($_POST['searchDateStart']) && $_POST['searchDateStart'] != '')
 	{
@@ -280,7 +280,8 @@ li:not(.leftmenu) a:hover:not(.active):not(.leftmenu) {
 			a.newFirstName as FullName, a.newEmail as Email, a.subscriber_question1 as Mobile, a.subscriber_question4 as ChildDOB,
 			a.subscriber_question3 as CurrentMilkBrand, a.subscriber_question5 as address1, a.subscriber_question7 as address2, a.subscriber_question8 as Postcode, 
 			a.subscriber_question9 as City, a.subscriber_question10 as States,a.subscriber_question12 as tnc, a.subscriber_created_at as DateSubmit
-			FROM ps_events_subscriber a " . $wheresql . " GROUP BY newEmail	ORDER BY subscriber_created_at ASC " . $limitsql;    
+			FROM ps_events_subscriber a " . $wheresql . " GROUP BY newEmail	ORDER BY subscriber_created_at ASC " . $limitsql;  
+	
     $result = $conn->query($sql);
 	if(is_object($result)){
 		$tableReportView =  mysql_result_all_html($result);

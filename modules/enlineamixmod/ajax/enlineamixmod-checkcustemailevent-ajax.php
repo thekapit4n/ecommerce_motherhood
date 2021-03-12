@@ -56,6 +56,9 @@ if($email != '')
 						$dataCustomer['subscriber_id'] = $val['subscriber_id'];
 						$dataCustomer['edd_date'] 	   = $val['subscriber_question8'];
 						$dataCustomer['milkbrand'] 	   = $val['subscriber_question9'];
+						$dataCustomer['tnc_nestle']    = $val['subscriber_question10'];
+						$dataCustomer['tnc_mmy']       = $val['subscriber_question11'];
+						$dataCustomer['news_promo']    = $val['subscriber_question12'];
 						if($val['subscriber_question8'] != '')
 						{
 							$edd 			  = $val['subscriber_question8'];

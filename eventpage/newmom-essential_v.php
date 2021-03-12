@@ -1,5 +1,7 @@
 <p>
-   <script src="../../../themes/default-bootstrap/dashboard-assets/fontawesome-v5.15.1/js/all.min.js"></script>
+	<script src="../../../themes/default-bootstrap/dashboard-assets/fontawesome-v5.15.1/js/all.min.js"></script>
+	<script src="../../../themes/default-bootstrap/dashboard-assets/sweetalert2-v10.13.0/dist/sweetalert2.all.min.js" type="text/javascript"></script>
+	<link href="../../../themes/default-bootstrap/dashboard-assets/sweetalert2-v10.13.0/dist/sweetalert2.min.css" rel="stylesheet" type="text/css" />
 </p>
 <style>
    <!--
@@ -69,15 +71,15 @@
       	}
       	
       	.loading {
-      			position: absolute;
-      			top: 50%;
-      			left: 50%;
-      			width: 50px;
-      			height: 50px;
-      			margin-left: -25px;
-      			margin-top: -25px;
-      			z-index: 99999;
-      		}
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 50px;
+			height: 50px;
+			margin-left: -25px;
+			margin-top: -25px;
+			z-index: 99999;
+		}
       	
       	.enlinea_slider_custom h3 {
       		text-align: left;
@@ -243,6 +245,15 @@
       			display: block;
       			padding: 0 20px!important;
       		}
+			
+			.text-overlay{
+				font-size: 29px;
+			}
+			
+			#row-features{
+				 min-height: 150px;
+				margin-bottom: -100px;
+			}
       	}
       -->
 </style>
@@ -250,8 +261,8 @@
    Note:
    all the wording start with "{{ somtext}}" it will be replace when load this page. can see on controller enlieneaevents under this event id
    -->
-<div class="col-lg-12 col-md-12" style="padding-left: 0px; padding-right: 0px; margin-bottom: 0;"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/New+Mom+Essentials/Nestle-Mom-%26-Wyeth-Promama-Banner-2.png" width="100%" /></div>
-<div class="row row-question" style="padding-top: 20px; padding-bottom: 20px;">
+<div class="col-lg-12 col-md-12" style="padding-left: 0px; padding-right: 0px; margin-bottom: 0;"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/New+Mom+Essentials/main+banner+final.png" width="100%" /></div>
+<div class="row row-question" style="padding-top: 20px; padding-bottom: 10px;">
    <p style="font-size: 25px; color: #2ea7ad; font-weight: bold; padding-top: 20px; padding-bottom: 20px; line-height: 1;" class="title-form">{{pre-define-titleform}}</p>
    <div class="panel-group" id="accordion">
       <div class="panel panel-default">
@@ -270,6 +281,7 @@
 						<input type="hidden" id="user-login" class="form-control" value="{{pre-user-login}}" /> 
 						<input type="hidden" id="email_checked_input" value="{{pre-define-emailcheckinpt}}" /> 
 						<input type="hidden" id="edd_checked_input" value="{{pre-define-eddcheckinpt}}" /> 
+						<input type="hidden" class="dummycart" value="{{dummycartid}}" /> 
 							<small class="error-msg"></small>
 						</div>
                         <div class="col-md-6 text-left question-welcomekit div-password" style="display: {{display-password-input}};">
@@ -308,32 +320,80 @@
                      <div class="row row-form">
                         <div class="col-md-4 text-left question-welcomekit"><label>Postcode</label> <input type="text" name="subscriber_question4" id="postcode-address" class="form-control input-info addr-postcode {{greybg-readonly-class}} " required="required" placeholder="Postcode" autocomplete="off" value="{{pre-define-postcode}}" data-input-disabled="" /> <small class="error-msg"></small></div>
                         <div class="col-md-4 text-left question-welcomekit"><label>City</label> <input name="subscriber_question5" id="city-address" type="text" size="60" required="required" placeholder="City" class="form-control input-info addr-city {{greybg-readonly-class}}" autocomplete="off" value="{{pre-define-city}}" data-input-disabled="" /> <small class="error-msg"></small></div>
-                        <div class="col-md-4 text-left question-welcomekit" style="padding-top: 0px;">
-                           <label>State</label>
-                           <select name="subscriber_question7" id="state-address" class="input-info {{greybg-readonly-class}} addr-state" style="width: 100%; height: 37px; font-size: 14px; padding-top: 7px; padding-bottom: 5px; display: inline-block; border: 1px solid #ccc; box-shadow: inset 0 1px 3px #ddd; border-radius: 4px; vertical-align: middle; box-sizing: border-box; margin-top: 0px;" required="required" data-input-disabled="">
-                              <option value="">State</option>
-                              <option value="Johor" dataselected-johor="">Johor</option>
-                              <option value="Kedah" dataselected-kedah="">Kedah</option>
-                              <option value="Kelantan" dataselected-kelantan="">Kelantan</option>
-                              <option value="Kuala Lumpur" dataselected-kuala_lumpur="">Kuala Lumpur</option>
-                              <option value="Labuan" dataselected-labuan="">Labuan</option>
-                              <option value="Melaka" dataselected-melaka="">Melaka</option>
-                              <option value="Negeri Sembilan" dataselected-negeri_sembilan="">Negeri Sembilan</option>
-                              <option value="Pahang" dataselected-pahang="">Pahang</option>
-                              <option value="Perak" dataselected-perak="">Perak</option>
-                              <option value="Perlis" dataselected-perlis="">Perlis</option>
-                              <option value="Pulau Pinang" dataselected-pulau_pinang="">Pulau Pinang</option>
-                              <option value="Putrajaya" dataselected-putrajaya="">Putrajaya</option>
-                              <option value="Sabah" dataselected-sabah="">Sabah</option>
-                              <option value="Sarawak" dataselected-sarawak="">Sarawak</option>
-                              <option value="Selangor" dataselected-selangor="">Selangor</option>
-                              <option value="Terengganu" dataselected-terengganu="">Terengganu</option>
-                           </select>
-                           <small class="error-msg"></small>
-                        </div>
-                     </div>
-                     <div class="clearfix"></div>
-                     <div class="col-md-4 col-md-offset-4" style="padding-top: 20px;"><button type="submit" name="submit" id="btn-submit-form1" class="btn btn-default btn-step1" style="display: {{display-btn-submit-form1}};"> Submit </button></div>
+							<div class="col-md-4 text-left question-welcomekit" style="padding-top: 0px;">
+							   <label>State</label>
+							   <select name="subscriber_question7" id="state-address" class="input-info {{greybg-readonly-class}} addr-state" style="width: 100%; height: 37px; font-size: 14px; padding-top: 7px; padding-bottom: 5px; display: inline-block; border: 1px solid #ccc; box-shadow: inset 0 1px 3px #ddd; border-radius: 4px; vertical-align: middle; box-sizing: border-box; margin-top: 0px;" required="required" data-input-disabled="">
+								  <option value="">State</option>
+								  <option value="Johor" dataselected-johor="">Johor</option>
+								  <option value="Kedah" dataselected-kedah="">Kedah</option>
+								  <option value="Kelantan" dataselected-kelantan="">Kelantan</option>
+								  <option value="Kuala Lumpur" dataselected-kuala_lumpur="">Kuala Lumpur</option>
+								  <option value="Labuan" dataselected-labuan="">Labuan</option>
+								  <option value="Melaka" dataselected-melaka="">Melaka</option>
+								  <option value="Negeri Sembilan" dataselected-negeri_sembilan="">Negeri Sembilan</option>
+								  <option value="Pahang" dataselected-pahang="">Pahang</option>
+								  <option value="Perak" dataselected-perak="">Perak</option>
+								  <option value="Perlis" dataselected-perlis="">Perlis</option>
+								  <option value="Pulau Pinang" dataselected-pulau_pinang="">Pulau Pinang</option>
+								  <option value="Putrajaya" dataselected-putrajaya="">Putrajaya</option>
+								  <option value="Sabah" dataselected-sabah="">Sabah</option>
+								  <option value="Sarawak" dataselected-sarawak="">Sarawak</option>
+								  <option value="Selangor" dataselected-selangor="">Selangor</option>
+								  <option value="Terengganu" dataselected-terengganu="">Terengganu</option>
+							   </select>
+							   <small class="error-msg"></small>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+						<div class="row">
+							<div class="col-md-12">
+								<p style="font-size:13px;line-height: 23px; margin-bottom:12px;text-align:left; margin-top: 25px;">
+									By clicking Submit, you hereby agree to the campaign’s Terms and Conditions and Privacy Notices. You further agree to be registered as a member of 
+									Nestlé Start Well 2gether club and to the processing of your personal data in accordance with such club/membership terms (including 
+									to receive marketing and promotional information, product services and events) in accordance with Nestlé (Malaysia) Berhad, and Motherhood.com.my. 
+								</p>
+								<table style="margin: 15px 0px 15px 0px; font-weight: bold;">
+									<tbody>
+										<tr>
+											<td style="font-weight: bold; vertical-align: top; padding-right:10px">
+												<input id="checked-tnc-nestle" name="subscriber_question10" value="agree" required="required" type="checkbox" style="display: inline-block;"/>
+												<input  type="hidden" class="tnc-nestle-checked" value="{{tnc-nestle}}"/>
+											</td>
+											<td style="padding-left:0px">
+												<p style="font-size:13px;line-height: 15px; margin-bottom:12px;padding-top:0px;">
+													By clicking Submit, I agree to the <a href="https://www.startwell.nestle.com.my/terms-conditions" target="_blank">Terms and Conditions</a>, and <a href="https://www.nestle.com.my/info/privacy_notice" target="_blank">Privacy Policy</a> of Nestlé (Malaysia) Berhad.
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td style="font-weight: bold; vertical-align: top; padding-right:10px">
+												<input id="checked-tnc-mmy" name="subscriber_question11" value="agree" required="required" type="checkbox" style="display: inline-block;"/>
+												<input  type="hidden" class="tnc-mmy-checked" value="{{tnc-mmy}}"/>
+											</td>
+											<td style="padding-left:0px">
+												<p style="font-size:13px;line-height: 15px; margin-bottom:12px;padding-top:0px;">
+													By clicking Submit, I agree to the <a href="https://www.motherhood.com.my/page/terms-of-service" target="_blank">Terms and Conditions,</a> and <a href="https://www.motherhood.com.my/page/privacy-policy" target="_blank">Privacy Policy</a> of Motherhood.com.my. 
+												</p>
+											</td>
+										</tr>
+										<tr>
+											<td style="font-weight: bold; vertical-align: top; padding-right:10px">
+												<input name="subscriber_question12" id="receive-news" value="agree"  type="checkbox" style="display: inline-block;"/>
+												<input  type="hidden" class="news-promo-checked" value="{{news-promo}}"/>
+											</td>
+											<td style="padding-left:0px">
+												<p style="font-size:13px;line-height: 15px; margin-bottom:12px;padding-top:0px;">
+													Would you like to receive future marketing and promotional information about the Organiser’s products, services and events in the future?
+												</p>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="col-md-4 col-md-offset-4" style="padding-top: 20px;">
+							<button type="submit" name="submit" id="btn-submit-form1" class="btn btn-default btn-step1" style="display: {{display-btn-submit-form1}};"> Submit </button>
+						</div>
                   </div>
                </div>
                <div class="row">
@@ -344,15 +404,31 @@
                      <ol style="list-style: decimal; padding-left: 20px;">
                         <li class="text-left tnc_li">This program is open to pregnant and lactating mothers who are residing in Malaysia only.</li>
                         <li class="text-left tnc_li">Limited to ONE sample per household (address) only.</li>
-                        <li class="text-left tnc_li">For Nestl&eacute; MOM&reg;, by requesting a FREE sample, you will automatically be registered as a member of Nestl&eacute; Start Well 2gether Mom&rsquo;s Club.</li>
-                        <li class="text-left tnc_li">Motherhood.com.my will not be responsible nor liable for unsuccessful registrations due to interruptions in internet connectivity.</li>
+                        <li class="text-left tnc_li">
+							For Nestlé MOM®, by requesting a FREE sample, you will automatically be registered as a member of Nestlé Start Well 2gether Mom’s Club, 
+							and allow to the processing of your personal data in accordance with such club/membership terms, 
+							including to receive marketing and promotional information, product services and events in the future.
+						</li>
+                        <li class="text-left tnc_li">
+							Each redemption will receive a full-size product (NESTLE MOM Pouch with PRONATAL PLUS Pregnant & Lactating Milk (600g).
+						</li>
                      </ol>
                   </div>
                   <div class="col-md-6">
                      <ol style="list-style: decimal; padding-left: 20px;" start="5">
-                        <li class="text-left tnc_li">Motherhood.com.my reserves the right to alter, cancel, terminate, or suspend an application and/or any part thereof without any liability and prior notice at any time upon its sole and absolute discretion.</li>
-                        <li class="text-left tnc_li">Registrations will only be accepted with the FULL postal address provided.</li>
-                        <li class="text-left tnc_li">Incomplete registration forms will not be accepted.</li>
+                        <li class="text-left tnc_li">
+							A standard shipping & handling fee of RM5.00 will be charged for each sampling redemption.
+						</li>
+                        <li class="text-left tnc_li"> 
+							Please expect sample delivery of 4-6 weeks.
+						</li>
+                        <li class="text-left tnc_li">
+							Registrations will only be accepted with the FULL postal address provided. Incomplete registration forms will not be accepted.
+						</li>
+						<li class="text-left tnc_li">
+							Motherhood.com.my reserves the right to alter, cancel, terminate, or suspend an application and/or any part thereof without any 
+							liability and prior notice at any time upon its sole and absolute discretion.
+						</li>
                      </ol>
                   </div>
                </div>
@@ -361,14 +437,27 @@
       </div>
    </div>
 </div>
-<div id="row-features" class="row row-feature" style="position: relative;">
+<div id="row-features">
+</div>
+<div  class="row row-feature" style="position: relative;">
    <div class="div-overlay {{pre-define-display-class-overlay}}" style="display: {{pre-define-display-overlay}};">
-      <div class="text-overlay" style="display: {{pre-define-display-overlay}};">Register to access our tool</div>
+      <div class="text-overlay" style="display: {{pre-define-display-overlay}};line-height:30px;">Register to access our tool</div>
    </div>
-   <div class="row row-icon-features text-center" style="width:100%;">
-      <div class="col-md-4 col-xs-4"><img id="myImage" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/New+Mom+Essentials/due-date-calculator.png" class="img-responsive icon-image clicker-img {{pre-define-unclickable-class}}" alt="due-date-calculator" data-typeview="dueDateCalculator" style="width: 300px;" /></div>
-      <div class="col-md-4 col-xs-4"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/New+Mom+Essentials/baby's-journey.png" class="img-responsive icon-image clicker-img {{pre-define-unclickable-class}}" alt="baby-journey" data-typeview="pregnancyJourney" style="width: 300px;" /></div>
-      <div class="col-md-4 col-xs-4"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/New+Mom+Essentials/eArtboard+%E2%80%93+29.png" class="img-responsive icon-image clicker-img {{pre-define-unclickable-class}}" alt="newmom" data-typeview="eMag" style="width: 300px;" /></div>
+   <div class="row row-icon-features text-center" style="width:100%; padding-left:24px;margin-top: 10px;">
+		<div class="col-md-4 col-xs-4">
+			<img id="myImage" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/New+Mom+Essentials/2.png" class="img-responsive icon-image clicker-img {{pre-define-unclickable-class}}" alt="due-date-calculator" data-typeview="dueDateCalculator" style="width: 300px;" />
+			<div class="row">
+				<p style="line-height:18px;"><font style="font-size:16px;font-weight: 600;">Due Date calculator</font></p>
+			</div>
+		</div>
+		<div class="col-md-4 col-xs-4">
+			<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/New+Mom+Essentials/3.png" class="img-responsive icon-image clicker-img {{pre-define-unclickable-class}}" alt="baby-journey" data-typeview="pregnancyJourney" style="width: 300px;" />
+			<p style="line-height:18px;"><font style="font-size:16px;font-weight: 600;">Your Baby's journey</font></p>
+		</div>
+		<div class="col-md-4 col-xs-4">
+			<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/New+Mom+Essentials/1.png" class="img-responsive icon-image clicker-img {{pre-define-unclickable-class}}" alt="newmom" data-typeview="eMag" style="width: 300px;" />
+			<p style="line-height:18px;"><font style="font-size:16px;font-weight: 600;">New eMag</font></p>
+		</div>
       <!--
          <div class="col-md-3 col-xs-6">
          	<a href="https://story.motherhood.com.my/blog/category/recipes-foodie/" id="receipehref" target="_blank" rel="noopener"> 
@@ -807,6 +896,9 @@
 <div class="mmyslider" data-sliderid="77" data-imagepos="left" data-slidercount="5"></div>
 <div class="mmyslider" data-sliderid="78" data-imagepos="left" data-slidercount="5"></div>
 <div class="mmyslider" data-sliderid="79" data-imagepos="left" data-slidercount="5"></div>
+<div>
+<div id="sponsored_content" sponsored_content="1"></div> <!-- disabled overlay banner --->
+</div>
 <p>
    <script>// <![CDATA[
       /** if other function that need to use same input for validation, we can just use this selector  **/
@@ -872,6 +964,9 @@
       							var eddWeek 	 = result.data.week;
       							var milkbrand 	 = result.data.milkbrand;
       							var subscriberid = result.data.subscriber_id;
+      							var tnc_mmy 	 = result.data.tnc_mmy;
+      							var tnc_nestle 	 = result.data.tnc_nestle;
+      							var news_promo 	 = result.data.news_promo;
       							
       							fnameSelector.val(firstname);
       							lnameSelector.val(lastname);
@@ -930,6 +1025,24 @@
       								$('body').find('.question-edd').removeClass('visuallyhidden');
       								$('body').find('.row-question-milk-brand').removeClass('visuallyhidden');
       							}
+								
+								if(tnc_mmy == 'agree')
+								{
+									$('body').find('#checked-tnc-mmy').closest('span').addClass('checked');
+									$('body').find('#checked-tnc-mmy').attr('disabled', true);
+								}
+								
+								if(tnc_nestle == 'agree')
+								{
+									$('body').find('#checked-tnc-nestle').closest('span').addClass('checked');
+									$('body').find('#checked-tnc-nestle').attr('disabled', true);
+								}
+								
+								if(news_promo == 'agree')
+								{
+									$('body').find('#receive-news').closest('span').addClass('checked');
+									$('body').find('#receive-news').attr('disabled', true);
+								}
       							
       							$('body').find('.title-form').html('You have registered!');
       							$('body').find('.input-info').addClass('background-grey-readonly');
@@ -1058,6 +1171,7 @@
       		console.log(isScroll);
       		if(isScroll == 'yes')
       		{
+				console.log($("#row-features").offset().top);
       			$('html, body').animate({
       				scrollTop: $("#row-features").offset().top
       				}, 
@@ -1227,7 +1341,11 @@
 					if (data) {
 						$("#Pregnancydetails").html(data);
 					}else {
-					window.alert('Unable to retrieve pregnancy details now.');
+						Swal.fire({
+							icon: 'error',
+							title: 'Error',
+							text: 'Unable to retrieve pregnancy details now.',
+						});
 					}
 				}
 				})
@@ -1254,7 +1372,11 @@
 					if (data) {
 						$("#babyWeeksdetails").html(data);
 					}else {
-					window.alert('Unable to retrieve eMag details now.');
+						Swal.fire({
+							icon: 'error',
+							title: 'Error',
+							text: 'Unable to retrieve eMag details now.',
+						});
 					}
 				}
 				})
@@ -1271,6 +1393,60 @@
 			$("div#conception").hide();
 			$("div#ivf").hide();
 			$("input#result").show();
+		}
+		
+		var checkBoxTnc = function(){
+			var checkBox = $('body').find('#checked-tnc-nestle').prop("checked");
+			if(checkBox == false)
+			{
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Please tick box to indicate you have read and understand our term and condition',
+				});
+				
+				return false;
+			}
+			else
+				return true;
+			
+			var checkBox = $('body').find('#checked-tnc-mmy').prop("checked");
+			if(checkBox == false)
+			{
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Please tick box to indicate you have read and understand our term and condition',
+				});
+				
+				return false;
+			}
+			else
+				return true;
+		}
+		
+		var checktnc_promo = function(){
+			var tnc_mmy    = $('body').find('.tnc-mmy-checked').val();
+			var tnc_nestle = $('body').find('.tnc-nestle-checked').val();
+			var news_promo = $('body').find('.news-promo-checked').val();
+			
+			if(tnc_mmy == 'agree')
+			{
+				$('body').find('#checked-tnc-mmy').closest('span').addClass('checked');
+				// $('body').find('#checked-tnc-mmy').attr('disabled', true);
+			}
+			
+			if(tnc_nestle == 'agree')
+			{
+				$('body').find('#checked-tnc-nestle').closest('span').addClass('checked');
+				// $('body').find('#checked-tnc-nestle').attr('disabled', true);
+			}
+			
+			if(news_promo == 'agree')
+			{
+				$('body').find('#receive-news').closest('span').addClass('checked');
+				// $('body').find('#receive-news').attr('disabled', true);
+			}
 		}
 		
 		      
@@ -1359,8 +1535,8 @@
       			$('body').find('.ikon-collapse').html('<i class="fas fa-plus"></i>');
       		});
       		
-      		$('body').on('click', '#btn-submit-form1', function(){
-      			$(this).html('Processing...')
+      		$('body').on('submit', '#eventform', function(){
+      			$('body').find('#btn-submit-form1').html('Processing...')
       		});
       		
       		$('body').on('blur', '.addr-postcode', function(){
@@ -1389,8 +1565,10 @@
 			$('body').on('click', '.btn-submtit-edd', function(){
 				eddCheck();
 			});
+			
+			 checktnc_promo();
       	});
-      	
+		
       	/** end develop by haiqal  **/
           
       	/** original code that have been used by original event page newmom essential  **/
@@ -1464,6 +1642,7 @@
              $("div#ivf").hide();
            /** end original code  **/
        
+	 
       // ]]>
    </script>
 </p>
