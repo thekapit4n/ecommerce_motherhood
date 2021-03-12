@@ -159,8 +159,10 @@ var myAddress='{$currentAddressId}';
 	<h1 class="page-heading">{l s='My Product Reviews' mod='membersproductreview'}</h1>
 <div class="table-responsive">
 
-{$productreviewheader->content[1]}
-
+{* $productreviewheader->content[1] *}
+<div class="row">
+	<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Mamacubatry/main-banner-mct.png" class="img-responsive">
+</div>
 
 {if $testerlist}
 <br id="cubatry">
@@ -481,80 +483,12 @@ var myAddress='{$currentAddressId}';
 {/if}
 	<div class="container">
 		<ul class="nav nav-tabs">
-			<li><a data-toggle="tab" class="tab-header" href="#myreview">My Reviews</a></li>
-			<li class="active"><a data-toggle="tab" class="tab-header" href="#mycampaign">My Campaign List</a></li>
+			<li class="active"><a data-toggle="tab" class="tab-header" href="#myreview">My Reviews</a></li>
+			<li><a data-toggle="tab" class="tab-header" href="#mycampaign">My Campaign List</a></li>
 		</ul>
 		<div class="tab-content">
-			<!--  tester tab--->
-			<div id="mycampaign" class="tab-pane fade in active">
-				{foreach from=$testerlist item=product name=myLoop}
-					<div class="row" style="border: 1px solid #b4b3b463; margin-top: 10px; margin-bottom: 10px;">
-						<div class="col-md-2">
-							<div class="row" style="padding:20px;text-align:center">
-								<img src="{$product.tester_cover_image}" height="{$mediumSize.height}" width="{$mediumSize.width}" alt="{$product.name|escape:html:'UTF-8'}" />
-							</div>
-						</div>
-						<div class="col-md-8" style="padding-bottom:27px; padding-top:27px;">
-							<div style="padding-left:20px; padding-right:20px;">
-								<div class="row">
-									<h4  style="margin-bottom:-10px;"><b>
-									<a class="open-comment-form" href="#large_product_desc" onclick='setProductFullDesc(this)' style="color:#38a7ac">
-										<span >{$product.name|escape:'strval'} <span>
-									</a></b>
-									</h4>
-									<textarea style='visibility:hidden;display:none'>{$product.description}</textarea>
-									<input style='visibility:hidden;display:none' value='{$product.id_product}'>				
-									{if $product.description_short}<br>
-										<div style='color:#555454;font-weight:300;'class="text-left">{$product.description_short}</div></td>
-									{/if}
-								</div>
-								<div class="row" style="style="color:#38a7ac">
-									<h4><b>{l s='Campaign Start Date' mod='membersproductreview'}</b></h4>
-									<b>{$product.tester_start_date|date_format:"%d-%m-%Y"}</b>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-2" style="padding-top: 30px;padding-bottom: 30px;text-align: center;">
-							<div class="row">
-								{if $product.approved}
-									<button type="button" class="btn btn-default btn-pill btn-pill-color btn-approved-color">Approved</button>
-								{else}
-									{if $product.applied}
-										<button type="button" class="btn btn-default btn-pill btn-pill-color btn-pending-color">Pending</button>
-									{else}
-										<div>
-											<p class="align_center">
-											{if $additionalInfo.children_under_12}
-												{if $currentAddressId > 0}
-													<a class="btn btn-default btn-pill btn-pill-color btn-apply-color" href="https://www.motherhood.com.my/mamacubatry/{$product.link_rewrite}">
-														<span>Apply Now</span>
-													</a>
-												{else}
-													<a class="btn btn-default btn-pill btn-pill-color btn-complete-color open-comment-form" href="https://www.motherhood.com.my/mamacubatry/{$product.link_rewrite}">
-														<span>Complete Address</span>
-													</a>
-												{/if}
-											{else} 
-												{if !$logged}
-													<a href='/login?back=my-product-review'>Login / Sign Up</a> 
-												{else}
-													<a id="new_comment_tab_btn" class="btn btn-default btn-pill btn-pill-color btn-complete-color open-comment-form" href="https://www.motherhood.com.my/mamacubatry/{$product.link_rewrite}">
-														<span>Complete Form</span>
-													</a>
-																 
-												{/if}
-											{/if}
-											</p>
-										</div>
-									{/if}
-								{/if}
-							</div>
-						</div>
-					</div>
-				{/foreach}
-			</div>
 			<!--  Review tab--->
-			<div id="myreview" class="tab-pane fade">
+			<div id="myreview" class="tab-pane fade active">
 				{foreach from=$productlist item=product name=myLoop}
 					<div class="row" style="border: 1px solid #b4b3b463; margin-top: 10px; margin-bottom: 10px;">
 						<div class="col-md-2">
@@ -645,6 +579,74 @@ var myAddress='{$currentAddressId}';
 									</div>
 								</div>
 							{/if}
+						</div>
+					</div>
+				{/foreach}
+			</div>
+			<!--  tester tab--->
+			<div id="mycampaign" class="tab-pane fade in">
+				{foreach from=$testerlist item=product name=myLoop}
+					<div class="row" style="border: 1px solid #b4b3b463; margin-top: 10px; margin-bottom: 10px;">
+						<div class="col-md-2">
+							<div class="row" style="padding:20px;text-align:center">
+								<img src="{$product.tester_cover_image}" height="{$mediumSize.height}" width="{$mediumSize.width}" alt="{$product.name|escape:html:'UTF-8'}" />
+							</div>
+						</div>
+						<div class="col-md-8" style="padding-bottom:27px; padding-top:27px;">
+							<div style="padding-left:20px; padding-right:20px;">
+								<div class="row">
+									<h4  style="margin-bottom:-10px;"><b>
+									<a class="open-comment-form" href="#large_product_desc" onclick='setProductFullDesc(this)' style="color:#38a7ac">
+										<span >{$product.name|escape:'strval'} <span>
+									</a></b>
+									</h4>
+									<textarea style='visibility:hidden;display:none'>{$product.description}</textarea>
+									<input style='visibility:hidden;display:none' value='{$product.id_product}'>				
+									{if $product.description_short}<br>
+										<div style='color:#555454;font-weight:300;'class="text-left">{$product.description_short}</div></td>
+									{/if}
+								</div>
+								<div class="row" style="style="color:#38a7ac">
+									<h4><b>{l s='Campaign Start Date' mod='membersproductreview'}</b></h4>
+									<b>{$product.tester_start_date|date_format:"%d-%m-%Y"}</b>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-2" style="padding-top: 30px;padding-bottom: 30px;text-align: center;">
+							<div class="row">
+								{if $product.approved}
+									<button type="button" class="btn btn-default btn-pill btn-pill-color btn-approved-color">Approved</button>
+								{else}
+									{if $product.applied}
+										<button type="button" class="btn btn-default btn-pill btn-pill-color btn-pending-color">Pending</button>
+									{else}
+										<div>
+											<p class="align_center">
+											{if $additionalInfo.children_under_12}
+												{if $currentAddressId > 0}
+													<a class="btn btn-default btn-pill btn-pill-color btn-apply-color" href="https://www.motherhood.com.my/mamacubatry/{$product.link_rewrite}">
+														<span>Apply Now</span>
+													</a>
+												{else}
+													<a class="btn btn-default btn-pill btn-pill-color btn-complete-color open-comment-form" href="https://www.motherhood.com.my/mamacubatry/{$product.link_rewrite}">
+														<span>Complete Address</span>
+													</a>
+												{/if}
+											{else} 
+												{if !$logged}
+													<a href='/login?back=my-product-review'>Login / Sign Up</a> 
+												{else}
+													<a id="new_comment_tab_btn" class="btn btn-default btn-pill btn-pill-color btn-complete-color open-comment-form" href="https://www.motherhood.com.my/mamacubatry/{$product.link_rewrite}">
+														<span>Complete Form</span>
+													</a>
+																 
+												{/if}
+											{/if}
+											</p>
+										</div>
+									{/if}
+								{/if}
+							</div>
 						</div>
 					</div>
 				{/foreach}

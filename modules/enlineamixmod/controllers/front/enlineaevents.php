@@ -857,7 +857,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					if($milkbrand != '')
 					{
 						$result[0]['event_description'] = str_ireplace('{{pre-define-displaymilkbrad}}', $milkbrand, $result[0]['event_description']);
-						$result[0]['event_description'] = str_ireplace('{{div-class-question-milk-brand}}', "visuallyhidden", $result[0]['event_description']);
+						$result[0]['event_description'] = str_ireplace('{{div-class-question-milk-brand}}', "", $result[0]['event_description']);
 					}
 					else
 					{
@@ -2673,8 +2673,8 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 								}
 							}
 							
-							echo "<script type='text/javascript'>alert('Thank you for your submission, your NESTLÉ MOM® Sample Pack is now in the shopping cart. Now you may access the tools!');</script>";
-							echo "<script type='text/javascript'>window.location.href='https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."'</script>";
+							echo "<script type='text/javascript'>alert('Thank you for your submission, your NESTLÉ MOM® Sample Pack is now in the shopping cart.');</script>";
+							echo "<script type='text/javascript'>window.location='/quick-order';</script>";
 							exit;
 						}
 						else{
@@ -3599,13 +3599,8 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 						
 					}
 					
-					$sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = " . $event_id . " LIMIT 1"; # page that handle
-					$querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
-					$event_slug  = $querySlug[0]['event_slug'];
-					$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug;
-					
-					echo "<script type='text/javascript'>alert('Thank you for your submission, your NESTLÉ MOM® Sample Pack is now in the shopping cart. Now you may access the tools!');</script>";
-					echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
+					echo "<script type='text/javascript'>alert('Thank you for your submission, your NESTLÉ MOM® Sample Pack is now in the shopping cart.');</script>";
+					echo "<script type='text/javascript'>window.location='/quick-order';</script>";
 					exit;
 				}
 				else{

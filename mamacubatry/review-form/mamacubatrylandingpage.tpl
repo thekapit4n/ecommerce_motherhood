@@ -5,9 +5,9 @@
 		padding-left  : 25px;
 	}
 	
-	.btn-register-now, .btn-register-now:focus, .btn-register-now:active, .btn-register-now:hover{
-		background-color:#4c4c4d;
-		border:#b4b3b4;
+	.btn-register-now1{
+		background-color:#23a6af;
+		border:#23a6af;
 		color:white;
 		border-radius: 25px;
 		width: 45%;
@@ -16,6 +16,32 @@
 		font-size: 14px;
 		outline	:unset
 	}
+	
+	.btn-register-now1:focus, .btn-register-now1:active, .btn-register-now1:hover{
+		background-color:#066f75 !important;
+		border:#066f75 !important;
+		color:white;
+	}
+	
+	.btn-register-now2{
+		background-color:#f1ac00;
+		border:#f1ac00;
+		color:white;
+		border-radius: 25px;
+		width: 45%;
+		padding-top:12px; 
+		padding-bottom:12px;
+		font-size: 14px;
+		outline	:unset
+	}
+	
+	.btn-register-now2:focus, .btn-register-now2:active, .btn-register-now2:hover{
+		background-color:#db9803 !important;
+		border:#db9803 !important;
+		color:white;
+	}
+	
+	
 	
 	.btn-review-product,.btn-review-product:hover, btn-review-product:active, .btn-review-product:focus {
 		width:25%;
@@ -47,18 +73,17 @@
 <!-- MODULE mamacubatryproducts -->
 <div class="container" style="font-size:13px;">
 	<div class="row">
-		<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Mamacubatry/mct.png" class="img-responsive">
-		<p style="font-weight: 600;font-size: 20px; margin-top: 10px;">From Mom to Mom – Over 3,000,000 Reviews to Help You Shop Better</p>
+		<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Mamacubatry/main-banner-mct.png" class="img-responsive">
 	</div>
 	{if $sliderCampaign}
 		{$sliderCampaign->content[1]}
 	{/if}
 	<div class="row">
 		<div class="col-md-6">
-			<div class="panel panel-default" style="border-radius:20px;background-color: #fcc20fe0;outline: unset; box-shadow: none;border:unset;">
+			<div class="panel panel-default" style="border-radius:20px;background-color: #f1ac00;outline: unset; box-shadow: none;border:unset;">
 				<div class="panel-body">
 					<div class="row">
-						<div class="motherhood-box-padding" style="color:#4c4c4d">
+						<div class="motherhood-box-padding" style="color:white">
 							<center><h3 style="font-weight:700;">BECOME TESTER</h3></center>
 							<p style="font-size:14px;">
 								Join our community of mom testers and <b>LEARN</b> about the latest products available in stores. Shop the best product for you and your family.
@@ -67,17 +92,17 @@
 					</div>
 					<div class="row">
 						<div class="motherhood-box-padding text-center" style="margin-bottom:10px;margin-top:10px;">
-							<a href="https://www.motherhood.com.my/my-product-review" class="btn btn-default btn-register-now">Register Now</a>
+							<a href="https://www.motherhood.com.my/my-product-review" class="btn btn-default btn-register-now1">Register Now</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-6">
-			<div class="panel panel-default" style="border-radius:20px;background-color: #24a7ae94;outline: unset; box-shadow: none;border:unset;">
+			<div class="panel panel-default" style="border-radius:20px;background-color: #23a6af;outline: unset; box-shadow: none;border:unset;">
 				<div class="panel-body">
 					<div class="row">
-						<div class="motherhood-box-padding" style="color:#4c4c4d">
+						<div class="motherhood-box-padding" style="color:white">
 							<center><h3 style="font-weight:700;">SUBMIT REVIEW NOW</h3></center>
 							<p style="font-size:14px;">
 								<b>CUBA TRY</b> the products you are interested in. <b>REVIEW</b> and Share the products you have tested to help other new moms to shop better!
@@ -86,7 +111,7 @@
 					</div>
 					<div class="row">
 						<div class="motherhood-box-padding text-center" style="margin-bottom:10px;margin-top:10px;">
-							<a class="btn btn-default btn-register-now">Get Started</a>
+							<a class="btn btn-default btn-register-now2">Get Started</a>
 						</div>
 					</div>
 				</div>
