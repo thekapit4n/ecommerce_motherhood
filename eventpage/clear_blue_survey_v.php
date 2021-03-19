@@ -511,7 +511,9 @@
 					</div>
 				</div>
 				<div class="row">
-					<div id="mmy-chartfeeling" class="amchart-mmy"></div>
+					<div id="mmy-chartfeeling" class="amchart-mmy">
+						<center><h3 class="mt-4"> Loading graph...</h3></center>
+					</div>
 				</div>
 			</section>
 			
@@ -556,7 +558,9 @@
 					</div>
 				</div>
 				<div class="row">
-					<div id="mmy-chartproductiveperiod" class="amchart-mmy"></div>
+					<div id="mmy-chartproductiveperiod" class="amchart-mmy">
+						<center><h3 class="mt-4"> Loading graph...</h3></center>
+					</div>
 				</div>
 			</section>
 			
@@ -944,7 +948,9 @@
 					</p>
 				</div>
 				<div class="row">
-					<div id="mmy-chartshareemotion" class="amchart-mmy" style="min-height:387px;"></div>
+					<div id="mmy-chartshareemotion" class="amchart-mmy" style="min-height:387px;">
+						<center><h3 class="mt-4"> Loading graph...</h3></center>
+					</div>
 				</div>
 			</section>
 			
