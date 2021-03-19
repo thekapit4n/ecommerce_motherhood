@@ -19,12 +19,13 @@ $('#content').keyup(function() {
 });
 
 function setProductReview(_this){
-	var productName    = $(_this).closest('td').find('.product-name').val();
-	var productID      = $(_this).closest('td').find('.product-id').val();
-	var productImgSrc  = $(_this).closest('td').find('.product-img-src').val();
-	var productImgAlt  = $(_this).closest('td').find('.product-img-alt').val();
-	var productDesc    = $(_this).closest('td').find('.product-desc').val();
+	var productName    = $(_this).closest('.row-item').find('.product-name').val();
+	var productID      = $(_this).closest('.row-item').find('.product-id').val();
+	var productImgSrc  = $(_this).closest('.row-item').find('.product-img-src').val();
+	var productImgAlt  = $(_this).closest('.row-item').find('.product-img-alt').val();
+	var productDesc    = $(_this).closest('.row-item').find('.product-desc').val();
 
+	
 	$("#newcomment_name").text(productName);
 	$("#newcomment_img").attr("src",productImgSrc);
 	$("#newcomment_img").attr("alt",productImgAlt);
@@ -483,14 +484,14 @@ var myAddress='{$currentAddressId}';
 {/if}
 	<div class="container">
 		<ul class="nav nav-tabs">
-			<li class="active"><a data-toggle="tab" class="tab-header" href="#myreview">My Reviews</a></li>
-			<li><a data-toggle="tab" class="tab-header" href="#mycampaign">My Campaign List</a></li>
+			<li class="{if $productReview != true} active {/if}"><a data-toggle="tab" class="tab-header" href="#myreview">My Reviews</a></li>
+			<li class="{if $productReview == true} active {/if}"><a data-toggle="tab" class="tab-header" href="#mycampaign">Mamacubatry list</a></li>
 		</ul>
 		<div class="tab-content">
 			<!--  Review tab--->
-			<div id="myreview" class="tab-pane fade active">
+			<div id="myreview" class="tab-pane fade {if $productReview != true} active in {/if}">
 				{foreach from=$productlist item=product name=myLoop}
-					<div class="row" style="border: 1px solid #b4b3b463; margin-top: 10px; margin-bottom: 10px;">
+					<div class="row row-item" style="border: 1px solid #b4b3b463; margin-top: 10px; margin-bottom: 10px;">
 						<div class="col-md-2">
 							<div class="row" style="padding:20px;text-align:center">
 								<img src="{$product.productcomment_cover_image}" height="{$mediumSize.height}" width="{$mediumSize.width}" alt="{$product.name|escape:html:'UTF-8'}" />
@@ -546,7 +547,13 @@ var myAddress='{$currentAddressId}';
 							{if ($product.havegrade=='missing')}
 								<div id="product_comments_block_tab">
 									<p class="align_center">
-										<a type="button" class="btn btn-default btn-pill btn-pill-color open-comment-form" href="#new_comment_form"  onclick='setProductReview(this)'>
+										<a class="btn btn-default btn-pill btn-pill-color open-comment-form1" href="#new_comment_form"
+											data-productname="{$product.name|escape:'strval'}" 
+											data-productid="{$product.id_product}"
+											data-productimgsrc="{$product.productcomment_cover_image}"
+											data-productimgalt="{$product.name|escape:html:'UTF-8'}"
+											data-productdesc="{$product.description_short|escape:html:'UTF-8'}"
+										>
 										Write Review
 										</a>
 									</p>
@@ -584,9 +591,9 @@ var myAddress='{$currentAddressId}';
 				{/foreach}
 			</div>
 			<!--  tester tab--->
-			<div id="mycampaign" class="tab-pane fade in">
+			<div id="mycampaign" class="tab-pane fade {if $productReview == true} active in {/if}">
 				{foreach from=$testerlist item=product name=myLoop}
-					<div class="row" style="border: 1px solid #b4b3b463; margin-top: 10px; margin-bottom: 10px;">
+					<div class="row row-item" style="border: 1px solid #b4b3b463; margin-top: 10px; margin-bottom: 10px;">
 						<div class="col-md-2">
 							<div class="row" style="padding:20px;text-align:center">
 								<img src="{$product.tester_cover_image}" height="{$mediumSize.height}" width="{$mediumSize.width}" alt="{$product.name|escape:html:'UTF-8'}" />
@@ -615,7 +622,52 @@ var myAddress='{$currentAddressId}';
 						<div class="col-md-2" style="padding-top: 30px;padding-bottom: 30px;text-align: center;">
 							<div class="row">
 								{if $product.approved}
-									<button type="button" class="btn btn-default btn-pill btn-pill-color btn-approved-color">Approved</button>
+										{if $product.id_product == 45483 || $product.id_product == 45491} 
+											{* 
+												this is product id for clearblue campaing, this campaign auto approve customer only need submit review - 15/3/2021
+												flow set by : Hana & Petrina
+												develop : haiqal
+												supervise by: leong
+											*}
+											
+											{if ($product.havegrade=='missing')}
+												<a type="button" class="btn btn-default btn-pill btn-pill-color open-comment-form-test " href="#new_comment_form" 
+													data-productname="{$product.name|escape:'strval'}" 
+													data-productid="{$product.id_product}"
+													data-productimgsrc="{$product.tester_cover_image}"
+													data-productimgalt="{$product.name|escape:html:'UTF-8'}"
+													data-productdesc="{$product.description_short|escape:html:'UTF-8'}"
+												>
+													Write Review
+												</a>
+												<textarea style='visibility:hidden;display:none'>{$product.description}</textarea><input style='visibility:hidden;display:none' value='{$product.id_product}'>
+											
+											{else}
+												<div class="row">
+													<div class="col-sm-12">
+														<span style="font-size:17px" class="font-weight-7x"><font style="font-size:20px;color:#555454">{$product.grade|escape:'html':'UTF-8'}</font>/5</span>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-12">
+														<div class="clearfix star-align"  itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" >
+															{section name="i" start=0 loop=5 step=1}
+																{if $product.grade le $smarty.section.i.index}
+																	<div class="star"></div>
+																{else}
+																	<div class="star star_on"></div>
+																{/if}
+															{/section}
+															<meta itemprop="worstRating" content = "0" />
+															<meta itemprop="ratingValue" content = "{$product.grade|escape:'html':'UTF-8'}" />
+															<meta itemprop="bestRating" content = "5" />
+														</div>
+													</div>
+												</div>
+											{/if}
+										{else}
+											<button type="button" class="btn btn-default btn-pill btn-pill-color btn-approved-color">Approved</button>
+										{/if}
 								{else}
 									{if $product.applied}
 										<button type="button" class="btn btn-default btn-pill btn-pill-color btn-pending-color">Pending</button>
@@ -639,7 +691,6 @@ var myAddress='{$currentAddressId}';
 													<a id="new_comment_tab_btn" class="btn btn-default btn-pill btn-pill-color btn-complete-color open-comment-form" href="https://www.motherhood.com.my/mamacubatry/{$product.link_rewrite}">
 														<span>Complete Form</span>
 													</a>
-																 
 												{/if}
 											{/if}
 											</p>
@@ -653,48 +704,38 @@ var myAddress='{$currentAddressId}';
 			</div>
 		</div>
 	</div>
-{if $productlist}
-
-
-<br>
-<br>
-<br>
-	<!--<h1 class="page-heading" >{l s='Review Products you have ordered' mod='membersproductreview'}</h1>-->
-	
-	
-	
-	
-<!-- Fancybox -->
-<div style="display: none;width:">
-	<div id="new_comment_form">
-		<form id="id_new_comment_form" action="#">
-			<h2 class="page-subheading">
-				Write a review
-			</h2>
-			
-			<div class="col-xs-12 col-sm-12" style='background:#f87801;color:white;border-radius: 5px;'>
-				Share a quality review with at least 100 characters to earn 100 Motherhood points. Include a picture in the review to earn another 100 Motherhood Points. Note: Motherhood may remove the points awarded if your review is found to contain irrelevant content
-			</div>
-			<hr>
-			
-			<div class="row" style='max-width:100%'>
-									<div class="product clearfix  col-xs-12 col-sm-6">
-						<img id='newcomment_img' src="" height="125" width="125" alt="" />
-						<div class="product_desc">
-							<p class="product_name">
-								<strong id='newcomment_name'></strong>
-							</p><style>#newcomment_desc img{literal}{ max-width:100% }{/literal}</style>
-							<div class='newcomment_desc' id='newcomment_desc' style='max-width:100%'>
-                            </div>
+		
+	<!-- Fancybox -->
+	<div style="display: none;width:">
+		<div id="new_comment_form" class="open-comment-form1">
+			<form id="id_new_comment_form" action="#">
+				<h2 class="page-subheading">
+					Write a review
+				</h2>
+				
+				<div class="col-xs-12 col-sm-12" style='background:#f87801;color:white;border-radius: 5px;'>
+					Share a quality review with at least 100 characters to earn 100 Motherhood points. Include a picture in the review to earn another 100 Motherhood Points. Note: Motherhood may remove the points awarded if your review is found to contain irrelevant content
+				</div>
+				<hr>
+				
+				<div class="row" style='max-width:100%'>
+										<div class="product clearfix  col-xs-12 col-sm-6">
+							<img id='newcomment_img' src="" height="125" width="125" alt="" />
+							<div class="product_desc">
+								<p class="product_name">
+									<strong id='newcomment_name'></strong>
+								</p><style>#newcomment_desc img{literal}{ max-width:100% }{/literal}</style>
+								<div class='newcomment_desc' id='newcomment_desc' style='max-width:100%'>
+								</div>
+							</div>
 						</div>
-					</div>
-								<div class="new_comment_form_content col-xs-12 col-sm-6">
-					<h2>Write a review</h2>
-					<div id="new_comment_form_error" class="error" style="display: none; padding: 15px 25px">
-						<ul></ul>
-					</div>
-											<ul id="criterions_list">
-													<li>
+									<div class="new_comment_form_content col-xs-12 col-sm-6">
+						<h2>Write a review</h2>
+						<div id="new_comment_form_error" class="error" style="display: none; padding: 15px 25px">
+							<ul></ul>
+						</div>
+						<ul id="criterions_list">
+							<li>
 								<label>Quality:</label>
 								<div class="star_content">
 									<input class="star" type="radio" name="criterion[1]" value="1" />
@@ -705,40 +746,43 @@ var myAddress='{$currentAddressId}';
 								</div>
 								<div class="clearfix"></div>
 							</li>
-												</ul>
-										<label for="comment_title">
-						Title: <sup class="required">*</sup>
-					</label>
-					<input id="comment_title" name="title" type="text" value=""/>
-					<label for="content">
-						Comment: <sup class="required">*</sup>
-					</label>
-					<textarea id="content" name="content"></textarea>
-					<label id='wordscomment'>100 characters left to qualify for review reward points</label>
-					<input type="file" id="img_url" name="img_url" />
+						</ul>
+						<label for="comment_title">
+							Title: <sup class="required">*</sup>
+						</label>
+						<input id="comment_title" name="title" type="text" value=""/>
+						<label for="content">
+							Comment: <sup class="required">*</sup>
+						</label>
+						<textarea id="content" name="content"></textarea>
+						<label id='wordscomment'>100 characters left to qualify for review reward points</label>
+						<input type="file" id="img_url" name="img_url" />
 
-					<div id="new_comment_form_footer">
-						<input id="id_product_comment_send" name="id_product" type="hidden" value='2' />
-						<p class="fl required"><sup>*</sup> Required fields</p>
-						<p class="fr">
-							<button id="submitNewMessage" name="submitMessage" type="submit" class="btn button button-small">
-								<span>Submit</span>
-							</button>&nbsp;
-							or&nbsp;
-							<a class="closefb" href="#">
-								Cancel
-							</a>
-						</p>
-						<div class="clearfix"></div>
-					</div> <!-- #new_comment_form_footer -->
+						<div id="new_comment_form_footer">
+							<input id="id_product_comment_send" name="id_product" type="hidden" value='2' />
+							<p class="fl required"><sup>*</sup> Required fields</p>
+							<p class="fr">
+								<button id="submitNewMessage" name="submitMessage" type="submit" class="btn button button-small">
+									<span>Submit</span>
+								</button>&nbsp;
+								or&nbsp;
+								<a class="closefb" href="#">
+									Cancel
+								</a>
+							</p>
+							<div class="clearfix"></div>
+						</div> <!-- #new_comment_form_footer -->
+					</div>
 				</div>
-			</div>
-		</form><!-- /end new_comment_form_content -->
+			</form><!-- /end new_comment_form_content -->
+		</div>
 	</div>
-</div>
-<!-- End fancybox -->
+	<!-- End fancybox -->
+	
+	
+	{if $productlist}
 
-{/if}
+	{/if}
 
 
 {if $customerid>0}{else}
@@ -749,6 +793,38 @@ var myAddress='{$currentAddressId}';
 </div>
 
 <script type="text/javascript">
+$(function(){
+	$('a[href="#new_comment_form"]').click(function(){
+		var _this = $(this);
+		var productName    = $(this).attr('data-productname')
+		var productID      = $(this).attr('data-productid')
+		var productImgSrc  = $(this).attr('data-productimgsrc')
+		var productImgAlt  = $(this).attr('data-productimgalt')
+		var productDesc    = $(this).attr('data-productdesc')
+		
+		console.log(productID);
+		console.log(productName);
+		console.log(productImgSrc);
+		console.log(productImgAlt);
+		console.log(productDesc);
+		$("#newcomment_name").text(productName);
+		$("#newcomment_img").attr("src",productImgSrc);
+		$("#newcomment_img").attr("alt",productImgAlt);
+		$("#id_product_comment_send").val(productID);
+		$("#content").val("");
+		$("#comment_title").val("");
+		
+		$('body').find('.open-comment-form-test').fancybox({
+		'autoSize' : false,
+		'width' : 600,
+		'height' : 'auto',
+		'hideOnContentClick': false
+	});
+	}); 
+	
+	
+});
+
 $('#content').keyup(function() {
 
   var length = $(this).val().length;

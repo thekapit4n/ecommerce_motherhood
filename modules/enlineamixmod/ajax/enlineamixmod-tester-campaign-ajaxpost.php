@@ -957,8 +957,19 @@ if($customerid > 0)
 			}
 			else
 			{
-				$insertTester = "INSERT INTO ps_tester_campaign_detail (tester_product_id, tester_id, customer_id, active, add_date) 
-								VALUES ($tester_product_id,$tester_id,$customerid,1,CURRENT_DATE)";
+				$approve_tester = 0;
+				if(in_array($tester_id, array(10,11))){ #clear blue campaign---> auto approve --> coz customer just to submit review
+					$approve_tester = 1;
+					$insertTester = "INSERT INTO ps_tester_campaign_detail (tester_product_id, tester_id, customer_id, active, approved, add_date, approve_date) 
+								VALUES ($tester_product_id,$tester_id,$customerid,1, $approve_tester,CURRENT_DATE, CURRENT_DATE)";
+				}
+				else
+				{
+					$insertTester = "INSERT INTO ps_tester_campaign_detail (tester_product_id, tester_id, customer_id, active, approved, add_date) 
+								VALUES ($tester_product_id,$tester_id,$customerid,1, $approve_tester,CURRENT_DATE)";
+				}
+				
+				
 				$result       = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($insertTester);
 				
 				if($result)

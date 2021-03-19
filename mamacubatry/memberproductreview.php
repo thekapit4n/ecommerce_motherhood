@@ -13,7 +13,7 @@ class enlineamixmodmemberproductreviewModuleFrontController extends ModuleFrontC
 		* 6794   => tina.hassan@nurengroup.com
 		* 3143   => st.leong@nurengroup.com
 		**/
-		$this->arry_id_test = array(175933, 6794, 3143);
+		$this->arry_id_test = array(9999999999);
 
 		$this->context = Context::getContext();
 	}
@@ -104,7 +104,7 @@ class enlineamixmodmemberproductreviewModuleFrontController extends ModuleFrontC
 		//}
 		
 		$currentAddressId = $this->context->cart->id_address_delivery;
-		
+		$productReview = (isset($_GET['productreview']) && $_GET['productreview'] == 1) ? true : false;
 		
         $this->context->smarty->assign(array(
 			'currentAddressId'=> $currentAddressId,
@@ -119,7 +119,8 @@ class enlineamixmodmemberproductreviewModuleFrontController extends ModuleFrontC
 			'mediumSize' => Image::getSize(ImageType::getFormatedName('medium')),
 			'productcomments_controller_url' => $this->context->link->getModuleLink('productcomments',null, array(), true),
 			'productcomments_url_rewriting_activated' => Configuration::get('PS_REWRITING_SETTINGS', 0),
-			'moderation_active' => (int)Configuration::get('PRODUCT_COMMENTS_MODERATE')
+			'moderation_active' => (int)Configuration::get('PRODUCT_COMMENTS_MODERATE'),
+			'productReview' => $productReview
         ));
 		
 		#live using this tpl
@@ -151,35 +152,29 @@ class enlineamixmodmemberproductreviewModuleFrontController extends ModuleFrontC
 	
 	public function getTesterProductList() 
     {
+		#live using this sql --> sql lama
+		// $sql = '
+		// SELECT a.*, b.reference AS prodreference, pb.link_rewrite, pb.name, pb.id_product, d.active AS applied, d.approved , pb.description_short, pb.description
+		// FROM ps_tester_campaign_header a
+		// JOIN ps_product b ON b.id_product=a.tester_product_id
+		// LEFT JOIN ps_product_lang pb ON b.id_product=pb.id_product AND pb.id_lang=1
+		// LEFT JOIN ps_tester_campaign_detail d ON a.tester_id=d.tester_id AND d.customer_id="'.(int)$this->context->customer->id.'"
+		// WHERE
+		 // CURRENT_DATE BETWEEN tester_registration_start AND tester_registration_end
+		// AND CURRENT_DATE BETWEEN tester_start_date AND tester_end_date
+		// AND a.active=1
+		// ';
 		
-		#testing purpose
-		if(in_array($this->context->customer->id, $this->arry_id_test))
-		{
-			$sql = '
-			SELECT a.*, b.reference AS prodreference, pb.link_rewrite, pb.name, pb.id_product, d.active AS applied, d.approved , pb.description_short, pb.description
-			FROM ps_tester_campaign_header a
-			JOIN ps_product b ON b.id_product=a.tester_product_id
-			LEFT JOIN ps_product_lang pb ON b.id_product=pb.id_product AND pb.id_lang=1
-			LEFT JOIN ps_tester_campaign_detail d ON a.tester_id=d.tester_id AND d.customer_id="'.(int)$this->context->customer->id.'"
-			WHERE
-			a.active=1
-			';
-		}
-		else
-		{
-			#live using this sql
-			$sql = '
-			SELECT a.*, b.reference AS prodreference, pb.link_rewrite, pb.name, pb.id_product, d.active AS applied, d.approved , pb.description_short, pb.description
-			FROM ps_tester_campaign_header a
-			JOIN ps_product b ON b.id_product=a.tester_product_id
-			LEFT JOIN ps_product_lang pb ON b.id_product=pb.id_product AND pb.id_lang=1
-			LEFT JOIN ps_tester_campaign_detail d ON a.tester_id=d.tester_id AND d.customer_id="'.(int)$this->context->customer->id.'"
-			WHERE
-			 CURRENT_DATE BETWEEN tester_registration_start AND tester_registration_end
-			AND CURRENT_DATE BETWEEN tester_start_date AND tester_end_date
-			AND a.active=1
-			';
-		}
+		$sql = 'SELECT a.*, b.reference AS prodreference, pb.link_rewrite, pb.name, pb.id_product, d.active AS applied, d.approved , pb.description_short, pb.description,IFNULL(pc.grade,null) as grade , IFNULL(pc.grade,"missing") AS havegrade
+		FROM ps_tester_campaign_header a
+		JOIN ps_product b ON b.id_product=a.tester_product_id
+        LEFT JOIN `ps_product_comment` pc ON pc.id_product=b.id_product AND pc.id_customer= "'.(int)$this->context->customer->id.'"
+		LEFT JOIN ps_product_lang pb ON b.id_product=pb.id_product AND pb.id_lang=1
+		LEFT JOIN ps_tester_campaign_detail d ON a.tester_id=d.tester_id AND d.customer_id="'.(int)$this->context->customer->id.'"
+		WHERE
+		 CURRENT_DATE BETWEEN tester_registration_start AND tester_registration_end
+		AND CURRENT_DATE BETWEEN tester_start_date AND tester_end_date
+		AND a.active=1';
         
         $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
 		//echo $sql;

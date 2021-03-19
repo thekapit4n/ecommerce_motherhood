@@ -21,10 +21,22 @@ $(document).ready(function () {
 
         recommendProdWidth = sliderWidth - 40;
         recommendProdWidth = (recommendProdWidth / 5) - 20;
+		
+		if($(window).width()<=1200)
+		{
+			listCarMinSlide = 2
+			listCarMaxSlide = 2
+			recommendProdWidth = 125
+		}
+		else
+		{
+			listCarMinSlide = 2
+			listCarMaxSlide = 5
+		}
 
         $('#recommendprods_list_car').bxSlider({
-            minSlides: 2,
-            maxSlides: 5,
+            minSlides: listCarMinSlide,
+            maxSlides: listCarMaxSlide,
             slideWidth: recommendProdWidth,
             slideMargin: 13,
             pager: false,

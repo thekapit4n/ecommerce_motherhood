@@ -997,6 +997,46 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 			}
 		}
 		
+		if($event_id == 96){
+			/* 
+			* to retrieve previous event data so we can link data between event.
+			* DESC order because we want to latest info 
+			*/
+			$subscriber_id = 0;
+			$referEventId  = 95;
+			$eddPage 	   = 98;
+			
+			
+			/* if(isset($_GET['id']) && $_GET['id'] != '')
+			{
+				$subscriber_id = base64_decode($_GET['id']);
+				if($subscriber_id <= 0)
+				{
+					echo "<script type='text/javascript'>alert('Sorry, You not eligible to access this page.');</script>";
+				}
+				else
+				{
+					# to check this user is from main event id or not because this event page is sub page from main
+					$currentSQL = 'SELECT count(1) AS ccount FROM `ps_events_subscriber` WHERE `subscriber_event_id` = "' . trim($referEventId) .  '"AND `subscriber_id` = "' . trim($subscriber_id) . '" LIMIT 1';
+					$currentResult = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($currentSQL);
+					
+					if ($currentResult[0]['ccount']>0)	{
+						
+						
+					}
+					else
+					{
+						// $sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = " . $referEventId . " LIMIT 1"; # page that handle facebook question for new mom
+						// $querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
+						// $event_slug  = $querySlug[0]['event_slug'];
+						// $redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug;
+						// echo "<script type='text/javascript'>alert('Sorry, You not eligible to access this page.');</script>";
+						// echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
+					}
+				}
+			} */
+		}
+		
 		$result[0]['event_description'] = str_ireplace('/s3.amazonaws.com/motherhood.com.my/',"/cdn.motherhood.com.my/",$result[0]['event_description']);
 		
         $this->context->smarty->assign(array(
@@ -1823,6 +1863,15 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					echo "<script type='text/javascript'>alert('Your email have participated for this campaign.');</script>";
 					echo "<script type='text/javascript'>window.location.href='https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']."'</script>";
 					}
+			}
+			
+			if($event_id == 95)#clear blue survey page submit process
+			{
+				$sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = 96 LIMIT 1"; # page that handle result survey question
+				$querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
+				$event_slug  = $querySlug[0]['event_slug'];
+				$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug . "?id=" . $encryptedID;
+				echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
 			}
 			
 			$email = trim($newEmail);

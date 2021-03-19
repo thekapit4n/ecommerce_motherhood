@@ -92,7 +92,7 @@
 					</div>
 					<div class="row">
 						<div class="motherhood-box-padding text-center" style="margin-bottom:10px;margin-top:10px;">
-							<a href="https://www.motherhood.com.my/my-product-review" class="btn btn-default btn-register-now1">Register Now</a>
+							<a href="https://www.motherhood.com.my/my-product-review?productreview=1" class="btn btn-default btn-register-now1">Register Now</a>
 						</div>
 					</div>
 				</div>
@@ -111,7 +111,7 @@
 					</div>
 					<div class="row">
 						<div class="motherhood-box-padding text-center" style="margin-bottom:10px;margin-top:10px;">
-							<a class="btn btn-default btn-register-now2">Get Started</a>
+							<a href="https://www.motherhood.com.my/my-product-review" class="btn btn-default btn-register-now2">Get Started</a>
 						</div>
 					</div>
 				</div>
@@ -144,101 +144,27 @@
 	</div>
 	-->
 	<div class="mmyslider" data-sliderid="16" data-imagepos="left"></div>
+	
 	<div class="row" style="margin-top:20px;">
 		<div id="section-slider">
 		   <div class="section_container">
-				<div class="section_title"><span>Our Community of tester #MAMACUBATRY</span></div>
+				<div class="section_title"><span>Our Community of tester Mamacubatry</span></div>
 				<div id="section-thekapitan" class=" " style="border: 0px !important;">
 				<ul class="clearfix row section_slidethekapitan section5   nbs-flexisel-ul">
-					<li class="nbs-flexisel-item" style="width: 262.5px;">
-					   <div class="product-container">
-						  <div class="left-block2">
-							 <div class="product-image-container"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/testimonials/1.jpg" data-src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/testimonials/1.jpg" alt="testimonials_1" title="testimonials_1" itemprop="image" /></div>
-						  </div>
-					   </div>
-					</li>
-					<li class="nbs-flexisel-item" style="width: 262.5px;">
-					   <div class="product-container">
-						  <div class="left-block2">
-							 <div class="product-image-container"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/testimonials/2.jpg" data-src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/testimonials/2.jpg" alt="testimonials_2" title="testimonials_2" itemprop="image" /></div>
-						  </div>
-					   </div>
-					</li>
-					<li class="nbs-flexisel-item" style="width: 262.5px;">
-					   <div class="product-container">
-						  <div class="left-block2">
-							 <div class="product-image-container"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/testimonials/3.jpg" data-src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/testimonials/3.jpg" alt="testimonials_3" title="testimonials_3" itemprop="image" /></div>
-						  </div>
-					   </div>
-					</li>
-					<li class="nbs-flexisel-item" style="width: 262.5px;">
-					   <div class="product-container">
-						  <div class="left-block2">
-							 <div class="product-image-container"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/testimonials/4.jpg" data-src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/testimonials/4.jpg" alt="testimonials_4" title="testimonials_4" itemprop="image" /></div>
-						  </div>
-					   </div>
-					</li>
-					<li class="nbs-flexisel-item" style="width: 262.5px;">
-					   <div class="product-container">
-						  <div class="left-block2">
-							 <div class="product-image-container"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/testimonials/5.jpg" data-src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/testimonials/5.jpg" alt="testimonials_5" title="testimonials_5" itemprop="image" /></div>
-						  </div>
-					   </div>
-					</li>
-					<li class="nbs-flexisel-item" style="width: 262.5px;">
-					   <div class="product-container">
-						  <div class="left-block2">
-							 <div class="product-image-container"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/testimonials/6.jpg" data-src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/testimonials/6.jpg" alt="testimonials_6" title="testimonials_6" itemprop="image" /></div>
-						  </div>
-					   </div>
-					</li>
-					<li class="nbs-flexisel-item" style="width: 262.5px;">
-					   <div class="product-container">
-						  <div class="left-block2">
-							 <div class="product-image-container"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/testimonials/7.jpg" data-src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/testimonials/7.jpg" alt="testimonials_7" title="testimonials_7" itemprop="image" /></div>
-						  </div>
-					   </div>
-					</li>
-					<li class="nbs-flexisel-item" style="width: 262.5px;">
-					   <div class="product-container">
-						  <div class="left-block2">
-							 <div class="product-image-container"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/testimonials/8.jpg" data-src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/testimonials/8.jpg" alt="testimonials_8" title="testimonials_8" itemprop="image" /></div>
-						  </div>
-					   </div>
-					</li>
-					<li class="nbs-flexisel-item" style="width: 262.5px;">
-					   <div class="product-container">
-						  <div class="left-block2">
-							 <div class="product-image-container"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/testimonials/9.jpg" data-src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/testimonials/9.jpg" alt="testimonials_9" title="testimonials_9" itemprop="image" /></div>
-						  </div>
-					   </div>
-					</li>
-					<li class="nbs-flexisel-item" style="width: 262.5px;">
-					   <div class="product-container">
-						  <div class="left-block2">
-							 <div class="product-image-container"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/testimonials/10.jpg" data-src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/testimonials/10.jpg" alt="testimonials_10" title="testimonials_10" itemprop="image" /></div>
-						  </div>
-					   </div>
-					</li>
-					<li class="nbs-flexisel-item" style="width: 262.5px;">
-					   <div class="product-container">
-						  <div class="left-block2">
-							 <div class="product-image-container"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/testimonials/11.jpg" data-src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/testimonials/11.jpg" alt="testimonials_11" title="testimonials_11" itemprop="image" /></div>
-						  </div>
-					   </div>
-					</li>
-					<li class="nbs-flexisel-item" style="width: 262.5px;">
-					   <div class="product-container">
-						  <div class="left-block2">
-							 <div class="product-image-container"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/testimonials/12.jpg" data-src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Super+Kids/testimonials/12.jpg" alt="testimonials_12" title="testimonials_12" itemprop="image" /></div>
-						  </div>
-					   </div>
-					</li>
+					{for $imgno=1 to 13}
+						<li class="nbs-flexisel-item" style="width: 262.5px;">
+						   <div class="product-container">
+							  <div class="left-block2">
+								 <div class="product-image-container"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Mamacubatry/images/mct{$imgno}.png" data-src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Mamacubatry/images/mct{$imgno}.png" alt="testimonials_{$imgno}" title="testimonials_{$imgno}" itemprop="image" /></div>
+							  </div>
+						   </div>
+						</li>
+					{/for}
 				 </ul>
 				 <div class="clearfix"></div>
 				<div style="padding-left: 30px; padding-right: 30px;text-align:center;margin-top:20px;">
-					<a href="https://www.instagram.com/explore/tags/motherhoodsuperkid/" class="btn btn-default button button-medium" target="_blank" style="padding: 8px 40px; background-color: #ec3c65; font-size:14px" rel="noopener"><i class="fab fa-instagram"></i> &nbsp; See more on Instagram </a> 
-					<a href="https://www.facebook.com/hashtag/motherhoodsuperkid/?_rdc=1&amp;_rdr" class="btn btn-default button button-medium" target="_blank" style="padding: 8px 40px; background-color: #4474b6;font-size:14px" rel="noopener"><i class="fab fa-facebook-square"></i> &nbsp; See more on Facebook </a></div>
+					<a href="https://www.instagram.com/explore/tags/mamacubatry/" class="btn btn-default button button-medium" target="_blank" style="padding: 8px 40px; background-color: #ec3c65; font-size:14px; outline: unset; box-shadow: none;" rel="noopener"><i class="fab fa-instagram"></i> &nbsp; See more on Instagram </a> 
+					<a href="https://www.facebook.com/hashtag/mamacubatry" class="btn btn-default button button-medium" target="_blank" style="padding: 8px 40px; background-color: #4474b6;font-size:14px; outline: unset; box-shadow: none;" rel="noopener"><i class="fab fa-facebook-square"></i> &nbsp; See more on Facebook </a></div>
 			  </div>
 		   </div>
 		</div>

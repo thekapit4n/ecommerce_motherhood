@@ -259,9 +259,9 @@
 </style>
 <!-- 
    Note:
-   all the wording start with "{{ somtext}}" it will be replace when load this page. can see on controller enlieneaevents under this event id
+   all the wording start with "{{ sometext}}" it will be replace when load this page. can see on controller enlieneaevents under this event id
    -->
-<div class="col-lg-12 col-md-12" style="padding-left: 0px; padding-right: 0px; margin-bottom: 0;"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/New+Mom+Essentials/main+banner+final.png" width="100%" /></div>
+<div class="col-lg-12 col-md-12" style="padding-left: 0px; padding-right: 0px; margin-bottom: 0;"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/New+Mom+Essentials/New-Nestle-Mom-Banner.jpg" width="100%" /></div>
 <div class="row row-question" style="padding-top: 20px; padding-bottom: 10px;">
    <p style="font-size: 25px; color: #2ea7ad; font-weight: bold; padding-top: 20px; padding-bottom: 20px; line-height: 1;" class="title-form">{{pre-define-titleform}}</p>
    <div class="panel-group" id="accordion">
@@ -405,12 +405,12 @@
                         <li class="text-left tnc_li">This program is open to pregnant and lactating mothers who are residing in Malaysia only.</li>
                         <li class="text-left tnc_li">Limited to ONE sample per household (address) only.</li>
                         <li class="text-left tnc_li">
-							For Nestlé MOM®, by requesting a FREE sample, you will automatically be registered as a member of Nestlé Start Well 2gether Mom’s Club, 
+							For Nestlé® Mom™, by requesting a FREE sample, you will automatically be registered as a member of Nestlé Start Well 2gether Mom’s Club, 
 							and allow to the processing of your personal data in accordance with such club/membership terms, 
 							including to receive marketing and promotional information, product services and events in the future.
 						</li>
                         <li class="text-left tnc_li">
-							Each redemption will receive a full-size product (NESTLE MOM Pouch with PRONATAL PLUS Pregnant & Lactating Milk (600g).
+							Each redemption will receive a full-size product (Nestlé® Mom™ Pouch with Pronatal Plus™ Pregnant & Lactating Milk (600g)).
 						</li>
                      </ol>
                   </div>
@@ -819,15 +819,6 @@
       	$(function(){
       		allowCollapse();
       		
-      		$('body #eventform').submit( function() {
-      			$('body').append('<div class="loading"></div>');
-      
-      			// perform validation here
-      			return true; // return false in validation to *not* submit form
-      		});
-      
-      		
-      		
       		$('body').on('click', '.clicker-img', function(){
       			var typeshow   = $(this).data('typeview');
       			var checkemail = emailSelector.val();
@@ -900,7 +891,7 @@
       		});
       		
       		$('body').on('submit', '#eventform', function(){
-      			$('body').find('#btn-submit-form1').html('Processing...')
+      			$('body').find('#btn-submit-form1').html('<i class="fas fa-spinner fa-pulse"></i> Processing...');
       		});
       		
       		$('body').on('blur', '.addr-postcode', function(){

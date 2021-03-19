@@ -466,10 +466,15 @@
 <!-- MODULE mamacubatryproducts -->
 <div class="container" style="font-size:13px;">
 	<div class="row form-application" style="display:{if $applied == 1}none {else} block {/if}">
-		<div class="col-md-12">
+		<div class="col-md-8">
 			<div style="margin-bottom:20px;margin-top:20px;line-height: 20px;">
 				<font style="color:#4c4c4d; font-weight:700;">Hey {$customer->firstname} {$customer->lastname},<br></font>
 				<font style="color:#30a7ad; font-weight:700;">To be a Mamacubatry tester, <br></font>you are required to update your information and complete the Precondition form. 
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="text-left" style="margin-bottom:10px;margin-top:10px;">
+				<a href="https://www.motherhood.com.my/my-product-review?productreview=1" class="btn btn-default btn-pill btn-pill-color">Back to Mamacubatry List</a>
 			</div>
 		</div>
 	</div>
@@ -478,6 +483,7 @@
 			<input type="hidden" class="cust-id" value="{$customer->id}">
 			<input type="hidden" class="link-rewrite" value="{$campaign.link_rewrite}">
 			<input type="hidden" class="applied-program" value="{$applied}">
+			<input type="hidden" class="input-flag-checking-step" value="false">
 			<input type="hidden" class="input-flag-checking-step" value="false">
 			<div id="mamacubatry-wizard" style="margin-top:35px;">
 				<!-- SECTION 1 -->
@@ -2490,6 +2496,8 @@
 									icon: 'success',
 									title: 'Thank You',
 									text: result.msg,
+								}).then(function() {
+									window.location = "https://www.motherhood.com.my/my-product-review?productreview=1";
 								});
 
 								$('body').find('.success-application').css('display', 'block');
