@@ -686,7 +686,9 @@ var myAddress='{$currentAddressId}';
 												{/if}
 											{else} 
 												{if !$logged}
-													<a href='/login?back=my-product-review'>Login / Sign Up</a> 
+													<a class="btn btn-default btn-pill btn-pill-color btn-apply-color" href='/login?back=my-product-review'>
+														<span>Login/signup</span>
+													</a>
 												{else}
 													<a id="new_comment_tab_btn" class="btn btn-default btn-pill btn-pill-color btn-complete-color open-comment-form" href="https://www.motherhood.com.my/mamacubatry/{$product.link_rewrite}">
 														<span>Complete Form</span>

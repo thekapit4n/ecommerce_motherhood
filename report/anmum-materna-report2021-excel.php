@@ -59,8 +59,73 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 			}
 		}
 		
+	$arr_skip_email = array(
+		"zhafiraana@gmail.com",
+		"khairulazharkhairulazhar33@gmail.com",
+		"tresnawatye@yahoo.com",
+		"hanifchemohd@gmail.com",
+		"elykanor35@gmail.com",
+		"bobfmlynorhayatibtahmadjamal",
+		"safikah8889@gmail.com",
+		"bibiananur70@gmail.com",
+		"sxdsa6@gmail.com.my",
+		"kogorogawa@gmail.com",
+		"anazhafia@gmail.com",
+		"kwangjunwei@gmail.com",
+		"nur.hana84@yahoo.com",
+		"zaiemanarain@gmail.com",
+		"rosma19wati88@gmail.com",
+		"ashraffangah614@gmail.com",
+		"ulfi rr97@gmail.com",
+		"evitaliastri84@gmail.com",
+		"shazrilamiza@ymial",
+		"jeerdanyismail@gmail.com",
+		"nrashikin6@gmail.com",
+		"zaiema93@icloud.com",
+		"zaiema98@gmail.com",
+		"nizamretnoretno@gmail.com",
+		"nizamfamilyradzali@gmail.com",
+		"@xiaoqing4876@gamail.com",
+		"fatinnadiela95@gmail.com",
+		"izzatirashid709@gmail.com",
+		"safarizakhmat@gmail.com",
+		"kumayang14@gmail.com",
+		"jairadam859112 @gmaila.com",
+		"samsulkumaryusof.gmail.com",
+		"861103526254",
+		"haritsshakhmir9590@gmail.com",
+		"norshamshena84@gmail.com.my",
+		"ctfarisha_ieka@yahoo.com",
+		"www.faizalsfoundationsdnbhd@gmail.com",
+		"nur_ainnajwa81@yahoo.com",
+		"iema.naim.90@gmail.com",
+		"katrina.shandhini @gmail.com",
+		"nuraidaamira@gmail.com",
+		"zaiumi1985@gmail.com",
+		"amiera_mierashi1010@yahooo.com",
+		"john_choongming0511@hotmail.com",
+		"konny_828@hotmail.com",
+		"ameeranusaybah@yahoo.com",
+		"aidilkerry2526@gmail.com",
+		"jimalsama133@gmail.com",
+		"fazlinayusof482@gmail.com",
+		"nirimaima581@gmail.com",
+		"ariniezakaria@gmail.com",
+	);
+	
+	if(isset($arr_skip_email) && is_array($arr_skip_email) && sizeof($arr_skip_email) > 0)
+	{
+		foreach($arr_skip_email as $email)
+		{
+			$skipemail2[] =  trim("'" . htmlentities($email) . "'");
+		}
 		
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "a.subscriber_event_id=89";
+		$string_email = implode(",", $skipemail2);
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " a.newEmail NOT IN (" . $string_email . ")";
+	}
+		
+		
+	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "a.subscriber_event_id=89";
 					
 	if($searchStart != '')
 	{

@@ -214,7 +214,7 @@ body{
 		$pageno = 1;
 	}
 	
-	$no_of_records_per_page = 1000;
+	$no_of_records_per_page = 1500;
 	
 	if(isset($_POST['searchDateStart']) && $_POST['searchDateStart'] != '')
 	{
@@ -240,6 +240,71 @@ body{
 		}
 	}
 	
+	$arr_skip_email = array(
+		"zhafiraana@gmail.com",
+		"khairulazharkhairulazhar33@gmail.com",
+		"tresnawatye@yahoo.com",
+		"hanifchemohd@gmail.com",
+		"elykanor35@gmail.com",
+		"bobfmlynorhayatibtahmadjamal",
+		"safikah8889@gmail.com",
+		"bibiananur70@gmail.com",
+		"sxdsa6@gmail.com.my",
+		"kogorogawa@gmail.com",
+		"anazhafia@gmail.com",
+		"kwangjunwei@gmail.com",
+		"nur.hana84@yahoo.com",
+		"zaiemanarain@gmail.com",
+		"rosma19wati88@gmail.com",
+		"ashraffangah614@gmail.com",
+		"ulfi rr97@gmail.com",
+		"evitaliastri84@gmail.com",
+		"shazrilamiza@ymial",
+		"jeerdanyismail@gmail.com",
+		"nrashikin6@gmail.com",
+		"zaiema93@icloud.com",
+		"zaiema98@gmail.com",
+		"nizamretnoretno@gmail.com",
+		"nizamfamilyradzali@gmail.com",
+		"@xiaoqing4876@gamail.com",
+		"fatinnadiela95@gmail.com",
+		"izzatirashid709@gmail.com",
+		"safarizakhmat@gmail.com",
+		"kumayang14@gmail.com",
+		"jairadam859112 @gmaila.com",
+		"samsulkumaryusof.gmail.com",
+		"861103526254",
+		"haritsshakhmir9590@gmail.com",
+		"norshamshena84@gmail.com.my",
+		"ctfarisha_ieka@yahoo.com",
+		"www.faizalsfoundationsdnbhd@gmail.com",
+		"nur_ainnajwa81@yahoo.com",
+		"iema.naim.90@gmail.com",
+		"katrina.shandhini @gmail.com",
+		"nuraidaamira@gmail.com",
+		"zaiumi1985@gmail.com",
+		"amiera_mierashi1010@yahooo.com",
+		"john_choongming0511@hotmail.com",
+		"konny_828@hotmail.com",
+		"ameeranusaybah@yahoo.com",
+		"aidilkerry2526@gmail.com",
+		"jimalsama133@gmail.com",
+		"fazlinayusof482@gmail.com",
+		"nirimaima581@gmail.com",
+		"ariniezakaria@gmail.com",
+	);
+	
+	if(isset($arr_skip_email) && is_array($arr_skip_email) && sizeof($arr_skip_email) > 0)
+	{
+		foreach($arr_skip_email as $email)
+		{
+			$skipemail2[] =  trim("'" . htmlentities($email) . "'");
+		}
+		
+		$string_email = implode(",", $skipemail2);
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " a.newEmail NOT IN (" . $string_email . ")";
+	}
+	
 	
 	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "a.subscriber_event_id=89";
 					
@@ -258,6 +323,8 @@ body{
 		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "a.subscriber_created_at >= '2021-01-01 00:00:00'";
 	}
 	
+	
+	
 	$urlPagination = "";
 	
 	if(isset($pageno) && $pageno > 0)
@@ -265,12 +332,12 @@ body{
 		$urlPagination .= ($urlPagination == "" ? '?' : '&') . "pageno=";
 	}
 	
-	$sqltotalCount	  =  "SELECT COUNT(DISTINCT(a.newEmail)) as total FROM ps_events_subscriber a" . $wheresql . " ORDER BY subscriber_created_at ASC " . $currentLimit;
+	
+	$sqltotalCount	  =  "SELECT COUNT(*) AS total FROM (SELECT DISTINCT(a.newEmail) FROM ps_events_subscriber a " . $wheresql . "  ORDER BY subscriber_created_at ASC " . $currentLimit . ") AS a";
 	$resultCount 	  =  $conn->query($sqltotalCount);
 	$arr_resultCount  =  mysqli_fetch_array($resultCount);
 	$total_rows 	  =  isset($arr_resultCount['total']) ? $arr_resultCount['total'] : 0;
 	$offset 		  = ($pageno-1) * $no_of_records_per_page;
-	
 	$total_pages 	  = ceil($total_rows / $no_of_records_per_page);
 	$limitsql 		  = "LIMIT " . $offset . "," . $no_of_records_per_page;
 	
@@ -289,7 +356,7 @@ body{
 			a.subscriber_question12 as PregnancyStatus, a.subscriber_question11 as Flavour, a.subscriber_question2 as Address, a.subscriber_question3 as Postcode, 
 			a.subscriber_question5 as City, a.subscriber_question7 as State, a.subscriber_question8 as Brand, a.subscriber_question9 as Language, 
 			a.subscriber_question10 as TnC, a.subscriber_created_at as DateSubmit
-			FROM ps_events_subscriber a" . $wheresql . " GROUP BY newEmail	ORDER BY subscriber_created_at ASC " . $limitsql;  
+			FROM ps_events_subscriber a" . $wheresql . " GROUP BY newEmail	ORDER BY subscriber_created_at ASC " . $limitsql;
 	
     $result = $conn->query($sql);
 	if(is_object($result)){

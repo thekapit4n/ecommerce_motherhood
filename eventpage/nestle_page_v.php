@@ -261,7 +261,7 @@
    Note:
    all the wording start with "{{ sometext}}" it will be replace when load this page. can see on controller enlieneaevents under this event id
    -->
-<div class="col-lg-12 col-md-12" style="padding-left: 0px; padding-right: 0px; margin-bottom: 0;"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/New+Mom+Essentials/New-Nestle-Mom-Banner.jpg" width="100%" /></div>
+<div class="col-lg-12 col-md-12" style="padding-left: 0px; padding-right: 0px; margin-bottom: 0;"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/New+Mom+Essentials/Nestle-Mom-Banner-New.png" width="100%" /></div>
 <div class="row row-question" style="padding-top: 20px; padding-bottom: 10px;">
    <p style="font-size: 25px; color: #2ea7ad; font-weight: bold; padding-top: 20px; padding-bottom: 20px; line-height: 1;" class="title-form">{{pre-define-titleform}}</p>
    <div class="panel-group" id="accordion">

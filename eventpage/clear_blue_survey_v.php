@@ -460,7 +460,7 @@
 <div class="row" style="margin-top:50px;">
 	<div class="row">
 		<div class="col-md-12 text-center mb-4">
-			<h3 class="font-fact"> Welcome to ClearBlue Survey</h3>
+			<h3 class="font-fact"> Welcome to Clearblue Survey</h3>
 		</div>
 	</div>
 	<input type="hidden" class="checkHighlight" value="">

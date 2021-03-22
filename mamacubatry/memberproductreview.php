@@ -106,6 +106,11 @@ class enlineamixmodmemberproductreviewModuleFrontController extends ModuleFrontC
 		$currentAddressId = $this->context->cart->id_address_delivery;
 		$productReview = (isset($_GET['productreview']) && $_GET['productreview'] == 1) ? true : false;
 		
+		if($this->context->customer->id <= 0 && !isset($_GET['productreview']))
+		{
+			$productReview = true;
+		}
+		
         $this->context->smarty->assign(array(
 			'currentAddressId'=> $currentAddressId,
 			'ajaxToken' => Tools::getToken(false),
