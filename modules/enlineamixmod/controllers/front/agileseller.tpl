@@ -114,8 +114,13 @@
 }
 
 .btn-shop-brand-nstl:focus, .btn-shop-brand-nstl:active, btn-shop-brand-nstl:hover{
-	background: #439bd4;
+	background: #2a58a4;
+    border-color: #2a58a4;
 	outline:unset
+}
+
+.image-shopbrand-active{
+	background: #439bd445;
 }
 </style>
 {*

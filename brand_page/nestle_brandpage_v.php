@@ -1,19 +1,3 @@
-<style>
-.nbs-flexisel-nav-left {
-    left: -9px;
-}
-
-.btn-shop-brand-nstl{
-	color: white; 
-	background: #23346c;
-	border-radius: 6px;
-}
-
-.btn-shop-brand-nstl:focus, .btn-shop-brand-nstl:active, btn-shop-brand-nstl:hover{
-	background: #439bd4;
-	outline:unset
-}
-</style>
 <div id="sponsored_content" class="clearfix"></div>
 <!--========================= YEAR END SALE  =========================-->
 <p></p>
@@ -55,12 +39,67 @@
 		</div>
 	</div>
 	<div class="row">
+		<!--  btn-shopbrand1 &  image-shopbrand-active1 need to change remove 1 to make it work
+		 --->
+		<div class="col-md-12" style="padding-bottom: 10px;">
+			<a href="javascript:;" class="btn-shopbrand1" data-divtarget="nankid-optipro" style="cursor: pointer;">
+				<img src="https://media.motherhood.com.my/img/m/667-large_default.jpg" alt="Nestle NANKID Optipro" style="width: 150px;height: auto;" class="image-shopbrand-active1">
+			</a>
+			<a href="javascript:;" class="btn-shopbrand1" data-divtarget="nankid-optipro-ha" style="cursor: pointer;">
+				<img src="https://media.motherhood.com.my/img/m/668-large_default.jpg" alt="Nestle NANKID Optipro ha" style="width: 150px;height: auto;">
+			</a>
+			<a href="javascript:;" class="btn-shopbrand1" data-divtarget="lactogrow" style="cursor: pointer;">
+				<img src="https://media.motherhood.com.my/img/m/739-large_default.jpg" alt="lactogrow" style="width: 150px;height: auto;">
+			</a>
+			<a href="javascript:;" class="btn-shopbrand1" data-divtarget="cerelac" style="cursor: pointer;">
+				<img src="https://media.motherhood.com.my/img/m/665-large_default.jpg" alt="Nestle Cerelac" style="width: 150px;height: auto;">
+			</a>
+			<a href="javascript:;" class="btn-shopbrand1" data-divtarget="nestle-mom" style="cursor: pointer;">
+				<img src="https://media.motherhood.com.my/img/m/865-large_default.jpg" alt="Nestle Mom & Me" style="width: 150px;height: auto;">
+			</a>
+		</div>
+	</div>
+	<div class="row">
 		<div class="col-md-12">
-			<button type="button" class="btn btn-primary btn-shop-brand-nstl">NANKID OPTIPRO</button>
-			<button type="button" class="btn btn-primary btn-shop-brand-nstl">NANKID OPTIPRO HA</button>
-			<button type="button" class="btn btn-primary btn-shop-brand-nstl">LACTOGROW</button>
-			<button type="button" class="btn btn-primary btn-shop-brand-nstl">CERELAC</button>
-			<button type="button" class="btn btn-primary btn-shop-brand-nstl">NESTLE MOM</button>
+			<div id="nankid-optipro" class="div-details-brand" style="margin-top:5%;margin-bottom:5%">
+				<!--========================= NANKID OPTIPRO =========================-->
+				<div class="col-md-12" style="margin-bottom: 10px;"><a href="https://www.motherhood.com.my/brands/nestle-nankid-optipro/" target="_blank"> <img id="s26gold" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Nestle+Start+Well+2gether/Nankid+Optipro+banner-01.jpg" alt="promotionbanner2" width="100%" /></a></div>
+				<div class="mmyslider" data-sliderid="197" data-imagepos="left" data-slidercount="5"></div>
+				<div class="mmyslider" data-sliderid="196" data-imagepos="left" data-slidercount="5"></div>
+			</div>
+			<div id="nankid-optipro-ha" class="div-details-brand" style="margin-top:5%;margin-bottom:5%">
+				<!--========================= NANKID OPTIPRO HA=========================-->
+				<div class="col-md-12" style="margin-bottom: 10px;">
+					<a href="https://www.motherhood.com.my/brands/nestle-nankid-optipro-ha/" target="_blank"> 
+					<img id="s26gold" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Nestle+Start+Well+2gether/Nankid-Optipro-HA-banner.jpg" alt="promotionbanner2" width="100%" />
+					</a>
+				</div>
+				<div class="mmyslider" data-sliderid="198" data-imagepos="left" data-slidercount="5"></div>
+			</div>
+			<div id="lactogrow" class="div-details-brand" style="margin-top:5%;margin-bottom:5%">
+				<!--========================= LACTOGROW =========================-->
+				<div class="col-md-12" style="margin-bottom: 10px;"><a href="https://www.motherhood.com.my/brands/nestle-lactogrow/" target="_blank"> <img id="s26gold" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Nestle+Start+Well+2gether/Lamall+%26+Shopee+bannerLazmall.jpg" width="100%" /></a></div>
+				<div class="mmyslider" data-sliderid="199" data-imagepos="left" data-slidercount="5"></div>
+				<div class="mmyslider" data-sliderid="200" data-imagepos="left" data-slidercount="5"></div>
+			</div>
+			<div id="cerelac" class="div-details-brand" style="margin-top:5%;margin-bottom:5%">
+				<!--========================= CERELAC=========================-->
+				<div class="col-md-12" style="margin-bottom: 10px;">
+					<a href="https://www.motherhood.com.my/brands/nestle-cerelac/" target="_blank"> 
+					<img id="s26gold" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/October/Wyeth+Nutrition/s-26-gold-progress.png" alt="promotionbanner2" width="100%" />
+					</a>
+				</div>
+				<div class="mmyslider" data-sliderid="170" data-imagepos="left" data-slidercount="5"></div>
+			</div>
+			<div id="nestle-mom" class="div-details-brand" style="margin-top:5%;margin-bottom:5%">
+				<!--========================= MOMS&ME =========================-->
+				<div class="col-md-12" style="margin-bottom: 10px;">
+					<a href="https://www.motherhood.com.my/brands/nestle-mom-me/" target="_blank"> 
+						<img id="s26gold" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Nestle+Start+Well+2gether/Nestle-Mom-Lazada-Generic-banner.jpg" width="100%" />
+					</a>
+				</div>
+				<div class="mmyslider" data-sliderid="201" data-imagepos="left" data-slidercount="5"></div>
+			</div>
 		</div>
 	</div>
   
@@ -69,7 +108,8 @@
      
       <div class="clearfix"></div>
       <!--=================================== KOL  ====================================-->
-      <div style="padding-top: 10px;">
+     <!--
+	 <div style="padding-top: 10px;">
          <div class="col-md-4" style="text-align: center;">
             <div style="color: white; background: #23346c; border-radius: 12px; font-size: 25px; padding: 20px 10px 20px 10px;">MOM SAY</div>
          </div>
@@ -90,19 +130,19 @@
 				</div>
 			 </div>
 		</div>
-     
+		-->
       <!--=============================== TODDLER SLIDER  ================================-->
-      <div class="mmyslider" style="margin: 10px 0;" data-sliderid="38" data-imagepos="left" data-slidercount="3" data-sellerid="695"></div>
+      <!--<div class="mmyslider" style="margin: 10px 0;" data-sliderid="38" data-imagepos="left" data-slidercount="3" data-sellerid="695"></div>
       <!--=============================== WEANING SLIDER  ================================-->
-      <div class="mmyslider" style="margin: 10px 0;" data-sliderid="37" data-imagepos="left" data-slidercount="3" data-sellerid="695"></div>
+     <!--<div class="mmyslider" style="margin: 10px 0;" data-sliderid="37" data-imagepos="left" data-slidercount="3" data-sellerid="695"></div>-->
       <!--============================= OTHERS SLIDER  ===============================-->
-      <div class="mmyslider" style="margin: 10px 0;" data-sliderid="39" data-imagepos="left" data-slidercount="3" data-sellerid="695"></div>
+     <!-- <div class="mmyslider" style="margin: 10px 0;" data-sliderid="39" data-imagepos="left" data-slidercount="3" data-sellerid="695"></div>-->
       <!--=============================== YOUTUBE VIDEO  ================================-->
-      <div class="row" style="background-color: #23346c; padding: 10px; border-radius: 8px; margin-bottom: 10px;"><iframe src="https://www.youtube.com/embed/tIRKdzBsIZ8" allowfullscreen="allowfullscreen" width="100%" height="500px" frameborder="0"></iframe></div>
+      <!--<div class="row" style="background-color: #23346c; padding: 10px; border-radius: 8px; margin-bottom: 10px;"><iframe src="https://www.youtube.com/embed/tIRKdzBsIZ8" allowfullscreen="allowfullscreen" width="100%" height="500px" frameborder="0"></iframe></div>-->
       <!--=============================== ARTICLE  ================================-->
-      <div class="row">
+      <div class="row" style="margin-top:5%;">
          <div class="col-md-4" style="text-align: center;">
-            <div style="color: white; background: #23346c; border-radius: 12px; font-size: 25px; padding: 20px 10px 20px 10px;">ARTICLES</div>
+            <div style="color: white; background: #23346c; border-radius: 12px; font-size: 25px; padding: 20px 10px 20px 10px;">MOMS TIPS</div>
          </div>
       </div>
       <div class="row" style="border-radius: 12px; border: 4px solid #23346c; padding: 15px; text-align: center;">
@@ -180,32 +220,48 @@
       <!--Instagram stuff End -->
    </div>
    <script>// <![CDATA[
-      $(document).ready(function() {
-              $('.twofiveoff').click(function() {
-                  twofiveoff();
-              });
-              $('.twoooff').click(function() {
-                  twoooff();
-              });
-              $('.oneooff').click(function() {
-                  oneooff();
-              });
-          });
-      function twofiveoff(){
-          var twofiveoff = "GOMAR25";
-          var dummy = $('<input>').val(twofiveoff).appendTo('body').select();
-          saveVouchers(twofiveoff);
-          }
-      function twoooff(){
+   
+		var twofiveoff = function(){
+			var twofiveoff = "GOMAR25";
+			var dummy = $('<input>').val(twofiveoff).appendTo('body').select();
+			saveVouchers(twofiveoff);
+        }
+		
+		var twoooff = function(){
           var twoooff = "NESTDEC15";
           var dummy = $('<input>').val(twoooff).appendTo('body').select();
           saveVouchers(twoooff);
-          }
-      function oneooff(){
-          var oneooff = "NESTDEC10";
-          var dummy = $('<input>').val(oneooff).appendTo('body').select();
-          saveVouchers(oneooff);
-          }
+        }
+		
+		var oneooff = function(){
+			var oneooff = "NESTDEC10";
+			var dummy = $('<input>').val(oneooff).appendTo('body').select();
+			saveVouchers(oneooff);
+        }
+		
+		$(function(){
+			$('.twofiveoff').click(function() {
+				twofiveoff();
+			});
+			
+			$('.twoooff').click(function() {
+				twoooff();
+			});
+			  
+			$('.oneooff').click(function() {
+				oneooff();
+			});
+			
+			$('body').on('click', '.btn-shopbrand', function(){
+				$('body').find('img').removeClass('image-shopbrand-active');
+				$(this).find('img').addClass('image-shopbrand-active');
+				var targetDiv = $(this).data('divtarget');
+				$('body').find('.div-details-brand').css('display', 'none');
+				$('body').find('#' + targetDiv).show('fast');
+			});
+		})
+     
+      
       // ]]>
    </script>
 </div>

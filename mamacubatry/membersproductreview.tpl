@@ -547,7 +547,7 @@ var myAddress='{$currentAddressId}';
 							{if ($product.havegrade=='missing')}
 								<div id="product_comments_block_tab">
 									<p class="align_center">
-										<a class="btn btn-default btn-pill btn-pill-color open-comment-form1" href="#new_comment_form"
+										<a class="btn btn-default btn-pill btn-pill-color open-comment-form" href="#new_comment_form"
 											data-productname="{$product.name|escape:'strval'}" 
 											data-productid="{$product.id_product}"
 											data-productimgsrc="{$product.productcomment_cover_image}"
@@ -631,7 +631,7 @@ var myAddress='{$currentAddressId}';
 											*}
 											
 											{if ($product.havegrade=='missing')}
-												<a type="button" class="btn btn-default btn-pill btn-pill-color open-comment-form-test " href="#new_comment_form" 
+												<a type="button" class="btn btn-default btn-pill btn-pill-color open-comment-form " href="#new_comment_form" 
 													data-productname="{$product.name|escape:'strval'}" 
 													data-productid="{$product.id_product}"
 													data-productimgsrc="{$product.tester_cover_image}"
@@ -709,7 +709,7 @@ var myAddress='{$currentAddressId}';
 		
 	<!-- Fancybox -->
 	<div style="display: none;width:">
-		<div id="new_comment_form" class="open-comment-form1">
+		<div id="new_comment_form" class="open-comment-form">
 			<form id="id_new_comment_form" action="#">
 				<h2 class="page-subheading">
 					Write a review
@@ -815,13 +815,6 @@ $(function(){
 		$("#id_product_comment_send").val(productID);
 		$("#content").val("");
 		$("#comment_title").val("");
-		
-		$('body').find('.open-comment-form-test').fancybox({
-		'autoSize' : false,
-		'width' : 600,
-		'height' : 'auto',
-		'hideOnContentClick': false
-	});
 	}); 
 	
 	

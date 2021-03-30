@@ -176,7 +176,10 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 	var trgethref = $.attr(this, 'href');
 	console.log('This original code in this view ***events.tpl = ' + trgethref);
 	
-	if(trgethref != '#previous' && trgethref != '#next' && trgethref != '#finish')
+	var skipArray = ["#previous", "#next", "#finish", "#cancel"];
+	var checkSkip = skipArray.includes(trgethref);
+
+	if(!checkSkip)
 	{
 		$('html, body').animate({
 			scrollTop: $($.attr(this, 'href')).offset().top
@@ -365,7 +368,7 @@ var hasSubmitted=false;
 	</div>
 {/if}
 {include file="$events_view_path/templates/front/errors.tpl"}
-	{if $event_info.event_id == 95 || $event_info.event_id == 96 || $event_info.event_id == 9998}
+	{if $event_info.event_id == 95 || $event_info.event_id == 96 || $event_info.event_id == 9998 || $event_info.event_id == 108}
 		{* this part to try implement new boostrap without effect any exisitng event page - haiqal *}
 		<style>
 			html{

@@ -159,7 +159,6 @@ error_reporting(E_ALL);
 				{
 					$objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(50);
 				}
-				
 				$objPHPExcel->getActiveSheet()->getStyle($headerColumn. '5')->getAlignment()->applyFromArray(array('horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER));
 				$lastHeader = $headerColumn;
 				$headerColumn++;

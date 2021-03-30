@@ -348,7 +348,7 @@
 						<div class="row">
 							<div class="col-md-12">
 								<p style="font-size:13px;line-height: 23px; margin-bottom:12px;text-align:left; margin-top: 25px;">
-									By clicking Submit, you hereby agree to the campaign’s Terms and Conditions and Privacy Notices. You further agree to be registered as a member of 
+									By clicking Submit, you hereby agree to the campaign’s <a href="https://www.motherhood.com.my/page/terms-of-service" target="_blank">Terms and Conditions</a> and <a href="https://www.motherhood.com.my/page/privacy-policy" target="_blank">Privacy Notices</a>. You further agree to be registered as a member of 
 									Nestlé Start Well 2gether club and to the processing of your personal data in accordance with such club/membership terms (including 
 									to receive marketing and promotional information, product services and events) in accordance with Nestlé (Malaysia) Berhad, and Motherhood.com.my. 
 								</p>

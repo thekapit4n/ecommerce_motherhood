@@ -318,6 +318,58 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 		if (isset($_SESSION['isPWA']) && $_SESSION['isPWA']==1 && $event_id==206 ){
 			$result[0]['event_description'] = str_ireplace('src="/warehouse-sale','src="/mobile/warehouse-sale',$result[0]['event_description']);
 			$result[0]['event_description'] = str_ireplace("src='/warehouse-sale","src='/mobile/warehouse-sale",$result[0]['event_description']);
+			
+			if(isset($_GET['regno']) && $_GET['regno'] != '')
+			{
+				$encrypt 		= $_GET['regno'];
+				$subscriber_id  = base64_decode($_GET['regno']);
+				
+				$currentSQL 	= 'SELECT count(1) AS ccount FROM `ps_events_subscriber` WHERE `subscriber_event_id` = 108 AND `subscriber_id` = "' . trim($subscriber_id) . '" LIMIT 1';
+				$currentResult  = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($currentSQL);
+					
+				if ($currentResult[0]['ccount']>0)	{
+					
+					$sql 			= "SELECT * FROM `ps_events_subscriber` WHERE `subscriber_event_id` = 108 AND `subscriber_id` = " . trim($subscriber_id) . " LIMIT 1";
+					$currentResult  = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql); 
+			
+					$typeofparent = $currentResult[0]['subscriber_question2'];
+					if($typeofparent != 'pregnant') # other than pregnant they dont see claim free gift(nestle) button for baby fair 2021 
+					{
+						$result[0]['event_description'] = str_ireplace("{display-button-claim}", 'none' ,$result[0]['event_description']);
+					}
+					else
+					{
+						$result[0]['event_description'] = str_ireplace("{display-button-claim}", 'block' ,$result[0]['event_description']);
+					}
+				}
+			}
+		}
+		elseif($event_id==206)
+		{
+			if(isset($_GET['regno']) && $_GET['regno'] != '')
+			{
+				$encrypt 		= $_GET['regno'];
+				$subscriber_id  = base64_decode($_GET['regno']);
+				
+				$currentSQL 	= 'SELECT count(1) AS ccount FROM `ps_events_subscriber` WHERE `subscriber_event_id` = 108 AND `subscriber_id` = "' . trim($subscriber_id) . '" LIMIT 1';
+				$currentResult  = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($currentSQL);
+					
+				if ($currentResult[0]['ccount']>0)	{
+					
+					$sql 			= "SELECT * FROM `ps_events_subscriber` WHERE `subscriber_event_id` = 108 AND `subscriber_id` = " . trim($subscriber_id) . " LIMIT 1";
+					$currentResult  = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql); 
+			
+					$typeofparent = $currentResult[0]['subscriber_question2'];
+					if($typeofparent != 'pregnant') # other than pregnant they dont see claim free gift(nestle) button for baby fair 2021 
+					{
+						$result[0]['event_description'] = str_ireplace("{display-button-claim}", 'none' ,$result[0]['event_description']);
+					}
+					else
+					{
+						$result[0]['event_description'] = str_ireplace("{display-button-claim}", 'block' ,$result[0]['event_description']);
+					}
+				}
+			}
 		}
 		
 		if ($event_id==100){
@@ -1363,7 +1415,16 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 				}
 				if($event_id == 100 || $event_id == 212 || $event_id == 222){
 					$add = "6";
-					$subscriber_question1 = $add.$subscriber_question1;
+					if($event_id == 100 && $subscriber_question1 != '')
+					{
+						$firstDigit =  (int)$subscriber_question1[0];
+						if($firstDigit !== 0)
+						{
+							$subscriber_question1 = "60" . $subscriber_question1;
+						}
+					}
+					else
+						$subscriber_question1 = $add.$subscriber_question1;
 				}
 				if($event_id == 56){
 					$add = "6";
@@ -1371,6 +1432,21 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 				}
 				if($event_id == 53){
 					$subscriber_question14 = implode(",", $subscriber_question14);
+				}
+				
+				if($event_id == 102){
+					if($subscriber_question1 != '')
+					{
+						$firstDigit = (int)$subscriber_question1[0];
+						if($firstDigit !== 0)
+						{
+							$subscriber_question1 = "60" . $subscriber_question1;
+						}
+						elseif($firstDigit === 0)
+						{
+							$subscriber_question1 = "6" . $subscriber_question1;
+						}
+					}
 				}
 				
 				$sql = '
@@ -1659,7 +1735,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 				if (isset($_SESSION['isPWA']) && $_SESSION['isPWA']==1)
 				$_SESSION['registeredWarehouse']=1;
 				echo "<script type='text/javascript'>alert('Thank you for joining Motherhood Baby Warehouse Sale ! Please show next message at the entrance. Enjoy your Shopping.');</script>";
-				echo "<script type='text/javascript'>window.location.href='https://www.motherhood.com.my/events/thank-you-for-registering'</script>";
+				echo "<script type='text/javascript'>window.location.href='https://www.motherhood.com.my/events/thank-you-for-registering?regno=" . $encryptedID . "'</script>";
 			}
 			
 			if($event_id == 130 )

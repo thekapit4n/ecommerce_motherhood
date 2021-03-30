@@ -449,29 +449,32 @@
          <div class="col-md-4 text-left question-welcomekit" style="padding-top: 0px;">
             <label>State</label>
             <select name="subscriber_question11" id="subscriber_question11" type="text" style="width: 100%; font-size: 16px; padding-top: 10px; padding-bottom: 8px; display: inline-block; border: 1px solid #ccc; box-shadow: inset 0 1px 3px #ddd; border-radius: 4px; vertical-align: middle; box-sizing: border-box;" required="required">
-               <option value="">State</option>
-               <option value="Selangor">Selangor</option>
-               <option value="Wilayah Persekutuan">Wilayah Persekutuan</option>
-               <option value="Perlis">Perlis</option>
-               <option value="Kedah">Kedah</option>
-               <option value="Pulau Pinang">Pulau Pinang</option>
-               <option value="Perak">Perak</option>
-               <option value="Negeri Sembilan">Negeri Sembilan</option>
-               <option value="Melaka">Melaka</option>
-               <option value="Johor">Johor</option>
-               <option value="Kelantan">Kelantan</option>
-               <option value="Terengganu">Terengganu</option>
-               <option value="Pahang">Pahang</option>
-               <option value="Sabah">Sabah</option>
-               <option value="Sarawak">Sarawak</option>
-               <option value="Labuan">Labuan</option>
+                <option value="">State</option>
+				<option value="Johor">Johor</option>
+				<option value="Kedah">Kedah</option>
+				<option value="Kelantan">Kelantan</option>
+				<option value="Kuala Lumpur">Kuala Lumpur</option>
+				<option value="Labuan" >Labuan</option>
+				<option value="Melaka" >Melaka</option>
+				<option value="Negeri Sembilan">Negeri Sembilan</option>
+				<option value="Pahang">Pahang</option>
+				<option value="Perak">Perak</option>
+				<option value="Perlis">Perlis</option>
+				<option value="Pulau Pinang" >Pulau Pinang</option>
+				<option value="Putrajaya">Putrajaya</option>
+				<option value="Sabah">Sabah</option>
+				<option value="Sarawak">Sarawak</option>
+				<option value="Selangor">Selangor</option>
+				<option value="Terengganu">Terengganu</option>
             </select>
             <small class="error-msg"></small>
          </div>
          <div class="clearfix"></div>
          <div class="col-md-4 text-left question-welcomekit"><label>Your Date of Birth</label> <input name="subscriber_question14" type="text" id="dobParent" required="required" placeholder="DOB" class="form-control dob-parent" /> <small class="error-msg"></small></div>
          <div class="clearfix"></div>
-         <div class="col-md-4 col-md-offset-4" style="padding-top: 20px;"><button type="submit" name="submit" id="btn-submit-form1" class="btn btn-default btn-step1 "> Submit </button></div>
+			<div class="col-md-4 col-md-offset-4" style="padding-top: 20px;">
+				<button type="submit" name="submit" id="btn-submit-form1" class="btn btn-default btn-step1 "> Submit </button>
+			</div>
       </div>
    </div>
    <!-- huggies row -->
@@ -603,6 +606,8 @@
             				msg = icon + " Please insert email";
             				emailSelector.addClass(hasValidation);
             				emailSelector.closest('div').find(errorSelector).html(msg);
+							
+							return false;
             			}
             			else
             			{
@@ -616,6 +621,8 @@
             				msg = icon + " Please insert password";
             				passSelector.addClass(hasValidation);
             				passSelector.closest('div').find(errorSelector).html(msg);
+							
+							return false;
             			}
             			else
             			{
@@ -629,6 +636,8 @@
             				msg = icon + " Please first name";
             				fnameSelector.addClass(hasValidation);
             				fnameSelector.closest('div').find(errorSelector).html(msg);
+							
+							return false;
             			}
             			else
             			{
@@ -642,6 +651,8 @@
             				msg = icon + " Please insert last name";
             				lnameSelector.addClass(hasValidation);
             				lnameSelector.closest('div').find(errorSelector).html(msg);
+							
+							return false;
             			}
             			else
             			{
@@ -655,6 +666,8 @@
             				msg = icon + " Please insert addresss";
             				addrSelector.addClass(hasValidation);
             				addrSelector.closest('div').find(errorSelector).html(msg);
+							
+							return false;
             			}
             			else
             			{
@@ -668,6 +681,8 @@
             				msg = icon + " Please insert postcode. Postcode must be in numeric value and length of postcode must 5 digit";
             				postcodeSelector.addClass(hasValidation);
             				postcodeSelector.closest('div').find(errorSelector).html(msg);
+							
+							return false;
             			}
             			else
             			{
@@ -681,6 +696,8 @@
             				msg = icon + " Please insert city";
             				citySelector.addClass(hasValidation);
             				citySelector.closest('div').find(errorSelector).html(msg);
+							
+							return false;
             			}
             			else
             			{
@@ -694,6 +711,8 @@
             				msg = icon + " Please select state";
             				stateSelector.addClass(hasValidation);
             				stateSelector.closest('div').find(errorSelector).html(msg);
+							
+							return false;
             			}
             			else
             			{
@@ -707,6 +726,8 @@
             				msg = icon + " Please select your DOB";
             				dobSelector.addClass(hasValidation);
             				dobSelector.closest('div').find(errorSelector).html(msg);
+							
+							return false;
             			}
             			else
             			{
@@ -720,6 +741,7 @@
             				msg = icon + " Please insert mobile no";
             				mobileSelector.addClass(hasValidation);
             				mobileSelector.closest('div').find(errorSelector).html(msg);
+							return false;
             			}
             			else{
             				if ($.trim(phonenumber) != "") {
@@ -732,6 +754,7 @@
             						msg = icon + " Invalid phone number prefix. Correct Prefix (010,011,012,013,014,015,016,017,018,019)";
             						mobileSelector.addClass(hasValidation);
             						mobileSelector.closest('div').find(errorSelector).html(msg);
+									return false;
             					}
             					else
             					{
@@ -745,6 +768,7 @@
             											msg = icon + " Invalid phone number format. Correct format(XXX XXXXXXXX), e.g. 012 3334444 / 019-8887777";
             											mobileSelector.addClass(hasValidation);
             											mobileSelector.closest('div').find(errorSelector).html(msg);
+														return false;
             										}
             										else
             										{
@@ -758,6 +782,7 @@
             											msg = icon + " Invalid phone number format. Correct format(XXX XXXXXXXX), e.g. 012 3334444 / 019-8887777";
             											mobileSelector.addClass(hasValidation);
             											mobileSelector.closest('div').find(errorSelector).html(msg);
+														return false;
             										}
             										else
             										{
@@ -770,6 +795,8 @@
             								msg = icon + " Invalid phone number prefix. Correct Prefix (010,011,012,013,014,015,016,017,018,019)";
             								mobileSelector.addClass(hasValidation);
             								mobileSelector.closest('div').find(errorSelector).html(msg);
+											
+											return false;
             							} 
             						}
             						else if(firstNo == '5') /* for singapore*/ 
@@ -779,6 +806,7 @@
             								msg = icon + " Invalid Singapore phone number format. Correct Format(5 XXXX XXXX), e.g. 5 66667777";
             								mobileSelector.addClass(hasValidation);
             								mobileSelector.closest('div').find(errorSelector).html(msg);
+											return false;
             							}
             							else{
             								mobileSelector.removeClass(hasValidation);
@@ -790,6 +818,8 @@
             							msg = icon + " Invalid phone number prefix. Correct Prefix (010,011,012,013,014,015,016,017,018,019)";
             							mobileSelector.addClass(hasValidation);
             							mobileSelector.closest('div').find(errorSelector).html(msg);
+										
+										return false;
             						}
             					}
             				}
@@ -799,26 +829,28 @@
             			{
             				arrFocus[0].focus();
             			}
-            		else
-            		{
-            			var typePregnancy = $('body').find('#subscriber_question4').val();
-            			if(typePregnancy.toLowerCase() == 'pregnant')
-            			{
-            				$('body').find('.step3').hide();
-            				toTop();
-            				$('body').find('#step3btn').attr('type', 'submit');
-            				$('body').find('#step3btn').attr('name', 'submit');
-            				$('body').find('#step3btn').html('Submit');
-            				// $('body').find('.step3v1').show('fast');
-      					huggiesRowSelector.show();
-            			}
-      				else if(typePregnancy.toLowerCase() == 'babyout')
-      				{
-      					// $('body').find('.step3').hide();
-            				// toTop();
-      					// huggiesRowSelector.show();
-      				}
-            		}
+						else
+						{
+							var typePregnancy = $('body').find('#subscriber_question4').val();
+							if(typePregnancy.toLowerCase() == 'pregnant')
+							{
+								$('body').find('.step3').hide();
+								toTop();
+								$('body').find('#step3btn').attr('type', 'submit');
+								$('body').find('#step3btn').attr('name', 'submit');
+								$('body').find('#step3btn').html('Submit');
+								// $('body').find('.step3v1').show('fast');
+								huggiesRowSelector.show();
+							}
+							else if(typePregnancy.toLowerCase() == 'babyout')
+							{
+								// $('body').find('.step3').hide();
+									// toTop();
+								// huggiesRowSelector.show();
+							}
+						}
+					
+					return true;
             	}
                   			
             	var manageBtnKit = function(){
@@ -833,25 +865,26 @@
             			$('body').find('#momYear').prop('required',true);
             			$('body').find('#momMonth').prop('required',true);
             			$('body').find('#momDay').prop('required',true);
-      				$('body').find('#huggies-preferred-size').prop('required',true);
-      				$('body').find('#huggies-preferred-type').prop('required',true);
-      				$('body').find('#huggies-preferred-lang').prop('required',true);
+						$('body').find('#huggies-preferred-size').prop('required',true);
+						$('body').find('#huggies-preferred-type').prop('required',true);
+						$('body').find('#huggies-preferred-lang').prop('required',true);
             		}
             		else if(typePregnancy.toLowerCase() == 'babyout')
             		{
             			$('body').find('#btn-submit-form1').attr('type', 'Submit');
             			$('body').find('#btn-submit-form1').html('Submit');
-      				$('body').find('#btn-next-huggies').attr('type', 'submit');
-      				$('body').find('#btn-next-huggies').attr('name', 'submit');
+						$('body').find('#eventform').attr('onsubmit','return checkingForm();');
+						$('body').find('#btn-next-huggies').attr('type', 'submit');
+						$('body').find('#btn-next-huggies').attr('name', 'submit');
             			$('body').find('#btn-next-huggies').html('Submit');
             			$('body').find('.maincordblood').prop('required',false);
             			$('body').find('.mainhospitalquestion').prop('required',false);
             			$('body').find('#momYear').prop('required',false);
             			$('body').find('#momMonth').prop('required',false);
             			$('body').find('#momDay').prop('required',false);
-      				$('body').find('#huggies-preferred-size').prop('required',false);
-      				$('body').find('#huggies-preferred-type').prop('required',false);
-      				$('body').find('#huggies-preferred-lang').prop('required',false);
+						$('body').find('#huggies-preferred-size').prop('required',false);
+						$('body').find('#huggies-preferred-type').prop('required',false);
+						$('body').find('#huggies-preferred-lang').prop('required',false);
             		}
             	}
             
@@ -879,20 +912,32 @@
       			});
       			
             		$('body').on('click', '#btn-submit-form1', function(){
-            			var typePregnancy = $('body').find('#subscriber_question4').val();
+            			checkingForm();
+            		});
+					
+					 $('body').on('submit', '#eventform', function(){
+						var typePregnancy = $('body').find('#subscriber_question4').val();
             			if(typePregnancy.toLowerCase() == 'babyout')
             			{
-            				$(this).html('Processing...')
+							if(res == true)
+							{
+								$('#btn-submit-form1').html('Processing...');
+							}
+							else
+							{
+								$('#btn-submit-form1').html('Submit');
+							}
+            				
             				// $(this).prop('disabled', true);
             			}
             			else
             			{
-            				$(this).html('Next')
+            				$('#btn-submit-form1').html('Next')
             				// $(this).prop('disabled', false);
             			}
-            			
-            			checkingForm();
-            		});
+						
+						// return checkingForm();
+					}); 
             		
             		/** this is to hanlde to remove error class, when user input data  **/
             		$('body').on('change', '#emailNew, #newPassword, #newFirstName, #newLastName, #subscriber_question1, #subscriber_question8, #subscriber_question9, #subscriber_question10, #subscriber_question11, #dobParent, #huggies-preferred-size, #huggies-preferred-type, #huggies-preferred-lang', function(){

@@ -5,8 +5,16 @@
 		font-family: Arial,Helvetica,sans-serif;
 	}
 	
+	#eventform{
+		background-color:#203764;
+	}
+	
 	.font-fact{
 		font-family: 'Lexend Deca', sans-serif;
+	}
+	
+	.label-cb-custom{
+		color:white;
 	}
 	
 	.font-fact-highlight{
@@ -17,12 +25,13 @@
 	
 	.fact-of-the-day{
 		font-size: 25px;
-		color: #333333;
+		color: #ffffff;
 	}
 	
 	.card-fact-box{
 		background-color:#203764;
 		border-radius: 10px;
+		border:0px;
 	}
 	
 	.blockquote-map-malaysia{
@@ -96,8 +105,8 @@
 	}
 
 	.steps ul li.first a, .steps ul li.checked a {
-        background: #203764 !important;
-		color:#203764 !important;
+        background: #f18773 !important;
+		color:#f18773 !important;
         transition: all 0.5s ease; 
 		outline: unset;
 	}
@@ -106,7 +115,7 @@
 		content: "Question 1";
 		font-size: 18px;
 		font-family: Arial,Helvetica,sans-serif;
-		color: #4c4c4d;
+		color: white;
 		top: -27px;
 		position: absolute;
 	}
@@ -257,7 +266,7 @@
 	}
 	
 	.actions li[aria-disabled="true"] a {
-		display: none; 
+		display: inline-flex; 
 	}
 	
 	.actions li:first-child a {
@@ -289,6 +298,27 @@
 		outline: unset !important;
 		outline: 0px !important;
 	}
+	
+	.btn-cb-custom {
+		background-color: #f18773;
+		border-color: #f18773;
+		width: 50%;
+		padding: 10px;
+		padding-bottom: 10px;
+		font-size: 17px;
+		font-weight: 600;
+		outline:unset;
+		box-shadow: unset;
+	}
+	
+	.btn-cb-custom:hover, .btn-cb-custom:active, .btn-cb-custom:focus{
+		background-color:#f9634e;
+		border-color: #f9634e;
+		outline:unset;
+		box-shadow: unset;
+	}
+	
+	
 
 	@-webkit-keyframes hvr-icon-wobble-horizontal {
 	  16.65% {
@@ -443,6 +473,10 @@
 		.image-miscarriage{
 			width:105px;
 		}
+		
+		.btn-cb-custom{
+			width: 100%;
+		}
 	}
  /** end of css for form wizard **/
 -->
@@ -460,601 +494,641 @@
 <div class="row" style="margin-top:50px;">
 	<div class="row">
 		<div class="col-md-12 text-center mb-4">
-			<h3 class="font-fact"> Welcome to Clearblue Survey</h3>
+			<h3 class="font-fact" style="color:white"> Welcome to Clearblue Survey</h3>
+		</div>
+	</div>
+	<div class="row customer-info">
+		<div class="col-md-12 mb-4">
+			<div class="row">
+				<div class="col-md-6 px-2">
+					<div class="form-floating mb-3" style="right:10px;">
+						<input type="text" class="form-control is-invalid" name="newLastName" id="floatingFName" placeholder="First name">
+						<label for="floatingFName">First Name</label>
+					</div>
+				</div>
+				<div class="col-md-6 px-2">
+					<div class="form-floating mb-3" style="right:10px;">
+						<input type="text" class="form-control is-invalid" name="newFirstName" id="floatingLName" placeholder="Last name">
+						<label for="floatingLName">Last Name</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 px-2">
+					<div class="form-floating mb-3" style="right:10px;">
+						<input type="email" class="form-control is-valid" name="newEmail" id="floatingEmail" placeholder="email">
+						<label for="floatingEmail">Your Email</label>
+					</div>
+				</div>
+				<div class="col-md-6 px-2">
+					<div class="form-floating mb-3" style="right:10px;">
+						<input type="text" class="form-control" id="floatingMobileNo" name="subscriber_question15" placeholder="mobile no">
+						<label for="floatingMobileNo">Your Contact No</label>
+						<small style="color:#d8d8d8">For singapore number,+5 for prefix (+65). e.g. +5 XXXX XXXX</small>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 px-2 text-center">
+					<button type="button" class="btn btn-primary btn-cb-custom btn-next-customer" style="position: relative; right: 10px;">Next</button>
+				</div>
+			</div>
 		</div>
 	</div>
 	<input type="hidden" class="checkHighlight" value="">
-	<div class="col-md-12">
-		<div id="clearbluewizzard">
-			<!-- SECTION 1 -->
-			<h4></h4>
-			<section>
-				<div class="row row-form" >
-                    <div class="col-md-12 text-left">
-						<label>1. As you’re trying to conceive, right now you feel?</label> 
-						<div class="p-2">
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question1" id="quest1a" type="radio" name="subscriber_question1" value="love">
-								<label class="form-check-label" for="quest1a">
-									<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/in-love.png" class="img-fluid rounded float-start" alt="inlove" style="width:15%;">
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question1" id="quest1b" type="radio" name="subscriber_question1" value="crying">
-								<label class="form-check-label" for="quest1b">
-									<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/sad.png" class="img-fluid rounded float-start" alt="crying" style="width:15%;">
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question1" id="quest1c" type="radio" name="subscriber_question1" value="sleepy">
-								<label class="form-check-label" for="quest1c">
-									<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/sleepy.png" class="img-fluid rounded float-start" alt="sleepy" style="width:15%;">
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question1" id="quest1d" type="radio" name="subscriber_question1" value="happy">
-								<label class="form-check-label" for="quest1d">
-									<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/happy.png" class="img-fluid rounded float-start" alt="happy" style="width:15%;">
-								</label>
-							</div>
-						</div>
-					</div>
-                </div>
-			</section>
-			
-			<!-- SECTION 2 (emoji chart) -->
-			<h4></h4>
-			<section style="display:none;">
-				<div class="row" >
-					<div class="col-md-12 text-center">
-						<h3> How we feeling right now</h3>
-					</div>
-				</div>
-				<div class="row">
-					<div id="mmy-chartfeeling" class="amchart-mmy">
-						<center><h3 class="mt-4"> Loading graph...</h3></center>
-					</div>
-				</div>
-			</section>
-			
-			<!-- SECTION 3  -->
-			<h4></h4>
-			<section style="display:none;">
-				<div class="row row-form">
-                    <div class="col-md-12 text-left">
-						<label>2. You might want to skip this question, but your age is…?</label>
-						<div class="p-2">
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question2" type="radio" id="quest2a" name="subscriber_question2" value="under 30">
-								<label class="form-check-label" for="quest2a">
-									still young &amp; Under 30
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question2" type="radio" id="quest2b" name="subscriber_question2" value="30 to 39">
-								<label class="form-check-label" for="quest2b">
-									Early thirties 30 - 39, but I’m not worried
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question2" type="radio" id="quest2c" name="subscriber_question2" value="above 40">
-								<label class="form-check-label" for="quest2c">
-									40 something &amp; fabulous
-								</label>
+	<div class="row survey-row" style="display:none;">
+		<div class="col-md-12" style="margin-top:20px;">
+			<div id="clearbluewizzard">
+				<!-- SECTION 1 -->
+				<h4></h4>
+				<section>
+					<div class="row row-form" >
+						<div class="col-md-12 text-left">
+							<label class="label-cb-custom">1. As you’re trying to conceive, right now you feel?</label> 
+							<div class="p-2">
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question1" id="quest1a" type="radio" name="subscriber_question1" value="love">
+									<label class="form-check-label" for="quest1a">
+										<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/in-love.png" class="img-fluid rounded float-start" alt="inlove" style="width:15%;">
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question1" id="quest1b" type="radio" name="subscriber_question1" value="crying">
+									<label class="form-check-label" for="quest1b">
+										<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/sad.png" class="img-fluid rounded float-start" alt="crying" style="width:15%;">
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question1" id="quest1c" type="radio" name="subscriber_question1" value="sleepy">
+									<label class="form-check-label" for="quest1c">
+										<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/sleepy.png" class="img-fluid rounded float-start" alt="sleepy" style="width:15%;">
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question1" id="quest1d" type="radio" name="subscriber_question1" value="happy">
+									<label class="form-check-label" for="quest1d">
+										<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/happy.png" class="img-fluid rounded float-start" alt="happy" style="width:15%;">
+									</label>
+								</div>
 							</div>
 						</div>
 					</div>
-                </div>
-			</section>
-			
-			<!-- SECTION 4  -->
-			<h4></h4>
-			<section style="display:none;">
-				<div class="row">
+				</section>
+				
+				<!-- SECTION 2 (emoji chart) -->
+				<h4></h4>
+				<section style="display:none;">
+					<div class="row" >
+						<div class="col-md-12 text-center">
+							<h3 class="label-cb-custom"> How we feeling right now</h3>
+						</div>
+					</div>
+					<div class="row">
+						<div id="mmy-chartfeeling" class="amchart-mmy">
+							<center><h3 class="mt-4"> Loading graph...</h3></center>
+						</div>
+					</div>
+				</section>
+				
+				<!-- SECTION 3  -->
+				<h4></h4>
+				<section style="display:none;">
+					<div class="row row-form">
+						<div class="col-md-12 text-left">
+							<label class="label-cb-custom">2. You might want to skip this question, but your age is…?</label>
+							<div class="p-2">
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question2" type="radio" id="quest2a" name="subscriber_question2" value="under 30">
+									<label class="form-check-label label-cb-custom" for="quest2a">
+										still young &amp; Under 30
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question2" type="radio" id="quest2b" name="subscriber_question2" value="30 to 39">
+									<label class="form-check-label label-cb-custom" for="quest2b">
+										Early thirties 30 - 39, but I’m not worried
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question2" type="radio" id="quest2c" name="subscriber_question2" value="above 40">
+									<label class="form-check-label label-cb-custom" for="quest2c">
+										40 something &amp; fabulous
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<!-- SECTION 4  -->
+				<h4></h4>
+				<section style="display:none;">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<p class="font-fact fact-of-the-day label-cb-custom">
+								In general, ageing does affect fertility. A woman &amp; man's peak productive period is usually in their 20s.
+							</p>
+						</div>
+					</div>
+					<div class="row">
+						<div id="mmy-chartproductiveperiod" class="amchart-mmy">
+							<center><h3 class="mt-4"> Loading graph...</h3></center>
+						</div>
+					</div>
+				</section>
+				
+				<!-- SECTION 5  -->
+				<h4></h4>
+				<section style="display:none;">
+					<div class="row row-form">
+						<div class="col-md-12 text-left">
+							<label class="label-cb-custom label-cb-custom">3. No pressure or anything but so far, you’ve been trying for…</label> 
+							<div class="p-2">
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question3" type="radio" id="quest3a" name="subscriber_question3" value="Just recently started & enjoying it so far">
+									<label class="form-check-label label-cb-custom" for="quest3a">
+										Just recently started & enjoying it so far
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question3" type="radio" id="quest3b" name="subscriber_question3" value="Less than a year">
+									<label class="form-check-label label-cb-custom" for="quest3b">
+										Less than a year
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question3" type="radio" id="quest3c" name="subscriber_question3" value="12 months or more">
+									<label class="form-check-label label-cb-custom" for="quest3c">
+										12 months or more
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<!-- SECTION 6 -->
+				<h4></h4>
+				<section style="display:none;">
+					<div class="row">
+						<div class="col-md-12">
+							<center>
+								<div class="card card-map-malaysia card-fact-box">
+									<img class="card-img" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/map.png">
+									<div class="card-img-overlay text-center">
+										<blockquote class="blockquote blockquote-map-malaysia" style="border-left: 0px;">
+											<p class="font-fact fact-of-the-day  " style="color:white;">
+												Did you know the number of children <br>born per woman in 2019 was 1.8?<br> A huge decline from 4.9 in 1970
+											</p>
+											<footer class="blockquote-footer font-fact" style="color:white; margin-top:5px;">Source
+												<cite title="Department of Statistics Malaysia" style="font-style: italic;">Department of Statistics Malaysia</cite>
+											</footer>
+										</blockquote>
+									</div>
+								</div>
+							</center>
+						</div>
+					</div>
+				</section>
+				
+				<!-- SECTION 7  -->
+				<h4></h4>
+				<section style="display:none;">
+					<div class="row row-form">
+						<div class="col-md-12 text-left">
+							<label class="label-cb-custom">4. Time to open up! When it comes to miscarriage…</label> 
+							<div class="p-2">
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question4" type="radio" id="quest4a" name="subscriber_question4" value="never_experience">
+									<label class="form-check-label label-cb-custom" for="quest4a">
+										I’ve never experienced it
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question4" type="radio" id="quest4b" name="subscriber_question4" value="had_one">
+									<label class="form-check-label label-cb-custom" for="quest4b">
+										I had one
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question4" type="radio" id="quest4c" name="subscriber_question4" value="more_than_one">
+									<label class="form-check-label label-cb-custom" for="quest4c">
+										I’ve had more than one
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<!-- SECTION 8 -->
+				<h4></h4>
+				<section style="display:none;">
+					<div class="row">
+						<div class="col-md-12">
+							<center>
+								<div class="card card-miscarrige card-fact-box">
+									<div class="text-center pt-3">
+									<img class="card-img-top image-miscarriage" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/20.png" >
+									</div>
+									<div class="card-body text-center label-cb-custom">
+										<blockquote class="blockquote mb-0" style="border-left: 0px;">
+											<p class="font-fact fact-of-the-day" style="color:white;">
+												It may be comforting to know that <font class="font-fact-highlight">you’re not alone</font>. Miscarriage is possibly more common than you think; affecting affecting up to 20% of pregnant women.
+											</p>
+											
+											<footer class="blockquote-footer font-fact" style="color:white; margin-top:5px;">Source
+												<cite title="" style="font-style: italic">Obsterical and Gynaecological  Society of Malaysia</cite>
+											</footer>
+										</blockquote>
+									</div>
+								</div>
+							</center>
+						</div>
+					</div>
+				</section>
+				
+				<!-- SECTION 9  -->
+				<h4></h4>
+				<section style="display:none;">
+					<div class="row row-form">
+						<div class="col-md-12 text-left">
+							<label class="label-cb-custom">5. Don’t be shy now! Making love with your partner when trying to conceive is…</label> 
+							<div class="p-2">
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question5" type="radio" id="quest5a" name="subscriber_question5" value="romantic">
+									<label class="form-check-label label-cb-custom" for="quest5a">
+										Romantic
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question5" type="radio" id="quest5b" name="subscriber_question5" value="stressful">
+									<label class="form-check-label label-cb-custom" for="quest5b">
+										Stressful
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question5" type="radio" id="quest5c" name="subscriber_question5" value="workout">
+									<label class="form-check-label label-cb-custom" for="quest5c">
+										A workout
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question5" type="radio" id="quest5d" name="subscriber_question5" value="full_time_job">
+									<label class="form-check-label label-cb-custom" for="quest5d">
+										A full-time job
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<!-- SECTION 10 -->
+				<h4></h4>
+				<section style="display:none;">
+					<div class="row">
+						<div class="col-md-12">
+							<center>
+								<div class="card card-map-malaysia card-fact-box">
+									<div class="card-body text-center >
+										<blockquote class="blockquote mb-0 label-cb-custom" style="border-left: 0px;">
+											<p class="font-fact fact-of-the-day" style="color:white;">
+												<font class="font-fact-highlight">A friendly reminder:</font> 
+												We understand trying for a baby can be an overwhelming experience, but don’t let it affect your sex life. 
+												Try your best to spice things up in the bedroom & just enjoy the ride! 
+											</p>
+										</blockquote>
+									</div>
+								</div>
+							</center>
+						</div>
+					</div>
+				</section>
+				
+				<!-- SECTION 11 -->
+				<h4></h4>
+				<section style="display:none;">
+					<div class="row row-form">
+						<div class="col-md-12 text-left">
+							<label class="label-cb-custom">6. Let’s be honest: Your main concern so far about trying for a baby is…</label> 
+							<div class="p-2">
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question6" type="radio" id="quest6a" name="subscriber_question6" value="my_health">
+									<label class="form-check-label label-cb-custom" for="quest6a">
+										My health
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question6" type="radio" id="quest6b" name="subscriber_question6" value="my_career">
+									<label class="form-check-label label-cb-custom" for="quest6b">
+										My age
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question6" type="radio" id="quest6c" name="subscriber_question6" value="my_partner">
+									<label class="form-check-label label-cb-custom" for="quest6c">
+										My career
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question6" type="radio" id="quest6d" name="subscriber_question6" value="my_financial_status">
+									<label class="form-check-label label-cb-custom" for="quest6d">
+										My financial status
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<!-- SECTION 12 -->
+				<h4></h4>
+				<section style="display:none;">
+					<div class="row">
+						<div class="col-md-12">
+							<center>
+								<div class="card card-map-malaysia card-fact-box">
+									<div class="card-body" >
+										<blockquote class="blockquote mb-0 label-cb-custom" style="border-left: 0px;">
+											<p class="font-fact fact-of-the-day" style="color:white;">
+												<font class="font-fact-highlight">Hey, look at what we’ve just discovered:</font> A person’s age, having a career & earning an income is actually one of the 
+												<font class="font-fact-highlight">highest contributing factors to affect fertility</font> decisions among Malaysian women.
+											</p>
+											<footer class="blockquote-footer font-fact" style="color:white; margin-top:5px;">Source
+												<cite title="" style="font-style: italic;">Ministry of Woman, Family and Community Development</cite>
+											</footer>
+										</blockquote>
+									</div>
+								</div>
+							</center>
+						</div>
+					</div>
+				</section>
+				
+				<!-- SECTION 13 -->
+				<h4></h4>
+				<section style="display:none;">
+					<div class="row row-form">
+						<div class="col-md-12 text-left">
+							<label class="label-cb-custom">7. Let’s reminisce! When news of your pre-pregnancy plans first broke out, everyone was…</label> 
+							<div class="p-2">
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question7" type="radio" id="quest7a" name="subscriber_question7" value="Loving & supportive">
+									<label class="form-check-label label-cb-custom" for="quest7a">
+										Loving & supportive
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question7" type="radio" id="quest7b" name="subscriber_question7" value="being judgemental">
+									<label class="form-check-label label-cb-custom" for="quest7b">
+										Being judgemental
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question7" type="radio" id="quest7c" name="subscriber_question7" value="asking too many questions">
+									<label class="form-check-label label-cb-custom" for="quest7c">
+										Asking too many questions
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question7" type="radio" id="quest7d" name="subscriber_question7" value="having too many opinions">
+									<label class="form-check-label label-cb-custom" for="quest7d">
+										Having too many opinions
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question7" type="radio" id="quest7e name="subscriber_question7" value="feeling sorry for me">
+									<label class="form-check-label label-cb-custom" for="quest7e">
+										Feeling sorry for me
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<!-- SECTION 14 -->
+				<h4></h4>
+				<section style="display:none;">
 					<div class="col-md-12 text-center">
-						<p class="font-fact fact-of-the-day">
-							In general, ageing does affect fertility. A woman &amp; man's peak productive period is usually in their 20s.
+						<p class="font-fact fact-of-the-day label-cb-custom">
+							This is what some of us have experienced before
 						</p>
 					</div>
-				</div>
-				<div class="row">
-					<div id="mmy-chartproductiveperiod" class="amchart-mmy">
-						<center><h3 class="mt-4"> Loading graph...</h3></center>
+					<div class="row">
+						<div id="mmy-chartprepregnancy" class="amchart-mmy" style="min-height:387px;"></div>
 					</div>
-				</div>
-			</section>
-			
-			<!-- SECTION 5  -->
-			<h4></h4>
-			<section style="display:none;">
-				<div class="row row-form">
-                    <div class="col-md-12 text-left">
-						<label>3. No pressure or anything but so far, you’ve been trying for…</label> 
-						<div class="p-2">
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question3" type="radio" id="quest3a" name="subscriber_question3" value="Just recently started & enjoying it so far">
-								<label class="form-check-label" for="quest3a">
-									Just recently started & enjoying it so far
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question3" type="radio" id="quest3b" name="subscriber_question3" value="Less than a year">
-								<label class="form-check-label" for="quest3b">
-									Less than a year
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question3" type="radio" id="quest3c" name="subscriber_question3" value="12 months or more">
-								<label class="form-check-label" for="quest3c">
-									12 months or more
-								</label>
-							</div>
-						</div>
-					</div>
-                </div>
-			</section>
-			
-			<!-- SECTION 6 -->
-			<h4></h4>
-			<section style="display:none;">
-				<div class="row">
-					<div class="col-md-12">
-						<center>
-							<div class="card card-map-malaysia card-fact-box">
-								<img class="card-img" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/map.png">
-								<div class="card-img-overlay text-left">
-									<blockquote class="blockquote blockquote-map-malaysia" style="border-left: 0px;">
-										<p class="font-fact fact-of-the-day" style="color:white;">
-											Did you know the number of children born per woman in 2019 was 1.8? A huge decline from 4.9 in 1970
-										</p>
-										<footer class="blockquote-footer font-fact" style="color:white; margin-top:5px;">Source
-											<cite title="Department of Statistics Malaysia" style="font-style: italic;">Department of Statistics Malaysia</cite>
-										</footer>
-									</blockquote>
+				</section>
+				
+				<!-- SECTION 15 -->
+				<h4></h4>
+				<section style="display:none;">
+					<div class="row row-form">
+						<div class="col-md-12 text-left">
+							<label class="label-cb-custom">8. Oh boy! So with all the pressure of getting pregnant fast, you’re…</label> 
+							<div class="p-2">
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question8" type="radio" id="quest8a" name="subscriber_question8" value="going with my own flow here">
+									<label class="form-check-label label-cb-custom" for="quest8a">
+										Going with my own flow here
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question8" type="radio" id="quest8b" name="subscriber_question8" value="looking forward to having a lot of sex">
+									<label class="form-check-label label-cb-custom" for="quest8b">
+										Looking forward to having a lot of sex
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question8" type="radio" id="quest8c" name="subscriber_question8" value="going crazy looking at baby bump photos on social media">
+									<label class="form-check-label label-cb-custom" for="quest8c">
+										Going crazy looking at baby bump photos on social media
+									</label>
 								</div>
 							</div>
-						</center>
-					</div>
-				</div>
-			</section>
-			
-			<!-- SECTION 7  -->
-			<h4></h4>
-			<section style="display:none;">
-				<div class="row row-form">
-                    <div class="col-md-12 text-left">
-						<label>4. Time to open up! When it comes to miscarriage…</label> 
-						<div class="p-2">
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question4" type="radio" id="quest4a" name="subscriber_question4" value="never_experience">
-								<label class="form-check-label" for="quest4a">
-									I’ve never experienced it
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question4" type="radio" id="quest4b" name="subscriber_question4" value="had_one">
-								<label class="form-check-label" for="quest4b">
-									I had one
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question4" type="radio" id="quest4c" name="subscriber_question4" value="more_than_one">
-								<label class="form-check-label" for="quest4c">
-									I’ve had more than one
-								</label>
-							</div>
 						</div>
 					</div>
-                </div>
-			</section>
-			
-			<!-- SECTION 8 -->
-			<h4></h4>
-			<section style="display:none;">
-				<div class="row">
-					<div class="col-md-12">
-						<center>
-							<div class="card card-miscarrige card-fact-box">
-								<div class="text-center pt-3">
-								<img class="card-img-top image-miscarriage" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/20.png" >
+				</section>
+				<!-- SECTION 16 -->
+				<h4></h4>
+				<section style="display:none;">
+					<div class="row">
+						<div class="col-md-12">
+							<center>
+								<div class="card card-map-malaysia card-fact-box">
+									<div class="card-body" >
+										<blockquote class="blockquote mb-0 label-cb-custom" style="border-left: 0px;">
+											<p class="font-fact fact-of-the-day" style="color:white;">
+												<font class="font-fact-highlight">Pssst… here’s a tip:</font> Did you know an ovulation test can maximise your chances of getting pregnant? It’s good to know your most fertile days when you 
+												can get pregnant just by using an ovulation test. A great way to help speed things up in the baby-making department!
+											</p>
+										</blockquote>
+									</div>
 								</div>
-								<div class="card-body text-left">
-									<blockquote class="blockquote mb-0 text-left" style="border-left: 0px;">
-										<p class="font-fact fact-of-the-day" style="color:white;">
-											It may be comforting to know that <font class="font-fact-highlight">you’re not alone</font>. Miscarriage is possibly more common than you think; affecting affecting up to 20% of pregnant women.
-										</p>
-										
-										<footer class="blockquote-footer font-fact" style="color:white; margin-top:5px;">Source
-											<cite title="" style="font-style: italic">Obsterical and Gynaecological  Society of Malaysia</cite>
-										</footer>
-									</blockquote>
-								</div>
-							</div>
-						</center>
-					</div>
-				</div>
-			</section>
-			
-			<!-- SECTION 9  -->
-			<h4></h4>
-			<section style="display:none;">
-				<div class="row row-form">
-                    <div class="col-md-12 text-left">
-						<label>5. Don’t be shy now! Making love with your partner when trying to conceive is…</label> 
-						<div class="p-2">
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question5" type="radio" id="quest5a" name="subscriber_question5" value="romantic">
-								<label class="form-check-label" for="quest5a">
-									Romantic
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question5" type="radio" id="quest5b" name="subscriber_question5" value="stressful">
-								<label class="form-check-label" for="quest5b">
-									Stressful
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question5" type="radio" id="quest5c" name="subscriber_question5" value="workout">
-								<label class="form-check-label" for="quest5c">
-									A workout
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question5" type="radio" id="quest5d" name="subscriber_question5" value="full_time_job">
-								<label class="form-check-label" for="quest5d">
-									A full-time job
-								</label>
-							</div>
+							</center>
 						</div>
 					</div>
-                </div>
-			</section>
-			
-			<!-- SECTION 10 -->
-			<h4></h4>
-			<section style="display:none;">
-				<div class="row">
-					<div class="col-md-12">
-						<center>
-							<div class="card card-map-malaysia card-fact-box">
-								<div class="card-body" >
-									<blockquote class="blockquote mb-0" style="border-left: 0px;">
-										<p class="font-fact fact-of-the-day" style="color:white;">
-											<font class="font-fact-highlight">A friendly reminder:</font> 
-											We understand trying for a baby can be an overwhelming experience, but don’t let it affect your sex life. 
-											Try your best to spice things up in the bedroom & just enjoy the ride! 
-										</p>
-									</blockquote>
+				</section>
+				<!-- SECTION 17 -->
+				<h4></h4>
+				<section style="display:none;">
+					<div class="row row-form">
+						<div class="col-md-12 text-left">
+							<label class="label-cb-custom">9. Tell us your secret! You manage your emotions when trying to get pregnant by…</label> 
+							<div class="p-2">
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question9" type="radio" id="quest9a" name="subscriber_question9" value="exchange_my_exp_other_mom">
+									<label class="form-check-label label-cb-custom" for="quest9a">
+										Exchanging my experience with other mums
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question9" type="radio" id="quest9b" name="subscriber_question9" value="taking_break_baby_making">
+									<label class="form-check-label label-cb-custom" for="quest9b">
+										Taking a break from baby-making
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question9" type="radio" id="quest9c" name="subscriber_question9" value="not_letting_my_period_down">
+									<label class="form-check-label label-cb-custom" for="quest9c">
+										Not letting my period get me down
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question9" type="radio" id="quest9d" name="subscriber_question9" value="practice_relaxtion_technique">
+									<label class="form-check-label label-cb-custom" for="quest9d">
+										Practising relaxation techniques
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question9" type="radio" id="quest9e" name="subscriber_question9" value="limiting_going_online_to_find_out_pregnancy_stuff">
+									<label class="form-check-label label-cb-custom" for="quest9e">
+										Limiting going online to find out about pregnancy stuff
+									</label>
 								</div>
 							</div>
-						</center>
-					</div>
-				</div>
-			</section>
-			
-			<!-- SECTION 11 -->
-			<h4></h4>
-			<section style="display:none;">
-				<div class="row row-form">
-                    <div class="col-md-12 text-left">
-						<label>6. Let’s be honest: Your main concern so far about trying for a baby is…</label> 
-						<div class="p-2">
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question6" type="radio" id="quest6a" name="subscriber_question6" value="my_health">
-								<label class="form-check-label" for="quest6a">
-									My health
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question6" type="radio" id="quest6b" name="subscriber_question6" value="my_career">
-								<label class="form-check-label" for="quest6b">
-									My age
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question6" type="radio" id="quest6c" name="subscriber_question6" value="my_partner">
-								<label class="form-check-label" for="quest6c">
-									My career
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question6" type="radio" id="quest6d" name="subscriber_question6" value="my_financial_status">
-								<label class="form-check-label" for="quest6d">
-									My financial status
-								</label>
-							</div>
 						</div>
 					</div>
-                </div>
-			</section>
-			
-			<!-- SECTION 12 -->
-			<h4></h4>
-			<section style="display:none;">
-				<div class="row">
-					<div class="col-md-12">
-						<center>
-							<div class="card card-map-malaysia card-fact-box">
-								<div class="card-body" >
-									<blockquote class="blockquote mb-0" style="border-left: 0px;">
-										<p class="font-fact fact-of-the-day" style="color:white;">
-											<font class="font-fact-highlight">Hey, look at what we’ve just discovered:</font> A person’s age, having a career & earning an income is actually one of the 
-											<font class="font-fact-highlight">highest contributing factors to affect fertility</font> decisions among Malaysian women.
-										</p>
-										<footer class="blockquote-footer font-fact" style="color:white; margin-top:5px;">Source
-											<cite title="" style="font-style: italic;">Ministry of Woman, Family and Community Development</cite>
-										</footer>
-									</blockquote>
+				</section>
+				
+				<!-- SECTION 18 -->
+				<h4></h4>
+				<section style="display:none;">
+					<div class="col-md-12 text-center">
+						<p class="font-fact fact-of-the-day label-cb-custom">
+							Wow! Here’s how many women manage their emotions just like you
+						</p>
+					</div>
+					<div class="row">
+						<div id="mmy-chartshareemotion" class="amchart-mmy" style="min-height:387px;">
+							<center><h3 class="mt-4"> Loading graph...</h3></center>
+						</div>
+					</div>
+				</section>
+				
+				<!-- SECTION 19 -->
+				<h4></h4>
+				<section style="display:none;">
+					<div class="row row-form">
+						<div class="col-md-12 text-left">
+							<label class="label-cb-custom">10. Your biggest “cheerleader” throughout your beautiful baby-making journey is…</label> 
+							<div class="p-2">
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question10" type="radio" id="quest10a" name="subscriber_question10" value="my_partner">
+									<label class="form-check-label label-cb-custom" for="quest10a">
+										My partner
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question10" type="radio" id="quest10b" name="subscriber_question10" value="my_family">
+									<label class="form-check-label label-cb-custom" for="quest10b">
+										My family
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question10" type="radio" id="quest10c" name="subscriber_question10" value="my_friends">
+									<label class="form-check-label label-cb-custom" for="quest10c">
+										My friends
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question10" type="radio" id="quest10d" name="subscriber_question10" value="my_colleagues">
+									<label class="form-check-label label-cb-custom" for="quest10d">
+										My colleagues
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question10" type="radio" id="quest10e" name="subscriber_question10" value="kind_strangers">
+									<label class="form-check-label label-cb-custom" for="quest10e">
+										Kind strangers
+									</label>
 								</div>
 							</div>
-						</center>
-					</div>
-				</div>
-			</section>
-			
-			<!-- SECTION 13 -->
-			<h4></h4>
-			<section style="display:none;">
-				<div class="row row-form">
-                    <div class="col-md-12 text-left">
-						<label>7. Let’s reminisce! When news of your pre-pregnancy plans first broke out, everyone was…</label> 
-						<div class="p-2">
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question7" type="radio" id="quest7a" name="subscriber_question7" value="Loving & supportive">
-								<label class="form-check-label" for="quest7a">
-									Loving & supportive
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question7" type="radio" id="quest7b" name="subscriber_question7" value="being judgemental">
-								<label class="form-check-label" for="quest7b">
-									Being judgemental
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question7" type="radio" id="quest7c" name="subscriber_question7" value="asking too many questions">
-								<label class="form-check-label" for="quest7c">
-									Asking too many questions
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question7" type="radio" id="quest7d" name="subscriber_question7" value="having too many opinions">
-								<label class="form-check-label" for="quest7d">
-									Having too many opinions
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question7" type="radio" id="quest7e name="subscriber_question7" value="feeling sorry for me">
-								<label class="form-check-label" for="quest7e">
-									Feeling sorry for me
-								</label>
-							</div>
 						</div>
 					</div>
-                </div>
-			</section>
-			
-			<!-- SECTION 14 -->
-			<h4></h4>
-			<section style="display:none;">
-				<div class="col-md-12 text-center">
-					<p class="font-fact fact-of-the-day">
-						This is what some of us have experienced before
-					</p>
-				</div>
-				<div class="row">
-					<div id="mmy-chartprepregnancy" class="amchart-mmy" style="min-height:387px;"></div>
-				</div>
-			</section>
-			
-			<!-- SECTION 15 -->
-			<h4></h4>
-			<section style="display:none;">
-				<div class="row row-form">
-                    <div class="col-md-12 text-left">
-						<label>8. Oh boy! So with all the pressure of getting pregnant fast, you’re…</label> 
-						<div class="p-2">
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question8" type="radio" id="quest8a" name="subscriber_question8" value="going with my own flow here">
-								<label class="form-check-label" for="quest8a">
-									Going with my own flow here
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question8" type="radio" id="quest8b" name="subscriber_question8" value="looking forward to having a lot of sex">
-								<label class="form-check-label" for="quest8b">
-									Looking forward to having a lot of sex
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question8" type="radio" id="quest8c" name="subscriber_question8" value="going crazy looking at baby bump photos on social media">
-								<label class="form-check-label" for="quest8c">
-									Going crazy looking at baby bump photos on social media
-								</label>
-							</div>
+				</section>
+				
+				<!-- SECTION 20 -->
+				<h4></h4>
+				<section style="display:none;">
+					<div class="row">
+						<div class="col-md-12">
+							<center>
+								<div class="card card-map-malaysia card-fact-box">
+									<div class="card-body" >
+										<blockquote class="blockquote mb-0 label-cb-custom" style="border-left: 0px;">
+											<p class="font-fact fact-of-the-day" style="color:white;">
+												<font class="font-fact-highlight">A friendly reminder:</font> It has been proven that couples who sought support had improved fertility rates. So, go ahead & seek support when you're trying to get pregnant. 
+												We know that it can sometimes seem as if the whole world already has a baby or is expecting one. 
+											</p>
+											<footer class="blockquote-footer font-fact" style="color:white; margin-top:5px;">Source
+												<cite title="Department of Statistics Malaysia" style="font-style: italic;"></cite>
+											</footer>
+										</blockquote>
+									</div>
+								</div>
+							</center>
 						</div>
 					</div>
-                </div>
-			</section>
-			<!-- SECTION 16 -->
-			<h4></h4>
-			<section style="display:none;">
-				<div class="row">
-					<div class="col-md-12">
-						<center>
-							<div class="card card-map-malaysia card-fact-box">
-								<div class="card-body" >
-									<blockquote class="blockquote mb-0" style="border-left: 0px;">
-										<p class="font-fact fact-of-the-day" style="color:white;">
-											<font class="font-fact-highlight">Pssst… here’s a tip:</font> Did you know an ovulation test can maximise your chances of getting pregnant? It’s good to know your most fertile days when you 
-											can get pregnant just by using an ovulation test. A great way to help speed things up in the baby-making department!
-										</p>
-									</blockquote>
+				</section>
+				
+				<!-- SECTION 21 -->
+				<h4></h4>
+				<section style="display:none;">
+					<div class="row row-form">
+						<div class="col-md-12 text-left">
+							<label class="label-cb-custom">11. Spill the tea! Your no.1 source when planning for your trying-to-conceive journey is…</label> 
+							<div class="p-2">
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question11" type="radio" name="subscriber_question11" id="quest11a" value="seek advice from a gynecologist">
+									<label class="form-check-label label-cb-custom" for="quest11a">
+										Seek advice from a gynecologist/fertility specialist
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question11" type="radio" name="subscriber_question11" id="quest11b" value="get tips from other mums">
+									<label class="form-check-label label-cb-custom" for="quest11b">
+										Get tips from other mums
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question11" type="radio" name="subscriber_question11" id="quest11c" value="track using fertility tools">
+									<label class="form-check-label label-cb-custom" for="quest11c">
+										Track using fertility tools (eg. ovulation kit)
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question11" type="radio" name="subscriber_question11" id="quest11d" value="read up on pregnancy tips online">
+									<label class="form-check-label label-cb-custom" for="quest11d">
+										Read up on pregnancy tips online
+									</label>
 								</div>
 							</div>
-						</center>
-					</div>
-				</div>
-			</section>
-			<!-- SECTION 17 -->
-			<h4></h4>
-			<section style="display:none;">
-				<div class="row row-form">
-                    <div class="col-md-12 text-left">
-						<label>9. Tell us your secret! You manage your emotions when trying to get pregnant by…</label> 
-						<div class="p-2">
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question9" type="radio" id="quest9a" name="subscriber_question9" value="exchange_my_exp_other_mom">
-								<label class="form-check-label" for="quest9a">
-									Exchanging my experience with other mums
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question9" type="radio" id="quest9b" name="subscriber_question9" value="taking_break_baby_making">
-								<label class="form-check-label" for="quest9b">
-									Taking a break from baby-making
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question9" type="radio" id="quest9c" name="subscriber_question9" value="not_letting_my_period_down">
-								<label class="form-check-label" for="quest9c">
-									Not letting my period get me down
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question9" type="radio" id="quest9d" name="subscriber_question9" value="practice_relaxtion_technique">
-								<label class="form-check-label" for="quest9d">
-									Practising relaxation techniques
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question9" type="radio" id="quest9e" name="subscriber_question9" value="limiting_going_online_to_find_out_pregnancy_stuff">
-								<label class="form-check-label" for="quest9e">
-									Limiting going online to find out about pregnancy stuff
-								</label>
-							</div>
 						</div>
 					</div>
-                </div>
-			</section>
-			
-			<!-- SECTION 18 -->
-			<h4></h4>
-			<section style="display:none;">
-				<div class="col-md-12 text-center">
-					<p class="font-fact fact-of-the-day">
-						Wow! Here’s how many women manage their emotions just like you
-					</p>
-				</div>
-				<div class="row">
-					<div id="mmy-chartshareemotion" class="amchart-mmy" style="min-height:387px;">
-						<center><h3 class="mt-4"> Loading graph...</h3></center>
-					</div>
-				</div>
-			</section>
-			
-			<!-- SECTION 19 -->
-			<h4></h4>
-			<section style="display:none;">
-				<div class="row row-form">
-                    <div class="col-md-12 text-left">
-						<label>10. Your biggest “cheerleader” throughout your beautiful baby-making journey is…</label> 
-						<div class="p-2">
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question10" type="radio" id="quest10a" name="subscriber_question10" value="my_partner">
-								<label class="form-check-label" for="quest10a">
-									My partner
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question10" type="radio" id="quest10b" name="subscriber_question10" value="my_family">
-								<label class="form-check-label" for="quest10b">
-									My family
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question10" type="radio" id="quest10c" name="subscriber_question10" value="my_friends">
-								<label class="form-check-label" for="quest10c">
-									My friends
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question10" type="radio" id="quest10d" name="subscriber_question10" value="my_colleagues">
-								<label class="form-check-label" for="quest10d">
-									My colleagues
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question10" type="radio" id="quest10e" name="subscriber_question10" value="kind_strangers">
-								<label class="form-check-label" for="quest10e">
-									Kind strangers
-								</label>
-							</div>
-						</div>
-					</div>
-                </div>
-			</section>
-			
-			<!-- SECTION 20 -->
-			<h4></h4>
-			<section style="display:none;">
-				<div class="row">
-					<div class="col-md-12">
-						<center>
-							<div class="card card-map-malaysia card-fact-box">
-								<div class="card-body" >
-									<blockquote class="blockquote mb-0" style="border-left: 0px;">
-										<p class="font-fact fact-of-the-day" style="color:white;">
-											<font class="font-fact-highlight">A friendly reminder:</font> It has been proven that couples who sought support had improved fertility rates. So, go ahead & seek support when you're trying to get pregnant. 
-											We know that it can sometimes seem as if the whole world already has a baby or is expecting one. 
-										</p>
-										<footer class="blockquote-footer font-fact" style="color:white; margin-top:5px;">Source
-											<cite title="Department of Statistics Malaysia" style="font-style: italic;"></cite>
-										</footer>
-									</blockquote>
-								</div>
-							</div>
-						</center>
-					</div>
-				</div>
-			</section>
-			
-			<!-- SECTION 21 -->
-			<h4></h4>
-			<section style="display:none;">
-				<div class="row row-form">
-                    <div class="col-md-12 text-left">
-						<label>11. Spill the tea! Your no.1 source when planning for your trying-to-conceive journey is…</label> 
-						<div class="p-2">
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question11" type="radio" name="subscriber_question11" id="quest11a" value="seek advice from a gynecologist">
-								<label class="form-check-label" for="quest11a">
-									Seek advice from a gynecologist/fertility specialist
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question11" type="radio" name="subscriber_question11" id="quest11b" value="get tips from other mums">
-								<label class="form-check-label" for="quest11b">
-									Get tips from other mums
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question11" type="radio" name="subscriber_question11" id="quest11c" value="track using fertility tools">
-								<label class="form-check-label" for="quest11c">
-									Track using fertility tools (eg. ovulation kit)
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input noUniform custom-checkbox subscriber_question11" type="radio" name="subscriber_question11" id="quest11d" value="read up on pregnancy tips online">
-								<label class="form-check-label" for="quest11d">
-									Read up on pregnancy tips online
-								</label>
-							</div>
-						</div>
-					</div>
-                </div>
-			</section>
+				</section>
+			</div>
 		</div>
 	</div>
 </div>
@@ -1066,27 +1140,27 @@
 <script type="text/javascript">
 	
 	var chartFeeling = function(){
-		var colorLove  = "#203764";
-		var colorCry   = "#203764";
-		var colorSleep = "#203764";
-		var colorHappy = "#203764";
+		var colorLove  = "#ffffff";
+		var colorCry   = "#ffffff";
+		var colorSleep = "#ffffff";
+		var colorHappy = "#ffffff";
 		var question_1 = $('body').find('.subscriber_question1:checked').val();
 		
 		if(question_1 == 'love')
 		{
-			colorLove = "#80a2be";
+			colorLove = "#1d9dd9";
 		}
 		else if(question_1 == 'crying')
 		{
-			colorCry = "#80a2be";
+			colorCry = "#1d9dd9";
 		}
 		else if(question_1 == 'sleepy')
 		{
-			colorSleep = "#80a2be";
+			colorSleep = "#1d9dd9";
 		}
 		else if(question_1 == 'happy')
 		{
-			colorHappy = "#80a2be";
+			colorHappy = "#1d9dd9";
 		}
 		
 		// Themes begin
@@ -1183,6 +1257,7 @@
 		axis.max = 100;
 		axis.strictMinMax = true;
 		axis.renderer.grid.template.stroke = new am4core.InterfaceColorSet().getFor("background");
+		axis.renderer.labels.template.fill = am4core.color("#ffffff");
 		axis.renderer.grid.template.strokeOpacity = 0.3;
 
 		var colorSet = new am4core.ColorSet();
@@ -1209,6 +1284,9 @@
 		range2.axisFill.zIndex = -1;
 
 		var hand = chart.hands.push(new am4charts.ClockHand());
+		hand.fill = am4core.color("#f9634e");
+		hand.stroke = am4core.color("#f9634e");
+		hand.radius = am4core.percent(85);
 
 		// using chart.setTimeout method as the timeout will be disposed together with a chart
 		chart.setTimeout(randomValue, 2000);
@@ -1327,7 +1405,7 @@
 			ev.target.dataItem.dataContext.columnDataItem.column.hideTooltip();
 		});
 		
-		
+		legend.labels.template.fill = am4core.color("#ffffff");
 		chart.responsive.rules.push({
 		  relevant: function(target) {
 			if (target.pixelWidth <= 400) {
@@ -1455,7 +1533,7 @@
 			ev.target.dataItem.dataContext.columnDataItem.column.hideTooltip();
 		});
 		
-		
+		legend.labels.template.fill = am4core.color("#ffffff");
 		chart.responsive.rules.push({
 		  relevant: function(target) {
 			if (target.pixelWidth <= 400) {
@@ -1511,12 +1589,23 @@
 				enableAllSteps		  : true,
 				enableKeyNavigation   : true,
 				transitionEffectSpeed : 500,
+				onInit 				  : function (event, currentIndex) { 
+					console.log("oninit currentIndex" + currentIndex);
+					$('body').find('.actions .disabled a').attr('href', '#cancel');
+				},
+				onCanceled 			  : function (event) { 
+					$('body').find('.survey-row').hide('fast');
+					$('body').find('.customer-info').show('fast');
+				},
 				onStepChanging		  : function (event, currentIndex, newIndex) { 
 					$('body').find('.checkHighlight').val("");
+					
+					console.log("currentIndex = " + currentIndex + " newIndex = " + newIndex);
+					
 					if(currentIndex === 0)
 					{
 						var question_1 = $('body').find('.subscriber_question1:checked').val();
-						if(question_1 == '' || question_1 == undefined || question_1 == null)
+						if((question_1 == '' || question_1 == undefined || question_1 == null) && (newIndex > currentIndex))
 						{
 							alertError();
 							checkHighlight();
@@ -1526,8 +1615,9 @@
 					
 					if(currentIndex === 2)
 					{
+						
 						var question_2 = $('body').find('.subscriber_question2:checked').val();
-						if(question_2 == '' || question_2 == undefined || question_2 == null)
+						if((question_2 == '' || question_2 == undefined || question_2 == null) && (newIndex > currentIndex))
 						{
 							alertError();
 							checkHighlight();
@@ -1538,7 +1628,7 @@
 					if(currentIndex === 4)
 					{
 						var question_3 = $('body').find('.subscriber_question3:checked').val();
-						if(question_3 == '' || question_3 == undefined || question_3 == null)
+						if((question_3 == '' || question_3 == undefined || question_3 == null) && (newIndex > currentIndex))
 						{
 							alertError();
 							checkHighlight();
@@ -1549,7 +1639,7 @@
 					if(currentIndex === 6)
 					{
 						var question_4 = $('body').find('.subscriber_question4:checked').val();
-						if(question_4 == '' || question_4 == undefined || question_4 == null)
+						if((question_4 == '' || question_4 == undefined || question_4 == null) && (newIndex > currentIndex))
 						{
 							alertError();
 							checkHighlight();
@@ -1560,7 +1650,7 @@
 					if(currentIndex === 8)
 					{
 						var question_5 = $('body').find('.subscriber_question5:checked').val();
-						if(question_5 == '' || question_5 == undefined || question_5 == null)
+						if((question_5 == '' || question_5 == undefined || question_5 == null) && (newIndex > currentIndex))
 						{
 							alertError();
 							checkHighlight();
@@ -1571,7 +1661,7 @@
 					if(currentIndex === 10)
 					{
 						var question_6 = $('body').find('.subscriber_question6:checked').val();
-						if(question_6 == '' || question_6 == undefined || question_6 == null)
+						if((question_6 == '' || question_6 == undefined || question_6 == null) && (newIndex > currentIndex))
 						{
 							alertError();
 							checkHighlight();
@@ -1582,7 +1672,7 @@
 					if(currentIndex === 12)
 					{
 						var question_7 = $('body').find('.subscriber_question7:checked').val();
-						if(question_7 == '' || question_7 == undefined || question_7 == null)
+						if((question_7 == '' || question_7 == undefined || question_7 == null) && (newIndex > currentIndex))
 						{
 							alertError();
 							checkHighlight();
@@ -1593,7 +1683,7 @@
 					if(currentIndex === 14)
 					{
 						var question_8 = $('body').find('.subscriber_question8:checked').val();
-						if(question_8 == '' || question_8 == undefined || question_8 == null)
+						if((question_8 == '' || question_8 == undefined || question_8 == null) && (newIndex > currentIndex))
 						{
 							alertError();
 							checkHighlight();
@@ -1604,7 +1694,7 @@
 					if(currentIndex === 16)
 					{
 						var question_9 = $('body').find('.subscriber_question9:checked').val();
-						if(question_9 == '' || question_9 == undefined || question_9 == null)
+						if((question_9 == '' || question_9 == undefined || question_9 == null) && (newIndex > currentIndex))
 						{
 							alertError();
 							checkHighlight();
@@ -1615,7 +1705,7 @@
 					if(currentIndex === 18)
 					{
 						var question_10 = $('body').find('.subscriber_question10:checked').val();
-						if(question_10 == '' || question_10 == undefined || question_10 == null)
+						if((question_10 == '' || question_10 == undefined || question_10 == null) && (newIndex > currentIndex))
 						{
 							alertError();
 							checkHighlight();
@@ -1626,7 +1716,7 @@
 					if(currentIndex === 20)
 					{
 						var question_11 = $('body').find('.subscriber_question11:checked').val();
-						if(question_11 == '' || question_11 == undefined || question_11 == null)
+						if((question_11 == '' || question_11 == undefined || question_11 == null) && (newIndex > currentIndex))
 						{
 							alertError();
 							checkHighlight();
@@ -1634,7 +1724,6 @@
 						}
 					}
 					
-					console.log("newIndex" + newIndex);
 					if (newIndex === 1) {
 						$('.steps ul').addClass('step-2');
 						chartFeeling();
@@ -1762,8 +1851,14 @@
 					return true; 
 					
 				},
-				onStepChanged : function(event, currentIndex, priorIndex){
-					
+				onStepChanged :function (event, currentIndex, priorIndex) { 
+					if(currentIndex === 0){
+						$('body').find('.actions .disabled a').attr('href', '#cancel');
+					}
+					else{
+						$('body').find('.actions a[href="#cancel"]').attr('href', '#previous');
+					}
+						
 				},
 				onFinished  : function(){
 					$('body').find('#dummy-btn-to-submit').trigger('click');
@@ -1771,7 +1866,9 @@
 				labels: {
 					finish: "Submit",
 					next: "Next",
-					previous: "Back"
+					previous: "Back",
+					cancel: "Cancel",
+					loading: "Loading ..."
 				}
 			});
 			
@@ -1786,6 +1883,11 @@
 				
 				$(this).parent().prevAll().addClass('checked');
 				$(this).parent().nextAll().removeClass('checked');
+			});
+			
+			$('body').on('click', '.btn-next-customer', function(){
+				$('body').find('.survey-row').show('fast');
+				$('body').find('.customer-info').hide('fast');
 			});
 			
 			
