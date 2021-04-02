@@ -56,6 +56,10 @@
 		height : 270px;
 	}
 	
+	.small-customer-info-msg{
+		color:#d8d8d8;
+	}
+	
 	ul {
 	  padding: 0;
 	  margin: 0;
@@ -202,6 +206,10 @@
 	
 	.steps ul.step-22:before {
       content: ""; 
+	}
+	
+	.actions{
+		padding-right: 25px;
 	}
 	
 	.actions ul {
@@ -408,6 +416,10 @@
 	}
 	
 	@media (max-width: 767px) {
+		.actions{
+			padding-right: 15px;
+		}
+		
 		.wrapper {
 			height: auto;
 			display: block; 
@@ -477,6 +489,15 @@
 		.btn-cb-custom{
 			width: 100%;
 		}
+		
+		.br-fact{
+			display:none;
+		}
+		
+		.row-custom{
+			position:relative;
+			right:12px;
+		}
 	}
  /** end of css for form wizard **/
 -->
@@ -492,7 +513,7 @@
 </p>
 
 <div class="row" style="margin-top:50px;">
-	<div class="row">
+	<div class="row row-custom">
 		<div class="col-md-12 text-center mb-4">
 			<h3 class="font-fact" style="color:white"> Welcome to Clearblue Survey</h3>
 		</div>
@@ -502,29 +523,25 @@
 			<div class="row">
 				<div class="col-md-6 px-2">
 					<div class="form-floating mb-3" style="right:10px;">
-						<input type="text" class="form-control is-invalid" name="newLastName" id="floatingFName" placeholder="First name">
-						<label for="floatingFName">First Name</label>
+						<input type="text" class="form-control customer-info-input input-firstname" name="newFirstName" id="floatingFName" placeholder="First name">
+						<label for="floatingFName">Full Name</label>
+						<small class="small-customer-info-msg"></small>
 					</div>
 				</div>
 				<div class="col-md-6 px-2">
 					<div class="form-floating mb-3" style="right:10px;">
-						<input type="text" class="form-control is-invalid" name="newFirstName" id="floatingLName" placeholder="Last name">
-						<label for="floatingLName">Last Name</label>
+						<input type="email" class="form-control customer-info-input input-email" name="newEmail" id="floatingEmail" placeholder="email">
+						<label for="floatingEmail">Your Email</label>
+						<small class="small-customer-info-msg"></small>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-6 px-2">
 					<div class="form-floating mb-3" style="right:10px;">
-						<input type="email" class="form-control is-valid" name="newEmail" id="floatingEmail" placeholder="email">
-						<label for="floatingEmail">Your Email</label>
-					</div>
-				</div>
-				<div class="col-md-6 px-2">
-					<div class="form-floating mb-3" style="right:10px;">
-						<input type="text" class="form-control" id="floatingMobileNo" name="subscriber_question15" placeholder="mobile no">
+						<input type="text" class="form-control customer-info-input input-mobilenumber" id="floatingMobileNo" name="subscriber_question15" placeholder="mobile no">
 						<label for="floatingMobileNo">Your Contact No</label>
-						<small style="color:#d8d8d8">For singapore number,+5 for prefix (+65). e.g. +5 XXXX XXXX</small>
+						<small class="small-customer-info-msg"></small>
 					</div>
 				</div>
 			</div>
@@ -542,7 +559,7 @@
 				<!-- SECTION 1 -->
 				<h4></h4>
 				<section>
-					<div class="row row-form" >
+					<div class="row row-form row-custom" >
 						<div class="col-md-12 text-left">
 							<label class="label-cb-custom">1. As you’re trying to conceive, right now you feel?</label> 
 							<div class="p-2">
@@ -578,12 +595,12 @@
 				<!-- SECTION 2 (emoji chart) -->
 				<h4></h4>
 				<section style="display:none;">
-					<div class="row" >
+					<div class="row row-custom" >
 						<div class="col-md-12 text-center">
 							<h3 class="label-cb-custom"> How we feeling right now</h3>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row row-custom">
 						<div id="mmy-chartfeeling" class="amchart-mmy">
 							<center><h3 class="mt-4"> Loading graph...</h3></center>
 						</div>
@@ -593,7 +610,7 @@
 				<!-- SECTION 3  -->
 				<h4></h4>
 				<section style="display:none;">
-					<div class="row row-form">
+					<div class="row row-form row-custom">
 						<div class="col-md-12 text-left">
 							<label class="label-cb-custom">2. You might want to skip this question, but your age is…?</label>
 							<div class="p-2">
@@ -623,14 +640,14 @@
 				<!-- SECTION 4  -->
 				<h4></h4>
 				<section style="display:none;">
-					<div class="row">
+					<div class="row row-custom">
 						<div class="col-md-12 text-center">
 							<p class="font-fact fact-of-the-day label-cb-custom">
 								In general, ageing does affect fertility. A woman &amp; man's peak productive period is usually in their 20s.
 							</p>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row row-custom">
 						<div id="mmy-chartproductiveperiod" class="amchart-mmy">
 							<center><h3 class="mt-4"> Loading graph...</h3></center>
 						</div>
@@ -640,7 +657,7 @@
 				<!-- SECTION 5  -->
 				<h4></h4>
 				<section style="display:none;">
-					<div class="row row-form">
+					<div class="row row-form row-custom">
 						<div class="col-md-12 text-left">
 							<label class="label-cb-custom label-cb-custom">3. No pressure or anything but so far, you’ve been trying for…</label> 
 							<div class="p-2">
@@ -670,7 +687,7 @@
 				<!-- SECTION 6 -->
 				<h4></h4>
 				<section style="display:none;">
-					<div class="row">
+					<div class="row row-custom">
 						<div class="col-md-12">
 							<center>
 								<div class="card card-map-malaysia card-fact-box">
@@ -694,7 +711,7 @@
 				<!-- SECTION 7  -->
 				<h4></h4>
 				<section style="display:none;">
-					<div class="row row-form">
+					<div class="row row-form row-custom">
 						<div class="col-md-12 text-left">
 							<label class="label-cb-custom">4. Time to open up! When it comes to miscarriage…</label> 
 							<div class="p-2">
@@ -724,7 +741,7 @@
 				<!-- SECTION 8 -->
 				<h4></h4>
 				<section style="display:none;">
-					<div class="row">
+					<div class="row row-custom">
 						<div class="col-md-12">
 							<center>
 								<div class="card card-miscarrige card-fact-box">
@@ -751,7 +768,7 @@
 				<!-- SECTION 9  -->
 				<h4></h4>
 				<section style="display:none;">
-					<div class="row row-form">
+					<div class="row row-form row-custom">
 						<div class="col-md-12 text-left">
 							<label class="label-cb-custom">5. Don’t be shy now! Making love with your partner when trying to conceive is…</label> 
 							<div class="p-2">
@@ -787,7 +804,7 @@
 				<!-- SECTION 10 -->
 				<h4></h4>
 				<section style="display:none;">
-					<div class="row">
+					<div class="row row-custom">
 						<div class="col-md-12">
 							<center>
 								<div class="card card-map-malaysia card-fact-box">
@@ -809,7 +826,7 @@
 				<!-- SECTION 11 -->
 				<h4></h4>
 				<section style="display:none;">
-					<div class="row row-form">
+					<div class="row row-form row-custom">
 						<div class="col-md-12 text-left">
 							<label class="label-cb-custom">6. Let’s be honest: Your main concern so far about trying for a baby is…</label> 
 							<div class="p-2">
@@ -845,7 +862,7 @@
 				<!-- SECTION 12 -->
 				<h4></h4>
 				<section style="display:none;">
-					<div class="row">
+					<div class="row row-custom">
 						<div class="col-md-12">
 							<center>
 								<div class="card card-map-malaysia card-fact-box">
@@ -869,7 +886,7 @@
 				<!-- SECTION 13 -->
 				<h4></h4>
 				<section style="display:none;">
-					<div class="row row-form">
+					<div class="row row-form row-custom">
 						<div class="col-md-12 text-left">
 							<label class="label-cb-custom">7. Let’s reminisce! When news of your pre-pregnancy plans first broke out, everyone was…</label> 
 							<div class="p-2">
@@ -911,12 +928,14 @@
 				<!-- SECTION 14 -->
 				<h4></h4>
 				<section style="display:none;">
-					<div class="col-md-12 text-center">
-						<p class="font-fact fact-of-the-day label-cb-custom">
-							This is what some of us have experienced before
-						</p>
+					<div class="row row-custom">
+						<div class="col-md-12 text-center">
+							<p class="font-fact fact-of-the-day label-cb-custom">
+								This is what some of us have experienced before
+							</p>
+						</div>
 					</div>
-					<div class="row">
+					<div class="row row-custom">
 						<div id="mmy-chartprepregnancy" class="amchart-mmy" style="min-height:387px;"></div>
 					</div>
 				</section>
@@ -924,7 +943,7 @@
 				<!-- SECTION 15 -->
 				<h4></h4>
 				<section style="display:none;">
-					<div class="row row-form">
+					<div class="row row-form row-custom">
 						<div class="col-md-12 text-left">
 							<label class="label-cb-custom">8. Oh boy! So with all the pressure of getting pregnant fast, you’re…</label> 
 							<div class="p-2">
@@ -953,7 +972,7 @@
 				<!-- SECTION 16 -->
 				<h4></h4>
 				<section style="display:none;">
-					<div class="row">
+					<div class="row row-custom">
 						<div class="col-md-12">
 							<center>
 								<div class="card card-map-malaysia card-fact-box">
@@ -973,7 +992,7 @@
 				<!-- SECTION 17 -->
 				<h4></h4>
 				<section style="display:none;">
-					<div class="row row-form">
+					<div class="row row-form row-custom">
 						<div class="col-md-12 text-left">
 							<label class="label-cb-custom">9. Tell us your secret! You manage your emotions when trying to get pregnant by…</label> 
 							<div class="p-2">
@@ -1015,12 +1034,14 @@
 				<!-- SECTION 18 -->
 				<h4></h4>
 				<section style="display:none;">
-					<div class="col-md-12 text-center">
-						<p class="font-fact fact-of-the-day label-cb-custom">
-							Wow! Here’s how many women manage their emotions just like you
-						</p>
+					<div class="row row-custom">
+						<div class="col-md-12 text-center">
+							<p class="font-fact fact-of-the-day label-cb-custom">
+								Wow! Here’s how many women manage their emotions just like you
+							</p>
+						</div>
 					</div>
-					<div class="row">
+					<div class="row row-custom">
 						<div id="mmy-chartshareemotion" class="amchart-mmy" style="min-height:387px;">
 							<center><h3 class="mt-4"> Loading graph...</h3></center>
 						</div>
@@ -1030,7 +1051,7 @@
 				<!-- SECTION 19 -->
 				<h4></h4>
 				<section style="display:none;">
-					<div class="row row-form">
+					<div class="row row-form row-custom">
 						<div class="col-md-12 text-left">
 							<label class="label-cb-custom">10. Your biggest “cheerleader” throughout your beautiful baby-making journey is…</label> 
 							<div class="p-2">
@@ -1072,7 +1093,7 @@
 				<!-- SECTION 20 -->
 				<h4></h4>
 				<section style="display:none;">
-					<div class="row">
+					<div class="row row-custom">
 						<div class="col-md-12">
 							<center>
 								<div class="card card-map-malaysia card-fact-box">
@@ -1096,7 +1117,7 @@
 				<!-- SECTION 21 -->
 				<h4></h4>
 				<section style="display:none;">
-					<div class="row row-form">
+					<div class="row row-form row-custom">
 						<div class="col-md-12 text-left">
 							<label class="label-cb-custom">11. Spill the tea! Your no.1 source when planning for your trying-to-conceive journey is…</label> 
 							<div class="p-2">
@@ -1127,6 +1148,25 @@
 							</div>
 						</div>
 					</div>
+					<div class="row row-form row-custom">
+						<div class="col-md-12 text-left">
+							<label class="label-cb-custom">12. Which brand do you trust the most when it comes to conceiving?</label> 
+							<div class="p-2">
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question12" type="radio" name="subscriber_question12" id="quest12a" value="ClearBlue">
+									<label class="form-check-label label-cb-custom" for="quest12a">
+										Clearblue
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question12" type="radio" name="subscriber_question12" id="quest12b" value="Others">
+									<label class="form-check-label label-cb-custom" for="quest12b">
+										Others
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
 				</section>
 			</div>
 		</div>
@@ -1138,6 +1178,115 @@
 </div>
 <p>
 <script type="text/javascript">
+
+	var validationCustomerInfo = function(){
+		$('body').find('.customer-info-input').removeClass('is-valid');
+		$('body').find('.customer-info-input').removeClass('is-invalid');
+		
+		var firstname = $('body').find('.input-firstname').val();
+		var email     = $('body').find('.input-email').val();
+		var mobileno  = $('body').find('.input-mobilenumber').val();
+		var flagCheck = true; /* if true can proceed */
+		
+		if(firstname == '' || firstname == undefined || firstname == null)
+		{
+			var msg = 'Please insert full name';
+			$('body').find('.input-firstname').addClass('is-invalid');
+			$('.input-firstname').closest('.form-floating').find('.small-customer-info-msg').html(msg);
+			flagCheck = false;
+		}
+		else
+		{
+			$('body').find('.input-firstname').removeClass('is-invalid');
+			$('.input-firstname').closest('.form-floating').find('.small-customer-info-msg').html("");
+		}
+		
+		if(email == '' || email == undefined || email == null)
+		{
+			var msg = 'Please insert email';
+			$('body').find('.input-email').addClass('is-invalid');
+			$('.input-email').closest('.form-floating').find('.small-customer-info-msg').html(msg);
+			flagCheck = false;
+		}
+		else
+		{
+			$('body').find('.input-email').removeClass('is-invalid');
+			$('.input-email').closest('.form-floating').find('.small-customer-info-msg').html("");
+		}
+		
+		if(mobileno == '' || mobileno == undefined || mobileno == null)
+		{
+			var msg = 'Please insert mobile no';
+			$('body').find('.input-mobilenumber').addClass('is-invalid');
+			$('.input-mobilenumber').closest('.form-floating').find('.small-customer-info-msg').html(msg);
+			flagCheck = false;
+		}
+		else
+		{
+			var mobilenumber = mobileno.replace("-"," ");
+			mobileno 		 = mobilenumber.trim();
+			var prefix 		 = mobileno.substring(0,3);
+            var firstNo 	 = mobileno.substring(0,1);
+            var phoneLength  = mobileno.length;
+			
+			$('body').find('.input-mobilenumber').removeClass('is-invalid');
+			$('.input-mobilenumber').closest('.form-floating').find('.small-customer-info-msg').html("");
+			
+			if(firstNo != 0 && firstNo != 5){
+                msg = "Invalid phone number format. Correct format(XXXXXXXXXXX), e.g. 0123334444 / 0198887777.";
+				$('body').find('.input-mobilenumber').addClass('is-invalid');
+				$('.input-mobilenumber').closest('.form-floating').find('.small-customer-info-msg').html(msg);
+				flagCheck = false;
+            }
+			else if(firstNo == '0'){
+				var prefixArray = ["010", "011", "012", "013", "014", "015", "016", "017", "018", "019"];
+				var checkPrefix = prefixArray.includes(prefix);
+				if(checkPrefix){
+					if(prefix == '011'){
+						console.log("2");
+						if(phoneLength < 10 || phoneLength > 11){
+							msg = "Invalid phone number format. Correct format(XXXXXXXXXXX), e.g. 0123334444 / 0198887777.";
+							$('body').find('.input-mobilenumber').addClass('is-invalid');
+							$('.input-mobilenumber').closest('.form-floating').find('.small-customer-info-msg').html(msg);
+							flagCheck = false;
+						}
+					}
+					else{
+						if(phoneLength < 10 || phoneLength > 10){
+							console.log("3");
+							msg = "Invalid phone number format. Correct format(XXXXXXXXXXX), e.g. 0123334444 / 0198887777.";
+							$('body').find('.input-mobilenumber').addClass('is-invalid');
+							$('.input-mobilenumber').closest('.form-floating').find('.small-customer-info-msg').html(msg);
+							flagCheck = false;
+						}
+					}  
+				}
+				else
+				{
+					console.log("4");
+					msg = "Invalid phone number prefix. Correct Prefix (010,011,012,013,014,015,016,017,018,019).";
+					$('body').find('.input-mobilenumber').addClass('is-invalid');
+					$('.input-mobilenumber').closest('.form-floating').find('.small-customer-info-msg').html(msg);
+					flagCheck = false;
+				}
+			}
+			else if(firstNo == '5'){
+				if(phoneLength < 9 || phoneLength > 9){
+					console.log("5");
+                    msg = "Invalid Singapore phone number format. Correct Format(5 XXXX XXXX), e.g. 5 66667777";
+					$('body').find('.input-mobilenumber').addClass('is-invalid');
+					$('.input-mobilenumber').closest('.form-floating').find('.small-customer-info-msg').html(msg);
+					flagCheck = false;
+                }
+			}
+		}
+		
+		if(flagCheck == false){
+			$('.is-invalid').filter(":first").focus();
+		}
+		
+		return flagCheck;
+	}
 	
 	var chartFeeling = function(){
 		var colorLove  = "#ffffff";
@@ -1722,6 +1871,14 @@
 							checkHighlight();
 							return false;
 						}
+						
+						var question_12 = $('body').find('.subscriber_question12:checked').val();
+						if((question_12 == '' || question_12 == undefined || question_12 == null) && (newIndex > currentIndex))
+						{
+							alertError();
+							checkHighlight();
+							return false;
+						}
 					}
 					
 					if (newIndex === 1) {
@@ -1886,8 +2043,15 @@
 			});
 			
 			$('body').on('click', '.btn-next-customer', function(){
-				$('body').find('.survey-row').show('fast');
-				$('body').find('.customer-info').hide('fast');
+				var res = validationCustomerInfo();
+				if(res == true){
+					$('body').find('.survey-row').show('fast');
+					$('body').find('.customer-info').hide('fast');
+				}
+			});
+			
+			$('body').on('blur', '.customer-info-input', function(){
+				validationCustomerInfo();
 			});
 			
 			

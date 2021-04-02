@@ -268,12 +268,43 @@ Start Date: <input type='date' name='searchDateStart' value="<?php echo $_POST['
 $searchStart="";
 $searchEnd="";
 $limit = "";
-$limit = " LIMIT 1200 ";
-if ($_POST['searchDateStart'])
-	$searchStart=" AND Subscribed_Date >='".$_POST['searchDateStart']."' ";
+$limit = " LIMIT 1600 ";
+	if ($_POST['searchDateStart'])
+		$searchStart=" AND Subscribed_Date >='".$_POST['searchDateStart']."' ";
 
-if ($_POST['searchDateEnd'])
-	$searchEnd=" AND Subscribed_Date <='".$_POST['searchDateEnd']." 23:59:59' ";
+	if ($_POST['searchDateEnd'])
+		$searchEnd=" AND Subscribed_Date <='".$_POST['searchDateEnd']." 23:59:59' ";
+	
+	
+	$arrEmail = array(
+		"kenixtai1128@gmail.com", #duplicate email ---> 1/4/2021
+		"fvhminui88@icloud.com",
+		"aqilldaud11@gmail.com",
+		"bengprintedit@gmail.com",
+		"muhammadakil2011@gmail.com",
+		"martnuar46@gmail.com",
+		"khairulazharkhairulazhar33@gmail.com",
+		"sueibrahim2311@gmail.com",
+		"akiddegil@gmail.com",
+		"sayuti.halim1980xxx@gmail.com",
+		"tuanrosdi@yahoo.com",
+		"izzatianuar5126@gmail.com",
+		"nikabdullah30@gmail.com",
+		"erlianazulbahri@gmail.com",
+		"zaiema93@gmail.com",
+		"kbtbdy@gmail.com", # end duplicate email ---> 1/4/2021
+	);
+	
+	$arrEmail2 = array();
+	foreach($arrEmail as $val)
+	{
+		$arrEmail2[] =  trim("'" . $val . "'");
+	}
+
+	$string_email = '';
+	$string_email = implode(",", $arrEmail2);
+	
+	
 	$datetoday = date("Y-m-d");
     $sql =  
         "
@@ -281,13 +312,14 @@ SELECT * FROM (
 SELECT newEmail as email, newFirstName as 'First Name', newLastName as 'Last Name', subscriber_created_at as 'Subscribed_Date', subscriber_question1 as Phone,subscriber_question12 as 'Parent DOB',
 subscriber_question8 as Address, subscriber_question9 as PostCode, subscriber_question10 as City, subscriber_question11 as State
 FROM events_subscriber a
-WHERE 1=1 AND subscriber_event_id=1 AND newEmail != 'chris.tan@nurengroup.com' AND newEmail NOT LIKE '%nurengroup%' AND newEmail NOT LIKE '%test%'
+WHERE 1=1 AND subscriber_event_id=1 AND newEmail NOT IN (" . $string_email . ") AND newEmail != 'chris.tan@nurengroup.com' AND newEmail NOT LIKE '%nurengroup%' AND newEmail NOT LIKE '%test%'
 AND (subscriber_created_at >= '2021-01-01 00:00:00' AND subscriber_created_at <= '2021-12-31 23:59:59')
 
 GROUP BY newEmail
 ORDER BY subscriber_created_at ASC " . $limit . ") B WHERE 1=1 $searchStart $searchEnd";
 // ) B WHERE 1=1 AND Subscribed_Date <= '".$datetoday." 00:00:00' $searchStart $searchEnd
 //AND subscriber_created_at <= '2020-07-13 13:02:00' OR subscriber_created_at > '2020-07-31 23:59:59')
+
 	$result = $conn2->query($sql);
 	echo mysql_result_all_html($result,"border=1");
 	

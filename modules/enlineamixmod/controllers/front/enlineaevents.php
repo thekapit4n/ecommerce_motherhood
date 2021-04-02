@@ -1585,13 +1585,20 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 								';
 						$resultIPR = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($selectipr);
 						$resultIPR = $resultIPR[0]['id_product_rule'];
-					
+
 						$updatePID = '
 								UPDATE ps_cart_rule_product_rule_value
 								SET id_item = "38999"
 								WHERE id_product_rule = "'.$resultIPR.'"
-									';	
-							if(Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($updatePID)){
+						';	
+						Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($updatePID);
+
+						//Make this code applied to Offline parentcraft class SKU 
+						$insertOfflineclass = '
+						INSERT INTO ps_cart_rule_product_rule_value (id_product_rule, id_item) VALUES ("'.$resultIPR.'","28351");
+						';	
+
+							if(Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($insertOfflineclass)){
 							echo "<script type='text/javascript'>alert('ParentCraft Voucher Created successfully.');</script>";
 							/* Send New mom parent craft evoucher by email */
 							$pcexdate = date('Y-m-d H:i:s', time() + 30*24*60*60);
@@ -1947,7 +1954,9 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 				$querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
 				$event_slug  = $querySlug[0]['event_slug'];
 				$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug . "?id=" . $encryptedID;
+				echo "<script type='text/javascript'>alert('Thank You for your participation!');</script>";
 				echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
+				exit;
 			}
 			
 			$email = trim($newEmail);
@@ -2360,13 +2369,20 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 											';
 									$resultIPR = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($selectipr);
 									$resultIPR = $resultIPR[0]['id_product_rule'];
-								
+
 									$updatePID = '
 											UPDATE ps_cart_rule_product_rule_value
 											SET id_item = "38999"
 											WHERE id_product_rule = "'.$resultIPR.'"
-											';	
-									if(Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($updatePID))
+									';	
+									Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($updatePID);
+
+									//Make this code applied to Offline parentcraft class SKU 
+									$insertOfflineclass = '
+									INSERT INTO ps_cart_rule_product_rule_value (id_product_rule, id_item) VALUES ("'.$resultIPR.'","28351");
+									';	
+
+									if(Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($insertOfflineclass))
 									{
 										if(isset($subscriber_question4) && $subscriber_question4 != '')
 										{
@@ -3100,7 +3116,13 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 								$resultIPR = $resultIPR[0]['id_product_rule'];
 								
 								$updatePID = 'UPDATE ps_cart_rule_product_rule_value SET id_item = "38999"	WHERE id_product_rule = "'. trim($resultIPR) .'"';	
-								if(Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($updatePID)){
+								Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($updatePID);
+								//Make this code applied to Offline parentcraft class SKU 
+								$insertOfflineclass = '
+								INSERT INTO ps_cart_rule_product_rule_value (id_product_rule, id_item) VALUES ("'.$resultIPR.'","28351");
+								';	
+
+								if(Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($insertOfflineclass)){
 									if(isset($subscriber_question4) && $subscriber_question4 != '')
 									{
 										if(strtolower($subscriber_question4) == 'pregnant') # if user select pregnant then will proceed other event page
@@ -3283,13 +3305,20 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 								';
 						$resultIPR = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($selectipr);
 						$resultIPR = $resultIPR[0]['id_product_rule'];
-						
+
 						$updatePID = '
-								UPDATE ps_cart_rule_product_rule_value
-								SET id_item = "38999"
-								WHERE id_product_rule = "'.$resultIPR.'"
-									';	
-						if(Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($updatePID)){
+							UPDATE ps_cart_rule_product_rule_value
+							SET id_item = "38999"
+							WHERE id_product_rule = "'.$resultIPR.'"
+								';	
+						Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($updatePID);
+
+						//Make this code applied to Offline parentcraft class SKU 
+						$insertOfflineclass = '
+						INSERT INTO ps_cart_rule_product_rule_value (id_product_rule, id_item) VALUES ("'.$resultIPR.'","28351");
+						';	
+
+						if(Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($insertOfflineclass)){
 							if(isset($subscriber_question4) && $subscriber_question4 != '')
 							{
 								if(strtolower($subscriber_question4) == 'pregnant') # if user select pregnant then will proceed other event page

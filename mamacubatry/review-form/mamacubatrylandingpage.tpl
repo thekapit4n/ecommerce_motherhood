@@ -84,7 +84,7 @@
 				<div class="panel-body">
 					<div class="row">
 						<div class="motherhood-box-padding" style="color:white">
-							<center><h3 style="font-weight:700;">BECOME TESTER</h3></center>
+							<center><h3 style="font-weight:700;">BECOME A TESTER</h3></center>
 							<p style="font-size:14px;">
 								Join our community of mom testers and <b>LEARN</b> about the latest products available in stores. Shop the best product for you and your family.
 							</p>
@@ -143,7 +143,7 @@
 		</div>
 	</div>
 	-->
-	<div class="mmyslider" data-sliderid="16" data-imagepos="left"></div>
+	<div class="mmyslider" data-sliderid="16" data-imagepos="left" data-productid="35639,39057,38999,35011,38997,31540,13947,15263"></div>
 	
 	<div class="row" style="margin-top:20px;">
 		<div id="section-slider">

@@ -5,6 +5,10 @@
 		font-family: Arial,Helvetica,sans-serif;
 	}
 	
+	#eventform{
+		background-color:#203764;
+	}
+	
 	.font-fact{
 		font-family: 'Lexend Deca', sans-serif;
 	}
@@ -17,7 +21,7 @@
 	
 	.fact-of-the-day{
 		font-size: 25px;
-		color: #333333;
+		color: white;
 	}
 	
 	.card-fact-box{
@@ -40,6 +44,31 @@
 	.amchart-mmy {
 	  width: 100%;
 	  height: 370px;
+	}
+	
+	.btn-cb-custom {
+		background-color: #f18773;
+		border-color: #f18773;
+		width: 50%;
+		padding: 10px;
+		padding-bottom: 10px;
+		font-size: 17px;
+		font-weight: 600;
+		outline:unset;
+		box-shadow: unset;
+	}
+	
+	.btn-cb-custom:hover, .btn-cb-custom:active, .btn-cb-custom:focus{
+		background-color:#f9634e;
+		border-color: #f9634e;
+		outline:unset;
+		box-shadow: unset;
+	}
+	
+	@media (max-width: 767px) {
+		.btn-cb-custom{
+			width: 100%;
+		}
 	}
 	
 	
@@ -73,11 +102,8 @@
 		</div>
 	</div>
 	<div class="row">
-	
-		<div class="col-md-12 text-center mt-2">
-			<a href="https://www.motherhood.com.my/" class="btn btn-primary">
-				Home
-			</a>
+		<div class="col-md-12 px-2 text-center mt-4">
+			<a href="https://www.motherhood.com.my/" class="btn btn-primary btn-cb-custom btn-next-customer" style="position: relative; right: 10px;">Home</a>
 		</div>
 	</div>
 </div>
@@ -121,12 +147,14 @@
 		categoryAxis.renderer.minGridDistance = 40;
 		categoryAxis.fontSize = 13;
 		categoryAxis.renderer.labels.template.dy = 5;
+		categoryAxis.renderer.labels.template.fill = am4core.color("#ffffff");
 
 		var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
 		valueAxis.min = 0;
 		valueAxis.renderer.minGridDistance = 30;
 		valueAxis.renderer.baseGrid.disabled = false;
 		valueAxis.renderer.grid.template.disabled = true;
+		valueAxis.renderer.labels.template.fill = am4core.color("#ffffff");
 
 
 		var series = chart.series.push(new am4charts.ColumnSeries());
@@ -186,7 +214,7 @@
 			ev.target.dataItem.dataContext.columnDataItem.column.hideTooltip();
 		});
 		
-		
+		legend.labels.template.fill = am4core.color("#ffffff");
 		chart.responsive.rules.push({
 		  relevant: function(target) {
 			if (target.pixelWidth <= 400) {

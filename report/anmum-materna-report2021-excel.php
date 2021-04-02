@@ -30,7 +30,7 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 		$searchStart ="";
 		$searchEnd 	 ="";
 		$wheresql  	 = "";
-		$limitsql    = " LIMIT 1500";
+		$limitsql    = " LIMIT 3000";
 		$strDateMsg  = "";
 		
 		if(isset($_POST['searchDateStart']) && $_POST['searchDateStart'] != '')
@@ -111,6 +111,7 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 		"fazlinayusof482@gmail.com",
 		"nirimaima581@gmail.com",
 		"ariniezakaria@gmail.com",
+		"suzilawatyeffanici@gmail.com",
 	);
 	
 	if(isset($arr_skip_email) && is_array($arr_skip_email) && sizeof($arr_skip_email) > 0)

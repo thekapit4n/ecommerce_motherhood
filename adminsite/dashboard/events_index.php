@@ -160,7 +160,7 @@
 	
 	var edt_id = function(id)
 	{
-		window.location.href='events_add_data.php?edit_id='+id;
+		window.location.href='https://www.motherhood.com.my/admin2635/dashboard/newEvents/events_add_data.php?edit_id='+id;
 	}
 	
 	var initEnddatepicker = function(){

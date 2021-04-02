@@ -295,7 +295,11 @@
                         <div class="col-md-6 text-left question-welcomekit"><label>Last Name</label> <input type="text" id="newLastName" name="newLastName" class="form-control input-info {{greybg-readonly-class}}" placeholder="Last Name" required="required" autocomplete="off" value="{{pre-define-lastname}}" data-input-disabled="" /> <small class="error-msg"></small></div>
                      </div>
                      <div class="row row-form">
-                        <div class="col-md-6 text-left question-welcomekit"><label>Mobile Number</label> <input type="text" id="mobilenumber" name="subscriber_question1" class="form-control input-info {{greybg-readonly-class}}" placeholder="Mobile number without '-'" required="required" autocomplete="off" value="{{pre-define-mobileno}}" data-input-disabled="" /> <small class="error-msg"></small></div>
+                        <div class="col-md-6 text-left question-welcomekit">
+							<label>Mobile Number</label> 
+							<input type="text" id="mobilenumber" name="subscriber_question1" class="form-control input-info {{greybg-readonly-class}}" placeholder="Mobile number without '-'" required="required" autocomplete="off" value="{{pre-define-mobileno}}" data-input-disabled="" /> 
+							<small class="error-msg"></small>
+						</div>
                         <div class="col-md-6 text-left question-welcomekit"><label>Your Date of Birth</label> <input name="subscriber_question2" type="text" id="dobParent" required="required" placeholder="DOB" class="form-control dob-parent input-info {{greybg-readonly-class}}" value="{{pre-define-dob}}" data-input-disabled="" /> <small class="error-msg"></small></div>
                      </div>
                      <!--===== is for display only, that why input doesn't have name attaribute===== -->
@@ -348,9 +352,9 @@
 						<div class="row">
 							<div class="col-md-12">
 								<p style="font-size:13px;line-height: 23px; margin-bottom:12px;text-align:left; margin-top: 25px;">
-									By clicking Submit, you hereby agree to the campaign’s <a href="https://www.motherhood.com.my/page/terms-of-service" target="_blank">Terms and Conditions</a> and <a href="https://www.motherhood.com.my/page/privacy-policy" target="_blank">Privacy Notices</a>. You further agree to be registered as a member of 
+									By participating in this campaign, I have read, understood and agree to the campaign’s <span style="text-decoration: none;color:#0f97f9;" class="tncbtn">Terms and Conditions</span>. I further agree to be registered as a member of 
 									Nestlé Start Well 2gether club and to the processing of your personal data in accordance with such club/membership terms (including 
-									to receive marketing and promotional information, product services and events) in accordance with Nestlé (Malaysia) Berhad, and Motherhood.com.my. 
+									to receive marketing and promotional information, product services and events) in accordance with Nestlé Products Sdn Bhd, and Motherhood.com.my. 
 								</p>
 								<table style="margin: 15px 0px 15px 0px; font-weight: bold;">
 									<tbody>
@@ -361,7 +365,7 @@
 											</td>
 											<td style="padding-left:0px">
 												<p style="font-size:13px;line-height: 15px; margin-bottom:12px;padding-top:0px;">
-													By clicking Submit, I agree to the <a href="https://www.startwell.nestle.com.my/terms-conditions" target="_blank">Terms and Conditions</a>, and <a href="https://www.nestle.com.my/info/privacy_notice" target="_blank">Privacy Policy</a> of Nestlé (Malaysia) Berhad.
+													By clicking Submit, I agree to the <a href="https://www.startwell.nestle.com.my/terms-conditions" target="_blank">Terms and Conditions</a>, and <a href="https://www.nestle.com.my/info/privacy_notice" target="_blank">Privacy Policy</a> of Nestlé Products Sdn Bhd.
 												</p>
 											</td>
 										</tr>
@@ -396,6 +400,7 @@
 						</div>
                   </div>
                </div>
+			   <!--
                <div class="row">
                   <div class="col-md-12 text-left">
                      <p>Terms &amp; Conditions</p>
@@ -432,6 +437,7 @@
                      </ol>
                   </div>
                </div>
+			   -->
             </div>
          </div>
       </div>
@@ -439,6 +445,7 @@
 </div>
 <div id="sponsored_content" sponsored_content="1"></div> <!-- disabled overlay banner --->
 </div>
+<div style="display: none;"><a id="tncpopupimg" href="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/New+Mom+Essentials/Terms-and-conditions.png"> </a></div>
 <p>
    <script>// <![CDATA[
       /** if other function that need to use same input for validation, we can just use this selector  **/
@@ -709,12 +716,13 @@
       	var checkStatusInput = function(){
       		
       		// var eddStatus   = eddCheckedInpSelector.val();
-      		var eddStatus   = true;
-      		var emailStatus = emailCheckedInpSelector.val();
+      		var eddStatus    = true;
+      		var emailStatus  = emailCheckedInpSelector.val();
+      		var mobileStatus  = validateMobileno();
       		
-      		console.log('Email status = ' + emailStatus + ' Edd status = ' + eddStatus);
+      		console.log('Email status = ' + emailStatus + ' Edd status = ' + eddStatus + ' mobileStatus = ' + mobileStatus);
       		
-      		if(eddStatus == true && emailStatus == "true")
+      		if(eddStatus == true && emailStatus == "true" && mobileStatus == true)
       		{
       			$('body').find('#btn-submit-form1').attr('disabled', false);
       		}
@@ -813,6 +821,71 @@
 				$('body').find('#receive-news').closest('span').addClass('checked');
 				// $('body').find('#receive-news').attr('disabled', true);
 			}
+		}
+		
+		var validateMobileno = function(){
+			var mobileno = mobileSelector.val();
+			flagCheck = true;
+			
+			mobileSelector.closest('div').find(errorSelector).html("");
+			if(mobileno != '')
+			{
+				var mobilenumber = mobileno.replace("-"," ");
+				mobileno 		 = mobilenumber.trim();
+				var prefix 		 = mobileno.substring(0,3);
+				var firstNo 	 = mobileno.substring(0,1);
+				var phoneLength  = mobileno.length;
+				
+				if(firstNo != 0 && firstNo != 5){
+					msg = "Invalid phone number format. Correct format(XXXXXXXXXXX), e.g. 0123334444 / 0198887777.";
+					mobileSelector.closest('div').find(errorSelector).html("<font style='color:#e9322d'>" + icon + " " + msg + "</font>");
+					flagCheck = false;
+				}
+				else if(firstNo == '0'){
+					var prefixArray = ["010", "011", "012", "013", "014", "015", "016", "017", "018", "019"];
+					var checkPrefix = prefixArray.includes(prefix);
+					if(checkPrefix){
+						if(prefix == '011'){
+							console.log("2");
+							if(phoneLength < 10 || phoneLength > 11){
+								msg = "Invalid phone number format. Correct format(XXXXXXXXXXX), e.g. 0123334444 / 0198887777.";
+								mobileSelector.closest('div').find(errorSelector).html("<font style='color:#e9322d'>" + icon + " " + msg + "</font>");
+								flagCheck = false;
+							}
+						}
+						else{
+							if(phoneLength < 10 || phoneLength > 10){
+								console.log("3");
+								msg = "Invalid phone number format. Correct format(XXXXXXXXXXX), e.g. 0123334444 / 0198887777.";
+								mobileSelector.closest('div').find(errorSelector).html("<font style='color:#e9322d'>" + icon + " " + msg + "</font>");
+								flagCheck = false;
+							}
+						}  
+					}
+					else
+					{
+						msg = "Invalid phone number prefix. Correct Prefix (010,011,012,013,014,015,016,017,018,019).";
+						mobileSelector.closest('div').find(errorSelector).html("<font style='color:#e9322d'>" + icon + " " + msg + "</font>");
+						flagCheck = false;
+					}
+				}
+				else if(firstNo == '5'){
+					if(phoneLength < 9 || phoneLength > 9){
+						console.log("5");
+						msg = "Invalid Singapore phone number format. Correct Format(5 XXXX XXXX), e.g. 5 66667777";
+						mobileSelector.closest('div').find(errorSelector).html("<font style='color:#e9322d'>" + icon + " " + msg + "</font>");
+						flagCheck = false;
+					}
+				}
+			}
+			else
+			{
+				msg = "Please enter mobile no";
+				mobileSelector.closest('div').find(errorSelector).html("<font style='color:#e9322d'>" + icon + " " + msg + "</font>");
+				flagCheck = false;
+			}
+			
+			return flagCheck;
 		}
 		
 		      
@@ -919,6 +992,32 @@
 			
 			$('body').on('click', '.btn-submtit-edd', function(){
 				eddCheck();
+			});
+			
+			$("#tncpopupimg").magnificPopup({
+				type: "image",
+				closeOnContentClick: true,
+				fixedContentPos: true,
+				mainClass: "mfp-no-margins", // class to remove default margin from left and right side
+				overflowY: 'scroll',
+				image: {
+					verticalFit: false,
+				},
+				zoom: {
+					enabled: false,
+					duration: 100, // don't foget to change the duration also in CSS
+				},
+				callbacks: {
+					close: function () {},
+				},
+			});
+			
+			$('body').on('click', '.tncbtn', function(){
+				$("#tncpopupimg").magnificPopup("open");
+			});
+			
+			$('body').on('blur', '#mobilenumber', function(){
+				checkStatusInput();
 			});
 			
 			 checktnc_promo();
