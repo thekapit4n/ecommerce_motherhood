@@ -358,7 +358,7 @@ body{
 			a.subscriber_question5 as City, a.subscriber_question7 as State, a.subscriber_question8 as Brand, a.subscriber_question9 as Language, 
 			a.subscriber_question10 as TnC, a.subscriber_created_at as DateSubmit
 			FROM ps_events_subscriber a" . $wheresql . " GROUP BY newEmail	ORDER BY subscriber_created_at ASC " . $limitsql;
-
+	// echo $sql;
     $result = $conn->query($sql);
 	if(is_object($result)){
 		$tableReportView =  mysql_result_all_html($result, $offset);

@@ -326,6 +326,9 @@
 		box-shadow: unset;
 	}
 	
+	.img-clearblue{
+		width:15%;
+	}
 	
 
 	@-webkit-keyframes hvr-icon-wobble-horizontal {
@@ -498,6 +501,10 @@
 			position:relative;
 			right:12px;
 		}
+		
+		.img-clearblue{
+			width:34%;
+		}
 	}
  /** end of css for form wizard **/
 -->
@@ -512,10 +519,17 @@
 	<script src="../../../themes/default-bootstrap/dashboard-assets/fontawesome-v5.15.1/js/all.min.js"></script>
 </p>
 
-<div class="row" style="margin-top:50px;">
+<div class="row" style="margin-top:25px;">
+	<div class="row">
+		<div class="col-md-12" style="padding-right:24px !important;">
+			<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/clearblue-white-logo.png" class="rounded float-end img-clearblue" alt="clearbluelogo" style="">
+		</div>
+	</div>
 	<div class="row row-custom">
 		<div class="col-md-12 text-center mb-4">
-			<h3 class="font-fact" style="color:white"> Welcome to Clearblue Survey</h3>
+			<h3 class="font-fact" style="color:white"> 
+				Welcome to Clearblue Survey
+			</h3>
 		</div>
 	</div>
 	<div class="row customer-info">
@@ -523,23 +537,25 @@
 			<div class="row">
 				<div class="col-md-6 px-2">
 					<div class="form-floating mb-3" style="right:10px;">
-						<input type="text" class="form-control customer-info-input input-firstname" name="newFirstName" id="floatingFName" placeholder="First name">
+						<input type="text" class="form-control customer-info-input input-firstname" name="newFirstName" id="floatingFName" placeholder="First name" value="{{predefine-fullname}}">
 						<label for="floatingFName">Full Name</label>
 						<small class="small-customer-info-msg"></small>
 					</div>
 				</div>
 				<div class="col-md-6 px-2">
 					<div class="form-floating mb-3" style="right:10px;">
-						<input type="email" class="form-control customer-info-input input-email" name="newEmail" id="floatingEmail" placeholder="email">
+						<input type="email" class="form-control customer-info-input input-email" name="newEmail" id="floatingEmail" placeholder="email" value="{{predefine-email}}">
 						<label for="floatingEmail">Your Email</label>
 						<small class="small-customer-info-msg"></small>
+						<input type="hidden" class="form-control status-input-email">
+						<input type="hidden" class="form-control status-code-email">
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-6 px-2">
 					<div class="form-floating mb-3" style="right:10px;">
-						<input type="text" class="form-control customer-info-input input-mobilenumber" id="floatingMobileNo" name="subscriber_question15" placeholder="mobile no">
+						<input type="text" class="form-control customer-info-input input-mobilenumber" id="floatingMobileNo" name="subscriber_question15" placeholder="mobile no" value="{{predefine-mobileno}}">
 						<label for="floatingMobileNo">Your Contact No</label>
 						<small class="small-customer-info-msg"></small>
 					</div>
@@ -547,7 +563,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12 px-2 text-center">
-					<button type="button" class="btn btn-primary btn-cb-custom btn-next-customer" style="position: relative; right: 10px;">Next</button>
+					<button type="button" class="btn btn-primary btn-cb-custom btn-next-customer" style="position: relative; right: 10px; margin-top:1%;">Next</button>
 				</div>
 			</div>
 		</div>
@@ -915,7 +931,7 @@
 									</label>
 								</div>
 								<div class="form-check">
-									<input class="form-check-input noUniform custom-checkbox subscriber_question7" type="radio" id="quest7e name="subscriber_question7" value="feeling sorry for me">
+									<input class="form-check-input noUniform custom-checkbox subscriber_question7" type="radio" id="quest7e" name="subscriber_question7" value="feeling sorry for me">
 									<label class="form-check-label label-cb-custom" for="quest7e">
 										Feeling sorry for me
 									</label>
@@ -1148,7 +1164,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="row row-form row-custom">
+					<div class="row row-form row-custom mt-4">
 						<div class="col-md-12 text-left">
 							<label class="label-cb-custom">12. Which brand do you trust the most when it comes to conceiving?</label> 
 							<div class="p-2">
@@ -1179,9 +1195,44 @@
 <p>
 <script type="text/javascript">
 
+	var emailvalidation = function(){
+		var eventID  = 95;
+		var email 	 = $('body').find('.input-email').val();
+		$('.input-email').closest('.form-floating').find('.small-customer-info-msg').html('<i class="fas fa-spinner fa-spin"></i> Checking...');
+		
+		if(email != '' && email != undefined && email != null)
+		{
+			$.ajax({
+				url		 : '../modules/enlineamixmod/enlineamixmod-checkcustemailevent-ajax.php', 
+				data	 :{'checkemail': email, 'eventid': eventID, 'password' : ''},
+				dataType :'json',
+				method 	 : 'post',
+				success	 : function(result){
+					if(result.status_code == 'exist_customer_event')
+					{
+						Swal.fire({
+							icon: 'info',
+							title: 'Oops...',
+							text: 'You have already joined this survey',
+						})
+						
+						$('body').find('.btn-next-customer').hide('fast');
+					}
+					else
+					{
+						$('.input-email').closest('.form-floating').find('.small-customer-info-msg').html('');
+						$('body').find('.status-input-email').val(result.status);
+						$('body').find('.status-code-email').val(result.status_code);
+					}
+				}
+			});
+		}
+	}
+	
 	var validationCustomerInfo = function(){
 		$('body').find('.customer-info-input').removeClass('is-valid');
 		$('body').find('.customer-info-input').removeClass('is-invalid');
+		$('body').find('.btn-next-customer').show('fast');
 		
 		var firstname = $('body').find('.input-firstname').val();
 		var email     = $('body').find('.input-email').val();
@@ -1210,6 +1261,7 @@
 		}
 		else
 		{
+			emailvalidation();
 			$('body').find('.input-email').removeClass('is-invalid');
 			$('.input-email').closest('.form-floating').find('.small-customer-info-msg').html("");
 		}

@@ -285,7 +285,7 @@
 							<small class="error-msg"></small>
 						</div>
                         <div class="col-md-6 text-left question-welcomekit div-password" style="display: {{display-password-input}};">
-						<label>Password</label> 
+							<label>Password</label> 
 							<input type="password" id="newPassword" name="newPassword" class="form-control input-info {{greybg-readonly-class}}" minlength="6/" placeholder="Password" data-input-required="" data-input-disabled="" />
 							<small class="error-msg"></small>
 						</div>
@@ -354,7 +354,7 @@
 								<p style="font-size:13px;line-height: 23px; margin-bottom:12px;text-align:left; margin-top: 25px;">
 									By participating in this campaign, I have read, understood and agree to the campaign’s <span style="text-decoration: none;color:#0f97f9;" class="tncbtn">Terms and Conditions</span>. I further agree to be registered as a member of 
 									Nestlé Start Well 2gether club and to the processing of your personal data in accordance with such club/membership terms (including 
-									to receive marketing and promotional information, product services and events) in accordance with Nestlé Products Sdn Bhd, and Motherhood.com.my. 
+									to receive marketing and promotional information, product services and events).
 								</p>
 								<table style="margin: 15px 0px 15px 0px; font-weight: bold;">
 									<tbody>
@@ -1026,5 +1026,4 @@
       	/** end develop by haiqal  **/
       // ]]>
    </script>
-</p>
 </p>

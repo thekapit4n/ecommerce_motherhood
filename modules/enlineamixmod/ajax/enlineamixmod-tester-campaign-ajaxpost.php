@@ -177,13 +177,13 @@ if($customerid > 0)
 		if(isset($queryResult[0]['total']) && $queryResult[0]['total'] > 0)
 		{
 			$updateAdditionalInfo = "UPDATE ps_customer_additional_info 
-									SET phone = '$phone_mobile', shortBio = '$about_yourself', date_upd = CURRENT_DATE WHERE id_customer = " . $customerid . " LIMIT 1";
+									SET phone = '$phone_mobile', shortBio = '$about_yourself', date_upd = CURRENT_TIMESTAMP WHERE id_customer = " . $customerid . " LIMIT 1";
 			$resultAdditional 	  = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($updateAdditionalInfo);
 		}
 		else
 		{
 			$insertAdditionalInfo = "INSERT INTO ps_customer_additional_info (id_customer,phone,shortBio,date_add) 
-									VALUES ($customerid,'$phone_mobile','$about_yourself',CURRENT_DATE)";
+									VALUES ($customerid,'$phone_mobile','$about_yourself',CURRENT_TIMESTAMP)";
 			$resultAdditional	  = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($insertAdditionalInfo);
 		}
 		
@@ -271,13 +271,13 @@ if($customerid > 0)
 		if(isset($queryResult[0]['total']) && $queryResult[0]['total'] > 0)
 		{
 			$updateAdditionalInfo = "UPDATE ps_customer_additional_info 
-									SET annual_income_range = '$cust_salaryrange', occupation = '$cust_occupation', race = '$cust_race', date_upd = CURRENT_DATE WHERE id_customer = " . $customerid . " LIMIT 1";
+									SET annual_income_range = '$cust_salaryrange', occupation = '$cust_occupation', race = '$cust_race', date_upd = CURRENT_TIMESTAMP WHERE id_customer = " . $customerid . " LIMIT 1";
 			$resultAdditional 	  = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($updateAdditionalInfo);
 		}
 		else
 		{
 			$insertAdditionalInfo = "INSERT INTO ps_customer_additional_info (id_customer, annual_income_range, occupation, race, date_add) 
-									VALUES ($customerid,'$cust_salaryrange','$cust_occupation', '$cust_race', CURRENT_DATE)";
+									VALUES ($customerid,'$cust_salaryrange','$cust_occupation', '$cust_race', CURRENT_TIMESTAMP)";
 			$resultAdditional	  = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($insertAdditionalInfo);
 		}
 		
@@ -445,14 +445,14 @@ if($customerid > 0)
 									childbirthyear4 = '$childbirthyear4',
 									childbirthyear5 = '$childbirthyear5',
 									childbirthyear6 = '$childbirthyear6',
-									date_upd = CURRENT_DATE
+									date_upd = CURRENT_TIMESTAMP
 									WHERE id_customer = " . $customerid . " LIMIT 1";
 			$resultAdditional 	  = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($updateAdditionalInfo);
 		}
 		else
 		{
 			$insertAdditionalInfo = "INSERT INTO ps_customer_additional_info (id_customer, edd, married, childno, pregnant, childbirthyear1, childbirthyear2, childbirthyear3, childbirthyear4, childbirthyear5, childbirthyear6, date_add) 
-									VALUES ($customerid,'$edd','$marital_status', '$num_child', '$expect_newborn', '$childbirthyear1', '$childbirthyear2', '$childbirthyear3' , '$childbirthyear4', '$childbirthyear5', '$childbirthyear6' , CURRENT_DATE)";
+									VALUES ($customerid,'$edd','$marital_status', '$num_child', '$expect_newborn', '$childbirthyear1', '$childbirthyear2', '$childbirthyear3' , '$childbirthyear4', '$childbirthyear5', '$childbirthyear6' , CURRENT_TIMESTAMP)";
 			$resultAdditional	  = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($insertAdditionalInfo);
 		}
 		
@@ -546,14 +546,14 @@ if($customerid > 0)
 									affBrands = '$pastreviewbrand', 
 									favOther = '$lovebrand', 
 									contracts = '$contractBrand', 
-									date_upd = CURRENT_DATE
+									date_upd = CURRENT_TIMESTAMP
 									WHERE id_customer = " . $customerid . " LIMIT 1";
 			$resultAdditional 	  = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($updateAdditionalInfo);
 		}
 		else
 		{
 			$insertAdditionalInfo = "INSERT INTO ps_customer_additional_info (id_customer, favMilk, favDiaper, affBrands, favOther, contracts, date_add) 
-									VALUES ($customerid,'$milkbrand','$diaperbrand', '$pastreviewbrand', '$lovebrand', '$contractBrand', CURRENT_DATE)";
+									VALUES ($customerid,'$milkbrand','$diaperbrand', '$pastreviewbrand', '$lovebrand', '$contractBrand', CURRENT_TIMESTAMP)";
 			$resultAdditional	  = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($insertAdditionalInfo);
 		}
 		
@@ -584,14 +584,14 @@ if($customerid > 0)
 									fbUrl = '$fbUrl', 
 									blogUrl = '$blogUrl', 
 									can_host_live = '$hostShow', 
-									date_upd = CURRENT_DATE
+									date_upd = CURRENT_TIMESTAMP
 									WHERE id_customer = " . $customerid . " LIMIT 1";
 			$resultAdditional 	  = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($updateAdditionalInfo);
 		}
 		else
 		{
 			$insertAdditionalInfo = "INSERT INTO ps_customer_additional_info (id_customer, insta_url, fbUrl, blogUrl, can_host_live, date_add) 
-									VALUES ($customerid,'$milkbrand','$diaperbrand', '$pastreviewbrand', '$hostShow', CURRENT_DATE)";
+									VALUES ($customerid,'$milkbrand','$diaperbrand', '$pastreviewbrand', '$hostShow', CURRENT_TIMESTAMP)";
 			$resultAdditional	  = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($insertAdditionalInfo);
 		}
 		
@@ -961,12 +961,12 @@ if($customerid > 0)
 				if(in_array($tester_id, array(10,11))){ #clear blue campaign---> auto approve --> coz customer just to submit review
 					$approve_tester = 1;
 					$insertTester = "INSERT INTO ps_tester_campaign_detail (tester_product_id, tester_id, customer_id, active, approved, add_date, approve_date) 
-								VALUES ($tester_product_id,$tester_id,$customerid,1, $approve_tester,CURRENT_DATE, CURRENT_DATE)";
+								VALUES ($tester_product_id,$tester_id,$customerid,1, $approve_tester,CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
 				}
 				else
 				{
 					$insertTester = "INSERT INTO ps_tester_campaign_detail (tester_product_id, tester_id, customer_id, active, approved, add_date) 
-								VALUES ($tester_product_id,$tester_id,$customerid,1, $approve_tester,CURRENT_DATE)";
+								VALUES ($tester_product_id,$tester_id,$customerid,1, $approve_tester,CURRENT_TIMESTAMP)";
 				}
 				
 				

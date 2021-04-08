@@ -23,6 +23,7 @@
 <script type="text/javascript" src="/themes/default-bootstrap/js/modules/homeslider/js/homeslidersecond.js"></script>
 <script type="text/javascript" src="/themes/default-bootstrap/js/modules/homeslider/js/homesliderthird.js"></script>
 <script type="text/javascript" src="/themes/default-bootstrap/js/modules/homeslider/js/homesliderforth.js"></script>
+<script src="/themes/default-bootstrap/dashboard-assets/fontawesome-v5.15.1/js/all.min.js"></script>
 <link rel="stylesheet" href="/themes/default-bootstrap/css/modules/homeslider/homeslider.css" type="text/css" media="all" />
 <link rel="stylesheet" href="/modules/enlineasectionslider/css/sectionslider.css" type="text/css" media="all" />
 
@@ -34,6 +35,8 @@
 <link rel="stylesheet" href="/themes/default-bootstrap/dashboard-assets/form-wizard-5/fonts/material-design-iconic-font/css/material-design-iconic-font.css">
 <link href="/themes/default-bootstrap/dashboard-assets/sweetalert2-v10.13.0/dist/sweetalert2.min.css" rel="stylesheet" type="text/css" />
 <script src="/themes/default-bootstrap/dashboard-assets/sweetalert2-v10.13.0/dist/sweetalert2.all.min.js" type="text/javascript"></script>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <style>
 
 @media only screen and (max-width: 768px) {
@@ -368,7 +371,7 @@ var hasSubmitted=false;
 	</div>
 {/if}
 {include file="$events_view_path/templates/front/errors.tpl"}
-	{if $event_info.event_id == 95 || $event_info.event_id == 96 || $event_info.event_id == 9998 || $event_info.event_id == 108}
+	{if $event_info.event_id|in_array:[95, 96, 97, 108, 104,9998]}
 		{* this part to try implement new boostrap without effect any exisitng event page - haiqal *}
 		<style>
 			html{
@@ -452,8 +455,13 @@ var hasSubmitted=false;
 				}
 			}
 		</style>
+		<!--
 		<link href="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/bootstrap-v5.0.0-beta1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 		<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/bootstrap-v5.0.0-beta1/js/bootstrap.bundle.min.js"></script>
+		-->
+		<!-- ==== for now we try use beta 3 direct from cdn, once all beta phase finish, we use complete version === -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 		<style>
 			.dropdown-toggle::after
 			{
