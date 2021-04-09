@@ -170,9 +170,9 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					$newMomEssentialData = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($newMomEssentialDatasql);
 					$babypregnantdate = $newMomEssentialData[0]['subscriber_question3'];
 					$babypregnantdate = strtotime($babypregnantdate);$today = strtotime(date("d-m-Y")); 
-					$diff = $today - $babypregnantdate;
-					$days = floor($diff/ (60*60*24)); 
-					$weeks = floor($days / 7);
+					$diff  = $today - $babypregnantdate;
+					$days  = floor($diff/ (60*60*24)); 
+					$weeks = 40 - (floor($days / 7));
 					if($weeks < 0 || $weeks > 40){
 						$result[0]['event_description'] = str_ireplace('Your baby is on Week {{yourbabyweek}}!',' ', $result[0]['event_description']);
 					 }else{

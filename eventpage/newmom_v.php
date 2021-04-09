@@ -207,6 +207,7 @@
                   <p style="font-weight: normal; padding-top: 0; padding-bottom: 0px; line-height: 1;" class="tnc-word-color benefit-desc">Refer to T&amp;C</p>
                </div>
             </div>
+			 <!--
             <div class="col-md-3 col-xs-3">
                <div class="benefit-div">
                   <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/huggies-benefit.png" width="100%" alt="flashcard" />
@@ -214,7 +215,7 @@
                   <p style="font-weight: normal; padding-top: 0px; padding-bottom: 0px; line-height: 1;" class="tnc-word-color benefit-desc">Refer to T&amp;C</p>
                </div>
             </div>
-            <!--
+           
                <div class="col-md-4 col-xs-6">
                <div class="benefit-div">
                <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/tips.png" width="100%" alt="newmomcardandgiftcard" />
@@ -476,6 +477,7 @@
       </div>
    </div>
    <!-- huggies row -->
+   <!--
    <div class="row huggies-row" style="display: none; padding-top: 20px; padding-bottom: 20px;">
       <div class="col-md-10 col-md-offset-1" style="background: rgba(255, 255, 255, 0.8); background-size: cover; padding-top: 20px; padding-bottom: 20px; border-radius: 10px;">
          <p style="font-size: 3em; color: #005b9c; font-weight: bold; padding-top: 20px; padding-bottom: 20px; line-height: 1;">Redeem FREE Huggies Natural Soft Diaper Samples</p>
@@ -495,7 +497,6 @@
                <select name="subscriber_question16" id="huggies-preferred-type" type="text" style="width: 100%; font-size: 16px; padding-top: 5px; padding-bottom: 5px; display: inline-block; border: 1px solid #ccc; box-shadow: inset 0 1px 3px #ddd; border-radius: 4px; vertical-align: middle; box-sizing: border-box;" required="required">
                   <option value="">Please select type</option>
                   <option value="tape">Tape</option>
-                  <!--<option value="pant">Pant</option>-->
                </select>
                <small class="error-msg"></small>
             </div>
@@ -530,6 +531,7 @@
          </div>
       </div>
    </div>
+   -->
 </div>
 <div style="display: none;"><a id="tncpopupimg" href="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/Privacy_Policy_Huggies.pdf"> </a></div>
 <p>
@@ -834,8 +836,8 @@
       								$('body').find('#step3btn').attr('type', 'submit');
       								$('body').find('#step3btn').attr('name', 'submit');
       								$('body').find('#step3btn').html('Submit');
-      								// $('body').find('.step3v1').show('fast');
-      								huggiesRowSelector.show();
+      								$('body').find('.step3v1').show('fast');
+      								// huggiesRowSelector.show();
       							}
       							else if(typePregnancy.toLowerCase() == 'babyout')
       							{
@@ -860,18 +862,18 @@
                   			$('body').find('#momYear').prop('required',true);
                   			$('body').find('#momMonth').prop('required',true);
                   			$('body').find('#momDay').prop('required',true);
-      						$('body').find('#huggies-preferred-size').prop('required',true);
-      						$('body').find('#huggies-preferred-type').prop('required',true);
-      						$('body').find('#huggies-preferred-lang').prop('required',true);
+      						// $('body').find('#huggies-preferred-size').prop('required',true);
+      						// $('body').find('#huggies-preferred-type').prop('required',true);
+      						// $('body').find('#huggies-preferred-lang').prop('required',true);
                   		}
                   		else if(typePregnancy.toLowerCase() == 'babyout')
                   		{
                   			$('body').find('#btn-submit-form1').attr('type', 'Submit');
                   			$('body').find('#btn-submit-form1').html('Submit');
       						$('body').find('#eventform').attr('onsubmit','return checkingForm();');
-      						$('body').find('#btn-next-huggies').attr('type', 'submit');
-      						$('body').find('#btn-next-huggies').attr('name', 'submit');
-                  			$('body').find('#btn-next-huggies').html('Submit');
+      						// $('body').find('#btn-next-huggies').attr('type', 'submit');
+      						// $('body').find('#btn-next-huggies').attr('name', 'submit');
+                  			// $('body').find('#btn-next-huggies').html('Submit');
                   			$('body').find('.maincordblood').prop('required',false);
                   			$('body').find('.mainhospitalquestion').prop('required',false);
                   			$('body').find('#momYear').prop('required',false);
