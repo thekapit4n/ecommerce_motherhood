@@ -547,7 +547,7 @@ var myAddress='{$currentAddressId}';
 							{if ($product.havegrade=='missing')}
 								<div id="product_comments_block_tab">
 									<p class="align_center">
-										<a class="btn btn-default btn-pill btn-pill-color open-comment-form" href="#new_comment_form"
+										<a class="btn btn-default btn-pill btn-pill-color open-comment-form btn-writereview" href="#new_comment_form"
 											data-productname="{$product.name|escape:'strval'}" 
 											data-productid="{$product.id_product}"
 											data-productimgsrc="{$product.productcomment_cover_image}"
@@ -631,7 +631,7 @@ var myAddress='{$currentAddressId}';
 											*}
 											
 											{if ($product.havegrade=='missing')}
-												<a type="button" class="btn btn-default btn-pill btn-pill-color open-comment-form " href="#new_comment_form" 
+												<a type="button" class="btn btn-default btn-pill btn-pill-color open-comment-form btn-writereview" href="#new_comment_form" 
 													data-productname="{$product.name|escape:'strval'}" 
 													data-productid="{$product.id_product}"
 													data-productimgsrc="{$product.tester_cover_image}"
@@ -709,7 +709,7 @@ var myAddress='{$currentAddressId}';
 		
 	<!-- Fancybox -->
 	<div style="display: none;width:">
-		<div id="new_comment_form" class="open-comment-form">
+		<div id="new_comment_form">
 			<form id="id_new_comment_form" action="#">
 				<h2 class="page-subheading">
 					Write a review
@@ -721,7 +721,7 @@ var myAddress='{$currentAddressId}';
 				<hr>
 				
 				<div class="row" style='max-width:100%'>
-										<div class="product clearfix  col-xs-12 col-sm-6">
+						<div class="product clearfix  col-xs-12 col-sm-6">
 							<img id='newcomment_img' src="" height="125" width="125" alt="" />
 							<div class="product_desc">
 								<p class="product_name">
@@ -795,8 +795,16 @@ var myAddress='{$currentAddressId}';
 </div>
 
 <script type="text/javascript">
+
+function setProductReview(clickElement){
+	
+	
+}
+
 $(function(){
-	$('a[href="#new_comment_form"]').click(function(){
+	
+	$('body').on('click', '.btn-writereview', function(){
+		
 		var _this = $(this);
 		var productName    = $(this).attr('data-productname')
 		var productID      = $(this).attr('data-productid')
@@ -806,18 +814,16 @@ $(function(){
 		
 		console.log(productID);
 		console.log(productName);
-		console.log(productImgSrc);
-		console.log(productImgAlt);
-		console.log(productDesc);
+		//console.log(productImgSrc);
+		//console.log(productImgAlt);
+		//console.log(productDesc);
 		$("#newcomment_name").text(productName);
 		$("#newcomment_img").attr("src",productImgSrc);
 		$("#newcomment_img").attr("alt",productImgAlt);
 		$("#id_product_comment_send").val(productID);
 		$("#content").val("");
 		$("#comment_title").val("");
-	}); 
-	
-	
+	})
 });
 
 $('#content').keyup(function() {

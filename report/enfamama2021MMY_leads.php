@@ -250,7 +250,7 @@ Start Date: <input type='date' name='searchDateStart' value="<?php echo $_POST['
 $searchStart="";
 $searchEnd="";
 $limit = "";
-$limit = "LIMIT 7500";
+$limit = "LIMIT 8970";
 $kmmlist = array(
 	'siti.wawa23@yahoo.com',
 	'dylaaziz105@gmail.com',
@@ -1429,6 +1429,50 @@ $kmmlist = array(
 	"nik3ji83@hotmail.com",
 	"lailayazatie@yahoo.com",
 	"sitihauyah016@gmail.com", #end duplicate address/phone  ---> 01/04/2021
+	"meganwerwer@gmail.com", #duplicate phone, address ---> 03/05/2021
+	"xiaoying_orange9@hotmail.com",
+	"sukichin520@gmail.com",
+	"noratikah.shamsuri94@gmail.com",
+	"sitisyahirainani90@gmail.com",
+	"mekayu93@yahoo.com",
+	"loveshoppingparadise@yahoo.com",
+	"adeliaarell27@gmail.com",
+	"echakygpnya@yahoo.com",
+	"noraqidahothman@gmail.com",
+	"nursyahirahsamsudin95@gmail.com",
+	"aida.abdkarim@gmail.com",
+	"nurahadiahmohdood11@gmail.com",
+	"syifaina1201@gmail.com",
+	"sky70745@yahoo.com",
+	"anamedivieon91@gmail.com",
+	"projectb89@gmail.com",
+	"aidazaini94@gmail.com1",
+	"tina@gmail.com",
+	"asdfsdjfa@gmail.com",
+	"ainarafli01@gmail.com",
+	"asdfjads@gmail.com",
+	"atikahjay95@gmail.com",
+	"datingojes95@gmail.com",
+	"ezatiazam21@gmail.com",
+	"tina@gmail.com123",
+	"nikki.yap@takaful-malaysia.com.my",
+	"rebecca.chiang516@gmail.com",
+	"sharoy180618@gmail.com9",
+	"nourul.nia03@gmail.com",
+	"zoe_shiying_20@hotmail.com",
+	"berenicewpy@gmail.com",
+	"mroey8652@gmail.com",
+	"aidatul.shida@gmail.com",
+	"nurulbani88@gmail.com",
+	"lingling_yyl@hotmail.com",
+	"evaqi9963@gmail.com",
+	"chrystalawa@gmail.com",
+	"gsy488888@gmail.com",
+	"csueyin00@gmail.com",
+	"shermin_1006@hotmail.com",
+	"triviashin@gmail.com",
+	"firraiemy2020@gmail.com",
+	"bengei.chauh@sanmina.com", # end duplicate phone, address ---> 03/05/2021
 );
 
 $kmmlist2 = array();

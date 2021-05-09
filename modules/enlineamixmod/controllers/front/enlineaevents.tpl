@@ -371,7 +371,7 @@ var hasSubmitted=false;
 	</div>
 {/if}
 {include file="$events_view_path/templates/front/errors.tpl"}
-	{if $event_info.event_id|in_array:[95, 96, 97, 108, 104,9998]}
+	{if $event_info.event_id|in_array:[95, 96, 97, 108, 104, 105, 116, 117, 118, 119, 120, 300, 9998, 99999]}
 		{* this part to try implement new boostrap without effect any exisitng event page - haiqal *}
 		<style>
 			html{
@@ -510,25 +510,31 @@ var hasSubmitted=false;
 			<img src="{$event_info.custom_floating_ball}" alt="float ball" width="80px"/>
 		</a>
 	</div>{else}{/if}
-	<div class="row">
-		<div style="position:relative">
-			<div style='text-align: end;margin-top:10px'>
-				<div class="fb-share-button" data-href="{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}" data-layout="button_count" data-size="large" data-mobile-iframe="true">
-					<a class="fb-xfbml-parse-ignore" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" target="_blank" rel="noopener">Share</a>
+	{if $event_info.event_id|in_array:[300]}{* this part to hide facebook button - haiqal *}
+	{else}
+		<div class="row">
+			<div style="position:relative">
+				<div style='text-align: end;margin-top:10px'>
+					<div class="fb-share-button" data-href="{$smarty.server.HTTP_HOST}{$smarty.server.REQUEST_URI}" data-layout="button_count" data-size="large" data-mobile-iframe="true">
+						<a class="fb-xfbml-parse-ignore" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" target="_blank" rel="noopener">Share</a>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	{/if}
+	
 	{if isset($smarty.session.isPWA) && $smarty.session.isPWA==1}
-	{else if $event_info.event_id == 87 || $event_info.event_id == 223}
+	{else if $event_info.event_id|in_array:[87, 97, 105, 116, 117, 118, 119, 120, 300, 223]}{* this part to hide parentcraft display - haiqal *}
 	{else}
 		<div class="row" style="margin-top:25px;background:white;">
 		{foreach from=$event_minibanner key=k item=oneImg}
-			<div class="col col-md-3 col-xs-3" style="padding-top:20px;padding-left: 5px !important; padding-right: 5px !important;">
-				<a href='/events/{$oneImg.event_slug}'>
-					<img src='{$oneImg.event_mini_banner}' style="width:100%" >
-				</a>
-			</div>
+			{if isset($oneImg.event_slug) && $oneImg.event_slug != 'testnewmom'}
+				<div class="col col-md-3 col-xs-3" style="padding-top:20px;padding-left: 5px !important; padding-right: 5px !important;">
+					<a href='/events/{$oneImg.event_slug}'>
+						<img src='{$oneImg.event_mini_banner}' style="width:100%" >
+					</a>
+				</div>
+			{/if}
 		{/foreach}
 		</div>
 	{/if}
@@ -619,6 +625,6 @@ $(document).ready(function() {
   $("img").trigger("unveil");
 });
 </script>
-{if $event_info.event_id == 87 || $event_info.event_id == 223 || $event_info.event_id == 88 || $event_info.event_id == 89 || $event_info.event_id == 126 || $event_info.event_id == 102 || $event_info.event_id == 95 || $event_info.event_id == 96}
+{if $event_info.event_id|in_array:[87, 88, 89, 95, 96, 97, 102, 105,116, 117, 118, 119, 120, 126, 300, 223]} {* this part to hide product list footer - haiqal *}
 {else}{$displayProductListFooter} {$event_info.event_id }{/if}
 <!-- END : MODULE enlineasellerimport -->

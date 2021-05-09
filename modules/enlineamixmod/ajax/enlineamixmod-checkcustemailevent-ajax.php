@@ -31,7 +31,7 @@ if($email != '')
 		if($eventID > 0)
 		{
 			$whereSql = '';
-			if($eventID == 102) # newmom-essential-nestle
+			if(in_array($eventID, array(102, 106))) # 102-newmom-essential-nestle , 106 - wyeth promama
 			{
 				$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `subscriber_event_id` = '" . trim($eventID) . "'";
 				$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `newEmail` = '" . trim($email) . "'";
@@ -56,9 +56,16 @@ if($email != '')
 						$dataCustomer['subscriber_id'] = $val['subscriber_id'];
 						$dataCustomer['edd_date'] 	   = $val['subscriber_question8'];
 						$dataCustomer['milkbrand'] 	   = $val['subscriber_question9'];
-						$dataCustomer['tnc_nestle']    = $val['subscriber_question10'];
-						$dataCustomer['tnc_mmy']       = $val['subscriber_question11'];
-						$dataCustomer['news_promo']    = $val['subscriber_question12'];
+						$dataCustomer['tnc_nestle']    = $val['subscriber_question12'];
+						$dataCustomer['tnc_mmy']       = $val['subscriber_question13'];
+						$dataCustomer['news_promo']    = $val['subscriber_question14'];
+						
+						if($dataCustomer['mobile'] != '')
+						{
+							$dataCustomer['mobile'] = substr($dataCustomer['mobile'], 1);
+						}
+						
+						
 						if($val['subscriber_question8'] != '')
 						{
 							$edd 			  = $val['subscriber_question8'];
@@ -174,6 +181,11 @@ if($email != '')
 						$dataCustomer['mobile']        = $val['subscriber_question15'];
 					}
 					
+					if($dataCustomer['mobile'] != '')
+					{
+						$dataCustomer['mobile'] = substr($dataCustomer['mobile'], 1);
+					}
+					
 					$arrMsg['status'] 	   = true;
 					$arrMsg['status_code'] = 'exist_customer_event'; 
 					$arrMsg['msg'] 	       = 'registered customer';
@@ -218,7 +230,7 @@ if($email != '')
 					}
 				}
 			}
-			elseif($eventID == 97) # apta-moms-with-kids
+			elseif(in_array($eventID, array(97, 105))) # 97- apta-moms-with-kids, 105 - apta pregnants mom
 			{
 				$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `subscriber_event_id` = '" . trim($eventID) . "'";
 				$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `newEmail` = '" . trim($email) . "'";
@@ -239,11 +251,17 @@ if($email != '')
 						$dataCustomer['child_name']    = $val['subscriber_question8'];
 						$dataCustomer['child_dob']     = $val['subscriber_question2'];
 						$dataCustomer['fulladdress']   = $val['subscriber_question3'];
+						$dataCustomer['fulladdress2']   = $val['subscriber_question11'];
 						$dataCustomer['postcode']      = $val['subscriber_question4'];
 						$dataCustomer['city']  		   = $val['subscriber_question5'];
 						$dataCustomer['state']  	   = $val['subscriber_question7'];
 						$dataCustomer['subscriber_id'] = $val['subscriber_id'];
 						$dataCustomer['tnc_apta']      = $val['subscriber_question10'];
+					}
+					
+					if($dataCustomer['mobile'] != '')
+					{
+						$dataCustomer['mobile'] = substr($dataCustomer['mobile'], 1);
 					}
 					
 					$arrMsg['status'] 	   = true;
@@ -354,6 +372,147 @@ if($email != '')
 						$dataCustomer['state']  	   = $val['subscriber_question7'];
 						$dataCustomer['subscriber_id'] = $val['subscriber_id'];
 						$dataCustomer['tnc_apta']      = $val['subscriber_question10'];
+					}
+					
+					if($dataCustomer['mobile'] != '')
+					{
+						$dataCustomer['mobile'] = substr($dataCustomer['mobile'], 1);
+					}
+					
+					$arrMsg['status'] 	   = true;
+					$arrMsg['status_code'] = 'exist_customer_event'; 
+					$arrMsg['msg'] 	       = 'registered customer';
+					$arrMsg['data'] 	   = $dataCustomer;
+				}
+				else
+				{
+					$whereSql = '';
+					$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `email` = '" . trim($email) . "'";
+					
+					#check if customer is member of motherhood
+					$sqlC 	 = 'SELECT COUNT(id_customer) as ccount	FROM `ps_customer` WHERE email="'. trim($email) . '" LIMIT 1';
+					$resultC = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlC);
+					#if member
+					if ($resultC[0]['ccount'] > 0){
+						
+						$sql 		  = "SELECT * FROM `ps_customer`" . $whereSql . " ORDER BY `id_customer` DESC LIMIT 1";
+						$queryResult2 = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+						
+						#if user already register this events
+						if(is_array($queryResult2) && isset($queryResult2[0]) && sizeof($queryResult2[0]) > 0)
+						{
+							foreach($queryResult2 as $val2)
+							{
+								$dataCustomer['firstname'] = $val2['firstname'];
+								$dataCustomer['lastname']  = $val2['lastname'];
+								$dataCustomer['email']     = $val2['email'];
+							}
+							
+							$arrMsg['data'] = $dataCustomer;
+						}
+						
+						if($password == '')
+						{
+							$arrMsg['status'] 	   = false;
+							$arrMsg['succeeded']   = $post_result['succeeded'];
+							$arrMsg['status_code'] = 'exist_customer_motherhood_password_empty'; 
+							$arrMsg['msg'] 	  	   = 'Password empty';
+						}
+						else
+						{
+							#check if email and password match with our SSO db
+							$public_key = _SSO_PUBLIC_KEY_;
+							$nonce	    =  Tools::generateRandomNonce();
+							$signature  =  Tools::generateSignature($nonce);
+
+							// ********** create sso user ********************
+
+							$post_data = array(
+								'email' 	 => $email,
+								'password'   => $password,
+								'public_key' => $public_key,
+								'nonce' 	 =>  $nonce,
+								'signature'  => $signature
+							);
+							$post_result = Tools::post_data(_SSO_API_LOGIN_ACCOUNT_, $post_data);
+							$post_result = json_decode($post_result, true);
+							
+							if($post_result['succeeded'] == true)
+							{
+								$arrMsg['status']	   = true;
+								$arrMsg['succeeded']   = $post_result['succeeded'];
+								$arrMsg['status_code'] = 'exist_customer_motherhood_password_valid'; 
+								$arrMsg['msg'] 	  	   = 'info exist in our database and login info is correct';
+							}
+							else
+							{
+								$arrMsg['status'] 	   = false;
+								$arrMsg['succeeded']   = $post_result['succeeded'];
+								$arrMsg['status_code'] = 'exist_customer_motherhood_password_invalid'; 
+								$arrMsg['msg'] 	  	   = isset($post_result['message']) ? $post_result['message'] : 'incorrect value';
+							}
+						}
+					}
+					else
+					{
+						$arrMsg['status'] 	   = true;
+						$arrMsg['status_code'] = 'new_customer_event'; 
+						$arrMsg['msg'] 	       = 'customer email new for this event';
+					}
+				}
+			}
+			elseif(in_array($eventID, array(93, 99999))) # 93- superkid live page , 99999 - superkid uat
+			{
+				$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `subscriber_event_id` = '" . trim($eventID) . "'";
+				$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `newEmail` = '" . trim($email) . "'";
+				
+				$sql 		 = "SELECT * FROM `ps_events_subscriber`" . $whereSql . " ORDER BY `subscriber_id` DESC LIMIT 1";
+				$queryResult = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+				
+				#if user already register this events
+				if(is_array($queryResult) && isset($queryResult[0]) && sizeof($queryResult[0]) > 0)
+				{
+					foreach($queryResult as $val)
+					{
+						$dataCustomer['firstname']     = $val['newFirstName'];
+						$dataCustomer['lastname']  	   = $val['newLastName'];
+						$dataCustomer['email']     	   = $val['newEmail'];
+						$dataCustomer['mobile']        = $val['subscriber_question1'];
+						$dataCustomer['fulladdress']   = $val['subscriber_question7'];
+						$dataCustomer['postcode']      = $val['subscriber_question8'];
+						$dataCustomer['city']  		   = $val['subscriber_question9'];
+						$dataCustomer['state']  	   = $val['subscriber_question10'];
+						
+						$arr_child1['childname'] 	   = $val['subscriber_question11'];
+						$arr_child1['childic'] 	   	   = $val['subscriber_question12'];
+						$arr_child1['childdob'] 	   = $val['subscriber_question13'];
+						$arr_child1['childmobileno']   = $val['subscriber_question14'];
+						$arr_child1['childgender']     = $val['subscriber_question15'];
+						$arr_child1['childmilkbrand']  = $val['subscriber_question26'];
+						$dataCustomer['listchilds']['child1'] =  $arr_child1;
+						
+						$arr_child2['childname'] 	   = $val['subscriber_question16'];
+						$arr_child2['childic'] 	   	   = $val['subscriber_question17'];
+						$arr_child2['childdob'] 	   = $val['subscriber_question18'];
+						$arr_child2['childmobileno']   = $val['subscriber_question19'];
+						$arr_child2['childgender']     = $val['subscriber_question20'];
+						$arr_child2['childmilkbrand']  = $val['subscriber_question27'];
+						$dataCustomer['listchilds']['child2'] =  $arr_child2;
+						
+						$arr_child3['childname'] 	   = $val['subscriber_question21'];
+						$arr_child3['childic'] 	   	   = $val['subscriber_question22'];
+						$arr_child3['childdob'] 	   = $val['subscriber_question23'];
+						$arr_child3['childmobileno']   = $val['subscriber_question24'];
+						$arr_child3['childgender']     = $val['subscriber_question25'];
+						$arr_child3['childmilkbrand']  = $val['subscriber_question28'];
+						$dataCustomer['listchilds']['child3'] =  $arr_child3;
+						
+						$dataCustomer['tnc_agree']      = $val['subscriber_question29'];
+					}
+					
+					if($dataCustomer['mobile'] != '')
+					{
+						$dataCustomer['mobile'] = substr($dataCustomer['mobile'], 1);
 					}
 					
 					$arrMsg['status'] 	   = true;

@@ -164,6 +164,16 @@
 		width:30%;
 	}
 	
+	.div-tester-agreement ul{
+		list-style:initial;
+		padding-left:18px;
+		color:black;
+	}
+	
+	.div-tester-agreement ul > li{
+		margin-bottom:5px;
+	}
+	
 	/** starting css for form wizard **/
 	ul {
 	  padding: 0;
@@ -502,6 +512,12 @@
 							<div class="row">
 								<div style='color:#555454;font-weight:300;'class="text-left">{$campaign['description_short']}</div>
 							</div>
+							
+							{if isset($campaign['description']) && $campaign['description'] != ''}
+							<div class="row">
+								<div style='color:#555454;font-weight:300;'class="text-left">{$campaign['description']}</div>
+							</div>
+							{/if}
 						</div>
 					</div>
 				</section>
@@ -1300,15 +1316,15 @@
 				<h4></h4>
 				<section style="display:none">
 					<div class="row">
-						<div class="col-md-12" style="padding-left: 25px; padding-right: 25px;">
-							Agreement Details: {$campaign['tester_agreement']}
+						<div class="col-md-12 div-tester-agreement" style="padding-left: 25px; padding-right: 25px;">
+							<font style="font-size:14px;color:black;">Agreement Details:</font> {$campaign['tester_agreement']}
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-12" style="padding-left: 15px; padding-right: 15px;">
+						<div class="col-md-12" style="padding-left: 15px; padding-right: 15px;font-size:14px;">
 							<div style="margin-top: 10px; margin-bottom: 10px;">
 								<div class="checkbox">
-									<label style="text-align: left;line-height: 16px;"><input type="checkbox" value="yes" class="check-tnc" name="check_tnc">I have read and agree to the Terms & Conditions of this campaign.</label>
+									<label style="text-align: left;line-height: 16px;color:black;"><input type="checkbox" value="yes" class="check-tnc" name="check_tnc">I have read and agree to the Terms & Conditions of this campaign.</label>
 								</div>
 							</div>
 						</div>

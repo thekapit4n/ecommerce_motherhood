@@ -6,22 +6,22 @@ $arr_allowUser = array(
 	'tech',
 	'megan',
 	'hooishan',
-	'anmum',
+	'nestlemom',
 	'haiqal',
 );
 
-if ((in_array($_POST['login'], $arr_allowUser)) && $_POST['password']=='anmum123'){
-	$_SESSION['anmummaternaLogin']=1;
+if ((in_array($_POST['login'], $arr_allowUser)) && $_POST['password'] == 'nestlemom123'){
+	$_SESSION['nestlemomsample'] = true;
 }
 
-if ($_SESSION['anmummaternaLogin']==1){
+if ($_SESSION['nestlemomsample'] == true){
 
 }
 else{
 ?><!DOCTYPE html>
 <head>
 <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico"/>
-<title>Anmum Materna Report 2021 | Motherhood.com.my Malaysia</title>
+<title>Nestle Mom Sample Report 2021 | Motherhood.com.my Malaysia</title>
 <style>
 	body 
 {
@@ -115,7 +115,7 @@ div.form-container
 </style>
 </head>
 
-<form action='anmum-materna-report2021.php' method='post'>
+<form action='nestle-mom-sample-report2021.php' method='post'>
 		<div style="row">
 			<div style="text-align:center;">
 				<img style="vertical-align: middle;width:10%;" 
@@ -123,7 +123,7 @@ div.form-container
 			</div>
 			<div class="form-container">
 				<div class="text-header">
-				Anmum Materna Report 2021 | Motherhood.com.my Malaysia
+				Nestlé Mom Sample Report 2021 | Motherhood.com.my Malaysia
 				</div>
 				<div class="form">
 					<div class="text">
@@ -176,7 +176,7 @@ $productList=array();
 	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/Inputmask-5.x/dist/jquery.inputmask.js" type="text/javascript"></script>
 	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/twbs-pagination/jquery.twbsPagination.min.js" type="text/javascript"></script>
 	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/simplePagination/jquery.simplePagination.js" type="text/javascript"></script>
-<title>Anmum materna report 2021 | Motherhood.com.my Malaysia</title>
+<title>Nestlé mom sample report 2021 | Motherhood.com.my Malaysia</title>
 <style>
 body{
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -206,7 +206,7 @@ body{
 	$searchEnd 	 	="";
 	$wheresql  	 	= "";
 	$limitsql    	= "";
-	$currentLimit 	= " LIMIT 4500";
+	$currentLimit 	= " LIMIT 1700";
 	
 	if (isset($_GET['pageno'])) {
 		$pageno = $_GET['pageno'];
@@ -214,7 +214,7 @@ body{
 		$pageno = 1;
 	}
 	
-	$no_of_records_per_page = 1500;
+	$no_of_records_per_page = 1700;
 	
 	if(isset($_POST['searchDateStart']) && $_POST['searchDateStart'] != '')
 	{
@@ -241,79 +241,7 @@ body{
 	}
 	
 	$arr_skip_email = array(
-		"zhafiraana@gmail.com",
-		"khairulazharkhairulazhar33@gmail.com",
-		"tresnawatye@yahoo.com",
-		"hanifchemohd@gmail.com",
-		"elykanor35@gmail.com",
-		"bobfmlynorhayatibtahmadjamal",
-		"safikah8889@gmail.com",
-		"bibiananur70@gmail.com",
-		"sxdsa6@gmail.com.my",
-		"kogorogawa@gmail.com",
-		"anazhafia@gmail.com",
-		"kwangjunwei@gmail.com",
-		"nur.hana84@yahoo.com",
-		"zaiemanarain@gmail.com",
-		"rosma19wati88@gmail.com",
-		"ashraffangah614@gmail.com",
-		"ulfi rr97@gmail.com",
-		"evitaliastri84@gmail.com",
-		"shazrilamiza@ymial",
-		"jeerdanyismail@gmail.com",
-		"nrashikin6@gmail.com",
-		"zaiema93@icloud.com",
-		"zaiema98@gmail.com",
-		"nizamretnoretno@gmail.com",
-		"nizamfamilyradzali@gmail.com",
-		"@xiaoqing4876@gamail.com",
-		"fatinnadiela95@gmail.com",
-		"izzatirashid709@gmail.com",
-		"safarizakhmat@gmail.com",
-		"kumayang14@gmail.com",
-		"jairadam859112 @gmaila.com",
-		"samsulkumaryusof.gmail.com",
-		"861103526254",
-		"haritsshakhmir9590@gmail.com",
-		"norshamshena84@gmail.com.my",
-		"ctfarisha_ieka@yahoo.com",
-		"www.faizalsfoundationsdnbhd@gmail.com",
-		"nur_ainnajwa81@yahoo.com",
-		"iema.naim.90@gmail.com",
-		"katrina.shandhini @gmail.com",
-		"nuraidaamira@gmail.com",
-		"zaiumi1985@gmail.com",
-		"amiera_mierashi1010@yahooo.com",
-		"john_choongming0511@hotmail.com",
-		"konny_828@hotmail.com",
-		"ameeranusaybah@yahoo.com",
-		"aidilkerry2526@gmail.com",
-		"jimalsama133@gmail.com",
-		"fazlinayusof482@gmail.com",
-		"nirimaima581@gmail.com",
-		"ariniezakaria@gmail.com",
-		"suzilawatyeffanici@gmail.com",
-		"tankaixin1341@gmail.com",
-		"sitihamidah040188@gmail.com",
-		"norsyakirinmohammadzais@gmail.com",
-		"nurhafizan3@gmail.com ",
-		"giffsondeff@gmail.com",
-		"nanizahari@gmail.com",
-		"normiazrina#yahoo.com",
-		"sitinurhuda945@gmail.com",
-		"shahnizamsanudin90@gmail.com",
-		"ifahju73@gmail.com",
-		"sayang0711@gmail.com",
-		"nurizatyashikin945@gmail.com",
-		"aidilkerry2526",
-		"pei840927@gmail.com",
-		"mzniepal@yahoo.com",
-		"nirulhafizah925@gmail com ",
-		"babyrose9@gmail.com",
-		"riezadewi04@gmail.com",
-		"jesyarcs09@gmail.com ",
-		"jurlyndamiroh@gmail.com",
-		"skyline_ray26@hotmail.com",
+		
 	);
 	
 	if(isset($arr_skip_email) && is_array($arr_skip_email) && sizeof($arr_skip_email) > 0)
@@ -324,38 +252,76 @@ body{
 		}
 		
 		$string_email = implode(",", $skipemail2);
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " a.newEmail NOT IN (" . $string_email . ")";
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.newEmail NOT IN (" . $string_email . ")";
 	}
 	
+	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "evnt.subscriber_event_id = 102";
+	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "cart_prod.id_product = 45390";
 	
-	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "a.subscriber_event_id=89";
+	$groupBy = " GROUP BY evnt.newEmail ";
 					
 	if($searchStart != '')
 	{
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " subscriber_created_at >= '" . trim($searchStart . " 00:00:00") . "'";
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at >= '" . trim($searchStart . " 00:00:00") . "'";
 	}
 	
 	if($searchEnd != '')
 	{
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " subscriber_created_at <= '" . trim($searchEnd . " 23:59:59") . "'";
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at <= '" . trim($searchEnd . " 23:59:59") . "'";
 	}
 	
 	if($searchStart == '' && $searchEnd == '')
 	{
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "a.subscriber_created_at >= '2021-01-01 00:00:00'";
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "evnt.subscriber_created_at >= '2021-04-13 00:00:00'";
 	}
 	
-	
+	if(isset($_POST['item_status']))
+	{
+		$itemstatus = $_POST['item_status'];
+		
+		if(strtolower($itemstatus) == "incart")
+		{
+			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " bb.valid IS NULL";
+		}
+		elseif(strtolower($itemstatus) == "paid")
+		{
+			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " bb.valid = 1";
+		}
+		elseif(strtolower($itemstatus) == "unpaid")
+		{
+			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " bb.valid = 0";
+		}
+	}
 	
 	$urlPagination = "";
-	
 	if(isset($pageno) && $pageno > 0)
 	{
 		$urlPagination .= ($urlPagination == "" ? '?' : '&') . "pageno=";
 	}
 	
+	$sqltotalCount	  =  "SELECT COUNT(*) AS total FROM (SELECT DISTINCT (evnt.newEmail) 
+							FROM
+								ps_events_subscriber AS evnt
+								LEFT JOIN
+							motherhood_presta.ps_customer AS cust ON cust.email = evnt.newEmail
+								LEFT JOIN
+							ps_cart AS cart ON cart.id_customer = cust.id_customer
+								INNER JOIN
+							ps_cart_product AS cart_prod ON cart.id_cart = cart_prod.id_cart
+								LEFT JOIN
+							(SELECT 
+								odr.id_order, odr.id_customer, odr.valid, odr.invoice_date
+							FROM
+								ps_orders AS odr
+							INNER JOIN ps_order_detail AS odr_detail ON odr.id_order = odr_detail.id_order
+							WHERE
+								odr_detail.product_id = 45390) bb ON bb.id_customer = cust.id_customer
+							" .$wheresql . "
+							GROUP BY evnt.newEmail
+							ORDER BY evnt.subscriber_created_at ASC
+							" . $currentLimit . ") AS a
+						";
 	
-	$sqltotalCount	  =  "SELECT COUNT(*) AS total FROM (SELECT DISTINCT(a.newEmail) FROM ps_events_subscriber a " . $wheresql . "  ORDER BY subscriber_created_at ASC " . $currentLimit . ") AS a";
 	$resultCount 	  =  $conn->query($sqltotalCount);
 	$arr_resultCount  =  mysqli_fetch_array($resultCount);
 	$total_rows 	  =  isset($arr_resultCount['total']) ? $arr_resultCount['total'] : 0;
@@ -372,14 +338,40 @@ body{
 			$showingLimit = $total_rows;
 		}
 	}
+			
+	$sql = "SELECT 
+				 RTRIM(LTRIM(CONCAT(evnt.newFirstName , ' ' , evnt.newLastName))) AS Name,
+				evnt.newEmail AS Email,
+				evnt.subscriber_question1 AS 'Mobile no',
+				evnt.subscriber_question2 AS 'Parent DOB',
+				evnt.subscriber_question9 AS 'Maternal Milk',
+				evnt.subscriber_question3 AS 'Address',
+				evnt.subscriber_question4 AS 'Postcode',
+				evnt.subscriber_question5 AS 'City',
+				evnt.subscriber_question7 AS 'State',
+				evnt.subscriber_question12 AS 'TNC Nestlé Products Sdn Bhd',
+				evnt.subscriber_question13 AS 'TNC Motherhood.com.my',
+				evnt.subscriber_question14 AS 'Marketing and promotional information',
+				IFNULL(bb.valid, 'incart') AS 'Item Status',
+				evnt.subscriber_created_at AS 'Subscriber Date',
+				bb.invoice_date as 'Checkout Date'
+			FROM
+				ps_events_subscriber AS evnt
+				LEFT JOIN
+				motherhood_presta.ps_customer AS cust ON cust.email = evnt.newEmail
+				LEFT JOIN
+				ps_cart AS cart ON cart.id_customer = cust.id_customer
+				INNER JOIN
+				ps_cart_product AS cart_prod ON cart.id_cart = cart_prod.id_cart
+					  LEFT JOIN ( select odr.id_order, odr.id_customer, odr.valid,  odr.invoice_date FROM 
+						ps_orders AS odr 
+							INNER JOIN
+						ps_order_detail AS odr_detail ON odr.id_order = odr_detail.id_order 
+						WHERE  odr_detail.product_id = 45390
+					) bb ON bb.id_customer = cust.id_customer
+			" . $wheresql . $groupBy . " ORDER BY evnt.subscriber_created_at ASC " . $limitsql ;
 	
-    $sql = "SELECT
-			a.newEmail as Email, a.newFirstName as FirstName, a.newLastName as LastName, a.subscriber_question1 as Mobile, 
-			a.subscriber_question12 as PregnancyStatus, a.subscriber_question11 as Flavour, a.subscriber_question2 as Address, a.subscriber_question3 as Postcode, 
-			a.subscriber_question5 as City, a.subscriber_question7 as State, a.subscriber_question8 as Brand, a.subscriber_question9 as Language, 
-			a.subscriber_question10 as TnC, a.subscriber_created_at as DateSubmit
-			FROM ps_events_subscriber a" . $wheresql . " GROUP BY newEmail	ORDER BY subscriber_created_at ASC " . $limitsql;
-	// echo $sql;
+	
     $result = $conn->query($sql);
 	if(is_object($result)){
 		$tableReportView =  mysql_result_all_html($result, $offset);
@@ -416,7 +408,35 @@ body{
 			$ccount++;
 			$table .= "<tr><td>" . $ccount . "</td>";
 			foreach ($r as $indx => $kolonne) {
-				$table .= "<td>" . $kolonne . "</td>";
+				if(in_array($indx, array(9,10,11)))
+				{
+					if($kolonne == '')
+					{
+						$table .= "<td class='text-center'> - </td>";
+					}
+					else
+					{
+						$table .= "<td class='text-center'>" . $kolonne . "</td>";
+					}
+				}
+				elseif($indx == 12)
+				{
+					
+					if($kolonne == 1)
+					{
+						$table .= "<td class='text-center'> <span class='badge badge-success'>Paid</span> </td>";
+					}
+					elseif(strtolower($kolonne) == 'incart')
+					{
+						$table .= "<td class='text-center'><span class='badge badge-info'>In cart</span></td>";
+					}
+					else
+					{
+						$table .= "<td class='text-center'><span class='badge badge-danger'>Payment unsucessful</span></td>";
+					}
+				}
+				else
+					$table .= "<td>" . $kolonne . "</td>";
 			}
 			$table .= "</tr>";
 		}
@@ -434,7 +454,7 @@ body{
 	  <!-- Links -->
 		<ul class="navbar-nav">
 			<li class="nav-item">
-			  <a class="nav-link" href="anmum-materna-report2021.php">Anmum materna report 2021 MMY</a>
+			  <a class="nav-link" href="nestle-mom-sample-report2021.php">Nestlé mom sample report 2021 MMY</a>
 			</li>
 		</ul>
 	</nav>
@@ -443,52 +463,71 @@ body{
 			<div class="row row-motherhood" style="margin-top:40px;">
 				<div class="col-md-8">
 					<div class="page-header">
-						<h3>Anmum materna report 2021 | Motherhood.com.my Malaysia</h3>
+						<h3>Nestlé mom sample report 2021 | Motherhood.com.my Malaysia</h3>
 					</div>
 				</div>
 			</div>
-			<form id="form-request" method='post' action="anmum-materna-report2021.php">
+			<form id="form-request" method='post' action="nestle-mom-sample-report2021.php">
 				<div class="row row-motherhood">
 					<div class="col-md-5">
-						<div class="input-group input-group-sm mb-3">
-							<div class="input-group-prepend">
-								<span class="input-group-text" id="basic-addon1">From</span>
-							</div>
-							<?php 
-								if(isset($_POST['searchDateStart']) && $_POST['searchDateStart'] != '')
-								{
-									$arrDay = explode('/', $_POST['searchDateStart']);
-									if(is_array($arrDay) && sizeof($arrDay) == 3)
-									{
-										$year  = $arrDay[2];
-										$month = $arrDay[1];
-										$day   = $arrDay[0];
+						<div class="row">
+							<div class="col-md-12">
+								<div class="input-group input-group-sm mb-3">
+									<div class="input-group-prepend">
+										<span class="input-group-text" id="basic-addon1">From</span>
+									</div>
+									<?php 
+										if(isset($_POST['searchDateStart']) && $_POST['searchDateStart'] != '')
+										{
+											$arrDay = explode('/', $_POST['searchDateStart']);
+											if(is_array($arrDay) && sizeof($arrDay) == 3)
+											{
+												$year  = $arrDay[2];
+												$month = $arrDay[1];
+												$day   = $arrDay[0];
+												
+												$fromdate = $day . "/" . $month . "/" . $year;
+											}
+										}
 										
-										$fromdate = $day . "/" . $month . "/" . $year;
-									}
-								}
-								
-								if(isset($_POST['searchDateEnd']) && $_POST['searchDateEnd']!= '')
-								{
-									$arrDay = explode('/', $_POST['searchDateEnd']);
-									if(is_array($arrDay) && sizeof($arrDay) == 3)
-									{
-										$year  = $arrDay[2];
-										$month = $arrDay[1];
-										$day   = $arrDay[0];
-										
-										$todate = $day . "/" . $month . "/" . $year;
-									}
-								}
-							?>
-							<input type="text" class="form-control eventdatepicker" name="searchDateStart" autocomplete="off" placeholder="start date" value='<?php echo (isset($fromdate) && $fromdate != '') ? $fromdate : '' ?>'>
-							<div class="input-group-prepend">
-								<span class="input-group-text" id="basic-addon1">To</span>
+										if(isset($_POST['searchDateEnd']) && $_POST['searchDateEnd']!= '')
+										{
+											$arrDay = explode('/', $_POST['searchDateEnd']);
+											if(is_array($arrDay) && sizeof($arrDay) == 3)
+											{
+												$year  = $arrDay[2];
+												$month = $arrDay[1];
+												$day   = $arrDay[0];
+												
+												$todate = $day . "/" . $month . "/" . $year;
+											}
+										}
+									?>
+									<input type="text" class="form-control eventdatepicker" name="searchDateStart" autocomplete="off" placeholder="start date" value='<?php echo (isset($fromdate) && $fromdate != '') ? $fromdate : '' ?>'>
+									<div class="input-group-prepend">
+										<span class="input-group-text" id="basic-addon1">To</span>
+									</div>
+									<input type="text" class="form-control eventdatepicker-end" name="searchDateEnd" autocomplete="off" placeholder="end date" value='<?php echo (isset($todate) && $todate != '') ? $todate : '' ?>' disabled>
+									<input type="hidden" class="form-control" name="themessage" value='<?php echo (isset($encrypt) && $encrypt != '') ? $encrypt : '' ?>'>
+								</div>
 							</div>
-							<input type="text" class="form-control eventdatepicker-end" name="searchDateEnd" autocomplete="off" placeholder="end date" value='<?php echo (isset($todate) && $todate != '') ? $todate : '' ?>' disabled>
-							<input type="hidden" class="form-control" name="themessage" value='<?php echo (isset($encrypt) && $encrypt != '') ? $encrypt : '' ?>'>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="exampleFormControlSelect1">Item Status</label>
+									<select class="form-control" name="item_status">
+										<option value="">All</option>
+										<option value="incart" <?php echo (isset($itemstatus) && strtolower($itemstatus) == 'incart') ? 'selected="selected"' : '' ?>>In cart</option>
+										<option value="paid" <?php echo (isset($itemstatus) && strtolower($itemstatus) == 'paid') ? 'selected="selected"' : '' ?>>Paid</option>
+										<option value="unpaid" <?php echo (isset($itemstatus) && strtolower($itemstatus) == 'unpaid') ? 'selected="selected"' : '' ?>>Unsuccessful Payment</option>
+									</select>
+								  </div>
+							</div>
 						</div>
 					</div>
+				</div>
+				<div class="row row-motherhood">
 					<div class="col-md-2 text-left">
 						<div class="form-check-inline">
 							<label class="form-check-label">
@@ -497,12 +536,14 @@ body{
 							</label>
 						</div>
 					</div>
+				</div>
+				<div class="row row-motherhood">
 					<div class="col-md-3 text-left">
 						<button type="button" id="btn-submit" class="btn btn-success btn-sm"> Submit </button>
 					</div>
 				</div>
 			</form>
-			<div class="row row-motherhood">
+			<div class="row row-motherhood mt-5">
 				
 				<div class="col-md-12" style="width:100%">
 					<nav style="margin-bottom:10px;">
@@ -573,11 +614,11 @@ body{
 			console.log(isExport);
 			if(isExport)
 			{
-				$('body').find('#form-request').attr('action', 'anmum-materna-report2021-excel.php');
+				$('body').find('#form-request').attr('action', 'nestle-mom-sample-report2021-excel.php');
 			}
 			else
 			{
-				$('body').find('#form-request').attr('action', 'anmum-materna-report2021.php');
+				$('body').find('#form-request').attr('action', 'nestle-mom-sample-report2021.php');
 			}
 			
 			$('body').find('#form-request').submit();

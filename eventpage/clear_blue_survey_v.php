@@ -3,10 +3,12 @@
 	@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca');
 	body{
 		font-family: Arial,Helvetica,sans-serif;
+		
 	}
 	
 	#eventform{
 		background-color:#203764;
+		font-family: 'Lexend Deca', sans-serif;
 	}
 	
 	.font-fact{
@@ -118,7 +120,7 @@
 	.steps ul:before {
 		content: "Question 1";
 		font-size: 18px;
-		font-family: Arial,Helvetica,sans-serif;
+		font-family: 'Lexend Deca', sans-serif;
 		color: white;
 		top: -27px;
 		position: absolute;
@@ -527,7 +529,7 @@
 	</div>
 	<div class="row row-custom">
 		<div class="col-md-12 text-center mb-4">
-			<h3 class="font-fact" style="color:white"> 
+			<h3 class="font-fact title-survey" style="color:#f18773"> 
 				Welcome to Clearblue Survey
 			</h3>
 		</div>
@@ -563,7 +565,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12 px-2 text-center">
-					<button type="button" class="btn btn-primary btn-cb-custom btn-next-customer" style="position: relative; right: 10px; margin-top:1%;">Next</button>
+					<button type="button" class="btn btn-primary btn-cb-custom btn-next-customer" style="position: relative; right: 10px; margin-top:1%;font-weight: 200;">Next</button>
 				</div>
 			</div>
 		</div>
@@ -1217,6 +1219,7 @@
 						})
 						
 						$('body').find('.btn-next-customer').hide('fast');
+						$('.input-email').closest('.form-floating').find('.small-customer-info-msg').html('<i class="fas fa-info-circle"></i> You have already joined this survey');
 					}
 					else
 					{
@@ -1226,6 +1229,10 @@
 					}
 				}
 			});
+		}
+		else
+		{
+			$('.input-email').closest('.form-floating').find('.small-customer-info-msg').html('');
 		}
 	}
 	
@@ -1802,6 +1809,14 @@
 					$('body').find('.checkHighlight').val("");
 					
 					console.log("currentIndex = " + currentIndex + " newIndex = " + newIndex);
+					if(newIndex > 0)
+					{
+						$('body').find('.title-survey').html('');
+					}
+					else
+					{
+						$('body').find('.title-survey').html('Welcome to Clearblue Survey');
+					}
 					
 					if(currentIndex === 0)
 					{
@@ -2102,13 +2117,14 @@
 				}
 			});
 			
-			$('body').on('blur', '.customer-info-input', function(){
+			$('body').on('blur', '.input-email', function(){
 				validationCustomerInfo();
 			});
 			
 			
 		// testAjx();
 		chartBestProductive();	
+		emailvalidation();
 	});
 </script>
 </p>

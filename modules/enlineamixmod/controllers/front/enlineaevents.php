@@ -709,14 +709,17 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 				if($event_id == 99999)
 				{
 					$productListStr.='
-					<div class="col-lg-4 col-xs-6 dealsBox freeitem dealsBoxCat668" '.$clickStr.'>
-						<div class="col-md-12 dealsImageBox">
-						<a><img style="img-responsive dealsImage" src="'.$getImageLink.'" alt="" width="100%" /></a>
+						<div class="col-md-4">
+							<div class="card dealsBox freeitem dealsBoxCat668" '. $clickStr .'>
+								<img src="' . $getImageLink . '" class="card-img-top" alt="superkid-box-item">
+								<div class="card-body" style="padding-bottom:5px;">
+									<h5 class="card-title" style="color:black">' . $oneResult['name'] . '</h5>
+									<div class="text-center">
+										<button type="button" class="btn btn-primary btn-signup-box button-medium">' . $redeemStr . '</button>
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="col-md-12 dealsBoxContent" style="text-align:center">
-							<h4 class="dealsName" style="margin-bottom:0px">'.$oneResult['name'].'</h4>
-						</div>
-					</div>
 					';
 				}
 				else
@@ -799,7 +802,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 		}
 		
 		#new essentials mom - nestle (when load event page)
-		if($event_id == 102)
+		if($event_id == 102 || $event_id == 106)
 		{
 			$arr_maternalmilk = array(
 				"a2 Nutrition for Mothers",
@@ -823,6 +826,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 				"WILDAN Mama Premium",
 				"Wyeth Promama",
 			);
+			
 			asort($arr_maternalmilk);
 			$arr_maternalmilk[] = "Others";
 			$arr_maternalmilk[] = "Not consuming any milk";
@@ -859,10 +863,15 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					$state 		  = isset($queryResult[0]['subscriber_question7']) ? $queryResult[0]['subscriber_question7'] : '';
 					$eddDate 	  = isset($queryResult[0]['subscriber_question8']) ? $queryResult[0]['subscriber_question8'] : '';
 					$milkbrand 	  = isset($queryResult[0]['subscriber_question9']) ? $queryResult[0]['subscriber_question9'] : '';
-					$tnc_nestle   = isset($queryResult[0]['subscriber_question10']) ? $queryResult[0]['subscriber_question10'] : '';
-					$tnc_mmy   	  = isset($queryResult[0]['subscriber_question11']) ? $queryResult[0]['subscriber_question11'] : '';
-					$news_promo   = isset($queryResult[0]['subscriber_question12']) ? $queryResult[0]['subscriber_question12'] : '';
+					$tnc_nestle   = isset($queryResult[0]['subscriber_question10']) ? $queryResult[0]['subscriber_question11'] : '';
+					$tnc_mmy   	  = isset($queryResult[0]['subscriber_question11']) ? $queryResult[0]['subscriber_question12'] : '';
+					$news_promo   = isset($queryResult[0]['subscriber_question12']) ? $queryResult[0]['subscriber_question13'] : '';
 					$subscribe_id = isset($queryResult[0]['subscriber_id']) ? $queryResult[0]['subscriber_id'] : '';
+					
+					if($mobile != '')
+					{
+						$mobile = substr($mobile,1);
+					}
 					
 					if($state != '')
 					{
@@ -1116,57 +1125,27 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 			} */
 		}
 		
-		if($event_id == 97){
-			#apta moms with kids  
+		if($event_id == 97 || $event_id == 105){
+			# 97 - apta moms with kids  
+			# 105 - apta pregnants mom  
 			$arr_listmilk = array(
-				"4m",
-				"Abbott",
 				"Anmum",
-				"Appeton",
-				"AptaGro",
-				"Aptamil",
-				"Awarua",
-				"Baby Bio",
-				"Baby Steps",
-				"Bellamy's",
-				"Colostrum",
-				"Dugro",
-				"Dumex",
-				"Dupro",
-				"Dutch Baby",
+				"Dumex Dugro",
+				"Dumex Mamil",
 				"Dutch Lady",
 				"Enfagrow",
-				"Enfalac",
-				"Enfamil",
-				"Farmers",
 				"Fernleaf",
 				"Friso",
-				"Frisolac",
-				"G-Star",
-				"Glucerna",
-				"Habib",
 				"Isomil",
-				"Karihome",
 				"Lactogen",
-				"Lactogrow",
-				"Lazz",
-				"Mamex",
-				"Mamil",
-				"Merry Nation",
-				"Miwako",
 				"Morinaga Milk",
-				"Nana",
 				"Nankid",
-				"Nestle",
 				"Novalac",
 				"Pediasure",
 				"S26",
 				"Similac",
 				"Snow",
-				"Suffy",
 				"Sustagen",
-				"Wildan",
-				"Wyeth",
 				"Others ",
 				"Not consuming any milk ",
 			);
@@ -1193,7 +1172,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 			}
 		}
 		
-		if($event_id == 104){
+		if($event_id == 104){ #mommy poko sample
 			if($this->context->customer->email != '' && $this->context->customer->id > 0)
 			{	
 				$result[0]['event_description'] = str_ireplace('{{predefine-email}}', $this->context->customer->email, $result[0]['event_description']);
@@ -1554,7 +1533,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					$subscriber_question14 = implode(",", $subscriber_question14);
 				}
 				
-				if($event_id == 102){
+				if($event_id == 102 || $event_id == 106){
 					if($subscriber_question1 != '')
 					{
 						$firstDigit = (int)$subscriber_question1[0];
@@ -3036,7 +3015,6 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 							$affiliateprogram = new affiliateprogram();
 							$affiliateprogram->hookActionCustomerAccountAdd(array('newCustomer'=>$customer));
 						}
-
 					}
 				}
 				else{

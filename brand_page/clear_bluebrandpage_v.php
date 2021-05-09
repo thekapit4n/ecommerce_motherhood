@@ -2,7 +2,9 @@
 <p></p>
 <!-- Menu -->
 <div class="row" style="padding-bottom: 10px;">
-   <div class="col-md-12"><button class="cat WyethBrandPageCatBtn" style="background: #38a7ac; border: #38a7ac;" data-value="home">Homepage</button> <button class="cat WyethBrandPageCatBtn" data-value="profile" style="background: #b4b3b4; border: #b4b3b4;">Profile</button></div>
+   <div class="col-md-12">
+   <button class="cat WyethBrandPageCatBtn" style="background: #38a7ac; border: #38a7ac;" data-value="home">Homepage</button> 
+   <button class="cat WyethBrandPageCatBtn" data-value="profile" style="background: #b4b3b4; border: #b4b3b4;">Profile</button></div>
 </div>
 <div class="div-homepage">
    <div class="row">
@@ -61,30 +63,30 @@
 <div class="div-profile">
    <div class="clearfix"></div>
    <div class="col-md-12" style="margin-bottom: 10px;">
-      <div id="slider_row" class="row-fluid">
-         <div class="row" style="margin-bottom: 10px;">
-            <div id="homepage-slider" class="home_slider col-md-12 col-xs-12" style="margin-bottom: 0 !important;">
-               <ul class="homeslider" style="width: 100%;">
-                  <li class="homeslider-container" style="width: 100%;">
-                     <div class="videoGoogle col-md-12 col-xs-12 col-lg-12">
-							<iframe src="https://www.youtube.com/embed/8BSXYymNGpI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" width="100%" height="315" frameborder="0">
-                        </iframe>
-                     </div>
-                  </li>
-				  <li class="homeslider-container" style="width: 100%;">
-                     <div class="videoGoogle col-md-12 col-xs-12 col-lg-12"><iframe src="https://www.youtube.com/embed/Knf4vSgMXSU?modestbranding=1&rel=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" width="100%" height="315" frameborder="0">
-                        </iframe>
-                     </div>
-                  </li>
-                  <li class="homeslider-container" style="width: 100%;">
-                     <div class="videoGoogle col-md-12 col-xs-12 col-lg-12"><iframe src="https://www.youtube.com/embed/1HJ-rcXBfXI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" width="100%" height="315" frameborder="0">
-                        </iframe>
-                     </div>
-                  </li>
-               </ul>
-            </div>
-         </div>
-      </div>
+		<div id="slider_row" class="row-fluid">
+			<div class="row" style="margin-bottom: 10px;">
+				<div id="homepage-slider" class="home_slider col-md-12 col-xs-12" style="margin-bottom: 0 !important;">
+				   <ul class="homeslider" style="width: 100%;">
+					  <li class="homeslider-container" style="width: 100%;">
+						 <div class="videoGoogle col-md-12 col-xs-12 col-lg-12">
+								<iframe src="https://www.youtube.com/embed/8BSXYymNGpI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" width="100%" height="315" frameborder="0">
+							</iframe>
+						 </div>
+					  </li>
+					  <li class="homeslider-container" style="width: 100%;">
+						 <div class="videoGoogle col-md-12 col-xs-12 col-lg-12"><iframe src="https://www.youtube.com/embed/Knf4vSgMXSU?modestbranding=1&rel=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" width="100%" height="315" frameborder="0">
+							</iframe>
+						 </div>
+					  </li>
+					  <li class="homeslider-container" style="width: 100%;">
+						 <div class="videoGoogle col-md-12 col-xs-12 col-lg-12"><iframe src="https://www.youtube.com/embed/1HJ-rcXBfXI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" width="100%" height="315" frameborder="0">
+							</iframe>
+						 </div>
+					  </li>
+				   </ul>
+				</div>
+			</div>
+		</div>
    </div>
    <div class="clearfix"></div>
    <!--========================== ARTICLE  ============================-->
@@ -417,9 +419,7 @@
       				}
       			});
       			
-      			$('body').find(".div-profile").addClass("visuallyhidden-cb");
-      			
-      			$('body').find('.section_slidethekapitan').flexisel({
+				$('body').find('.section_slidethekapitan').flexisel({
             			visibleItems: 5,
             			flipPage: true,
             			animationSpeed: 500,
@@ -427,6 +427,9 @@
             			clone: false,
             			autoPlay: true
             		});
+      			$('body').find(".div-profile").addClass("visuallyhidden-cb");
+      			
+      			
       			
       		});
       // ]]>

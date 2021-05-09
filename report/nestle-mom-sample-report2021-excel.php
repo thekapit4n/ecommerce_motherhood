@@ -27,10 +27,11 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 	
 	if($isMatch == true)
 	{
+		
 		$searchStart ="";
 		$searchEnd 	 ="";
 		$wheresql  	 = "";
-		$limitsql    = " LIMIT 4500";
+		$limitsql    = " LIMIT 1700";
 		$strDateMsg  = "";
 		
 		if(isset($_POST['searchDateStart']) && $_POST['searchDateStart'] != '')
@@ -59,81 +60,7 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 			}
 		}
 		
-	$arr_skip_email = array(
-		"zhafiraana@gmail.com",
-		"khairulazharkhairulazhar33@gmail.com",
-		"tresnawatye@yahoo.com",
-		"hanifchemohd@gmail.com",
-		"elykanor35@gmail.com",
-		"bobfmlynorhayatibtahmadjamal",
-		"safikah8889@gmail.com",
-		"bibiananur70@gmail.com",
-		"sxdsa6@gmail.com.my",
-		"kogorogawa@gmail.com",
-		"anazhafia@gmail.com",
-		"kwangjunwei@gmail.com",
-		"nur.hana84@yahoo.com",
-		"zaiemanarain@gmail.com",
-		"rosma19wati88@gmail.com",
-		"ashraffangah614@gmail.com",
-		"ulfi rr97@gmail.com",
-		"evitaliastri84@gmail.com",
-		"shazrilamiza@ymial",
-		"jeerdanyismail@gmail.com",
-		"nrashikin6@gmail.com",
-		"zaiema93@icloud.com",
-		"zaiema98@gmail.com",
-		"nizamretnoretno@gmail.com",
-		"nizamfamilyradzali@gmail.com",
-		"@xiaoqing4876@gamail.com",
-		"fatinnadiela95@gmail.com",
-		"izzatirashid709@gmail.com",
-		"safarizakhmat@gmail.com",
-		"kumayang14@gmail.com",
-		"jairadam859112 @gmaila.com",
-		"samsulkumaryusof.gmail.com",
-		"861103526254",
-		"haritsshakhmir9590@gmail.com",
-		"norshamshena84@gmail.com.my",
-		"ctfarisha_ieka@yahoo.com",
-		"www.faizalsfoundationsdnbhd@gmail.com",
-		"nur_ainnajwa81@yahoo.com",
-		"iema.naim.90@gmail.com",
-		"katrina.shandhini @gmail.com",
-		"nuraidaamira@gmail.com",
-		"zaiumi1985@gmail.com",
-		"amiera_mierashi1010@yahooo.com",
-		"john_choongming0511@hotmail.com",
-		"konny_828@hotmail.com",
-		"ameeranusaybah@yahoo.com",
-		"aidilkerry2526@gmail.com",
-		"jimalsama133@gmail.com",
-		"fazlinayusof482@gmail.com",
-		"nirimaima581@gmail.com",
-		"ariniezakaria@gmail.com",
-		"suzilawatyeffanici@gmail.com",
-		"tankaixin1341@gmail.com",
-		"sitihamidah040188@gmail.com",
-		"norsyakirinmohammadzais@gmail.com",
-		"nurhafizan3@gmail.com ",
-		"giffsondeff@gmail.com",
-		"nanizahari@gmail.com",
-		"normiazrina#yahoo.com",
-		"sitinurhuda945@gmail.com",
-		"shahnizamsanudin90@gmail.com",
-		"ifahju73@gmail.com",
-		"sayang0711@gmail.com",
-		"nurizatyashikin945@gmail.com",
-		"aidilkerry2526",
-		"pei840927@gmail.com",
-		"mzniepal@yahoo.com",
-		"nirulhafizah925@gmail com ",
-		"babyrose9@gmail.com",
-		"riezadewi04@gmail.com",
-		"jesyarcs09@gmail.com ",
-		"jurlyndamiroh@gmail.com",
-		"skyline_ray26@hotmail.com",
-	);
+	$arr_skip_email = array();
 	
 	if(isset($arr_skip_email) && is_array($arr_skip_email) && sizeof($arr_skip_email) > 0)
 	{
@@ -143,33 +70,79 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 		}
 		
 		$string_email = implode(",", $skipemail2);
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " a.newEmail NOT IN (" . $string_email . ")";
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.newEmail NOT IN (" . $string_email . ")";
 	}
 		
 		
-	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "a.subscriber_event_id=89";
+	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "evnt.subscriber_event_id = 102";
+	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "cart_prod.id_product = 45390";
+	
+	$groupBy = " GROUP BY evnt.newEmail ";
 					
 	if($searchStart != '')
 	{
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " subscriber_created_at >= '" . trim($searchStart . " 00:00:00") . "'";
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at >= '" . trim($searchStart . " 00:00:00") . "'";
 	}
 	
 	if($searchEnd != '')
 	{
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " subscriber_created_at <= '" . trim($searchEnd . " 23:59:59") . "'";
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at <= '" . trim($searchEnd . " 23:59:59") . "'";
 	}
 	
 	if($searchStart == '' && $searchEnd == '')
 	{
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "a.subscriber_created_at >= '2021-01-01 00:00:00'";
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "evnt.subscriber_created_at >= '2021-04-13 00:00:00'";
 	}
 	
-    $sql = "SELECT
-			a.newEmail as Email, a.newFirstName as FirstName, a.newLastName as LastName, a.subscriber_question1 as Mobile, 
-			a.subscriber_question12 as PregnancyStatus, a.subscriber_question11 as Flavour, a.subscriber_question2 as Address, a.subscriber_question3 as Postcode, 
-			a.subscriber_question5 as City, a.subscriber_question7 as State, a.subscriber_question8 as Brand, a.subscriber_question9 as Language, 
-			a.subscriber_question10 as TnC, a.subscriber_created_at as DateSubmit
-			FROM ps_events_subscriber a" . $wheresql . " GROUP BY newEmail	ORDER BY subscriber_created_at ASC " . $limitsql;  
+	if(isset($_POST['item_status']))
+	{
+		$itemstatus = $_POST['item_status'];
+		
+		if(strtolower($itemstatus) == "incart")
+		{
+			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " bb.valid IS NULL";
+		}
+		elseif(strtolower($itemstatus) == "paid")
+		{
+			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " bb.valid = 1";
+		}
+		elseif(strtolower($itemstatus) == "unpaid")
+		{
+			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " bb.valid = 0";
+		}
+	}
+	
+	$sql = "SELECT 
+				RTRIM(LTRIM(CONCAT(evnt.newFirstName , ' ' , evnt.newLastName))) AS Name,
+				evnt.newEmail AS Email,
+				evnt.subscriber_question1 AS 'Mobile no',
+				evnt.subscriber_question2 AS 'Parent DOB',
+				evnt.subscriber_question9 AS 'Maternal Milk',
+				evnt.subscriber_question3 AS 'Address',
+				evnt.subscriber_question4 AS 'Postcode',
+				evnt.subscriber_question5 AS 'City',
+				evnt.subscriber_question7 AS 'State',
+				evnt.subscriber_question12 AS 'TNC Nestlé Products Sdn Bhd',
+				evnt.subscriber_question13 AS 'TNC Motherhood.com.my',
+				evnt.subscriber_question14 AS 'Marketing and promotional information',
+				IFNULL(bb.valid, 'incart') AS 'Item Status',
+				evnt.subscriber_created_at AS 'Subscriber Date',
+				bb.invoice_date as 'Checkout Date'
+			FROM
+				ps_events_subscriber AS evnt
+				LEFT JOIN
+				motherhood_presta.ps_customer AS cust ON cust.email = evnt.newEmail
+				LEFT JOIN
+				ps_cart AS cart ON cart.id_customer = cust.id_customer
+				INNER JOIN
+				ps_cart_product AS cart_prod ON cart.id_cart = cart_prod.id_cart
+					  LEFT JOIN ( select odr.id_order, odr.id_customer, odr.valid,  odr.invoice_date FROM 
+						ps_orders AS odr 
+							INNER JOIN
+						ps_order_detail AS odr_detail ON odr.id_order = odr_detail.id_order 
+						WHERE  odr_detail.product_id = 45390
+					) bb ON bb.id_customer = cust.id_customer
+			" . $wheresql . $groupBy . " ORDER BY evnt.subscriber_created_at ASC " . $limitsql ;
 		$result = $conn->query($sql);
 		
 		if(is_object($result)){
@@ -178,7 +151,7 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 			$objPHPExcel = new PHPExcel();
 
 			// Add some data
-			$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A2', 'Anmum Materna Report 2021| Motherhood.com.my Malaysia');
+			$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A2', 'Nestlé mom sample report 2021 MMY| Motherhood.com.my Malaysia');
 			$objPHPExcel->getActiveSheet()->getStyle("A2:C2")->getFont()->setSize(18);
 			$objPHPExcel->getActiveSheet()->getRowDimension("2")->setRowHeight(20);
 			$objPHPExcel->getActiveSheet()->mergeCells('A2:C2');
@@ -203,19 +176,19 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 				$objPHPExcel->getActiveSheet()->getStyle($headerColumn. '5')->getFont()->setBold( true );
 				// $objPHPExcel->getActiveSheet()->getColumnDimensionByColumn($headerColumn)->setAutoSize(false);
 				
-				if(in_array($headerColumn, array("A", "E", "M", "J", "G")))
+				if(in_array($headerColumn, array("A", "D","E", "H", "I", "J")))
 				{
 					$objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(20);
 				}
-				elseif(in_array($headerColumn, array("I", "L")))
+				elseif(in_array($headerColumn, array("AA")))
 				{
 					$objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(15);
 				}
-				elseif(in_array($headerColumn, array("F")))
+				elseif(in_array($headerColumn, array("F", "K", "L", "N")))
 				{
 					$objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(30);
 				}
-				elseif(in_array($headerColumn, array("H")))
+				elseif(in_array($headerColumn, array("G")))
 				{
 					$objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(100);
 				}
@@ -236,9 +209,29 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 				$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A' . $rowData , ++$ccount);
 				foreach ($r as $indx => $kolonne) {
 					
+					if(in_array($indx, array(9,10,11)))
+					{
+						if($kolonne == '')
+						{
+							$kolonne =  " - ";
+						}
+						
+					}
+					elseif($indx == 12)
+					{
+						if($kolonne == 1)
+						{
+							$kolonne = "Paid";
+						}
+						else
+						{
+							$kolonne = "Unpaid";
+						}
+					}
+					
 					$objPHPExcel->setActiveSheetIndex(0)->setCellValue($colData . $rowData , $kolonne);
 					
-					if($colData == 'D'|| $colData == "I"){
+					if($colData == 'D'|| $colData == "H"){
 						$objPHPExcel->getActiveSheet()->getStyle($colData . $rowData)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_TEXT);
 						$objPHPExcel->getActiveSheet()->getStyle($colData . $rowData)->getAlignment()->applyFromArray(array('horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_LEFT));
 					}
@@ -269,7 +262,7 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 
 			// Redirect output to a client’s web browser (Excel2007)
 			header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-			header('Content-Disposition: attachment;filename="anmum-materna-report2021.xlsx"');
+			header('Content-Disposition: attachment;filename="nestle-mom-sample-report2021.xlsx"');
 			header('Cache-Control: max-age=0');
 			header ('Cache-Control: cache, must-revalidate'); // HTTP/1.1
 			header ('Pragma: public'); // HTTP/1.0

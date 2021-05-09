@@ -305,7 +305,8 @@
       	}
       -->
 </style>
-<div class="col-lg-12 col-md-12" style="padding-left: 0px; padding-right: 0px; margin-bottom: 0;"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/New+Mom+Essentials/new-essential-header.png" width="100%" /></div>
+<div class="col-lg-12 col-md-12" style="padding-left: 0px; padding-right: 0px; margin-bottom: 0;">
+<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/New+Mom+Essentials/new-essential-header.png" width="100%" /></div>
 <div class="row">
    <div class="col-md-3 col-xs-6"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/New+Mom+Essentials/due-date-calculator.png" onclick="toolsChange(this);" toolsname="dueDateCalculator" width="100%" /></div>
    <div class="col-md-3 col-xs-6"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/New+Mom+Essentials/baby's-journey.png" onclick="toolsChange(this);" toolsname="pregnancyJourney" width="100%" /></div>

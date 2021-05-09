@@ -148,24 +148,28 @@ class enlineamixmodmamacubatryproductsModuleFrontController extends ModuleFrontC
 			$applied = true;
 		}
 		
-		$sliderCampaign = new CMS(61);
+		$mainBanner	    	= new CMS(62);
+		$sliderCampaign 	= new CMS(61);
+		$sliderlistTester 	= new CMS(63);
 		// echo "<pre>";
 		// print_r($sliderCampaign);
 		// echo "</pre>";
 		
 		$this->context->smarty->assign(array(
-			'campaign'		   => $result[0],
-			'customer'		   => $customer,
-			'productCategory'  => $productCategory,
-			'mediumSize' 	   => Image::getSize(ImageType::getFormatedName('medium')),
-			'liststate'	 	   => $resultState,
-			'arr_race'		   => $arr_race,
-			'arr_salary'	   => $arr_salary,
-			'arr_pastreview'   => $arr_pastreview,
-			'arr_address'	   => $resultAddr,
-			'applied'	   	   => $applied,
-			'sliderCampaign'   => $sliderCampaign,
-			'mamacubatry_view' => _PS_ROOT_DIR_  . "/modules/enlineamixmod/views",     
+			'campaign'		    => $result[0],
+			'customer'		    => $customer,
+			'productCategory'   => $productCategory,
+			'mediumSize' 	    => Image::getSize(ImageType::getFormatedName('medium')),
+			'liststate'	 	    => $resultState,
+			'arr_race'		    => $arr_race,
+			'arr_salary'	    => $arr_salary,
+			'arr_pastreview'    => $arr_pastreview,
+			'arr_address'	    => $resultAddr,
+			'applied'	   	    => $applied,
+			'sliderCampaign'    => $sliderCampaign,
+			'mainBanner'   	    => $mainBanner,
+			'sliderlistTester' => $sliderlistTester,
+			'mamacubatry_view'  => _PS_ROOT_DIR_  . "/modules/enlineamixmod/views",     
         ));
 		
 		if (strtolower(Tools::getValue('product_slug')) == 'main'){

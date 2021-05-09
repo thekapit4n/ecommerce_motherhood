@@ -103,5 +103,27 @@ $(document).ready(function () {
         );
       },
     });
+	
+	$(".mamacubatryslider").bxSlider({
+		useCSS: false,
+		//mode: "fade",
+		maxSlides: 1,
+		slideWidth: homeslider_width,
+		infiniteLoop: homeslider_loop,
+		hideControlOnEnd: true,
+		pager: false,
+		autoHover: true,
+		auto: homeslider_loop,
+		speed: parseInt(homeslider_speed),
+		pause: homeslider_pause,
+		controls: true,
+		onSlideBefore: function ($slideElement) {
+        var bgcolor = $slideElement.data("bgcolor");
+			$("div#homepage-slider").animate(
+			{ backgroundColor: bgcolor },
+			homeslider_speed
+        );
+      },
+    });
   }
 });

@@ -91,7 +91,7 @@
 			</div>
 			<div class="col-xs-6 col-md-6 text-right">
 				{if (!$too_early AND ($is_logged OR $allow_guests))}
-					<a id="new_comment_tab_btn" href="#new_comment_form" type="button" class="btn btn-default btn-pill btn-pill-color open-comment-form" style="color:white;">
+					<a id="new_comment_tab_btn" href="#new_comment_form"  class="btn btn-default btn-pill btn-pill-color open-comment-form" style="color:white;">
 					{l s='Leave Review' mod='productcomments'}
 					</a>
 				{/if}
@@ -116,7 +116,12 @@
 								{/if}
 							{/section}
             				<meta itemprop="worstRating" content = "0" />
-							<meta itemprop="ratingValue" content = "{$comment.grade|escape:'html':'UTF-8'}" />
+							{if isset($comment)}
+								<meta itemprop="ratingValue" content = "{$comment.grade|escape:'html':'UTF-8'}" />
+							{else}
+								<meta itemprop="ratingValue" content = "1" />
+							{/if}
+							
             				<meta itemprop="bestRating" content = "5" />
 						</div>
 						<div class="comment_author_infos">
@@ -132,7 +137,7 @@
 						<p itemprop="name" class="title_block">
 							<strong>{$comment.title}</strong>
 						</p>
-						<p itemprop="reviewBody">{$comment.content|escape:'html':'UTF-8'|nl2br}</p>
+						<p itemprop="reviewBody" class="my-readmore">{$comment.content|escape:'html':'UTF-8'|nl2br}</p>
 						<ul>
 							{if $comment.total_advice > 0}
 								<li>
@@ -162,7 +167,29 @@
 							{/if}
 						</ul>
 						{if $comment.img_url}
-							<img src="{$comment.img_url}" class="img-responsive" width="200px" />
+							{assign var=arr_img_url value="/"|explode:$comment.img_url} <!-- to get file name based on url that we store on database -->
+							{if $arr_img_url|is_array}
+							  	{assign var=sizeArr 	 value=$arr_img_url|@count} <!-- get size of array --->
+								{assign var=filenamedb 	 value=$arr_img_url[$sizeArr - 1]} <!-- last index expected store file name so (size of array - 1) -->
+								{assign var=arr_filename value="."|explode:$filenamedb} <!-- based on filename next we need to get extension of file -->
+								
+								{if $arr_filename|is_array}
+									{assign var=sizeArrFile value=$arr_filename|@count}
+									{assign var=fileExtension value=$arr_filename[$sizeArrFile - 1]} <!-- usually last index has value what type of file extension  -->
+									{if $fileExtension|in_array:["mp4", "avi", "mov", "wmv"]}<!--if meet one of these extension then we convert into thumbnail  -->
+										{$arr_filename[$sizeArrFile - 1] = "jpg"}
+										{assign var=thumbnailname value="."|implode:$arr_filename}<!-- to revert back from array to string -->
+										{assign var=img_thumbnail value= "/modules/productcomments/uploadimage/$thumbnailname"} <!-- assign back to main variable to display image --> 
+										<a href="javascript:;" class="videoclick" data-videourl="{$comment.img_url}">
+											<img src="{$img_thumbnail}" class="img-responsive" width="200px" />
+										</a>
+									
+									{else}
+										<img src="{$comment.img_url}" class="img-responsive" width="200px" />
+									{/if}
+								{/if}
+								{*eval $arr_filename|@debug_print_var*}
+							{/if}
 						{/if}
 					</div><!-- .comment_details -->
 
@@ -257,6 +284,16 @@
 	</div>
 </div>
 <!-- End fancybox -->
+
+<div style="display: none;">
+	<div id="video-player">
+		<video width="320" height="240" controls id="videocontrol">
+			<source id="src1" src="" type="video/mp4">
+			<source id="src2" src="" type="video/ogg">
+			Your browser does not support the video tag.
+		</video>
+	</div>
+</div>
 {strip}
 {addJsDef productcomments_controller_url=$productcomments_controller_url|@addcslashes:'\''}
 {addJsDef moderation_active=$moderation_active|boolval}
@@ -269,6 +306,7 @@
 {addJsDefL name=productcomment_title}{l s='New review' mod='productcomments' js=1}{/addJsDefL}
 {addJsDefL name=productcomment_ok}{l s='OK' mod='productcomments' js=1}{/addJsDefL}
 {/strip}
+<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/readmore-js/readmore.min.js"></script>
 <script type="text/javascript">
 
 var minlengthofcomment = 30;
@@ -281,5 +319,35 @@ $('#content').keyup(function() {
 	$('#wordscomment').text('Submit product review to get reward points.');
   
 });
+
+$('.my-readmore').readmore({
+	moreLink: '<a href="#" style="margin-bottom:10px;text-decoration: underline !important;">Read More</a>',
+	lessLink: '<a href="#" style="margin-bottom:10px;text-decoration: underline !important;">Read less</a>',
+	collapsedHeight: 100,
+	speed: 30
+});
+
+
+$(function(){
+	const queryString = window.location.search;
+	console.log("querystring" + queryString);
+
+	const urlParams = new URLSearchParams(queryString);
+	const qrreview = urlParams.get('qrreview')
+	
+	if(qrreview != undefined && qrreview != null && qrreview == "true")
+	{
+		$.fancybox("#new_comment_form");
+	}
+	
+	$('body').on('click', '.videoclick', function(){
+		var videourl = $(this).data('videourl');
+		console.log( "https://www.motherhood.com.my" + videourl);
+		$('body').find('#src1').attr('src', "https://www.motherhood.com.my" + videourl);
+		$('body').find('#src2').attr('src', "https://www.motherhood.com.my" + videourl);
+		$.fancybox("#video-player");
+	});
+})
+
 </script>
 

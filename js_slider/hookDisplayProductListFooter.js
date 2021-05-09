@@ -272,6 +272,33 @@ $(document).ready(function () {
             hideControlOnEnd: false
         });
 		
+		if($(window).width()<=1200)
+		{
+			cubatryMinSlide = 2
+			cubatryMaxSlide = 2
+			cubatrySliderWidth = 180
+		}
+		else
+		{
+			cubatryMinSlide = 2
+			cubatryMaxSlide = 3
+			var cubatrySliderWidth = sliderWidth - 40;
+			var cubatrySliderWidth = (cubatrySliderWidth / 3) - 20;
+		}
+
+        $('.cubatry-slider').bxSlider({
+            minSlides: cubatryMinSlide,
+            maxSlides: cubatryMaxSlide,
+            slideWidth: cubatrySliderWidth,
+            slideMargin: 20,
+            pager: false,
+            nextText: '',
+            prevText: '',
+            moveSlides: 1,
+            infiniteLoop: false,
+            hideControlOnEnd: true
+        });
+		
     }
 });
 
