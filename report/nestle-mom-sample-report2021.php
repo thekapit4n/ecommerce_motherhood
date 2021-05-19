@@ -206,7 +206,7 @@ body{
 	$searchEnd 	 	="";
 	$wheresql  	 	= "";
 	$limitsql    	= "";
-	$currentLimit 	= " LIMIT 1700";
+	// $currentLimit 	= " LIMIT 1700";
 	
 	if (isset($_GET['pageno'])) {
 		$pageno = $_GET['pageno'];

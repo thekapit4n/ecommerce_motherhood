@@ -86,12 +86,12 @@
 			</div>
 		</div>
 		<div class="row mb-2">
-			<div class="col-md-12 px-2">
+			<div class="col-md-6 px-2">
 				<label for="firstname" class="form-label required">First name</label>
 				<input type="text" class="form-control fname" id="firstname" name="newFirstName" required>
 				<small class="error-msg"></small>
 			</div>
-			<div class="col-md-6 px-2" style="display:none;">
+			<div class="col-md-6 px-2">
 				<label for="lastname" class="form-label required">Last name</label>
 				<input type="text" class="form-control lname" id="lastname" name="newLastName">
 				<small class="error-msg"></small>

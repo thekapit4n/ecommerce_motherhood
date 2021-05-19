@@ -57,7 +57,7 @@
 	}
 	
 	.box-overlay-display {
-		background-color: none;      
+		background-color: unset;      
 		position: absolute;
 		left: 0;
 		right: 0;
@@ -69,7 +69,7 @@
   
 	.text-overlay{
 		position: relative;
-		top: 18%;
+		top: 16%;
 		left: 15%;
 		font-size: 20px;
 		color: #4f4f4f;
@@ -339,9 +339,94 @@
 		{$sliderCampaign->content[1]}
 	{/if}
 	
-	{if $sliderlistTester}
-		{$sliderlistTester->content[1]}
-	{/if}
+	{*if $sliderlistTester*}
+		{*$sliderlistTester->content[1]*}
+	{*/if*}
+	
+	<div class="row" style="margin-top: 20px; margin-bottom: 65px;">
+	   <div id="section-slider">
+		  <div class="section_container">
+			 <div class="section_title"><span>THE WINNER OF CHEK HUP REVIEW & WIN</span></div>
+			 <div id="section-thekapitan2" style="border: 0px;">
+				<ul class="clearfix row section_slidethekapitan2 section5 nbs-flexisel-ul">
+				   <li class="nbs-flexisel-item" style="width: 262.5px;">
+					  <div class="product-container">
+						<a href="https://www.instagram.com/p/CHj6LlRpTAZ/" target="_blank">
+						 <div class="div-overlay box-overlay-display">
+							<div class="text-overlay"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Mamacubatry/winner.png" class="ribbon-img" alt="winner.png" /></div>
+						 </div>
+						 <div class="left-block2">
+							<div class="product-image-container">
+							   <img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Mamacubatry/chekhup+winners/1.png" alt="mamacubatry-winner1" title="mamacubatry-winner1" />
+							   <p style="font-size: 14px; color: #939597; padding-top: 10px;">kanekoliew</p>
+							</div>
+						 </div>
+						</a>
+					  </div>
+				   </li>
+				   <li class="nbs-flexisel-item" style="width: 262.5px;">
+					  <div class="product-container">
+						<a href="https://www.instagram.com/p/CJsvp7VDym7/" target="_blank">
+						 <div class="div-overlay box-overlay-display">
+							<div class="text-overlay"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Mamacubatry/winner.png" class="ribbon-img" alt="winner.png" /></div>
+						 </div>
+						 <div class="left-block2">
+							<div class="product-image-container"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Mamacubatry/chekhup+winners/2.png" alt="mamacubatry-winner2" title="mamacubatry-winner2" /></div>
+							<p style="font-size: 14px; color: #939597; padding-top: 10px;">zahramasoumah</p>
+						 </div>
+						</a>
+					  </div>
+				   </li>
+				   <li class="nbs-flexisel-item" style="width: 262.5px;">
+					  <div class="product-container">
+						<a href="https://www.instagram.com/p/CICt0UspOuv/" target="_blank">
+						 <div class="div-overlay box-overlay-display">
+							<div class="text-overlay"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Mamacubatry/winner.png" class="ribbon-img" alt="winner.png" /></div>
+						 </div>
+						 <div class="left-block2">
+							<div class="product-image-container"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Mamacubatry/chekhup+winners/3.png" alt="mamacubatry-winner3" title="mamacubatry-winner3" /></div>
+							<p style="font-size: 14px; color: #939597; padding-top: 10px;">alizasara</p>
+						 </div>
+						</a>
+					  </div>
+				   </li>
+				   <li class="nbs-flexisel-item" style="width: 262.5px;">
+					  <div class="product-container">
+						<a href="https://www.instagram.com/p/CHcBhDsjjY4/" target="_blank">
+						 <div class="div-overlay box-overlay-display">
+							<div class="text-overlay"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Mamacubatry/winner.png" class="ribbon-img" alt="winner.png" /></div>
+						 </div>
+						 <div class="left-block2">
+							<div class="product-image-container"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Mamacubatry/chekhup+winners/4.png" alt="mamacubatry-winner4" title="mamacubatry-winner4" /></div>
+						 </div>
+						 <div class="row">
+							<p style="font-size: 14px; color: #939597; padding-top: 10px;">nurul_farehah90</p>
+						 </div>
+						</a>
+					  </div>
+				   </li>
+				   <li class="nbs-flexisel-item" style="width: 262.5px;">
+					  <div class="product-container">
+						<a href="https://www.instagram.com/p/CIKrJyWjzlC/" target="_blank">
+							 <div class="div-overlay box-overlay-display">
+								<div class="text-overlay"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Mamacubatry/winner.png" class="ribbon-img" alt="winner.png" /></div>
+							 </div>
+							 <div class="left-block2">
+								<div class="product-image-container"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Mamacubatry/chekhup+winners/5.png" alt="mamacubatry-winner5" title="mamacubatry-winner5" /></div>
+							 </div>
+							 <div class="row">
+								<p style="font-size: 14px; color: #939597; padding-top: 10px;">faeeqahauji</p>
+							 </div>
+						</a>
+					  </div>
+				   </li>
+				</ul>
+			 </div>
+		  </div>
+	   </div>
+	</div>
+	
+	
 	
 	<div class="row">
 		<div class="col-md-6">

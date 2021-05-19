@@ -31,7 +31,7 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 		$searchStart ="";
 		$searchEnd 	 ="";
 		$wheresql  	 = "";
-		$limitsql    = " LIMIT 1700";
+		// $limitsql    = " LIMIT 1700";
 		$strDateMsg  = "";
 		
 		if(isset($_POST['searchDateStart']) && $_POST['searchDateStart'] != '')

@@ -524,7 +524,7 @@ var hasSubmitted=false;
 	{/if}
 	
 	{if isset($smarty.session.isPWA) && $smarty.session.isPWA==1}
-	{else if $event_info.event_id|in_array:[87, 97, 105, 116, 117, 118, 119, 120, 300, 223]}{* this part to hide parentcraft display - haiqal *}
+	{else if $event_info.event_id|in_array:[87, 97, 105, 116, 117, 118, 119, 120, 135, 300, 223]}{* this part to hide parentcraft display - haiqal *}
 	{else}
 		<div class="row" style="margin-top:25px;background:white;">
 		{foreach from=$event_minibanner key=k item=oneImg}

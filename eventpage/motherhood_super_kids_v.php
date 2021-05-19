@@ -4,102 +4,102 @@
 <style>
    <!--
       .nbs-flexisel-container{
-      	   border:0px;
-      	}
+            	   border:0px;
+            	}
+            		
+            	.div-item-calendar{
+            		margin-bottom:10px; 
+            		padding-left:10px; 
+            		padding-top:10px; 
+            		padding-right:10px;
+            	}
+            		
+            	.speakerBox-calendar{
+            		background-color:#f7f7f8;
+            	}
+            		
+            	.title-webinar{
+            		font-weight: 700; 
+            		font-size:17px;
+            		min-height:54px;
+            	}
+            		
+            	.div-web-desc{
+            		color:#4c4c4d;
+            	}
+            		
+            	.desc-time, .desc-by, .desc-info{
+            		font-size:14px;
+            	}
+            		
+            	.product-box item
+            	{
+            		backgound
+            	}
+            	
+            	.btn-submit-superkid{
+            		background-color:#6abd45;
+            		color:white;
+            		width:30%;
+            		padding-top: 10px;
+            		padding-bottom: 10px;
+            		font-size: 15px;
+            		font-weight: 600;
+            		border-radius: 4px;
+            		outline:unset;
+            	}
+            	
+            	.btn-submit-superkid:hover, .btn-submit-superkid:focus, .btn-submit-superkid:active{
+            		background-color:#56a546;
+            		color:white;
+            		outline:unset;
+            	}
       		
-      	.div-item-calendar{
-      		margin-bottom:10px; 
-      		padding-left:10px; 
-      		padding-top:10px; 
-      		padding-right:10px;
-      	}
-      		
-      	.speakerBox-calendar{
-      		background-color:#f7f7f8;
-      	}
-      		
-      	.title-webinar{
-      		font-weight: 700; 
-      		font-size:17px;
-      		min-height:54px;
-      	}
-      		
-      	.div-web-desc{
-      		color:#4c4c4d;
-      	}
-      		
-      	.desc-time, .desc-by, .desc-info{
-      		font-size:14px;
-      	}
-      		
-      	.product-box item
-      	{
-      		backgound
-      	}
-      	
-      	.btn-submit-superkid{
-      		background-color:#6abd45;
-      		color:white;
-      		width:30%;
-      		padding-top: 10px;
-      		padding-bottom: 10px;
-      		font-size: 15px;
-      		font-weight: 600;
-      		border-radius: 4px;
-      		outline:unset;
-      	}
-      	
-      	.btn-submit-superkid:hover, .btn-submit-superkid:focus, .btn-submit-superkid:active{
-      		background-color:#56a546;
-      		color:white;
-      		outline:unset;
-      	}
-		
-		.box-overlay-display {
-      		background-color: #eeeeeebd;      
-      		position: absolute;
-      		left: 0;
-      		right: 0;
-      		top: 0;
-      		bottom: 0;
-      		z-index:2;
-      		display:block !important;
-      	}
-      
-      	.text-overlay{
-      		position: relative;
-      		top: 50%;
-      		left: 50%;
-      		font-size: 20px;
-      		color: #4f4f4f;
-      		transform: translate(-50%,-50%);
-      		-ms-transform: translate(-50%,-50%);
-      	}
-      		
-      	@media only screen and (max-width: 600px) 
-      	{
-      		.img-calendar{
-      			width:70%;
-      		}
-      		
-      		.title-webinar{
-      			padding-top:15px;
-      			min-height:68px;
-      		}
-      		
-      		.desc-info{
-      			min-height: 36px;
-      
-      		}
-      		
-      		.swipe-text{
-      			display:block !important;
-      		}
-      		
-      		.btn-submit-superkid{
-      			width:100%;
-      		}
-      	}
+      		.box-overlay-display {
+            		background-color: #eeeeeebd;      
+            		position: absolute;
+            		left: 0;
+            		right: 0;
+            		top: 0;
+            		bottom: 0;
+            		z-index:2;
+            		display:block !important;
+            	}
+            
+            	.text-overlay{
+            		position: relative;
+            		top: 50%;
+            		left: 50%;
+            		font-size: 20px;
+            		color: #4f4f4f;
+            		transform: translate(-50%,-50%);
+            		-ms-transform: translate(-50%,-50%);
+            	}
+            		
+            	@media only screen and (max-width: 600px) 
+            	{
+            		.img-calendar{
+            			width:70%;
+            		}
+            		
+            		.title-webinar{
+            			padding-top:15px;
+            			min-height:68px;
+            		}
+            		
+            		.desc-info{
+            			min-height: 36px;
+            
+            		}
+            		
+            		.swipe-text{
+            			display:block !important;
+            		}
+            		
+            		.btn-submit-superkid{
+            			width:100%;
+            		}
+            	}
       -->
 </style>
 <div class="col-lg-12" style="padding-left: 0px; padding-right: 0px;"><a href="../../../events/motherhood-superkids" target="_blank" rel="noopener"> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Online+Sale/page/super-kids-1.png" alt="" width="100%" /></a></div>
@@ -123,13 +123,31 @@
          <!--=========1=========-->
          <li class="product-box item" style="min-width: 150px;">
             <div class="reviewBox-calendar">
-				<div class="div-overlay box-overlay-display" style="display: block;">
-				  <div class="text-overlay" style="display: block;line-height:30px;">Postponed until further notice</div>
-			   </div>
                <div class="speakerBox-calendar">
                   <div class="row div-item-calendar">
-                     <div class="col-md-5">
-						<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/superkids/24apr.png" class="img-calendar" width="100%" alt="24april2021" /></div>
+                     <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/May/Superkids/may22-.png" class="img-calendar" width="100%" alt="22May2021" /></div>
+                     <div class="col-md-7 div-web-desc text-left">
+                        <p class="title-webinar">Draw and Color</p>
+                        <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m</p>
+                        <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; GogoKids</p>
+                        <p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 5 years old</p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12"><a class="btn btn-default btn-view-event" href="https://docs.google.com/forms/d/e/1FAIpQLSfMlLnjOlI_FT_F_A_hHiMvWXzPB5_7M8VFtxnZXf4dac0Tpg/viewform" style="width: 100%; background-color: #69bd45; color: white;"> VIEW EVENT </a></div>
+                  </div>
+               </div>
+            </div>
+         </li>
+         <!--=========2=========-->
+         <li class="product-box item" style="min-width: 150px;">
+            <div class="reviewBox-calendar">
+               <div class="div-overlay box-overlay-display" style="display: block;">
+                  <div class="text-overlay" style="display: block; line-height: 30px;">Postponed until further notice</div>
+               </div>
+               <div class="speakerBox-calendar">
+                  <div class="row div-item-calendar">
+                     <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/superkids/24apr.png" class="img-calendar" width="100%" alt="24april2021" /></div>
                      <div class="col-md-7 div-web-desc text-left">
                         <p class="title-webinar">Rainbow Paper Spinner Toy</p>
                         <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m</p>
@@ -143,26 +161,7 @@
                </div>
             </div>
          </li>
-         <!--=========2=========-->
-         <li class="product-box item" style="min-width: 150px;">
-            <div class="reviewBox-calendar">
-               <div class="speakerBox-calendar">
-                  <div class="row div-item-calendar">
-                     <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/superkids/2may.png" class="img-calendar" width="100%" alt="2May2021" /></div>
-                     <div class="col-md-7 div-web-desc text-left">
-                        <p class="title-webinar">Coding for Kids - Animation Card for Mother&rsquo;s Day!</p>
-                        <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m</p>
-                        <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Aimsity</p>
-                        <p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 10 years old</p>
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-md-12"><a class="btn btn-default btn-view-event" href="https://docs.google.com/forms/d/e/1FAIpQLSdKFYk-QTpeX_508IAVfhaw8z9utp26fU3JRa4pAUmZXWY6ag/viewform" style="width: 100%; background-color: #69bd45; color: white;"> VIEW EVENT </a></div>
-                  </div>
-               </div>
-            </div>
-         </li>
-         <!--========3==========-->
+         <!--========4==========-->
       </ul>
    </div>
 </div>
@@ -415,88 +414,88 @@
 <p>
    <script>// <![CDATA[
       $(document).ready(function($){
-      		$('#subscriber_question1').on('change',function(event){
-      			var phonenumber = $('#subscriber_question1').val();
-      			var phonenumber = phonenumber.replace(/-/g, ' ');
-      			var phonenumber = phonenumber.trim();
-      			if ($.trim(phonenumber) != "") {
-      				var prefix = phonenumber.substring(0,3);
-      				var firstNo = phonenumber.substring(0,1);
-      				var phoneLength = phonenumber.length;
-      				if(firstNo !== 0 || firstNo !== 5){
-      					$('#phoneNoError').show();
-      					$("#subscriber_question1").css('background-color', 'red');
-      					$("#submitBtn").attr("disabled", true);
-      				}
-      				if(firstNo == '0'){
-      					if(prefix == '010' || prefix == '011' || prefix == '012' || prefix == '013' || prefix == '014' || prefix == '015' || prefix == '016' || prefix == '017' || prefix == '018' || prefix == '019'){
-      						$('#phoneNoPrefixError').hide();
-      						$("#subscriber_question1").css('background-color', 'white'); 
-      						$("#submitBtn").attr("disabled", false);
-      							if(prefix == '011'){
-      								if(phoneLength < 10 || phoneLength > 11){
-      									$('#phoneNoError').show();
-      									$("#subscriber_question1").css('background-color', 'red');
-      									$("#submitBtn").attr("disabled", true);
-      								}else{
-      									$('#phoneNoError').hide();
-      									$('#phoneNoErrorSg').hide();
-      									$("#subscriber_question1").css('background-color', 'white');
-      									$("#submitBtn").attr("disabled", false);
-      								}
-      							}else{
-      								if(phoneLength < 10 || phoneLength > 10){
-      									$('#phoneNoError').show();
-      									$("#subscriber_question1").css('background-color', 'red');
-      									$("#submitBtn").attr("disabled", true);
-      								}else{
-      									$('#phoneNoError').hide();
-      									$('#phoneNoErrorSg').hide();
-      									$("#subscriber_question1").css('background-color', 'white');
-      									$("#submitBtn").attr("disabled", false);
-      								}
-      							}  
-      						}else{
-      						$('#phoneNoPrefixError').show();
-      						$("#subscriber_question1").css('background-color', 'red');
-      						$("#submitBtn").attr("disabled", true);
-      					} 
-      				}else if(firstNo == '5'){
-      						$('#phoneNoErrorSg').hide();
-      						$('#phoneNoError').hide();
-      						$("#subscriber_question1").css('background-color', 'white'); 
-      						$("#submitBtn").attr("disabled", false);
-      					if(phoneLength < 9 || phoneLength > 9){
-      						$('#phoneNoErrorSg').show();
-      						$("#subscriber_question1").css('background-color', 'red');
-      						$("#submitBtn").attr("disabled", true);
-      					}else{
-      						$('#phoneNoErrorSg').hide();
-      						$('#phoneNoError').hide();
-      						$("#subscriber_question1").css('background-color', 'white');
-      						$("#submitBtn").attr("disabled", false);
-      					}
-      				}else{
-      					$('#phoneNoPrefixError').show();
-      					$("#subscriber_question1").css('background-color', 'red');
-      					$("#submitBtn").attr("disabled", true);
-      				}
-      			}
-      		});
-      					
-      		$('body').find('.section_slidethekapitan').flexisel({
-      			visibleItems: 5,
-      			flipPage: true,
-      			animationSpeed: 500,
-      			animationLoop: true,
-      			clone: false,
-      			autoPlay: false
-      		});
-      		
-      		$('body').on('submit', '#eventform', function(){
-      			$('body').find('.btn-submit-superkid').html('<i class="fas fa-spinner fa-pulse"></i> Processing...')
-      		});
-      	});
+            		$('#subscriber_question1').on('change',function(event){
+            			var phonenumber = $('#subscriber_question1').val();
+            			var phonenumber = phonenumber.replace(/-/g, ' ');
+            			var phonenumber = phonenumber.trim();
+            			if ($.trim(phonenumber) != "") {
+            				var prefix = phonenumber.substring(0,3);
+            				var firstNo = phonenumber.substring(0,1);
+            				var phoneLength = phonenumber.length;
+            				if(firstNo !== 0 || firstNo !== 5){
+            					$('#phoneNoError').show();
+            					$("#subscriber_question1").css('background-color', 'red');
+            					$("#submitBtn").attr("disabled", true);
+            				}
+            				if(firstNo == '0'){
+            					if(prefix == '010' || prefix == '011' || prefix == '012' || prefix == '013' || prefix == '014' || prefix == '015' || prefix == '016' || prefix == '017' || prefix == '018' || prefix == '019'){
+            						$('#phoneNoPrefixError').hide();
+            						$("#subscriber_question1").css('background-color', 'white'); 
+            						$("#submitBtn").attr("disabled", false);
+            							if(prefix == '011'){
+            								if(phoneLength < 10 || phoneLength > 11){
+            									$('#phoneNoError').show();
+            									$("#subscriber_question1").css('background-color', 'red');
+            									$("#submitBtn").attr("disabled", true);
+            								}else{
+            									$('#phoneNoError').hide();
+            									$('#phoneNoErrorSg').hide();
+            									$("#subscriber_question1").css('background-color', 'white');
+            									$("#submitBtn").attr("disabled", false);
+            								}
+            							}else{
+            								if(phoneLength < 10 || phoneLength > 10){
+            									$('#phoneNoError').show();
+            									$("#subscriber_question1").css('background-color', 'red');
+            									$("#submitBtn").attr("disabled", true);
+            								}else{
+            									$('#phoneNoError').hide();
+            									$('#phoneNoErrorSg').hide();
+            									$("#subscriber_question1").css('background-color', 'white');
+            									$("#submitBtn").attr("disabled", false);
+            								}
+            							}  
+            						}else{
+            						$('#phoneNoPrefixError').show();
+            						$("#subscriber_question1").css('background-color', 'red');
+            						$("#submitBtn").attr("disabled", true);
+            					} 
+            				}else if(firstNo == '5'){
+            						$('#phoneNoErrorSg').hide();
+            						$('#phoneNoError').hide();
+            						$("#subscriber_question1").css('background-color', 'white'); 
+            						$("#submitBtn").attr("disabled", false);
+            					if(phoneLength < 9 || phoneLength > 9){
+            						$('#phoneNoErrorSg').show();
+            						$("#subscriber_question1").css('background-color', 'red');
+            						$("#submitBtn").attr("disabled", true);
+            					}else{
+            						$('#phoneNoErrorSg').hide();
+            						$('#phoneNoError').hide();
+            						$("#subscriber_question1").css('background-color', 'white');
+            						$("#submitBtn").attr("disabled", false);
+            					}
+            				}else{
+            					$('#phoneNoPrefixError').show();
+            					$("#subscriber_question1").css('background-color', 'red');
+            					$("#submitBtn").attr("disabled", true);
+            				}
+            			}
+            		});
+            					
+            		$('body').find('.section_slidethekapitan').flexisel({
+            			visibleItems: 5,
+            			flipPage: true,
+            			animationSpeed: 500,
+            			animationLoop: true,
+            			clone: false,
+            			autoPlay: false
+            		});
+            		
+            		$('body').on('submit', '#eventform', function(){
+            			$('body').find('.btn-submit-superkid').html('<i class="fas fa-spinner fa-pulse"></i> Processing...')
+            		});
+            	});
        
       // ]]>
    </script>

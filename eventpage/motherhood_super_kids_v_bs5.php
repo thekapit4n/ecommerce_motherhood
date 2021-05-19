@@ -28,7 +28,7 @@
       	.title-webinar{
       		font-weight: 700; 
       		font-size:17px;
-      		min-height:54px;
+      		min-height:34px;
 			line-height: 18px;
       	}
       		
@@ -148,6 +148,14 @@
 		.p-comment{
 			line-height:18px;
 			min-height: 90px;
+			color:#4c4c4d;
+		}
+		
+		.customer-name-comment{
+			font-weight:700;
+			margin-top:3%;
+			margin-bottom:3%;
+			color:#4c4c4d;
 		}
 		
 		.div-img-review{
@@ -190,7 +198,7 @@
 		
 		
 		.row-star{
-			margin-bottom: 5px;
+			margin-bottom: 5%;
 			margin-left: 0px;
 		}
 		
@@ -251,7 +259,7 @@
       		
       		.title-webinar{
       			padding-top:15px;
-      			min-height:115px;
+      			min-height:75px;
 				line-height: 22px;
       		}
       		
@@ -327,6 +335,29 @@
 		 <!--=========webinar 1=========-->
 		<div class="product-box item">
 			<div class="reviewBox-calendar">
+				<div class="speakerBox-calendar">
+					<div class="row div-item-calendar">
+						<div class="col-md-5 col-6 py-3 py-md-0">
+							<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/May/Superkids/may22-.png" class="img-calendar" width="100%" alt="22May2021" />
+						</div>
+						<div class="col-md-7 col-6 div-web-desc text-left">
+							<p class="title-webinar">Draw and Color</p>
+							<p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m</p>
+							<p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; GogoKids</p>
+							<p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 5 years old</p>
+						</div>
+					</div>
+					<div class="row mx-0">
+						<div class="col-md-12">
+							<a class="btn btn-default btn-view-event" href="https://docs.google.com/forms/d/e/1FAIpQLSfMlLnjOlI_FT_F_A_hHiMvWXzPB5_7M8VFtxnZXf4dac0Tpg/viewform" style="width: 100%; background-color: #69bd45; color: white;" target="_blank"> VIEW EVENT </a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> 
+		 <!--=========webinar 2=========-->
+		<div class="product-box item">
+			<div class="reviewBox-calendar">
 				<div class="div-overlay box-overlay-display" style="display: block;">
 				  <div class="text-overlay" style="display: block;line-height:30px;text-align: center;font-weight: 700;">Postponed until further notice</div>
 			   </div>
@@ -348,63 +379,7 @@
 			   </div>
 			</div>
 		</div>
-		 <!--=========webinar 2=========-->
-		<div class="product-box item">
-			<div class="reviewBox-calendar">
-			   <div class="speakerBox-calendar">
-				  <div class="row div-item-calendar">
-					 <div class="col-md-5 col-6 py-3 py-md-0"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/superkids/2may.png" class="img-calendar" width="100%" alt="2May2021" /></div>
-					 <div class="col-md-7 col-6 div-web-desc text-left">
-						<p class="title-webinar">Coding for Kids - Animation Card for Mother&rsquo;s Day!</p>
-						<p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m</p>
-						<p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Aimsity</p>
-						<p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 10 years old</p>
-					 </div>
-				  </div>
-				  <div class="row mx-0">
-					 <div class="col-md-12"><a class="btn btn-default btn-view-event" href="https://docs.google.com/forms/d/e/1FAIpQLSdKFYk-QTpeX_508IAVfhaw8z9utp26fU3JRa4pAUmZXWY6ag/viewform"> VIEW EVENT </a></div>
-				  </div>
-			   </div>
-			</div>
-		</div> 
-		<!--=========webinar 3=========-->
-		<div class="product-box item">
-			<div class="reviewBox-calendar">
-			   <div class="speakerBox-calendar">
-				  <div class="row div-item-calendar">
-					 <div class="col-md-5 col-6 py-3 py-md-0"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/superkids/2may.png" class="img-calendar" width="100%" alt="2May2021" /></div>
-					 <div class="col-md-7 col-6 div-web-desc text-left">
-						<p class="title-webinar">Coding for Kids - Animation Card for Mother&rsquo;s Day!</p>
-						<p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m</p>
-						<p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Aimsity</p>
-						<p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 10 years old</p>
-					 </div>
-				  </div>
-				  <div class="row mx-0">
-					 <div class="col-md-12"><a class="btn btn-default btn-view-event" href="https://docs.google.com/forms/d/e/1FAIpQLSdKFYk-QTpeX_508IAVfhaw8z9utp26fU3JRa4pAUmZXWY6ag/viewform"> VIEW EVENT </a></div>
-				  </div>
-			   </div>
-			</div>
-		</div>
-		<!--=========webinar 4=========-->
-		<div class="product-box item">
-			<div class="reviewBox-calendar">
-			   <div class="speakerBox-calendar">
-				  <div class="row div-item-calendar">
-					 <div class="col-md-5 col-6 py-3 py-md-0"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/superkids/2may.png" class="img-calendar" width="100%" alt="2May2021" /></div>
-					 <div class="col-md-7 col-6 div-web-desc text-left">
-						<p class="title-webinar">Coding for Kids - Animation Card for Mother&rsquo;s Day!</p>
-						<p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m</p>
-						<p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Aimsity</p>
-						<p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 10 years old</p>
-					 </div>
-				  </div>
-				  <div class="row mx-0">
-					 <div class="col-md-12"><a class="btn btn-default btn-view-event" href="https://docs.google.com/forms/d/e/1FAIpQLSdKFYk-QTpeX_508IAVfhaw8z9utp26fU3JRa4pAUmZXWY6ag/viewform"> VIEW EVENT </a></div>
-				  </div>
-			   </div>
-			</div>
-		</div>
+		<!-- ======= end webinar 2 ====-->
 	</div>
 </div>
 <div class="clearfix"></div>
@@ -806,7 +781,7 @@
 								<p class="card-text text-left p-comment">
 									Thank you so much for the awesome Superkids Club Activity Box, what a lovely surprise. The kids are so excited and happy. Thank you Motherhood.com.my
 								</p>
-								<div style="font-weight:700;margin-top:10%;margin-bottom:5%;" class="text-left" >Suk Teng Leong</div>
+								<div class="text-left customer-name-comment">Suk Teng Leong</div>
 							</div>
 						</div>
 					</div>
@@ -904,7 +879,7 @@
 								<p class="card-text text-left p-comment">
 									Terima kasih Motherhood atas hadiah Superkids Club Activity Box. Anak teruja dan seronok dapat hadiah!
 								</p>
-								<div style="font-weight:700;margin-top:10%;margin-bottom:5%;" class="text-left" >Rashidah Abdu Rahim</div>
+								<div class="text-left customer-name-comment" >Rashidah Abdu Rahim</div>
 							</div>
 						</div>
 					</div>
@@ -1002,7 +977,7 @@
 								<p class="card-text text-left p-comment">
 									My child is super excited to receive this Superkids Club Activity Box! There are body wash, oral aid, nappy cream, and toys for sensory play. He learn and play using all the products inside. Thank you for sending us such a creative activity box!
 								</p>
-								<div style="font-weight:700;margin-top:10%;margin-bottom:5%;" class="text-left" >Liew Soo Hui</div>
+								<div class="text-left customer-name-comment" >Liew Soo Hui</div>
 							</div>
 						</div>
 					</div>
@@ -1100,7 +1075,7 @@
 								<p class="card-text text-left p-comment">
 									Thank you motherhood for this awesome box that fully of entertainment & joy for my son!
 								</p>
-								<div style="font-weight:700;margin-top:10%;margin-bottom:5%;" class="text-left" >Nur Hidayah Binti Mohd Nazri</div>
+								<div class="text-left customer-name-comment" >Nur Hidayah Binti Mohd Nazri</div>
 							</div>
 						</div>
 					</div>
@@ -1198,7 +1173,7 @@
 								<p class="card-text text-left p-comment">
 									First thank you for the free activity box. As soon as my daughter sees the box, she was so excited to unbox and dig everything.. She love it, especially the flash cards that come with it.
 								</p>
-								<div style="font-weight:700;margin-top:10%;margin-bottom:5%;" class="text-left" >Mary Joyce Medina</div>
+								<div class="text-left customer-name-comment" >Mary Joyce Medina</div>
 							</div>
 						</div>
 					</div>
@@ -1296,7 +1271,7 @@
 								<p class="card-text text-left p-comment">
 									Anak umur 2y 5m mmg seronok sbb ada alphabet card tu. Brg2 yg ada dalam tu pon best boleh guna semuanya
 								</p>
-								<div style="font-weight:700;margin-top:10%;margin-bottom:5%;" class="text-left" >Nurul Asma </div>
+								<div class="text-left customer-name-comment" >Nurul Asma </div>
 							</div>
 						</div>
 					</div>
@@ -1394,7 +1369,7 @@
 								<p class="card-text text-left p-comment">
 									terima kasih motherhood... semua barangan dalam kotak saya suka dan anak pun gembira.
 								</p>
-								<div style="font-weight:700;margin-top:10%;margin-bottom:5%;" class="text-left" >Cyrena deosing</div>
+								<div class="text-left customer-name-comment" >Cyrena deosing</div>
 							</div>
 						</div>
 					</div>
@@ -1492,7 +1467,7 @@
 								<p class="card-text text-left p-comment">
 									Thanks for the free gifts! Only need to pay for the shipping fees! My kids like the activities box so much!
 								</p>
-								<div style="font-weight:700;margin-top:10%;margin-bottom:5%;" class="text-left" >Pick Yee Chen</div>
+								<div class="text-left customer-name-comment" >Pick Yee Chen</div>
 							</div>
 						</div>
 					</div>
@@ -1590,7 +1565,7 @@
 								<p class="card-text text-left p-comment">
 									Thank you for giving us a lot of goodies inside the Superkids Club Activity Box. My kids had so much fun playing with the flash card. So many benefit inside the box.
 								</p>
-								<div style="font-weight:700;margin-top:10%;margin-bottom:5%;" class="text-left" >Nik Nor Izyanty Che Mazlan</div>
+								<div class="text-left customer-name-comment" >Nik Nor Izyanty Che Mazlan</div>
 							</div>
 						</div>
 					</div>
@@ -1869,7 +1844,7 @@
 						}
 						else if(result.status_code == 'exist_customer_event')
 						{
-							$('body').find('.title-form').html("You Are Already Registered Motherhood Super Kid")
+							$('body').find('.title-form').html("You Have Registered Motherhood Super Kids")
 							$('body').find('.btn-submit-superkid').hide('fast');
 							$('body').find('.btn-add-child').hide('fast');
 							$('body').find('.div-password').hide('fast');
@@ -2003,7 +1978,7 @@
 				slidesToScroll: 3,
 				dots: true,
 				adaptiveHeight:true,
-				autoplay: false,
+				autoplay: true,
 				responsive: [
 				{
 					breakpoint: 600,
