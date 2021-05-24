@@ -243,9 +243,9 @@
 		content: "My Info"; 
 	}
 	
-	/*.steps ul.step-3:before {
+	.steps ul.step-3_1:before {
 		content: "Precondition Form"; 
-	}*/
+	}
 	
 	.steps ul.step-3:before {
       content: "My Address"; 
@@ -1105,50 +1105,57 @@
 				</section>
 
 				<!-- SECTION 3 original need to hide first -->
-				<!--
-				<h4></h4>
-				<section style="display:none;">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="form-group">
-								<p>
-									<h3>{$campaign['tester_name']}</h3>
-								</p>
+				{if $campaign['tester_campaign_fields']|strstr:"hasprequalify"}
+					<input type="hidden" class="class-hasprequalify" value="hasprequalify">
+					<h4></h4>
+					<section style="display:none;">
+						
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="qualify-childmilk-brand">What milk brand does your child drink now?</label>
+									{if $campaign['tester_campaign_fields']|strstr:"interest-igaccount"}<!-- to check if this input has been set on admin page -->
+										<select class="input-sm input-info interest-location select-mmy" name="interest_location" id="interest-location" style="display: none !important;">
+														
+											<option value="" >Select state</option>
+											{if $liststate}
+												{foreach from=$liststate item=liststate1}
+													<option value="{$liststate1.state_name}" data-statecode="{$liststate1.state_code}">{$liststate1.state_name}</option>
+												{/foreach}
+											{/if}
+										</select>
+									{/if}
+									
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<div class="form-group">
-								<label>Brand</label>
-								<p>{Manufacturer::getnamebyid($product.id_manufacturer)} </p>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="qualify-other-childmilk-brand">If your answer in (1) is f. other brands, please state what brand below:</label>
+									{if $campaign['tester_campaign_fields']|strstr:"interest-igaccount"}<!-- to check if this input has been set on admin page -->
+										
+									{/if}
+									
+								</div>
 							</div>
 						</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<label>Category</label>
-								<p>{$productCategory->name[1]}</p>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="qualify-other-childmilk-brand">When choosing milk for you child, what is the most important criteria? (You can select more than 1)</label>
+									{if $campaign['tester_campaign_fields']|strstr:"interest-igaccount"}<!-- to check if this input has been set on admin page -->
+										
+									{/if}
+									
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<div class="form-group">
-								<label>Date</label>
-								<p>{$campaign['tester_registration_start']|date_format:"%d %b %Y"} - {$campaign['tester_registration_end']|date_format:"%d %b %Y"} </p>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<div class="form-group">
-								<label>Description</label>
-								{$campaign['description']} 
-							</div>
-						</div>
-					</div>
-				</section>
-				-->
+						
+					</section>
+				{/if}
+				
+				
 				
 				<!-- SECTION 3 -->
 				<h4></h4>
@@ -2332,7 +2339,9 @@
 				enableKeyNavigation   : false,
 				transitionEffectSpeed : 500,
 				onStepChanging		  : function (event, currentIndex, newIndex) { 
+					var checkflagqualify = $('body').find('.class-hasprequalify').val();
 					
+				
 					if(currentIndex === 0)
 					{
 						$('body').find('.input-flag-checking-step').val(true);
@@ -2340,6 +2349,7 @@
 					
 					if(currentIndex == 1)
 					{
+						console.log("normal input = " + currentIndex);
 						validation = generalCheck_input();
 						if(!validation)
 						{
@@ -2352,49 +2362,105 @@
 						}
 					}
 					
-					if(currentIndex == 2)
+					if(checkflagqualify == 'hasprequalify')
 					{
-						var deliveryAddr = $('body').find('input[name="delivery_address"]:checked').val();
-						var sameDelivery = $('body').find('input[name="same_address_delivery"]:checked').val();
-						var billingAddr  = $('body').find('input[name="billing_address"]:checked').val();
-						
-						if(deliveryAddr == '' || deliveryAddr == undefined)
+						if(currentIndex == 2)
 						{
-							Swal.fire({
-								icon: 'error',
-								title: 'Delivery address',
-								text: "Please select delivery address",
-							});
+							console.log("address check has qualify = " + currentIndex);
+							var deliveryAddr = $('body').find('input[name="delivery_address"]:checked').val();
+							var sameDelivery = $('body').find('input[name="same_address_delivery"]:checked').val();
+							var billingAddr  = $('body').find('input[name="billing_address"]:checked').val();
 							
-							$('body').find('.input-flag-checking-step').val(false);
-							return false;
-						}
-						
-						/*
-						if(sameDelivery == '' || sameDelivery == undefined)
-						{
-							if(billingAddr == '' || billingAddr == undefined)
+							if(deliveryAddr == '' || deliveryAddr == undefined)
 							{
 								Swal.fire({
 									icon: 'error',
-									title: 'Billing address',
-									text: "Please select billing address",
+									title: 'Delivery address',
+									text: "Please select delivery address",
 								});
 								
 								$('body').find('.input-flag-checking-step').val(false);
 								return false;
 							}
-							else
+							
+							/*
+							if(sameDelivery == '' || sameDelivery == undefined)
 							{
-								$('body').find('.input-flag-checking-step').val(true);
-						
-								return true;
+								if(billingAddr == '' || billingAddr == undefined)
+								{
+									Swal.fire({
+										icon: 'error',
+										title: 'Billing address',
+										text: "Please select billing address",
+									});
+									
+									$('body').find('.input-flag-checking-step').val(false);
+									return false;
+								}
+								else
+								{
+									$('body').find('.input-flag-checking-step').val(true);
+							
+									return true;
+								}
 							}
+							*/
+							
+							$('body').find('.input-flag-checking-step').val(true);
 						}
-						*/
 						
-						$('body').find('.input-flag-checking-step').val(true);
 					}
+					else
+					{
+						
+						if(currentIndex == 2)
+						{
+							console.log("address check = " + currentIndex);
+							var deliveryAddr = $('body').find('input[name="delivery_address"]:checked').val();
+							var sameDelivery = $('body').find('input[name="same_address_delivery"]:checked').val();
+							var billingAddr  = $('body').find('input[name="billing_address"]:checked').val();
+							
+							if(deliveryAddr == '' || deliveryAddr == undefined)
+							{
+								Swal.fire({
+									icon: 'error',
+									title: 'Delivery address',
+									text: "Please select delivery address",
+								});
+								
+								$('body').find('.input-flag-checking-step').val(false);
+								return false;
+							}
+							
+							/*
+							if(sameDelivery == '' || sameDelivery == undefined)
+							{
+								if(billingAddr == '' || billingAddr == undefined)
+								{
+									Swal.fire({
+										icon: 'error',
+										title: 'Billing address',
+										text: "Please select billing address",
+									});
+									
+									$('body').find('.input-flag-checking-step').val(false);
+									return false;
+								}
+								else
+								{
+									$('body').find('.input-flag-checking-step').val(true);
+							
+									return true;
+								}
+							}
+							*/
+							
+							$('body').find('.input-flag-checking-step').val(true);
+						}
+					}
+					
+					
+					
 					
 					if (newIndex === 1) {
 						$('.steps ul').addClass('step-2');
@@ -2402,25 +2468,61 @@
 						$('.steps ul').removeClass('step-2');
 					}
 						
-					if ( newIndex === 2 ) {
-						$('.steps ul').addClass('step-3');
-					} else {
-						$('.steps ul').removeClass('step-3');
-					} 
-					
-					/*if ( newIndex === 3 ) {
-						$('.steps ul').addClass('step-4');
-					} else {
-						$('.steps ul').removeClass('step-4');
-					}*/
+					if(checkflagqualify == 'hasprequalify')
+					{
+						if ( newIndex === 2 ) {
+							console.log(3_1)
+							$('.steps ul').addClass('step-3_1');
+						} else {
+							$('.steps ul').removeClass('step-3_1');
+						} 
+						
+						if ( newIndex === 3 ) {
+							console.log(3)
+							$('.steps ul').addClass('step-3');
+						} else {
+							$('.steps ul').removeClass('step-3');
+						}
 
-					if ( newIndex === 3 ) {
-						$('.steps ul').addClass('step-4');
-						//$('.actions ul').addClass('step-last');
-					} else {
-						$('.steps ul').removeClass('step-4');
-						//$('.actions ul').removeClass('step-last');
+						if ( newIndex === 4 ) {
+							console.log(4)
+							$('.steps ul').addClass('step-4');
+						} else {
+							$('.steps ul').removeClass('step-4');
+						}
+						
+						if ( newIndex === 5 ) {
+							console.log(5)
+							$('.steps ul').addClass('step-5');
+							//$('.actions ul').addClass('step-last');
+						} else {
+							$('.steps ul').removeClass('step-5');
+							//$('.actions ul').removeClass('step-last');
+						}
 					}
+					else
+					{
+						if ( newIndex === 2 ) {
+							$('.steps ul').addClass('step-3');
+						} else {
+							$('.steps ul').removeClass('step-3');
+						} 
+						
+						/*if ( newIndex === 3 ) {
+							$('.steps ul').addClass('step-4');
+						} else {
+							$('.steps ul').removeClass('step-4');
+						}*/
+
+						if ( newIndex === 3 ) {
+							$('.steps ul').addClass('step-4');
+							//$('.actions ul').addClass('step-last');
+						} else {
+							$('.steps ul').removeClass('step-4');
+							//$('.actions ul').removeClass('step-last');
+						}
+					}
+					
 					
 					return true; 
 					

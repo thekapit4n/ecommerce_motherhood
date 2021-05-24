@@ -51,10 +51,10 @@
 	color: #ef0a0a !important;
 }
 </style>
-<form id="form-article">
+<form id="form-article" style="min-height: 370px;">
 	<div class="row form-mb">
 		<div class="col-md-6 input-col">
-			<input type="hidden" id="article-id" name="article_id" value="" />
+			<input type="hidden" id="title-article" name="title" value="" />
 			<input type="hidden" name="formId" value="16" />
 			<label for="inputName" class="form-label input-label">Name</label>
 			<input type="text" name="customer_name" class="form-control border-input input-field input-sm input-customer-name" id="inputEmail4">
@@ -75,7 +75,7 @@
 	</div>
 	<div class="row form-mb">
 		<div class="col-md-12 input-col">
-			<label for="inputQuestion1" class="form-label input-label">Pregnant Edd</label>
+			<label for="inputQuestion1" class="form-label input-label">EDD (if you are pregnant)</label>
 			<input type="date" name="pregnant_edd" class="form-control border-input input-field input-sm" id="inputQuestion1" style="width:100%;-webkit-appearance: none;">
 		</div>
 	</div>
@@ -108,12 +108,12 @@
 
 <script type="text/javascript">
 	$(function(){
-		var article_id  = $('#form-article').closest('.nuren-tag').attr('data-nuren-postid');
+		var article_title  = $('#form-article').closest('.nuren-tag').attr('data-nuren-posttitle');
 		var articlezone = $('#form-article').closest('.nuren-tag').attr('data-nuren-zone');
 		
-		if(article_id != '' && article_id != undefined && article_id != null)
+		if(article_title != '' && article_title != undefined && article_title != null)
 		{
-			$('body').find('#article-id').val(article_id);
+			$('body').find('#title-article').val(article_title);
 		}
 		
 		$('body').on('click', '.btn-submit', function(){
@@ -155,6 +155,8 @@
 			else
 			{
 				var dataform = $('body').find('#form-article').serialize();
+				$('body').find('.btn-submit').html("Processing...");
+				$('body').find('.btn-submit').attr("disabled", true);
 				
 				$.ajax({
       				url		 : 'https://visual.nuren.co/media/dynamicnuren_form.php', 
@@ -162,7 +164,20 @@
       				dataType :'json',
       				method 	 : 'post',
       				success	 : function(result){
-      					alert("thank you for submitting");
+						$('body').find('.btn-submit').html("Submit");
+						$('body').find('.btn-submit').attr("disabled", false);
+						
+      					if(result.status == true)
+						{
+							$('body').find('.btn-submit').html("Submitted");
+							$('body').find('.btn-submit').attr("disabled", true);
+							alert("thank you for submitting");
+						}
+						else if(result.status == false)
+						{
+							
+							alert("An error occur during process");
+						}
       				}
       			});
 			}	
