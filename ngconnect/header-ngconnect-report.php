@@ -5,6 +5,7 @@ if($_SESSION["ngconnectreport"] != true)
 	header('Location: http://visual.nuren.co/admin2635/ngconnect-report/index.php');
 }
 require_once("../database_leads.php");
+$conn = mysqli_connect($LEADS_IP, $LEADS_USER, $LEADS_PWD, 'com.ads');
 ?>
 <!DOCTYPE html>
 <head>
@@ -43,4 +44,28 @@ body{
 
 
 </style>
-</head>
+</head>	
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	  <!-- Links -->
+		<ul class="navbar-nav">
+			<li class="nav-item">
+			  <a class="nav-link" href="report_list.php">Ng-connect report list</a>
+			</li>
+		</ul>
+		<ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+			<li class="nav-item">
+				<a href="index.php?islogout=true" class="nav-link p-2" href="" target="_blank" rel="noopener" aria-label="GitHub">
+					<i class="fas fa-sign-out-alt"></i> Logout
+				</a>
+			</li>
+		</ul>
+	</nav>
+	<main role="main" class="container-fluid">
+		<div class="starter-template">
+			<div class="row row-motherhood" style="margin-top:40px;">
+				<div class="col-md-12">
+					<div class="page-header">
+						<h3>List of data for <?php echo (isset($_GET['q']) &&  $_GET['q'] != '') ? $_GET['q'] : 'Ng-connect report list | Motherhood.com.my Malaysia'?></h3>
+					</div>
+				</div>
+			</div>

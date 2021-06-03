@@ -55,6 +55,8 @@
 	<div class="row form-mb">
 		<div class="col-md-6 input-col">
 			<input type="hidden" id="title-article" name="title" value="" />
+			<input type="hidden" id="id-article" name="article_id" value="" />
+			<input type="hidden" id="source" name="source" value="" />
 			<input type="hidden" name="formId" value="16" />
 			<label for="inputName" class="form-label input-label">Name</label>
 			<input type="text" name="customer_name" class="form-control border-input input-field input-sm input-customer-name" id="inputEmail4">
@@ -109,11 +111,23 @@
 <script type="text/javascript">
 	$(function(){
 		var article_title  = $('#form-article').closest('.nuren-tag').attr('data-nuren-posttitle');
-		var articlezone = $('#form-article').closest('.nuren-tag').attr('data-nuren-zone');
+		var articlezone    = $('#form-article').closest('.nuren-tag').attr('data-nuren-zone');
+		var article_id 	   = $('#form-article').closest('.nuren-tag').attr('data-nuren-articleid');
+		var source 		   = $('#form-article').closest('.nuren-tag').attr('data-nuren-source');
 		
 		if(article_title != '' && article_title != undefined && article_title != null)
 		{
-			$('body').find('#title-article').val(article_title);
+			$('body').find('#form-article #title-article').val(article_title);
+		}
+		
+		if(article_id != '' && article_id != undefined && article_id != null)
+		{
+			$('body').find('#form-article #id-article').val(article_id);
+		}
+		
+		if(source != '' && source != undefined && source != null)
+		{
+			$('body').find('#form-article #source').val(source);
 		}
 		
 		$('body').on('click', '.btn-submit', function(){

@@ -1,6 +1,6 @@
 <?php
 /** Include PHPExcel */
-require_once dirname(__FILE__) . '/PHPExcel-1.8/Classes/PHPExcel.php';
+require_once dirname(__FILE__) . '/../tools/PHPExcel-1.8/Classes/PHPExcel.php';
 require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_config_excel.php';
 
 	$secretOfTheDay = "K@p1T4n S4Y T0d4Y 1$" . date('Y-m-d');

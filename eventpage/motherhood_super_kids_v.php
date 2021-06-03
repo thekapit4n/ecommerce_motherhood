@@ -311,6 +311,30 @@
                   </div>
                </div>
             </li>
+			
+			<div class="product-box item">
+			<div class="reviewBox-calendar">
+				<div class="div-overlay box-overlay-display" style="display: block;">
+				  <div class="text-overlay" style="display: block;line-height:30px;text-align: center;font-weight: 700;">Postponed until further notice</div>
+			   </div>
+			   <div class="speakerBox-calendar">
+				  <div class="row div-item-calendar">
+					 <div class="col-md-5 col-6 py-3 py-md-0">
+						<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/superkids/24apr.png" class="img-calendar" width="100%" alt="24april2021" />
+					</div>
+					 <div class="col-md-7 col-6 div-web-desc text-left" >
+						<p class="title-webinar">Rainbow Paper Spinner Toy</p>
+						<p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m</p>
+						<p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Teacher Bobo</p>
+						<p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 4 years old</p>
+					 </div>
+				  </div>
+				  <div class="row mx-0">
+					 <div class="col-md-12"><a class="btn btn-default btn-view-event" href="https://docs.google.com/forms/d/e/1FAIpQLSetgKFKE_qdOVqWDsJkOjYcHtplTOKzR2Z7AxF-qTZJn9XH9g/viewform" style="width: 100%; background-color: #69bd45; color: white;"> VIEW EVENT </a></div>
+				  </div>
+			   </div>
+			</div>
+		</div>
             <li class="nbs-flexisel-item" style="width: 262.5px;">
                <div class="product-container">
                   <div class="left-block2">

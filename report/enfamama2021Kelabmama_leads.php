@@ -268,6 +268,7 @@ Start Date: <input type='date' name='searchDateStart' value="<?php echo $_POST['
 $searchStart="";
 $searchEnd="";
 $limit = "";
+// $limit = " LIMIT 2730 ";
 $limit = " LIMIT 2730 ";
 	if ($_POST['searchDateStart'])
 		$searchStart=" AND Subscribed_Date >='".$_POST['searchDateStart']."' ";
@@ -330,7 +331,7 @@ ORDER BY subscriber_created_at ASC " . $limit . ") B WHERE 1=1 $searchStart $sea
 // ) B WHERE 1=1 AND Subscribed_Date <= '".$datetoday." 00:00:00' $searchStart $searchEnd
 //AND subscriber_created_at <= '2020-07-13 13:02:00' OR subscriber_created_at > '2020-07-31 23:59:59')
 
-// echo $sql;
+	// echo $sql;
 
 	$result = $conn2->query($sql);
 	echo mysql_result_all_html($result,"border=1");

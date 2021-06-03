@@ -1,66 +1,7 @@
 <?php
-session_start();
-
-print_r($_SESSION);exit;
-// include '../admin2635/dashboard/events/events_db_config.php';
-
-// header("Pragma: no-cache");
-// header("Expires: 0");
-// $productList=array();
-    // error_reporting(E_ALL &~E_NOTICE);
-    // ini_set('display_errors', '1');
-	
-?>
-<!DOCTYPE html>
-<head>
-	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico"/>
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/boostrap-v4.5.3/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/fontawesome-v5.15.1/css/all.min.css">
-	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/jQuery/jquery-3.5.1.min.js"></script>
-	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/jQuery/popper.min.js"></script>
-	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/boostrap-v4.5.3/js/bootstrap.min.js"></script>
-	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/fontawesome-v5.15.1/js/all.min.js"></script>
-	<!-- custom style and js -->
-	<link rel="stylesheet" type="text/css" href="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/select2/dist/css/select2.min.css">
-	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/select2/dist/js/select2.min.js"></script>
-	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
-    <link href="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
-	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/sweetalert2-v10.13.0/dist/sweetalert2.all.min.js" type="text/javascript"></script>
-    <link href="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/sweetalert2-v10.13.0/dist/sweetalert2.min.css" rel="stylesheet" type="text/css" />
-	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/Inputmask-5.x/dist/jquery.inputmask.js" type="text/javascript"></script>
-	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/twbs-pagination/jquery.twbsPagination.min.js" type="text/javascript"></script>
-	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/simplePagination/jquery.simplePagination.js" type="text/javascript"></script>
-	<title>Dutch lady report 2021 | Motherhood.com.my Malaysia</title>
-<style>
-body{
-	font-family: 'Poppins', sans-serif;
-}
-
-
-.active:not(.leftmenu) {
-    background-color: #ffcfda;
-}
-
-.row-motherhood{
-	margin-bottom:10px
-}
-
-
-</style>
-</head>
-
-<?php
-	/* $currPath 		= $_SERVER['REQUEST_URI'];
-	$baseprog		= explode("?",basename($currPath));
-	$checkName		= explode("-",basename($baseprog[0]));
-	$secretOfTheDay = "K@p1T4n S4Y T0d4Y 1$" . date('Y-m-d');
-	$encrypt  		= md5($secretOfTheDay);
-	$searchStart 	="";
-	$searchEnd 	 	="";
+	require_once("header-ngconnect-report.php");
 	$wheresql  	 	= "";
-	$limitsql    	= "";
-	$currentLimit 	= " LIMIT 1500";
+	$limitsql    	= "LIMIT 500";
 	
 	if (isset($_GET['pageno'])) {
 		$pageno = $_GET['pageno'];
@@ -68,68 +9,33 @@ body{
 		$pageno = 1;
 	}
 	
-	$no_of_records_per_page = 1500;
-	
-	if(isset($_POST['searchDateStart']) && $_POST['searchDateStart'] != '')
+	$no_of_records_per_page = 500;
+	if(isset($_POST['title']) && $_POST['title'] != '')
 	{
-		$arr_sortdate = array();
-		$arr_sortdate = explode('/', $_POST['searchDateStart']);
-		
-		if(is_array($arr_sortdate) && sizeof($arr_sortdate) == 3)
-		{
-			$mysqlformat = $arr_sortdate[2] . "-" . $arr_sortdate[1] . "-" . $arr_sortdate[0];
-			$searchStart = date('Y-m-d', strtotime($mysqlformat));
-		}
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "title LIKE '%" . $conn->real_escape_string(trim($_POST['title'])) . "%'";
+	}
+	else
+	{
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "title != ''";
 	}
 	
-	if(isset($_POST['searchDateEnd']) && $_POST['searchDateEnd'] != '')
-	{
-		$arr_sortdate = array();
-		$arr_sortdate = explode('/', $_POST['searchDateEnd']);
-		
-		if(is_array($arr_sortdate) && sizeof($arr_sortdate) == 3)
-		{
-			$mysqlformat = $arr_sortdate[2] . "-" . $arr_sortdate[1] . "-" . $arr_sortdate[0];
-			$searchEnd   = date('Y-m-d', strtotime($mysqlformat));
-		}
-	}
 	
-	$arr_skip_email = array(
-		
-	);
-	
-	if(isset($arr_skip_email) && is_array($arr_skip_email) && sizeof($arr_skip_email) > 0)
-	{
-		foreach($arr_skip_email as $email)
-		{
-			$skipemail2[] =  trim("'" . htmlentities($email) . "'");
-		}
-		
-		$string_email = implode(",", $skipemail2);
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.newEmail NOT IN (" . $string_email . ")";
-	}
-	
-	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "evnt.subscriber_event_id = 90";
-
-	
-	$groupBy = " GROUP BY evnt.newEmail ";
+	$groupBy = " GROUP BY title ";
 					
-	if($searchStart != '')
-	{
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at >= '" . trim($searchStart . " 00:00:00") . "'";
-	}
+	// if($searchStart != '')
+	// {
+		// $wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at >= '" . trim($searchStart . " 00:00:00") . "'";
+	// }
 	
-	if($searchEnd != '')
-	{
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at <= '" . trim($searchEnd . " 23:59:59") . "'";
-	}
+	// if($searchEnd != '')
+	// {
+		// $wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at <= '" . trim($searchEnd . " 23:59:59") . "'";
+	// }
 	
-	if($searchStart == '' && $searchEnd == '')
-	{
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at >= '2021-05-12 00:00:00'";
-	}
-	
-	
+	// if($searchStart == '' && $searchEnd == '')
+	// {
+		// $wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at >= '2021-05-12 00:00:00'";
+	// }
 	
 	$urlPagination = "";
 	if(isset($pageno) && $pageno > 0)
@@ -137,15 +43,13 @@ body{
 		$urlPagination .= ($urlPagination == "" ? '?' : '&') . "pageno=";
 	}
 	
-	$sqltotalCount	  = "SELECT COUNT(*) AS total FROM (SELECT DISTINCT(evnt.newEmail) FROM ps_events_subscriber evnt" . $wheresql . "  ORDER BY subscriber_created_at ASC " . $currentLimit . ") AS a";
-	
+	$sqltotalCount	  = "SELECT COUNT(*) AS total FROM (SELECT DISTINCT(title) FROM `com.ads`.tbl_ads_form_submit" . $wheresql . "  ORDER BY form_adddate ASC " . $limitsql . ") AS a";
 	$resultCount 	  =  $conn->query($sqltotalCount);
 	$arr_resultCount  =  mysqli_fetch_array($resultCount);
 	$total_rows 	  =  isset($arr_resultCount['total']) ? $arr_resultCount['total'] : 0;
 	$offset 		  = ($pageno-1) * $no_of_records_per_page;
 	$total_pages 	  = ceil($total_rows / $no_of_records_per_page);
 	$limitsql 		  = "LIMIT " . $offset . "," . $no_of_records_per_page;
-	
 	$starting = (isset($pageno) && $pageno > 0) ? $pageno  : 0;
 	if($starting > 0)
 	{
@@ -155,14 +59,8 @@ body{
 			$showingLimit = $total_rows;
 		}
 	}
-			
-	$sql = "SELECT
-		evnt.newEmail as Email, evnt.newFirstName as FullName,  evnt.subscriber_question1 as Mobile, 
-		evnt.subscriber_question4 as childDOB, evnt.subscriber_question3 as ProductName, evnt.subscriber_question13 as TasteofMilk,  evnt.subscriber_question5 as AddressLine1, 
-		evnt.subscriber_question7 as AddressLine2, evnt.subscriber_question8 as Postcode, evnt.subscriber_question9 as City, evnt.subscriber_question10 as State, 
-		evnt.subscriber_question12 as TnC, evnt.subscriber_created_at as DateSubmit
-		FROM ps_events_subscriber evnt " . $wheresql . $groupBy . " ORDER BY evnt.subscriber_created_at ASC " . $limitsql;
-		
+	
+	$sql = "SELECT title FROM `com.ads`.tbl_ads_form_submit " . $wheresql . $groupBy;
     $result = $conn->query($sql);
 	if(is_object($result)){
 		$tableReportView =  mysql_result_all_html($result, $offset);
@@ -176,7 +74,7 @@ body{
 		
 		$noFields = mysqli_num_fields($result);
 		$table 	= "";
-		$table .= "<table class='table-bordered table-sm'>";
+		$table .= "<table class='table-bordered table-sm' style='width:100%'>";
 		$table .= "<tr style='background-color:#ffe1e7;color:#265e70;'>";
 		$table .= "<th>No.</th>";
 		# for header
@@ -185,6 +83,7 @@ body{
 			$table .= "<th>" . $field . "</th>";
 			
 		}
+		$table .= "<th>Actions</th>";
 		$table .= "</tr>";
 		
 		if(isset($offset))
@@ -199,9 +98,9 @@ body{
 			$ccount++;
 			$table .= "<tr><td>" . $ccount . "</td>";
 			foreach ($r as $indx => $kolonne) {
-				
-					$table .= "<td>" . $kolonne . "</td>";
+				$table .= "<td>" . $kolonne . "</td>";
 			}
+			$table .= "<td><a href='report_details.php?q=" . urlencode($kolonne) ."'class='btn btn-primary btn-sm'>See details</a></td>";
 			$table .= "</tr>";
 		}
 		$table .= "</table>";
@@ -212,92 +111,22 @@ body{
     function mysqli_field_name($result, $field_offset) {
 		$properties = mysqli_fetch_field_direct($result, $field_offset);
 		return is_object($properties) ? $properties->name : null;
-	} */
+	}
 ?>
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-	  <!-- Links -->
-		<ul class="navbar-nav">
-			<li class="nav-item">
-			  <a class="nav-link" href="report_list.php">Ng-connect report list</a>
-			</li>
-		</ul>
-		<ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
-			<li class="nav-item">
-				<a href="index.php?islogout=true" class="nav-link p-2" href="" target="_blank" rel="noopener" aria-label="GitHub">
-					<i class="fas fa-sign-out-alt"></i> Logout
-				</a>
-			</li>
-		</ul>
-	</nav>
-	<main role="main" class="container-fluid">
-		<div class="starter-template">
-			<div class="row row-motherhood" style="margin-top:40px;">
-				<div class="col-md-8">
-					<div class="page-header">
-						<h3>Ng-connect report list | Motherhood.com.my Malaysia</h3>
-					</div>
-				</div>
-			</div>
-			<form id="form-request" method='post' action="dutch-lady-report2021.php">
+	
+			<form id="form-request" method='post' action="report_list.php">
 				<div class="row row-motherhood">
-					<div class="col-md-5">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="input-group input-group-sm mb-3">
-									<div class="input-group-prepend">
-										<span class="input-group-text" id="basic-addon1">From</span>
-									</div>
-									<?php 
-										if(isset($_POST['searchDateStart']) && $_POST['searchDateStart'] != '')
-										{
-											$arrDay = explode('/', $_POST['searchDateStart']);
-											if(is_array($arrDay) && sizeof($arrDay) == 3)
-											{
-												$year  = $arrDay[2];
-												$month = $arrDay[1];
-												$day   = $arrDay[0];
-												
-												$fromdate = $day . "/" . $month . "/" . $year;
-											}
-										}
-										
-										if(isset($_POST['searchDateEnd']) && $_POST['searchDateEnd']!= '')
-										{
-											$arrDay = explode('/', $_POST['searchDateEnd']);
-											if(is_array($arrDay) && sizeof($arrDay) == 3)
-											{
-												$year  = $arrDay[2];
-												$month = $arrDay[1];
-												$day   = $arrDay[0];
-												
-												$todate = $day . "/" . $month . "/" . $year;
-											}
-										}
-									?>
-									<input type="text" class="form-control eventdatepicker" name="searchDateStart" autocomplete="off" placeholder="start date" value='<?php echo (isset($fromdate) && $fromdate != '') ? $fromdate : '' ?>'>
-									<div class="input-group-prepend">
-										<span class="input-group-text" id="basic-addon1">To</span>
-									</div>
-									<input type="text" class="form-control eventdatepicker-end" name="searchDateEnd" autocomplete="off" placeholder="end date" value='<?php echo (isset($todate) && $todate != '') ? $todate : '' ?>' disabled>
-									<input type="hidden" class="form-control" name="themessage" value='<?php echo (isset($encrypt) && $encrypt != '') ? $encrypt : '' ?>'>
-								</div>
-							</div>
+					<div class="col-md-8">
+						<div class="form-group">
+							<label for="title-article">Title</label>
+							<input type="text" class="form-control" id="title-article"  name="title" value="<?php echo (isset($_POST['title']) && $_POST['title'] != '') ? $_POST['title'] :'' ?>">
 						</div>
 					</div>
 				</div>
 				<div class="row row-motherhood">
-					<div class="col-md-2 text-left">
-						<div class="form-check-inline">
-							<label class="form-check-label">
-								<input type="checkbox" class="form-check-input" id="check-export" value="yes" name='export'>Export
-								<input type="hidden" class="form-control" name="themessage" value='<?php echo (isset($encrypt) && $encrypt != '') ? $encrypt : '' ?>'>
-							</label>
-						</div>
-					</div>
-				</div>
-				<div class="row row-motherhood">
-					<div class="col-md-3 text-left">
-						<button type="button" id="btn-submit" class="btn btn-success btn-sm"> Submit </button>
+					<div class="col-md-6 text-left">
+						<button type="button" class="btn btn-info btn-clear btn-sm">Clear </button>
+						<button type="submit" id="btn-submit" class="btn btn-success btn-sm"> Submit </button>
 					</div>
 				</div>
 			</form>
@@ -322,65 +151,11 @@ body{
 		</div>
     </main><!-- /.container -->
 	<script type="text/javascript">
-	
-	var initEnddatepicker = function(){
-		var startDate = $('body').find('.eventdatepicker').val();
-		var endDate   = $('body').find('.eventdatepicker-end').val();
-		var date = startDate;
-		var d	 = new Date(date.split("/").reverse().join("-"));
-		var dd	 = d.getDate();
-		var mm 	 = d.getMonth()+1;
-		var yy	 = d.getFullYear();
-		convertStrtDate = yy + "-" + mm + "-" + dd;
-		$('body').find('.btnsearchdate').prop('disabled', true);
-		$('body').find('.eventdatepicker-end').datepicker('destroy').datepicker({
-			autoclose: true,
-			todayHighlight: true,
-			format: 'dd/mm/yyyy',
-			startDate: new Date(convertStrtDate),
-		});
-	}
-	
 	$(function(){
-		$('body').find('.eventdatepicker').datepicker({
-			autoclose: true,
-			todayHighlight: true,
-			format: 'dd/mm/yyyy',
-			startDate: new Date('2021-01-01')
-		});
-		
-		$('body').on('change', '.eventdatepicker', function(){
-			$('body').find('.eventdatepicker-end').val('');
-			$('body').find('.eventdatepicker-end').prop('disabled', false)
-			initEnddatepicker();
-		});
-		
-		$('body').on('change', '.eventdatepicker-end', function(){
-			var endDate = $(this).val();
-			if(endDate != '')
-			{
-				$('body').find('.btnsearchdate').prop('disabled', false);
-			}
-			else
-			{
-				$('body').find('.btnsearchdate').prop('disabled', true);
-			}
-		});
-		
-		$('body').on('click', '#btn-submit', function(){
-			var isExport = $('body').find('#check-export').is(':checked');
-			console.log(isExport);
-			if(isExport)
-			{
-				$('body').find('#form-request').attr('action', 'dutch-lady-report2021-excel.php');
-			}
-			else
-			{
-				$('body').find('#form-request').attr('action', 'dutch-lady-report2021.php');
-			}
-			
-			$('body').find('#form-request').submit();
-		});
+		$('body').on('click', '.btn-clear', function(){
+			$('#title-article').val('');
+			$('#form-request').submit();
+		})
 		
 		var totpages = '<?php echo (isset($total_pages) && $total_pages > 0) ? $total_pages  : 1?>'; //We store the number of pages in a variable to use it below
 		totpages = parseInt(totpages);

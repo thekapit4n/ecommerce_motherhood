@@ -1109,55 +1109,122 @@
 					<input type="hidden" class="class-hasprequalify" value="hasprequalify">
 					<h4></h4>
 					<section style="display:none;">
-						
-						<div class="row">
-							<div class="col-md-12">
-								<div class="form-group">
-									<label for="qualify-childmilk-brand">What milk brand does your child drink now?</label>
-									{if $campaign['tester_campaign_fields']|strstr:"interest-igaccount"}<!-- to check if this input has been set on admin page -->
-										<select class="input-sm input-info interest-location select-mmy" name="interest_location" id="interest-location" style="display: none !important;">
-														
-											<option value="" >Select state</option>
-											{if $liststate}
-												{foreach from=$liststate item=liststate1}
-													<option value="{$liststate1.state_name}" data-statecode="{$liststate1.state_code}">{$liststate1.state_name}</option>
-												{/foreach}
-											{/if}
-										</select>
-									{/if}
-									
+						<form id="prequalify_form">
+							<input type="hidden" name="formtype" value="precondition_form">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label for="prequalify-kid-milkbrand">Is your child currently consuming organic milk?</label>
+										{if $campaign['tester_campaign_fields']|strstr:"prequalify-kid-milkbrand"}<!-- to check if this input has been set on admin page -->
+											<select class="input-sm input-info prequalify-kid-milkbrand select-mmy" name="prequalify_kid_milkbrand" id="prequalify-kid-milkbrand" style="display: block !important;">
+												<option value="">Select milk brand</option>
+												<option value="Karihome" {if $additionalInfo['prequalify_kidmilk_brand'] == 'Karihome'} selected="selected" {/if}>Karihome</option>
+												<option value="Friso" {if $additionalInfo['prequalify_kidmilk_brand'] == 'Friso'} selected="selected" {/if}>Friso</option>
+												<option value="Bellamy" {if $additionalInfo['prequalify_kidmilk_brand'] == 'Bellamy'} selected="selected" {/if}>Bellamy</option>
+												<option value="S26" {if $additionalInfo['prequalify_kidmilk_brand'] == 'S26'} selected="selected" {/if}>S26 </option>
+												<option value="Others" {if $additionalInfo['prequalify_kidmilk_brand'] == 'Others'} selected="selected" {/if}>Others</option>
+												<option value="Do not consume organic milk" {if $additionalInfo['prequalify_kidmilk_brand'] == 'Do not consume organic milk'} selected="selected" {/if}>Do not consume organic milk</option>
+											</select>
+										{/if}
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<div class="form-group">
-									<label for="qualify-other-childmilk-brand">If your answer in (1) is f. other brands, please state what brand below:</label>
-									{if $campaign['tester_campaign_fields']|strstr:"interest-igaccount"}<!-- to check if this input has been set on admin page -->
+							<div class="row row-other-milkbrand" style="display:{if $additionalInfo['prequalify_kidmilk_brand'] == 'Other'} block {else} none {/if};">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label for="prequalify-other-kid-milkbrand">If your answer in (1) is other brands, please state what brand below:</label>
+										{if $campaign['tester_campaign_fields']|strstr:"prequalify-other-kid-milkbrand"}<!-- to check if this input has been set on admin page -->
+											<input type="text" class="form-control input-sm input-info" id="prequalify-other-kid-milkbrand" name="other_kid_milkbrand" value="{$additionalInfo['prequalify_kidmilk_other_brand']}" style="display:block">
+										{/if}
 										
-									{/if}
-									
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-12">
-								<div class="form-group">
-									<label for="qualify-other-childmilk-brand">When choosing milk for you child, what is the most important criteria? (You can select more than 1)</label>
-									{if $campaign['tester_campaign_fields']|strstr:"interest-igaccount"}<!-- to check if this input has been set on admin page -->
-										
-									{/if}
-									
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label for="prequalify-kid-drinkformulamilk">Is your child currently consuming any formula milk?</label>
+										{if $campaign['tester_campaign_fields']|strstr:"prequalify-kid-drinkformulamilk"}<!-- to check if this input has been set on admin page -->
+											<select class="input-sm input-info select-mmy" name="prequalify_kid_drinkformulamilk" id="prequalify-kid-drinkformulamilk">
+												<option value="">Please select option</option>
+												<option value="Yes" {if $additionalInfo['prequalify_kid_is_drinkformulamilk'] == 'Yes'} selected="selected" {/if}>Yes</option>
+												<option value="No" {if $additionalInfo['prequalify_kid_is_drinkformulamilk'] == 'No'} selected="selected" {/if}>No</option>
+											</select>
+										{/if}
+									</div>
 								</div>
 							</div>
-						</div>
-						
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label for="qualify-other-childmilk-brand">When choosing milk for you child, what is the most important criteria? (You can select more than 1)</label>
+										{if $campaign['tester_campaign_fields']|strstr:"prequalify-kid-milkcriteria"}<!-- to check if this input has been set on admin page -->
+											<div class="row">
+												<div class="col-md-12" style="padding-left: 15px; padding-right: 15px;font-size:14px;">
+													<div style="margin-top: 10px; margin-bottom: 10px;">
+														<div class="checkbox">
+															<label style="text-align: left;color:black;">
+															<input type="checkbox" value="immunity" class="kid-milkcriteria noUniform" name="kid_milkcriteria[]" {if $additionalInfo['prequalify_kidmilk_criteria']|strstr:"immunity"} checked {/if}>&nbsp;&nbsp;Immunity</label>
+														</div>
+													</div>
+													<div style="margin-top: 10px; margin-bottom: 10px;">
+														<div class="checkbox">
+															<label style="text-align: left;color:black;">
+															<input type="checkbox" value="Superior brain benefit - contains DHA & MFGM" class="kid-milkcriteria noUniform" name="kid_milkcriteria[]" {if $additionalInfo['prequalify_kidmilk_criteria']|strstr:"Superior brain benefit - contains DHA & MFGM"} checked {/if}>&nbsp;&nbsp;Superior brain benefit - contains DHA & MFGM</label>
+														</div>
+													</div>
+													<div style="margin-top: 10px; margin-bottom: 10px;">
+														<div class="checkbox">
+															<label style="text-align: left;color:black;">
+															<input type="checkbox" value="Organic/Natural milk - for stomach discomfort relief (less diarrhea, less gastrointestinal symptoms)" class="kid-milkcriteria noUniform" name="kid_milkcriteria[]"  
+																{if $additionalInfo['prequalify_kidmilk_criteria']|strstr:"Organic/Natural milk - for stomach discomfort relief (less diarrhea, less gastrointestinal symptoms)"} checked {/if}
+															> 
+																&nbsp;&nbsp;Organic/Natural milk - for stomach discomfort relief (less diarrhea, less gastrointestinal symptoms)
+															</label>
+														</div>
+													</div>
+													<div style="margin-top: 10px; margin-bottom: 10px;">
+														<div class="checkbox">
+															<label style="text-align: left;color:black;">
+															<input type="checkbox" value="contains prebiotics for good gut health" class="kid-milkcriteria noUniform" name="kid_milkcriteria[]"
+																{if $additionalInfo['prequalify_kidmilk_criteria']|strstr:"contains prebiotics for good gut health"} checked {/if}
+															>&nbsp;&nbsp;Contains prebiotics for good gut health</label>
+														</div>
+													</div>
+													<div style="margin-top: 10px; margin-bottom: 10px;">
+														<div class="checkbox">
+															<label style="text-align: left;color:black;">
+															<input type="checkbox" value="easy to digest" class="kid-milkcriteria noUniform" name="kid_milkcriteria[]"
+																{if $additionalInfo['prequalify_kidmilk_criteria']|strstr:"easy to digest"} checked {/if}
+															>&nbsp;&nbsp;Easy to digest </label>
+														</div>
+													</div>
+													<div style="margin-top: 10px; margin-bottom: 10px;">
+														<div class="checkbox">
+															<label style="text-align: left;line-height: 16px;color:black;">
+															<input type="checkbox" value="no added sugar" class="kid-milkcriteria noUniform" name="kid-milkcriteria[]"
+																{if $additionalInfo['prequalify_kidmilk_criteria']|strstr:"no added sugar"} checked {/if}
+															>&nbsp;&nbsp;No added sugar </label>
+														</div>
+													</div>
+													<div style="margin-top: 10px; margin-bottom: 10px;">
+														<div class="checkbox">
+															<label style="text-align: left;color:black;">
+															<input type="checkbox" value="none of above" class="kid-milkcriteria noUniform none-above" name="kid_milkcriteria[]"
+																{if $additionalInfo['prequalify_kidmilk_criteria']|strstr:"none of above"} checked {/if}
+															>&nbsp;&nbsp;None of above</label>
+														</div>
+													</div>
+												</div>
+											</div>
+										{/if}
+									</div>
+								</div>
+							</div>
+						</form>
 					</section>
 				{/if}
-				
-				
-				
-				<!-- SECTION 3 -->
+ 				<!-- SECTION 3 -->
 				<h4></h4>
 				<section style="display:none;padding-right: 15px;padding-left: 15px;">
 					<div class="row">
@@ -1218,6 +1285,7 @@
 									<div class="form-group">
 										<label for="cust-name">Address 1</label>
 										<input type="text" class="form-control input-sm cust-name-input input-info addr-line1" name="addr_line1" value="">
+										<small>Only use letters, numbers, full stops (‘.’) and dash (‘-’) or stroke ('/')</small>
 										<small class="error-msg"></small>
 									</div>
 								</div>
@@ -1915,7 +1983,96 @@
 			}
 		}
 		
+		var validatePrecondition = function(){
+			/**
+			* 4 -- ms santan milk tester campaign
+			**/
+			var testerid 	 = $('body').find('.tester-id').val();
+			
+			console.log("campaign id = " + testerid);
+			var prequalifyid = ["4"]
+			var checkid = prequalifyid.includes(testerid);
+			var checkflagqualify = $('body').find('.class-hasprequalify').val();
+			
+			console.log(checkflagqualify + "=====" + checkid);
+			if(checkflagqualify == 'hasprequalify' && checkid == true)
+			{
+				var prequalify_kid_milkbrand 		= $('body').find('.prequalify-kid-milkbrand').val();
+				var prequalify_other_kid_milkbrand 	= $('body').find('#prequalify-other-kid-milkbrand').val();
+				var prequalify_kid_drinkformulamilk = $('body').find('.prequalify-kid-drinkformulamilk').val();
+				var criteriamilkchecked 			= $('body').find('.kid-milkcriteria:checked').length;
+				
+				
+				if(prequalify_kid_milkbrand == "")
+				{
+					Swal.fire({
+						icon: 'error',
+						title: 'Error',
+						text: 'Please select kid milk brand',
+					});
+					
+					return false;
+				}
+				else if(prequalify_kid_milkbrand.toLowerCase() == "other" && prequalify_other_kid_milkbrand == ''){
+					Swal.fire({
+						icon: 'error',
+						title: 'Error',
+						text: 'If your answer is "other" brands, please state what brand',
+					});
+					
+					return false;
+				}
+				
+				if(prequalify_kid_drinkformulamilk == "")
+				{
+					Swal.fire({
+						icon: 'error',
+						title: 'Error',
+						text: 'Is your child currently consuming any formula milk?',
+					});
+					
+					return false;
+				}
+				
+				if(criteriamilkchecked <= 0)
+				{
+					Swal.fire({
+						icon: 'error',
+						title: 'Error',
+						text: 'Please check at least 1 criteria of milk',
+					});
+					
+					return false;
+				}
+			
+				var dataform = $('body').find('#prequalify_form').serialize();
+				$.ajax({
+					url		 : '../modules/enlineamixmod/enlineamixmod-tester-campaign-ajaxpost.php', 
+					data	 : dataform,
+					dataType :'json',
+					method 	 : 'post',
+					success	 : function(result){
+						console.log(result);
+					},
+					error: function () {
+						
+						Swal.fire({
+							icon: 'error',
+							title: 'Unexpected server response',
+							text: "Contact admin",
+						});
+					}
+				});
+				
+				return true;
+			}
+		}
+		
 		$(document).ready(function() {
+			$(window).load(function() {
+      			$.uniform.restore(".noUniform");
+      		});
+			
 			validateUserAccess();
 			$('body').on('click', '.btn-edit' ,function(){
 				var formtype 	= $(this).closest('form').find('.form-type').val();
@@ -2366,6 +2523,14 @@
 					{
 						if(currentIndex == 2)
 						{
+							console.log("currentIndex = " + currentIndex);
+							res_precond = validatePrecondition();
+							
+							return res_precond;
+						}
+						
+						if(currentIndex == 3)
+						{
 							console.log("address check has qualify = " + currentIndex);
 							var deliveryAddr = $('body').find('input[name="delivery_address"]:checked').val();
 							var sameDelivery = $('body').find('input[name="same_address_delivery"]:checked').val();
@@ -2408,6 +2573,8 @@
 							
 							$('body').find('.input-flag-checking-step').val(true);
 						}
+						
+						
 						
 					}
 					else
@@ -2471,28 +2638,24 @@
 					if(checkflagqualify == 'hasprequalify')
 					{
 						if ( newIndex === 2 ) {
-							console.log(3_1)
 							$('.steps ul').addClass('step-3_1');
 						} else {
 							$('.steps ul').removeClass('step-3_1');
 						} 
 						
 						if ( newIndex === 3 ) {
-							console.log(3)
 							$('.steps ul').addClass('step-3');
 						} else {
 							$('.steps ul').removeClass('step-3');
 						}
 
 						if ( newIndex === 4 ) {
-							console.log(4)
 							$('.steps ul').addClass('step-4');
 						} else {
 							$('.steps ul').removeClass('step-4');
 						}
 						
 						if ( newIndex === 5 ) {
-							console.log(5)
 							$('.steps ul').addClass('step-5');
 							//$('.actions ul').addClass('step-last');
 						} else {
@@ -2756,6 +2919,35 @@
 				$(this).closest('.div-delivery-addr span').addClass('checked');
 				
 				bgColorAddr();
+			});
+			
+			$('body').on('change', '.kid-milkcriteria', function(){
+				var kidmilikcriteria = $(this).val();
+				console.log(kidmilikcriteria);
+				
+				if(kidmilikcriteria == 'none of above')
+				{
+					console.log("masuk");
+					$(".kid-milkcriteria").attr("checked", false); //uncheck all checkboxes
+					$(this).attr("checked", true);  //check the clicked one
+				}
+				else
+				{
+					$('.none-above').attr("checked", false);
+				}
+				
+			});
+			
+			$('body').on('change', '.prequalify-kid-milkbrand', function(){
+				var prequalify_kidmilkbrand = $(this).val();
+				if(prequalify_kidmilkbrand == 'Other')
+				{
+					$('body').find('.row-other-milkbrand').show('fast');
+				}
+				else
+				{
+					$('body').find('.row-other-milkbrand').hide('fast');
+				}
 			});
 		});
 	</script>

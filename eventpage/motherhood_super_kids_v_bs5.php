@@ -28,7 +28,7 @@
       	.title-webinar{
       		font-weight: 700; 
       		font-size:17px;
-      		min-height:34px;
+      		min-height:74px;
 			line-height: 18px;
       	}
       		
@@ -332,54 +332,98 @@
 <div class="clearfix"></div>
 <div class="row mmy-webinar-date my-3">
 	<div class="multiple-webinardate-slider" style="display:none;">
-		 <!--=========webinar 1=========-->
+		<!--=========webinar 1=========-->
 		<div class="product-box item">
 			<div class="reviewBox-calendar">
 				<div class="speakerBox-calendar">
 					<div class="row div-item-calendar">
 						<div class="col-md-5 col-6 py-3 py-md-0">
-							<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/May/Superkids/may22-.png" class="img-calendar" width="100%" alt="22May2021" />
+							<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/May/Superkids/june-12.png" class="img-calendar" width="100%" alt="12jun2021" />
 						</div>
 						<div class="col-md-7 col-6 div-web-desc text-left">
-							<p class="title-webinar">Draw and Color</p>
-							<p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m</p>
-							<p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; GogoKids</p>
-							<p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 5 years old</p>
+							<p class="title-webinar">Brawl Fairies - Build A 2D Game Chaves Yong</p>
+							<p class="desc-time"><i class="fas fa-clock"></i> &nbsp;4:30 p.m.</p>
+							<p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; iTrain</p>
+							<p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 6 years old </p>
 						</div>
 					</div>
 					<div class="row mx-0">
 						<div class="col-md-12">
-							<a class="btn btn-default btn-view-event" href="https://docs.google.com/forms/d/e/1FAIpQLSfMlLnjOlI_FT_F_A_hHiMvWXzPB5_7M8VFtxnZXf4dac0Tpg/viewform" style="width: 100%; background-color: #69bd45; color: white;" target="_blank"> VIEW EVENT </a>
+							<a class="btn btn-default btn-view-event" href="https://forms.gle/MawmNZhKSKJkjFD98" style="width: 100%; background-color: #69bd45; color: white;" target="_blank"> VIEW EVENT </a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div> 
-		 <!--=========webinar 2=========-->
+		<!--=========webinar 2=========-->
 		<div class="product-box item">
 			<div class="reviewBox-calendar">
-				<div class="div-overlay box-overlay-display" style="display: block;">
-				  <div class="text-overlay" style="display: block;line-height:30px;text-align: center;font-weight: 700;">Postponed until further notice</div>
-			   </div>
-			   <div class="speakerBox-calendar">
-				  <div class="row div-item-calendar">
-					 <div class="col-md-5 col-6 py-3 py-md-0">
-						<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/superkids/24apr.png" class="img-calendar" width="100%" alt="24april2021" />
+				<div class="speakerBox-calendar">
+					<div class="row div-item-calendar">
+						<div class="col-md-5 col-6 py-3 py-md-0">
+							<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/May/Superkids/june-26.png" class="img-calendar" width="100%" alt="26jun2021" />
+						</div>
+						<div class="col-md-7 col-6 div-web-desc text-left">
+							<p class="title-webinar">Straw Rockets Crafting</p>
+							<p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m.</p>
+							<p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Gogokids</p>
+							<p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 4 years old </p>
+						</div>
 					</div>
-					 <div class="col-md-7 col-6 div-web-desc text-left" >
-						<p class="title-webinar">Rainbow Paper Spinner Toy</p>
-						<p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m</p>
-						<p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Teacher Bobo</p>
-						<p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 4 years old</p>
-					 </div>
-				  </div>
-				  <div class="row mx-0">
-					 <div class="col-md-12"><a class="btn btn-default btn-view-event" href="https://docs.google.com/forms/d/e/1FAIpQLSetgKFKE_qdOVqWDsJkOjYcHtplTOKzR2Z7AxF-qTZJn9XH9g/viewform" style="width: 100%; background-color: #69bd45; color: white;"> VIEW EVENT </a></div>
-				  </div>
-			   </div>
+					<div class="row mx-0">
+						<div class="col-md-12">
+							<a class="btn btn-default btn-view-event" href="https://forms.gle/gyyLacvZsV6HoRFy7" style="width: 100%; background-color: #69bd45; color: white;" target="_blank"> VIEW EVENT </a>
+						</div>
+					</div>
+				</div>
 			</div>
-		</div>
-		<!-- ======= end webinar 2 ====-->
+		</div> 
+		<!--=========webinar 3=========-->
+		<div class="product-box item">
+			<div class="reviewBox-calendar">
+				<div class="speakerBox-calendar">
+					<div class="row div-item-calendar">
+						<div class="col-md-5 col-6 py-3 py-md-0">
+							<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/May/Superkids/JULY-24.png" class="img-calendar" width="100%" alt="24july2021" />
+						</div>
+						<div class="col-md-7 col-6 div-web-desc text-left">
+							<p class="title-webinar">Astronaut Mask Crafting</p>
+							<p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m.</p>
+							<p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Gogokids</p>
+							<p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 4 years old </p>
+						</div>
+					</div>
+					<div class="row mx-0">
+						<div class="col-md-12">
+							<a class="btn btn-default btn-view-event" href="https://forms.gle/ExGpzukjCjc133Qw7" style="width: 100%; background-color: #69bd45; color: white;" target="_blank"> VIEW EVENT </a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> 
+		<!--=========webinar 4=========-->
+		<div class="product-box item">
+			<div class="reviewBox-calendar">
+				<div class="speakerBox-calendar">
+					<div class="row div-item-calendar">
+						<div class="col-md-5 col-6 py-3 py-md-0">
+							<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/May/Superkids/aug-28.png" class="img-calendar" width="100%" alt="24Aug2021" />
+						</div>
+						<div class="col-md-7 col-6 div-web-desc text-left">
+							<p class="title-webinar">Making the best of outdoors indoors - by OUTSIDE Learning</p>
+							<p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m.</p>
+							<p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Gogokids</p>
+							<p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 4 years old </p>
+						</div>
+					</div>
+					<div class="row mx-0">
+						<div class="col-md-12">
+							<a class="btn btn-default btn-view-event" href="https://forms.gle/Md1vuqAaVuJKHgBA9" style="width: 100%; background-color: #69bd45; color: white;" target="_blank"> VIEW EVENT </a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> 
 	</div>
 </div>
 <div class="clearfix"></div>
@@ -1694,7 +1738,7 @@
 		<div class="col-md-6 text-left">
 			<p class="text-left" style="font-size: 1em; color: #97999b; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How much is the shipping fee?<br /> A: RM15. Kindly note that shipping fee may vary from time to time. In conjunction with the launching of Super Kids Club, first 300 members will be entitled to RM8 shipping fee!</p>
 			  <p class="text-left" style="font-size: 1em; color: #97999b; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How long does it take to deliver my gift(s)?<br /> A: About 7&ndash;14 working days upon verification. Kindly expect shipping delays due to a high volume of orders at the moment.</p>
-			  <p class="text-left" style="font-size: 1em; color: #97999b; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: Why are some of the products I received look different from the image on the website?<br /> A: Pictures shown on our website are for illustration purposes only. Gifts may vary depending on the availability. In the case of insufficient stocks, the organiser has the right to use other products for replacement at any time without prior notice.</p>
+			  <p class="text-left" style="font-size: 1em; color: #97999b; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: Why are some of the products I received look different from the image on the website?<br /> A: Pictures shown on our website are for illustration purposes only. Gifts may vary depending on the availability and age group. E.g. Scott's DHA Gummies will only be distributed to kids aged 5 and above. In the case of insufficient stocks, the organiser has the right to use other products for replacement at any time without prior notice.</p>
 		</div>
 	</div>
 </div>
@@ -1968,7 +2012,6 @@
 				emailSelector.closest('.div-email').find(errorSelector).html(msg);
 			}
 		}
-		
 	}
  
       $(function(){
@@ -2103,17 +2146,6 @@
       				}
       			}
       		});
-      					
-      		$('body').find('.section_slidethekapitan').flexisel({
-      			visibleItems: 5,
-      			flipPage: true,
-      			animationSpeed: 500,
-      			animationLoop: true,
-      			clone: false,
-      			autoPlay: false
-      		});
-			
-			
       		
       		$('body').on('submit', '#eventform', function(){
       			$('body').find('.btn-submit-superkid').html('<i class="fas fa-spinner fa-pulse"></i> Processing...')

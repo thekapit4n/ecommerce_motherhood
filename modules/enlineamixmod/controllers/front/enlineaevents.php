@@ -724,17 +724,32 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 				}
 				else
 				{
-					$productListStr.='
-					<div class="col-lg-4 col-xs-6 dealsBox freeitem dealsBoxCat668" '.$clickStr.'>
-						<div class="col-md-12 dealsImageBox">
-						<a><img style="img-responsive dealsImage" src="'.$getImageLink.'" alt="" width="100%" /></a>
-						</div>
-						<div class="col-md-12 dealsBoxContent" style="text-align:center">
-							<h4 class="dealsName" style="margin-bottom:0px">'.$oneResult['name'].'</h4>
-							<button type="button" class="btn btn-default button button-medium pull-center" style="padding:8px;width:90%;font-size:smaller">'.$redeemStr.'</button>
-						</div>
+					#old design
+					// $productListStr.='
+					// <div class="col-lg-4 col-xs-6 dealsBox freeitem dealsBoxCat668" '.$clickStr.'>
+						// <div class="col-md-12 dealsImageBox">
+						// <a><img style="img-responsive dealsImage" src="'.$getImageLink.'" alt="" width="100%" /></a>
+						// </div>
+						// <div class="col-md-12 dealsBoxContent" style="text-align:center">
+							// <h4 class="dealsName" style="margin-bottom:0px">'.$oneResult['name'].'</h4>
+							// <button type="button" class="btn btn-default button button-medium pull-center" style="padding:8px;width:90%;font-size:smaller">'.$redeemStr.'</button>
+						// </div>
 						
-					</div>
+					// </div>
+					// ';
+					
+					$productListStr.='
+						<div class="col-md-4">
+							<div class="card dealsBox freeitem dealsBoxCat668" '. $clickStr .'>
+								<img src="' . $getImageLink . '" class="card-img-top" alt="superkid-box-item">
+								<div class="card-body" style="padding-bottom:5px;">
+									<h5 class="card-title" style="color:black">' . $oneResult['name'] . '</h5>
+									<div class="text-center">
+										<button type="button" class="btn btn-primary btn-signup-box button-medium">' . $redeemStr . '</button>
+									</div>
+								</div>
+							</div>
+						</div>
 					';
 				}
 			}
@@ -1533,7 +1548,13 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					$subscriber_question14 = implode(",", $subscriber_question14);
 				}
 				
-				if($event_id == 102 || $event_id == 106){
+				/** 
+				* 97- #apta moms with kids
+				* 102, 106- ##newmom-essential-nestle
+				* 104- #mamypoko
+				**/
+				
+				if(in_array($event_id, array(97, 102,104,106,))){
 					if($subscriber_question1 != '')
 					{
 						$firstDigit = (int)$subscriber_question1[0];
@@ -1563,20 +1584,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					}
 				}
 				
-				if($event_id == 97){
-					if($subscriber_question1 != '')
-					{
-						$firstDigit = (int)$subscriber_question1[0];
-						if($firstDigit !== 0)
-						{
-							$subscriber_question1 = "60" . $subscriber_question1;
-						}
-						elseif($firstDigit === 0)
-						{
-							$subscriber_question1 = "6" . $subscriber_question1;
-						}
-					}
-				}
+				
 				
 				$sql = '
 					INSERT INTO
@@ -1783,7 +1791,21 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 			}
 
 			if($event_id == 134){
-				echo "<script type='text/javascript'>alert('".$event_submit_msg."');</script>";
+				// <option value="24apr2021"></option>
+				// <option value="24july2021">(Free) July 24, 2021- Myths and Facts On Delivery And What To Expect in 2021</option>
+				// <option value="23oct2021"></option>
+				if($subscriber_question7 == '24apr2021'){
+					$topic = '(Free) June 05, 2021 - Vaccination for Pregnant Women';
+				}else if($subscriber_question7 == '24july2021'){
+					$topic = '(Free) July 24, 2021- Myths and Facts On Delivery And What To Expect in 2021';
+				}else if($subscriber_question7 == '23oct2021'){
+					$topic = '(Free) October 23, 2021- Important Tips To Know When Going Through Delivery';
+				}
+				$firstname = $subscriber_question2;
+				// $topic = $subscriber_question7;
+				$email = $subscriber_question4;
+			 	echo "<script type='text/javascript'>alert('".$event_submit_msg."');</script>";
+				$this->sendZoomLiveClassDate($firstname,$email, $topic);
 				echo "<script type='text/javascript'>window.location.href='https://www.motherhood.com.my/campaign-nurengroup/education/baby-learning/baby-enrichment-classes/parentcraft-class-online.html'</script>";
 			}
 
@@ -3030,7 +3052,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 				if (!$errors){
 					if (!$post_result['succeeded']){
 						
-						if($event_id != 93 && $event_id != 99999)
+						if(!in_array($event_id, array(93, 104, 99999)))
 						{
 							$this->context->smarty->assign("check","0");
 							$this->context->smarty->assign("showErrors",'Welcome back Wedding.com.my user! You have now been registered to Motherhood.com.my. Please use your previous password to login.');
@@ -3079,15 +3101,14 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 						$this->context->smarty->assign("check","0");
 						$this->context->smarty->assign("showErrors",'Thank You for registering to Motherhood.com.my. Please visit Motherhood.com.my for the latest promotions for your kids!');
 						
-					}else if($event_id==93 ){
+					}else if($event_id==93){
 						echo"
 						  <script type='text/javascript'>
-						  alert('Thank you for registering!  You may now redeem your Superkids Box.');
+							alert('Thank you for registering! Due to FMCO, we will temporarily stop delivering our SuperKid box. We will inform you by email once our product is available again. Stay tuned!');
 						  </script>
 						";
 						
 						$this->sendSuperkidEmail($last_name,$firstname,$email);
-						
 					}
 					else if($event_id==99999 ){ #superkid UAT
 						
@@ -3172,6 +3193,10 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 							echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
 						}
 						// $this->sendSuperkidEmail($last_name,$firstname,$email);
+					}
+					elseif($event_id == 104){
+						echo "<script type='text/javascript'>alert('Thank You for your participation. You will receive selected redeem voucher via mail 3 to 7 days!');</script>";
+						$this->email_external_vouchercode($lastInsertid, $event_id);
 					}
 					else{ 
 						echo"
@@ -4012,6 +4037,10 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					echo "<script type='text/javascript'>window.location='';</script>";
 					exit;
 				}
+				elseif($event_id == 104){
+					echo "<script type='text/javascript'>alert('Thank You for your participation. You will receive selected redeem voucher via mail 3 to 7 days!');</script>";
+					$this->email_external_vouchercode($lastInsertid, $event_id);
+				}
 				else{
 
 					if($event_submit_msg){
@@ -4118,5 +4147,124 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 			$id_lang = Language::getIdByIso('en');
 			return Mail::Send(1, $template, $subject, $data, $mail, $name, Configuration::get('PS_SHOP_EMAIL'), Configuration::get('PS_SHOP_NAME'), NULL, NULL, dirname(__FILE__).'/mails/', NULL);
 		}	
+	}
+	
+	public function sendZoomLiveClassDate($name,$email,$topic)
+	{
+		// $customer = $lastname . " " . $firstname;
+		$id_lang = 1;
+		$data = array(
+			'{customer_name}' => $name,
+			'{topic}' => $topic,
+		);
+		$mail= $email;
+		$name = $name;
+		$template = "ZoomLiveClassConfirmation";
+		$iso = "en";
+		$shopemail = 'hi@motherhood.com.my';
+		$shopname = 'motherhood.com.my';
+		$subject = " Motherhood Parentcraft – ".$topic ;
+
+		if (file_exists(_PS_MODULE_DIR_.'/enlineamixmod/mails/'.$iso.'/'.$template.'.txt') && file_exists(_PS_MODULE_DIR_.'/enlineamixmod/mails/'.$iso.'/'.$template.'.html')) {
+			$this->context->smarty->assign("check","0");
+			return Mail::Send(1, $template, $subject, $data, $mail, $name, Configuration::get('PS_SHOP_EMAIL'), Configuration::get('PS_SHOP_NAME'), NULL, NULL, dirname(__FILE__).'/mails/', NULL);
+			
+		}
+		else if (file_exists(_PS_MODULE_DIR_.'/enlineamixmod/mails/en/'.$template.'.txt') && file_exists(_PS_MODULE_DIR_.'/enlineamixmod/mails/en/'.$template.'html')) {
+			$id_lang = Language::getIdByIso('en');
+			return Mail::Send(1, $template, $subject, $data, $mail, $name, Configuration::get('PS_SHOP_EMAIL'), Configuration::get('PS_SHOP_NAME'), NULL, NULL, dirname(__FILE__).'/mails/', NULL);
+		}	
+	}
+	
+	
+	public function email_external_vouchercode($subscriber_id = 0, $event_id = 0)
+	{
+		$cust_email = '';
+		$platform   =  '';
+		$voucherid  = 0;
+		if($subscriber_id > 0 && $event_id > 0)
+		{
+			$whereSql = "";
+			$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `subscriber_id` = '" . pSQL(trim($subscriber_id)) . "'";
+			$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `subscriber_event_id` = '" . pSQL(trim($event_id)) . "'";
+			
+			$sql = "SELECT * FROM `ps_events_subscriber`" . $whereSql . " LIMIT 1";
+			$queryResult = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+				
+			#get_details_register
+			if(is_array($queryResult) && isset($queryResult[0]) && sizeof($queryResult[0]) > 0)
+			{
+				
+				$cust_email = $queryResult[0]['newEmail'];
+				
+				if($event_id == 104)
+				{
+					$platform 	= $queryResult[0]['subscriber_question7']; #lazada , shopee
+					
+					if(strtolower($platform) == 'shopee')
+					{
+						$vouchercode = "generalshopeemamypoko";
+						$typevoucher = 'general_code';
+					}
+					elseif(strtolower($platform) == 'lazada')
+					{
+						$sqlvoucer 			= "SELECT * FROM `tbl_external_voucher_code` WHERE event_id = '" . pSQL(trim($event_id)) . "' AND platform = '" . pSQL(trim($platform)) . "' AND is_assigned = 0 ORDER BY `id` ASC LIMIT 1";
+						$queryResultvoucher = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlvoucer);
+						
+						if(is_array($queryResultvoucher) && isset($queryResultvoucher[0]) && sizeof($queryResultvoucher[0]) > 0)
+						{
+							$voucherid 	= $queryResultvoucher[0]['id'];
+							$vouchercode 	= $queryResultvoucher[0]['voucher_code'];
+							$typevoucher = 'unique_code';
+						}
+					}
+				}
+				
+				$whereSql2 = "";
+				$whereSql2 .= ($whereSql2 == "" ? ' WHERE ' : ' AND ') . " `subscriber_id` = '" . pSQL(trim($subscriber_id)) . "'";
+				$whereSql2 .= ($whereSql2 == "" ? ' WHERE ' : ' AND ') . " `event_id` = '" . pSQL(trim($event_id)) . "'";
+				
+				$sqlCheckEmail 	  = "SELECT COUNT(id) as existUser FROM tbl_email_external_voucher_code " . $whereSql2 . " LIMIT 1";
+				$resultCheckEmail = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlCheckEmail);
+				$existEmail  	  =(int) $resultCheckEmail[0]['existUser'];
+				
+				
+				if($existEmail == 0)
+				{
+				
+					#voucherid -- optional--it just as refernce for external unique voucher code that usually been store in db table
+					$sql = '
+						INSERT INTO
+						`tbl_email_external_voucher_code` (subscriber_id, event_id, platform,voucher_id,
+						voucher_code,type_voucher_code,created_date
+						)  VALUES(
+						'.pSQL(trim($subscriber_id)).',
+						'.pSQL(trim($event_id)).',
+						"'.pSQL(trim($platform)).'",
+						"'.pSQL(trim($voucherid)).'",
+						"'.pSQL(trim($vouchercode)).'",
+						"'.pSQL(trim($typevoucher)).'",
+						current_timestamp
+						);';
+						
+					
+					Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+					$lastInsertidEmail = (int)Db::getInstance()->Insert_ID();
+				
+					if($lastInsertidEmail > 0) #success
+					{
+						if($event_id == 104 && strtolower($platform) == 'lazada' && $voucherid > 0) #mamypoko and lazada platform is unique code
+						{
+							$updateAdditionalInfo = "UPDATE tbl_external_voucher_code 
+									SET 
+									is_assigned = '1', 
+									updated_date = CURRENT_TIMESTAMP
+									WHERE id = " . $voucherid. " LIMIT 1";
+							$resultAdditional 	  = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($updateAdditionalInfo);
+						}
+					}
+				}
+			}
+		}
 	}
 }

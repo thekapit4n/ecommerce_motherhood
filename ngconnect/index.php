@@ -2,9 +2,10 @@
 <html lang="en">
 <?php
 session_start();
-
+$msg_error = '';
 if(isset($_GET['islogout']) && $_GET['islogout'] == true)
 {
+	
 	unset($_SESSION["ngconnectreport"]);
 	header('Location: http://visual.nuren.co/admin2635/ngconnect-report/index.php');
 }
@@ -13,9 +14,16 @@ $arr_allowUser = array(
 	'ngconnectuser',
 );
 
-if ((in_array($_POST['login'], $arr_allowUser)) && $_POST['password'] == 'ngc0nn3ct@123%'){
-	$_SESSION['ngconnectreport'] = true;
+if($_POST){
+	// if ((in_array($_POST['login'], $arr_allowUser)) && $_POST['password'] == 'ngc0nn3ct123!'){
+		$_SESSION['ngconnectreport'] = true;
+	// }
+	// else
+	// {
+		// $msg_error = "Username and password invalid";
+	// }
 }
+
 
 if ($_SESSION['ngconnectreport'] == true){
 	header('Location: http://visual.nuren.co/admin2635/ngconnect-report/report_list.php');
@@ -63,14 +71,20 @@ else
 							<!--<img src="https://s3-ap-southeast-1.amazonaws.com/nuren.co/login/assets/v2/images/M1.png" class="img-fluid" alt="Motherhood Logo" style="width:50%;">-->
 							<img src="assets/mmy-logo.svg" class="img-fluid" style="width:75%;" />
 						</div>
-						<!--
-						<div class="alert alert-warning alert-dismissible fade show" role="alert">
-							You successfully logout. Have a nice day!
-							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						-->
+						<?php 
+						if(isset($msg_error) && $msg_error != '')
+						{
+						?>
+							<div class="alert alert-info alert-dismissible fade show" role="alert" style="width: 100%; font-size: 14px;">
+								<?php echo $msg_error ?>
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+						<?php
+						}
+						?>
+						
 						<div class="col-md-12">
 							<div class="form-block" style="padding-top:20px;padding-bottom:20px;">
 								<div class="mb-12">

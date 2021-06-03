@@ -30,7 +30,7 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 		$searchStart ="";
 		$searchEnd 	 ="";
 		$wheresql  	 = "";
-		$limitsql    = " LIMIT 6000";
+		$limitsql    = " LIMIT 1500";
 		$strDateMsg  = "";
 		
 		if(isset($_POST['searchDateStart']) && $_POST['searchDateStart'] != '')
@@ -60,140 +60,7 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 		}
 		
 	$arr_skip_email = array(
-		"zhafiraana@gmail.com",
-		"khairulazharkhairulazhar33@gmail.com",
-		"tresnawatye@yahoo.com",
-		"hanifchemohd@gmail.com",
-		"elykanor35@gmail.com",
-		"bobfmlynorhayatibtahmadjamal",
-		"safikah8889@gmail.com",
-		"bibiananur70@gmail.com",
-		"sxdsa6@gmail.com.my",
-		"kogorogawa@gmail.com",
-		"anazhafia@gmail.com",
-		"kwangjunwei@gmail.com",
-		"nur.hana84@yahoo.com",
-		"zaiemanarain@gmail.com",
-		"rosma19wati88@gmail.com",
-		"ashraffangah614@gmail.com",
-		"ulfi rr97@gmail.com",
-		"evitaliastri84@gmail.com",
-		"shazrilamiza@ymial",
-		"jeerdanyismail@gmail.com",
-		"nrashikin6@gmail.com",
-		"zaiema93@icloud.com",
-		"zaiema98@gmail.com",
-		"nizamretnoretno@gmail.com",
-		"nizamfamilyradzali@gmail.com",
-		"@xiaoqing4876@gamail.com",
-		"fatinnadiela95@gmail.com",
-		"izzatirashid709@gmail.com",
-		"safarizakhmat@gmail.com",
-		"kumayang14@gmail.com",
-		"jairadam859112 @gmaila.com",
-		"samsulkumaryusof.gmail.com",
-		"861103526254",
-		"haritsshakhmir9590@gmail.com",
-		"norshamshena84@gmail.com.my",
-		"ctfarisha_ieka@yahoo.com",
-		"www.faizalsfoundationsdnbhd@gmail.com",
-		"nur_ainnajwa81@yahoo.com",
-		"iema.naim.90@gmail.com",
-		"katrina.shandhini @gmail.com",
-		"nuraidaamira@gmail.com",
-		"zaiumi1985@gmail.com",
-		"amiera_mierashi1010@yahooo.com",
-		"john_choongming0511@hotmail.com",
-		"konny_828@hotmail.com",
-		"ameeranusaybah@yahoo.com",
-		"aidilkerry2526@gmail.com",
-		"jimalsama133@gmail.com",
-		"fazlinayusof482@gmail.com",
-		"nirimaima581@gmail.com",
-		"ariniezakaria@gmail.com",
-		"suzilawatyeffanici@gmail.com",
-		"tankaixin1341@gmail.com",
-		"sitihamidah040188@gmail.com",
-		"norsyakirinmohammadzais@gmail.com",
-		"nurhafizan3@gmail.com ",
-		"giffsondeff@gmail.com",
-		"nanizahari@gmail.com",
-		"normiazrina#yahoo.com",
-		"sitinurhuda945@gmail.com",
-		"shahnizamsanudin90@gmail.com",
-		"ifahju73@gmail.com",
-		"sayang0711@gmail.com",
-		"nurizatyashikin945@gmail.com",
-		"aidilkerry2526",
-		"pei840927@gmail.com",
-		"mzniepal@yahoo.com",
-		"nirulhafizah925@gmail com ",
-		"babyrose9@gmail.com",
-		"riezadewi04@gmail.com",
-		"jesyarcs09@gmail.com ",
-		"jurlyndamiroh@gmail.com",
-		"skyline_ray26@hotmail.com",
-		"pennysasius89@gmail.com.my",
-		"ctmadina89@yahoo.com",
-		"ssitinursallizah@gmail.com",
-		"ss_fatimah@yahoo.com",
-		"hasmah50@gmail.com",
-		"christinaba@hotmail.com",
-		"uttiesuzie@gmail. com",
-		"maa441@gmail.com",
-		"putrihalmiah@gmail.com",
-		"ilamakyo@gmail.com",
-		"arilwakiman@gmail.com",
-		"noorummu@yahoo.com",
-		"mummyurban@gmail.com",
-		"farhanaridzuan5536@gmail.con",
-		"kkhathyaishah227@ gmail.com.my",
-		"shahdatulakmah@gmail.com",
-		"shazwanizandarvian@gmail.com",
-		"norazmizah1502@gmail.com",
-		"h_odette@yahoo.com",
-		"rafiqwira1995@gmail.com",
-		"dianacozt9@gmail.com",
-		"samrinbnasir581@gmail.com",
-		"soonyee4586@gmail.com",
-		"alif90@gmail.com",
-		"tengkuafikah617@gmail.cok",
-		"mohdfazali403@gmail.com",
-		"noorlizaramli520@gmail.com",
-		"mnoorsyawatee@yahoo.com",
-		"babyboy030920@gmail.com",
-		"norasyikenrofei@gmail.com.my",
-		"sitifatmah151201@gmail.com",
-		"reza_amiraridzuan@gmail.com",
-		"hasmaliza8108@gmail.com",
-		"iyrinshafyra826@gmail.com",
-		"thanaela1320@gmail.com",
-		"amychubbyy82@gamil.com",
-		"qaisarahnizamfelizia@gmail.com",
-		"siti.khadijah@icloud.com",
-		"normaliabintiomar@yahoo.com.my",
-		"miraedorashaari91@gmail.com",
-		"raisridwan0611@gmail.com",
-		"www.@srinirosshalucky.com",
-		"christinababy91@hotmail.com",
-		"tankaixin1314@gmail. com",
-		"nsrwanaa@gmail.com",
-		"tanps0831@gmail.com",
-		"norfazlina999@gmail.com",
-		"nurain1520@gmail.com",
-		"baby.jie.er@163.com",
-		"lopik1995@yahoo.com",
-		"missmontel49@gmail.com",
-		"emah@gmail.com",
-		"myheaven82@gmail.com",
-		"rohaidaaizam.98ra@gmial.co",
-		"suhadahisham84@gmail.com",
-		"no 252 felda chiku o3",
-		"echalim2014@gmail.com",
-		"nurfatinaiffa93@gmail.com",
-		"atikah7210@icloud.com",
-		"naemah5848@gmail.com",
-		"0626shijie@gmail.com",
+		
 	);
 	
 	if(isset($arr_skip_email) && is_array($arr_skip_email) && sizeof($arr_skip_email) > 0)
@@ -204,33 +71,35 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 		}
 		
 		$string_email = implode(",", $skipemail2);
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " a.newEmail NOT IN (" . $string_email . ")";
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.newEmail NOT IN (" . $string_email . ")";
 	}
-		
-		
-	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "a.subscriber_event_id=89";
+
+	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "evnt.subscriber_event_id = 90";
+
+	
+	$groupBy = " GROUP BY evnt.newEmail ";
 					
 	if($searchStart != '')
 	{
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " subscriber_created_at >= '" . trim($searchStart . " 00:00:00") . "'";
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at >= '" . trim($searchStart . " 00:00:00") . "'";
 	}
 	
 	if($searchEnd != '')
 	{
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " subscriber_created_at <= '" . trim($searchEnd . " 23:59:59") . "'";
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at <= '" . trim($searchEnd . " 23:59:59") . "'";
 	}
 	
 	if($searchStart == '' && $searchEnd == '')
 	{
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "a.subscriber_created_at >= '2021-01-01 00:00:00'";
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at >= '2021-05-12 00:00:00'";
 	}
 	
-    $sql = "SELECT
-			a.newEmail as Email, a.newFirstName as FirstName, a.newLastName as LastName, a.subscriber_question1 as Mobile, 
-			a.subscriber_question12 as PregnancyStatus, a.subscriber_question11 as Flavour, a.subscriber_question2 as Address, a.subscriber_question3 as Postcode, 
-			a.subscriber_question5 as City, a.subscriber_question7 as State, a.subscriber_question8 as Brand, a.subscriber_question9 as Language, 
-			a.subscriber_question10 as TnC, a.subscriber_created_at as DateSubmit
-			FROM ps_events_subscriber a" . $wheresql . " GROUP BY newEmail	ORDER BY subscriber_created_at ASC " . $limitsql;  
+	$sql = "SELECT
+		evnt.newEmail as Email, evnt.newFirstName as FullName,  evnt.subscriber_question1 as Mobile, 
+		evnt.subscriber_question4 as childDOB, evnt.subscriber_question3 as ProductName, evnt.subscriber_question13 as TasteofMilk,  evnt.subscriber_question5 as AddressLine1, 
+		evnt.subscriber_question7 as AddressLine2, evnt.subscriber_question8 as Postcode, evnt.subscriber_question9 as City, evnt.subscriber_question10 as State, 
+		evnt.subscriber_question12 as TnC, evnt.subscriber_created_at as DateSubmit
+		FROM ps_events_subscriber evnt " . $wheresql . $groupBy . " ORDER BY evnt.subscriber_created_at ASC " . $limitsql;
 		$result = $conn->query($sql);
 		
 		if(is_object($result)){
@@ -239,7 +108,7 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 			$objPHPExcel = new PHPExcel();
 
 			// Add some data
-			$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A2', 'Anmum Materna Report 2021| Motherhood.com.my Malaysia');
+			$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A2', 'Dutch Lady Report 2021| Motherhood.com.my Malaysia');
 			$objPHPExcel->getActiveSheet()->getStyle("A2:C2")->getFont()->setSize(18);
 			$objPHPExcel->getActiveSheet()->getRowDimension("2")->setRowHeight(20);
 			$objPHPExcel->getActiveSheet()->mergeCells('A2:C2');
@@ -264,11 +133,11 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 				$objPHPExcel->getActiveSheet()->getStyle($headerColumn. '5')->getFont()->setBold( true );
 				// $objPHPExcel->getActiveSheet()->getColumnDimensionByColumn($headerColumn)->setAutoSize(false);
 				
-				if(in_array($headerColumn, array("A", "E", "M", "J", "G")))
+				if(in_array($headerColumn, array("A", "E", "M", "J", "G", "N")))
 				{
 					$objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(20);
 				}
-				elseif(in_array($headerColumn, array("I", "L")))
+				elseif(in_array($headerColumn, array("K")))
 				{
 					$objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(15);
 				}
@@ -276,7 +145,7 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 				{
 					$objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(30);
 				}
-				elseif(in_array($headerColumn, array("H")))
+				elseif(in_array($headerColumn, array("H", "I")))
 				{
 					$objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(100);
 				}
@@ -330,7 +199,7 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 
 			// Redirect output to a client’s web browser (Excel2007)
 			header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-			header('Content-Disposition: attachment;filename="anmum-materna-report2021.xlsx"');
+			header('Content-Disposition: attachment;filename="dutch-lady-report2021.xlsx"');
 			header('Cache-Control: max-age=0');
 			header ('Cache-Control: cache, must-revalidate'); // HTTP/1.1
 			header ('Pragma: public'); // HTTP/1.0
