@@ -1473,6 +1473,29 @@ $kmmlist = array(
 	"triviashin@gmail.com",
 	"firraiemy2020@gmail.com",
 	"bengei.chauh@sanmina.com", # end duplicate phone, address ---> 03/05/2021
+	"nicolelee33377@gmail.com", # duplicate phone, address --> 03/06/2021
+	"gigalady86@gmail.com",
+	"jncjenny93@gmail.com",
+	"usha_sneha89@yahoo.com",
+	"mathildatantung85@gmail.com",
+	"aeelynn28@gmail.com",
+	"norr_hatifah@yahoo.com",
+	"claikheng81@gmail.com",
+	"qqjoycedarrenxx@gmail.com",
+	"chowsyeching12105566@gmail.com",
+	"joyceloojy@gmail.com",
+	"limyetten@gmail.com",
+	"ursulaandres78@yahoo.com",
+	"g-76910251@moe-dl.edu.my",
+	"tyka9190@gmail.com",
+	"gspeh88@gmail.com",
+	"estaliving@gmail.com",
+	"vivianwee.lv@gmail.com",
+	"joielim@gmail.com",
+	"hazami2030@gmail.com",
+	"josrynlim@outlook.com",
+	"purpureo.oct@gmail.com",
+	"nabihahiffah@gmail.com" # end duplicate phone, address --> 03/06/2021
 );
 
 $kmmlist2 = array();

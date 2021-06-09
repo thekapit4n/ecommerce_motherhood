@@ -269,7 +269,7 @@ $searchStart="";
 $searchEnd="";
 $limit = "";
 // $limit = " LIMIT 2730 ";
-$limit = " LIMIT 2730 ";
+$limit = " LIMIT 3930 ";
 	if ($_POST['searchDateStart'])
 		$searchStart=" AND Subscribed_Date >='".$_POST['searchDateStart']."' ";
 
@@ -304,6 +304,20 @@ $limit = " LIMIT 2730 ";
 		"nurulzulaikha597@gmail.com",
 		"norsyakirinmohammadzais301193@gmail.com",
 		"mnshahirah@gmail.com", # end of phone/address duplicate 3/5/2021
+		"nawunglilai@gmail.com",# phone/address duplicate ---> 3/6/2021
+		"haslina5132@gmail.com",
+		"nurulakalilijannah99@gmail.com",
+		"misszieyya_82@yahoo.com",
+		"aziliza81@gmail.com",
+		"nurdhiyadelisha128@gmail.com",
+		"azreika73@gmail.com",
+		"idacute_06@yahoo.com",
+		"dalia.nisa.mka@gmail.com",
+		"sitirozaininornabilah41197@gmail.com",
+		"miraedorashaari91@gmail.com",
+		"alnurqayyum21@gmail.com",
+		"norizaali26@gmail.com",
+		"akimatirah@gmail.com",# end of phone/address duplicate 3/6/2021
 	);
 	
 	$arrEmail2 = array();

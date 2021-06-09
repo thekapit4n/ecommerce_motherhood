@@ -2099,17 +2099,6 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					}
 			}
 			
-			if($event_id == 95)#clear blue survey page submit process
-			{
-				$sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = 96 LIMIT 1"; # page that handle result survey question
-				$querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
-				$event_slug  = $querySlug[0]['event_slug'];
-				$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug . "?id=" . $encryptedID;
-				echo "<script type='text/javascript'>alert('Thank You for your participation!');</script>";
-				echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
-				exit;
-			}
-			
 			$email = trim($newEmail);
 			$sqlC = '
 				SELECT COUNT(1) as ccount
@@ -2967,6 +2956,56 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 							
 							echo "<script type='text/javascript'>alert('Thank you for your submission, your NESTLÉ MOM® Sample Pack is now in the shopping cart.');</script>";
 							echo "<script type='text/javascript'>window.location='/quick-order';</script>";
+							exit;
+						}
+						elseif($event_id == 95)#clear blue survey page submit process
+						{
+							$code = NULL;
+							do $code = 'CBLUESV'.Tools::passwdGen(6);
+							while (CartRule::cartRuleExists($code));
+							/* Voucher creation and affectation to the customer */
+
+							$cartRule = new CartRule();
+							$cartRule->id_customer = $this->context->customer->id;
+							$cartRule->date_from = '2021-06-01 00:00:00';
+							$cartRule->date_to = '2021-08-31 23:59:59';
+							$cartRule->description = "Clearblue - Survey Reward Voucher (RM5 no min spend)";
+							$cartRule->quantity = 1;
+							$cartRule->quantity_per_user = 1;
+							$cartRule->priority = 1;
+							$cartRule->highlight = 0;
+							$cartRule->partial_use = 0;
+							$cartRule->code = $code;
+							$cartRule->active = 1;
+							$cartRule->reduction_amount = 5;
+							$cartRule->reduction_product = 0;
+							$cartRule->reduction_tax = 1;
+							$cartRule->reduction_currency = 1;
+							$cartRule->minimum_amount = 0;
+							$cartRule->minimum_amount_tax = 1;
+							$cartRule->minimum_amount_currency = 1;
+							$cartRule->minimum_amount_shipping = 0;
+							$cartRule->cart_rule_restriction = 0;
+							$cartRule->product_restriction = 0;
+							$cartRule->is_seller_create = 0;
+							$cartRule->is_seller_discount = 0;
+							$languages = Language::getLanguages(true);
+							foreach ($languages AS $language)
+							{
+								$cartRule->name[(int)($language['id_lang'])] = "Clearblue - Survey Reward Voucher (RM5 no min spend)";
+							}
+							$cartRule->add();	
+							
+							$sql = 'DELETE FROM ps_cart_rule_product_rule_group WHERE id_cart_rule = '.$cartRule->id;
+							Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+							
+							
+							$sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = 96 LIMIT 1"; # page that handle result survey question
+							$querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
+							$event_slug  = $querySlug[0]['event_slug'];
+							$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug . "?id=" . $encryptedID;
+							echo "<script type='text/javascript'>alert('Thank You for your participation!');</script>";
+							echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
 							exit;
 						}
 						elseif($event_id==97)#apta moms with kids --> if email not exist in motherhood database-->system create info on sso-->autologin
@@ -3967,6 +4006,60 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					
 					echo "<script type='text/javascript'>alert('Thank you for your submission, your NESTLÉ MOM® Sample Pack is now in the shopping cart.');</script>";
 					echo "<script type='text/javascript'>window.location='/quick-order';</script>";
+					exit;
+				}
+				elseif($event_id == 95)#clear blue survey page submit process
+				{
+					$sql			='SELECT id_customer FROM ps_customer WHERE email="'.$email.'" LIMIT 1';
+					$resultCustomer = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+					$customer = new Customer($resultCustomer[0]['id_customer']);
+					
+					$code = NULL;
+					do $code = 'CBLUESV'.Tools::passwdGen(6);
+					while (CartRule::cartRuleExists($code));
+					/* Voucher creation and affectation to the customer */
+
+					$cartRule = new CartRule();
+					$cartRule->id_customer = (int)($customer->id);
+					$cartRule->date_from = '2021-06-01 00:00:00';
+					$cartRule->date_to = '2021-08-31 23:59:59';
+					$cartRule->description = "Clearblue - Survey Reward Voucher (RM5 no min spend)";
+					$cartRule->quantity = 1;
+					$cartRule->quantity_per_user = 1;
+					$cartRule->priority = 1;
+					$cartRule->highlight = 0;
+					$cartRule->partial_use = 0;
+					$cartRule->code = $code;
+					$cartRule->active = 1;
+					$cartRule->reduction_amount = 5;
+					$cartRule->reduction_product = 0;
+					$cartRule->reduction_tax = 1;
+					$cartRule->reduction_currency = 1;
+					$cartRule->minimum_amount = 0;
+					$cartRule->minimum_amount_tax = 1;
+					$cartRule->minimum_amount_currency = 1;
+					$cartRule->minimum_amount_shipping = 0;
+					$cartRule->cart_rule_restriction = 0;
+					$cartRule->product_restriction = 0;
+					$cartRule->is_seller_create = 0;
+					$cartRule->is_seller_discount = 0;
+					$languages = Language::getLanguages(true);
+					foreach ($languages AS $language)
+					{
+						$cartRule->name[(int)($language['id_lang'])] = "Clearblue - Survey Reward Voucher (RM5 no min spend)";
+					}
+					$cartRule->add();	
+					
+					$sql = 'DELETE FROM ps_cart_rule_product_rule_group WHERE id_cart_rule = '.$cartRule->id;
+					Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+					
+					
+					$sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = 96 LIMIT 1"; # page that handle result survey question
+					$querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
+					$event_slug  = $querySlug[0]['event_slug'];
+					$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug . "?id=" . $encryptedID;
+					echo "<script type='text/javascript'>alert('Thank You for your participation!');</script>";
+					echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
 					exit;
 				}
 				elseif($event_id == 97)#apta moms with kids --> email already exist in motherhood database, then we need to do autologin after user submit details
