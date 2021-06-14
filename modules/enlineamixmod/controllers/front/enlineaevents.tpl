@@ -29,14 +29,16 @@
 
 <script type="text/javascript" src="../js/jquery/plugins/fancybox/jquery.fancybox.js"></script>
 <link rel="stylesheet" href="../js/jquery/plugins/fancybox/jquery.fancybox.css" type="text/css" media="all" />
+  <script data-source="https://s0.2mdn.net/ads/studio/Enabler.js" data-exports-type="gwd-google-ad" src="https://s0.2mdn.net/ads/studio/Enabler.js"></script>
 
 <link rel="stylesheet" type="text/css" href="/themes/default-bootstrap/css/bootstrap-datepicker.css" />
 <script src="/themes/default-bootstrap/dashboard-assets/Inputmask-5.x/dist/inputmask.js" type="text/javascript"></script>
 <link rel="stylesheet" href="/themes/default-bootstrap/dashboard-assets/form-wizard-5/fonts/material-design-iconic-font/css/material-design-iconic-font.css">
 <link href="/themes/default-bootstrap/dashboard-assets/sweetalert2-v10.13.0/dist/sweetalert2.min.css" rel="stylesheet" type="text/css" />
 <script src="/themes/default-bootstrap/dashboard-assets/sweetalert2-v10.13.0/dist/sweetalert2.all.min.js" type="text/javascript"></script>
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<!--<link href="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/slick_slider/slick/slick-theme.css" rel="stylesheet" type="text/css" />-->
+<link href="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/slick_slider/slick/slick.css" rel="stylesheet" type="text/css" />
+<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/slick_slider/slick/slick.js"></script>
 <style>
 
 @media only screen and (max-width: 768px) {
@@ -371,12 +373,20 @@ var hasSubmitted=false;
 	</div>
 {/if}
 {include file="$events_view_path/templates/front/errors.tpl"}
-	{if $event_info.event_id|in_array:[95, 96, 97, 108, 104, 105, 116, 117, 118, 119, 120, 300, 9998, 99999]}
+	{if $event_info.event_id|in_array:[93, 95, 96, 97, 108, 104, 105, 116, 117, 118, 119, 120, 135, 300, 9998, 99999]}
 		{* this part to try implement new boostrap without effect any exisitng event page - haiqal *}
+		{if  $event_info.event_id|in_array:[118]}
+		<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+		{/if}
 		<style>
 			html{
 				font-size:13px;
 			}
+
+			ul .user_info_sub li .submenuHead div {
+    				display: table-cell !important;
+			}
+
 			nav a{
 				text-decoration: none !important;
 			}
@@ -447,8 +457,8 @@ var hasSubmitted=false;
 			
 			.breadcrumb span:not(:first-child){
 				padding-top: 10px;
-			}
-			
+			}		
+
 			@media (max-width: 767px) {
 				.shopping_cart>a:first-child {
 					padding: 4px 25px 14px 45px!important;
@@ -625,6 +635,6 @@ $(document).ready(function() {
   $("img").trigger("unveil");
 });
 </script>
-{if $event_info.event_id|in_array:[87, 88, 89, 95, 96, 97, 102, 105,116, 117, 118, 119, 120, 126, 300, 223]} {* this part to hide product list footer - haiqal *}
+{if $event_info.event_id|in_array:[87, 88, 89, 95, 96, 97, 102, 105,116, 117, 118, 119, 120, 126, 135, 300, 223]} {* this part to hide product list footer - haiqal *}
 {else}{$displayProductListFooter} {$event_info.event_id }{/if}
 <!-- END : MODULE enlineasellerimport -->
