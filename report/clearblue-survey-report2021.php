@@ -5,23 +5,23 @@ session_start();
 
 if(isset($_GET['islogout']) && $_GET['islogout'] == true)
 {
-	unset($_SESSION["dutchladyLogin"]);
-	header('Location: http://www.motherhood.com.my/external/dutch-lady-report2021.php');
+	unset($_SESSION["clearblueLogin"]);
+	header('Location: http://www.motherhood.com.my/external/clearblue-survey-report2021.php');
 }
 
 $arr_allowUser = array(
 	'tech',
 	'megan',
 	'hooishan',
-	'dutchlady',
+	'clearblue',
 	'haiqal',
 );
 
-if ((in_array($_POST['login'], $arr_allowUser)) && $_POST['password'] == 'dutchlady123'){
-	$_SESSION['dutchladyLogin'] = true;
+if ((in_array($_POST['login'], $arr_allowUser)) && $_POST['password'] == 'clearblue123'){
+	$_SESSION['clearblueLogin'] = true;
 }
 
-if ($_SESSION['dutchladyLogin'] == true){
+if ($_SESSION['clearblueLogin'] == true){
 
 }
 else
@@ -39,7 +39,7 @@ else
     <link rel="stylesheet" href="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/report-login/css/bootstrap.min.css">
     <!-- Style -->
     <link rel="stylesheet" href="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/report-login/css/style.css">
-    <title>Dutch Lady Report | Motherhood.com.my Malaysia</title>
+    <title>Clearblue Report | Motherhood.com.my Malaysia</title>
 	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico"/>
 	<style>
 		body{
@@ -79,9 +79,9 @@ else
 							<div class="form-block" style="padding-top:20px;padding-bottom:20px;">
 								<div class="mb-12">
 									<h3>Login to <strong>leads report</strong></h3>
-									<p class="mb-4">Dutch Lady Report 2021 | Motherhood.com.my Malaysia</p>
+									<p class="mb-4">Clearblue Report 2021 | Motherhood.com.my Malaysia</p>
 								</div>
-								<form action='dutch-lady-report2021.php' method='post' method="post">
+								<form action='clearblue-survey-report2021.php' method='post' method="post">
 									<div class="form-group first">
 										<label for="username">Login</label>
 										<input type="text" class="form-control" id="username"  name='login'>
@@ -141,7 +141,7 @@ $productList=array();
 	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/Inputmask-5.x/dist/jquery.inputmask.js" type="text/javascript"></script>
 	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/twbs-pagination/jquery.twbsPagination.min.js" type="text/javascript"></script>
 	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/simplePagination/jquery.simplePagination.js" type="text/javascript"></script>
-	<title>Dutch lady report 2021 | Motherhood.com.my Malaysia</title>
+	<title>Clearblue report 2021 | Motherhood.com.my Malaysia</title>
 <style>
 body{
 	font-family: 'Poppins', sans-serif;
@@ -219,7 +219,7 @@ body{
 		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.newEmail NOT IN (" . $string_email . ")";
 	}
 	
-	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "evnt.subscriber_event_id = 90";
+	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "evnt.subscriber_event_id = 95";
 
 	
 	$groupBy = " GROUP BY evnt.newEmail ";
@@ -236,7 +236,7 @@ body{
 	
 	if($searchStart == '' && $searchEnd == '')
 	{
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at >= '2021-05-12 00:00:00'";
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at >= '2021-06-01 00:00:00'";
 	}
 	
 	
@@ -267,11 +267,12 @@ body{
 	}
 			
 	$sql = "SELECT
-		evnt.newEmail as Email, evnt.newFirstName as FullName,  evnt.subscriber_question1 as Mobile, 
-		evnt.subscriber_question4 as childDOB, evnt.subscriber_question3 as ProductName, evnt.subscriber_question13 as TasteofMilk,  evnt.subscriber_question5 as AddressLine1, 
-		evnt.subscriber_question7 as AddressLine2, evnt.subscriber_question8 as Postcode, evnt.subscriber_question9 as City, evnt.subscriber_question10 as State, 
-		evnt.subscriber_question12 as TnC, evnt.subscriber_created_at as DateSubmit
+		evnt.newFirstName as FullName, evnt.newEmail as Email,  evnt.subscriber_question15 as Mobile, evnt.subscriber_question1 as 'What is your feeling now?', evnt.subscriber_question2 as 'What is your age?',
+		evnt.subscriber_question3 as 'How long you\'ve been trying?', evnt.subscriber_question4 as 'Miscarriage experience?', evnt.subscriber_question5 as 'What feeling when making love?',  evnt.subscriber_question16 as 'What concern when you trying for a baby?', 
+		evnt.subscriber_question7 as 'Reaction when people know you trying for a baby?', evnt.subscriber_question8 as 'When pressure of getting pregnant fast, you are', evnt.subscriber_question9 as 'How you manage your emotion?', evnt.subscriber_question10 as 'How you manage your emotion?', 
+		evnt.subscriber_question11 as 'What is the 1st source when plan to conceive?', evnt.subscriber_question12 as 'Which brand do you trust ?' ,evnt.subscriber_created_at as DateSubmit
 		FROM ps_events_subscriber evnt " . $wheresql . $groupBy . " ORDER BY evnt.subscriber_created_at ASC " . $limitsql;
+	
     $result = $conn->query($sql);
 	if(is_object($result)){
 		$tableReportView =  mysql_result_all_html($result, $offset);
@@ -291,7 +292,7 @@ body{
 		# for header
 		for ($i = 0; $i < $noFields; $i++) {
 			$field 	= mysqli_field_name($result, $i);
-			$table .= "<th>" . $field . "</th>";
+			$table .= "<th style='min-width:300px'>" . $field . "</th>";
 			
 		}
 		$table .= "</tr>";
@@ -308,8 +309,8 @@ body{
 			$ccount++;
 			$table .= "<tr><td>" . $ccount . "</td>";
 			foreach ($r as $indx => $kolonne) {
-				
-					$table .= "<td>" . $kolonne . "</td>";
+					
+				$table .= "<td>" . str_replace("_", " ", $kolonne) . "</td>";
 			}
 			$table .= "</tr>";
 		}
@@ -327,12 +328,12 @@ body{
 	  <!-- Links -->
 		<ul class="navbar-nav">
 			<li class="nav-item">
-			  <a class="nav-link" href="dutch-lady-report2021.php">Dutch lady report 2021 MMY</a>
+			  <a class="nav-link" href="dutch-lady-report2021.php">Clearblue report 2021 MMY</a>
 			</li>
 		</ul>
 		<ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
 			<li class="nav-item">
-				<a href="dutch-lady-report2021.php?islogout=true" class="nav-link p-2" href="" target="_blank" rel="noopener" aria-label="GitHub">
+				<a href="clearblue-survey-report2021.php?islogout=true" class="nav-link p-2" href="" target="_blank" rel="noopener" aria-label="GitHub">
 					<i class="fas fa-sign-out-alt"></i> Logout
 				</a>
 			</li>
@@ -343,7 +344,7 @@ body{
 			<div class="row row-motherhood" style="margin-top:40px;">
 				<div class="col-md-8">
 					<div class="page-header">
-						<h3>Dutch lady report 2021 | Motherhood.com.my Malaysia</h3>
+						<h3>Clearblue report 2021 | Motherhood.com.my Malaysia</h3>
 					</div>
 				</div>
 			</div>
@@ -481,11 +482,11 @@ body{
 			console.log(isExport);
 			if(isExport)
 			{
-				$('body').find('#form-request').attr('action', 'dutch-lady-report2021-excel.php');
+				$('body').find('#form-request').attr('action', 'clearblue-survey-report2021-excel.php');
 			}
 			else
 			{
-				$('body').find('#form-request').attr('action', 'dutch-lady-report2021.php');
+				$('body').find('#form-request').attr('action', 'clearblue-survey-report2021.php');
 			}
 			
 			$('body').find('#form-request').submit();
