@@ -112,14 +112,12 @@
 	
 	.obj-description{
 		color: black;
-		font-weight: 600;
 	}
 	
 	
 	.obj-icon{
 		width:50%
 	}
-	
 	
 	.obj-icon1{
 		width:60%
@@ -196,6 +194,22 @@
 		min-height: 400px;
 	}
 	
+	.methodology-title
+	{
+		font-weight:700;
+		color:black;
+	}
+	
+	.methodology-desc{
+		color:black;
+		text-align:left;
+	}
+	
+	.showing-text{
+		color:black;
+		font-size:18px; 
+		font-weight: 500;
+	}
 	
 	@media only screen and (max-width: 600px) {
 		.btn-category{
@@ -265,8 +279,32 @@
 		}
 		
 		.about-award-desc{
-			text-align:left;
+			text-align:justify;
 			font-size:13px;
+		}
+		
+		.section-category{
+			padding-bottom:30px;
+		}
+		
+		.methodology-desc-attribute{
+			margin-bottom: 6px;
+		}
+		
+		.methodology-desc{
+			color:black;
+			text-align:justify;
+		}
+		
+		.row-bottom-sticky{
+			padding-left: 10px;
+			padding-right: 10px;
+			padding-bottom:10px;
+			text-align:center;
+		}
+		
+		.showing-text{
+			text-align:justify;
 		}
 	}
   </style>
@@ -287,7 +325,7 @@
 			<div class="container">
 				<div class="row no-gutters clients-wrap clearfix wow fadeInUp">
 					<div class="col-md-12 div-text">
-						<p class="poppin-font" style="color:black;font-size:18px; font-weight: 500;">Showcasing top quality, safe and innovative products <br class="desktop-br">that are endorsed by mothers from all over the world.</p>
+						<p class="poppin-font showing-text" >Showcasing top quality, safe and innovative products <br class="desktop-br">that are endorsed by mothers from all over the world.</p>
 					</div>
 				</div>
 			</div>
@@ -297,7 +335,7 @@
 			<div class="container">
 				<div class="row no-gutters clients-wrap clearfix wow fadeInUp btn-href">
 					<div class="col-md-12 text-center ">
-						<a href="https://www.motherhood.com.my/motherhood-award-2019" class="btn btn-primary btn-category btn-block-xs-only">Winners 2019</a>
+						<a href="https://www.motherhood.com.my/motherhood-award-2019" class="btn btn-primary btn-category btn-block-xs-only">Winners</a>
 						<button class="btn btn-primary btn-category btn-block-xs-only" data-toggle="modal" data-target="#awardpresntation">Award Presentation</button>
 						<button class="btn btn-primary btn-category awardlaunch btn-block-xs-only" data-toggle="modal" data-target="#awardlaunch">Award Launch</button>
 						<a href="#photogallery" class="btn btn-primary btn-category btn-block-xs-only">Photo Gallery</a>
@@ -308,7 +346,7 @@
 		</section><!-- end button section-->
 		
 		 <!-- ======= about the award Section ======= -->
-		<section class="mmy-award-bgcolor">
+		<section class="mmy-award-bgcolor section-category">
 			<div class="container">
 				<div class="text-center">
 					<h2 data-aos="fade-in" class="poppin-font category-title" style="color:black;font-weight:600;">About The Award</h2>
@@ -320,7 +358,7 @@
 		</section><!-- end about the award section-->
 		
 		 <!-- ======= objective Section ======= -->
-		<section class="mmy-award-bgcolor" style="padding-top:15px;">
+		<section class="mmy-award-bgcolor section-category" style="padding-top:15px;">
 			<div class="container">
 				<div class="row">
 					<div class="col-xl-12 d-flex align-items-stretch">
@@ -334,12 +372,12 @@
 									<p class="obj-description">To recognize outstanding brands and products.</p>
 								</div>
 								<div class="col-md-3 col-6 border-desktop text-align-objective" data-aos="fade-up" data-aos-delay="100">
-									<img src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/mmy-award/2021/assets/mmyicon/objectives-2.png" class="img-fluid obj-icon1">
-									<p class="obj-description">To inspire and motivate businesses to aim for excellence of their products.</p>
-								</div>
-								<div class="col-md-3 col-6 border-desktop text-align-objective" data-aos="fade-up" data-aos-delay="100">
 									<img src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/mmy-award/2021/assets/mmyicon/objectives-3.png" class="img-fluid obj-icon1">
 									<p class="obj-description">To reward and promote outstanding products.</p>
+								</div>
+								<div class="col-md-3 col-6 border-desktop text-align-objective" data-aos="fade-up" data-aos-delay="100">
+									<img src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/mmy-award/2021/assets/mmyicon/objectives-2.png" class="img-fluid obj-icon1">
+									<p class="obj-description">To inspire and motivate businesses to aim for excellence of their products.</p>
 								</div>
 								<div class="col-md-3 col-6 text-align-objective" data-aos="fade-up" data-aos-delay="100">
 									<img src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/mmy-award/2021/assets/mmyicon/objectives-4.png" class="img-fluid obj-icon1">
@@ -350,10 +388,52 @@
 					</div>
 				</div>
 			</div>
+		</section><!-- End objective Section -->  
+		
+		<!-- ======= methodology Section ======= -->
+		<section class="mmy-award-bgcolor section-category" style="padding-top:15px;">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-12 d-flex align-items-stretch">
+						<div class="content d-flex flex-column justify-content-center">
+							<div class="text-center">
+								<h2 data-aos="fade-in" data-aos-delay="100" class="poppin-font category-title" style="color:black;font-weight:600;">Methodology</h2>
+							</div>
+							<div class="row">
+								<div class="col-md-4 col-12 border-desktop text-align-objective" data-aos="fade-up" data-aos-delay="100">
+									<p class="methodology-title">Why Motherhood Choice Awards?</p>
+									<p class="methodology-desc">
+										We are the leading parenting media company with over 5,000,000 parents on our platform. We commissioned highly recognized market surveys on top categories of Maternity, Baby and Family products. Over 5,000 individuals were surveyed for this Award.
+									</p>
+								</div>
+								<div class="col-md-4 col-12 border-desktop text-align-objective" data-aos="fade-up" data-aos-delay="100">
+									<p class="methodology-title">Consumers Voting</p>
+									<p class="methodology-desc methodology-desc-attribute">
+										Each respondent was required to complete an online questionnaire. We asked each participant to select or tell us the name of their most trusted brand based on the attributes:- 
+										<ul style="padding-left:20px; text-align:left;color:black;">
+											<li>Trustworthy</li>
+											<li>Quality</li>
+											<li>Value</li>
+											<li>Understanding of Customer Needs</li>
+											<li>Innovation and Social Responsibility</li>
+										</ul>
+									</p>
+								</div>
+								<div class="col-md-4 col-12 border-desktop text-align-objective" data-aos="fade-up" data-aos-delay="100">
+									<p class="methodology-title">Motherhood Choice Rating</p>
+									<p class="methodology-desc">
+										The final ranking in each product category was obtained by selecting the brand with the highest number of votes. Motherhood Choice Awards were given to brands that scored significantly higher than their rivals.
+									</p>
+								</div>
+							</div>
+						</div><!-- End .content-->
+					</div>
+				</div>
+			</div>
 		</section><!-- End objective Section --> 
 		
 		 <!-- ======= how to participate Section ======= -->
-		<section class="mmy-award-bgcolor" style="padding-top:15px;">
+		<section class="mmy-award-bgcolor section-category" style="padding-top:15px;">
 			<div class="container">
 				<div class="text-center">
 					<h2 data-aos="fade-in" data-aos-delay="100" class="poppin-font category-title" style="color:black;font-weight:600;">How to Participate</h2>
@@ -369,7 +449,7 @@
 					<div class="col-md-4 col-6 text-center" data-aos="fade-up" data-aos-delay="100">
 						<div class="py-3 howotoparticipate-box mb-4">
 							<img src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/mmy-award/2021/assets/mmyicon/mca-nominate.svg " class="img-fluid obj-icon1">
-							<p class="participate-description">For brand <br class="mobile-br"> not listed</p>
+							<p class="participate-description">For brand</p>
 							<a href="https://docs.google.com/forms/d/e/1FAIpQLSdUHYohQe2_Hc5ogUcWCLiB-um-NxxcLFhUUNJp9lRqWJnFuQ/viewform" class="btn btn-primary btn-participate" target="_blank">Nominate Your Brand</a>
 						</div>
 					</div>
@@ -378,7 +458,7 @@
 		</section><!-- End how to participate Section -->	 
 		
 		<!-- ======= timeline Section ======= -->
-		<section class="mmy-award-bgcolor" style="padding-top:15px;">
+		<section class="mmy-award-bgcolor section-category" style="padding-top:15px;">
 			<div class="container">
 				<div class="text-center">
 					<h2 data-aos="fade-in" data-aos-delay="100" class="poppin-font category-title" style="color:black;font-weight:600;">Timeline</h2>
@@ -386,22 +466,22 @@
 				<div class="row">
 					<div class="col-md-4 col-4 text-align-objective border-desktop" data-aos="fade-up" data-aos-delay="100">
 						<img src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/mmy-award/2021/assets/mmyicon/timeline-1.png" class="img-fluid obj-icon">
-						<p class="obj-description">01 Jun 2021 <br> Start Public Voting</p>
+						<p class="obj-description"><b>01 Jun 2021 </b><br> Start Public Voting</p>
 					</div>
 					<div class="col-md-4 col-4 text-align-objective border-desktop" data-aos="fade-up" data-aos-delay="300">
 						<img src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/mmy-award/2021/assets/mmyicon/timeline-2.png" class="img-fluid obj-icon">
-						<p class="obj-description">31 Aug 2021 <br> Public Voting Closed</p>
+						<p class="obj-description"><b>31 Jul 2021 </b><br> Public Voting Closed</p>
 					</div>
 					<div class="col-md-4 col-4 text-align-objective" data-aos="fade-up" data-aos-delay="400">
 						<img src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/mmy-award/2021/assets/mmyicon/timeline-3.png" class="img-fluid obj-icon">
-						<p class="obj-description">20 Sept 2021 <br> Finalist Announcement</p>
+						<p class="obj-description"><b>10 Oct 2021 </b><br> Finalist Announcement</p>
 					</div>
 				</div>
 			</div>
 		</section><!-- End timeline Section -->
 		
 		 <!-- ======= photogallery Section ======= -->
-		<section id="photogallery" class="mmy-photogallery mmy-award-bgcolor">
+		<section id="photogallery" class="mmy-photogallery mmy-award-bgcolor section-category">
 			<div class="container">
 				<div class="text-center">
 					<h2 data-aos="fade-in" data-aos-delay="100" class="poppin-font category-title" style="color:black;font-weight:600;">Photo Gallery</h2>
@@ -412,9 +492,8 @@
 					<div class="col-xl-10">
 						<?php 
 							$photogallery = array( 
-							"IMG_2767.jpg","IMG_2769.jpg","IMG_2771.jpg","IMG_2772.jpg","IMG_2849.jpg","IMG_2852.jpg","IMG_2853.jpg",
-							"IMG_8397.jpg","IMG_8398.jpg","IMG_8401.jpg","IMG_8403.jpg","IMG_8405.jpg","IMG_8427.jpg",
-							"IMG_8437.jpg","IMG_8438.jpg","IMG_2856.jpg","IMG_2864.jpg"
+							"IMG_2769.jpg","IMG_2771.jpg","IMG_2852.jpg","IMG_2856.jpg","IMG_2864.jpg","IMG_2881.jpg","IMG_2902.jpg",
+							"IMG_2908.jpg","IMG_2944.jpg","IMG_8427.jpg","IMG_8452.jpg"
 							);
 						
 						?>
@@ -435,16 +514,13 @@
 					</div>				
 				</div>				
 			</div>				
-				
-				
-			
 		</section><!-- End photogallery Section -->
 		
 		 <!-- ======= Clients Section ======= -->
-		<section id="pressreleases" class="clients mmy-award-bgcolor">
+		<section id="pressreleases" class="clients mmy-award-bgcolor section-category">
 			<div class="container">
 				<div class="text-center">
-					<h2 data-aos="fade-in" data-aos-delay="100" class="poppin-font category-title" style="color:black;font-weight:600;">Press Releases</h2>
+					<h2 data-aos="fade-in" data-aos-delay="100" class="poppin-font category-title" style="color:black;font-weight:600;">Media Coverage</h2>
 				</div>
 				<div class="row no-gutters clients-wrap clearfix wow fadeInUp">
 				  <div class="col-lg-2 col-md-4 col-6">
@@ -546,7 +622,24 @@
 		  </div>
 		</div>
 	</footer><!-- End Footer -->
-
+	<div class="fixed-bottom">
+		<div class="row">
+			<div class="col-md-12" style="background-color:#f3e8d5;padding-top:10px;">
+				<div class="d-flex justify-content-center">
+					<div class="row row-bottom-sticky">
+						<div class="col-md-8 col-12">
+							<p style="font-size:13px;margin-bottom: 8px;">Who wins? You decide! enter Motherhood Choice Awards.</p>
+						</div>
+						<div class="col-md-4 col-12">
+							<a href="https://docs.google.com/forms/d/e/1FAIpQLSdUHYohQe2_Hc5ogUcWCLiB-um-NxxcLFhUUNJp9lRqWJnFuQ/viewform" class="btn btn-primary btn-participate" target="_blank" style="padding-top: 8px; padding-bottom: 8px; font-size: 13px; border-radius: 5px; padding-left: 12px;  padding-right: 10px">		
+							VOTE NOW
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
   <!-- Vendor JS Files -->

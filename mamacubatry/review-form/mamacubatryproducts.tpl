@@ -515,7 +515,7 @@
 							
 							{if isset($campaign['description']) && $campaign['description'] != ''}
 							<div class="row">
-								<div style='color:#555454;font-weight:300;'class="text-left">{$campaign['description']}</div>
+								<div style='color:#555454;font-weight:300;'class="text-left my-readmore">{$campaign['description']}</div>
 							</div>
 							{/if}
 						</div>
@@ -1433,10 +1433,30 @@
 		</div>
 	</div>
 </div>
+<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/readmore-js/readmore.min.js"></script>
 {literal}
 	<script type="text/javascript">
 		var errorSelector = '.error-msg';
 		var icon 	  	  = '<i class="fas fa-info-circle"></i>';
+		
+		$('.my-readmore').readmore({
+			moreLink: '<a href="javascript:;" class="readmore-link" style="margin-bottom:10px;text-decoration: underline !important;">Read More</a>',
+			lessLink: '<a href="javascript:;" class="readless-link" style="margin-bottom:10px;text-decoration: underline !important;">Read less</a>',
+			collapsedHeight: 400,
+			speed: 30
+		});
+		
+		$('body').on('click', '.readmore-link', function(){
+			$('.my-readmore').css('height', 'auto');
+			$(this).removeClass('readmore-link');
+			$(this).addClass('readless-link');
+		});	
+		
+		$('body').on('click', '.readless-link', function(){
+			$('.my-readmore').css('height', '400px');
+			$(this).addClass('readmore-link');
+			$(this).removeClass('readless-link');
+		});
 		
 		var validatePostcode = function(_this){
 			var postcode = _this.val();
