@@ -168,7 +168,7 @@ body{
 	$searchEnd 	 	="";
 	$wheresql  	 	= "";
 	$limitsql    	= "";
-	$currentLimit 	= " LIMIT 1500";
+	$currentLimit 	= " LIMIT 3000";
 	
 	if (isset($_GET['pageno'])) {
 		$pageno = $_GET['pageno'];
@@ -218,7 +218,6 @@ body{
 	}
 	
 	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "evnt.subscriber_event_id = 106";
-	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "cart_prod.id_product = 46857";
 	
 	$groupBy = " GROUP BY evnt.newEmail ";
 					
@@ -243,16 +242,24 @@ body{
 		
 		if(strtolower($itemstatus) == "incart")
 		{
-			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " bb.valid IS NULL";
+			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " (cart_prod.id_product = 46857) AND (bb.current_state = 0 OR bb.current_state is null)";
 		}
 		elseif(strtolower($itemstatus) == "paid")
 		{
-			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " bb.valid = 1";
+			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "  bb.current_state IN(2,3,4,5)";
 		}
 		elseif(strtolower($itemstatus) == "unpaid")
 		{
 			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " bb.valid = 0";
 		}
+		else
+		{
+			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " (cart_prod.id_product is null OR cart_prod.id_product = 46857)";
+		}
+	}
+	else
+	{
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " (cart_prod.id_product is null OR cart_prod.id_product = 46857)";
 	}
 	
 	$urlPagination = "";
@@ -264,15 +271,15 @@ body{
 	$sqltotalCount	  =  "SELECT COUNT(*) AS total FROM (SELECT DISTINCT (evnt.newEmail) 
 							FROM
 								ps_events_subscriber AS evnt
-								LEFT JOIN
+								INNER JOIN
 							motherhood_presta.ps_customer AS cust ON cust.email = evnt.newEmail
 								LEFT JOIN
 							ps_cart AS cart ON cart.id_customer = cust.id_customer
-								INNER JOIN
+								LEFT JOIN
 							ps_cart_product AS cart_prod ON cart.id_cart = cart_prod.id_cart
 								LEFT JOIN
 							(SELECT 
-								odr.id_order, odr.id_customer, odr.valid, odr.invoice_date
+								odr.id_order, odr.id_customer, odr.valid, odr.invoice_date, odr.current_state
 							FROM
 								ps_orders AS odr
 							INNER JOIN ps_order_detail AS odr_detail ON odr.id_order = odr_detail.id_order
@@ -283,7 +290,6 @@ body{
 							ORDER BY evnt.subscriber_created_at ASC
 							" . $currentLimit . ") AS a
 						";
-	
 	$resultCount 	  =  $conn->query($sqltotalCount);
 	$arr_resultCount  =  mysqli_fetch_array($resultCount);
 	$total_rows 	  =  isset($arr_resultCount['total']) ? $arr_resultCount['total'] : 0;
@@ -319,21 +325,21 @@ body{
 				bb.invoice_date as 'Checkout Date'
 			FROM
 				ps_events_subscriber AS evnt
-				LEFT JOIN
+					INNER JOIN
 				motherhood_presta.ps_customer AS cust ON cust.email = evnt.newEmail
-				LEFT JOIN
+					LEFT JOIN
 				ps_cart AS cart ON cart.id_customer = cust.id_customer
-				INNER JOIN
+					LEFT JOIN
 				ps_cart_product AS cart_prod ON cart.id_cart = cart_prod.id_cart
-					  LEFT JOIN ( select odr.id_order, odr.id_customer, odr.valid,  odr.invoice_date FROM 
+					  LEFT JOIN ( select odr.id_order, odr.id_customer, odr.valid,  odr.invoice_date , odr.current_state FROM 
 						ps_orders AS odr 
 							INNER JOIN
 						ps_order_detail AS odr_detail ON odr.id_order = odr_detail.id_order 
 						WHERE  odr_detail.product_id = 46857
 					) bb ON bb.id_customer = cust.id_customer
 			" . $wheresql . $groupBy . " ORDER BY evnt.subscriber_created_at ASC " . $limitsql ;
-	
-	
+			
+	// echo $sql;
     $result = $conn->query($sql);
 	if(is_object($result)){
 		$tableReportView =  mysql_result_all_html($result, $offset);

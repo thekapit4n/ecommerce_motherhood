@@ -9,26 +9,18 @@
 </div>
 <!--=============================== SUBCRIBERS  ================================-->
 <div class="container  pages homepage">
-	<div class="row mmy-brandbanner-slick-slide">
-		<div class="brandbanner" style="padding-left:15px;padding-right:15px;">
-			<div>
-				<a href="#shop_current" rel="noopener"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Nestle+Start+Well+2gether/banners_nestleextra5off.png" alt="banner" width="100%" />
-				</a>
-			</div>			
-			<div>
-				<a href="#shop_current" rel="noopener"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/May/Nestle+Startwell2gether/freeshippingimage.png" alt="banner" width="100%" /></a>
-			</div>
-			<div>
-				<a href="https://www.motherhood.com.my/nestlesubscriptionplan" rel="noopener"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Nestle/nestle_subscriber.png" alt="banner" width="100%" /></a>
-			</div>
-		</div>
-	</div>
-  
+   <div class="row mmy-brandbanner-slick-slide">
+      <div class="brandbanner" style="padding-left: 15px; padding-right: 15px;">
+         <div><a href="https://www.motherhood.com.my/nestlesubscriptionplan" rel="noopener"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/May/Nestle+Startwell+2gether/new-sunscription-plan.png" alt="banner" width="100%" /> </a></div>
+         <div><a href="#shop_current" rel="noopener"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/June/Nestle+Startwell+2gether/free-shipping.png" alt="banner" width="100%" /></a></div>
+         <div><a href="https://www.motherhood.com.my/nestlesubscriptionplan" rel="noopener"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/June/Nestle+Startwell+2gether/extra-5%25-off.png" alt="banner" width="100%" /></a></div>
+      </div>
+   </div>
    <!--================================= VOUCHER 2021 ==================================-->
    <div class="mmyslider" data-sliderid="195" data-imagepos="left" data-slidercount="2" data-sellerid="695"></div>
    <div class="row" style="margin-top: 15px;">
       <div class="col-md-6" style="padding-left: 5px; padding-right: 5px; margin-bottom: 5px;"><a href="https://www.motherhood.com.my/nestlesubscriptionplan" rel="noopener"> <img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Nestle/subscription-plan9.png" alt="" width="100%" /> </a></div>
-      <div class="col-md-6" style="padding-right: 5px; padding-left: 5px; margin-bottom: 5px;"><a href="#shop_current" rel="noopener"> <img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Nestle/best-deal-in-town3.png" alt="" width="100%" /> </a></div>
+      <div class="col-md-6" style="padding-right: 5px; padding-left: 5px; margin-bottom: 5px;"><a href="https://www.motherhood.com.my/nestle-all-product/" rel="noopener"> <img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Nestle/best-deal-in-town3.png" alt="" width="100%" /> </a></div>
    </div>
    <div class="row">
       <div class="col-md-12">
@@ -37,11 +29,40 @@
    </div>
    <div class="row" style="padding-bottom: 10px;">
       <!--  btn-shopbrand1 &  image-shopbrand-active1 need to change remove 1 to make it work --->
-      <div class="col-md-2 col-xs-3"><a class="btn-shopbrand" href="https://www.motherhood.com.my/events/nestle-nankid-optipro" target="_blank" data-divtarget="nankid-optipro" style="cursor: pointer;"> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Nestle/logo-nestle-nankid-optipro.png" alt="Nestle NANKID Optipro" style="width: 150px; height: auto;" class="category-img" /> </a></div>
-      <div class="col-md-2 col-xs-3"><a class="btn-shopbrand" href="https://www.motherhood.com.my/events/nestle-nankid-optipro-ha" target="_blank" data-divtarget="nankid-optipro-ha" style="cursor: pointer;"> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Nestle/logo-nestle-nankid-optipro-ha.png" alt="Nestle NANKID Optipro ha" style="width: 150px; height: auto;" class="category-img"/> </a></div>
-      <div class="col-md-2 col-xs-3"><a class="btn-shopbrand" href="https://www.motherhood.com.my/events/nestle-lactogrow" target="_blank" data-divtarget="lactogrow" style="cursor: pointer;"> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Nestle/logo-nestle-lactogrow.png" alt="lactogrow" style="width: 150px; height: auto;" class="category-img"/> </a></div>
-      <div class="col-md-2 col-xs-3"><a class="btn-shopbrand" href="https://www.motherhood.com.my/events/nestle-cerelac" target="_blank" data-divtarget="cerelac" style="cursor: pointer;"> <img src="https://media.motherhood.com.my/img/m/665-large_default.jpg" alt="Nestle Cerelac" style="width: 150px; height: auto;" class="category-img"/> </a></div>
-      <div class="col-md-2 col-xs-3"><a class="btn-shopbrand" href="https://www.motherhood.com.my/events/nestle-mom-and-me" target="_blank" data-divtarget="nestle-mom" style="cursor: pointer;"> <img src="https://media.motherhood.com.my/img/m/865-large_default.jpg" alt="Nestle Mom & Me" style="width: 150px; height: auto;" class="category-img"/> </a></div>
+		<div class="row mmy-brandbanner-slick-slide">
+			<div class="brandbanner1" style="padding-left: 15px; padding-right: 15px;">
+				<div class="col-md-2 col-xs-3">
+					<a class="btn-shopbrand" href="https://www.motherhood.com.my/events/nestle-nankid-optipro" target="_blank" data-divtarget="nankid-optipro" style="cursor: pointer;"> 
+						<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Nestle/logo-nestle-nankid-optipro.png" alt="Nestle NANKID Optipro" style="width: 150px; height: auto;" class="category-img" /> 
+					</a>
+				</div>
+				<div class="col-md-2 col-xs-3">
+					<a class="btn-shopbrand" href="https://www.motherhood.com.my/events/nestle-nankid-optipro-ha" target="_blank" data-divtarget="nankid-optipro-ha" style="cursor: pointer;"> 
+						<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Nestle/logo-nestle-nankid-optipro-ha.png" alt="Nestle NANKID Optipro ha" style="width: 150px; height: auto;" class="category-img" /> 
+					</a>
+				</div>
+				<div class="col-md-2 col-xs-3">
+					<a class="btn-shopbrand" href="https://www.motherhood.com.my/events/nestle-lactogrow" target="_blank" data-divtarget="lactogrow" style="cursor: pointer;"> 
+						<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/June/Nestle+Startwell+2gether/logo-nestle-lactogrow-aktiff.png" alt="lactogrow" style="width: 150px; height: auto;" class="category-img" /> 
+					</a>
+				</div>
+				<div class="col-md-2 col-xs-3">
+					<a class="btn-shopbrand" href="https://www.motherhood.com.my/events/nestle-lactogrow" target="_blank" data-divtarget="lactogrow" style="cursor: pointer;"> 
+						<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Nestle/logo-nestle-lactogrow.png" alt="lactogrow" style="width: 150px; height: auto;" class="category-img" /> 
+					</a>
+				</div>
+				<div class="col-md-2 col-xs-3">
+					<a class="btn-shopbrand" href="https://www.motherhood.com.my/events/nestle-cerelac" target="_blank" data-divtarget="cerelac" style="cursor: pointer;"> 
+						<img src="https://media.motherhood.com.my/img/m/665-large_default.jpg" alt="Nestle Cerelac" style="width: 150px; height: auto;" class="category-img" /> 
+					</a>
+				</div>
+				<div class="col-md-2 col-xs-3">
+					<a class="btn-shopbrand" href="https://www.motherhood.com.my/events/nestle-mom-and-me" target="_blank" data-divtarget="nestle-mom" style="cursor: pointer;"> 
+						<img src="https://media.motherhood.com.my/img/m/865-large_default.jpg" alt="Nestle Mom & Me" style="width: 150px; height: auto;" class="category-img" />
+					</a>
+				</div>
+			</div>
+		</div>
    </div>
    <div class="row">
       <div class="col-md-12">
@@ -59,7 +80,7 @@
          <div id="lactogrow" class="div-details-brand" style="margin-top: 5%; margin-bottom: 5%;">
             <!--========================= LACTOGROW =========================-->
             <div class="col-md-12" style="margin-bottom: 10px;"><a href="https://www.motherhood.com.my/events/nestle-lactogrow"> <img id="s26gold" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Nestle/lactogrow+banner.png" width="100%" /></a></div>
-            <div class="mmyslider" data-sliderid="199" data-imagepos="left" data-slidercount="1"></div>
+            <div class="mmyslider" data-sliderid="199" data-imagepos="left" data-slidercount="2"></div>
             <div class="mmyslider" data-sliderid="200" data-imagepos="left" data-slidercount="2"></div>
          </div>
          <div id="cerelac" class="div-details-brand" style="margin-top: 5%; margin-bottom: 5%;">
@@ -156,7 +177,7 @@
             </div>
          </div>
       </div>
-      <div id="contact-us-seller-form" style="display: none; height: 100%;">
+      <div id="contact-us-seller-form" style="display: none; height: 100%; width: 400px;">
          <div class="seller_contact_header" style="font-weight: bold; font-size: 20px; padding-bottom: 20px;">Contact Us</div>
          <div class="seller_contact_container">
             <div></div>
@@ -171,6 +192,7 @@
                <div class="seller_contact_label" style="font-size: 15px; font-weight: bold;">Verification Text:</div>
                <div class="seller_contact_field"><input id="contact_captcha" style="width: 100%; margin-bottom: 10px;" name="contact_captcha" type="text" value="" /> <span class="seller_contacat_captcha_img"> <img alt="antispam" src="https://www.motherhood.com.my/NestleStartWell/modules/agilesellermessenger/antispamimage.php" /> </span></div>
                <div><button id="btnSubmitSellerContact" class="seller-contact-button" style="font-size: 15px; font-weight: bold; background: #23346c; border-radius: 12px; color: white; padding: 10px; border: none;" name="btnSubmitSellerContact" type="submit" value="Submit"> Submit </button></div>
+               <div><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/Nestle+Consultant+Careline-01.png" width="100%" /></div>
             </form>
          </div>
       </div>
@@ -179,103 +201,124 @@
 </div>
 <script>// <![CDATA[
    var twofiveoff = function(){
-         			var twofiveoff = "GOMAR25";
-         			var dummy = $('<input>').val(twofiveoff).appendTo('body').select();
-         			saveVouchers(twofiveoff);
-                 }
-         		
-         		var twoooff = function(){
-                   var twoooff = "NESTDEC15";
-                   var dummy = $('<input>').val(twoooff).appendTo('body').select();
-                   saveVouchers(twoooff);
-                 }
-         		
-         		var oneooff = function(){
-         			var oneooff = "NESTDEC10";
-         			var dummy = $('<input>').val(oneooff).appendTo('body').select();
-         			saveVouchers(oneooff);
-                 }
-         		
-         		$(function(){
-         			$('.twofiveoff').click(function() {
-         				twofiveoff();
-         			});
-         			
-         			$('.twoooff').click(function() {
-         				twoooff();
-         			});
-         			  
-         			$('.oneooff').click(function() {
-         				oneooff();
-         			});
-         			
-         			$('body').on('click', '.btn-shopbrand', function(){
-         				// $('body').find('img').removeClass('image-shopbrand-active');
-         				// $(this).find('img').addClass('image-shopbrand-active');
-         				var targetDiv = $(this).data('divtarget');
-         				// $('body').find('.div-details-brand').css('display', 'none');
-         				// $('body').find('#' + targetDiv).show('fast');
+            			var twofiveoff = "GOMAR25";
+            			var dummy = $('<input>').val(twofiveoff).appendTo('body').select();
+            			saveVouchers(twofiveoff);
+                    }
+            		
+            		var twoooff = function(){
+                      var twoooff = "NESTDEC15";
+                      var dummy = $('<input>').val(twoooff).appendTo('body').select();
+                      saveVouchers(twoooff);
+                    }
+            		
+            		var oneooff = function(){
+            			var oneooff = "NESTDEC10";
+            			var dummy = $('<input>').val(oneooff).appendTo('body').select();
+            			saveVouchers(oneooff);
+                    }
+            		
+            		$(function(){
+            			$('.twofiveoff').click(function() {
+            				twofiveoff();
+            			});
+            			
+            			$('.twoooff').click(function() {
+            				twoooff();
+            			});
+            			  
+            			$('.oneooff').click(function() {
+            				oneooff();
+            			});
+            			
+            			$('body').on('click', '.btn-shopbrand', function(){
+            				// $('body').find('img').removeClass('image-shopbrand-active');
+            				// $(this).find('img').addClass('image-shopbrand-active');
+            				var targetDiv = $(this).data('divtarget');
+            				// $('body').find('.div-details-brand').css('display', 'none');
+            				// $('body').find('#' + targetDiv).show('fast');
+      					
+   						$('html,body').animate({
+   							scrollTop: $('#' + targetDiv).offset().top},
+   							'slow');
+   					});
    					
-						$('html,body').animate({
-							scrollTop: $('#' + targetDiv).offset().top},
-							'slow');
-					});
-					
-					$('body').find('.brandbanner').slick({
-						infinite: true,
-						slidesToShow: 1,
-						slidesToScroll: 1,
-						dots: true,
-						adaptiveHeight:true,
-						autoplay: true,
-						responsive: [
-						{
-							breakpoint: 600,
-							settings: {
-								slidesToShow: 1,
-								slidesToScroll: 1,
-								dots: true,
-								adaptiveHeight:true,
-								arrows:false,
-								autoplay: false,
-							}
-						}]
-					});
-         		})
-   
-       $(".WyethBrandPageCatBtn").on("click", function () {
-         var cat = $(this).data("value");
-         $(".WyethBrandPageCatBtn").css("background", "#2ea7ad");
-         $(this).css("background", "#24858a");
-         if (cat == "home") {
-           $(".pages").addClass("visuallyhidden");
-           $(".homepage").removeClass("visuallyhidden");
-           $(".productss").hide();
-           $(".productsFullPage").addClass("visuallyhidden");
-           $(window).resize();
-           $("img").trigger("unveil");
-         } else if (cat == "product") {
-           $(".pages").addClass("visuallyhidden");
-           $(".product").removeClass("visuallyhidden");
-           $(".productss").show();
-           $(".productsFullPage").removeClass("visuallyhidden");
-           $("img").trigger("unveil");
-           $(window).resize();
-         } else if (cat == "profile") {
-           $(".pages").addClass("visuallyhidden");
-           $(".profile").removeClass("visuallyhidden");
-           $(".productss").hide();
-           $(".productsFullPage").addClass("visuallyhidden");
-           $(window).resize();
-           $("img").trigger("unveil");
-         } else {
-         }
-       });
-   
-       $(window).load(function () {
-         $(".product").addClass("visuallyhidden");
-   
-         $("#contactusmore").fancybox();
-       });
+						$('body').find('.brandbanner').slick({
+							infinite: true,
+							slidesToShow: 1,
+							slidesToScroll: 1,
+							dots: true,
+							adaptiveHeight:true,
+							autoplay: true,
+							responsive: [
+								{
+									breakpoint: 600,
+									settings: {
+										slidesToShow: 1,
+										slidesToScroll: 1,
+										dots: true,
+										adaptiveHeight:true,
+										arrows:false,
+										autoplay: false,
+									}
+								}]
+						});
+						
+						$('body').find('.brandbanner1').slick({
+							infinite: true,
+							slidesToShow: 6,
+							slidesToScroll: 6,
+							dots: true,
+							adaptiveHeight:true,
+							autoplay: true,
+							responsive: [
+								{
+									breakpoint: 600,
+									settings: {
+										slidesToShow: 3,
+										slidesToScroll: 3,
+										dots: true,
+										adaptiveHeight:true,
+										arrows:false,
+										autoplay: false,
+									}
+								}]
+						});
+            		})
+      
+          $(".WyethBrandPageCatBtn").on("click", function () {
+            var cat = $(this).data("value");
+            $(".WyethBrandPageCatBtn").css("background", "#2ea7ad");
+            $(this).css("background", "#24858a");
+            if (cat == "home") {
+              $(".pages").addClass("visuallyhidden");
+              $(".homepage").removeClass("visuallyhidden");
+              $(".productss").hide();
+              $(".productsFullPage").addClass("visuallyhidden");
+              $(window).resize();
+              $("img").trigger("unveil");
+            } else if (cat == "product") {
+              $(".pages").addClass("visuallyhidden");
+              $(".product").removeClass("visuallyhidden");
+              $(".productss").show();
+              $(".productsFullPage").removeClass("visuallyhidden");
+              $("img").trigger("unveil");
+              $(window).resize();
+            } else if (cat == "profile") {
+              $(".pages").addClass("visuallyhidden");
+              $(".profile").removeClass("visuallyhidden");
+              $(".productss").hide();
+              $(".productsFullPage").addClass("visuallyhidden");
+              $(window).resize();
+              $("img").trigger("unveil");
+            } else {
+            }
+          });
+      
+          $(window).load(function () {
+            $(".product").addClass("visuallyhidden");
+      
+            $("#contactusmore").fancybox();
+          });
    // ]]>
 </script>

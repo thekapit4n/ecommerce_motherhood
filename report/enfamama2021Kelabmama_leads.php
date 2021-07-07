@@ -269,7 +269,8 @@ $searchStart="";
 $searchEnd="";
 $limit = "";
 // $limit = " LIMIT 2730 ";
-$limit = " LIMIT 3930 ";
+
+$limit = " LIMIT 4830 ";
 	if ($_POST['searchDateStart'])
 		$searchStart=" AND Subscribed_Date >='".$_POST['searchDateStart']."' ";
 

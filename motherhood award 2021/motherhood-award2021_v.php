@@ -246,6 +246,7 @@
 		
 		.obj-description{
 			font-size:13px;
+			text-align:justify;
 		}
 		
 		.obj-icon1{
@@ -628,7 +629,7 @@
 				<div class="d-flex justify-content-center">
 					<div class="row row-bottom-sticky">
 						<div class="col-md-8 col-12">
-							<p style="font-size:13px;margin-bottom: 8px;">Who wins? You decide! enter Motherhood Choice Awards.</p>
+							<p style="font-size:13px;margin-bottom: 8px;">Who wins? You decide! Enter Motherhood Choice Awards.</p>
 						</div>
 						<div class="col-md-4 col-12">
 							<a href="https://docs.google.com/forms/d/e/1FAIpQLSdUHYohQe2_Hc5ogUcWCLiB-um-NxxcLFhUUNJp9lRqWJnFuQ/viewform" class="btn btn-primary btn-participate" target="_blank" style="padding-top: 8px; padding-bottom: 8px; font-size: 13px; border-radius: 5px; padding-left: 12px;  padding-right: 10px">		

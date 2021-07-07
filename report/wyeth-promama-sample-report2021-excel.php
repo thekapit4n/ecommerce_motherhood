@@ -31,7 +31,7 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 		$searchStart ="";
 		$searchEnd 	 ="";
 		$wheresql  	 = "";
-		// $limitsql    = " LIMIT 1700";
+		$limitsql    = " LIMIT 3000";
 		$strDateMsg  = "";
 		
 		if(isset($_POST['searchDateStart']) && $_POST['searchDateStart'] != '')
@@ -109,6 +109,10 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 		elseif(strtolower($itemstatus) == "unpaid")
 		{
 			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " bb.valid = 0";
+		}
+		else
+		{
+			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " (cart_prod.id_product is null OR cart_prod.id_product = 46857)";
 		}
 	}
 	else

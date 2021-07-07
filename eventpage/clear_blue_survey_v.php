@@ -1,514 +1,514 @@
 <style>
    <!--
       @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca');
-      	body{
-      		font-family: Arial,Helvetica,sans-serif;
-      		
-      	}
-      	
-      	#eventform{
-      		background-color:#203764;
-      		font-family: 'Lexend Deca', sans-serif;
-      	}
-      	
-      	.font-fact{
-      		font-family: 'Lexend Deca', sans-serif;
-      	}
-      	
-      	.label-cb-custom{
-      		color:white;
-      	}
-      	
-      	.font-fact-highlight{
-      		font-weight:700; 
-      		color:#ffde00
-      	}
-      	
-      	
-      	.fact-of-the-day{
-      		font-size: 25px;
-      		color: #ffffff;
-      	}
-      	
-      	.card-fact-box{
-      		background-color:#203764;
-      		border-radius: 10px;
-      		border:0px;
-      	}
-      	
-      	.blockquote-map-malaysia{
-      		margin-top:11%;
-      	}
-      	
-      	.card-map-malaysia, .card-miscarrige{
-      		width: 60%;
-      	}
-      	
-      	.image-miscarriage{
-      		width:170px;
-      	}
-      	
-      	.amchart-mmy {
-      	  width: 100%;
-      	  height: 270px;
-      	}
-      	
-      	.survey-question-div{
-      		padding-left : 20px;
-      		height : 270px;
-      	}
-      	
-      	.small-customer-info-msg{
-      		color:#d8d8d8;
-      	}
-      	
-      	ul {
-      	  padding: 0;
-      	  margin: 0;
-      	  list-style: none; 
-      	}
-      
-      	.wrapper {
-      		max-width: 1400px;
-      		height: 100vh;
-      		margin: auto;
-      		display: flex;
-      		align-items: center; 
-      	}
-      	
-      	.wizard > .steps .current-info, .wizard > .steps .number {
-      		display: none; 
-      	}
-      
-      	#mamacubatry-wizard {
-      		min-height: 834px;
-      		background: #fff;
-      	}
-      
-      	.steps {
-      		margin-bottom: 30px; 
-      	}
-      	
-      	.steps ul {
-      		display: flex;
-      		position: relative; 
-      	}
-      	
-      	.steps ul li {
-      		width: 20.16%;
-      		margin-right: 10px; 
-      	}
-      	
-      	.steps ul li a {
-              display: inline-block;
-              width: 100%;
-              height: 7px;
-      		color:#f6f6f6 !important;
-              background: #f6f6f6 !important;
-              border-radius: 3.5px; 
-      		outline: unset;
-      		pointer-events: none;
-      	}
-      
-      	.steps ul li.first a, .steps ul li.checked a {
-              background: #f18773 !important;
-      		color:#f18773 !important;
-              transition: all 0.5s ease; 
-      		outline: unset;
-      	}
-       
-      	.steps ul:before {
-      		content: "Question 1";
-      		font-size: 18px;
-      		font-family: 'Lexend Deca', sans-serif;
-      		color: white;
-      		top: -27px;
-      		position: absolute;
-      	}
-      
-      	.steps ul.step-2:before {
-      		content: ""; 
-      	}
-      	
-      	.steps ul.step-3:before {
-            content: "Question 2"; 
-      	}
-      	
-      	.steps ul.step-4:before {
-            content: ""; 
-      	}
-      	
-      	.steps ul.step-5:before {
-            content: "Question 3"; 
-      	}
-      	
-      	.steps ul.step-6:before {
-            content: ""; 
-      	}
-      	
-      	.steps ul.step-7:before {
-            content: "Question 4"; 
-      	}
-      	
-      	.steps ul.step-8:before {
-            content: ""; 
-      	}
-      	
-      	.steps ul.step-9:before {
-            content: "Question 5"; 
-      	}
-      	
-      	.steps ul.step-10:before {
-            content: ""; 
-      	}
-      	
-      	.steps ul.step-11:before {
-            content: "Question 6"; 
-      	}
-      	
-      	.steps ul.step-12:before {
-            content: ""; 
-      	}
-      	
-      	.steps ul.step-13:before {
-            content: "Question 7"; 
-      	}
-      	
-      	.steps ul.step-14:before {
-            content: ""; 
-      	}
-      	
-      	.steps ul.step-15:before {
-            content: "Question 8"; 
-      	}
-      	
-      	.steps ul.step-16:before {
-            content: ""; 
-      	}
-      	
-      	.steps ul.step-17:before {
-            content: "Question 9"; 
-      	}
-      	
-      	.steps ul.step-18:before {
-            content: ""; 
-      	}
-      	
-      	.steps ul.step-19:before {
-            content: "Question 10"; 
-      	}
-      	
-      	.steps ul.step-20:before {
-            content: ""; 
-      	}
-      	
-      	.steps ul.step-21:before {
-            content: "Question 11"; 
-      	}
-      	
-      	.steps ul.step-22:before {
-            content: ""; 
-      	}
-      	
-      	.actions{
-      		padding-right: 25px;
-      	}
-      	
-      	.actions ul {
-      	  display: flex;
-      	  margin-top: 30px;
-      	  justify-content: space-between; 
-      	}
-      	
-      	.actions ul.step-last {
-      		justify-content: flex-end; 
-      	}
-          
-      	.actions ul.step-last li:first-child {
-            display: none; \
-      	}
-      	
-      	.actions li a {
-      		border-radius:25px;
-      		background-color: #f3866f!important;
-      		color: #fff;
-      		border-color: #f3866f!important;
-      		padding: 0;
-      		border: none;
-      		display: inline-flex;
-      		height: 37px;
-      		width: 121px;
-      		align-items: center;
-      		cursor: pointer;
-      		position: relative;
-      		padding-left: 41px;
-      		-webkit-transform: perspective(1px) translateZ(0);
-      		transform: perspective(1px) translateZ(0);
-      		-webkit-transition-duration: 0.3s;
-      		transition-duration: 0.3s;
-      		font-weight: 400; 
-      	}
-      	
-      	.actions li a:before {
-      		content: '\f2ee';
-      		position: absolute;
-      		top: 9px;
-      		right: 37px;
-      		font-family: Material-Design-Iconic-Font;
-      		-webkit-transform: translateZ(0);
-      		transform: translateZ(0); 
-      	}
-      	
-      	
-      	.actions li a:hover {
-      		background: #d9bda3; 
-      	}
-      	
-          .actions li a:hover:before {
-      		-webkit-animation-name: hvr-icon-wobble-horizontal;
-      		animation-name: hvr-icon-wobble-horizontal;
-      		-webkit-animation-duration: 1s;
-      		animation-duration: 1s;
-      		-webkit-animation-timing-function: ease-in-out;
-      		animation-timing-function: ease-in-out;
-      		-webkit-animation-iteration-count: 1;
-      		animation-iteration-count: 1; 
-      	}
-      	
-      	.actions li[aria-disabled="true"] a {
-      		display: inline-flex; 
-      	}
-      	
-      	.actions li:first-child a {
-      	  background: #e6e6e6;
-      	  padding-left: 48px; 
-      	}
-      	
-      	.actions li:first-child a:before {
-      		content: '\f2ea';
-      		left: 30px;
-      		top: 9px;
-      	}
-      	
-      	.actions li:first-child a:hover {
-      		background: #ccc; 
-      	}
-      	
-      	.actions li:last-child a {
-      		padding-left: 29px;
-      		width: 115px;
-      		font-weight: 400;
-      	}
-      	
-      	.actions li:last-child a:before {
-      		right: 30px; 
-      	}
-      	
-      	input[type="radio"]:focus{
-      		outline: unset !important;
-      		outline: 0px !important;
-      	}
-      	
-      	.btn-cb-custom {
-      		background-color: #f18773;
-      		border-color: #f18773;
-      		width: 50%;
-      		padding: 10px;
-      		padding-bottom: 10px;
-      		font-size: 17px;
-      		font-weight: 600;
-      		outline:unset;
-      		box-shadow: unset;
-      	}
-      	
-      	.btn-cb-custom:hover, .btn-cb-custom:active, .btn-cb-custom:focus{
-      		background-color:#f9634e;
-      		border-color: #f9634e;
-      		outline:unset;
-      		box-shadow: unset;
-      	}
-      	
-      	.img-clearblue{
-      		width:15%;
-      	}
-      	
-      
-      	@-webkit-keyframes hvr-icon-wobble-horizontal {
-      	  16.65% {
-      		-webkit-transform: translateX(6px);
-      		transform: translateX(6px); }
-      	  33.3% {
-      		-webkit-transform: translateX(-5px);
-      		transform: translateX(-5px); }
-      	  49.95% {
-      		-webkit-transform: translateX(4px);
-      		transform: translateX(4px); }
-      	  66.6% {
-      		-webkit-transform: translateX(-2px);
-      		transform: translateX(-2px); }
-      	  83.25% {
-      		-webkit-transform: translateX(1px);
-      		transform: translateX(1px); }
-      	  100% {
-      		-webkit-transform: translateX(0);
-      		transform: translateX(0); } 
-      	}
-      	
-      	@keyframes hvr-icon-wobble-horizontal {
-      	  16.65% {
-      		-webkit-transform: translateX(6px);
-      		transform: translateX(6px); }
-      	  33.3% {
-      		-webkit-transform: translateX(-5px);
-      		transform: translateX(-5px); }
-      	  49.95% {
-      		-webkit-transform: translateX(4px);
-      		transform: translateX(4px); }
-      	  66.6% {
-      		-webkit-transform: translateX(-2px);
-      		transform: translateX(-2px); }
-      	  83.25% {
-      		-webkit-transform: translateX(1px);
-      		transform: translateX(1px); }
-      	  100% {
-      		-webkit-transform: translateX(0);
-      		transform: translateX(0); } 
-      	}
-      	
-      	@media (max-width: 1500px) {
-      		.wrapper {
-      			height: auto; 
-      		} 
-      	}
-      	
-      	@media (max-width: 1199px) {
-      		.wrapper {
-      			height: 100vh; 
-      		}
-      
-      		#mamacubatry-wizard {
-      			min-height: 829px;
-      		} 
-      	}
-      	
-      	@media (max-width: 991px) {
-      		.wrapper {
-      			justify-content: center; 
-      		}
-      		.wrapper .image-holder {
-      		  display: none; 
-      		}
-      		  
-      		.wrapper form {
-      		  width: 60%; 
-      		}
-      
-      		#mamacubatry-wizard {
-      			margin-right: 0;
-      		} 
-      		
-      		.address-details {
-      		  padding-left:15px;
-      		}
-      		
-      		.motherhood-br{
-      			display:none;
-      		}
-      		
-      		.ballon-icon-tq{
-      			width:30%;
-      		}
-      	}
-      	
-      	@media (max-width: 767px) {
-      		.actions{
-      			padding-right: 15px;
-      		}
-      		
-      		.wrapper {
-      			height: auto;
-      			display: block; 
-      		}
-      		
-      		.wrapper .image-holder {
-      			width: 100%;
-      			display: block;
-      		}
-      		
-      		.wrapper form {
-      		  width: 100%; 
-      		}
-      
-      		#mamacubatry-wizard {
-      			min-height: unset;
-      		}
-      
-      		.form-row.form-group {
-      			display: block; 
-      		}
-      		
-      		.form-row.form-group .form-holder {
-      		  width: 100%;
-      		  margin-right: 0;
-      		  margin-bottom: 24px; 
-      		}
-      		
-      		.address-details {
-      		  padding-left:15px;
-      		}
-      		
-      		.motherhood-br{
-      			display:none;
-      		}
-      		
-      		.ballon-icon-tq{
-      			width:30%;
-      		}
-      		
-      		.card-map-malaysia{
-      			min-height: 185px;
-      			width: 100%;
-      		}
-      		
-      		.card-miscarrige{
-      			width: 100%;
-      		}
-      		
-      		.blockquote-map-malaysia{
-      			margin-top:0%;
-      		}
-      		
-      		.fact-of-the-day{
-      			font-size:15px;
-      		}
-      		
-      		.card-miscarrige{
-      			min-height: 336px;
-      			width: 100%;
-      		}
-      	
-      		.image-miscarriage{
-      			width:105px;
-      		}
-      		
-      		.btn-cb-custom{
-      			width: 100%;
-      		}
-      		
-      		.br-fact{
-      			display:none;
-      		}
-      		
-      		.row-custom{
-      			position:relative;
-      			right:12px;
-      		}
-      		
-      		.img-clearblue{
-      			width:34%;
-      		}
-      	}
-       /** end of css for form wizard **/
+            	body{
+            		font-family: Arial,Helvetica,sans-serif;
+            		
+            	}
+            	
+            	#question-div{
+            		background-color:#203764;
+            		font-family: 'Lexend Deca', sans-serif;
+            	}
+            	
+            	.font-fact{
+            		font-family: 'Lexend Deca', sans-serif;
+            	}
+            	
+            	.label-cb-custom{
+            		color:white;
+            	}
+            	
+            	.font-fact-highlight{
+            		font-weight:700; 
+            		color:#ffde00
+            	}
+            	
+            	
+            	.fact-of-the-day{
+            		font-size: 25px;
+            		color: #ffffff;
+            	}
+            	
+            	.card-fact-box{
+            		background-color:#203764;
+            		border-radius: 10px;
+            		border:0px;
+            	}
+            	
+            	.blockquote-map-malaysia{
+            		margin-top:11%;
+            	}
+            	
+            	.card-map-malaysia, .card-miscarrige{
+            		width: 60%;
+            	}
+            	
+            	.image-miscarriage{
+            		width:170px;
+            	}
+            	
+            	.amchart-mmy {
+            	  width: 100%;
+            	  height: 270px;
+            	}
+            	
+            	.survey-question-div{
+            		padding-left : 20px;
+            		height : 270px;
+            	}
+            	
+            	.small-customer-info-msg{
+            		color:#d8d8d8;
+            	}
+            	
+            	ul {
+            	  padding: 0;
+            	  margin: 0;
+            	  list-style: none; 
+            	}
+            
+            	.wrapper {
+            		max-width: 1400px;
+            		height: 100vh;
+            		margin: auto;
+            		display: flex;
+            		align-items: center; 
+            	}
+            	
+            	.wizard > .steps .current-info, .wizard > .steps .number {
+            		display: none; 
+            	}
+            
+            	#mamacubatry-wizard {
+            		min-height: 834px;
+            		background: #fff;
+            	}
+            
+            	.steps {
+            		margin-bottom: 30px; 
+            	}
+            	
+            	.steps ul {
+            		display: flex;
+            		position: relative; 
+            	}
+            	
+            	.steps ul li {
+            		width: 20.16%;
+            		margin-right: 10px; 
+            	}
+            	
+            	.steps ul li a {
+                    display: inline-block;
+                    width: 100%;
+                    height: 7px;
+            		color:#f6f6f6 !important;
+                    background: #f6f6f6 !important;
+                    border-radius: 3.5px; 
+            		outline: unset;
+            		pointer-events: none;
+            	}
+            
+            	.steps ul li.first a, .steps ul li.checked a {
+                    background: #f18773 !important;
+            		color:#f18773 !important;
+                    transition: all 0.5s ease; 
+            		outline: unset;
+            	}
+             
+            	.steps ul:before {
+            		content: "Question 1";
+            		font-size: 18px;
+            		font-family: 'Lexend Deca', sans-serif;
+            		color: white;
+            		top: -27px;
+            		position: absolute;
+            	}
+            
+            	.steps ul.step-2:before {
+            		content: ""; 
+            	}
+            	
+            	.steps ul.step-3:before {
+                  content: "Question 2"; 
+            	}
+            	
+            	.steps ul.step-4:before {
+                  content: ""; 
+            	}
+            	
+            	.steps ul.step-5:before {
+                  content: "Question 3"; 
+            	}
+            	
+            	.steps ul.step-6:before {
+                  content: ""; 
+            	}
+            	
+            	.steps ul.step-7:before {
+                  content: "Question 4"; 
+            	}
+            	
+            	.steps ul.step-8:before {
+                  content: ""; 
+            	}
+            	
+            	.steps ul.step-9:before {
+                  content: "Question 5"; 
+            	}
+            	
+            	.steps ul.step-10:before {
+                  content: ""; 
+            	}
+            	
+            	.steps ul.step-11:before {
+                  content: "Question 6"; 
+            	}
+            	
+            	.steps ul.step-12:before {
+                  content: ""; 
+            	}
+            	
+            	.steps ul.step-13:before {
+                  content: "Question 7"; 
+            	}
+            	
+            	.steps ul.step-14:before {
+                  content: ""; 
+            	}
+            	
+            	.steps ul.step-15:before {
+                  content: "Question 8"; 
+            	}
+            	
+            	.steps ul.step-16:before {
+                  content: ""; 
+            	}
+            	
+            	.steps ul.step-17:before {
+                  content: "Question 9"; 
+            	}
+            	
+            	.steps ul.step-18:before {
+                  content: ""; 
+            	}
+            	
+            	.steps ul.step-19:before {
+                  content: "Question 10"; 
+            	}
+            	
+            	.steps ul.step-20:before {
+                  content: ""; 
+            	}
+            	
+            	.steps ul.step-21:before {
+                  content: "Question 11"; 
+            	}
+            	
+            	.steps ul.step-22:before {
+                  content: ""; 
+            	}
+            	
+            	.actions{
+            		padding-right: 25px;
+            	}
+            	
+            	.actions ul {
+            	  display: flex;
+            	  margin-top: 30px;
+            	  justify-content: space-between; 
+            	}
+            	
+            	.actions ul.step-last {
+            		justify-content: flex-end; 
+            	}
+                
+            	.actions ul.step-last li:first-child {
+                  display: none; \
+            	}
+            	
+            	.actions li a {
+            		border-radius:25px;
+            		background-color: #f3866f!important;
+            		color: #fff;
+            		border-color: #f3866f!important;
+            		padding: 0;
+            		border: none;
+            		display: inline-flex;
+            		height: 37px;
+            		width: 121px;
+            		align-items: center;
+            		cursor: pointer;
+            		position: relative;
+            		padding-left: 41px;
+            		-webkit-transform: perspective(1px) translateZ(0);
+            		transform: perspective(1px) translateZ(0);
+            		-webkit-transition-duration: 0.3s;
+            		transition-duration: 0.3s;
+            		font-weight: 400; 
+            	}
+            	
+            	.actions li a:before {
+            		content: '\f2ee';
+            		position: absolute;
+            		top: 9px;
+            		right: 37px;
+            		font-family: Material-Design-Iconic-Font;
+            		-webkit-transform: translateZ(0);
+            		transform: translateZ(0); 
+            	}
+            	
+            	
+            	.actions li a:hover {
+            		background: #d9bda3; 
+            	}
+            	
+                .actions li a:hover:before {
+            		-webkit-animation-name: hvr-icon-wobble-horizontal;
+            		animation-name: hvr-icon-wobble-horizontal;
+            		-webkit-animation-duration: 1s;
+            		animation-duration: 1s;
+            		-webkit-animation-timing-function: ease-in-out;
+            		animation-timing-function: ease-in-out;
+            		-webkit-animation-iteration-count: 1;
+            		animation-iteration-count: 1; 
+            	}
+            	
+            	.actions li[aria-disabled="true"] a {
+            		display: inline-flex; 
+            	}
+            	
+            	.actions li:first-child a {
+            	  background: #e6e6e6;
+            	  padding-left: 48px; 
+            	}
+            	
+            	.actions li:first-child a:before {
+            		content: '\f2ea';
+            		left: 30px;
+            		top: 9px;
+            	}
+            	
+            	.actions li:first-child a:hover {
+            		background: #ccc; 
+            	}
+            	
+            	.actions li:last-child a {
+            		padding-left: 29px;
+            		width: 115px;
+            		font-weight: 400;
+            	}
+            	
+            	.actions li:last-child a:before {
+            		right: 30px; 
+            	}
+            	
+            	input[type="radio"]:focus{
+            		outline: unset !important;
+            		outline: 0px !important;
+            	}
+            	
+            	.btn-cb-custom {
+            		background-color: #f18773;
+            		border-color: #f18773;
+            		width: 50%;
+            		padding: 10px;
+            		padding-bottom: 10px;
+            		font-size: 17px;
+            		font-weight: 600;
+            		outline:unset;
+            		box-shadow: unset;
+            	}
+            	
+            	.btn-cb-custom:hover, .btn-cb-custom:active, .btn-cb-custom:focus{
+            		background-color:#f9634e;
+            		border-color: #f9634e;
+            		outline:unset;
+            		box-shadow: unset;
+            	}
+            	
+            	.img-clearblue{
+            		width:15%;
+            	}
+            	
+            
+            	@-webkit-keyframes hvr-icon-wobble-horizontal {
+            	  16.65% {
+            		-webkit-transform: translateX(6px);
+            		transform: translateX(6px); }
+            	  33.3% {
+            		-webkit-transform: translateX(-5px);
+            		transform: translateX(-5px); }
+            	  49.95% {
+            		-webkit-transform: translateX(4px);
+            		transform: translateX(4px); }
+            	  66.6% {
+            		-webkit-transform: translateX(-2px);
+            		transform: translateX(-2px); }
+            	  83.25% {
+            		-webkit-transform: translateX(1px);
+            		transform: translateX(1px); }
+            	  100% {
+            		-webkit-transform: translateX(0);
+            		transform: translateX(0); } 
+            	}
+            	
+            	@keyframes hvr-icon-wobble-horizontal {
+            	  16.65% {
+            		-webkit-transform: translateX(6px);
+            		transform: translateX(6px); }
+            	  33.3% {
+            		-webkit-transform: translateX(-5px);
+            		transform: translateX(-5px); }
+            	  49.95% {
+            		-webkit-transform: translateX(4px);
+            		transform: translateX(4px); }
+            	  66.6% {
+            		-webkit-transform: translateX(-2px);
+            		transform: translateX(-2px); }
+            	  83.25% {
+            		-webkit-transform: translateX(1px);
+            		transform: translateX(1px); }
+            	  100% {
+            		-webkit-transform: translateX(0);
+            		transform: translateX(0); } 
+            	}
+            	
+            	@media (max-width: 1500px) {
+            		.wrapper {
+            			height: auto; 
+            		} 
+            	}
+            	
+            	@media (max-width: 1199px) {
+            		.wrapper {
+            			height: 100vh; 
+            		}
+            
+            		#mamacubatry-wizard {
+            			min-height: 829px;
+            		} 
+            	}
+            	
+            	@media (max-width: 991px) {
+            		.wrapper {
+            			justify-content: center; 
+            		}
+            		.wrapper .image-holder {
+            		  display: none; 
+            		}
+            		  
+            		.wrapper form {
+            		  width: 60%; 
+            		}
+            
+            		#mamacubatry-wizard {
+            			margin-right: 0;
+            		} 
+            		
+            		.address-details {
+            		  padding-left:15px;
+            		}
+            		
+            		.motherhood-br{
+            			display:none;
+            		}
+            		
+            		.ballon-icon-tq{
+            			width:30%;
+            		}
+            	}
+            	
+            	@media (max-width: 767px) {
+            		.actions{
+            			padding-right: 15px;
+            		}
+            		
+            		.wrapper {
+            			height: auto;
+            			display: block; 
+            		}
+            		
+            		.wrapper .image-holder {
+            			width: 100%;
+            			display: block;
+            		}
+            		
+            		.wrapper form {
+            		  width: 100%; 
+            		}
+            
+            		#mamacubatry-wizard {
+            			min-height: unset;
+            		}
+            
+            		.form-row.form-group {
+            			display: block; 
+            		}
+            		
+            		.form-row.form-group .form-holder {
+            		  width: 100%;
+            		  margin-right: 0;
+            		  margin-bottom: 24px; 
+            		}
+            		
+            		.address-details {
+            		  padding-left:15px;
+            		}
+            		
+            		.motherhood-br{
+            			display:none;
+            		}
+            		
+            		.ballon-icon-tq{
+            			width:30%;
+            		}
+            		
+            		.card-map-malaysia{
+            			min-height: 185px;
+            			width: 100%;
+            		}
+            		
+            		.card-miscarrige{
+            			width: 100%;
+            		}
+            		
+            		.blockquote-map-malaysia{
+            			margin-top:0%;
+            		}
+            		
+            		.fact-of-the-day{
+            			font-size:15px;
+            		}
+            		
+            		.card-miscarrige{
+            			min-height: 336px;
+            			width: 100%;
+            		}
+            	
+            		.image-miscarriage{
+            			width:105px;
+            		}
+            		
+            		.btn-cb-custom{
+            			width: 100%;
+            		}
+            		
+            		.br-fact{
+            			display:none;
+            		}
+            		
+            		.row-custom{
+            			position:relative;
+            			right:12px;
+            		}
+            		
+            		.img-clearblue{
+            			width:34%;
+            		}
+            	}
+             /** end of css for form wizard **/
       -->
 </style>
 <p>
@@ -520,7 +520,12 @@
    <script src="../../../themes/default-bootstrap/dashboard-assets/amcharts4/dist/script/themes/animated.js"></script>
    <script src="../../../themes/default-bootstrap/dashboard-assets/fontawesome-v5.15.1/js/all.min.js"></script>
 </p>
-<div class="row" style="margin-top: 25px;">
+<div class="row">
+	<div class="col-md-12">
+		<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/July/Clearblue/homeslider.png" class="img-fluid" alt="clearbluelogo" />
+	</div>
+</div>
+<div class="row" id="question-div" style="padding-bottom:25px;">
    <div class="row">
       <div class="col-md-12" style="padding-right: 24px !important;"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/clearblue-white-logo.png" class="rounded float-end img-clearblue" alt="clearbluelogo" /></div>
    </div>
@@ -904,938 +909,936 @@
 <p>
    <script type="text/javascript">// <![CDATA[
       var emailvalidation = function(){
-      	var eventID  = 95;
-      	var email 	 = $('body').find('.input-email').val();
-      	$('.input-email').closest('.form-floating').find('.small-customer-info-msg').html('<i class="fas fa-spinner fa-spin"></i> Checking...');
-      	
-      	if(email != '' && email != undefined && email != null)
-      	{
-      		$.ajax({
-      			url		 : '../modules/enlineamixmod/enlineamixmod-checkcustemailevent-ajax.php', 
-      			data	 :{'checkemail': email, 'eventid': eventID, 'password' : ''},
-      			dataType :'json',
-      			method 	 : 'post',
-      			success	 : function(result){
-      				if(result.status_code == 'exist_customer_event')
-      				{
-      					Swal.fire({
-      						icon: 'info',
-      						title: 'Oops...',
-      						text: 'You have already joined this survey',
-      					})
-      					
-      					$('body').find('.btn-next-customer').hide('fast');
-      					$('.input-email').closest('.form-floating').find('.small-customer-info-msg').html('<i class="fas fa-info-circle"></i> You have already joined this survey');
-      				}
-      				else
-      				{
-      					$('.input-email').closest('.form-floating').find('.small-customer-info-msg').html('');
-      					$('body').find('.status-input-email').val(result.status);
-      					$('body').find('.status-code-email').val(result.status_code);
-      				}
-      			}
-      		});
-      	}
-      	else
-      	{
-      		$('.input-email').closest('.form-floating').find('.small-customer-info-msg').html('');
-      	}
-      }
-      
-      var validationCustomerInfo = function(){
-      	$('body').find('.customer-info-input').removeClass('is-valid');
-      	$('body').find('.customer-info-input').removeClass('is-invalid');
-      	$('body').find('.btn-next-customer').show('fast');
-      	
-      	var firstname = $('body').find('.input-firstname').val();
-      	var email     = $('body').find('.input-email').val();
-      	var mobileno  = $('body').find('.input-mobilenumber').val();
-      	var flagCheck = true; /* if true can proceed */
-      	
-      	if(firstname == '' || firstname == undefined || firstname == null)
-      	{
-      		var msg = 'Please insert full name';
-      		$('body').find('.input-firstname').addClass('is-invalid');
-      		$('.input-firstname').closest('.form-floating').find('.small-customer-info-msg').html(msg);
-      		flagCheck = false;
-      	}
-      	else
-      	{
-      		$('body').find('.input-firstname').removeClass('is-invalid');
-      		$('.input-firstname').closest('.form-floating').find('.small-customer-info-msg').html("");
-      	}
-      	
-      	if(email == '' || email == undefined || email == null)
-      	{
-      		var msg = 'Please insert email';
-      		$('body').find('.input-email').addClass('is-invalid');
-      		$('.input-email').closest('.form-floating').find('.small-customer-info-msg').html(msg);
-      		flagCheck = false;
-      	}
-      	else
-      	{
-      		emailvalidation();
-      		$('body').find('.input-email').removeClass('is-invalid');
-      		$('.input-email').closest('.form-floating').find('.small-customer-info-msg').html("");
-      	}
-      	
-      	if(mobileno == '' || mobileno == undefined || mobileno == null)
-      	{
-      		var msg = 'Please insert mobile no';
-      		$('body').find('.input-mobilenumber').addClass('is-invalid');
-      		$('.input-mobilenumber').closest('.form-floating').find('.small-customer-info-msg').html(msg);
-      		flagCheck = false;
-      	}
-      	else
-      	{
-      		var mobilenumber = mobileno.replace("-"," ");
-      		mobileno 		 = mobilenumber.trim();
-      		var prefix 		 = mobileno.substring(0,3);
-                 var firstNo 	 = mobileno.substring(0,1);
-                 var phoneLength  = mobileno.length;
-      		
-      		$('body').find('.input-mobilenumber').removeClass('is-invalid');
-      		$('.input-mobilenumber').closest('.form-floating').find('.small-customer-info-msg').html("");
-      		
-      		if(firstNo != 0 && firstNo != 5){
-                     msg = "Invalid phone number format. Correct format(XXXXXXXXXXX), e.g. 0123334444 / 0198887777.";
-      			$('body').find('.input-mobilenumber').addClass('is-invalid');
-      			$('.input-mobilenumber').closest('.form-floating').find('.small-customer-info-msg').html(msg);
-      			flagCheck = false;
-                 }
-      		else if(firstNo == '0'){
-      			var prefixArray = ["010", "011", "012", "013", "014", "015", "016", "017", "018", "019"];
-      			var checkPrefix = prefixArray.includes(prefix);
-      			if(checkPrefix){
-      				if(prefix == '011'){
-      					console.log("2");
-      					if(phoneLength < 10 || phoneLength > 11){
-      						msg = "Invalid phone number format. Correct format(XXXXXXXXXXX), e.g. 0123334444 / 0198887777.";
-      						$('body').find('.input-mobilenumber').addClass('is-invalid');
-      						$('.input-mobilenumber').closest('.form-floating').find('.small-customer-info-msg').html(msg);
-      						flagCheck = false;
-      					}
-      				}
-      				else{
-      					if(phoneLength < 10 || phoneLength > 10){
-      						console.log("3");
-      						msg = "Invalid phone number format. Correct format(XXXXXXXXXXX), e.g. 0123334444 / 0198887777.";
-      						$('body').find('.input-mobilenumber').addClass('is-invalid');
-      						$('.input-mobilenumber').closest('.form-floating').find('.small-customer-info-msg').html(msg);
-      						flagCheck = false;
-      					}
-      				}  
-      			}
-      			else
-      			{
-      				console.log("4");
-      				msg = "Invalid phone number prefix. Correct Prefix (010,011,012,013,014,015,016,017,018,019).";
-      				$('body').find('.input-mobilenumber').addClass('is-invalid');
-      				$('.input-mobilenumber').closest('.form-floating').find('.small-customer-info-msg').html(msg);
-      				flagCheck = false;
-      			}
-      		}
-      		else if(firstNo == '5'){
-      			if(phoneLength < 9 || phoneLength > 9){
-      				console.log("5");
-                         msg = "Invalid Singapore phone number format. Correct Format(5 XXXX XXXX), e.g. 5 66667777";
-      				$('body').find('.input-mobilenumber').addClass('is-invalid');
-      				$('.input-mobilenumber').closest('.form-floating').find('.small-customer-info-msg').html(msg);
-      				flagCheck = false;
-                     }
-      		}
-      	}
-      	
-      	if(flagCheck == false){
-      		$('.is-invalid').filter(":first").focus();
-      	}
-      	
-      	return flagCheck;
-      }
-      
-      var chartFeeling = function(){
-      	var colorLove  = "#ffffff";
-      	var colorCry   = "#ffffff";
-      	var colorSleep = "#ffffff";
-      	var colorHappy = "#ffffff";
-      	var question_1 = $('body').find('.subscriber_question1:checked').val();
-      	
-      	if(question_1 == 'love')
-      	{
-      		colorLove = "#1d9dd9";
-      	}
-      	else if(question_1 == 'crying')
-      	{
-      		colorCry = "#1d9dd9";
-      	}
-      	else if(question_1 == 'sleepy')
-      	{
-      		colorSleep = "#1d9dd9";
-      	}
-      	else if(question_1 == 'happy')
-      	{
-      		colorHappy = "#1d9dd9";
-      	}
-      	
-      	// Themes begin
-      	am4core.useTheme(am4themes_animated);
-      	// Themes end
-      
-      	// Create chart instance
-      	var chart = am4core.create("mmy-chartfeeling", am4charts.XYChart);
-      
-      	// Add data
-      	chart.data = [{
-      		"name": "inlove",
-      		"points": 55654,
-      		"color": colorLove,
-      		"bullet": "https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/in-love.png"
-      	}, {
-      		"name": "crying",
-      		"points": 36456,
-      		"color": colorCry,
-      		"bullet": "https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/sad.png"
-      	}, {
-      		"name": "sleepy",
-      		"points": 25724,
-      		"color": colorSleep,
-      		"bullet": "https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/sleepy.png"
-      	}, {
-      		"name": "happy",
-      		"points": 60654,
-      		"color": colorHappy,
-      		"bullet": "https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/happy.png"
-      	}];
-      
-      	// Create axes
-      	var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-      	categoryAxis.dataFields.category = "name";
-      	categoryAxis.renderer.grid.template.disabled = true;
-      	categoryAxis.renderer.minGridDistance = 30;
-      	categoryAxis.renderer.inside = false;
-      	categoryAxis.renderer.labels.template.fill = am4core.color("#fff");
-      	categoryAxis.renderer.labels.template.fontSize = 20;
-      	categoryAxis.renderer.baseGrid.disabled = true;
-      	
-      
-      	var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-      	valueAxis.renderer.grid.template.strokeDasharray = "4,4";
-      	valueAxis.renderer.labels.template.disabled = true;
-      	valueAxis.renderer.baseGrid.disabled = true;
-      	valueAxis.min = 0;
-      
-      	// Do not crop bullets
-      	chart.maskBullets = false;
-      
-      	// Remove padding
-      	chart.paddingBottom = 0;
-      
-      	// Create series
-      	var series = chart.series.push(new am4charts.ColumnSeries());
-      	series.dataFields.valueY = "points";
-      	series.dataFields.categoryX = "name";
-      	series.columns.template.propertyFields.fill = "color";
-      	series.columns.template.propertyFields.stroke = "color";
-      	series.columns.template.column.cornerRadiusTopLeft = 20;
-      	series.columns.template.column.cornerRadiusTopRight = 20;
-      	series.columns.template.width = am4core.percent(40);
-      	// series.columns.template.tooltipText = "{categoryX}: [bold]{valueY}[/b]";
-      
-      	// Add bullets
-      	var bullet = series.bullets.push(new am4charts.Bullet());
-      	var image = bullet.createChild(am4core.Image);
-      	image.horizontalCenter = "middle";
-      	image.verticalCenter = "bottom";
-      	image.dy = 20;
-      	image.y = am4core.percent(100);
-      	image.propertyFields.href = "bullet";
-      	image.tooltipText = series.columns.template.tooltipText;
-      	image.propertyFields.fill = "color";
-      	image.filters.push(new am4core.DropShadowFilter());
-      
-      }
-      
-      var chartBestProductive = function(){
-      	// Themes begin
-      	am4core.useTheme(am4themes_animated);
-      	// Themes end
-      
-      	// create chart
-      	var chart = am4core.create("mmy-chartproductiveperiod", am4charts.GaugeChart);
-      	chart.hiddenState.properties.opacity = 0; // this makes initial fade in effect
-      
-      	chart.innerRadius = -25;
-      
-      	var axis = chart.xAxes.push(new am4charts.ValueAxis());
-      	axis.min = 0;
-      	axis.max = 100;
-      	axis.strictMinMax = true;
-      	axis.renderer.grid.template.stroke = new am4core.InterfaceColorSet().getFor("background");
-      	axis.renderer.labels.template.fill = am4core.color("#ffffff");
-      	axis.renderer.grid.template.strokeOpacity = 0.3;
-      
-      	var colorSet = new am4core.ColorSet();
-      	console.log(colorSet);
-      	var range0 = axis.axisRanges.create();
-      	range0.value = 0;
-      	range0.endValue = 50;
-      	range0.axisFill.fillOpacity = 1;
-      	range0.axisFill.fill = colorSet.getIndex(0);
-      	range0.axisFill.zIndex = - 1;
-      
-      	var range1 = axis.axisRanges.create();
-      	range1.value = 50;
-      	range1.endValue = 80;
-      	range1.axisFill.fillOpacity = 1;
-      	range1.axisFill.fill = colorSet.getIndex(2);
-      	range1.axisFill.zIndex = -1;
-      
-      	var range2 = axis.axisRanges.create();
-      	range2.value = 80;
-      	range2.endValue = 100;
-      	range2.axisFill.fillOpacity = 1;
-      	range2.axisFill.fill = colorSet.getIndex(4);
-      	range2.axisFill.zIndex = -1;
-      
-      	var hand = chart.hands.push(new am4charts.ClockHand());
-      	hand.fill = am4core.color("#f9634e");
-      	hand.stroke = am4core.color("#f9634e");
-      	hand.radius = am4core.percent(85);
-      
-      	// using chart.setTimeout method as the timeout will be disposed together with a chart
-      	chart.setTimeout(randomValue, 2000);
-      	
-      	function randomValue() {
-      		var max 		= 30;
-      		var min  		= 20
-      		var randomAge   = Math.floor(Math.random() * (max - min + 1) + min);
-      		hand.showValue(randomAge, 1000, am4core.ease.cubicOut);
-      		chart.setTimeout(randomValue, 2000);
-      	}
-      }
-      
-      var chartPrepregnancy = function(){
-      	// Themes begin
-      	am4core.useTheme(am4themes_animated);
-      	// Themes end
-      
-      	var chart = am4core.create("mmy-chartprepregnancy", am4charts.XYChart);
-      	chart.padding(10, 10, 10, 10);
-      	chart.responsive.enabled = true;
-      	
-      	chart.data = [
-      	  {
-      		category: "Loving & supportive",
-      		quantity: 725
-      	  },
-      	  {
-      		category: "Being judgemental",
-      		quantity: 625
-      	  },  
-      	  {
-      		category: "Asking too many questions",
-      		quantity: 602
-      	  },
-      	  {
-      		category: "Having too many opinions",
-      		quantity: 509
-      	  }
-      	  ,{
-      		category: "Feeling sorry for me",
-      		quantity: 409
-      	  }
-      	];
-      	
-      	var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-      	categoryAxis.renderer.grid.template.location = 0;
-      	categoryAxis.dataFields.category = "category";
-      	categoryAxis.renderer.minGridDistance = 40;
-      	categoryAxis.fontSize = 13;
-      	categoryAxis.renderer.labels.template.dy = 5;
-      
-      	var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-      	valueAxis.min = 0;
-      	valueAxis.max = 1000;
-      	valueAxis.strictMinMax = true; 
-      	valueAxis.renderer.baseGrid.disabled = false;
-      	valueAxis.renderer.grid.template.disabled = true
-      
-      
-      	var series = chart.series.push(new am4charts.ColumnSeries());
-      	series.dataFields.categoryX = "category";
-      	series.dataFields.valueY = "quantity";
-      	series.columns.template.tooltipText = "{valueY.value}";
-      	series.columns.template.tooltipY = 0;
-      	series.columns.template.column.cornerRadiusTopLeft = 5;
-      	series.columns.template.column.cornerRadiusTopRight = 5;
-      	series.columns.template.strokeOpacity = 0;
-      	series.columns.template.width = am4core.percent(20);
-      	
-      	
-      	// as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
-      	series.columns.template.adapter.add("fill", function(fill, target){
-      	  return chart.colors.getIndex(target.dataItem.index);
-      	});
-      	
-      	var legend = new am4charts.Legend();
-      	legend.parent = chart.chartContainer;
-      	legend.itemContainers.template.togglable = false;
-      	legend.marginTop = 20;
-      	
-      	series.events.on("ready", function(ev) {
-      		var legenddata = [];
-      		series.columns.each(function(column) {
-      			
-      			legenddata.push({
-      				name: column.dataItem.categoryX + " : " + column.dataItem.valueY,
-      				fill: column.fill,
-      				columnDataItem: column.dataItem,
-      			})
-      		});
-      	  legend.data = legenddata;
-      	});
-      	
-      	/*  legend items toggle related columns as well as show tooltip on a column when rolled over a legend item. */
-      	legend.itemContainers.template.events.on("hit", function(ev) {
-      	  //console.log("Clicked on ", ev.target.dataItem.className);
-      		console.log(ev.target);
-      		if (!ev.target.isActive) {
-      			ev.target.isActive = true;
-      			ev.target.dataItem.dataContext.columnDataItem.hide();
-      		}
-      		else {
-      			ev.target.isActive = false;
-      			ev.target.dataItem.dataContext.columnDataItem.show();
-      		}
-      	});
-      
-      	legend.itemContainers.template.events.on("over", function(ev) {
-      		ev.target.dataItem.dataContext.columnDataItem.column.isHover = true;
-      		ev.target.dataItem.dataContext.columnDataItem.column.showTooltip();
-      	});
-      
-      	legend.itemContainers.template.events.on("out", function(ev) {
-      		ev.target.dataItem.dataContext.columnDataItem.column.isHover = false;
-      		ev.target.dataItem.dataContext.columnDataItem.column.hideTooltip();
-      	});
-      	
-      	legend.labels.template.fill = am4core.color("#ffffff");
-      	chart.responsive.rules.push({
-      	  relevant: function(target) {
-      		if (target.pixelWidth <= 400) {
-      			categoryAxis.renderer.labels.template.disabled  = true;
-      			valueAxis.renderer.labels.template.disabled = true;
-      			chart.padding(20, 20, 20, 20);
-      			return true;
-      		}
-      		return false;
-      	  },
-      	  state: function(target, stateId) {
-      		return;
-      	  }
-      	});
-      }
-      
-      
-      var chartShareEmotion = function(){
-      	
-      	// Themes begin
-      	am4core.useTheme(am4themes_animated);
-      	// Themes end
-      
-      	var chart = am4core.create("mmy-chartshareemotion", am4charts.XYChart);
-      	chart.padding(10, 10, 10, 10);
-      	chart.responsive.enabled = true;
-      	
-      	chart.data = [
-      	  {
-      		category: "Exchanging my experience with other mums",
-      		quantity: 725
-      	  },
-      	  {
-      		category: "Taking a break from baby-making",
-      		quantity: 625
-      	  },  
-      	  {
-      		category: "Not letting my period get me down",
-      		quantity: 602
-      	  },
-      	  {
-      		category: "Practising relaxation techniques",
-      		quantity: 509
-      	  }
-      	  ,{
-      		category: "Feeling sorry for me",
-      		quantity: 409
-      	  }
-      	];
-      	
-      	var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-      	categoryAxis.renderer.grid.template.location = 0;
-      	categoryAxis.dataFields.category = "category";
-      	categoryAxis.renderer.minGridDistance = 40;
-      	categoryAxis.fontSize = 13;
-      	categoryAxis.renderer.labels.template.dy = 5;
-      
-      	var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-      	valueAxis.min = 0;
-      	valueAxis.max = 1000;
-      	valueAxis.strictMinMax = true; 
-      	valueAxis.renderer.baseGrid.disabled = false;
-      	valueAxis.renderer.grid.template.disabled = true
-      
-      
-      	var series = chart.series.push(new am4charts.ColumnSeries());
-      	series.dataFields.categoryX = "category";
-      	series.dataFields.valueY = "quantity";
-      	series.columns.template.tooltipText = "{valueY.value}";
-      	series.columns.template.tooltipY = 0;
-      	series.columns.template.column.cornerRadiusTopLeft = 5;
-      	series.columns.template.column.cornerRadiusTopRight = 5;
-      	series.columns.template.strokeOpacity = 0;
-      	series.columns.template.width = am4core.percent(20);
-      	
-      	var label = categoryAxis.renderer.labels.template;
-      	label.wrap = true;
-      	label.maxWidth = 150;
-      	
-      	
-      	// as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
-      	series.columns.template.adapter.add("fill", function(fill, target){
-      	  return chart.colors.getIndex(target.dataItem.index);
-      	});
-      	
-      	var legend = new am4charts.Legend();
-      	legend.parent = chart.chartContainer;
-      	legend.itemContainers.template.togglable = false;
-      	legend.marginTop = 20;
-      	
-      	series.events.on("ready", function(ev) {
-      		var legenddata = [];
-      		series.columns.each(function(column) {
-      			
-      			legenddata.push({
-      				name: column.dataItem.categoryX + " : " + column.dataItem.valueY,
-      				fill: column.fill,
-      				columnDataItem: column.dataItem,
-      			})
-      		});
-      	  legend.data = legenddata;
-      	});
-      	
-      	/*  legend items toggle related columns as well as show tooltip on a column when rolled over a legend item. */
-      	legend.itemContainers.template.events.on("hit", function(ev) {
-      	  //console.log("Clicked on ", ev.target.dataItem.className);
-      		console.log(ev.target);
-      		if (!ev.target.isActive) {
-      			ev.target.isActive = true;
-      			ev.target.dataItem.dataContext.columnDataItem.hide();
-      		}
-      		else {
-      			ev.target.isActive = false;
-      			ev.target.dataItem.dataContext.columnDataItem.show();
-      		}
-      	});
-      
-      	legend.itemContainers.template.events.on("over", function(ev) {
-      		ev.target.dataItem.dataContext.columnDataItem.column.isHover = true;
-      		ev.target.dataItem.dataContext.columnDataItem.column.showTooltip();
-      	});
-      
-      	legend.itemContainers.template.events.on("out", function(ev) {
-      		ev.target.dataItem.dataContext.columnDataItem.column.isHover = false;
-      		ev.target.dataItem.dataContext.columnDataItem.column.hideTooltip();
-      	});
-      	
-      	legend.labels.template.fill = am4core.color("#ffffff");
-      	chart.responsive.rules.push({
-      	  relevant: function(target) {
-      		if (target.pixelWidth <= 400) {
-      			categoryAxis.renderer.labels.template.disabled  = true;
-      			valueAxis.renderer.labels.template.disabled = true;
-      			chart.padding(20, 20, 20, 20);
-      			return true;
-      		}
-      		return false;
-      	  },
-      	  state: function(target, stateId) {
-      		return;
-      	  }
-      	});
-      	legend.labels.template.truncate = false;
-      	legend.labels.template.wrap = true;
-      }
-      
-      // var testAjx = function(){
-      	// $.ajax({
-      		// url		 : '../modules/enlineamixmod/graph_amchart/enlineamixmod-graph-process.php', 
-      		// data	 :{'test':'test1'},
-      		// dataType :'html',
-      		// method 	 : 'post',
-      		// success	 : function(result){
-      			// $('body').find('#first_graph').html(result);
-      		// }
-      	// });
-      	
-      // }
-      
-      var alertError = function(){
-      	Swal.fire({
-      		icon: 'error',
-      		title: 'Oops...',
-      		text: 'Please select one of these options before proceed',
-      	})
-      }
-      
-      var checkHighlight = function(){
-      	$('body').find('.checkHighlight').val("false");
-      }
-      
-      $(function(){
-      	$(window).load(function() {
-      	  $.uniform.restore(".noUniform");
-      	});
-      	
-      	$('body').find("#clearbluewizzard").steps({
-      			headerTag			  : "h4",
-      			bodyTag				  : "section",
-      			transitionEffect	  : "fade",
-      			enableAllSteps		  : true,
-      			enableKeyNavigation   : true,
-      			transitionEffectSpeed : 500,
-      			onInit 				  : function (event, currentIndex) { 
-      				console.log("oninit currentIndex" + currentIndex);
-      				$('body').find('.actions .disabled a').attr('href', '#cancel');
-      			},
-      			onCanceled 			  : function (event) { 
-      				$('body').find('.survey-row').hide('fast');
-      				$('body').find('.customer-info').show('fast');
-      			},
-      			onStepChanging		  : function (event, currentIndex, newIndex) { 
-      				$('body').find('.checkHighlight').val("");
-      				
-      				console.log("currentIndex = " + currentIndex + " newIndex = " + newIndex);
-      				if(newIndex > 0)
-      				{
-      					$('body').find('.title-survey').html('');
-      				}
-      				else
-      				{
-      					$('body').find('.title-survey').html('Welcome to Clearblue Survey');
-      				}
-      				
-      				if(currentIndex === 0)
-      				{
-      					var question_1 = $('body').find('.subscriber_question1:checked').val();
-      					if((question_1 == '' || question_1 == undefined || question_1 == null) && (newIndex > currentIndex))
-      					{
-      						alertError();
-      						checkHighlight();
-      						return false;
-      					}
-      				}
-      				
-      				if(currentIndex === 2)
-      				{
-      					
-      					var question_2 = $('body').find('.subscriber_question2:checked').val();
-      					if((question_2 == '' || question_2 == undefined || question_2 == null) && (newIndex > currentIndex))
-      					{
-      						alertError();
-      						checkHighlight();
-      						return false;
-      					}
-      				}
-      				
-      				if(currentIndex === 4)
-      				{
-      					var question_3 = $('body').find('.subscriber_question3:checked').val();
-      					if((question_3 == '' || question_3 == undefined || question_3 == null) && (newIndex > currentIndex))
-      					{
-      						alertError();
-      						checkHighlight();
-      						return false;
-      					}
-      				}
-      				
-      				if(currentIndex === 6)
-      				{
-      					var question_4 = $('body').find('.subscriber_question4:checked').val();
-      					if((question_4 == '' || question_4 == undefined || question_4 == null) && (newIndex > currentIndex))
-      					{
-      						alertError();
-      						checkHighlight();
-      						return false;
-      					}
-      				}
-      				
-      				if(currentIndex === 8)
-      				{
-      					var question_5 = $('body').find('.subscriber_question5:checked').val();
-      					if((question_5 == '' || question_5 == undefined || question_5 == null) && (newIndex > currentIndex))
-      					{
-      						alertError();
-      						checkHighlight();
-      						return false;
-      					}
-      				}
-      				
-      				if(currentIndex === 10)
-      				{
-      					var question_6 = $('body').find('.subscriber_question6:checked').val();
-      					if((question_6 == '' || question_6 == undefined || question_6 == null) && (newIndex > currentIndex))
-      					{
-      						alertError();
-      						checkHighlight();
-      						return false;
-      					}
-      				}
-      				
-      				if(currentIndex === 12)
-      				{
-      					var question_7 = $('body').find('.subscriber_question7:checked').val();
-      					if((question_7 == '' || question_7 == undefined || question_7 == null) && (newIndex > currentIndex))
-      					{
-      						alertError();
-      						checkHighlight();
-      						return false;
-      					}
-      				}
-      				
-      				if(currentIndex === 14)
-      				{
-      					var question_8 = $('body').find('.subscriber_question8:checked').val();
-      					if((question_8 == '' || question_8 == undefined || question_8 == null) && (newIndex > currentIndex))
-      					{
-      						alertError();
-      						checkHighlight();
-      						return false;
-      					}
-      				}
-      				
-      				if(currentIndex === 16)
-      				{
-      					var question_9 = $('body').find('.subscriber_question9:checked').val();
-      					if((question_9 == '' || question_9 == undefined || question_9 == null) && (newIndex > currentIndex))
-      					{
-      						alertError();
-      						checkHighlight();
-      						return false;
-      					}
-      				}
-      				
-      				if(currentIndex === 18)
-      				{
-      					var question_10 = $('body').find('.subscriber_question10:checked').val();
-      					if((question_10 == '' || question_10 == undefined || question_10 == null) && (newIndex > currentIndex))
-      					{
-      						alertError();
-      						checkHighlight();
-      						return false;
-      					}
-      				}
-      				
-      				if(currentIndex === 20)
-      				{
-      					var question_11 = $('body').find('.subscriber_question11:checked').val();
-      					if((question_11 == '' || question_11 == undefined || question_11 == null) && (newIndex > currentIndex))
-      					{
-      						alertError();
-      						checkHighlight();
-      						return false;
-      					}
-      					
-      					var question_12 = $('body').find('.subscriber_question12:checked').val();
-      					if((question_12 == '' || question_12 == undefined || question_12 == null) && (newIndex > currentIndex))
-      					{
-      						alertError();
-      						checkHighlight();
-      						return false;
-      					}
-      				}
-      				
-      				if (newIndex === 1) {
-      					$('.steps ul').addClass('step-2');
-      					chartFeeling();
-      				} 
-      				else {
-      					$('.steps ul').removeClass('step-2');
-      				}
-      					
-      				if ( newIndex === 2 ) {
-      					$('.steps ul').addClass('step-3');
-      				} else {
-      					$('.steps ul').removeClass('step-3');
-      				} 
-      				
-      				if ( newIndex === 3 ) {
-      					$('.steps ul').addClass('step-4');
-      				} else {
-      					$('.steps ul').removeClass('step-4');
-      				}
-      
-      				if ( newIndex === 4) {
-      					$('.steps ul').addClass('step-5');
-      				} else {
-      					$('.steps ul').removeClass('step-5');
-      				}
-      				
-      				if ( newIndex === 5) {
-      					$('.steps ul').addClass('step-6');
-      				} else {
-      					$('.steps ul').removeClass('step-6');
-      				}
-      				
-      				if ( newIndex === 6) {
-      					$('.steps ul').addClass('step-7');
-      				} else {
-      					$('.steps ul').removeClass('step-7');
-      				}
-      				
-      				if ( newIndex === 7) {
-      					$('.steps ul').addClass('step-8');
-      					chartPrepregnancy()
-      				} else {
-      					$('.steps ul').removeClass('step-8');
-      				}
-      				
-      				if ( newIndex === 8) {
-      					$('.steps ul').addClass('step-9');
-      				} else {
-      					$('.steps ul').removeClass('step-9');
-      				}
-      				
-      				if ( newIndex === 9) {
-      					$('.steps ul').addClass('step-10');
-      					chartShareEmotion();
-      				} else {
-      					$('.steps ul').removeClass('step-10');
-      				}
-      				
-      				if ( newIndex === 10) {
-      					$('.steps ul').addClass('step-11');
-      				} else {
-      					$('.steps ul').removeClass('step-11');
-      				}
-      				
-      				if ( newIndex === 11) {
-      					$('.steps ul').addClass('step-12');
-      				} else {
-      					$('.steps ul').removeClass('step-12');
-      				}
-      				
-      				if ( newIndex === 12) {
-      					$('.steps ul').addClass('step-13');
-      				} else {
-      					$('.steps ul').removeClass('step-13');
-      				}
-      				
-      				if ( newIndex === 13) {
-      					$('.steps ul').addClass('step-14');
-      				} else {
-      					$('.steps ul').removeClass('step-14');
-      				}
-      				
-      				if ( newIndex === 14) {
-      					$('.steps ul').addClass('step-15');
-      				} else {
-      					$('.steps ul').removeClass('step-15');
-      				}
-      				
-      				if ( newIndex === 15) {
-      					$('.steps ul').addClass('step-16');
-      				} else {
-      					$('.steps ul').removeClass('step-16');
-      				}
-      				
-      				if ( newIndex === 16) {
-      					$('.steps ul').addClass('step-17');
-      				} else {
-      					$('.steps ul').removeClass('step-17');
-      				}
-      				
-      				if ( newIndex === 17) {
-      					$('.steps ul').addClass('step-18');
-      				} else {
-      					$('.steps ul').removeClass('step-18');
-      				}
-      				
-      				if ( newIndex === 18) {
-      					$('.steps ul').addClass('step-19');
-      				} else {
-      					$('.steps ul').removeClass('step-19');
-      				}
-      				
-      				if ( newIndex === 19) {
-      					$('.steps ul').addClass('step-20');
-      				} else {
-      					$('.steps ul').removeClass('step-20');
-      				}
-      				
-      				if ( newIndex === 20) {
-      					$('.steps ul').addClass('step-21');
-      				} else {
-      					$('.steps ul').removeClass('step-21');
-      				}
-      				
-      				return true; 
-      				
-      			},
-      			onStepChanged :function (event, currentIndex, priorIndex) { 
-      				if(currentIndex === 0){
-      					$('body').find('.actions .disabled a').attr('href', '#cancel');
-      				}
-      				else{
-      					$('body').find('.actions a[href="#cancel"]').attr('href', '#previous');
-      				}
-      					
-      			},
-      			onFinished  : function(){
-      				$('body').find('#dummy-btn-to-submit').trigger('click');
-      			},
-      			labels: {
-      				finish: "Submit",
-      				next: "Next",
-      				previous: "Back",
-      				cancel: "Cancel",
-      				loading: "Loading ..."
-      			}
-      		});
-      		
-      		// Custom Steps Jquery Steps
-      		$('.wizard > .steps li a').click(function(){
-      			var stepHighlight = $('body').find('.checkHighlight').val();
-      			
-      			if(stepHighlight != "false")
-      			{
-      				$(this).parent().addClass('checked');
-      			}
-      			
-      			$(this).parent().prevAll().addClass('checked');
-      			$(this).parent().nextAll().removeClass('checked');
-      		});
-      		
-      		$('body').on('click', '.btn-next-customer', function(){
-      			var res = validationCustomerInfo();
-      			if(res == true){
-      				$('body').find('.survey-row').show('fast');
-      				$('body').find('.customer-info').hide('fast');
-      			}
-      		});
-      		
-      		$('body').on('blur', '.input-email', function(){
-      			validationCustomerInfo();
-      		});
-      		
-      		
-      	// testAjx();
-      	chartBestProductive();	
-      	emailvalidation();
-      });
-      
-      
-      
-      
+            	var eventID  = 95;
+            	var email 	 = $('body').find('.input-email').val();
+            	$('.input-email').closest('.form-floating').find('.small-customer-info-msg').html('<i class="fas fa-spinner fa-spin"></i> Checking...');
+            	
+            	if(email != '' && email != undefined && email != null)
+            	{
+            		$.ajax({
+            			url		 : '../modules/enlineamixmod/enlineamixmod-checkcustemailevent-ajax.php', 
+            			data	 :{'checkemail': email, 'eventid': eventID, 'password' : ''},
+            			dataType :'json',
+            			method 	 : 'post',
+            			success	 : function(result){
+            				if(result.status_code == 'exist_customer_event')
+            				{
+            					Swal.fire({
+            						icon: 'info',
+            						title: 'Oops...',
+            						text: 'You have already joined this survey',
+            					})
+            					
+            					$('body').find('.btn-next-customer').hide('fast');
+            					$('.input-email').closest('.form-floating').find('.small-customer-info-msg').html('<i class="fas fa-info-circle"></i> You have already joined this survey');
+            				}
+            				else
+            				{
+            					$('.input-email').closest('.form-floating').find('.small-customer-info-msg').html('');
+            					$('body').find('.status-input-email').val(result.status);
+            					$('body').find('.status-code-email').val(result.status_code);
+            				}
+            			}
+            		});
+            	}
+            	else
+            	{
+            		$('.input-email').closest('.form-floating').find('.small-customer-info-msg').html('');
+            	}
+            }
+            
+            var validationCustomerInfo = function(){
+            	$('body').find('.customer-info-input').removeClass('is-valid');
+            	$('body').find('.customer-info-input').removeClass('is-invalid');
+            	$('body').find('.btn-next-customer').show('fast');
+            	
+            	var firstname = $('body').find('.input-firstname').val();
+            	var email     = $('body').find('.input-email').val();
+            	var mobileno  = $('body').find('.input-mobilenumber').val();
+            	var flagCheck = true; /* if true can proceed */
+            	
+            	if(firstname == '' || firstname == undefined || firstname == null)
+            	{
+            		var msg = 'Please insert full name';
+            		$('body').find('.input-firstname').addClass('is-invalid');
+            		$('.input-firstname').closest('.form-floating').find('.small-customer-info-msg').html(msg);
+            		flagCheck = false;
+            	}
+            	else
+            	{
+            		$('body').find('.input-firstname').removeClass('is-invalid');
+            		$('.input-firstname').closest('.form-floating').find('.small-customer-info-msg').html("");
+            	}
+            	
+            	if(email == '' || email == undefined || email == null)
+            	{
+            		var msg = 'Please insert email';
+            		$('body').find('.input-email').addClass('is-invalid');
+            		$('.input-email').closest('.form-floating').find('.small-customer-info-msg').html(msg);
+            		flagCheck = false;
+            	}
+            	else
+            	{
+            		emailvalidation();
+            		$('body').find('.input-email').removeClass('is-invalid');
+            		$('.input-email').closest('.form-floating').find('.small-customer-info-msg').html("");
+            	}
+            	
+            	if(mobileno == '' || mobileno == undefined || mobileno == null)
+            	{
+            		var msg = 'Please insert mobile no';
+            		$('body').find('.input-mobilenumber').addClass('is-invalid');
+            		$('.input-mobilenumber').closest('.form-floating').find('.small-customer-info-msg').html(msg);
+            		flagCheck = false;
+            	}
+            	else
+            	{
+            		var mobilenumber = mobileno.replace("-"," ");
+            		mobileno 		 = mobilenumber.trim();
+            		var prefix 		 = mobileno.substring(0,3);
+                       var firstNo 	 = mobileno.substring(0,1);
+                       var phoneLength  = mobileno.length;
+            		
+            		$('body').find('.input-mobilenumber').removeClass('is-invalid');
+            		$('.input-mobilenumber').closest('.form-floating').find('.small-customer-info-msg').html("");
+            		
+            		if(firstNo != 0 && firstNo != 5){
+                           msg = "Invalid phone number format. Correct format(XXXXXXXXXXX), e.g. 0123334444 / 0198887777.";
+            			$('body').find('.input-mobilenumber').addClass('is-invalid');
+            			$('.input-mobilenumber').closest('.form-floating').find('.small-customer-info-msg').html(msg);
+            			flagCheck = false;
+                       }
+            		else if(firstNo == '0'){
+            			var prefixArray = ["010", "011", "012", "013", "014", "015", "016", "017", "018", "019"];
+            			var checkPrefix = prefixArray.includes(prefix);
+            			if(checkPrefix){
+            				if(prefix == '011'){
+            					console.log("2");
+            					if(phoneLength < 10 || phoneLength > 11){
+            						msg = "Invalid phone number format. Correct format(XXXXXXXXXXX), e.g. 0123334444 / 0198887777.";
+            						$('body').find('.input-mobilenumber').addClass('is-invalid');
+            						$('.input-mobilenumber').closest('.form-floating').find('.small-customer-info-msg').html(msg);
+            						flagCheck = false;
+            					}
+            				}
+            				else{
+            					if(phoneLength < 10 || phoneLength > 10){
+            						console.log("3");
+            						msg = "Invalid phone number format. Correct format(XXXXXXXXXXX), e.g. 0123334444 / 0198887777.";
+            						$('body').find('.input-mobilenumber').addClass('is-invalid');
+            						$('.input-mobilenumber').closest('.form-floating').find('.small-customer-info-msg').html(msg);
+            						flagCheck = false;
+            					}
+            				}  
+            			}
+            			else
+            			{
+            				console.log("4");
+            				msg = "Invalid phone number prefix. Correct Prefix (010,011,012,013,014,015,016,017,018,019).";
+            				$('body').find('.input-mobilenumber').addClass('is-invalid');
+            				$('.input-mobilenumber').closest('.form-floating').find('.small-customer-info-msg').html(msg);
+            				flagCheck = false;
+            			}
+            		}
+            		else if(firstNo == '5'){
+            			if(phoneLength < 9 || phoneLength > 9){
+            				console.log("5");
+                               msg = "Invalid Singapore phone number format. Correct Format(5 XXXX XXXX), e.g. 5 66667777";
+            				$('body').find('.input-mobilenumber').addClass('is-invalid');
+            				$('.input-mobilenumber').closest('.form-floating').find('.small-customer-info-msg').html(msg);
+            				flagCheck = false;
+                           }
+            		}
+            	}
+            	
+            	if(flagCheck == false){
+            		$('.is-invalid').filter(":first").focus();
+            	}
+            	
+            	return flagCheck;
+            }
+            
+            var chartFeeling = function(){
+            	var colorLove  = "#ffffff";
+            	var colorCry   = "#ffffff";
+            	var colorSleep = "#ffffff";
+            	var colorHappy = "#ffffff";
+            	var question_1 = $('body').find('.subscriber_question1:checked').val();
+            	
+            	if(question_1 == 'love')
+            	{
+            		colorLove = "#1d9dd9";
+            	}
+            	else if(question_1 == 'crying')
+            	{
+            		colorCry = "#1d9dd9";
+            	}
+            	else if(question_1 == 'sleepy')
+            	{
+            		colorSleep = "#1d9dd9";
+            	}
+            	else if(question_1 == 'happy')
+            	{
+            		colorHappy = "#1d9dd9";
+            	}
+            	
+            	// Themes begin
+            	am4core.useTheme(am4themes_animated);
+            	// Themes end
+            
+            	// Create chart instance
+            	var chart = am4core.create("mmy-chartfeeling", am4charts.XYChart);
+            
+            	// Add data
+            	chart.data = [{
+            		"name": "inlove",
+            		"points": 55654,
+            		"color": colorLove,
+            		"bullet": "https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/in-love.png"
+            	}, {
+            		"name": "crying",
+            		"points": 36456,
+            		"color": colorCry,
+            		"bullet": "https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/sad.png"
+            	}, {
+            		"name": "sleepy",
+            		"points": 25724,
+            		"color": colorSleep,
+            		"bullet": "https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/sleepy.png"
+            	}, {
+            		"name": "happy",
+            		"points": 60654,
+            		"color": colorHappy,
+            		"bullet": "https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/happy.png"
+            	}];
+            
+            	// Create axes
+            	var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+            	categoryAxis.dataFields.category = "name";
+            	categoryAxis.renderer.grid.template.disabled = true;
+            	categoryAxis.renderer.minGridDistance = 30;
+            	categoryAxis.renderer.inside = false;
+            	categoryAxis.renderer.labels.template.fill = am4core.color("#fff");
+            	categoryAxis.renderer.labels.template.fontSize = 20;
+            	categoryAxis.renderer.baseGrid.disabled = true;
+            	
+            
+            	var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+            	valueAxis.renderer.grid.template.strokeDasharray = "4,4";
+            	valueAxis.renderer.labels.template.disabled = true;
+            	valueAxis.renderer.baseGrid.disabled = true;
+            	valueAxis.min = 0;
+            
+            	// Do not crop bullets
+            	chart.maskBullets = false;
+            
+            	// Remove padding
+            	chart.paddingBottom = 0;
+            
+            	// Create series
+            	var series = chart.series.push(new am4charts.ColumnSeries());
+            	series.dataFields.valueY = "points";
+            	series.dataFields.categoryX = "name";
+            	series.columns.template.propertyFields.fill = "color";
+            	series.columns.template.propertyFields.stroke = "color";
+            	series.columns.template.column.cornerRadiusTopLeft = 20;
+            	series.columns.template.column.cornerRadiusTopRight = 20;
+            	series.columns.template.width = am4core.percent(40);
+            	// series.columns.template.tooltipText = "{categoryX}: [bold]{valueY}[/b]";
+            
+            	// Add bullets
+            	var bullet = series.bullets.push(new am4charts.Bullet());
+            	var image = bullet.createChild(am4core.Image);
+            	image.horizontalCenter = "middle";
+            	image.verticalCenter = "bottom";
+            	image.dy = 20;
+            	image.y = am4core.percent(100);
+            	image.propertyFields.href = "bullet";
+            	image.tooltipText = series.columns.template.tooltipText;
+            	image.propertyFields.fill = "color";
+            	image.filters.push(new am4core.DropShadowFilter());
+            
+            }
+            
+            var chartBestProductive = function(){
+            	// Themes begin
+            	am4core.useTheme(am4themes_animated);
+            	// Themes end
+            
+            	// create chart
+            	var chart = am4core.create("mmy-chartproductiveperiod", am4charts.GaugeChart);
+            	chart.hiddenState.properties.opacity = 0; // this makes initial fade in effect
+            
+            	chart.innerRadius = -25;
+            
+            	var axis = chart.xAxes.push(new am4charts.ValueAxis());
+            	axis.min = 0;
+            	axis.max = 100;
+            	axis.strictMinMax = true;
+            	axis.renderer.grid.template.stroke = new am4core.InterfaceColorSet().getFor("background");
+            	axis.renderer.labels.template.fill = am4core.color("#ffffff");
+            	axis.renderer.grid.template.strokeOpacity = 0.3;
+            
+            	var colorSet = new am4core.ColorSet();
+            	console.log(colorSet);
+            	var range0 = axis.axisRanges.create();
+            	range0.value = 0;
+            	range0.endValue = 50;
+            	range0.axisFill.fillOpacity = 1;
+            	range0.axisFill.fill = colorSet.getIndex(0);
+            	range0.axisFill.zIndex = - 1;
+            
+            	var range1 = axis.axisRanges.create();
+            	range1.value = 50;
+            	range1.endValue = 80;
+            	range1.axisFill.fillOpacity = 1;
+            	range1.axisFill.fill = colorSet.getIndex(2);
+            	range1.axisFill.zIndex = -1;
+            
+            	var range2 = axis.axisRanges.create();
+            	range2.value = 80;
+            	range2.endValue = 100;
+            	range2.axisFill.fillOpacity = 1;
+            	range2.axisFill.fill = colorSet.getIndex(4);
+            	range2.axisFill.zIndex = -1;
+            
+            	var hand = chart.hands.push(new am4charts.ClockHand());
+            	hand.fill = am4core.color("#f9634e");
+            	hand.stroke = am4core.color("#f9634e");
+            	hand.radius = am4core.percent(85);
+            
+            	// using chart.setTimeout method as the timeout will be disposed together with a chart
+            	chart.setTimeout(randomValue, 2000);
+            	
+            	function randomValue() {
+            		var max 		= 30;
+            		var min  		= 20
+            		var randomAge   = Math.floor(Math.random() * (max - min + 1) + min);
+            		hand.showValue(randomAge, 1000, am4core.ease.cubicOut);
+            		chart.setTimeout(randomValue, 2000);
+            	}
+            }
+            
+            var chartPrepregnancy = function(){
+            	// Themes begin
+            	am4core.useTheme(am4themes_animated);
+            	// Themes end
+            
+            	var chart = am4core.create("mmy-chartprepregnancy", am4charts.XYChart);
+            	chart.padding(10, 10, 10, 10);
+            	chart.responsive.enabled = true;
+            	
+            	chart.data = [
+            	  {
+            		category: "Loving & supportive",
+            		quantity: 725
+            	  },
+            	  {
+            		category: "Being judgemental",
+            		quantity: 625
+            	  },  
+            	  {
+            		category: "Asking too many questions",
+            		quantity: 602
+            	  },
+            	  {
+            		category: "Having too many opinions",
+            		quantity: 509
+            	  }
+            	  ,{
+            		category: "Feeling sorry for me",
+            		quantity: 409
+            	  }
+            	];
+            	
+            	var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+            	categoryAxis.renderer.grid.template.location = 0;
+            	categoryAxis.dataFields.category = "category";
+            	categoryAxis.renderer.minGridDistance = 40;
+            	categoryAxis.fontSize = 13;
+            	categoryAxis.renderer.labels.template.dy = 5;
+            
+            	var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+            	valueAxis.min = 0;
+            	valueAxis.max = 1000;
+            	valueAxis.strictMinMax = true; 
+            	valueAxis.renderer.baseGrid.disabled = false;
+            	valueAxis.renderer.grid.template.disabled = true
+            
+            
+            	var series = chart.series.push(new am4charts.ColumnSeries());
+            	series.dataFields.categoryX = "category";
+            	series.dataFields.valueY = "quantity";
+            	series.columns.template.tooltipText = "{valueY.value}";
+            	series.columns.template.tooltipY = 0;
+            	series.columns.template.column.cornerRadiusTopLeft = 5;
+            	series.columns.template.column.cornerRadiusTopRight = 5;
+            	series.columns.template.strokeOpacity = 0;
+            	series.columns.template.width = am4core.percent(20);
+            	
+            	
+            	// as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
+            	series.columns.template.adapter.add("fill", function(fill, target){
+            	  return chart.colors.getIndex(target.dataItem.index);
+            	});
+            	
+            	var legend = new am4charts.Legend();
+            	legend.parent = chart.chartContainer;
+            	legend.itemContainers.template.togglable = false;
+            	legend.marginTop = 20;
+            	
+            	series.events.on("ready", function(ev) {
+            		var legenddata = [];
+            		series.columns.each(function(column) {
+            			
+            			legenddata.push({
+            				name: column.dataItem.categoryX + " : " + column.dataItem.valueY,
+            				fill: column.fill,
+            				columnDataItem: column.dataItem,
+            			})
+            		});
+            	  legend.data = legenddata;
+            	});
+            	
+            	/*  legend items toggle related columns as well as show tooltip on a column when rolled over a legend item. */
+            	legend.itemContainers.template.events.on("hit", function(ev) {
+            	  //console.log("Clicked on ", ev.target.dataItem.className);
+            		console.log(ev.target);
+            		if (!ev.target.isActive) {
+            			ev.target.isActive = true;
+            			ev.target.dataItem.dataContext.columnDataItem.hide();
+            		}
+            		else {
+            			ev.target.isActive = false;
+            			ev.target.dataItem.dataContext.columnDataItem.show();
+            		}
+            	});
+            
+            	legend.itemContainers.template.events.on("over", function(ev) {
+            		ev.target.dataItem.dataContext.columnDataItem.column.isHover = true;
+            		ev.target.dataItem.dataContext.columnDataItem.column.showTooltip();
+            	});
+            
+            	legend.itemContainers.template.events.on("out", function(ev) {
+            		ev.target.dataItem.dataContext.columnDataItem.column.isHover = false;
+            		ev.target.dataItem.dataContext.columnDataItem.column.hideTooltip();
+            	});
+            	
+            	legend.labels.template.fill = am4core.color("#ffffff");
+            	chart.responsive.rules.push({
+            	  relevant: function(target) {
+            		if (target.pixelWidth <= 400) {
+            			categoryAxis.renderer.labels.template.disabled  = true;
+            			valueAxis.renderer.labels.template.disabled = true;
+            			chart.padding(20, 20, 20, 20);
+            			return true;
+            		}
+            		return false;
+            	  },
+            	  state: function(target, stateId) {
+            		return;
+            	  }
+            	});
+            }
+            
+            
+            var chartShareEmotion = function(){
+            	
+            	// Themes begin
+            	am4core.useTheme(am4themes_animated);
+            	// Themes end
+            
+            	var chart = am4core.create("mmy-chartshareemotion", am4charts.XYChart);
+            	chart.padding(10, 10, 10, 10);
+            	chart.responsive.enabled = true;
+            	
+            	chart.data = [
+            	  {
+            		category: "Exchanging my experience with other mums",
+            		quantity: 725
+            	  },
+            	  {
+            		category: "Taking a break from baby-making",
+            		quantity: 625
+            	  },  
+            	  {
+            		category: "Not letting my period get me down",
+            		quantity: 602
+            	  },
+            	  {
+            		category: "Practising relaxation techniques",
+            		quantity: 509
+            	  }
+            	  ,{
+            		category: "Feeling sorry for me",
+            		quantity: 409
+            	  }
+            	];
+            	
+            	var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+            	categoryAxis.renderer.grid.template.location = 0;
+            	categoryAxis.dataFields.category = "category";
+            	categoryAxis.renderer.minGridDistance = 40;
+            	categoryAxis.fontSize = 13;
+            	categoryAxis.renderer.labels.template.dy = 5;
+            
+            	var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+            	valueAxis.min = 0;
+            	valueAxis.max = 1000;
+            	valueAxis.strictMinMax = true; 
+            	valueAxis.renderer.baseGrid.disabled = false;
+            	valueAxis.renderer.grid.template.disabled = true
+            
+            
+            	var series = chart.series.push(new am4charts.ColumnSeries());
+            	series.dataFields.categoryX = "category";
+            	series.dataFields.valueY = "quantity";
+            	series.columns.template.tooltipText = "{valueY.value}";
+            	series.columns.template.tooltipY = 0;
+            	series.columns.template.column.cornerRadiusTopLeft = 5;
+            	series.columns.template.column.cornerRadiusTopRight = 5;
+            	series.columns.template.strokeOpacity = 0;
+            	series.columns.template.width = am4core.percent(20);
+            	
+            	var label = categoryAxis.renderer.labels.template;
+            	label.wrap = true;
+            	label.maxWidth = 150;
+            	
+            	
+            	// as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
+            	series.columns.template.adapter.add("fill", function(fill, target){
+            	  return chart.colors.getIndex(target.dataItem.index);
+            	});
+            	
+            	var legend = new am4charts.Legend();
+            	legend.parent = chart.chartContainer;
+            	legend.itemContainers.template.togglable = false;
+            	legend.marginTop = 20;
+            	
+            	series.events.on("ready", function(ev) {
+            		var legenddata = [];
+            		series.columns.each(function(column) {
+            			
+            			legenddata.push({
+            				name: column.dataItem.categoryX + " : " + column.dataItem.valueY,
+            				fill: column.fill,
+            				columnDataItem: column.dataItem,
+            			})
+            		});
+            	  legend.data = legenddata;
+            	});
+            	
+            	/*  legend items toggle related columns as well as show tooltip on a column when rolled over a legend item. */
+            	legend.itemContainers.template.events.on("hit", function(ev) {
+            	  //console.log("Clicked on ", ev.target.dataItem.className);
+            		console.log(ev.target);
+            		if (!ev.target.isActive) {
+            			ev.target.isActive = true;
+            			ev.target.dataItem.dataContext.columnDataItem.hide();
+            		}
+            		else {
+            			ev.target.isActive = false;
+            			ev.target.dataItem.dataContext.columnDataItem.show();
+            		}
+            	});
+            
+            	legend.itemContainers.template.events.on("over", function(ev) {
+            		ev.target.dataItem.dataContext.columnDataItem.column.isHover = true;
+            		ev.target.dataItem.dataContext.columnDataItem.column.showTooltip();
+            	});
+            
+            	legend.itemContainers.template.events.on("out", function(ev) {
+            		ev.target.dataItem.dataContext.columnDataItem.column.isHover = false;
+            		ev.target.dataItem.dataContext.columnDataItem.column.hideTooltip();
+            	});
+            	
+            	legend.labels.template.fill = am4core.color("#ffffff");
+            	chart.responsive.rules.push({
+            	  relevant: function(target) {
+            		if (target.pixelWidth <= 400) {
+            			categoryAxis.renderer.labels.template.disabled  = true;
+            			valueAxis.renderer.labels.template.disabled = true;
+            			chart.padding(20, 20, 20, 20);
+            			return true;
+            		}
+            		return false;
+            	  },
+            	  state: function(target, stateId) {
+            		return;
+            	  }
+            	});
+            	legend.labels.template.truncate = false;
+            	legend.labels.template.wrap = true;
+            }
+            
+            // var testAjx = function(){
+            	// $.ajax({
+            		// url		 : '../modules/enlineamixmod/graph_amchart/enlineamixmod-graph-process.php', 
+            		// data	 :{'test':'test1'},
+            		// dataType :'html',
+            		// method 	 : 'post',
+            		// success	 : function(result){
+            			// $('body').find('#first_graph').html(result);
+            		// }
+            	// });
+            	
+            // }
+            
+            var alertError = function(){
+            	Swal.fire({
+            		icon: 'error',
+            		title: 'Oops...',
+            		text: 'Please select one of these options before proceed',
+            	})
+            }
+            
+            var checkHighlight = function(){
+            	$('body').find('.checkHighlight').val("false");
+            }
+            
+            $(function(){
+            	$(window).load(function() {
+            	  $.uniform.restore(".noUniform");
+            	});
+            	
+            	$('body').find("#clearbluewizzard").steps({
+            			headerTag			  : "h4",
+            			bodyTag				  : "section",
+            			transitionEffect	  : "fade",
+            			enableAllSteps		  : true,
+            			enableKeyNavigation   : true,
+            			transitionEffectSpeed : 500,
+            			onInit 				  : function (event, currentIndex) { 
+            				console.log("oninit currentIndex" + currentIndex);
+            				$('body').find('.actions .disabled a').attr('href', '#cancel');
+            			},
+            			onCanceled 			  : function (event) { 
+            				$('body').find('.survey-row').hide('fast');
+            				$('body').find('.customer-info').show('fast');
+            			},
+            			onStepChanging		  : function (event, currentIndex, newIndex) { 
+            				$('body').find('.checkHighlight').val("");
+            				
+            				console.log("currentIndex = " + currentIndex + " newIndex = " + newIndex);
+            				if(newIndex > 0)
+            				{
+            					$('body').find('.title-survey').html('');
+            				}
+            				else
+            				{
+            					$('body').find('.title-survey').html('Welcome to Clearblue Survey');
+            				}
+            				
+            				if(currentIndex === 0)
+            				{
+            					var question_1 = $('body').find('.subscriber_question1:checked').val();
+            					if((question_1 == '' || question_1 == undefined || question_1 == null) && (newIndex > currentIndex))
+            					{
+            						alertError();
+            						checkHighlight();
+            						return false;
+            					}
+            				}
+            				
+            				if(currentIndex === 2)
+            				{
+            					
+            					var question_2 = $('body').find('.subscriber_question2:checked').val();
+            					if((question_2 == '' || question_2 == undefined || question_2 == null) && (newIndex > currentIndex))
+            					{
+            						alertError();
+            						checkHighlight();
+            						return false;
+            					}
+            				}
+            				
+            				if(currentIndex === 4)
+            				{
+            					var question_3 = $('body').find('.subscriber_question3:checked').val();
+            					if((question_3 == '' || question_3 == undefined || question_3 == null) && (newIndex > currentIndex))
+            					{
+            						alertError();
+            						checkHighlight();
+            						return false;
+            					}
+            				}
+            				
+            				if(currentIndex === 6)
+            				{
+            					var question_4 = $('body').find('.subscriber_question4:checked').val();
+            					if((question_4 == '' || question_4 == undefined || question_4 == null) && (newIndex > currentIndex))
+            					{
+            						alertError();
+            						checkHighlight();
+            						return false;
+            					}
+            				}
+            				
+            				if(currentIndex === 8)
+            				{
+            					var question_5 = $('body').find('.subscriber_question5:checked').val();
+            					if((question_5 == '' || question_5 == undefined || question_5 == null) && (newIndex > currentIndex))
+            					{
+            						alertError();
+            						checkHighlight();
+            						return false;
+            					}
+            				}
+            				
+            				if(currentIndex === 10)
+            				{
+            					var question_6 = $('body').find('.subscriber_question6:checked').val();
+            					if((question_6 == '' || question_6 == undefined || question_6 == null) && (newIndex > currentIndex))
+            					{
+            						alertError();
+            						checkHighlight();
+            						return false;
+            					}
+            				}
+            				
+            				if(currentIndex === 12)
+            				{
+            					var question_7 = $('body').find('.subscriber_question7:checked').val();
+            					if((question_7 == '' || question_7 == undefined || question_7 == null) && (newIndex > currentIndex))
+            					{
+            						alertError();
+            						checkHighlight();
+            						return false;
+            					}
+            				}
+            				
+            				if(currentIndex === 14)
+            				{
+            					var question_8 = $('body').find('.subscriber_question8:checked').val();
+            					if((question_8 == '' || question_8 == undefined || question_8 == null) && (newIndex > currentIndex))
+            					{
+            						alertError();
+            						checkHighlight();
+            						return false;
+            					}
+            				}
+            				
+            				if(currentIndex === 16)
+            				{
+            					var question_9 = $('body').find('.subscriber_question9:checked').val();
+            					if((question_9 == '' || question_9 == undefined || question_9 == null) && (newIndex > currentIndex))
+            					{
+            						alertError();
+            						checkHighlight();
+            						return false;
+            					}
+            				}
+            				
+            				if(currentIndex === 18)
+            				{
+            					var question_10 = $('body').find('.subscriber_question10:checked').val();
+            					if((question_10 == '' || question_10 == undefined || question_10 == null) && (newIndex > currentIndex))
+            					{
+            						alertError();
+            						checkHighlight();
+            						return false;
+            					}
+            				}
+            				
+            				if(currentIndex === 20)
+            				{
+            					var question_11 = $('body').find('.subscriber_question11:checked').val();
+            					if((question_11 == '' || question_11 == undefined || question_11 == null) && (newIndex > currentIndex))
+            					{
+            						alertError();
+            						checkHighlight();
+            						return false;
+            					}
+            					
+            					var question_12 = $('body').find('.subscriber_question12:checked').val();
+            					if((question_12 == '' || question_12 == undefined || question_12 == null) && (newIndex > currentIndex))
+            					{
+            						alertError();
+            						checkHighlight();
+            						return false;
+            					}
+            				}
+            				
+            				if (newIndex === 1) {
+            					$('.steps ul').addClass('step-2');
+            					chartFeeling();
+            				} 
+            				else {
+            					$('.steps ul').removeClass('step-2');
+            				}
+            					
+            				if ( newIndex === 2 ) {
+            					$('.steps ul').addClass('step-3');
+            				} else {
+            					$('.steps ul').removeClass('step-3');
+            				} 
+            				
+            				if ( newIndex === 3 ) {
+            					$('.steps ul').addClass('step-4');
+            				} else {
+            					$('.steps ul').removeClass('step-4');
+            				}
+            
+            				if ( newIndex === 4) {
+            					$('.steps ul').addClass('step-5');
+            				} else {
+            					$('.steps ul').removeClass('step-5');
+            				}
+            				
+            				if ( newIndex === 5) {
+            					$('.steps ul').addClass('step-6');
+            				} else {
+            					$('.steps ul').removeClass('step-6');
+            				}
+            				
+            				if ( newIndex === 6) {
+            					$('.steps ul').addClass('step-7');
+            				} else {
+            					$('.steps ul').removeClass('step-7');
+            				}
+            				
+            				if ( newIndex === 7) {
+            					$('.steps ul').addClass('step-8');
+            					chartPrepregnancy()
+            				} else {
+            					$('.steps ul').removeClass('step-8');
+            				}
+            				
+            				if ( newIndex === 8) {
+            					$('.steps ul').addClass('step-9');
+            				} else {
+            					$('.steps ul').removeClass('step-9');
+            				}
+            				
+            				if ( newIndex === 9) {
+            					$('.steps ul').addClass('step-10');
+            					chartShareEmotion();
+            				} else {
+            					$('.steps ul').removeClass('step-10');
+            				}
+            				
+            				if ( newIndex === 10) {
+            					$('.steps ul').addClass('step-11');
+            				} else {
+            					$('.steps ul').removeClass('step-11');
+            				}
+            				
+            				if ( newIndex === 11) {
+            					$('.steps ul').addClass('step-12');
+            				} else {
+            					$('.steps ul').removeClass('step-12');
+            				}
+            				
+            				if ( newIndex === 12) {
+            					$('.steps ul').addClass('step-13');
+            				} else {
+            					$('.steps ul').removeClass('step-13');
+            				}
+            				
+            				if ( newIndex === 13) {
+            					$('.steps ul').addClass('step-14');
+            				} else {
+            					$('.steps ul').removeClass('step-14');
+            				}
+            				
+            				if ( newIndex === 14) {
+            					$('.steps ul').addClass('step-15');
+            				} else {
+            					$('.steps ul').removeClass('step-15');
+            				}
+            				
+            				if ( newIndex === 15) {
+            					$('.steps ul').addClass('step-16');
+            				} else {
+            					$('.steps ul').removeClass('step-16');
+            				}
+            				
+            				if ( newIndex === 16) {
+            					$('.steps ul').addClass('step-17');
+            				} else {
+            					$('.steps ul').removeClass('step-17');
+            				}
+            				
+            				if ( newIndex === 17) {
+            					$('.steps ul').addClass('step-18');
+            				} else {
+            					$('.steps ul').removeClass('step-18');
+            				}
+            				
+            				if ( newIndex === 18) {
+            					$('.steps ul').addClass('step-19');
+            				} else {
+            					$('.steps ul').removeClass('step-19');
+            				}
+            				
+            				if ( newIndex === 19) {
+            					$('.steps ul').addClass('step-20');
+            				} else {
+            					$('.steps ul').removeClass('step-20');
+            				}
+            				
+            				if ( newIndex === 20) {
+            					$('.steps ul').addClass('step-21');
+            				} else {
+            					$('.steps ul').removeClass('step-21');
+            				}
+            				
+            				return true; 
+            				
+            			},
+            			onStepChanged :function (event, currentIndex, priorIndex) { 
+            				if(currentIndex === 0){
+            					$('body').find('.actions .disabled a').attr('href', '#cancel');
+            				}
+            				else{
+            					$('body').find('.actions a[href="#cancel"]').attr('href', '#previous');
+            				}
+            					
+            			},
+            			onFinished  : function(){
+            				$('body').find('#dummy-btn-to-submit').trigger('click');
+            			},
+            			labels: {
+            				finish: "Submit",
+            				next: "Next",
+            				previous: "Back",
+            				cancel: "Cancel",
+            				loading: "Loading ..."
+            			}
+            		});
+            		
+            		// Custom Steps Jquery Steps
+            		$('.wizard > .steps li a').click(function(){
+            			var stepHighlight = $('body').find('.checkHighlight').val();
+            			
+            			if(stepHighlight != "false")
+            			{
+            				$(this).parent().addClass('checked');
+            			}
+            			
+            			$(this).parent().prevAll().addClass('checked');
+            			$(this).parent().nextAll().removeClass('checked');
+            		});
+            		
+            		$('body').on('click', '.btn-next-customer', function(){
+            			var res = validationCustomerInfo();
+            			if(res == true){
+            				$('body').find('.survey-row').show('fast');
+            				$('body').find('.customer-info').hide('fast');
+            			}
+            		});
+            		
+            		$('body').on('blur', '.input-email', function(){
+            			validationCustomerInfo();
+            		});
+            		
+            		
+            	// testAjx();
+            	chartBestProductive();	
+            	emailvalidation();
+            });
+       
+       
       // ]]>
    </script>
 </p>

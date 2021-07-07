@@ -19,9 +19,14 @@
 }
 
 .columns-container{
-    background:#d9b576;
+    /*background:#d9b576;*/
+	background:white;
 	color:black;
 	font-family: 'Poppins', sans-serif;
+}
+
+#center_column{
+	background:#d9b576;
 }
 
 .breadcrumb{
