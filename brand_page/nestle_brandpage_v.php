@@ -1,11 +1,13 @@
 <div id="sponsored_content" class="clearfix"></div>
 <!--========================= YEAR END SALE  =========================-->
 <div class="row" style="padding-bottom: 10px;">
-   <div class="col-md-12">
-      <div class="cat WyethBrandPageCatBtn" style="background: #24858a;" data-value="home">HOMEPAGE</div>
-      <div id="viewproductbtn" class="cat WyethBrandPageCatBtn" data-value="product">ALL PRODUCT</div>
-      <div class="contact-us-botton" style="background: #23346c; padding: 10px; color: white; bottom: 100px; float: right; font-weight: bold; font-size: 18px; border-radius: 12px;"><a id="contactusmore" style="color: white;" href="#contact-us-seller-form"> Contact Us </a></div>
-   </div>
+	<div class="col-md-8 col-xs-8">
+		<button class="cat WyethBrandPageCatBtn" style="background: #24858a; border: #24858a;" data-value="home">Homepage</button> 
+		<button class="cat WyethBrandPageCatBtn" style="border:#2ea7ad;" data-value="product" id="viewproductbtn">All Product</button>
+	</div>
+	<div class="col-md-4 col-xs-4" style="text-align:end;">
+		<a class="cat WyethBrandPageCatBtn" style="background: #23346c;border:#23346c;" data-value="product" id="viewproductbtn" href="#contact-us-seller-form">Contact Us</a>
+	</div>
 </div>
 <!--=============================== SUBCRIBERS  ================================-->
 <div class="container  pages homepage">
@@ -29,40 +31,16 @@
    </div>
    <div class="row" style="padding-bottom: 10px;">
       <!--  btn-shopbrand1 &  image-shopbrand-active1 need to change remove 1 to make it work --->
-		<div class="row mmy-brandbanner-slick-slide">
-			<div class="brandbanner1" style="padding-left: 15px; padding-right: 15px;">
-				<div class="col-md-2 col-xs-3">
-					<a class="btn-shopbrand" href="https://www.motherhood.com.my/events/nestle-nankid-optipro" target="_blank" data-divtarget="nankid-optipro" style="cursor: pointer;"> 
-						<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Nestle/logo-nestle-nankid-optipro.png" alt="Nestle NANKID Optipro" style="width: 150px; height: auto;" class="category-img" /> 
-					</a>
-				</div>
-				<div class="col-md-2 col-xs-3">
-					<a class="btn-shopbrand" href="https://www.motherhood.com.my/events/nestle-nankid-optipro-ha" target="_blank" data-divtarget="nankid-optipro-ha" style="cursor: pointer;"> 
-						<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Nestle/logo-nestle-nankid-optipro-ha.png" alt="Nestle NANKID Optipro ha" style="width: 150px; height: auto;" class="category-img" /> 
-					</a>
-				</div>
-				<div class="col-md-2 col-xs-3">
-					<a class="btn-shopbrand" href="https://www.motherhood.com.my/events/nestle-lactogrow" target="_blank" data-divtarget="lactogrow" style="cursor: pointer;"> 
-						<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/June/Nestle+Startwell+2gether/logo-nestle-lactogrow-aktiff.png" alt="lactogrow" style="width: 150px; height: auto;" class="category-img" /> 
-					</a>
-				</div>
-				<div class="col-md-2 col-xs-3">
-					<a class="btn-shopbrand" href="https://www.motherhood.com.my/events/nestle-lactogrow" target="_blank" data-divtarget="lactogrow" style="cursor: pointer;"> 
-						<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Nestle/logo-nestle-lactogrow.png" alt="lactogrow" style="width: 150px; height: auto;" class="category-img" /> 
-					</a>
-				</div>
-				<div class="col-md-2 col-xs-3">
-					<a class="btn-shopbrand" href="https://www.motherhood.com.my/events/nestle-cerelac" target="_blank" data-divtarget="cerelac" style="cursor: pointer;"> 
-						<img src="https://media.motherhood.com.my/img/m/665-large_default.jpg" alt="Nestle Cerelac" style="width: 150px; height: auto;" class="category-img" /> 
-					</a>
-				</div>
-				<div class="col-md-2 col-xs-3">
-					<a class="btn-shopbrand" href="https://www.motherhood.com.my/events/nestle-mom-and-me" target="_blank" data-divtarget="nestle-mom" style="cursor: pointer;"> 
-						<img src="https://media.motherhood.com.my/img/m/865-large_default.jpg" alt="Nestle Mom & Me" style="width: 150px; height: auto;" class="category-img" />
-					</a>
-				</div>
-			</div>
-		</div>
+      <div class="row mmy-brandbanner-slick-slide">
+         <div class="brandbanner1" style="padding-left: 15px; padding-right: 15px;">
+            <div class="col-md-2 col-xs-3"><a class="btn-shopbrand" href="https://www.motherhood.com.my/events/nestle-nankid-optipro" target="_blank" data-divtarget="nankid-optipro" style="cursor: pointer;"> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Nestle/logo-nestle-nankid-optipro.png" alt="Nestle NANKID Optipro" style="width: 150px; height: auto;" class="category-img" /> </a></div>
+            <div class="col-md-2 col-xs-3"><a class="btn-shopbrand" href="https://www.motherhood.com.my/events/nestle-nankid-optipro-ha" target="_blank" data-divtarget="nankid-optipro-ha" style="cursor: pointer;"> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Nestle/logo-nestle-nankid-optipro-ha.png" alt="Nestle NANKID Optipro ha" style="width: 150px; height: auto;" class="category-img" /> </a></div>
+            <div class="col-md-2 col-xs-3"><a class="btn-shopbrand" href="https://www.motherhood.com.my/events/nestle-lactogrow" target="_blank" data-divtarget="lactogrow" style="cursor: pointer;"> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/June/Nestle+Startwell+2gether/logo-nestle-lactogrow-aktiff.png" alt="lactogrow" style="width: 150px; height: auto;" class="category-img" /> </a></div>
+            <div class="col-md-2 col-xs-3"><a class="btn-shopbrand" href="https://www.motherhood.com.my/events/nestle-lactogrow" target="_blank" data-divtarget="lactogrow" style="cursor: pointer;"> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/April/Nestle/logo-nestle-lactogrow.png" alt="lactogrow" style="width: 150px; height: auto;" class="category-img" /> </a></div>
+            <div class="col-md-2 col-xs-3"><a class="btn-shopbrand" href="https://www.motherhood.com.my/events/nestle-cerelac" target="_blank" data-divtarget="cerelac" style="cursor: pointer;"> <img src="https://media.motherhood.com.my/img/m/665-large_default.jpg" alt="Nestle Cerelac" style="width: 150px; height: auto;" class="category-img" /> </a></div>
+            <div class="col-md-2 col-xs-3"><a class="btn-shopbrand" href="https://www.motherhood.com.my/events/nestle-mom-and-me" target="_blank" data-divtarget="nestle-mom" style="cursor: pointer;"> <img src="https://media.motherhood.com.my/img/m/865-large_default.jpg" alt="Nestle Mom & Me" style="width: 150px; height: auto;" class="category-img" /> </a></div>
+         </div>
+      </div>
    </div>
    <div class="row">
       <div class="col-md-12">
@@ -201,124 +179,124 @@
 </div>
 <script>// <![CDATA[
    var twofiveoff = function(){
-            			var twofiveoff = "GOMAR25";
-            			var dummy = $('<input>').val(twofiveoff).appendTo('body').select();
-            			saveVouchers(twofiveoff);
-                    }
-            		
-            		var twoooff = function(){
-                      var twoooff = "NESTDEC15";
-                      var dummy = $('<input>').val(twoooff).appendTo('body').select();
-                      saveVouchers(twoooff);
-                    }
-            		
-            		var oneooff = function(){
-            			var oneooff = "NESTDEC10";
-            			var dummy = $('<input>').val(oneooff).appendTo('body').select();
-            			saveVouchers(oneooff);
-                    }
-            		
-            		$(function(){
-            			$('.twofiveoff').click(function() {
-            				twofiveoff();
-            			});
-            			
-            			$('.twoooff').click(function() {
-            				twoooff();
-            			});
-            			  
-            			$('.oneooff').click(function() {
-            				oneooff();
-            			});
-            			
-            			$('body').on('click', '.btn-shopbrand', function(){
-            				// $('body').find('img').removeClass('image-shopbrand-active');
-            				// $(this).find('img').addClass('image-shopbrand-active');
-            				var targetDiv = $(this).data('divtarget');
-            				// $('body').find('.div-details-brand').css('display', 'none');
-            				// $('body').find('#' + targetDiv).show('fast');
+               			var twofiveoff = "GOMAR25";
+               			var dummy = $('<input>').val(twofiveoff).appendTo('body').select();
+               			saveVouchers(twofiveoff);
+                       }
+               		
+               		var twoooff = function(){
+                         var twoooff = "NESTDEC15";
+                         var dummy = $('<input>').val(twoooff).appendTo('body').select();
+                         saveVouchers(twoooff);
+                       }
+               		
+               		var oneooff = function(){
+               			var oneooff = "NESTDEC10";
+               			var dummy = $('<input>').val(oneooff).appendTo('body').select();
+               			saveVouchers(oneooff);
+                       }
+               		
+               		$(function(){
+               			$('.twofiveoff').click(function() {
+               				twofiveoff();
+               			});
+               			
+               			$('.twoooff').click(function() {
+               				twoooff();
+               			});
+               			  
+               			$('.oneooff').click(function() {
+               				oneooff();
+               			});
+               			
+               			$('body').on('click', '.btn-shopbrand', function(){
+               				// $('body').find('img').removeClass('image-shopbrand-active');
+               				// $(this).find('img').addClass('image-shopbrand-active');
+               				var targetDiv = $(this).data('divtarget');
+               				// $('body').find('.div-details-brand').css('display', 'none');
+               				// $('body').find('#' + targetDiv).show('fast');
+         					
+      						$('html,body').animate({
+      							scrollTop: $('#' + targetDiv).offset().top},
+      							'slow');
+      					});
       					
-   						$('html,body').animate({
-   							scrollTop: $('#' + targetDiv).offset().top},
-   							'slow');
-   					});
-   					
-						$('body').find('.brandbanner').slick({
-							infinite: true,
-							slidesToShow: 1,
-							slidesToScroll: 1,
-							dots: true,
-							adaptiveHeight:true,
-							autoplay: true,
-							responsive: [
-								{
-									breakpoint: 600,
-									settings: {
-										slidesToShow: 1,
-										slidesToScroll: 1,
-										dots: true,
-										adaptiveHeight:true,
-										arrows:false,
-										autoplay: false,
-									}
-								}]
-						});
-						
-						$('body').find('.brandbanner1').slick({
-							infinite: true,
-							slidesToShow: 6,
-							slidesToScroll: 6,
-							dots: true,
-							adaptiveHeight:true,
-							autoplay: true,
-							responsive: [
-								{
-									breakpoint: 600,
-									settings: {
-										slidesToShow: 3,
-										slidesToScroll: 3,
-										dots: true,
-										adaptiveHeight:true,
-										arrows:false,
-										autoplay: false,
-									}
-								}]
-						});
-            		})
-      
-          $(".WyethBrandPageCatBtn").on("click", function () {
-            var cat = $(this).data("value");
-            $(".WyethBrandPageCatBtn").css("background", "#2ea7ad");
-            $(this).css("background", "#24858a");
-            if (cat == "home") {
-              $(".pages").addClass("visuallyhidden");
-              $(".homepage").removeClass("visuallyhidden");
-              $(".productss").hide();
-              $(".productsFullPage").addClass("visuallyhidden");
-              $(window).resize();
-              $("img").trigger("unveil");
-            } else if (cat == "product") {
-              $(".pages").addClass("visuallyhidden");
-              $(".product").removeClass("visuallyhidden");
-              $(".productss").show();
-              $(".productsFullPage").removeClass("visuallyhidden");
-              $("img").trigger("unveil");
-              $(window).resize();
-            } else if (cat == "profile") {
-              $(".pages").addClass("visuallyhidden");
-              $(".profile").removeClass("visuallyhidden");
-              $(".productss").hide();
-              $(".productsFullPage").addClass("visuallyhidden");
-              $(window).resize();
-              $("img").trigger("unveil");
-            } else {
-            }
-          });
-      
-          $(window).load(function () {
-            $(".product").addClass("visuallyhidden");
-      
-            $("#contactusmore").fancybox();
-          });
+   						$('body').find('.brandbanner').slick({
+   							infinite: true,
+   							slidesToShow: 1,
+   							slidesToScroll: 1,
+   							dots: true,
+   							adaptiveHeight:true,
+   							autoplay: true,
+   							responsive: [
+   								{
+   									breakpoint: 600,
+   									settings: {
+   										slidesToShow: 1,
+   										slidesToScroll: 1,
+   										dots: true,
+   										adaptiveHeight:true,
+   										arrows:false,
+   										autoplay: false,
+   									}
+   								}]
+   						});
+   						
+   						$('body').find('.brandbanner1').slick({
+   							infinite: true,
+   							slidesToShow: 6,
+   							slidesToScroll: 6,
+   							dots: true,
+   							adaptiveHeight:true,
+   							autoplay: true,
+   							responsive: [
+   								{
+   									breakpoint: 600,
+   									settings: {
+   										slidesToShow: 3,
+   										slidesToScroll: 3,
+   										dots: true,
+   										adaptiveHeight:true,
+   										arrows:false,
+   										autoplay: false,
+   									}
+   								}]
+   						});
+               		})
+         
+             $(".WyethBrandPageCatBtn").on("click", function () {
+               var cat = $(this).data("value");
+               $(".WyethBrandPageCatBtn").css("background", "#2ea7ad");
+               $(this).css("background", "#24858a");
+               if (cat == "home") {
+                 $(".pages").addClass("visuallyhidden");
+                 $(".homepage").removeClass("visuallyhidden");
+                 $(".productss").hide();
+                 $(".productsFullPage").addClass("visuallyhidden");
+                 $(window).resize();
+                 $("img").trigger("unveil");
+               } else if (cat == "product") {
+                 $(".pages").addClass("visuallyhidden");
+                 $(".product").removeClass("visuallyhidden");
+                 $(".productss").show();
+                 $(".productsFullPage").removeClass("visuallyhidden");
+                 $("img").trigger("unveil");
+                 $(window).resize();
+               } else if (cat == "profile") {
+                 $(".pages").addClass("visuallyhidden");
+                 $(".profile").removeClass("visuallyhidden");
+                 $(".productss").hide();
+                 $(".productsFullPage").addClass("visuallyhidden");
+                 $(window).resize();
+                 $("img").trigger("unveil");
+               } else {
+               }
+             });
+         
+             $(window).load(function () {
+               $(".product").addClass("visuallyhidden");
+         
+               $("#contactusmore").fancybox();
+             });
    // ]]>
 </script>

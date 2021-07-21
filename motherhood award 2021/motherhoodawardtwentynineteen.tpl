@@ -25,9 +25,6 @@
 	font-family: 'Poppins', sans-serif;
 }
 
-#center_column{
-	background:#d9b576;
-}
 
 .breadcrumb{
     background:black;
@@ -41,7 +38,7 @@
 }
 
 .section-button{
-	background-image: linear-gradient(#f3e8d5 50%, #d9b576 50%);
+	/*background-image: linear-gradient(#f3e8d5 50%, #d9b576 50%);*/
 }
 
 
@@ -111,7 +108,7 @@
 
 .img-category{
 	margin-bottom:25px;
-	background:#d9b576;
+	/*background:#d9b576;*/
 	border:0px;
 }
 

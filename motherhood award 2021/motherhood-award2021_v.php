@@ -212,6 +212,13 @@
 	}
 	
 	@media only screen and (max-width: 600px) {
+		
+		.objective-ul,.btn-participate,.showing-text{
+			font-size:14px;
+		}
+		
+		
+	
 		.btn-category{
 			margin-bottom:15px; 
 		}
@@ -245,7 +252,7 @@
 		}
 		
 		.obj-description{
-			font-size:13px;
+			font-size:14px;
 			text-align:justify;
 		}
 		
@@ -277,11 +284,12 @@
 			color: black;
 			font-weight: 600;
 			min-height:50px;
+			font-size:14px;
 		}
 		
 		.about-award-desc{
 			text-align:justify;
-			font-size:13px;
+			font-size:14px;
 		}
 		
 		.section-category{
@@ -292,9 +300,17 @@
 			margin-bottom: 6px;
 		}
 		
+		
+		.methodology-title
+		{
+			font-size:14px;
+		}
+		
+		
 		.methodology-desc{
 			color:black;
 			text-align:justify;
+			font-size:14px;
 		}
 		
 		.row-bottom-sticky{
@@ -370,19 +386,19 @@
 							<div class="row">
 								<div class="col-md-3 col-6 border-desktop text-align-objective" data-aos="fade-up" data-aos-delay="100">
 									<img src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/mmy-award/2021/assets/mmyicon/objectives-1.png" class="img-fluid obj-icon1">
-									<p class="obj-description">To recognize outstanding brands and products.</p>
+									<p class="obj-description" style="text-align:left;">To recognize outstanding brands and products.</p>
 								</div>
 								<div class="col-md-3 col-6 border-desktop text-align-objective" data-aos="fade-up" data-aos-delay="100">
 									<img src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/mmy-award/2021/assets/mmyicon/objectives-3.png" class="img-fluid obj-icon1">
-									<p class="obj-description">To reward and promote outstanding products.</p>
+									<p class="obj-description" style="text-align:left;">To reward and promote outstanding products.</p>
 								</div>
 								<div class="col-md-3 col-6 border-desktop text-align-objective" data-aos="fade-up" data-aos-delay="100">
 									<img src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/mmy-award/2021/assets/mmyicon/objectives-2.png" class="img-fluid obj-icon1">
-									<p class="obj-description">To inspire and motivate businesses to aim for excellence of their products.</p>
+									<p class="obj-description" style="text-align:left;">To inspire and motivate businesses to aim for excellence of their products.</p>
 								</div>
 								<div class="col-md-3 col-6 text-align-objective" data-aos="fade-up" data-aos-delay="100">
 									<img src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/mmy-award/2021/assets/mmyicon/objectives-4.png" class="img-fluid obj-icon1">
-									<p class="obj-description">To celebrate and highlight the achievements of outstanding products that has contributed positively to the mom's community.</p>
+									<p class="obj-description" style="text-align:left;">To celebrate and highlight the achievements of outstanding products that has contributed positively to the mom's community.</p>
 								</div>
 							</div>
 						</div><!-- End .content-->
@@ -411,7 +427,7 @@
 									<p class="methodology-title">Consumers Voting</p>
 									<p class="methodology-desc methodology-desc-attribute">
 										Each respondent was required to complete an online questionnaire. We asked each participant to select or tell us the name of their most trusted brand based on the attributes:- 
-										<ul style="padding-left:20px; text-align:left;color:black;">
+										<ul style="padding-left:20px; text-align:left;color:black;" class="objective-ul">
 											<li>Trustworthy</li>
 											<li>Quality</li>
 											<li>Value</li>
@@ -471,7 +487,7 @@
 					</div>
 					<div class="col-md-4 col-4 text-align-objective border-desktop" data-aos="fade-up" data-aos-delay="300">
 						<img src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/mmy-award/2021/assets/mmyicon/timeline-2.png" class="img-fluid obj-icon">
-						<p class="obj-description"><b>31 Jul 2021 </b><br> Public Voting Closed</p>
+						<p class="obj-description"><b>30 Sep 2021 </b><br> Public Voting Closed</p>
 					</div>
 					<div class="col-md-4 col-4 text-align-objective" data-aos="fade-up" data-aos-delay="400">
 						<img src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/mmy-award/2021/assets/mmyicon/timeline-3.png" class="img-fluid obj-icon">
