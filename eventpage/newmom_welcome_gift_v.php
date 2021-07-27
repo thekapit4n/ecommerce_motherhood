@@ -14,26 +14,26 @@
 		width: 1.3em;
 		height: 1.3em;
 	}
+	
+	.error-msg{
+		color:red;
+	}
       -->
 </style>
 <!-- 
    Note:
    all the wording start with "{{ sometext}}" it will be replace when load this page. can see on controller enlieneaevents under this event id
    -->
-	<div class="row">
+	<div class="row mb-4">
 		<div class="col-lg-12 col-md-12" style="padding-left: 0px; padding-right: 0px; margin-bottom: 0;">
 			<img src="https://via.placeholder.com/1170x481.png?text=Banner+holder+1170+by+480" width="100%" />
-		</div>
-	</div>
-   <div class="row mb-2">
-		<div class="col-md-12 px-2 text-center">
-			<h2>Motherhood welcome gift form</h2>
 		</div>
 	</div>
     <div class="row mb-2">
 		<div class="col-md-12 px-2">
 			<label for="newemail" class="form-label required">Email</label>
 			<input type="email" class="form-control" id="newemail" name="newEmail" value="{{predefine-email}}" required>
+			<input type="hidden" class="form-control statuscodeemail">
 			<small class="error-msg"></small>
 		</div>
 	</div>
@@ -61,7 +61,12 @@
 			<small class="error-msg"></small>
 		</div>
    </div> 
-   <div class="row mb-2" style="display:{{row-password-display}}">
+   <div class="row mb-2 row-password" style="display:{{row-password-display}}">
+      <div class="col-md-12 px-2">
+         <p class="lead my-1" style="font-weight: 600;"><i class="fas fa-info-circle text-info"></i> Please assign a password for your Motherhood account.</p>
+      </div>
+   </div>
+   <div class="row mb-2 row-password" style="display:{{row-password-display}}">
 		<div class="col-md-6 px-2">
 			<label for="newpassword" class="form-label required">Password</label>
 			<input type="password" class="form-control inputpassword" id="newpassword" name="newPassword">
@@ -88,14 +93,14 @@
 				<option value="">Please select</option>
 				<option value="planning to get pregnant">Planning to get pregnant</option>
 				<option value="1 month">1 month</option>
-				<option value="2 month">2 month</option>
-				<option value="3 month">3 month</option>
-				<option value="4 month">4 month</option>
-				<option value="5 month">5 month</option>
-				<option value="6 month">6 month</option>
-				<option value="7 month">7 month</option>
-				<option value="8 month">8 month</option>
-				<option value="9 month">9 month</option>
+				<option value="2 months">2 months</option>
+				<option value="3 months">3 months</option>
+				<option value="4 months">4 months</option>
+				<option value="5 months">5 months</option>
+				<option value="6 months">6 months</option>
+				<option value="7 months">7 months</option>
+				<option value="8 months">8 months</option>
+				<option value="9 months">9 months</option>
          		
 			</select>
 			<small class="error-msg"></small>
@@ -198,359 +203,16 @@
    <div id="sponsored_content" sponsored_content="1"></div>
    <!-- disabled overlay banner --->
    <div style="display: none;"><a id="tncpopupimg" href="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/June/Wishlist/tnc.jpg"> </a></div>
-      <script>// <![CDATA[
-         /** if other function that need to use same input for validation, we can just use this selector  **/
-                        	var emailSelector 	 			= $('body').find('#emailNew');
-                        	var passSelector  	 			= $('body').find('#newPassword');
-                        	var fnameSelector    			= $('body').find('#newFirstName');
-                        	var lnameSelector    			= $('body').find('#newLastName');
-                        	var addrSelector     			= $('body').find('#full-address');
-                        	var postcodeSelector 			= $('body').find('#postcode-address');
-                        	var citySelector  	 			= $('body').find('#city-address');
-                        	var stateSelector    			= $('body').find('#state-address');
-                        	var dobSelector      			= $('body').find('#dobParent');
-                        	var mobileSelector   			= $('body').find('#mobilenumber');
-                        	var scrollingSelector   		= $('body').find('#scrollingInput');
-                        	var subidSelector   			= $('body').find('#subscribe-id');
-                        	var eddSelector   				= $('body').find('#edd-question');
-                        	var eddFormSelector   			= $('body').find('#edd-form');
-                        	var divPregnancytrackerSelector = $('body').find('#div-pregnancytracker');
-                        	var wordingBabyWeeksSelector    = $('body').find('.wording-baby-weeks');
-                        	var emailCheckedInpSelector     = $('body').find('#email_checked_input');
-                        	var eddCheckedInpSelector       = $('body').find('#edd_checked_input');
-                        	var userIdSelector       		= $('body').find('#user-id');
-                        	var userLoginSelector       	= $('body').find('#user-login');
-                        	var errorSelector 	 			= '.error-msg';
-                        	var hasValidation 	 			= 'has-error-validation';
-                        	var icon 	  		 			= '<i class="fas fa-info-circle"></i>';
-                        	var eventID 					= 106;
-                        	
-                        	var checkEmail = function(){
-                        		var checkemail = emailSelector.val();
-                        		var password   = passSelector.val();
-                        		var msg 	   = "";
-                        		var islogin    = userLoginSelector.val();       		
-                        		var userid     = userIdSelector.val();      		
-                        		if(checkemail != undefined && checkemail != '')
-                        		{
-                        			msg = "<i class='fas fa-spinner fa-spin'></i> Please wait while we checking your email...";
-                        			emailSelector.closest('div').find(errorSelector).html(msg);
-                        			$.ajax({
-                        				url		 : '../modules/enlineamixmod/enlineamixmod-checkcustemailevent-ajax.php', 
-                        				data	 :{'checkemail': checkemail, 'eventid': eventID, 'password' : password},
-                        				dataType :'json',
-                        				method 	 : 'post',
-                        				success	 : function(result){
-                        					console.log(result);
-                        					if(result.status == true)
-                        					{
-                        						emailCheckedInpSelector.val(true);
-                        						/** if customer registered before, we allow them to use tool **/
-                        						if(result.status_code == 'exist_customer_event')
-                        						{
-                        							emailSelector.closest('div').find(errorSelector).html(icon + " you have registered this events");
-                        							var firstname    = result.data.firstname;
-                        							var lastname     = result.data.lastname;
-                        							var email        = result.data.email;
-                        							var mobile       = result.data.mobile;
-                        							var dob_parent   = result.data.dob_parent;
-                        							var fulladdress  = result.data.fulladdress;
-                        							var postcode 	 = result.data.postcode;
-                        							var city 		 = result.data.city;
-                        							var state 		 = result.data.state;
-                        							var eddDate 	 = result.data.edd_date;
-                        							var eddWeek 	 = result.data.week;
-                        							var milkbrand 	 = result.data.milkbrand;
-                        							var subscriberid = result.data.subscriber_id;
-                        							var tnc_mmy 	 = result.data.tnc_mmy;
-                        							var tnc_nestle 	 = result.data.tnc_nestle;
-                        							var news_promo 	 = result.data.news_promo;
-                        							
-                        							fnameSelector.val(firstname);
-                        							lnameSelector.val(lastname);
-                        							addrSelector.val(fulladdress);
-                        							citySelector.val(city);
-                        							stateSelector.val(state);
-                        							subidSelector.val(subscriberid);
-                        							
-                        							if(dob_parent != '' && dob_parent != null && dob_parent != undefined)
-                        							{
-                        								var selectorDOB = document.getElementById("dobParent");
-                        								selectorDOB.inputmask.setValue(dob_parent);
-                        							}
-                        							
-                        							if(mobile != '' && mobile != null && mobile != undefined)
-                        							{
-                        								var selectorMobile = document.getElementById("mobilenumber");
-                        								selectorMobile.inputmask.setValue(mobile);
-                        							}
-                        							
-                        							if(postcode != '' && postcode != null && postcode != undefined)
-                        							{
-                        								var selectorPostcode = document.getElementById("postcode-address");
-                        								selectorPostcode.inputmask.setValue(postcode);
-                        							}
-                        							
-                        							if(milkbrand != '' && milkbrand != null && milkbrand != undefined)
-                        							{
-                        								$('body').find('#milk-brand').val(milkbrand);
-                        								$('body').find('.display-input-milkbrand').val(milkbrand);
-                        							}
-                        							
-                        							if(eddWeek > 0)
-                        							{
-                        								wordingBabyWeeksSelector.html('Your baby is on ' + eddWeek + " weeks");
-                        								eddFormSelector.hide('fast');
-                        								divPregnancytrackerSelector.show('fast');
-                        							}
-                        							else
-                        							{
-                        								eddFormSelector.show('fast');
-                        								divPregnancytrackerSelector.hide('fast');
-                        							}
-                        							
-                        							if(eddDate != "" && eddDate != undefined)
-                        							{
-                        								
-                        								$('body').find('.display-input-edd').val(eddDate);
-                        								$('body').find('.display-edd-milk').removeClass('visuallyhidden');
-                        								$('body').find('.question-edd').addClass('visuallyhidden');
-                        								$('body').find('.row-question-milk-brand').addClass('visuallyhidden');
-                        							}
-                        							else
-                        							{
-                        								$('body').find('.display-edd-milk').addClass('visuallyhidden');
-                        								$('body').find('.question-edd').removeClass('visuallyhidden');
-                        								$('body').find('.row-question-milk-brand').removeClass('visuallyhidden');
-                        							}
-                  								
-                  								if(tnc_mmy == 'agree')
-                  								{
-                  									$('body').find('#checked-tnc-mmy').closest('span').addClass('checked');
-                  									$('body').find('#checked-tnc-mmy').attr('disabled', true);
-                  								}
-                  								
-                  								if(tnc_nestle == 'agree')
-                  								{
-                  									$('body').find('#checked-tnc-nestle').closest('span').addClass('checked');
-                  									$('body').find('#checked-tnc-nestle').attr('disabled', true);
-                  								}
-                  								
-                  								if(news_promo == 'agree')
-                  								{
-                  									$('body').find('#receive-news').closest('span').addClass('checked');
-                  									$('body').find('#receive-news').attr('disabled', true);
-                  								}
-                        							
-                        							$('body').find('.title-form').html('You have registered!');
-                        							$('body').find('.input-info').addClass('background-grey-readonly');
-                        							$('body').find('.input-info').attr('disabled', true);
-                        							$('body').find('.div-password').hide("fast");
-                        							$('body').find('#btn-submit-form1').css('display', "none");
-                        							$('body').find('.div-overlay').css('display', "none");
-                        							$('body').find('.div-overlay').removeClass('box-overlay-display');
-                        							$('body').find('.clicker-img').removeClass('unclickable');
-                        							$('body').find('.clicker-img-href').removeClass('unclickable');
-                        						}
-                        						else 
-                        						{
-                        							/** if user already login and userid more than 0, and email-api return false then do this condition to handle **/
-                        							if(islogin == "true" && userid > 0)
-                        							{
-                        								console.log("meet this condition - user already login and userid more than 0, and email-api return");
-                        							}
-                        							/** if user not login and email-api return false then do this condition **/
-                        							else
-                        							{
-                        								if(result.status_code == 'exist_customer_motherhood_password_valid')
-                        								{
-                        									var firstname    = result.data.firstname;
-                        									var lastname     = result.data.lastname;
-                        									
-                        									fnameSelector.val(firstname);
-                        									lnameSelector.val(lastname);
-                        							
-                        									/** exist customer motherhood, never join event, with valid password **/
-                        									emailSelector.closest('div').find(errorSelector).html("");
-                        									passSelector.attr("required", "required");
-                        									passSelector.closest('div').find(errorSelector).html('<font style="color:#50ae55"><i class="far fa-check-circle"></i> Password match</font>');
-                  										$('body').find('#btn-submit-form1').attr('disabled', false);
-                  									}
-                        								else
-                        								{
-                        									/** new customer that account never exist with motherhood  **/
-                  										
-                  										if(passSelector.val() == '')
-                  										{
-                  											emailSelector.closest('div').find(errorSelector).html("<font style='color:#e9322d'>" + icon + " Kindly proceed to fill in all the required fields.</font>");
-                  											passSelector.closest('div').find(errorSelector).html("");
-                  										}
-                  										else
-                  										{
-                  											emailSelector.closest('div').find(errorSelector).html("");
-                  											passSelector.closest('div').find(errorSelector).html("");
-                  										}
-                        									
-                        									passSelector.attr("required", "required");
-                  										$('body').find('#btn-submit-form1').attr('disabled', false);
-                        								}
-                        								
-                        								$('body').find('.div-overlay').addClass('box-overlay-display');
-                        								$('body').find('.div-overlay').css('display', "block");
-                        								$('body').find('.clicker-img').addClass('unclickable');
-                        								$('body').find('.input-info').removeClass('background-grey-readonly');
-                        								$('body').find('.input-info').attr('disabled', false);
-                        								$('body').find('.div-password').show("fast");
-                        								$('body').find('#btn-submit-form1').css('display', "block");
-                        								$('body').find('.title-form').html('Fill up your information');
-                        							}
-                        						}
-                        					}
-                        					else
-                        					{
-                        						emailCheckedInpSelector.val(false);
-                        						passSelector.closest('div').find(errorSelector).html("");
-                        						
-                        						/** email exist with motherhood, never join event, password empty **/
-                        						if(result.status_code == 'exist_customer_motherhood_password_empty')
-                        						{
-                        							passSelector.attr("required", "required");
-                        							emailSelector.closest('div').find(errorSelector).html("<font style='color:#e9322d'>" + icon + " Your email has been found in our system.  Kindly enter your account password.</font>");
-                        						}
-                        						
-                        						/** email exist with motherhood, never join event, invalid password **/
-                        						else if(result.status_code == 'exist_customer_motherhood_password_invalid')
-                        						{
-                        							passSelector.attr("required", "required");
-                        							passSelector.closest('div').find(errorSelector).html("<font style='color:#e9322d'>" + icon + " Please insert valid motherhood password to submit your info.</font>");
-                        							emailSelector.closest('div').find(errorSelector).html("");
-                        						}
-                        						
-                        						else if(result.status_code == 'invalid_email')
-                        						{
-                        							passSelector.attr("required", "required");
-                        							passSelector.closest('div').find(errorSelector).html("");
-                        							emailSelector.closest('div').find(errorSelector).html("<font style='color:#e9322d'>" + icon + " Please insert valid email format.</font>");
-                        						}
-                        						
-                        						$('body').find('.div-overlay').addClass('box-overlay-display');
-                        						$('body').find('.div-overlay').css('display', "block");
-                        						$('body').find('.clicker-img').addClass('unclickable');
-                        						$('body').find('.input-info').removeClass('background-grey-readonly');
-                        						$('body').find('.input-info').attr('disabled', false);
-                        						$('body').find('#btn-submit-form1').css('display', "block");
-                        						$('body').find('.div-password').show("fast");
-                        						$('body').find('.title-form').html('Fill up your information');
-                        					}
-                        					allowCollapse();
-                        					checkStatusInput();
-                        				}
-                        			});
-                        		}
-                        		else
-                        		{
-                        			$('body').find('.div-overlay').addClass('box-overlay-display');
-                        			$('body').find('.div-overlay').css('display', "block");
-                        			$('body').find('.clicker-img').addClass('unclickable');
-                        			$('body').find('#btn-submit-form1').css('display', "block");
-                        			$('body').find('.div-password').show("fast");
-                        			$('body').find('.title-form').html('Fill up your information');
-                        			passSelector.attr("required", "required");
-                        			passSelector.closest('div').find(errorSelector).html("");
-                        			emailSelector.closest('div').find(errorSelector).html("<font style='color:#e9322d'>" + icon + " Please enter your email</font>");
-                        			emailCheckedInpSelector.val(false);
-                        			checkStatusInput();
-                        			allowCollapse();
-                        		}
-                        	} 
-                        	
-                        	var checkStatusInput = function(){
-                        		
-                        		// var eddStatus   = eddCheckedInpSelector.val();
-                        		var eddStatus    = true;
-                        		var emailStatus  = emailCheckedInpSelector.val();
-                        		var mobileStatus  = validateMobileno();
-                        		
-                        		console.log('Email status = ' + emailStatus + ' Edd status = ' + eddStatus + ' mobileStatus = ' + mobileStatus);
-                        		
-                        		if(eddStatus == true && emailStatus == "true" && mobileStatus == true)
-                        		{
-                        			$('body').find('#btn-submit-form1').attr('disabled', false);
-                        		}
-                        		else{
-                        			$('body').find('#btn-submit-form1').attr('disabled', true);
-                        		}
-                        	}
-                        	var allowCollapse = function(){
-                        		var subscribe_id = subidSelector.val();
-                        		if(subscribe_id > 0)
-                        		{
-                        			$('body').find('.heading-details-info').attr('data-target', '#infoform');
-                        		}
-                        		else
-                        		{
-                        			$('body').find('.heading-details-info').attr('data-target', '');
-                        		}
-                        	}
-                        	
-                        	
-                  		
-                  		var checkBoxTnc = function(){
-                  			var checkBox = $('body').find('#checked-tnc-nestle').prop("checked");
-                  			if(checkBox == false)
-                  			{
-                  				Swal.fire({
-                  					icon: 'error',
-                  					title: 'Error',
-                  					text: 'Please tick box to indicate you have read and understand our term and condition',
-                  				});
-                  				
-                  				return false;
-                  			}
-                  			else
-                  				return true;
-                  			
-                  			var checkBox = $('body').find('#checked-tnc-mmy').prop("checked");
-                  			if(checkBox == false)
-                  			{
-                  				Swal.fire({
-                  					icon: 'error',
-                  					title: 'Error',
-                  					text: 'Please tick box to indicate you have read and understand our term and condition',
-                  				});
-                  				
-                  				return false;
-                  			}
-                  			else
-                  				return true;
-                  		}
-                  		
-                  		var checktnc_promo = function(){
-                  			var tnc_mmy    = $('body').find('.tnc-mmy-checked').val();
-                  			var tnc_nestle = $('body').find('.tnc-nestle-checked').val();
-                  			var news_promo = $('body').find('.news-promo-checked').val();
-                  			
-                  			if(tnc_mmy == 'agree')
-                  			{
-                  				$('body').find('#checked-tnc-mmy').closest('span').addClass('checked');
-                  				// $('body').find('#checked-tnc-mmy').attr('disabled', true);
-                  			}
-                  			
-                  			if(tnc_nestle == 'agree')
-                  			{
-                  				$('body').find('#checked-tnc-nestle').closest('span').addClass('checked');
-                  				// $('body').find('#checked-tnc-nestle').attr('disabled', true);
-                  			}
-                  			
-                  			if(news_promo == 'agree')
-                  			{
-                  				$('body').find('#receive-news').closest('span').addClass('checked');
-                  				// $('body').find('#receive-news').attr('disabled', true);
-                  			}
-                  		}
-                  		
-		
-                  		
+    <script>// <![CDATA[
+	var errorSelector   = '.error-msg';
+	var icon 	  	    = '<i class="fas fa-info-circle"></i>';
+	var mobileSelector  = $('body').find('#mobilenumber');
+	var emailSelector 	= $('body').find('#newemail');
+	var passSelector  	= $('body').find('#newPassword');
+	var fnameSelector   = $('body').find('#newFirstName');
+    var lnameSelector   = $('body').find('#newLastName');
+	var eventID 	    = 141;
+	
 	var validatePostcode = function(_this){
 		var postcode = _this.val();
 		if(postcode != undefined && postcode != '')
@@ -607,7 +269,7 @@
 			if(firstNo != 0 && firstNo != 5){
 				mobileSelector.addClass('is-invalid');
 				msg = "Invalid phone number format. Correct format(XXXXXXXXXXX), e.g. 0123334444 / 0198887777.";
-				mobileSelector.closest('div').find(errorSelector).html(msg);
+				mobileSelector.closest('div').find(errorSelector).html(icon + msg);
 				flagCheck = false;
 			}
 			else if(firstNo == '0'){
@@ -619,7 +281,7 @@
 						if(phoneLength < 10 || phoneLength > 11){
 							mobileSelector.addClass('is-invalid');
 							msg = "Invalid phone number format. Correct format(XXXXXXXXXXX), e.g. 0123334444 / 0198887777.";
-							mobileSelector.closest('div').find(errorSelector).html(msg);
+							mobileSelector.closest('div').find(errorSelector).html(icon + msg);
 							flagCheck = false;
 						}
 					}
@@ -627,7 +289,7 @@
 						if(phoneLength < 10 || phoneLength > 10){
 							mobileSelector.addClass('is-invalid');
 							msg = "Invalid phone number format. Correct format(XXXXXXXXXXX), e.g. 0123334444 / 0198887777.";
-							mobileSelector.closest('div').find(errorSelector).html(msg);
+							mobileSelector.closest('div').find(errorSelector).html(icon + msg);
 							flagCheck = false;
 						}
 					}  
@@ -636,7 +298,7 @@
 				{
 					mobileSelector.addClass('is-invalid');
 					msg = "Invalid phone number prefix. Correct Prefix (010,011,012,013,014,015,016,017,018,019).";
-					mobileSelector.closest('div').find(errorSelector).html(msg);
+					mobileSelector.closest('div').find(errorSelector).html(icon + msg);
 					flagCheck = false;
 				}
 			}
@@ -644,7 +306,7 @@
 				if(phoneLength < 9 || phoneLength > 9){
 					mobileSelector.addClass('is-invalid');
 					msg = "Invalid Singapore phone number format. Correct Format(5 XXXX XXXX), e.g. 5 66667777";
-					mobileSelector.closest('div').find(errorSelector).html(msg);
+					mobileSelector.closest('div').find(errorSelector).html(icon + msg);
 					flagCheck = false;
 				}
 			}
@@ -653,12 +315,106 @@
 		{
 			mobileSelector.addClass('is-invalid');
 			msg = "Please enter mobile no";
-			mobileSelector.closest('div').find(errorSelector).html(msg);
+			mobileSelector.closest('div').find(errorSelector).html(icon + msg);
 			flagCheck = false;
 		}
 		
 		return flagCheck;
 	}
+	
+	
+	var checkEmail = function(autorun){
+		emailSelector.removeClass('is-invalid');
+		var checkemail = emailSelector.val();
+		var msg 	   = "";
+		if(checkemail != undefined && checkemail != '')
+		{
+			msg = "<i class='fas fa-spinner fa-spin'></i> Please wait while we checking your email...";
+			emailSelector.closest('div').find(errorSelector).html(msg);
+			
+			$.ajax({
+				url		 : '../modules/enlineamixmod/enlineamixmod-checkcustemailevent-ajax.php', 
+				data	 :{'checkemail': checkemail, 'eventid': eventID},
+				dataType :'json',
+				method 	 : 'post',
+				success	 : function(result){
+					console.log(result);
+					
+					$('body').find('.statuscodeemail').val(result.status_code);
+					if(result.status == true)
+					{
+						/** if customer registered before, we allow them to use tool **/
+						if(result.status_code == 'exist_customer_event')
+						{
+							$('body').find('.btn-submit-display').css('display', 'none');
+							emailSelector.closest('div').find(errorSelector).html(icon + " you have registered this events");
+							alert("You have registered. System will redirect to redeemption page. Thank you");
+							
+							if(result.data.redirectUrl != undefined && result.data.redirectUrl != '')
+							{
+								window.location.href = result.data.redirectUrl;
+							}
+							
+						}
+						else if(result.status_code == 'exist_customer_other_event')
+						{
+							$('body').find('.btn-submit-display').css('display', 'none');
+							emailSelector.closest('div').find(errorSelector).html(icon + " You have registered before. This redemption is open for new Motherhood users only.");
+							alert("You have registered before. This redemption is open for new Motherhood users only.")							
+						}
+						else if(result.status_code == 'exist_customer_motherhood_valid')
+						{
+							$('body').find('.btn-submit-display').css('display', 'block');
+							$('body').find('.row-password').css('display', 'none');
+							$('body').find('#newpassword').attr('required', false);
+							$('body').find('#confirmpassword').attr('required', false);
+							emailSelector.closest('div').find(errorSelector).html('Your email has been found in our system.');
+							
+							if(result.data.firstname != '' && result.data.firstname != undefined && result.data.firstname != null)
+							{
+								$('body').find('#firstname').val(result.data.firstname);
+							}
+							
+							if(result.data.lastname != '' && result.data.lastname != undefined && result.data.lastname != null)
+							{
+								$('body').find('#lastname').val(result.data.lastname);
+							}
+						}
+						else
+						{
+							$('body').find('.row-password').css('display', 'flex');
+							$('body').find('#newpassword').attr('required', true);
+							$('body').find('#confirmpassword').attr('required', true);
+							emailSelector.closest('div').find(errorSelector).html('valid email');
+						}
+						
+						return true
+					}
+					else
+					{
+						$('body').find('.row-password').css('display', 'flex');
+						$('body').find('#newpassword').attr('required', true);
+						$('body').find('#confirmpassword').attr('required', true);
+						emailSelector.closest('div').find(errorSelector).html('');
+						
+						return false;
+					}
+				}
+			});
+		}
+		else
+		{
+			if(autorun != true)
+			{
+				emailSelector.addClass('is-invalid');
+				emailSelector.closest('div').find(errorSelector).html("<font style='color:#e9322d'>" + icon + " Please enter your email</font>");
+				
+				return false;
+			}
+			
+			return true;
+		}
+	} 
 	
     $(function(){
 		$(window).load(function() {
@@ -700,9 +456,9 @@
 		$('body').on('blur', '#mobilenumber', function(){
 			validateMobileNo();
 		});
-	
 		
-		$('body').on('change', '#emailNew, #newPassword ', function(){
+		checkEmail(true);
+		$('body').on('change', '#newemail', function(){
 			checkEmail();
 		});
 	
@@ -713,172 +469,187 @@
 		
 		// validateEmail(true);
       	$('body').on('click', '.btn-submit-display', function(){
-      			$(this).html('Submit');
-      			validateEmail();
-      			var fname 			 = $('body').find('.fname').val();
-      			var lname 			 = $('body').find('.lname').val();
-      			var milkbrand 		 = $('body').find('.current-milkbrand').val();
-      			var childname 		 = $('body').find('.childname').val();
-      			var address 		 = $('body').find('.input-addr').val();
-      			var address2 		 = $('body').find('.input-addr2').val();
-      			var city 			 = $('body').find('.addr-city').val();
-      			var state 			 = $('body').find('.addr-state').val();
-      			var emailInputStatus = $('body').find('.status-input-email').val();
-      			var emailCodeStatus  = $('body').find('.status-code-email').val();
-      			var confirmPassword  = $('body').find('.inputconfirmpassword').val();
-      			var password 		 = $('body').find('.inputpassword').val();
-      			var tncCheck         = $('body').find('#tnccheckbox').is(':checked');
-      			var mobileValidate 	 = validateMobileNo();
-      			var postcodeValidate = validatePostcode();
-      			var dobValidate 	 = validateChildDob();
-      			var flagCheck 		 = true;
-      			var userid 			 = $('body').find('.user-id').val(); 
-      			var loginemail 		 = $('body').find('.login-input-email').val(); /** hidden input for pre-define email **/ 
-      			var inputEmail 		 = emailSelector.val(); 
-      			
-      			fnameSelector.removeClass('is-invalid');
-      			fnameSelector.closest('div').find(errorSelector).html("");
-      			
-      			lnameSelector.removeClass('is-invalid');
-      			lnameSelector.closest('div').find(errorSelector).html("");
-      			
-      			$('body').find('.current-milkbrand').removeClass('is-invalid');
-      			$('body').find('.current-milkbrand').closest('div').find(errorSelector).html("");
-      			
-      			// $('body').find('.childname').removeClass('is-invalid');
-      			// $('body').find('.childname').closest('div').find(errorSelector).html("");
-      			
-      			$('body').find('.input-addr').removeClass('is-invalid');
-      			$('body').find('.input-addr').closest('div').find(errorSelector).html("");
-      			
-      			$('body').find('.addr-state').removeClass('is-invalid');
-      			$('body').find('.addr-state').closest('div').find(errorSelector).html("");
-      			
-      			$('body').find('.addr-state2').removeClass('is-invalid');
-      			$('body').find('.addr-state2').closest('div').find(errorSelector).html("");
-      			
-      			$('body').find('.inputpassword').removeClass('is-invalid');
-      			$('body').find('.inputpassword').closest('div').find(errorSelector).html("");
-      			
-      			$('body').find('.inputconfirmpassword').addClass('is-invalid');
-      			$('body').find('.inputconfirmpassword').closest('div').find(errorSelector).html("");
-      			
-      			if(fname == '' || fname == undefined || fname == null)
-      			{
-      				fnameSelector.addClass('is-invalid');
-      				fnameSelector.closest('div').find(errorSelector).html("Please insert your firstname");
-      				flagCheck = false;
-      			}
-      			
-      			if(lname == '' || lname == undefined || lname == null)
-      			{
-      				lnameSelector.addClass('is-invalid');
-      				lnameSelector.closest('div').find(errorSelector).html("Please insert your lastname");
-      				flagCheck = false;
-      			}
-      			
-      			if(address == '' || address == undefined || address == null)
-      			{
-      				$('body').find('.input-addr').addClass('is-invalid');
-      				$('body').find('.input-addr').closest('div').find(errorSelector).html("Please insert address 1");
-      				flagCheck = false;
-      			}
-      			
-      			if(address2 == '' || address2 == undefined || address2 == null)
-      			{
-      				$('body').find('.input-addr2').addClass('is-invalid');
-      				$('body').find('.input-addr2').closest('div').find(errorSelector).html("Please insert address 2");
-      				flagCheck = false;
-      			}
-      			
-      			if(city == '' || city == undefined || city == null)
-      			{
-      				$('body').find('.addr-city').addClass('is-invalid');
-      				$('body').find('.addr-city').closest('div').find(errorSelector).html("Please insert city of address");
-      				flagCheck = false;
-      			}
-      			
-      			if(state == '' || state == undefined || state == null)
-      			{
-      				$('body').find('.addr-state').addClass('is-invalid');
-      				$('body').find('.addr-state').closest('div').find(errorSelector).html("Please insert state of address");
-      				flagCheck = false;
-      			}
-      			
-      			if(loginemail == inputEmail && userid > 0)
-      			{
-      				console.log('loginemmail = ' + loginemail + " inputEmail = " + inputEmail + " userid = " + userid);
-      			}
-      			else
-      			{
-      				if(password == '' || password == undefined || password == null)
-      				{
-      					$('body').find('.inputpassword').addClass('is-invalid');
-      					$('body').find('.inputpassword').closest('div').find(errorSelector).html("Please insert password");
-      					flagCheck = false;
-      				}
-      				else if(password.length < 6){
-      					$('body').find('.inputpassword').addClass('is-invalid');
-      					$('body').find('.inputpassword').closest('div').find(errorSelector).html("Minimum length for password is 6");
-      					flagCheck = false;
-      				}
-      			}
-      			
-      			if(emailCodeStatus == 'new_customer_event' && password != confirmPassword)
-      			{
-      				$('body').find('.inputconfirmpassword').addClass('is-invalid');
-      				$('body').find('.inputconfirmpassword').closest('div').find(errorSelector).html("Password and confirm password not match");
-      				flagCheck = false;
-      			}
-      			
-      			if(emailInputStatus == 'false')
-      			{
-      				emailInputStatus = false
-      				flagCheck = emailInputStatus;
-      			}
-      			
-      			if(mobileValidate == false)
-      			{
-      				flagCheck = mobileValidate;
-      			}
-      			
-      			if(postcodeValidate == false)
-      			{
-      				flagCheck = postcodeValidate;
-      			}
-      			
-      			// if(dobValidate == false)
-      			// {
-      				// flagCheck = dobValidate;
-      			// }
-      			
-      			if(tncCheck == false)
-      			{
-      				Swal.fire({
-      					icon: 'error',
-      					title: 'Error',
-      					text: 'Please tick box to indicate you have read and understand our term and condition',
-      				});
-      				
-      				return false;
-      			}
-      			
-      			if(flagCheck == false)
-      			{
-      				Swal.fire({
-      					icon: 'error',
-      					title: 'Oops...',
-      					text: 'Required input has validation error',
-      				});
-      				
-      				return false;
-      			}
-      			else
-      			{
-      				$(this).html('<i class="fas fa-spinner fa-spin"></i> Processing...')
-      				$('body').find('#btnsubmit').trigger('click');
-      			}
-      		});
+			$(this).html('Submit'); 
+			var emailStatusCode 	= $('body').find('.statuscodeemail').val();
+			var email 				= $('body').find('#newemail').val();
+			var firstname 			= $('body').find('#firstname').val();
+			var lastname 			= $('body').find('#lastname').val();
+			var parentdob 			= $('body').find('#parentdob').val();
+			var mobilenumber 		= $('body').find('#mobilenumber').val();
+			var validateMobile 		= validateMobileNo();
+			var currentmilkbrand 	= $('body').find('#currentmilkbrand').val();
+			var pregnancymonth 		= $('body').find('#pregnancy-month').val();
+			var address 			= $('body').find('#address').val();
+			var postcode 			= $('body').find('#postcode-address').val();
+			var city 				= $('body').find('#city-address').val();
+			var state 				= $('body').find('#state-address').val();
+			var country 			= $('body').find('#postcode-country').val();
+			var newpassword 		= $('body').find('#newpassword').val();
+			var confirmpassword 	= $('body').find('#confirmpassword').val();
+			var tncchecked 			= $('body').find('#tnccheckbox').is(':checked');
+			var flagcheck 			= true;
+			
+			console.log("emailStatusCode " + emailStatusCode);
+			console.log("validateMobile " + validateMobile  +  typeof validateMobile);
+			
+			if(email == '' || email == null || email == undefined)
+			{
+				$('body').find('#newemail').addClass('is-invalid');
+				$('body').find('#newemail').closest('div').find(errorSelector).html(icon + " Please insert your email");
+				
+				flagcheck = false;
+			}
+			
+			if(firstname == '' || firstname == null || firstname == undefined)
+			{
+				$('body').find('#firstname').addClass('is-invalid');
+				$('body').find('#firstname').closest('div').find(errorSelector).html(icon + " Please insert your firstname");
+				
+				flagcheck = false;
+			}
+			
+			if(lastname == '' || lastname == null || lastname == undefined)
+			{
+				$('body').find('#lastname').addClass('is-invalid');
+				$('body').find('#lastname').closest('div').find(errorSelector).html(icon + " Please insert your lastname");
+				
+				flagcheck = false;
+			}
+			
+			if(parentdob == '' || parentdob == null || parentdob == undefined)
+			{
+				$('body').find('#parentdob').addClass('is-invalid');
+				$('body').find('#parentdob').closest('div').find(errorSelector).html(icon + " Please your birthday");
+				
+				flagcheck = false;
+			}
+			
+			if(mobilenumber == '' || mobilenumber == null || mobilenumber == undefined)
+			{
+				$('body').find('#mobilenumber').addClass('is-invalid');
+				$('body').find('#mobilenumber').closest('div').find(errorSelector).html(icon + " Please your mobile number");
+				
+				flagcheck = false;
+			}
+			
+			if(validateMobile == false)
+			{
+				flagcheck = false;
+			}
+			
+			if(currentmilkbrand == '' || currentmilkbrand == null || currentmilkbrand == undefined)
+			{
+				$('body').find('#currentmilkbrand').addClass('is-invalid');
+				$('body').find('#currentmilkbrand').closest('div').find(errorSelector).html(icon + " Please select option of milk brand");
+				
+				flagcheck = false;
+			}
+			
+			if(pregnancymonth == '' || pregnancymonth == null || pregnancymonth == undefined)
+			{
+				$('body').find('#pregnancy-month').addClass('is-invalid');
+				$('body').find('#pregnancy-month').closest('div').find(errorSelector).html(icon + " Please select option of pregnant mom");
+				
+				flagcheck = false;
+			}
+			
+			if(address == '' || address == null || address == undefined)
+			{
+				$('body').find('#address').addClass('is-invalid');
+				$('body').find('#address').closest('div').find(errorSelector).html(icon + " Please insert address");
+				
+				flagcheck = false;
+			}
+			
+			if(postcode == '' || postcode == null || postcode == undefined)
+			{
+				$('body').find('#postcode-address').addClass('is-invalid');
+				$('body').find('#postcode-address').closest('div').find(errorSelector).html(icon + " Please insert postcode");
+				
+				flagcheck = false;
+			}
+			
+			if(city == '' || city == null || city == undefined)
+			{
+				$('body').find('#city-address').addClass('is-invalid');
+				$('body').find('#city-address').closest('div').find(errorSelector).html(icon + " Please insert city");
+				
+				flagcheck = false;
+			}
+			
+			if(state == '' || state == null || state == undefined)
+			{
+				$('body').find('#state-address').addClass('is-invalid');
+				$('body').find('#state-address').closest('div').find(errorSelector).html(icon + " Please insert state");
+				
+				flagcheck = false;
+			}
+			
+			if(country == '' || country == null || country == undefined)
+			{
+				$('body').find('#postcode-country').addClass('is-invalid');
+				$('body').find('#postcode-country').closest('div').find(errorSelector).html(icon + " Please insert country");
+				
+				flagcheck = false;
+			}
+			
+			if(emailStatusCode == "new_customer_event" || emailStatusCode == '')
+			{
+				if(newpassword == "" || newpassword == null || newpassword == undefined)
+				{
+					$('body').find('#newpassword').addClass('is-invalid');
+					$('body').find('#newpassword').closest('div').find(errorSelector).html(icon + " Please insert password");
+					
+					flagcheck = false;
+				}
+				
+				if(confirmpassword == "" || confirmpassword == null || confirmpassword == undefined)
+				{
+					$('body').find('#confirmpassword').addClass('is-invalid');
+					$('body').find('#confirmpassword').closest('div').find(errorSelector).html(icon + " Please insert confirm password");
+					
+					flagcheck = false;
+				}
+				
+				if(newpassword != '' && newpassword != undefined && newpassword != null && newpassword != confirmpassword)
+				{
+					$('body').find('#confirmpassword').addClass('is-invalid');
+					$('body').find('#confirmpassword').closest('div').find(errorSelector).html(icon + " Password and confirm password not match");
+					
+					flagcheck = false;
+				}
+			}
+			
+			
+			if(flagcheck == false)
+			{
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'Required input has validation error',
+				});
+				
+				$('body').find(".is-invalid:first").focus()
+				return false;
+			}
+			
+			if(!tncchecked)
+			{
+				Swal.fire({
+					icon: 'error',
+					title: 'Error',
+					text: 'Please tick box to indicate you have read and understand our term and condition',
+				});
+				
+				return false;
+			}
+			
+			if(flagcheck)
+			{
+				$(this).html('<i class="fas fa-spinner fa-spin"></i> Processing...')
+				$('body').find('#btnsubmit').trigger('click');
+			}
+		});
 	});
   
 </script>

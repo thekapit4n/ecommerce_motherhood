@@ -309,7 +309,7 @@
 		
 		.methodology-desc{
 			color:black;
-			text-align:justify;
+			text-align:left;
 			font-size:14px;
 		}
 		
@@ -417,13 +417,15 @@
 								<h2 data-aos="fade-in" data-aos-delay="100" class="poppin-font category-title" style="color:black;font-weight:600;">Methodology</h2>
 							</div>
 							<div class="row">
-								<div class="col-md-4 col-12 border-desktop text-align-objective" data-aos="fade-up" data-aos-delay="100">
-									<p class="methodology-title">Why Motherhood Choice Awards?</p>
+								<div class="col-md-3 col-6 border-desktop text-align-objective" data-aos="fade-up" data-aos-delay="100">
+									<img src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/mmy-award/2021/assets/mmyicon/Methodology-1.png" class="img-fluid obj-icon1">
+									<p class="methodology-title">Trusted Reseaarch Survey</p>
 									<p class="methodology-desc">
-										We are the leading parenting media company with over 5,000,000 parents on our platform. We commissioned highly recognized market surveys on top categories of Maternity, Baby and Family products. Over 5,000 individuals were surveyed for this Award.
+										We are the leading parenting media company with over 5,000,000 parents on our platform. We commissioned highly recognised market surveys on top categories, such as Maternity, Baby, Kid and Family products and services. Over 5,000 individuals were surveyed for this award.
 									</p>
 								</div>
-								<div class="col-md-4 col-12 border-desktop text-align-objective" data-aos="fade-up" data-aos-delay="100">
+								<div class="col-md-3 col-6 border-desktop text-align-objective" data-aos="fade-up" data-aos-delay="100">
+									<img src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/mmy-award/2021/assets/mmyicon/Methodology-2.png" class="img-fluid obj-icon1">
 									<p class="methodology-title">Consumers Voting</p>
 									<p class="methodology-desc methodology-desc-attribute">
 										Each respondent was required to complete an online questionnaire. We asked each participant to select or tell us the name of their most trusted brand based on the attributes:- 
@@ -436,10 +438,18 @@
 										</ul>
 									</p>
 								</div>
-								<div class="col-md-4 col-12 border-desktop text-align-objective" data-aos="fade-up" data-aos-delay="100">
+								<div class="col-md-3 col-6 border-desktop text-align-objective" data-aos="fade-up" data-aos-delay="100">
+									<img src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/mmy-award/2021/assets/mmyicon/Methodology-3.png" class="img-fluid obj-icon1">
 									<p class="methodology-title">Motherhood Choice Rating</p>
 									<p class="methodology-desc">
 										The final ranking in each product category was obtained by selecting the brand with the highest number of votes. Motherhood Choice Awards were given to brands that scored significantly higher than their rivals.
+									</p>
+								</div>
+								<div class="col-md-3 col-6 border-desktop text-align-objective" data-aos="fade-up" data-aos-delay="100">
+									<img src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/mmy-award/2021/assets/mmyicon/Methodology-4.png" class="img-fluid obj-icon1">
+									<p class="methodology-title">Presenting the Winning Brands</p>
+									<p class="methodology-desc">
+										Motherhood Choice Awards awards brand that score significantly higher than their competitors.
 									</p>
 								</div>
 							</div>

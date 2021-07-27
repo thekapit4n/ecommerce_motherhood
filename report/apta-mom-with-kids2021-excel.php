@@ -30,7 +30,8 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 		$searchStart ="";
 		$searchEnd 	 ="";
 		$wheresql  	 = "";
-		$limitsql    = " LIMIT 1500";
+		$limitsql    = "";
+		// $limitsql    = " LIMIT 1500";
 		$strDateMsg  = "";
 		
 		$arrChangeBrandToOthers = array(
