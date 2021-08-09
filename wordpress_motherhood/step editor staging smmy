@@ -1,0 +1,19 @@
+My sites > network admin > themes > themes editor >  files styles.css
+My sites > network admin > themes > themes editor >  files header.php
+-  $fixed_menu_class = ( $fixed_menu == '3' ) ? ' is-fixed' : 'is-fixed';
+
+My sites > appearance > themes > customize > widgets > magazine > remove all
+My sites > appearance > themes > customize > widgets > magazine > set for single page.
+My sites > appearance > themes option > post pages > number column > threes
+
+/var/www/html/storystaging.motherhood.com.my/wp-content/themes/simplemag/inc/content-post-actions.php --> add '<span class="entry-date published"> / <?php get_view_count();?></span>' inside function : content_post_item_author();
+
+/var/www/html/storystaging.motherhood.com.my/wp-content/themes/simplemag/inc/single-post-actions.php --> add function : get_view_count();
+
+/var/www/html/storystaging.motherhood.com.my/wp-content/themes/simplemag/composer/category-posts.php-->add <span class="entry-date published"> / <?php get_view_count();?></span>
+
+/var/www/html/storystaging.motherhood.com.my/wp-content/themes/simplemag/single.php ---> css
+/var/www/html/storystaging.motherhood.com.my/wp-content/themes/simplemag/header.php--> set fixed menu.
+/var/www/html/storystaging.motherhood.com.my/wp-content/themes/simplemag/searchform.php--> search input
+/var/www/html/storystaging.motherhood.com.my/wp-content/themes/simplemag/js/jquery.custom.js --> add this files
+/var/www/html/storystaging.motherhood.com.my/wp-content/themes/simplemag/inc/register-scripts.php

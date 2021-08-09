@@ -5,24 +5,24 @@ session_start();
 
 if(isset($_GET['islogout']) && $_GET['islogout'] == true)
 {
-	unset($_SESSION["anmummaternaLogin"]);
-	header('Location: http://www.motherhood.com.my/external/apta-pregnant-mom2021-report.php');
+	unset($_SESSION["dugroLogin"]);
+	header('Location: http://www.motherhood.com.my/external/dugro-report2021.php');
 }
 
 $arr_allowUser = array(
 	'tech',
 	'megan',
 	'hooishan',
-	'aptamom',
+	'dugro',
 	'haiqal',
 	'ivy',
 );
 
-if ((in_array($_POST['login'], $arr_allowUser)) && $_POST['password'] == 'anmum123'){
-	$_SESSION['anmummaternaLogin'] = true;
+if ((in_array($_POST['login'], $arr_allowUser)) && $_POST['password'] == 'dugro123'){
+	$_SESSION['dugroLogin'] = true;
 }
 
-if ($_SESSION['anmummaternaLogin'] == true){
+if ($_SESSION['dugroLogin'] == true){
 
 }
 else
@@ -40,7 +40,7 @@ else
     <link rel="stylesheet" href="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/report-login/css/bootstrap.min.css">
     <!-- Style -->
     <link rel="stylesheet" href="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/report-login/css/style.css">
-    <title>Apta Pregnantmom Report | Motherhood.com.my Malaysia</title>
+    <title>Dugro Report 2021 | Motherhood.com.my Malaysia</title>
 	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico"/>
 	<style>
 		body{
@@ -80,9 +80,9 @@ else
 							<div class="form-block" style="padding-top:20px;padding-bottom:20px;">
 								<div class="mb-12">
 									<h3>Login to <strong>leads report</strong></h3>
-									<p class="mb-4">Apta Pregnant Mom Report 2021 | Motherhood.com.my Malaysia</p>
+									<p class="mb-4">Dugro Report 2021 | Motherhood.com.my Malaysia</p>
 								</div>
-								<form action='apta-pregnant-mom2021-report.php' method='post' method="post">
+								<form action='dugro-report2021.php' method='post' method="post">
 									<div class="form-group first">
 										<label for="username">Login</label>
 										<input type="text" class="form-control" id="username"  name='login'>
@@ -142,7 +142,7 @@ $productList=array();
 	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/Inputmask-5.x/dist/jquery.inputmask.js" type="text/javascript"></script>
 	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/twbs-pagination/jquery.twbsPagination.min.js" type="text/javascript"></script>
 	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/simplePagination/jquery.simplePagination.js" type="text/javascript"></script>
-	<title>Apta mom pregnant 2021 | Motherhood.com.my Malaysia</title>
+	<title>Dugro Report 2021 | Motherhood.com.my Malaysia</title>
 <style>
 body{
 	font-family: 'Poppins', sans-serif;
@@ -171,7 +171,7 @@ body{
 	$searchEnd 	 	="";
 	$wheresql  	 	= "";
 	$limitsql    	= "";
-	$currentLimit 	= " LIMIT 1500";
+	$currentLimit 	= " LIMIT 4000";
 	
 	if (isset($_GET['pageno'])) {
 		$pageno = $_GET['pageno'];
@@ -220,7 +220,7 @@ body{
 		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.newEmail NOT IN (" . $string_email . ")";
 	}
 	
-	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "evnt.subscriber_event_id = 105";
+	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "evnt.subscriber_event_id = 107";
 
 	
 	$groupBy = " GROUP BY evnt.newEmail ";
@@ -237,7 +237,7 @@ body{
 	
 	if($searchStart == '' && $searchEnd == '')
 	{
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at >= '2021-06-04 00:00:00'";
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at >= '2021-08-01 00:00:00'";
 	}
 	
 	
@@ -268,9 +268,9 @@ body{
 	}
 			
 	$sql = "SELECT
-		evnt.newEmail as Email, RTRIM(LTRIM(CONCAT(evnt.newFirstName , ' ' , evnt.newLastName))) AS Name,  evnt.subscriber_question1 as Mobile, 
-		evnt.subscriber_question3 as 'Address 1', evnt.subscriber_question11 as 'Address 2', evnt.subscriber_question4 as Postcode, evnt.subscriber_question5 as City, evnt.subscriber_question7 as State, evnt.subscriber_question13 as Country, 
-		evnt.subscriber_created_at as DateSubmit
+		evnt.newEmail as Emel, RTRIM(LTRIM(CONCAT(evnt.newFirstName , ' ' , evnt.newLastName))) AS Nama,  evnt.subscriber_question1 as 'Nombor telefon',  evnt.subscriber_question8 as 'Nama si manja',evnt.subscriber_question2 as 'Tarikh lahir si manja',evnt.subscriber_question9 as 'Jenama susu', RTRIM(LTRIM(CONCAT(evnt.subscriber_question14 , ' tahun ' , evnt.subscriber_question15, ' bulan'))) AS 'Tempoh menggunakan jenama',
+		evnt.subscriber_question3 as 'Alamat 1', evnt.subscriber_question11 as 'Alamat 2', evnt.subscriber_question4 as Poskod, evnt.subscriber_question5 as Bandar, evnt.subscriber_question7 as Negeri, evnt.subscriber_question13 as Negara, 
+		evnt.subscriber_created_at as 'Tarikh pendaftaran'
 		FROM ps_events_subscriber evnt " . $wheresql . $groupBy . " ORDER BY evnt.subscriber_created_at ASC " . $limitsql;
     $result = $conn->query($sql);
 	if(is_object($result)){
@@ -294,10 +294,9 @@ body{
 			if($i == 8)
 			{
 				$table .= "<th>" . $field . "</th>";
-				$table .= "<th>Status</th>";
 			}
 			else
-				$table .= "<th>" . $field . "</th>";
+				$table .= "<th style='min-width:300px'>" . $field . "</th>";
 			
 		}
 		$table .= "</tr>";
@@ -310,19 +309,46 @@ body{
 			$ccount = 0;
 		}
 		
+		
+		$arrChangeBrandToOthers = array(
+			"Awarua",
+			"Baby Bio",
+			"Baby Steps",
+			"Colostrum",
+			"Enfamil",
+			"Farmers",
+			"Glucerna",
+			"Habib",
+			"Lazz",
+			"Merry Nation",
+			"Nana",
+			"Wildan",
+		);
+		
 		while ($r = mysqli_fetch_row($result)) {
 			$ccount++;
 			$table .= "<tr><td>" . $ccount . "</td>";
 			foreach ($r as $indx => $kolonne) {
+					// echo "index = " .$indx . " === " .$kolonne . "<br/>" ;
 					if($indx == 1)
 					{
 						$kolonne = ucfirst(strtolower($kolonne));
 						$table .= "<td>" . substr($kolonne,0,21). "</td>";
-					}elseif($indx == 8)
-					{
-						$table .= "<td>" . $kolonne . "</td>";
-						$table .= "<td>I am Pregnant</td>";
 					}
+					elseif($indx == 3)
+					{
+						$kolonne = ucfirst(strtolower($kolonne));
+						$table .= "<td>" . substr($kolonne,0,21). "</td>";
+					}
+					elseif($indx == 5)
+					{
+						if(in_array($kolonne, $arrChangeBrandToOthers))
+						{
+							$kolonne = "Others";
+						}
+						$table .= "<td>" . $kolonne . "</td>";
+					}
+					
 					else
 						$table .= "<td>" . $kolonne . "</td>";
 			}
@@ -349,15 +375,12 @@ body{
 	  <!-- Links -->
 		<ul class="navbar-nav">
 			<li class="nav-item <?php echo (isset($current_reportname) && strtolower($current_reportname) == 'apta-pregnant-mom2021-report.php') ? 'active' : '' ?>" style="height:45px;">
-				<a class="nav-link " href="http://www.motherhood.com.my/external/apta-pregnant-mom2021-report.php">Apta pregnant mom 2021 report</a>
-			</li>
-			<li class="nav-item <?php echo (isset($current_reportname) && strtolower($current_reportname) == 'apta-mom-with-kids2021-report.php') ? 'active' : '' ?>" style="height:45px;">
-				<a class="nav-link " href="http://www.motherhood.com.my/external/apta-mom-with-kids2021-report.php">Apta mom with kid 2021 report</a>
+				<a class="nav-link " href="http://www.motherhood.com.my/external/dugro-report2021.php">Dugro 2021 report</a>
 			</li>
 		</ul>
 		<ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
 			<li class="nav-item">
-				<a href="apta-pregnant-mom2021-report.php?islogout=true" class="nav-link p-2" href="" target="_blank" rel="noopener" aria-label="GitHub">
+				<a href="dugro-report2021.php?islogout=true" class="nav-link p-2" href="" target="_blank" rel="noopener" aria-label="GitHub">
 					<i class="fas fa-sign-out-alt"></i> Logout
 				</a>
 			</li>
@@ -368,7 +391,7 @@ body{
 			<div class="row row-motherhood" style="margin-top:40px;">
 				<div class="col-md-8">
 					<div class="page-header">
-						<h3>Apta Pregnant Mom 2021 | Motherhood.com.my Malaysia</h3>
+						<h3>Dugro report 2021 | Motherhood.com.my Malaysia</h3>
 					</div>
 				</div>
 			</div>
@@ -506,11 +529,11 @@ body{
 			
 			if(isExport)
 			{
-				$('body').find('#form-request').attr('action', 'apta-pregnant-mom2021-excel.php');
+				$('body').find('#form-request').attr('action', 'dugro-report2021-excel.php');
 			}
 			else
 			{
-				$('body').find('#form-request').attr('action', 'apta-pregnant-mom2021-report.php');
+				$('body').find('#form-request').attr('action', 'dugro-report2021.php');
 			}
 			
 			$('body').find('#form-request').submit();

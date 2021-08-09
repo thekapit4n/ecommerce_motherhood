@@ -1,6 +1,6 @@
 <?php
 /** Include PHPExcel */
-require_once dirname(__FILE__) . '/PHPExcel-1.8/Classes/PHPExcel.php';
+require_once dirname(__FILE__) . '/../tools/PHPExcel-1.8/Classes/PHPExcel.php';
 require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_config_excel.php';
 
 	$secretOfTheDay = "K@p1T4n S4Y T0d4Y 1$" . date('Y-m-d');
@@ -27,12 +27,19 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 	
 	if($isMatch == true)
 	{
-		
 		$searchStart ="";
 		$searchEnd 	 ="";
 		$wheresql  	 = "";
-		$limitsql    = " LIMIT 3000";
+		$limitsql    = " LIMIT 4000";
 		$strDateMsg  = "";
+		
+		$arrChangeBrandToOthers = array(
+			
+		);
+		
+		$arrShortNameToFullname = array(
+			
+		);
 		
 		if(isset($_POST['searchDateStart']) && $_POST['searchDateStart'] != '')
 		{
@@ -60,99 +67,28 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 			}
 		}
 		
-	$arr_skip_email = array();
 	
-	if(isset($arr_skip_email) && is_array($arr_skip_email) && sizeof($arr_skip_email) > 0)
-	{
-		foreach($arr_skip_email as $email)
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "evnt.subscriber_event_id = 107";
+		if($searchStart != '')
 		{
-			$skipemail2[] =  trim("'" . htmlentities($email) . "'");
+			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " subscriber_created_at >= '" . trim($searchStart . " 00:00:00") . "'";
 		}
 		
-		$string_email = implode(",", $skipemail2);
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.newEmail NOT IN (" . $string_email . ")";
-	}
-		
-		
-	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "evnt.subscriber_event_id = 106";
-	
-	
-	$groupBy = " GROUP BY evnt.newEmail ";
-					
-	if($searchStart != '')
-	{
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at >= '" . trim($searchStart . " 00:00:00") . "'";
-	}
-	
-	if($searchEnd != '')
-	{
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at <= '" . trim($searchEnd . " 23:59:59") . "'";
-	}
-	
-	if($searchStart == '' && $searchEnd == '')
-	{
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "evnt.subscriber_created_at >= '2021-06-01 00:00:00'";
-	}
-	
-	if(isset($_POST['item_status']))
-	{
-		$itemstatus = $_POST['item_status'];
-		
-		if(strtolower($itemstatus) == "incart")
+		if($searchEnd != '')
 		{
-			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " (cart_prod.id_product = 46857) AND (bb.current_state = 0 OR bb.current_state is null)";
+			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " subscriber_created_at <= '" . trim($searchEnd . " 23:59:59") . "'";
 		}
-		elseif(strtolower($itemstatus) == "paid")
-		{
-			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " ((cart_prod.id_product is null OR cart_prod.id_product = 46857)  AND bb.current_state IN(2,3,4,5)) OR evnt.subscriber_question27 = 'redeemed'";
-		}
-		elseif(strtolower($itemstatus) == "unpaid")
-		{
-			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " bb.valid = 0";
-		}
-		else
-		{
-			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " (cart_prod.id_product is null OR cart_prod.id_product = 46857)";
-		}
-	}
-	else
-	{
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " (cart_prod.id_product is null OR cart_prod.id_product = 46857)";
 		
-	}
-	
-	
-	$sql = "SELECT 
-				RTRIM(LTRIM(CONCAT(evnt.newFirstName , ' ' , evnt.newLastName))) AS Name,
-				evnt.newEmail AS Email,
-				evnt.subscriber_question1 AS 'Mobile no',
-				evnt.subscriber_question2 AS 'Parent DOB',
-				evnt.subscriber_question9 AS 'Maternal Milk',
-				evnt.subscriber_question3 AS 'Address',
-				evnt.subscriber_question4 AS 'Postcode',
-				evnt.subscriber_question5 AS 'City',
-				evnt.subscriber_question7 AS 'State',
-				evnt.subscriber_question12 AS 'TNC Nestlé Products Sdn Bhd',
-				evnt.subscriber_question13 AS 'TNC Motherhood.com.my',
-				evnt.subscriber_question14 AS 'Marketing and promotional information',
-				IFNULL(bb.valid, 'incart') AS 'Item Status',
-				evnt.subscriber_created_at AS 'Subscriber Date',
-				bb.invoice_date as 'Checkout Date'
-			FROM
-				ps_events_subscriber AS evnt
-				INNER JOIN
-				motherhood_presta.ps_customer AS cust ON cust.email = evnt.newEmail
-				LEFT JOIN
-				ps_cart AS cart ON cart.id_customer = cust.id_customer
-				LEFT JOIN
-				ps_cart_product AS cart_prod ON cart.id_cart = cart_prod.id_cart
-					  LEFT JOIN ( select odr.id_order, odr.id_customer, odr.valid,  odr.invoice_date, odr.current_state FROM 
-						ps_orders AS odr 
-							INNER JOIN
-						ps_order_detail AS odr_detail ON odr.id_order = odr_detail.id_order 
-						WHERE  odr_detail.product_id = 46857
-					) bb ON bb.id_customer = cust.id_customer
-			" . $wheresql . $groupBy . " ORDER BY evnt.subscriber_created_at ASC " . $limitsql ;
+		if($searchStart == '' && $searchEnd == '')
+		{
+			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at >= '2021-08-01 00:00:00'";
+		}
+		
+		$sql = "SELECT
+				evnt.newEmail as Emel, RTRIM(LTRIM(CONCAT(evnt.newFirstName , ' ' , evnt.newLastName))) AS Nama,  evnt.subscriber_question1 as 'Nombor telefon',  evnt.subscriber_question8 as 'Nama si manja',evnt.subscriber_question2 as 'Tarikh lahir si manja',evnt.subscriber_question9 as 'Jenama susu', RTRIM(LTRIM(CONCAT(evnt.subscriber_question14 , ' tahun ' , evnt.subscriber_question15, ' bulan'))) AS 'Tempoh menggunakan jenama',
+				evnt.subscriber_question3 as 'Alamat 1', evnt.subscriber_question11 as 'Alamat 2', evnt.subscriber_question4 as Poskod, evnt.subscriber_question5 as Bandar, evnt.subscriber_question7 as Negeri, evnt.subscriber_question13 as Negara, 
+				evnt.subscriber_created_at as 'Tarikh pendaftaran'
+				FROM ps_events_subscriber evnt " . $wheresql . " GROUP BY newEmail	ORDER BY evnt.subscriber_created_at ASC " . $limitsql;    
 		$result = $conn->query($sql);
 		
 		if(is_object($result)){
@@ -161,7 +97,7 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 			$objPHPExcel = new PHPExcel();
 
 			// Add some data
-			$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A2', 'Wyeth PROMAMA sample report 2021 MMY| Motherhood.com.my Malaysia');
+			$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A2', 'Dugro Dumex 2021 Report | Motherhood.com.my Malaysia');
 			$objPHPExcel->getActiveSheet()->getStyle("A2:C2")->getFont()->setSize(18);
 			$objPHPExcel->getActiveSheet()->getRowDimension("2")->setRowHeight(20);
 			$objPHPExcel->getActiveSheet()->mergeCells('A2:C2');
@@ -182,35 +118,51 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 			$headerColumn = 'B';
 			for ($i = 0; $i < $noFields; $i++) {
 				$field 	= mysqli_field_name($result, $i);
+				
 				$objPHPExcel->setActiveSheetIndex(0)->setCellValue($headerColumn. '5', $field);
 				$objPHPExcel->getActiveSheet()->getStyle($headerColumn. '5')->getFont()->setBold( true );
 				// $objPHPExcel->getActiveSheet()->getColumnDimensionByColumn($headerColumn)->setAutoSize(false);
 				
-				if(in_array($headerColumn, array("A", "D","E", "H", "I", "J")))
+				if(in_array($headerColumn, array("A", "D", "M")))
 				{
 					$objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(20);
 				}
-				elseif(in_array($headerColumn, array("AA")))
-				{
-					$objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(15);
-				}
-				elseif(in_array($headerColumn, array("F", "K", "L", "N")))
+				// elseif(in_array($headerColumn, array("L")))
+				// {
+					// $objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(15);
+				// }
+				elseif(in_array($headerColumn, array("G")))
 				{
 					$objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(30);
 				}
-				elseif(in_array($headerColumn, array("G")))
+				elseif(in_array($headerColumn, array("I", "J")))
 				{
 					$objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(100);
 				}
 				else
 				{
-					$objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(50);
+					$objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(40);
 				}
 				
 				$objPHPExcel->getActiveSheet()->getStyle($headerColumn. '5')->getAlignment()->applyFromArray(array('horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER));
 				$lastHeader = $headerColumn;
 				$headerColumn++;
 			}
+			
+			$arrChangeBrandToOthers = array(
+				"Awarua",
+				"Baby Bio",
+				"Baby Steps",
+				"Colostrum",
+				"Enfamil",
+				"Farmers",
+				"Glucerna",
+				"Habib",
+				"Lazz",
+				"Merry Nation",
+				"Nana",
+				"Wildan",
+			);
 			
 			$rowData = 6;
 			$ccount  = 0;
@@ -219,29 +171,34 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 				$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A' . $rowData , ++$ccount);
 				foreach ($r as $indx => $kolonne) {
 					
-					if(in_array($indx, array(9,10,11)))
+					if($indx == 1) #name
 					{
-						if($kolonne == '')
+						$name = substr($kolonne,0,21);
+						$name = ucfirst(strtolower($name));
+						$objPHPExcel->setActiveSheetIndex(0)->setCellValue($colData . $rowData , $name);
+					}
+					elseif($indx == 3) #name
+					{
+						$name = substr($kolonne,0,21);
+						$name = ucfirst(strtolower($name));
+						$objPHPExcel->setActiveSheetIndex(0)->setCellValue($colData . $rowData , $name);
+					}
+					elseif($indx == 5)
+					{
+						if(in_array($kolonne, $arrChangeBrandToOthers))
 						{
-							$kolonne =  " - ";
+							$kolonne = "Others";
 						}
 						
+						$objPHPExcel->setActiveSheetIndex(0)->setCellValue($colData . $rowData , $kolonne);
 					}
-					elseif($indx == 12)
+					else
 					{
-						if($kolonne == 1)
-						{
-							$kolonne = "Paid";
-						}
-						else
-						{
-							$kolonne = "Unpaid";
-						}
+						$objPHPExcel->setActiveSheetIndex(0)->setCellValue($colData . $rowData , $kolonne);
 					}
 					
-					$objPHPExcel->setActiveSheetIndex(0)->setCellValue($colData . $rowData , $kolonne);
 					
-					if($colData == 'D'|| $colData == "H"){
+					if($colData == 'D'|| $colData == "G"){
 						$objPHPExcel->getActiveSheet()->getStyle($colData . $rowData)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_TEXT);
 						$objPHPExcel->getActiveSheet()->getStyle($colData . $rowData)->getAlignment()->applyFromArray(array('horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_LEFT));
 					}
@@ -272,7 +229,7 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 
 			// Redirect output to a client’s web browser (Excel2007)
 			header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-			header('Content-Disposition: attachment;filename="wyeth-promama-sample-report2021.xlsx"');
+			header('Content-Disposition: attachment;filename="dugro-dumex-2021-report.xlsx"');
 			header('Cache-Control: max-age=0');
 			header ('Cache-Control: cache, must-revalidate'); // HTTP/1.1
 			header ('Pragma: public'); // HTTP/1.0

@@ -758,6 +758,7 @@ if($email != '')
 			elseif($eventID == 142) # 142- redeemption process
 			{
 				$subscriberid  = (isset($_POST["subscriberid"])) ? $_POST["subscriberid"] : 0;
+				$location_redeem  = (isset($_POST["location_redeem"]) && $_POST["location_redeem"] != '') ? pSQL(trim($_POST["location_redeem"])) : "";
 				
 				if($subscriberid > 0)
 				{
@@ -768,7 +769,114 @@ if($email != '')
 					$updateRedeemInfo = "UPDATE ps_events_subscriber 
 									SET 
 									subscriber_question28 = 'redeem', 
+									subscriber_question14 = '" . $location_redeem . "', 
 									subscriber_question29 = CURRENT_TIMESTAMP, 
+									subscriber_updated_at = CURRENT_TIMESTAMP " . $whereSql . " LIMIT 1";
+					$redeemProcess 	  = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($updateRedeemInfo);
+				
+					if($redeemProcess)
+					{
+						$arrMsg['status']	   = true;
+						$arrMsg['succeeded']   = 'ok';
+						$arrMsg['status_code'] = 'update_redeem_success'; 
+						$arrMsg['msg'] 	  	   = 'redeem success';
+					}
+					else
+					{
+						$arrMsg['status']	   = false;
+						$arrMsg['succeeded']   = 'invalid';
+						$arrMsg['status_code'] = 'update_redeem_failed'; 
+						$arrMsg['msg'] 	  	   = 'redeem unsuccess';
+					}
+					
+				}
+			}
+			elseif($eventID == 143) # 143- superkid walk in
+			{
+				$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `subscriber_event_id` = '" . trim($eventID) . "'";
+				$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `newEmail` = '" . trim($email) . "'";
+				
+				$sql 		 = "SELECT * FROM `ps_events_subscriber`" . $whereSql . " ORDER BY `subscriber_id` DESC LIMIT 1";
+				$queryResult = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+				
+				$sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = 144 LIMIT 1"; # page that handle result survey question
+				$querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
+				$event_slug  = $querySlug[0]['event_slug'];
+				
+				#if user already register this events
+				if(is_array($queryResult) && isset($queryResult[0]) && sizeof($queryResult[0]) > 0)
+				{
+					foreach($queryResult as $val)
+					{
+						$dataCustomer['subscriber_id'] = $val['subscriber_id'];
+						$encoded 	  				   = trim(base64_encode($eventID . "###" . $val['subscriber_id']), "=.");
+						$dataCustomer['encoded'] 	   = urlencode($encoded);
+						$dataCustomer['redirectUrl'] = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug . "?id=" . urlencode($encoded);
+					}
+					
+					$arrMsg['status'] 	   = true;
+					$arrMsg['msg'] 	       = 'registered customer';
+					$arrMsg['data'] 	   = $dataCustomer;
+					
+					$arrMsg['status_code'] = 'exist_customer_event'; 
+					
+				}
+				else
+				{
+					$whereSql = '';
+					$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `email` = '" . trim($email) . "'";
+					
+					#check if customer is member of motherhood
+					$sqlC 	 = 'SELECT COUNT(id_customer) as ccount	FROM `ps_customer` WHERE email="'. trim($email) . '" LIMIT 1';
+					$resultC = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlC);
+					#if member
+					if ($resultC[0]['ccount'] > 0){
+						
+						$sql 		  = "SELECT * FROM `ps_customer`" . $whereSql . " ORDER BY `id_customer` DESC LIMIT 1";
+						$queryResult2 = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+						
+						#if user already register this events
+						if(is_array($queryResult2) && isset($queryResult2[0]) && sizeof($queryResult2[0]) > 0)
+						{
+							foreach($queryResult2 as $val2)
+							{
+								$dataCustomer['firstname'] = $val2['firstname'];
+								$dataCustomer['lastname']  = $val2['lastname'];
+								$dataCustomer['email']     = $val2['email'];
+							}
+							
+							$arrMsg['data'] = $dataCustomer;
+						}
+						
+						$arrMsg['status']	   = true;
+						$arrMsg['succeeded']   = $post_result['succeeded'];
+						$arrMsg['status_code'] = 'exist_customer_motherhood_valid'; 
+						$arrMsg['msg'] 	  	   = 'info exist in our database';
+					}
+					else
+					{
+						$arrMsg['status'] 	   = true;
+						$arrMsg['status_code'] = 'new_customer_event'; 
+						$arrMsg['msg'] 	       = 'customer email new for this event';
+					}
+				}
+			}
+			elseif($eventID == 144) # 142- redeemption process
+			{
+				$subscriberid  = (isset($_POST["subscriberid"])) ? $_POST["subscriberid"] : 0;
+				$location_redeem  = (isset($_POST["location_redeem"]) && $_POST["location_redeem"] != '') ? pSQL(trim($_POST["location_redeem"])) : "";
+				
+				if($subscriberid > 0)
+				{
+					$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `subscriber_event_id` = 143";
+					$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `newEmail` = '" . trim($email) . "'";
+					$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `subscriber_id` = '" . trim($subscriberid) . "'";
+					
+					$updateRedeemInfo = "UPDATE ps_events_subscriber 
+									SET 
+									subscriber_question30 = '" . $location_redeem . "', 
+									subscriber_question31 = 'redeem', 
+									subscriber_question32 = CURRENT_TIMESTAMP, 
 									subscriber_updated_at = CURRENT_TIMESTAMP " . $whereSql . " LIMIT 1";
 					$redeemProcess 	  = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($updateRedeemInfo);
 				

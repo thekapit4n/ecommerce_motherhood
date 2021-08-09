@@ -114,8 +114,12 @@
          <small class="error-msg"></small>
       </div>
       <div class="col-md-6 px-2 div-use-milk">
-         <label for="current-milkbrand-use" class="form-label required current-milkbrand-use">Berapa lama anda telah menggunakan jenama susu ini?</label>
-         <div class="input-group mb-3"><input type="number" class="form-control input-use-years" placeholder="tahun" aria-label="tahun" name="subscriber_question14" /> <span class="input-group-text">Tahun</span> <input type="number" class="form-control input-use-month" placeholder="bulan" aria-label="bulan" name="subscriber_question15" /> <span class="input-group-text">Bulan</span></div>
+         <label for="current-milkbrand-use" class="form-label required current-milkbrand-use">Berapa lama Si Manja telah menggunakan jenama susu ini?</label>
+         <div class="input-group mb-3"
+		 ><input type="number" class="form-control input-use-years" placeholder="tahun" aria-label="tahun" name="subscriber_question14" /> <span class="input-group-text">Tahun</span> <input type="number" class="form-control input-use-month" placeholder="bulan" aria-label="bulan" name="subscriber_question15" /> <span class="input-group-text">Bulan</span>
+			 <small>Tempoh berapa lama telah menggunakan jenama ini. Contoh: 1 Tahun 10 Bulan</small>
+		 </div>
+		
          <small class="error-msg"></small>
       </div>
    </div>

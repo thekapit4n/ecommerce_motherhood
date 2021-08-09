@@ -1,393 +1,392 @@
-<p>
-   <script src="../../../themes/default-bootstrap/dashboard-assets/fontawesome-v5.15.1/js/all.min.js"></script>
-</p>
 <style>
    <!--
       h1, h2, h3, h4, h5,  p, button, input {
-            			font-family: GothamRounded-medium;
-            		  }
-            		  
-            	.btn-typeof-course{
-            		width: 100%;
-            		font-size: 35px;
-            		border-radius: 5px;
-            		padding-top: 1px;
-            		padding-bottom: 1px;
-            	}
-            	
-            	.btn-online-course, .btn-online-course:hover, .btn-online-course:active, .btn-online-course:focus{
-            		background-color: #fae2e7;
-            		border: 3px solid #fae2e7;
-            		color: #265e70;	 
-            		outline: transparent;
-            	}
-            	
-            	.btn-offline-course, .btn-offline-course:hover, .btn-offline-course:active, .btn-offline-course:focus{
-            		background-color: #265e70;
-            		border: 3px solid #265e70;
-            		color: #fae2e7;	 
-            		outline: transparent;
-            	}
-            	
-            	.row-btn-typecouse{
-            			margin-bottom:30px;
-            			margin-top:20px;
-            	}
-            		  
-            		  
-            
-      	  .speakerName {
-      		border-bottom: 5px solid #265e70;
-      		color: #5d5d5d;
-      		margin-left: 50px;
-      		margin-right: 50px;
-      		padding-bottom: 5px;
-      	  }
-      	  .speakerDescription {
-      		color: #5d5d5d;
-      		color: #5d5d5d;
-      		margin-left: 30px;
-      		margin-right: 30px;
-      	  }
-      	  .speakerBox {
-      		padding-left: 0px;
-      		padding-right: 0px;
-      		-moz-box-shadow: inset 0 0 10px #000000;
-      		-webkit-box-shadow: inset 5px 5px 10px lightgrey;
-      		box-shadow: 5px 5px 10px lightgrey;
-      		padding-bottom: 10px;
-      		min-height: 355px;
-      		margin-bottom: 20px;
-      		background-color: white;
-      	  }
-      	  .checklistText {
-      		text-align: left;
-      		color: white;
-      		font-weight: 100;
-      		background-color: #265e70;
-      		padding: 20px 15px;
-      		font-family: GothamRounded-medium;
-      	  }
-            		  
-            	  .reviewBox {
-            		background: #ffe1e7;
-            		color: #265e70;
-            		padding: 30px;
-            		text-align: left;
-            		font-size: 15px;
-            		line-height: 1.2;
-            		-moz-box-shadow: inset 0 0 10px #000000;
-            		-webkit-box-shadow: inset 5px 5px 10px lightgrey;
-            		box-shadow: 5px 5px 10px lightgrey;
-            		min-height: 450px;
-            	  }
-            	  .reviewStars {
-            		font-size: 40px;
-            		font-weight: bold;
-            	  }
-            	  .offlineItineraryRow {
-            		border-bottom: 2px solid #edd0ce;
-            		font-family: GothamRounded-medium;
-            		font-size: 20px;
-            	  }
-            	  .ItinerarytimeDate {
-            		font-family: GothamRounded-medium;
-            		font-size: 20px;
-            		color: white;
-            	  }
-            	  .ItineraryTitle {
-            		font-family: GothamRounded-medium;
-            		font-size: 20px;
-            		color: white;
-            		line-height: 1;
-            	  }
-            	  .offlineItineraryTimeBox {
-            		width: 49%;
-            		display: inline-block;
-            		padding-top: 20px;
-            		padding-bottom: 20px;
-            		vertical-align: middle;
-            	  }
-            	  .offlineItineraryTitleBox {
-            		width: 50%;
-            		display: inline-block;
-            		padding-top: 20px;
-            		padding-bottom: 20px;
-            		text-align: left;
-            		padding-left: 60px;
-            		min-height: 93px;
-            		vertical-align: middle;
-            	  }
-            	  .ItineraryTitle-small {
-            		font-weight: 100;
-            		color: white;
-            		font-size: 15px;
-            		font-family: sans-serif;
-            	  }
-            	
-            	  .parentcraftDescription {
-            		 line-height: 1.3;
-            		color: #444444;
-            		font-size: 15px;
-            		font-family: GothamRounded-medium;
-            		text-align: justify;
-            		padding-left: 20px;
-            		padding-right: 20px;
-            	  }
-            	  .parentcraftTitle {
-            		color: #ff8282;
-            		display: inline-block;
-            		font-weight: bold;
-            		font-size: 32px;
-            		font-family: GothamRounded-medium;
-            	  }
-            	
-            	  .sliderTextTitle{
-            		font-size: 30px; 
-            		padding-bottom: 20px;
-            	  }
-      		  
-            	.sliderTextPoints{
-            	   font-size: 18px;
-            		text-align: left;
-            	}
-      		  
-            	.epTitle{
-            		color: #265e70; 
-            		font-weight: bold; 
-            		padding-left: 10px;
-            	}
-      		  
-      		.epDesc{
-      			font-size: 15px;
-      			line-height: 1.5;
-      			padding: 5px 0px 20px 10px;
-      		}
-            	 
-      		 #topBtn {
-            		display: none;
-            		position: fixed;
-            		bottom: 20px;
-            		left: 30px;
-            		z-index: 9999;
-            		font-size: 18px;
-            		border: none;
-            		outline: none;
-            		background-color: #ff7fae;
-            		color: white;
-            		cursor: pointer;
-            		padding: 15px;
-            		border-radius: 4px;
-            	}
-            	
-            	.desc-webinar
-            	{
-            		min-height: 53px;
-            	}
-            	
-            	.speaker-webinar
-            	{
-            		min-height: 37px;
-            	}
-            	
-            	.btn-view-event, .btn-view-event:hover{
-            		background-color:#265e70;
-            		color: white;
-            	}
-            	
-            	.div-row-pastwebinarpic{
-            		margin-bottom: 22px;  
-            	}
-            	
-            	.div-row-calendar-slider
-            	{
-            		margin-bottom:25px
-            	}
-            
-               .nbs-flexisel-container{
-            		border:0px;
-            	}
-              
-            	.schedule-div{
-            		min-height:193px
-            	}
-                
-            	.div-web-desc{
-            		color: #444444;
-            	}	
-      		
-      		.speakerBox-calendar {
-      			background-color: #ffffff;
-      		}
+                      			font-family: GothamRounded-medium;
+                      		  }
       
-      		.div-item-calendar{
-      			margin-bottom:10px; 
-      			padding-left:10px; 
-      			padding-top:10px; 
-      			padding-right:10px;
-      		}
-      		
-      		.title-webinar{
-      			min-height:52px;
-      		}
-      	
-            	@media only screen and (max-width: 600px) 
-            	{
-            		#topBtn {
-            		  bottom: 70px;
-            		  left: 8px;
-            		  font-size: 12px;
-            		  padding: 12px;
-            		}
-            		
-            		.ItineraryTitle {
-            		  font-size:14px;
-            		}
-            		
-            		.ItineraryTitle-small{
-            		  font-size:12px;
-            		}
-            		
-            		.offlineItineraryTitleBox {
-            		  width: 64%;
-            		  padding-left: 10px;
-            		}
-            		.offlineItineraryTimeBox {
-            		  width: 32%;
-            		}
-            		.ItinerarytimeDate {
-            		  font-size:14px;
-            		}
-            		
-            		#homepage-sliderforth{
-            			padding-top:0;
-            		}
-            		
-            		.love-image{
-            			width: 24px!important;
-            			margin-top: -10px!important;
-            			right: 0;
-            			position: absolute;
-            		}
-            		
-            		.love-image-small{
-            			width: 24px!important;
-            			margin-top: -10px!important;
-            			position: absolute;
-            		}
-            		
-            		.bx-wrapper{
-            			max-width:1183px!important;
-            		} 
-            		
-            		.epTitle{
-            			font-size:19px;
-            		}
-            		.epDesc{
-            			font-size: 16px;
-            		}
-            		.sliderTextTitle{
-            			font-size: 19px;
-            		}
-            		.sliderTextPoints{
-            			font-size: 16px;
-            		}
-            		.parentcraftDescription {
-            		  font-size: 15px;
-            		  text-align: left;
-            		  line-height: 1.5;
-            		}
-            		.parentcraftTitle {
-            		  font-size: 18px;
-            		}
-            		.reviewStars {
-            		  font-size: 20px;
-            		}
-            
-            		.reviewBox {
-            		  font-size: 13px;
-            		}
-            		.onofflinebutton {
-            		  font-size: 2.5em;
-            		}
-            		.speakerName {
-            		  margin-left: 10px;
-            		  margin-right: 10px;
-            		}
-            		.speakerDescription {
-            		  margin-left: 8px;
-            		  margin-right: 8px;
-            		  font-size: 13px;
-            		  line-height: 1.1;
-            		}
-            		.speakerBox {
-            		  min-height: 293px;
-            		  padding-bottom: 5px;
-            		}
-            	  
-            		.div-web-desc{
-            			margin-top: 15px;
-            		}
-            		
-            		.div-row-pastwebinarpic{
-            			margin-bottom: 10px;  
-            		}
-            
-            		.div-row-calendar-slider
-            		{
-            			min-height: 394px;
-            		}
-            
-            		.desc-webinar
-            		{
-            			min-height: 95px;
-            		}
-            
-            		.date-webinar
-            		{
-            			min-height: 34px;
-            		}
-            
-            		.schedule-div{
-            			min-height:120px
-            		}
-            		
-            		.btn-typeof-course{
-            			width: 100%;
-            			font-size: 25px;
-            			border-radius: 5px;
-            		}
-            		
-            		.row-btn-typecouse{
-            			margin-bottom:1px;
-            			margin-top:15px;
-            		}
-            		
-            		.ytp-cued-thumbnail-overlay-image{
-            			height: 122%;
-            		}
-      			
-      			.title-webinar{
-      				font-weight: 700; 
-      				font-size:13px;
-      				min-height:72px;
-      			}
-            	}
+                      	.btn-typeof-course{
+                      		width: 100%;
+                      		font-size: 35px;
+                      		border-radius: 5px;
+                      		padding-top: 1px;
+                      		padding-bottom: 1px;
+                      	}
+      
+                      	.btn-online-course, .btn-online-course:hover, .btn-online-course:active, .btn-online-course:focus{
+                      		background-color: #fae2e7;
+                      		border: 3px solid #fae2e7;
+                      		color: #265e70;
+                      		outline: transparent;
+                      	}
+      
+                      	.btn-offline-course, .btn-offline-course:hover, .btn-offline-course:active, .btn-offline-course:focus{
+                      		background-color: #265e70;
+                      		border: 3px solid #265e70;
+                      		color: #fae2e7;
+                      		outline: transparent;
+                      	}
+      
+                      	.row-btn-typecouse{
+                      			margin-bottom:30px;
+                      			margin-top:20px;
+                      	}
+      
+      
+      
+                	  .speakerName {
+                		border-bottom: 5px solid #265e70;
+                		color: #5d5d5d;
+                		margin-left: 50px;
+                		margin-right: 50px;
+                		padding-bottom: 5px;
+                	  }
+                	  .speakerDescription {
+                		color: #5d5d5d;
+                		color: #5d5d5d;
+                		margin-left: 30px;
+                		margin-right: 30px;
+                	  }
+                	  .speakerBox {
+                		padding-left: 0px;
+                		padding-right: 0px;
+                		-moz-box-shadow: inset 0 0 10px #000000;
+                		-webkit-box-shadow: inset 5px 5px 10px lightgrey;
+                		box-shadow: 5px 5px 10px lightgrey;
+                		padding-bottom: 10px;
+                		min-height: 355px;
+                		margin-bottom: 20px;
+                		background-color: white;
+                	  }
+                	  .checklistText {
+                		text-align: left;
+                		color: white;
+                		font-weight: 100;
+                		background-color: #265e70;
+                		padding: 20px 15px;
+                		font-family: GothamRounded-medium;
+                	  }
+      
+                      	  .reviewBox {
+                      		background: #ffe1e7;
+                      		color: #265e70;
+                      		padding: 30px;
+                      		text-align: left;
+                      		font-size: 15px;
+                      		line-height: 1.2;
+                      		-moz-box-shadow: inset 0 0 10px #000000;
+                      		-webkit-box-shadow: inset 5px 5px 10px lightgrey;
+                      		box-shadow: 5px 5px 10px lightgrey;
+                      		min-height: 598px;
+                      	  }
+                      	  .reviewStars {
+                      		font-size: 40px;
+                      		font-weight: bold;
+                      	  }
+                      	  .offlineItineraryRow {
+                      		border-bottom: 2px solid #edd0ce;
+                      		font-family: GothamRounded-medium;
+                      		font-size: 20px;
+                      	  }
+                      	  .ItinerarytimeDate {
+                      		font-family: GothamRounded-medium;
+                      		font-size: 20px;
+                      		color: white;
+                      	  }
+                      	  .ItineraryTitle {
+                      		font-family: GothamRounded-medium;
+                      		font-size: 20px;
+                      		color: white;
+                      		line-height: 1;
+                      	  }
+                      	  .offlineItineraryTimeBox {
+                      		width: 49%;
+                      		display: inline-block;
+                      		padding-top: 20px;
+                      		padding-bottom: 20px;
+                      		vertical-align: middle;
+                      	  }
+                      	  .offlineItineraryTitleBox {
+                      		width: 50%;
+                      		display: inline-block;
+                      		padding-top: 20px;
+                      		padding-bottom: 20px;
+                      		text-align: left;
+                      		padding-left: 60px;
+                      		min-height: 93px;
+                      		vertical-align: middle;
+                      	  }
+                      	  .ItineraryTitle-small {
+                      		font-weight: 100;
+                      		color: white;
+                      		font-size: 15px;
+                      		font-family: sans-serif;
+                      	  }
+      
+                      	  .parentcraftDescription {
+                      		 line-height: 1.3;
+                      		color: #444444;
+                      		font-size: 15px;
+                      		font-family: GothamRounded-medium;
+                      		text-align: justify;
+                      		padding-left: 20px;
+                      		padding-right: 20px;
+                      	  }
+                      	  .parentcraftTitle {
+                      		color: #ff8282;
+                      		display: inline-block;
+                      		font-weight: bold;
+                      		font-size: 32px;
+                      		font-family: GothamRounded-medium;
+                      	  }
+      
+                      	  .sliderTextTitle{
+                      		font-size: 30px;
+                      		padding-bottom: 20px;
+                      	  }
+      
+                      	.sliderTextPoints{
+                      	   font-size: 18px;
+                      		text-align: left;
+                      	}
+      
+                      	.epTitle{
+                      		color: #265e70;
+                      		font-weight: bold;
+                      		padding-left: 10px;
+                      	}
+      
+                		.epDesc{
+                			font-size: 15px;
+                			line-height: 1.5;
+                			padding: 5px 0px 20px 10px;
+                		}
+      
+                		 #topBtn {
+                      		display: none;
+                      		position: fixed;
+                      		bottom: 20px;
+                      		left: 30px;
+                      		z-index: 9999;
+                      		font-size: 18px;
+                      		border: none;
+                      		outline: none;
+                      		background-color: #ff7fae;
+                      		color: white;
+                      		cursor: pointer;
+                      		padding: 15px;
+                      		border-radius: 4px;
+                      	}
+      
+                      	.desc-webinar
+                      	{
+                      		min-height: 53px;
+                      	}
+      
+                      	.speaker-webinar
+                      	{
+                      		min-height: 37px;
+                      	}
+      
+                      	.btn-view-event, .btn-view-event:hover{
+                      		background-color:#265e70;
+                      		color: white;
+                      	}
+      
+                      	.div-row-pastwebinarpic{
+                      		margin-bottom: 22px;
+                      	}
+      
+                      	.div-row-calendar-slider
+                      	{
+                      		margin-bottom:25px
+                      	}
+      
+                         .nbs-flexisel-container{
+                      		border:0px;
+                      	}
+      
+                      	.schedule-div{
+                      		min-height:193px
+                      	}
+      
+                      	.div-web-desc{
+                      		color: #444444;
+                      	}
+      
+                		.speakerBox-calendar {
+                			background-color: #ffffff;
+                		}
+      
+                		.div-item-calendar{
+                			margin-bottom:10px;
+                			padding-left:10px;
+                			padding-top:10px;
+                			padding-right:10px;
+                		}
+      
+                		.title-webinar{
+                			min-height:52px;
+                		}
+      
+                      	@media only screen and (max-width: 600px)
+                      	{
+                      		#topBtn {
+                      		  bottom: 70px;
+                      		  left: 8px;
+                      		  font-size: 12px;
+                      		  padding: 12px;
+                      		}
+      
+                      		.ItineraryTitle {
+                      		  font-size:14px;
+                      		}
+      
+                      		.ItineraryTitle-small{
+                      		  font-size:12px;
+                      		}
+      
+                      		.offlineItineraryTitleBox {
+                      		  width: 64%;
+                      		  padding-left: 10px;
+                      		}
+                      		.offlineItineraryTimeBox {
+                      		  width: 32%;
+                      		}
+                      		.ItinerarytimeDate {
+                      		  font-size:14px;
+                      		}
+      
+                      		#homepage-sliderforth{
+                      			padding-top:0;
+                      		}
+      
+                      		.love-image{
+                      			width: 24px!important;
+                      			margin-top: -10px!important;
+                      			right: 0;
+                      			position: absolute;
+                      		}
+      
+                      		.love-image-small{
+                      			width: 24px!important;
+                      			margin-top: -10px!important;
+                      			position: absolute;
+                      		}
+      
+                      		.bx-wrapper{
+                      			max-width:1183px!important;
+                      		}
+      
+                      		.epTitle{
+                      			font-size:19px;
+                      		}
+                      		.epDesc{
+                      			font-size: 16px;
+                      		}
+                      		.sliderTextTitle{
+                      			font-size: 19px;
+                      		}
+                      		.sliderTextPoints{
+                      			font-size: 16px;
+                      		}
+                      		.parentcraftDescription {
+                      		  font-size: 15px;
+                      		  text-align: left;
+                      		  line-height: 1.5;
+                      		}
+                      		.parentcraftTitle {
+                      		  font-size: 18px;
+                      		}
+                      		.reviewStars {
+                      		  font-size: 20px;
+                      		}
+      
+                      		.reviewBox {
+                      		  font-size: 13px;
+                      		}
+                      		.onofflinebutton {
+                      		  font-size: 2.5em;
+                      		}
+                      		.speakerName {
+                      		  margin-left: 10px;
+                      		  margin-right: 10px;
+                      		}
+                      		.speakerDescription {
+                      		  margin-left: 8px;
+                      		  margin-right: 8px;
+                      		  font-size: 13px;
+                      		  line-height: 1.1;
+                      		}
+                      		.speakerBox {
+                      		  min-height: 293px;
+                      		  padding-bottom: 5px;
+                      		}
+      
+                      		.div-web-desc{
+                      			margin-top: 15px;
+                      		}
+      
+                      		.div-row-pastwebinarpic{
+                      			margin-bottom: 10px;
+                      		}
+      
+                      		.div-row-calendar-slider
+                      		{
+                      			min-height: 394px;
+                      		}
+      
+                      		.desc-webinar
+                      		{
+                      			min-height: 95px;
+                      		}
+      
+                      		.date-webinar
+                      		{
+                      			min-height: 34px;
+                      		}
+      
+                      		.schedule-div{
+                      			min-height:120px
+                      		}
+      
+                      		.btn-typeof-course{
+                      			width: 100%;
+                      			font-size: 25px;
+                      			border-radius: 5px;
+                      		}
+      
+                      		.row-btn-typecouse{
+                      			margin-bottom:1px;
+                      			margin-top:15px;
+                      		}
+      
+                      		.ytp-cued-thumbnail-overlay-image{
+                      			height: 122%;
+                      		}
+      
+                			.title-webinar{
+                				font-weight: 700;
+                				font-size:13px;
+                				min-height:72px;
+                			}
+                      	}
       -->
 </style>
 <!-- Online Offline button-->
 <div class="bg-color-change" style="background-color: #fae2e7;">
    <div class="row row-btn-typecouse">
       <div class="col-md-6 col-lg-6 col-xs-6">
-         <!--<h1 class="onlineBtn onofflinebutton focus">ONLINE</h1>--> <button type="button" class="btn btn-primary btn-typeof-course onlineBtn btn-online-course btn-typeof-course-focus">Online</button>
+         <!--<h1 class="onlineBtn onofflinebutton focus">ONLINE</h1>--> <button type="button" class="
+            btn btn-primary btn-typeof-course
+            onlineBtn
+            btn-online-course btn-typeof-course-focus
+            "> Online </button>
       </div>
       <div class="col-md-6 col-lg-6 col-xs-6">
-         <!--<h1 class="offlineBtn onofflinebutton">OFFLINE</h1>--> <button type="button" class="btn btn-primary btn-typeof-course btn-offline-course offlineBtn">Offline</button>
+         <!--<h1 class="offlineBtn onofflinebutton">OFFLINE</h1>--> <button type="button" class="btn btn-primary btn-typeof-course btn-offline-course offlineBtn"> Offline </button>
       </div>
    </div>
-   <!-- Online Offline Button END-->
-   <p></p>
-   <!-- Online Content -->
+   <!-- Online Offline Button END--> <!-- Online Content -->
    <div class="online-content">
       <div class="row">
          <div class="col-md-12 col-lg-12 col-xs-12"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/coverbanner.png" width="100%" alt="onlineBanner" /></div>
@@ -417,7 +416,7 @@
                <div id="homepage-slidersecond" class="home_slider" style="padding-top: 0;">
                   <ul id="homeslidersecond">
                      <li class="homeslider-container">
-                        <div class="col-xs-12 col-md-12 col-lg-12" style="padding-right: 0; padding-left: 0;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/speaker_newlineup.png" width="100%" /></div>
+                        <div class="col-xs-12 col-md-12 col-lg-12" style="padding-right: 0; padding-left: 0;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/parentcraft-newwebsitespeakerslidee2.png" width="100%" /></div>
                      </li>
                      <li class="homeslider-container">
                         <div class="col-xs-12 col-md-12 col-lg-12" style="padding-right: 0; padding-left: 0;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/parentcraftkit_newimage.png" width="100%" /></div>
@@ -432,18 +431,18 @@
             <div class="col-md-6 col-lg-6 col-xs-12" style="background-color: #265e70; padding: 24px 50px; height: 100%; color: white; line-height: 1.5; display: block;">
                <p class="sliderTextTitle">This Course Includes:</p>
                <p class="sliderTextPoints">⭐ Learn Everything from Pregnancy to Newborn Care.</p>
-               <p class="sliderTextPoints">⭐ 1-Year Access to Learning Portal.</p>
-               <p class="sliderTextPoints">⭐ Learn 17 Key Topics - Easy to Watch Video Classes.</p>
+               <p class="sliderTextPoints">⭐ Unlimited Access to Learning Portal.</p>
+               <p class="sliderTextPoints">⭐ Learn 20 Key Topics - Easy to Watch Video Classes.</p>
                <p class="sliderTextPoints">⭐ Access to Over 10 Panel of Experts.</p>
                <p class="sliderTextPoints">⭐ Watch Whenever and Wherever You Like.</p>
-               <p class="sliderTextPoints">⭐ Bi-weekly Webinars on Selected Topics with Panel of Expert.</p>
+               <p class="sliderTextPoints">⭐ Monthly Webinars on Selected Topics with Panel of Expert.</p>
                <p class="sliderTextPoints">⭐ Receive FREE Motherhood Parentcraft Kit worth RM75 delivered to your home.</p>
             </div>
          </div>
          <div class="clearfix"></div>
          <!-- Content under programme highlight -->
          <div class="col-md-12 col-lg-12 col-xs-12" style="padding-right: 0; padding-left: 0; margin-top: 25px;">
-            <h2 class="parentcraftTitle">Upcoming Webinar</h2>
+            <h2 class="parentcraftTitle">FREE Parentcraft Preview Classes</h2>
             <img class="love-image-small" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/lovemerah-34.png" style="width: 35px; margin-top: -40px;" alt="love" /> <!-- <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/tittle/upcomingevent_tittle.png" width="100%" alt="image1" />-->
          </div>
          <!-- UPCOMING EVENT SLIDER -->
@@ -455,12 +454,12 @@
                      <div class="reviewBox-calendar">
                         <div class="speakerBox-calendar">
                            <div class="row div-item-calendar">
-                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/updateddate/date_apr.png" width="100%" alt="january" /></div>
+                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/updateddate/july17.png" width="100%" alt="january" /></div>
                               <div class="col-md-7 div-web-desc text-left">
-                                 <p class="title-webinar">1st to 4th Trimester Diet Guide</p>
+                                 <p class="title-webinar">Vaccination, Safe Pregnancy and Childbirth During Pandemic Times</p>
                                  <p class="desc-day"><i class="fas fa-calendar-day"></i> &nbsp;Saturday</p>
-                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;3.00pm-4.00pm</p>
-                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Lee Chun Hsien</p>
+                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00am-12.00pm</p>
+                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Dr.Azrai</p>
                               </div>
                            </div>
                            <div class="row">
@@ -473,12 +472,12 @@
                      <div class="reviewBox-calendar">
                         <div class="speakerBox-calendar">
                            <div class="row div-item-calendar">
-                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/2021_may08.png" width="100%" alt="january" /></div>
+                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/updateddate/jul24.png" width="100%" alt="january" /></div>
                               <div class="col-md-7 div-web-desc text-left">
-                                 <p class="title-webinar">Delivery &amp; Vacination Process</p>
+                                 <p class="title-webinar">Myths and Facts on Delivery and What To Expect in 2021</p>
                                  <p class="desc-day"><i class="fas fa-calendar-day"></i> &nbsp;Saturday</p>
-                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;3.00pm-4.00pm</p>
-                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Dr Adrian Ong</p>
+                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;3.30pm-5.00pm</p>
+                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Dr Rama</p>
                               </div>
                            </div>
                            <div class="row">
@@ -491,12 +490,12 @@
                      <div class="reviewBox-calendar">
                         <div class="speakerBox-calendar">
                            <div class="row div-item-calendar">
-                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/2021_may29.png" width="100%" alt="january" /></div>
+                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/updateddate/july31.png" width="100%" alt="january" /></div>
                               <div class="col-md-7 div-web-desc text-left">
-                                 <p class="title-webinar">Baby Bump Workout With Lavinia</p>
+                                 <p class="title-webinar">Breastfeeding Survival Guide for First Time Moms</p>
                                  <p class="desc-day"><i class="fas fa-calendar-day"></i> &nbsp;Saturday</p>
-                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;3.00pm-4.00pm</p>
-                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Lavinia</p>
+                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00am-12.00pm</p>
+                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Lim Siew Pei</p>
                               </div>
                            </div>
                            <div class="row">
@@ -509,12 +508,12 @@
                      <div class="reviewBox-calendar">
                         <div class="speakerBox-calendar">
                            <div class="row div-item-calendar">
-                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/updateddate/date_jun.png" width="100%" alt="january" /></div>
+                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/updateddate/july31.png" width="100%" alt="january" /></div>
                               <div class="col-md-7 div-web-desc text-left">
-                                 <p class="title-webinar">Baby Sleep Tips</p>
+                                 <p class="title-webinar">Breastfeeding Survival Guide for First Time Moms</p>
                                  <p class="desc-day"><i class="fas fa-calendar-day"></i> &nbsp;Saturday</p>
-                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;3.00pm-4.00pm</p>
-                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Sarah Ong</p>
+                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00am-12.00pm</p>
+                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Lim Siew Pei</p>
                               </div>
                            </div>
                            <div class="row">
@@ -527,12 +526,12 @@
                      <div class="reviewBox-calendar">
                         <div class="speakerBox-calendar">
                            <div class="row div-item-calendar">
-                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/2021_jun26.png" width="100%" alt="january" /></div>
+                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/updateddate/aug14.png" width="100%" alt="january" /></div>
                               <div class="col-md-7 div-web-desc text-left">
-                                 <p class="title-webinar">Baby Bump Workout With Lavinia</p>
+                                 <p class="title-webinar">Mommy Mood Swings : The Emotional Challenges of Pregnancy</p>
                                  <p class="desc-day"><i class="fas fa-calendar-day"></i> &nbsp;Saturday</p>
-                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;3.00pm-4.00pm</p>
-                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Lavinia</p>
+                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00am-12.00pm</p>
+                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Pamilia Andrews</p>
                               </div>
                            </div>
                            <div class="row">
@@ -545,102 +544,12 @@
                      <div class="reviewBox-calendar">
                         <div class="speakerBox-calendar">
                            <div class="row div-item-calendar">
-                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/2021_jul24.png" width="100%" alt="january" /></div>
+                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/updateddate/aug21.png" width="100%" alt="january" /></div>
                               <div class="col-md-7 div-web-desc text-left">
-                                 <p class="title-webinar">Myths And Facts On Delivery And What To Expect In 2021</p>
+                                 <p class="title-webinar">Important Tips to know when going through Delivery</p>
                                  <p class="desc-day"><i class="fas fa-calendar-day"></i> &nbsp;Saturday</p>
-                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;3.00pm-4.00pm</p>
-                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Pavithra</p>
-                              </div>
-                           </div>
-                           <div class="row">
-                              <div class="col-md-12"><a href="../../../events/zoom-live-registration-form" class="btn btn-default btn-view-event" style="width: 100%;"> VIEW EVENT </a></div>
-                           </div>
-                        </div>
-                     </div>
-                  </li>
-                  <li class="product-box item" style="min-width: 150px;">
-                     <div class="reviewBox-calendar">
-                        <div class="speakerBox-calendar">
-                           <div class="row div-item-calendar">
-                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/updateddate/date_aug.png" width="100%" alt="january" /></div>
-                              <div class="col-md-7 div-web-desc text-left">
-                                 <p class="title-webinar">How To Ensure Optimum Milk Supply</p>
-                                 <p class="desc-day"><i class="fas fa-calendar-day"></i> &nbsp;Saturday</p>
-                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;3.00pm-4.00pm</p>
-                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Dr Zarina</p>
-                              </div>
-                           </div>
-                           <div class="row">
-                              <div class="col-md-12"><a href="../../../events/zoom-live-registration-form" class="btn btn-default btn-view-event" style="width: 100%;"> VIEW EVENT </a></div>
-                           </div>
-                        </div>
-                     </div>
-                  </li>
-                  <li class="product-box item" style="min-width: 150px;">
-                     <div class="reviewBox-calendar">
-                        <div class="speakerBox-calendar">
-                           <div class="row div-item-calendar">
-                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/2021_aug28.png" width="100%" alt="january" /></div>
-                              <div class="col-md-7 div-web-desc text-left">
-                                 <p class="title-webinar">Baby Bump Workout With Lavinia</p>
-                                 <p class="desc-day"><i class="fas fa-calendar-day"></i> &nbsp;Saturday</p>
-                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;3.00pm-4.00pm</p>
-                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Lavinia</p>
-                              </div>
-                           </div>
-                           <div class="row">
-                              <div class="col-md-12"><a href="../../../events/zoom-live-registration-form" class="btn btn-default btn-view-event" style="width: 100%;"> VIEW EVENT </a></div>
-                           </div>
-                        </div>
-                     </div>
-                  </li>
-                  <li class="product-box item" style="min-width: 150px;">
-                     <div class="reviewBox-calendar">
-                        <div class="speakerBox-calendar">
-                           <div class="row div-item-calendar">
-                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/2021_aug28.png" width="100%" alt="january" /></div>
-                              <div class="col-md-7 div-web-desc text-left">
-                                 <p class="title-webinar">Infant CPR</p>
-                                 <p class="desc-day"><i class="fas fa-calendar-day"></i> &nbsp;Saturday</p>
-                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;3.00pm-4.00pm</p>
-                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Dr Shahrul</p>
-                              </div>
-                           </div>
-                           <div class="row">
-                              <div class="col-md-12"><a href="../../../events/zoom-live-registration-form" class="btn btn-default btn-view-event" style="width: 100%;"> VIEW EVENT </a></div>
-                           </div>
-                        </div>
-                     </div>
-                  </li>
-                  <li class="product-box item" style="min-width: 150px;">
-                     <div class="reviewBox-calendar">
-                        <div class="speakerBox-calendar">
-                           <div class="row div-item-calendar">
-                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/2021_sep25.png" width="100%" alt="january" /></div>
-                              <div class="col-md-7 div-web-desc text-left">
-                                 <p class="title-webinar">Baby Bump Workout With Lavinia</p>
-                                 <p class="desc-day"><i class="fas fa-calendar-day"></i> &nbsp;Saturday</p>
-                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;3.00pm-4.00pm</p>
-                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Lavinia</p>
-                              </div>
-                           </div>
-                           <div class="row">
-                              <div class="col-md-12"><a href="../../../events/zoom-live-registration-form" class="btn btn-default btn-view-event" style="width: 100%;"> VIEW EVENT </a></div>
-                           </div>
-                        </div>
-                     </div>
-                  </li>
-                  <li class="product-box item" style="min-width: 150px;">
-                     <div class="reviewBox-calendar">
-                        <div class="speakerBox-calendar">
-                           <div class="row div-item-calendar">
-                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/updateddate/date_oct.png" width="100%" alt="january" /></div>
-                              <div class="col-md-7 div-web-desc text-left">
-                                 <p class="title-webinar">Right Nutrition is The Key Factor to Solving Pregnancy Complications</p>
-                                 <p class="desc-day"><i class="fas fa-calendar-day"></i> &nbsp;Saturday</p>
-                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;3.00pm-4.00pm</p>
-                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Lee chun hsien</p>
+                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;3.00pm-4.30pm</p>
+                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Dr. Tan Cheng</p>
                               </div>
                            </div>
                            <div class="row">
@@ -667,6 +576,126 @@
                         </div>
                      </div>
                   </li>
+               </ul>
+            </div>
+         </div>
+         <div class="clearfix"></div>
+         <!-- Upcoming webinar Second 2nd -->
+         <div class="col-md-12 col-lg-12 col-xs-12" style="padding-right: 0; padding-left: 0; margin-top: 25px;">
+            <h2 class="parentcraftTitle">Parentcraft Members Webinars</h2>
+            <img class="love-image-small" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/lovemerah-34.png" style="width: 35px; margin-top: -40px;" alt="love" /> <!-- <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/tittle/upcomingevent_tittle.png" width="100%" alt="image1" />-->
+         </div>
+         <div class="col-md-12 enlinea_slider div-row-calendar-slider" style="padding-top: 20px;">
+            <div class="slider_container">
+               <ul class="calendar-slider">
+                  <li class="product-box item" style="min-width: 150px;">
+                     <div class="reviewBox-calendar">
+                        <div class="speakerBox-calendar">
+                           <div class="row div-item-calendar">
+                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/updateddate/july10.png" width="100%" alt="january" /></div>
+                              <div class="col-md-7 div-web-desc text-left">
+                                 <p class="title-webinar">How to Effectively Reduce Back and Pelvic Pain During Pregnanc</p>
+                                 <p class="desc-day"><i class="fas fa-calendar-day"></i> &nbsp;Saturday</p>
+                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;3.00pm-4.30pm</p>
+                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; DC Joo Yi</p>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-md-12"><a class="btn btn-default btn-view-event" style="width: 100%;"> Exclusive for Members Only </a></div>
+                           </div>
+                        </div>
+                     </div>
+                  </li>
+                  <li class="product-box item" style="min-width: 150px;">
+                     <div class="reviewBox-calendar">
+                        <div class="speakerBox-calendar">
+                           <div class="row div-item-calendar">
+                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/updateddate/date_aug.png" width="100%" alt="january" /></div>
+                              <div class="col-md-7 div-web-desc text-left">
+                                 <p class="title-webinar">How To Ensure Optimum Milk Supply</p>
+                                 <p class="desc-day"><i class="fas fa-calendar-day"></i> &nbsp;Saturday</p>
+                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;3.00pm-4.00pm</p>
+                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Dr Zarina</p>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-md-12"><a class="btn btn-default btn-view-event" style="width: 100%;"> Exclusive for Members Only </a></div>
+                           </div>
+                        </div>
+                     </div>
+                  </li>
+                  <li class="product-box item" style="min-width: 150px;">
+                     <div class="reviewBox-calendar">
+                        <div class="speakerBox-calendar">
+                           <div class="row div-item-calendar">
+                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/2021_aug28.png" width="100%" alt="january" /></div>
+                              <div class="col-md-7 div-web-desc text-left">
+                                 <p class="title-webinar">Baby Bump Workout With Lavinia</p>
+                                 <p class="desc-day"><i class="fas fa-calendar-day"></i> &nbsp;Saturday</p>
+                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;3.00pm-4.00pm</p>
+                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Lavinia</p>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-md-12"><a class="btn btn-default btn-view-event" style="width: 100%;"> Exclusive for Members Only </a></div>
+                           </div>
+                        </div>
+                     </div>
+                  </li>
+                  <li class="product-box item" style="min-width: 150px;">
+                     <div class="reviewBox-calendar">
+                        <div class="speakerBox-calendar">
+                           <div class="row div-item-calendar">
+                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/2021_aug28.png" width="100%" alt="january" /></div>
+                              <div class="col-md-7 div-web-desc text-left">
+                                 <p class="title-webinar">Infant CPR</p>
+                                 <p class="desc-day"><i class="fas fa-calendar-day"></i> &nbsp;Saturday</p>
+                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;3.00pm-4.00pm</p>
+                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Dr Shahrul</p>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-md-12"><a class="btn btn-default btn-view-event" style="width: 100%;"> Exclusive for Members Only </a></div>
+                           </div>
+                        </div>
+                     </div>
+                  </li>
+                  <li class="product-box item" style="min-width: 150px;">
+                     <div class="reviewBox-calendar">
+                        <div class="speakerBox-calendar">
+                           <div class="row div-item-calendar">
+                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/2021_sep25.png" width="100%" alt="january" /></div>
+                              <div class="col-md-7 div-web-desc text-left">
+                                 <p class="title-webinar">Baby Bump Workout With Lavinia</p>
+                                 <p class="desc-day"><i class="fas fa-calendar-day"></i> &nbsp;Saturday</p>
+                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;3.00pm-4.00pm</p>
+                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Lavinia</p>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-md-12"><a class="btn btn-default btn-view-event" style="width: 100%;"> Exclusive for Members Only </a></div>
+                           </div>
+                        </div>
+                     </div>
+                  </li>
+                  <li class="product-box item" style="min-width: 150px;">
+                     <div class="reviewBox-calendar">
+                        <div class="speakerBox-calendar">
+                           <div class="row div-item-calendar">
+                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/updateddate/date_oct.png" width="100%" alt="january" /></div>
+                              <div class="col-md-7 div-web-desc text-left">
+                                 <p class="title-webinar">Right Nutrition is The Key Factor to Solving Pregnancy Complications</p>
+                                 <p class="desc-day"><i class="fas fa-calendar-day"></i> &nbsp;Saturday</p>
+                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;3.00pm-4.00pm</p>
+                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Lee chun hsien</p>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-md-12"><a class="btn btn-default btn-view-event" style="width: 100%;"> Exclusive for Members Only </a></div>
+                           </div>
+                        </div>
+                     </div>
+                  </li>
                   <li class="product-box item" style="min-width: 150px;">
                      <div class="reviewBox-calendar">
                         <div class="speakerBox-calendar">
@@ -680,7 +709,7 @@
                               </div>
                            </div>
                            <div class="row">
-                              <div class="col-md-12"><a href="../../../events/zoom-live-registration-form" class="btn btn-default btn-view-event" style="width: 100%;"> VIEW EVENT </a></div>
+                              <div class="col-md-12"><a class="btn btn-default btn-view-event" style="width: 100%;"> Exclusive for Members Only </a></div>
                            </div>
                         </div>
                      </div>
@@ -698,7 +727,7 @@
                               </div>
                            </div>
                            <div class="row">
-                              <div class="col-md-12"><a href="../../../events/zoom-live-registration-form" class="btn btn-default btn-view-event" style="width: 100%;"> VIEW EVENT </a></div>
+                              <div class="col-md-12"><a class="btn btn-default btn-view-event" style="width: 100%;"> Exclusive for Members Only </a></div>
                            </div>
                         </div>
                      </div>
@@ -719,7 +748,48 @@
       <div id="section-slider">
          <div class="section_container">
             <div id="section-thekapitan" style="border: 0px !important;">
-               <ul class="clearfix row section_slidethekapitan section5   nbs-flexisel-ul">
+               <ul class="
+                  clearfix
+                  row
+                  section_slidethekapitan
+                  section5
+                  nbs-flexisel-ul
+                  ">
+                  <li class="nbs-flexisel-item" style="width: 262.5px;">
+                     <div class="product-container">
+                        <div class="left-block2">
+                           <div class="product-image-container"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/webinar/May29.png" data-src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/webinar/May29.png" alt="pandemic" title="babysleeptips" itemprop="image" /></div>
+                        </div>
+                     </div>
+                  </li>
+                  <li class="nbs-flexisel-item" style="width: 262.5px;">
+                     <div class="product-container">
+                        <div class="left-block2">
+                           <div class="product-image-container"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/webinar/May08.png" data-src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/webinar/May08.png" alt="pandemic" title="vaccination" itemprop="image" /></div>
+                        </div>
+                     </div>
+                  </li>
+                  <li class="nbs-flexisel-item" style="width: 262.5px;">
+                     <div class="product-container">
+                        <div class="left-block2">
+                           <div class="product-image-container"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/webinar/Apr10.png" data-src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/webinar/Apr10.png" alt="pandemic" title="dietguide" itemprop="image" /></div>
+                        </div>
+                     </div>
+                  </li>
+                  <li class="nbs-flexisel-item" style="width: 262.5px;">
+                     <div class="product-container">
+                        <div class="left-block2">
+                           <div class="product-image-container"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/webinar/Apr03.png" data-src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/webinar/Apr03.png" alt="pandemic" title="babybumpexercise" itemprop="image" /></div>
+                        </div>
+                     </div>
+                  </li>
+                  <li class="nbs-flexisel-item" style="width: 262.5px;">
+                     <div class="product-container">
+                        <div class="left-block2">
+                           <div class="product-image-container"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/webinar/March20.png" data-src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/webinar/March20.png" alt="pandemic" title="nutrition" itemprop="image" /></div>
+                        </div>
+                     </div>
+                  </li>
                   <li class="nbs-flexisel-item" style="width: 262.5px;">
                      <div class="product-container">
                         <div class="left-block2">
@@ -820,7 +890,7 @@
       <div class="col-md-12 col-lg-12 col-xs-12">
          <h2 class="parentcraftTitle">Speakers</h2>
          <img class="love-image-small" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/lovemerah-34.png" style="width: 35px; margin-top: -40px;" alt="love" />
-         <p class="parentcraftDescription">Motherhood.com.my's parentcraft classes are facilitated by experienced consultants, gynaecologist, nurses, physiotherapist, nutritional therapist and certified Pilates instrutor.</p>
+         <p class="parentcraftDescription">Motherhood.com.my's Parentcraft Classes are facilitated by experienced consultants, gynaecologists, nurses, physiotherapists, nutritional therapists and certified Pilates instructors</p>
       </div>
       <div class="clearfix"></div>
       <!-- Join Now Speaker END --> <!-- Speakers-->
@@ -912,7 +982,7 @@
          <div class="speakerBox">
             <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/speaker+bg/speaker_sarah.png" width="100%" alt="Physiotherapy" />
             <p class="speakerName">SARAH ONG</p>
-            <p class="speakerDescription"><a href="https://www.sarahong.co/about" style="text-decoration: none;">Baby Sleep Coach</a>, Member of the Association of Professional Sleep Consultants.</p>
+            <p class="speakerDescription"><a href="https://www.sarahong.co/about" style="text-decoration: none;">Baby Sleep Coach, Member of the Association of Professional Sleep Consultants. </a></p>
          </div>
       </div>
       <div class="col-md-3 col-lg-3 col-xs-6">
@@ -926,7 +996,7 @@
          <div class="speakerBox">
             <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/speaker+bg/speaker_drfoo.png" width="100%" alt="Physiotherapy" />
             <p class="speakerName">DR FOO CHEE HOE</p>
-            <p class="speakerDescription">Paediatrician from Pantai Hospital Ampang and <a href="https://drfooclinic.wordpress.com/" style="text-decoration: none;"> Dr Foo Child Specialis Clinic. </a></p>
+            <p class="speakerDescription">Paediatrician from Pantai Hospital Ampang and <a href="https://drfooclinic.wordpress.com/" style="text-decoration: none;"> Dr Foo Child Specialist Clinic. </a></p>
          </div>
       </div>
       <div class="col-md-3 col-lg-3 col-xs-6">
@@ -953,7 +1023,7 @@
       <div class="col-md-12 col-lg-12 col-xs-12">
          <h2 class="parentcraftTitle">Checklists</h2>
          <img class="love-image-small" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/lovemerah-34.png" style="width: 35px; margin-top: -40px;" alt="love" />
-         <p class="parentcraftDescription">To ease your pregnancy journey, Motherhood prepared exclusive checklists for all expecting parents. Download now !</p>
+         <p class="parentcraftDescription">To ease your pregnancy journey, here are some checklists for all expecting parents.</p>
       </div>
       <div class="clearfix"></div>
       <div class="checklistBox col-md-4 col-lg-4 col-xs-12">
@@ -962,11 +1032,11 @@
       </div>
       <div class="checklistBox col-md-4 col-lg-4 col-xs-12">
          <img width="100%" class="img-responsive checklistImage" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/checklist+image/mommytodolist_image.png" />
-         <p class="checklistText"><span style="font-size: 16px;">The Mommy To-Do-List</span> <br /><br /> <a href="https://story.motherhood.com.my/blog/category/pregnancy-and-birth/trimesters/" style="text-decoration: none;"> From the first trimester up until your last weeks</a>, here are the essential things that you should do before the birth of your baby.</p>
+         <p class="checklistText"><span style="font-size: 16px;">The Mommy To-Do-List</span> <br /><br /> <a href="https://story.motherhood.com.my/blog/category/pregnancy-and-birth/trimesters/" style="text-decoration: none;"> From the first trimester up until your last weeks, here are the essential things that you should do before the birth of your baby. </a></p>
       </div>
       <div class="checklistBox col-md-4 col-lg-4 col-xs-12">
          <img width="100%" class="img-responsive checklistImage" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/checklist+image/shoppinglist_image.png" />
-         <p class="checklistText"><span style="font-size: 16px;">Baby Shopping List</span> <br /><br /> Overwhelmed (and excited) with the countless baby products? Here is the perfect List of what you should get - and don't - for your newborn.</p>
+         <p class="checklistText"><span style="font-size: 16px;">Baby Shopping List</span> <br /><br /> Overwhelmed (and excited) with the countless baby products? Here is the perfect list of what you should get - and don't - for your newborn.</p>
       </div>
       <div class="clearfix"></div>
       <div class="col-md-12 col-lg-12 col-xs-12" style="background: #ffe1e7; padding: 25px 0px 85px 0px;">
@@ -1004,7 +1074,7 @@
                <h3 class="epTitle">EPISODE 9 :</h3>
                <p class="epDesc">CHILDBIRTH - ASSISTED VAGINAL BIRTH</p>
                <h3 class="epTitle">EPISODE 10 :</h3>
-               <p class="epDesc"><a href="https://story.motherhood.com.my/blog/how-to-get-a-good-deep-latch-the-key-to-successful-breastfeeding/" style="text-decoration: none;"> SUCCESSFUL BREASTFEEDING</a></p>
+               <p class="epDesc"><a href="https://story.motherhood.com.my/blog/how-to-get-a-good-deep-latch-the-key-to-successful-breastfeeding/" style="text-decoration: none;"> SUCCESSFUL BREASTFEEDING </a></p>
                <h3 class="epTitle">EPISODE 11 :</h3>
                <p class="epDesc">BABY BATH &amp; BABY BURPING &amp; BABY MASSAGE</p>
                <h3 class="epTitle">EPISODE 12 :</h3>
@@ -1026,7 +1096,7 @@
                <h3 class="epTitle">EPISODE 20 :</h3>
                <p class="epDesc">BALANCING BETWEEN WORK &amp; PREGNANCY</p>
                <h3 class="epTitle">EPISODE 21 :</h3>
-               <p class="epDesc">THE IMPORTANT OF FATHER&rsquo;S INVOLVEMENT IN PREGNANCY</p>
+               <p class="epDesc">THE IMPORTANCE OF FATHER'S INVOLVEMENT IN PREGNANCY</p>
                <h3 class="epTitle">EPISODE 22 :</h3>
                <p class="epDesc">MANAGING TRANSITIONS (MENTALLY) WHILE YOU ARE BACK TO WORK</p>
                <p style="float: right; font-size: bold; font-style: italic;">*Subject to change.</p>
@@ -1041,56 +1111,58 @@
             <ul id="nestlearticle_list_car">
                <li class="product-box item" style="min-width: 178px;">
                   <div class="reviewBox">
-                     <p>01/12/2020</p>
-                     <p style="font-weight: bold;">Nur Afiqah</p>
+                     <p>19/06/2020</p>
+                     <p style="font-weight: bold;">Chooi Yee</p>
                      <p class="reviewStars">★ ★ ★ ★</p>
-                     <p style="font-weight: bold;">Excellent Information</p>
-                     <p>Very informative and useful for future references. Gained a lot of knowledge on topics of babies and also mummies.</p>
-                  </div>
-               </li>
-               <li class="product-box item" style="min-width: 178px;">
-                  <div class="reviewBox">
-                     <p>24/08/2020</p>
-                     <p style="font-weight: bold;">Lynn G</p>
-                     <p class="reviewStars">★ ★ ★ ★</p>
-                     <p style="font-weight: bold;">Perfect For Busy New Parents-To-Be</p>
-                     <p>Online zoom videos via a member only Facebook Group can be played over and over, whenever convenient and in the comfort of your own home. There&rsquo;s no need to attend a day long workshop especially in times like right now.</p>
-                  </div>
-               </li>
-               <li class="product-box item" style="min-width: 178px;">
-                  <div class="reviewBox">
-                     <p>24/06/2020</p>
-                     <p style="font-weight: bold;">Loi Pei Lui</p>
-                     <p class="reviewStars">★ ★ ★ ★</p>
-                     <p style="font-weight: bold;">I Like The Covid-19 Talk How Can Pregnant Mum Protect Themselves.</p>
-                     <p>It is an amazing and a great class for new mums, also a good talk to help pregnant mum. I just want to say that i am highly recommend these programes to all my pregnant firend to attending these programme. It was a valuable experience to me.</p>
+                     <p style="font-weight: bold;">Informative! It Helps A Lot</p>
+                     <p>Thanks for motherhood's organising online class. Very informative. First time mum should attend more class before baby delivered.</p>
                   </div>
                </li>
                <li class="product-box item" style="min-width: 178px;">
                   <div class="reviewBox">
                      <p>22/06/2020</p>
-                     <p style="font-weight: bold;">Layli</p>
+                     <p style="font-weight: bold;">Sofia Sarena Michael</p>
                      <p class="reviewStars">★ ★ ★ ★</p>
-                     <p style="font-weight: bold;">Protection &amp; Prevention Ways Againsts Covid-19</p>
-                     <p>Happy to also learn more about the importance of cord blood cells where it could help save other lives.</p>
+                     <p style="font-weight: bold;">It Was Informative Especially The Question And Answer Session.</p>
+                     <p>It was an informative class and Dr zarina was great. As a first time mum to be, some questions were answered and it also assured me that i need to be positive in tackling my breastfeeding journey. Thanks again doctor and motherhood!</p>
                   </div>
                </li>
                <li class="product-box item" style="min-width: 178px;">
                   <div class="reviewBox">
-                     <p>21/05/2020</p>
-                     <p style="font-weight: bold;">Ms Joanne</p>
+                     <p>22/12/2020</p>
+                     <p style="font-weight: bold;">Ivy Ooi</p>
                      <p class="reviewStars">★ ★ ★ ★</p>
-                     <p style="font-weight: bold;">Enjoying Learning of Parenting thru Online Class</p>
-                     <p>My husband and I, we both are new parents. We have decided to join parentcraft online class so that we are able to get more knowledge on the parts that we are lacking in. Especially the Pilates, I enjoy practicing it.</p>
+                     <p style="font-weight: bold;">Great Platform</p>
+                     <p>Just received parentcraft kit today! Thanks motherhood! Really a great platform for new parents like us to learn all the skills needed at home instead of going to physical class during this pandemic season.</p>
+                     <img src="../../../modules/productcomments/uploadimage/2020-12-22inbound8302920382424510502.jpg" width="100px" alt="Great Platform" />
                   </div>
                </li>
                <li class="product-box item" style="min-width: 178px;">
                   <div class="reviewBox">
-                     <p>12/06/2020</p>
-                     <p style="font-weight: bold;">Young Layli</p>
+                     <p>22/06/2020</p>
+                     <p style="font-weight: bold;">Helwany I</p>
                      <p class="reviewStars">★ ★ ★ ★</p>
-                     <p style="font-weight: bold;">Breastmilk Beneficial For My Baby</p>
-                     <p>Interesting session, learnt a lot about breastmilk.</p>
+                     <p style="font-weight: bold;">Worth With The Price</p>
+                     <p>Me and my husband subscribe in the FB, the price is suitable and more good information for new parents.</p>
+                  </div>
+               </li>
+               <li class="product-box item" style="min-width: 178px;">
+                  <div class="reviewBox">
+                     <p>16/06/2020</p>
+                     <p style="font-weight: bold;">Joanna Oh</p>
+                     <p class="reviewStars">★ ★ ★ ★</p>
+                     <p style="font-weight: bold;">Made Me Realise I Have To Prepare More On How To Handle Baby</p>
+                     <p>This is a very good session for us pregnant mum during this pandemic as it is indeed a very worrying times and knowing that there are mums out there who is as worried and share is very comforting.</p>
+                  </div>
+               </li>
+               <li class="product-box item" style="min-width: 178px;">
+                  <div class="reviewBox">
+                     <p>27/02/2021</p>
+                     <p style="font-weight: bold;">Fatimah M</p>
+                     <p class="reviewStars">★ ★ ★ ★</p>
+                     <p style="font-weight: bold;">Worth It, Full With Tips And Information</p>
+                     <p>Just received ParentCraft kit yesterday. Thank you motherhood. ParentCraft Online group really full with informative and tips that useful along the pregnancy journey till new born arrival.</p>
+                     <img src="../../../modules/productcomments/uploadimage/2021-02-27IMG20210226144119.jpg" width="100px" alt="Worth It, Full With Tips And Information" />
                   </div>
                </li>
                <li class="product-box item" style="min-width: 178px;">
@@ -1104,11 +1176,11 @@
                </li>
                <li class="product-box item" style="min-width: 178px;">
                   <div class="reviewBox">
-                     <p>10/11/2020</p>
-                     <p style="font-weight: bold;">Arina A</p>
+                     <p>06/11/2020</p>
+                     <p style="font-weight: bold;">Noorul Anis M</p>
                      <p class="reviewStars">★ ★ ★ ★</p>
                      <p style="font-weight: bold;">Informative And Interesting Topics!</p>
-                     <p>I find that the topics covered in the Parentcraft class are very useful for parents-to-be, it&rsquo;s very comprehensive - from delivery preparation to baby care. The online class makes it convenient to browse the videos at our own preferred time.</p>
+                     <p>Already attend the first class, this class provide lots of information that really helps me as a new mom to be. I can replay the video over and over and the content was delivered by the qualified speaker. Recommended!!</p>
                   </div>
                </li>
             </ul>
@@ -1223,13 +1295,10 @@
          </div>
          <div class="col-md-6 col-lg-6 col-xs-12" style="background-color: #ff8282; padding: 19px 50px; height: 100%; min-height: 436px; color: white; line-height: 1.5; display: block;">
             <p class="sliderTextTitle">What Will You Learn?</p>
-            <p class="sliderTextPoints">⭐ Pregnancy and baby nutrition.</p>
             <p class="sliderTextPoints">⭐ Delivery process and procedures.</p>
             <p class="sliderTextPoints">⭐ Antenatal exercise.</p>
             <p class="sliderTextPoints">⭐ Breastfeeding tips, tricks, do's and don'ts.</p>
             <p class="sliderTextPoints">⭐ Baby Bath - safe, fun and exciting bath time.</p>
-            <p class="sliderTextPoints">⭐ Oral care for babies.</p>
-            <p class="sliderTextPoints">⭐ First aid and CPR awareness for newborn babies.</p>
          </div>
       </div>
       <div class="clearfix"></div>
@@ -1261,7 +1330,7 @@
       <div class="col-md-12 col-lg-12 col-xs-12">
          <h2 class="parentcraftTitle">Event Info</h2>
          <img class="love-image-small" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/lovemerah-34.png" style="width: 35px; margin-top: -40px;" alt="love" />
-         <div class="col-lg-12 col-md-12" style="padding-left: 0px; padding-right: 0px;"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/offline+class/parentcraftoffline_info.png" width="100%" /></div>
+         <div class="col-lg-12 col-md-12" style="padding-left: 0px; padding-right: 0px;"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/offline+class/venue_theclubbandarutama.png" width="100%" /></div>
       </div>
       <p>
          <!--====================== SCHEDULE ========================-->
@@ -1270,15 +1339,47 @@
          <h2 class="parentcraftTitle">Schedule</h2>
          <img class="love-image-small" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/lovemerah-34.png" style="width: 35px; margin-top: -40px;" alt="love" />
          <div class="clearfix"></div>
-         <div class="col-lg-2 col-md-2 col-xs-4 schedule-div" style="padding-left: 5px; padding-right: 5px; padding-bottom: 5px;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/offline+class/newdate/date/offline_24apr.png" width="100%" /></div>
-         <div class="col-lg-2 col-md-2 col-xs-4 schedule-div" style="padding-left: 5px; padding-right: 5px; padding-bottom: 5px;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/offline+class/newdate/date/offline_22may.png" width="100%" /></div>
-         <div class="col-lg-2 col-md-2 col-xs-4 schedule-div" style="padding-left: 5px; padding-right: 5px; padding-bottom: 5px;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/offline+class/newdate/date/offlinedate_new-09.png" width="100%" /></div>
-         <div class="col-lg-2 col-md-2 col-xs-4 schedule-div" style="padding-left: 5px; padding-right: 5px; padding-bottom: 5px;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/offline+class/newdate/date/offlinedate_new-10.png" width="100%" /></div>
-         <div class="col-lg-2 col-md-2 col-xs-4 schedule-div" style="padding-left: 5px; padding-right: 5px; padding-bottom: 5px;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/offline+class/newdate/date/offlinedate_new-11.png" width="100%" /></div>
-         <div class="col-lg-2 col-md-2 col-xs-4 schedule-div" style="padding-left: 5px; padding-right: 5px; padding-bottom: 5px;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/offline+class/newdate/date/offlinedate_new-12.png" width="100%" /></div>
-         <div class="col-lg-2 col-md-2 col-xs-4 schedule-div" style="padding-left: 5px; padding-right: 5px; padding-bottom: 5px;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/offline+class/newdate/date/offlinedate_new-13.png" width="100%" /></div>
-         <div class="col-lg-2 col-md-2 col-xs-4 schedule-div" style="padding-left: 5px; padding-right: 5px; padding-bottom: 5px;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/offline+class/newdate/date/offlinedate_new-14.png" width="100%" /></div>
-         <div class="col-lg-2 col-md-2 col-xs-4 schedule-div" style="padding-left: 5px; padding-right: 5px; padding-bottom: 5px;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/offline+class/newdate/date/offlinedate_new-15.png" width="100%" /></div>
+         <div class="col-lg-2 col-md-2 col-xs-4 schedule-div" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px;">
+            <img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/offline+class/newdate/classdate/offline-may29.png" width="100%" />
+            <div class="div-overlay box-overlay-display" style="background-color: #eeeeeebd; position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 2; display: block!important;">
+               <div class="text-overlay" style="display: block; line-height: 30px; text-align: center; font-weight: bold; position: relative; top: 50%; left: 50%; font-size: 20px; color: #4f4f4f; transform: translate(-50%,-50%);">Postponed until further notice</div>
+            </div>
+         </div>
+         <div class="col-lg-2 col-md-2 col-xs-4 schedule-div" style="padding-left: 10px; padding-right: 10px; padding-bottom: 5px;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/offline+class/newdate/classdate/offline-june19.png" width="100%" />
+			<div class="div-overlay box-overlay-display" style="background-color: #eeeeeebd; position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 2; display: block!important;">
+               <div class="text-overlay" style="display: block; line-height: 30px; text-align: center; font-weight: bold; position: relative; top: 50%; left: 50%; font-size: 20px; color: #4f4f4f; transform: translate(-50%,-50%);">Postponed until further notice</div>
+            </div>
+		 </div>
+         <div class="col-lg-2 col-md-2 col-xs-4 schedule-div" style="padding-left: 10px; padding-right: 10px; padding-bottom: 5px;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/offline+class/newdate/classdate/offline-july17.png" width="100%" />
+			<div class="div-overlay box-overlay-display" style="background-color: #eeeeeebd; position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 2; display: block!important;">
+               <div class="text-overlay" style="display: block; line-height: 30px; text-align: center; font-weight: bold; position: relative; top: 50%; left: 50%; font-size: 20px; color: #4f4f4f; transform: translate(-50%,-50%);">Postponed until further notice</div>
+            </div>
+		 </div>
+         <div class="col-lg-2 col-md-2 col-xs-4 schedule-div" style="padding-left: 10px; padding-right: 10px; padding-bottom: 5px;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/offline+class/newdate/classdate/offline-aug14.png" width="100%" />
+			<div class="div-overlay box-overlay-display" style="background-color: #eeeeeebd; position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 2; display: block!important;">
+               <div class="text-overlay" style="display: block; line-height: 30px; text-align: center; font-weight: bold; position: relative; top: 50%; left: 50%; font-size: 20px; color: #4f4f4f; transform: translate(-50%,-50%);">Postponed until further notice</div>
+            </div>
+		 </div>
+         <div class="col-lg-2 col-md-2 col-xs-4 schedule-div" style="padding-left: 10px; padding-right: 10px; padding-bottom: 5px;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/offline+class/newdate/classdate/offline-sept18.png" width="100%" />
+			<div class="div-overlay box-overlay-display" style="background-color: #eeeeeebd; position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 2; display: block!important;">
+               <div class="text-overlay" style="display: block; line-height: 30px; text-align: center; font-weight: bold; position: relative; top: 50%; left: 50%; font-size: 20px; color: #4f4f4f; transform: translate(-50%,-50%);">Postponed until further notice</div>
+            </div>
+		 </div>
+         <div class="col-lg-2 col-md-2 col-xs-4 schedule-div" style="padding-left: 10px; padding-right: 10px; padding-bottom: 5px;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/offline+class/newdate/classdate/offline-oct16.png" width="100%" />
+			<div class="div-overlay box-overlay-display" style="background-color: #eeeeeebd; position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 2; display: block!important;">
+               <div class="text-overlay" style="display: block; line-height: 30px; text-align: center; font-weight: bold; position: relative; top: 50%; left: 50%; font-size: 20px; color: #4f4f4f; transform: translate(-50%,-50%);">Postponed until further notice</div>
+            </div>
+		 </div>
+         <div class="col-lg-2 col-md-2 col-xs-4 schedule-div" style="padding-left: 10px; padding-right: 10px; padding-bottom: 5px;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/offline+class/newdate/classdate/offline-nov20.png" width="100%" />
+			<div class="div-overlay box-overlay-display" style="background-color: #eeeeeebd; position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 2; display: block!important;">
+               <div class="text-overlay" style="display: block; line-height: 30px; text-align: center; font-weight: bold; position: relative; top: 50%; left: 50%; font-size: 20px; color: #4f4f4f; transform: translate(-50%,-50%);">Postponed until further notice</div>
+            </div>
+		 </div>
+         <div class="col-lg-2 col-md-2 col-xs-4 schedule-div" style="padding-left: 10px; padding-right: 10px; padding-bottom: 5px;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/offline+class/newdate/classdate/offline-dec18.png" width="100%" />
+			<div class="div-overlay box-overlay-display" style="background-color: #eeeeeebd; position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 2; display: block!important;">
+               <div class="text-overlay" style="display: block; line-height: 30px; text-align: center; font-weight: bold; position: relative; top: 50%; left: 50%; font-size: 20px; color: #4f4f4f; transform: translate(-50%,-50%);">Postponed until further notice</div>
+            </div>
+		 </div>
       </div>
       <p>
          <!--================== ITINERARY TITTLE ===============-->
@@ -1378,79 +1479,178 @@
                </div>
             </div>
          </div>
+         <div class="clearfix"></div>
+         <!-- Reviews in offline parentcraft  -->
+         <div class="col-md-12 enlinea_slider" style="padding-top: 20px;">
+            <div class="slider_container">
+               <ul id="nestlekol_list_car">
+                  <!-- Review 1-->
+                  <li class="product-box item" style="min-width: 178px;">
+                     <div class="reviewBox">
+                        <p>24/04/2021</p>
+                        <p style="font-weight: bold;">Fatin Maisarah M</p>
+                        <p class="reviewStars">★ ★ ★ ★</p>
+                        <p style="font-weight: bold;">Great knowledge and beneficial session</p>
+                        <p>It was a really great knowledge and beneficial session for first time parents like us! Each session is fun and amazing. Would really recommend this class to those who is expecting. Good job and thank you motherhood club!</p>
+                        <img class="img-responsive" src="../../../modules/productcomments/uploadimage/Fatin%20Maisarah%20Marzuki%20-%20pcraft%20-%20copy.jpg" width="200px" alt="Great knowledge and beneficial session" />
+                     </div>
+                  </li>
+                  <!-- Review 2 -->
+                  <li class="product-box item" style="min-width: 178px;">
+                     <div class="reviewBox">
+                        <p>24/04/2021</p>
+                        <p style="font-weight: bold;">Sher Min</p>
+                        <p class="reviewStars">★ ★ ★ ★</p>
+                        <p style="font-weight: bold;">Interesting topics</p>
+                        <p>Interesting topics shared during the class! Personally like the pilate and breastfeeding sessions the most.</p>
+                        <img class="img-responsive" src="../../../modules/productcomments/uploadimage/2021-04-24IMG-20210424-WA0001.jpg" width="200px" alt="Interesting topics" />
+                     </div>
+                  </li>
+                  <!-- Review 3 -->
+                  <li class="product-box item" style="min-width: 178px;">
+                     <div class="reviewBox">
+                        <p>24/04/2021</p>
+                        <p style="font-weight: bold;">Wawa Abdullah</p>
+                        <p class="reviewStars">★ ★ ★ ★</p>
+                        <p style="font-weight: bold;">Useful information</p>
+                        <p>Just love today session from morning until evening. An experienced consultants and specialist give a lot of useful information especially for me who are the first time mommy to be. Thank you for this opportunities.</p>
+                     </div>
+                  </li>
+                  <!-- Review 4-->
+                  <li class="product-box item" style="min-width: 178px;">
+                     <div class="reviewBox">
+                        <p>24/04/2021</p>
+                        <p style="font-weight: bold;">Kenneth Lee Seng Guan</p>
+                        <p class="reviewStars">★ ★ ★ ★</p>
+                        <p style="font-weight: bold;">Biggest Take Away From Parentcraft Class</p>
+                        <p>Informative class &amp; every enjoy the whole session. Learn on how to take care our baby &amp; support our partner. Understand what we can prepare and enjoy the whole special journey without stress. Big thanks to the experts from motherhood.com.my on great tips and advices.</p>
+                        <img class="img-responsive" src="../../../modules/productcomments/uploadimage/Kenneth%20Lee%20Seng%20Guan%20-%20pcraft%20-%20copy.jpg" width="200px" alt="Biggest Take Away From Parentcraft Class" />
+                     </div>
+                  </li>
+                  <!-- Review 5-->
+                  <li class="product-box item" style="min-width: 178px;">
+                     <div class="reviewBox">
+                        <p>24/04/2021</p>
+                        <p style="font-weight: bold;">Nik Noor</p>
+                        <p class="reviewStars">★ ★ ★ ★</p>
+                        <p style="font-weight: bold;">Fun Yet Educating!</p>
+                        <p>Hands on classes were why we came. Worth to get up early on a saturday morning! Very enriching, fun yet educating in preparing us as new parents.</p>
+                        <img class="img-responsive" src="../../../modules/productcomments/uploadimage/2021-04-28-nik-noor.jpg" width="200px" alt="Fun Yet Educating" />
+                     </div>
+                  </li>
+                  <!-- Review 6-->
+                  <li class="product-box item" style="min-width: 178px;">
+                     <div class="reviewBox">
+                        <p>24/04/2021</p>
+                        <p style="font-weight: bold;">Katrina</p>
+                        <p class="reviewStars">★ ★ ★ ★</p>
+                        <p style="font-weight: bold;">Informative ParentCraft Class For First Time Parents</p>
+                        <p>Very informative and entertaining class for new parents to be where there are Pilates workshops and labour， baby bath and breastfeed knowledge</p>
+                        <img class="img-responsive" src="../../../modules/productcomments/uploadimage/2021-04-24C485C6C4-612B-4958-88C6-0B018E3AAD71.jpeg" width="200px" alt="Informative ParentCraft Class For First Time Parents" />
+                     </div>
+                  </li>
+                  <!-- Review 7-->
+                  <li class="product-box item" style="min-width: 178px;">
+                     <div class="reviewBox">
+                        <p>24/04/2021</p>
+                        <p style="font-weight: bold;">Tommy Tong</p>
+                        <p class="reviewStars">★ ★ ★ ★</p>
+                        <p style="font-weight: bold;">Wonderful and informative session</p>
+                        <p>Thank you so much for having this wonderful and informative session. Really learnt alot from this session, from labour, to taking care of baby. Especially on the sharing on how to bath the baby, something that worries both of us with our delicate baby.</p>
+                        <img class="img-responsive" src="../../../modules/productcomments/uploadimage/2021-04-24IMG_20210424_091544.jpg" width="200px" alt="Wonderful and informative session" />
+                     </div>
+                  </li>
+                  <!-- Review 8-->
+                  <li class="product-box item" style="min-width: 178px;">
+                     <div class="reviewBox">
+                        <p>24/04/2021</p>
+                        <p style="font-weight: bold;">Hock Wui T</p>
+                        <p class="reviewStars">★ ★ ★ ★</p>
+                        <p style="font-weight: bold;">Starter Information</p>
+                        <p>Beginner's class with some product placements &amp; presentations. not the best event venue. Good to join if new parents.</p>
+                        <img class="img-responsive" src="../../../modules/productcomments/uploadimage/2021-24-28-Hock-wui-t.jpg" width="200px" alt="Starter Information" />
+                     </div>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="clearfix"></div>
       </div>
       <!-- Offline Itinerary Background END -->
-      <div class="col-lg-12" style="margin-bottom: 16px; padding-left: 40px; padding-right: 40px;"><a href="../../../campaign-nurengroup/education/baby-learning/baby-enrichment-classes/parentcraft-class-limited-seats-available.html" target="_blank" rel="noopener"> <img class="" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/gif/joinnowbuttonoffline.gif" width="100%" /></a></div>
+      <div class="col-lg-12" style="margin-bottom: 16px; padding-left: 40px; padding-right: 40px;"><a href="../../../campaign-nurengroup/education/baby-learning/baby-enrichment-classes/parentcraft-class-limited-seats-available.html" target="_blank" rel="noopener"> <img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/gif/joinnowbuttonoffline.gif" width="100%" /></a></div>
       <p>
          <!--================== TAGLINE =================-->
       </p>
       <div class="clearfix"></div>
-      <div class="col-lg-12 col-md-12" style="padding-left: 15px; padding-right: 15px;"><img class="" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/tagline01-pc.png" width="100%" /></div>
+      <div class="col-lg-12 col-md-12" style="padding-left: 15px; padding-right: 15px;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/tagline01-pc.png" width="100%" /></div>
    </div>
    <p><a href="#" onclick="topFunction()" id="topBtn" title="Go to top"> <i class="fa fa-arrow-up" aria-hidden="true"></i> </a></p>
    <!-- Offline Content END -->
-   <p></p>
 </div>
 <p>
    <script>// <![CDATA[
       $(window).load(function () {
-      			$(".offline-content").addClass("visuallyhidden");
-      		});
-      			
-      		function scrollFunction() {
-      			var mybutton = document.getElementById("topBtn");
-      			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      				mybutton.style.display = "block";
-      			} 
-      			else {
-      				mybutton.style.display = "none";
-      			}
-      		}
-      		
-      		// When the user clicks on the button, scroll to the top of the document
-      		function topFunction() {
-      			document.body.scrollTop = 0;
-      			document.documentElement.scrollTop = 0;
-      		}
-      	 
-      		$(document).ready(function(){
-      			// When the user scrolls down 20px from the top of the document, show the button
-      			window.onscroll = function() {scrollFunction()};
-      	
-      			$(".onlineBtn").on("click", function () {
-      				//$('.online-content').show();
-      				//$('.offline-content').hide();
-      				$(".offline-content").addClass("visuallyhidden");
-      				$(".online-content").removeClass("visuallyhidden");
-      				$(window).resize();
-      				$("img").trigger("unveil");
-      			  $('body').find('.nbs-flexisel-inner').addClass('bg-color-change');
-      			  $('body').find('.bg-color-change').css('background-color', "#fae2e7");
-      			});
-      			
-      			$(".offlineBtn").on("click", function () {
-      				//$('.offline-content').show();
-      				//$('.online-content').hide();
-      				$(".online-content").addClass("visuallyhidden");
-      				$(".offline-content").removeClass("visuallyhidden");
-      				$(window).resize();
-      				$("img").trigger("unveil");
-      			  $('body').find('.nbs-flexisel-inner').addClass('bg-color-change');
-      			  $('body').find('.bg-color-change').css('background-color', "#265e70");
-      			});
-      		
-      		$('body').find('.section_slidethekapitan').flexisel({
-      			visibleItems: 5,
-      			flipPage: true,
-      			animationSpeed: 500,
-      			animationLoop: true,
-      			clone: false,
-      			autoPlay: false
-      		});
-      		
-      		$('body').find('.nbs-flexisel-inner').addClass('bg-color-change');
-      		$('body').find('.bg-color-change').css('background-color', "#fae2e7");
-      		});
+          $(".offline-content").addClass("visuallyhidden");
+        });
+      
+        function scrollFunction() {
+          var mybutton = document.getElementById("topBtn");
+          if (
+            document.body.scrollTop > 20 ||
+            document.documentElement.scrollTop > 20
+          ) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+      
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+      
+        $(document).ready(function () {
+          // When the user scrolls down 20px from the top of the document, show the button
+          window.onscroll = function () {
+            scrollFunction();
+          };
+      
+          $(".onlineBtn").on("click", function () {
+            //$('.online-content').show();
+            //$('.offline-content').hide();
+            $(".offline-content").addClass("visuallyhidden");
+            $(".online-content").removeClass("visuallyhidden");
+            $(window).resize();
+            $("img").trigger("unveil");
+            $("body").find(".nbs-flexisel-inner").addClass("bg-color-change");
+            $("body").find(".bg-color-change").css("background-color", "#fae2e7");
+          });
+      
+          $(".offlineBtn").on("click", function () {
+            //$('.offline-content').show();
+            //$('.online-content').hide();
+            $(".online-content").addClass("visuallyhidden");
+            $(".offline-content").removeClass("visuallyhidden");
+            $(window).resize();
+            $("img").trigger("unveil");
+            $("body").find(".nbs-flexisel-inner").addClass("bg-color-change");
+            $("body").find(".bg-color-change").css("background-color", "#265e70");
+          });
+      
+          $("body").find(".section_slidethekapitan").flexisel({
+            visibleItems: 5,
+            flipPage: true,
+            animationSpeed: 500,
+            animationLoop: true,
+            clone: false,
+            autoPlay: false,
+          });
+      
+          $("body").find(".nbs-flexisel-inner").addClass("bg-color-change");
+          $("body").find(".bg-color-change").css("background-color", "#fae2e7");
+        });
        
       // ]]>
    </script>

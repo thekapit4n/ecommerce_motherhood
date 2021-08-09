@@ -6,14 +6,14 @@ session_start();
 if(isset($_GET['islogout']) && $_GET['islogout'] == true)
 {
 	unset($_SESSION["anmummaternaLogin"]);
-	header('Location: http://www.motherhood.com.my/external/apta-pregnant-mom2021-report.php');
+	header('Location: http://www.motherhood.com.my/external/anmum-essential-gold-report2021.php');
 }
 
 $arr_allowUser = array(
 	'tech',
 	'megan',
 	'hooishan',
-	'aptamom',
+	'anmum',
 	'haiqal',
 	'ivy',
 );
@@ -40,7 +40,7 @@ else
     <link rel="stylesheet" href="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/report-login/css/bootstrap.min.css">
     <!-- Style -->
     <link rel="stylesheet" href="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/report-login/css/style.css">
-    <title>Apta Pregnantmom Report | Motherhood.com.my Malaysia</title>
+    <title>Anmum Essential Gold Report 2021 | Motherhood.com.my Malaysia</title>
 	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico"/>
 	<style>
 		body{
@@ -80,9 +80,9 @@ else
 							<div class="form-block" style="padding-top:20px;padding-bottom:20px;">
 								<div class="mb-12">
 									<h3>Login to <strong>leads report</strong></h3>
-									<p class="mb-4">Apta Pregnant Mom Report 2021 | Motherhood.com.my Malaysia</p>
+									<p class="mb-4">Anmum Essential Gold Report 2021 | Motherhood.com.my Malaysia</p>
 								</div>
-								<form action='apta-pregnant-mom2021-report.php' method='post' method="post">
+								<form action='anmum-essential-gold-report2021.php' method='post' method="post">
 									<div class="form-group first">
 										<label for="username">Login</label>
 										<input type="text" class="form-control" id="username"  name='login'>
@@ -142,7 +142,7 @@ $productList=array();
 	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/Inputmask-5.x/dist/jquery.inputmask.js" type="text/javascript"></script>
 	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/twbs-pagination/jquery.twbsPagination.min.js" type="text/javascript"></script>
 	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/simplePagination/jquery.simplePagination.js" type="text/javascript"></script>
-	<title>Apta mom pregnant 2021 | Motherhood.com.my Malaysia</title>
+	<title>Anmum Essential Gold Report 2021 | Motherhood.com.my Malaysia</title>
 <style>
 body{
 	font-family: 'Poppins', sans-serif;
@@ -171,7 +171,7 @@ body{
 	$searchEnd 	 	="";
 	$wheresql  	 	= "";
 	$limitsql    	= "";
-	$currentLimit 	= " LIMIT 1500";
+	$currentLimit 	= " LIMIT 3000";
 	
 	if (isset($_GET['pageno'])) {
 		$pageno = $_GET['pageno'];
@@ -179,7 +179,7 @@ body{
 		$pageno = 1;
 	}
 	
-	$no_of_records_per_page = 1500;
+	$no_of_records_per_page = 1000;
 	
 	if(isset($_POST['searchDateStart']) && $_POST['searchDateStart'] != '')
 	{
@@ -220,7 +220,7 @@ body{
 		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.newEmail NOT IN (" . $string_email . ")";
 	}
 	
-	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "evnt.subscriber_event_id = 105";
+	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "evnt.subscriber_event_id = 88";
 
 	
 	$groupBy = " GROUP BY evnt.newEmail ";
@@ -237,7 +237,7 @@ body{
 	
 	if($searchStart == '' && $searchEnd == '')
 	{
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at >= '2021-06-04 00:00:00'";
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at >= '2021-07-28 00:00:00'";
 	}
 	
 	
@@ -268,8 +268,9 @@ body{
 	}
 			
 	$sql = "SELECT
-		evnt.newEmail as Email, RTRIM(LTRIM(CONCAT(evnt.newFirstName , ' ' , evnt.newLastName))) AS Name,  evnt.subscriber_question1 as Mobile, 
-		evnt.subscriber_question3 as 'Address 1', evnt.subscriber_question11 as 'Address 2', evnt.subscriber_question4 as Postcode, evnt.subscriber_question5 as City, evnt.subscriber_question7 as State, evnt.subscriber_question13 as Country, 
+		evnt.newEmail as Email, evnt.newFirstName as FirstName, evnt.newLastName as LastName, evnt.subscriber_question1 as Mobile, 
+		evnt.subscriber_question2 as Address, evnt.subscriber_question3 as Postcode, evnt.subscriber_question5 as City, evnt.subscriber_question7 as State, 
+		evnt.subscriber_question8 as Brand, evnt.subscriber_question11 as ChildGender, evnt.subscriber_question4 as CHildDOB, evnt.subscriber_question9 as Language, evnt.subscriber_question10 as TnC,
 		evnt.subscriber_created_at as DateSubmit
 		FROM ps_events_subscriber evnt " . $wheresql . $groupBy . " ORDER BY evnt.subscriber_created_at ASC " . $limitsql;
     $result = $conn->query($sql);
@@ -349,15 +350,12 @@ body{
 	  <!-- Links -->
 		<ul class="navbar-nav">
 			<li class="nav-item <?php echo (isset($current_reportname) && strtolower($current_reportname) == 'apta-pregnant-mom2021-report.php') ? 'active' : '' ?>" style="height:45px;">
-				<a class="nav-link " href="http://www.motherhood.com.my/external/apta-pregnant-mom2021-report.php">Apta pregnant mom 2021 report</a>
-			</li>
-			<li class="nav-item <?php echo (isset($current_reportname) && strtolower($current_reportname) == 'apta-mom-with-kids2021-report.php') ? 'active' : '' ?>" style="height:45px;">
-				<a class="nav-link " href="http://www.motherhood.com.my/external/apta-mom-with-kids2021-report.php">Apta mom with kid 2021 report</a>
+				<a class="nav-link " href="http://www.motherhood.com.my/external/anmum-essential-gold-report2021.php">Anmum Essential Gold 2021 report</a>
 			</li>
 		</ul>
 		<ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
 			<li class="nav-item">
-				<a href="apta-pregnant-mom2021-report.php?islogout=true" class="nav-link p-2" href="" target="_blank" rel="noopener" aria-label="GitHub">
+				<a href="anmum-essential-gold-report2021.php?islogout=true" class="nav-link p-2" href="" target="_blank" rel="noopener" aria-label="GitHub">
 					<i class="fas fa-sign-out-alt"></i> Logout
 				</a>
 			</li>
@@ -368,7 +366,7 @@ body{
 			<div class="row row-motherhood" style="margin-top:40px;">
 				<div class="col-md-8">
 					<div class="page-header">
-						<h3>Apta Pregnant Mom 2021 | Motherhood.com.my Malaysia</h3>
+						<h3>Anmum Essential Gold 2021 | Motherhood.com.my Malaysia</h3>
 					</div>
 				</div>
 			</div>
@@ -506,11 +504,11 @@ body{
 			
 			if(isExport)
 			{
-				$('body').find('#form-request').attr('action', 'apta-pregnant-mom2021-excel.php');
+				$('body').find('#form-request').attr('action', 'anmum-essential-gold-report2021-excel.php');
 			}
 			else
 			{
-				$('body').find('#form-request').attr('action', 'apta-pregnant-mom2021-report.php');
+				$('body').find('#form-request').attr('action', 'anmum-essential-gold-report2021.php');
 			}
 			
 			$('body').find('#form-request').submit();

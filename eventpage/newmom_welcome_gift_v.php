@@ -26,7 +26,7 @@
    -->
 	<div class="row mb-4">
 		<div class="col-lg-12 col-md-12" style="padding-left: 0px; padding-right: 0px; margin-bottom: 0;">
-			<img src="https://via.placeholder.com/1170x481.png?text=Banner+holder+1170+by+480" width="100%" />
+			<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/July/Newmom/main-banner.png" width="100%" />
 		</div>
 	</div>
     <div class="row mb-2">
@@ -88,28 +88,15 @@
 			<small class="error-msg"></small>
 		</div>
 		<div class="col-md-6 px-2">
-			<label for="pregnancy-month" class="form-label required">Pregnancy Month?</label>
-			<select id="pregnancy-month" class="form-select" name="subscriber_question12">
-				<option value="">Please select</option>
-				<option value="planning to get pregnant">Planning to get pregnant</option>
-				<option value="1 month">1 month</option>
-				<option value="2 months">2 months</option>
-				<option value="3 months">3 months</option>
-				<option value="4 months">4 months</option>
-				<option value="5 months">5 months</option>
-				<option value="6 months">6 months</option>
-				<option value="7 months">7 months</option>
-				<option value="8 months">8 months</option>
-				<option value="9 months">9 months</option>
-         		
-			</select>
+			<label for="pregnancy-month" class="form-label">Estimated Date of Delivery (EDD)</label>
+			<input type="date" class="form-control" id="pregnancy-month" name="subscriber_question12"  style="min-width:100%;"> 
 			<small class="error-msg"></small>
 		</div>
 	</div>
 	<div class="row my-2">
 		<div class="col-md-12 px-2">
 			<div class="row" style="margin-left:1px;">
-				<label class="form-label">Are you interested to receive other milk samples? If yes, please select:</label>
+				<label class="form-label">Are you interested to receive other free gifts/samples from brands below? If yes, please select:</label>
 			</div>
 			<div class="form-check form-check-inline">
 				<input class="form-check-input noUniform option-other-milkbrand" type="checkbox" value="Enfamama A+" id="option-milk-a">
@@ -121,6 +108,12 @@
 				<input class="form-check-input noUniform option-other-milkbrand" type="checkbox" value="Anmum Materna" id="option-milk-b">
 				<label class="form-check-label noUniform px-3 py-1" for="option-milk-b" style="font-weight:400;">
 					Anmum Materna
+				</label>
+			</div>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input noUniform option-other-milkbrand" type="checkbox" value="Aptaclub" id="option-milk-c">
+				<label class="form-check-label noUniform px-3 py-1" for="option-milk-b" style="font-weight:400;">
+					Aptaclub
 				</label>
 			</div>
 			<input type="hidden" name="subscriber_question11" class="other-milk-brand-input">
@@ -185,20 +178,20 @@
 			<div class="form-check">
 				<input class="form-check-input noUniform" type="checkbox" value="yes" id="tnccheckbox" name="subscriber_question13" required>
 				<label class="form-check-label noUniform px-3" for="tnccheckbox">
-					By submitting this application, I hereby agree to the Terms & Conditions and the processing of my personal data in accordance with the terms of the Privacy Policy. Motherhood.com.my may collect my personal details and use for communication purposes and other milk brand collaborations that include but are not limited to club memberships, Motherhood.com.my products, and Motherhood.com.my brands only.
+					By submitting this application, I hereby agree to the Terms & Conditions and the processing of my personal data in accordance with the terms of the Privacy Policy. Motherhood.com.my may collect my personal details and use for communication purposes and other milk brand collaborations that include but are not limited to club memberships, Motherhood.com.my products, and Motherhood.com.my brands only. One redemption per user only.
 					<br>
-					One redemption per user only.
+					<br>
+					I further agree to be registered as a member of Wyeth Nutrition ParenTeam Club and to the processing of your personal data in accordance with such club/membership terms (including to receive marketing and promotional information, product services and events for maternal milk, adult nutrition and growing up milk for children).
 				</label>
 			</div>
 		</div>
 	</div>
-	<div class="row my-4">
-		<div class="col-md-12 px-2 text-center">
-			<button type="button" class="btn btn-primary btn-submit-display col-8">
+	<div class="row my-4 align-items-center">
+		
+			<button type="button" class="btn btn-primary btn-submit-display" style="padding-top:10px;padding-bottom:10px;font-size:14px;">
 				Submit
 			</button>
 			<button type="submit" name="submit" id="btnsubmit" style="display: none;">dummy</button>
-		</div>
 	</div>
    <div id="sponsored_content" sponsored_content="1"></div>
    <!-- disabled overlay banner --->
@@ -545,13 +538,13 @@
 				flagcheck = false;
 			}
 			
-			if(pregnancymonth == '' || pregnancymonth == null || pregnancymonth == undefined)
-			{
-				$('body').find('#pregnancy-month').addClass('is-invalid');
-				$('body').find('#pregnancy-month').closest('div').find(errorSelector).html(icon + " Please select option of pregnant mom");
+			// if(pregnancymonth == '' || pregnancymonth == null || pregnancymonth == undefined)
+			// {
+				// $('body').find('#pregnancy-month').addClass('is-invalid');
+				// $('body').find('#pregnancy-month').closest('div').find(errorSelector).html(icon + " Please insert your EDD");
 				
-				flagcheck = false;
-			}
+				// flagcheck = false;
+			// }
 			
 			if(address == '' || address == null || address == undefined)
 			{

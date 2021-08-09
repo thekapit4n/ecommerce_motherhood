@@ -268,9 +268,9 @@ Start Date: <input type='date' name='searchDateStart' value="<?php echo $_POST['
 $searchStart="";
 $searchEnd="";
 $limit = "";
-// $limit = " LIMIT 2730 ";
 
-$limit = " LIMIT 4830 ";
+// $limit = " LIMIT 2730 ";
+$limit = " LIMIT 5730 ";
 	if ($_POST['searchDateStart'])
 		$searchStart=" AND Subscribed_Date >='".$_POST['searchDateStart']."' ";
 
@@ -319,6 +319,14 @@ $limit = " LIMIT 4830 ";
 		"alnurqayyum21@gmail.com",
 		"norizaali26@gmail.com",
 		"akimatirah@gmail.com",# end of phone/address duplicate 3/6/2021
+		"helmirahman7@yahoo.com.my",#phone/address duplicate ---> 6/8/2021
+		"jihanuar01@gmail.com",
+		"kamicueek@gmail.com",
+		"norainnurin@yahoo.com",
+		"rizalharrazshah@gmail.com",
+		"muhdnasrannasran@gmail.com",
+		"nurismishafikah@yahoo.com",
+		"leefen5132@gmail.com",# end of phone/address duplicate 6/8/2021
 	);
 	
 	$arrEmail2 = array();

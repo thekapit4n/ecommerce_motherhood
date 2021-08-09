@@ -10,6 +10,12 @@ $arr_allowUser = array(
 	'haiqal',
 );
 
+if(isset($_GET['islogout']) && $_GET['islogout'] == true)
+{
+	unset($_SESSION["anmummaternaLogin"]);
+	header('Location: http://www.motherhood.com.my/external/anmum-materna-report2021.php');
+}
+
 if ((in_array($_POST['login'], $arr_allowUser)) && $_POST['password']=='anmum123'){
 	$_SESSION['anmummaternaLogin']=1;
 }
@@ -237,6 +243,11 @@ body{
 		{
 			$mysqlformat = $arr_sortdate[2] . "-" . $arr_sortdate[1] . "-" . $arr_sortdate[0];
 			$searchEnd   = date('Y-m-d', strtotime($mysqlformat));
+			
+			if(strtotime($searchEnd) > strtotime('2021-06-24'))
+			{
+				$searchEnd = '2021-06-24';
+			}
 		}
 	}
 	
@@ -565,11 +576,19 @@ body{
 		return is_object($properties) ? $properties->name : null;
 	}
 ?>
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="padding-top: 1px; padding-bottom: 1px;">
 	  <!-- Links -->
 		<ul class="navbar-nav">
+			<li class="nav-item active">
+				<a class="nav-link" href="anmum-materna-report2021.php">Anmum materna report 2021 MMY</a>
+			</li>
 			<li class="nav-item">
-			  <a class="nav-link" href="anmum-materna-report2021.php">Anmum materna report 2021 MMY</a>
+				<a class="nav-link" href="anmum-materna-reportjuly2021.php">Anmum materna report July 2021 MMY</a>
+			</li>
+			<li class="nav-item">
+				<a href="anmum-materna-report2021.php?islogout=true" class="nav-link p-2" href="" target="_blank" rel="noopener" aria-label="GitHub">
+					<i class="fas fa-sign-out-alt"></i> Logout
+				</a>
 			</li>
 		</ul>
 	</nav>

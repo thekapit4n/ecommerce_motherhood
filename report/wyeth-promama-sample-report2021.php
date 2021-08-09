@@ -246,7 +246,7 @@ body{
 		}
 		elseif(strtolower($itemstatus) == "paid")
 		{
-			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "  bb.current_state IN(2,3,4,5)";
+			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " ((cart_prod.id_product is null OR cart_prod.id_product = 46857)  AND bb.current_state IN(2,3,4,5)) OR evnt.subscriber_question27 = 'redeemed'";
 		}
 		elseif(strtolower($itemstatus) == "unpaid")
 		{
