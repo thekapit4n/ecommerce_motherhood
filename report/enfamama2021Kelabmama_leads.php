@@ -327,6 +327,16 @@ $limit = " LIMIT 6630 ";
 		"muhdnasrannasran@gmail.com",
 		"nurismishafikah@yahoo.com",
 		"leefen5132@gmail.com",# end of phone/address duplicate 6/8/2021
+		"k_nisa2011@hotmail.com",	# phone/address duplicate 3/9/2021
+		"mfakhri99@gmail.com",	
+		"alyanureen3@gmail.com",	
+		"shafiee@gmail.com",	
+		"sitihajarmohdsalleh3@gmail.com",	
+		"whiteprevious@gmail.com",	
+		"lya.marlia@yahoo.com",	
+		"iffahqhaliffah@gmail.com",	
+		"nurdali95@gmail.com",	
+		"nurhanasofia.nhs@gmail.com",# end of phone/address duplicate 3/9/2021
 	);
 	
 	$arrEmail2 = array();

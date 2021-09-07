@@ -250,7 +250,7 @@ Start Date: <input type='date' name='searchDateStart' value="<?php echo $_POST['
 $searchStart="";
 $searchEnd="";
 $limit = "";
-$limit = " LIMIT 13570";
+$limit = " LIMIT 15270";
 $kmmlist = array(
 	'siti.wawa23@yahoo.com',
 	'dylaaziz105@gmail.com',
