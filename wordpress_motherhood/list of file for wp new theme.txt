@@ -1,0 +1,8 @@
+list file that has been replace on staging site,
+
+/var/www/html/storystaging.motherhood.com.my/wp-content/themes/simplemag/sidebar.php
+/var/www/html/storystaging.motherhood.com.my/wp-content/themes/simplemag/single.php
+/var/www/html/storystaging.motherhood.com.my/wp-content/plugins/simplemag-addons/widgets/ti-latest-posts.php
+/var/www/html/storystaging.motherhood.com.my/wp-content/plugins/nurengroup/nurengroup.php
+/var/www/html/storystaging.motherhood.com.my/wp-content/plugins/yotuwp-pro/assets/css/style.css
+/var/www/html/storystaging.motherhood.com.my/wp-content/plugins/yotuwp-pro/assets/css/style.uncompress

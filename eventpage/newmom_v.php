@@ -1,6 +1,5 @@
-<style>
-   <!--
-      .wrapper {
+<style><!--
+.wrapper {
 			width: 100%;
 		}
 				 
@@ -148,50 +147,51 @@
 				padding-top:5px;
 			}
 		}
-      -->
-</style>
+--></style>
 <div class="main-div-nemum">
-   <div class="row step1">
-      <div class="container" style="position: relative; text-align: center;">
-         <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/logo-nm.png" alt="newmom logo" width="30%" />
-         <div class="col-md-12" style="padding-right: 23px;">
-            <div class="row" style="margin-top: 25px;">
-               <div class="col-md-12">
-                  <p style="font-size: 20px; margin-top: 15px; font-weight: bold; line-height: 20px;">Sign up now and receive exclusive privileges on your parenting journey!</p>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-12" style="margin-top: 30px;">
-                  <div class="col-md-offset-2 col-md-4 col-xs-12" style="margin-bottom: 10px;"><button class="btn btn-default btn-step1 step1btnv1" data-typepregnancy="pregnant" data-formstep="1"> Pregnant </button></div>
-                  <div class="col-md-3 col-xs-12"><button class="btn btn-default btn-step1 step1btnv1" data-typepregnancy="babyOut" data-formstep="2"> New Mom </button></div>
-                  <input type="hidden" name="subscriber_question4" id="subscriber_question4" style="margin-bottom: 10px;" /><!-- input for type of preganancy -->
-               </div>
-            </div>
-         </div>
-         <div class="clearfix"></div>
-      </div>
-   </div>
-   <!-- Step 2 version 1 pregnant-->
-   <div class="row step2v1" style="display: none; background-size: cover; background-position: top center; background-repeat: no-repeat; padding-top: 20px; padding-bottom: 20px;">
-      <div class="col-hidden-xs col-hidden-sm col-md-2 col-lg-2"></div>
-      <div class="col-md-12" style="margin-top: 20px;" align="center">
-         <p style="font-weight: bold;" class="main-title-color motherhood-title">Motherhood New Mom Privilege</p>
-         <div class="row">
-            <div class="col-md-3 col-xs-3">
-               <div class="benefit-div">
-                  <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/b4.png" width="100%" alt="flashcard" />
-                  <p style="font-weight: bold; padding-top: 10px; padding-bottom: 0px; line-height: 1; min-height: 50px;" class="main-title-color benefit-title">Parentcraft Online Class</p>
-                  <p style="font-weight: normal; padding-top: 0px; padding-bottom: 0px; line-height: 1;" class="tnc-word-color benefit-desc">Get 50% off to prepare for your pregnancy journey</p>
-               </div>
-            </div>
-            <div class="col-md-3 col-xs-3">
-               <div class="benefit-div">
-                  <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/b1+new.png?v=1" width="100%" alt="newmomcardandgiftcard" />
-                  <p style="font-weight: bold; padding-top: 10px; padding-bottom: 0px; line-height: 1; min-height: 50px;" class="main-title-color benefit-title">Free Membership &amp; Welcome Gift</p>
-                  <p style="font-weight: normal; padding-top: 0; padding-bottom: 0px; line-height: 1; min-height: 10px;" class="tnc-word-color benefit-desc">RM20 Gift Card + 5% Discount + limited edition flashcard</p>
-               </div>
-            </div>
-            <!--
+<div class="row step1">
+<div class="container" style="position: relative; text-align: center;"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/logo-nm.png" alt="newmom logo" width="30%" />
+<div class="col-md-12" style="padding-right: 23px;">
+<div class="row" style="margin-top: 25px;">
+<div class="col-md-12">
+<p style="font-size: 20px; margin-top: 15px; font-weight: bold; line-height: 20px;">Sign up now and receive exclusive privileges on your parenting journey!</p>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12" style="margin-top: 30px;">
+<div class="col-md-offset-2 col-md-4 col-xs-12" style="margin-bottom: 10px;"><button class="btn btn-default btn-step1 step1btnv1" data-typepregnancy="pregnant" data-formstep="1"> Pregnant </button></div>
+<div class="col-md-3 col-xs-12"><button class="btn btn-default btn-step1 step1btnv1" data-typepregnancy="babyOut" data-formstep="2"> New Mom </button></div>
+<input type="hidden" name="subscriber_question4" id="subscriber_question4" style="margin-bottom: 10px;" /><!-- input for type of preganancy --></div>
+</div>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
+<!-- Step 2 version 1 pregnant-->
+<div class="row step2v1" style="display: none; background-size: cover; background-position: top center; background-repeat: no-repeat; padding-top: 20px; padding-bottom: 20px;">
+<div class="col-hidden-xs col-hidden-sm col-md-2 col-lg-2"></div>
+<div class="col-md-12" style="margin-top: 20px;" align="center">
+<p style="font-weight: bold;" class="main-title-color motherhood-title">Motherhood New Mom Privilege</p>
+<div class="row">
+<div class="col-md-3 col-xs-3">
+<div class="benefit-div"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/b4.png" width="100%" alt="flashcard" />
+<p style="font-weight: bold; padding-top: 10px; padding-bottom: 0px; line-height: 1; min-height: 50px;" class="main-title-color benefit-title">Parentcraft Online Class</p>
+<p style="font-weight: normal; padding-top: 0px; padding-bottom: 0px; line-height: 1;" class="tnc-word-color benefit-desc">Get 50% off to prepare for your pregnancy journey</p>
+</div>
+</div>
+<div class="col-md-3 col-xs-3">
+<div class="benefit-div"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/September/sept.png" width="100%" alt="newmomcardandgiftcard" />
+<p style="font-weight: bold; padding-top: 10px; padding-bottom: 0px; line-height: 1; min-height: 50px;" class="main-title-color benefit-title">Free Gift &amp; Exclusive Rewards^</p>
+<p style="font-weight: normal; padding-top: 0; padding-bottom: 0px; line-height: 1; min-height: 10px;" class="tnc-word-color benefit-desc">RM20 voucher, add. 5% off every time you shop, free welcome gift. (T&amp;C apply)</p>
+</div>
+</div>
+<div class="col-md-3 col-xs-3">
+<div class="benefit-div"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/July/Newmom/luckydrawjuly.png" width="100%" alt="luckydraw" />
+<p style="font-weight: bold; padding-top: 10px; padding-bottom: 0px; line-height: 1; min-height: 50px;" class="main-title-color benefit-title">Monthly Lucky Draw*</p>
+<p style="font-weight: normal; padding-top: 0; padding-bottom: 0px; line-height: 1; min-height: 10px;" class="tnc-word-color benefit-desc">One (1) x Lucky Draw Entry</p>
+</div>
+</div>
+<!--
                <div class="col-md-3 col-xs-3">
                   <div class="benefit-div">
                      <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/b2.png" width="100%" alt="flashcard" />
@@ -200,14 +200,13 @@
                   </div>
                </div>
                -->
-            <div class="col-md-3 col-xs-3">
-               <div class="benefit-div">
-                  <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/b3.png" width="100%" alt="enfamama" />
-                  <p style="font-weight: bold; padding-top: 10px; padding-bottom: 0px; line-height: 1; min-height: 50px;" class="main-title-color benefit-title"><span style="color: fc439f;">FREE</span> Enfamama A+ Sample!*</p>
-                  <p style="font-weight: normal; padding-top: 0; padding-bottom: 0px; line-height: 1;" class="tnc-word-color benefit-desc">Refer to T&amp;C</p>
-               </div>
-            </div>
-            <!--
+<div class="col-md-3 col-xs-3">
+<div class="benefit-div"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/b3.png" width="100%" alt="enfamama" />
+<p style="font-weight: bold; padding-top: 10px; padding-bottom: 0px; line-height: 1; min-height: 50px;" class="main-title-color benefit-title"><span style="color: fc439f;">FREE</span> Enfamama A+ Sample!*</p>
+<p style="font-weight: normal; padding-top: 0; padding-bottom: 0px; line-height: 1;" class="tnc-word-color benefit-desc">Refer to T&amp;C</p>
+</div>
+</div>
+<!--
                <div class="col-md-3 col-xs-3">
                   <div class="benefit-div">
                      <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/huggies-benefit.png" width="100%" alt="flashcard" />
@@ -225,91 +224,88 @@
                   </div>
                   <div class="col-md-4 col-xs-6">
                   <div style="min-height: 170px;">
-                  <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/lucky-draw.png" width="100%" alt="newmomluckydraw" />
+                  <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/May/newmom/ld-may.png?" width="100%" alt="newmomluckydraw" />
                   <p style="font-size: 17px; font-weight: bold; padding-top: 20px; padding-bottom: 0px; line-height: 1; min-height: 53px;" class="main-title-color">Monthly Lucky Draw</p>
                   <p style="font-size: 13px; font-weight: normal; padding-top: 0; padding-bottom: 0px; line-height: 1;" class="tnc-word-color">1 lucky new mum will be selected monthly to win attractive prizes!</p>
                   </div>
                   </div>
-                  -->
-         </div>
-         <div class="row"></div>
-      </div>
-      <div class="col-hidden-xs col-hidden-sm col-md-2 col-lg-2"></div>
-      <div class="col-md-12 text-center row-btn-next"><button type="button" class="btn btn-default btn-step1 step2btnv1"> Next </button></div>
-      <div class="clearfix"></div>
-      <div class="tnc-word-color" style="margin-top: 30px; padding: 70px 20px 20px 20px; display: inline-block;">
-         <div class="col-md-6" style="text-align: left;">
-            <p style="font-size: 2em; font-weight: bold;">FAQs</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How do I apply for a New Mom member card?<br /> A: Complete our online registration form (click &ldquo;NEXT&rdquo; to fill up the form) to enjoy exclusive member benefits.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: Can I register again if I am already a member?<br /> A: This programme is reserved for new users ONLY.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: Can I apply for the programme if I am not a Malaysian citizen?<br /> A: Yes, all moms and dads are welcomed to join the programme.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How much is the New Mom Program fee?<br /> A: Our New Mom gift set is FREE (excluding shipping fee of RM5.50).</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How do I redeem the free gift(s)?<br /> A: A step-by-step instruction will appear on the page after you have filled up your details accordingly.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How long does it take to deliver my gift(s)?<br /> A: About 3&ndash;7 working days upon verification.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: What are the benefits of having a New Mom member card?<br /> A: Learn more about our New Mom member card benefits here: www.motherhood.com.my/membersprivilege</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: When will my New Mom member card expire?<br /> A: The expiration date for an inactive New Mom member card is TWO (2) months upon activation.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How do I renew my New Mom member card?<br /> A: Spend a min. of RM100 on Motherhood.com.my and your card will be auto-converted to a 1-year membership.</p>
-         </div>
-         <div class="col-md-6" style="text-align: left;">
-            <p style="font-size: 2em; font-weight: bold;">Terms &amp; Conditions</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- For Enfamama A+ sample request, I agree that Mead Johnson Nutrition (Malaysia) Sdn Bhd (&ldquo;MJN&rdquo;), Reckitt Benckiser (Malaysia) Sdn Bhd and/or its affiliates (collectively, &ldquo;RB&rdquo;) and/or any third party under contract with MJN or RB, may contact me from time to time, by telephone, mail, or other electronic <span id="seeMore1" style="font-weight: bold;"> see more </span> <span id="seeMoreContent1" style="display: none;"> means to market/promote/sell MJN and/or RB products and services and/or information related to Enfamama A+ Club (collectively referred to as &ldquo;Purpose&rdquo;). I agree the collection and use of my information by MJN and/or RB is in accordance with the Privacy Policy that I have read and understood. I have the option to withdraw at any time from receiving calls, SMS, mail, or other electronic communications about information related to the Purpose.</span></p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Only pregnant moms are eligible to receive Enfamama A+ samples.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Each registered family is entitled to receive ONE (1) New Mom gift set (includes RM20 cash voucher, New Mom member card, limited-edition flashcards, special VIP invites). Multiple registrations from the same family will be disqualified.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Gifts may vary depend on the availability.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Motherhood.com.my will not be responsible nor liable for unsuccessful registrations due to interruptions in internet connectivity.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Motherhood.com.my reserves the right to alter, cancel, terminate, or suspend an application and/or any part thereof without any liability and prior notice at any time upon its sole and absolute discretion.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Registrations will only be accepted with the FULL postal address provided.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Incomplete registration forms will not be accepted.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Only pregnant moms are eligible for the Lucky Draw. Participants who successfully sign up, complete the purchase of the new mom gift set and pay the associated shipping fee at the checkout page.will be automatically eligible for the Lucky Draw. Kindly visit <a href="https://bit.ly/3sEWTj5" target="_blank" rel="noopener"> https://bit.ly/3sEWTj5 </a> for full T&amp;Cs.</p>
-         </div>
-      </div>
-      <div class="col-hidden-xs col-hidden-sm col-md-2 col-lg-2"></div>
-   </div>
-   <!-- Extra Cord Blood question Pregnant page 3-->
-   <div class="row step3v1" style="display: none; padding-top: 20px; padding-bottom: 20px;">
-      <div class="row">
-         <div class="col-hidden-xs col-hidden-sm col-md-2 col-lg-2"></div>
-         <div class="col-md-8 text-left" style="margin-top: 50px;">
-            <div class="row" style="margin-bottom: 15px;">
-               <p class="question-font">Have you&nbsp;considered&nbsp;banking your baby's precious cord blood?&nbsp;Are you interested to learn more about cord blood banking?</p>
-               <div class="col-md-6"><label class="label-custom lblcordblood"> <input type="radio" name="subscriber_question12" class="cordblood maincordblood" value="Yes" required="" />Yes </label></div>
-               <div class="col-md-6"><label class="label-custom lblcordblood"> <input type="radio" name="subscriber_question12" class="cordblood" value="No" />No </label></div>
-               <small class="cord-msg" style="padding-left: 15px; display: none;">By selecting "yes", you acknowledge and provide your consent to Cyrocord to contact you via phone call regarding to cord blood banking.</small>
-            </div>
-            <div class="row">
-               <p class="question-font">Are you planning to deliver at a private or government hospital?</p>
-               <div class="col-md-6"><label class="label-custom lblhospquest"> <input type="radio" name="subscriber_question13" class="hospitalquestion mainhospitalquestion" value="PRIVATE" required="" />Private </label></div>
-               <div class="col-md-6"><label class="label-custom lblhospquest"> <input type="radio" name="subscriber_question13" class="hospitalquestion" value="GOVERNMENT" />Government </label></div>
-            </div>
-            <div class="clearfix"></div>
-         </div>
-         <div class="col-hidden-xs col-hidden-sm col-md-2 col-lg-2"></div>
-      </div>
-      <div class="row">
-         <div class="col-md-12 text-center" style="padding-top: 20px;"><button type="button" id="step3btn" class="btn btn-default btn-step1 step3btn"> Next </button></div>
-      </div>
-   </div>
-   <!-- Step 2 version 2 new mom option-->
-   <div class="row step2v2" style="display: none; padding-top: 20px; padding-bottom: 20px;">
-      <div class="col-hidden-xs col-hidden-sm col-md-2 col-lg-2"></div>
-      <div class="col-md-12" style="margin-top: 20px;" align="center">
-         <p style="font-weight: bold;" class="main-title-color motherhood-title">Motherhood New Mom Privilege</p>
-         <div class="row">
-            <div class="col-md-3 col-xs-3">
-               <div class="benefit-div">
-                  <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/b4.png" width="100%" alt="flashcard" />
-                  <p style="font-weight: bold; padding-top: 10px; padding-bottom: 0px; line-height: 1; min-height: 50px;" class="main-title-color benefit-title">Parentcraft Online Class</p>
-                  <p style="font-weight: normal; padding-top: 0px; padding-bottom: 0px; line-height: 1;" class="tnc-word-color benefit-desc">Get 50% off to prepare for your pregnancy journey</p>
-               </div>
-            </div>
-            <div class="col-md-3 col-xs-3">
-               <div class="benefit-div">
-                  <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/b1+new.png?v=1" width="100%" alt="newmomcardandgiftcard" />
-                  <p style="font-weight: bold; padding-top: 10px; padding-bottom: 0px; line-height: 1; min-height: 50px;" class="main-title-color benefit-title">Free Membership &amp; Welcome Gift</p>
-                  <p style="font-weight: normal; padding-top: 0; padding-bottom: 0px; line-height: 1; min-height: 10px;" class="tnc-word-color benefit-desc">RM20 Gift Card + 5% Discount + limited edition flashcard</p>
-               </div>
-            </div>
-            <!--
+                  --></div>
+<div class="row"></div>
+</div>
+<div class="col-hidden-xs col-hidden-sm col-md-2 col-lg-2"></div>
+<div class="col-md-12 text-center row-btn-next"><button type="button" class="btn btn-default btn-step1 step2btnv1"> Next </button></div>
+<div class="clearfix"></div>
+<div class="tnc-word-color" style="margin-top: 30px; padding: 70px 20px 20px 20px; display: inline-block;">
+<div class="col-md-6" style="text-align: left;">
+<p style="font-size: 2em; font-weight: bold;">FAQs</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How do I apply for a New Mom member card?<br /> A: Complete our online registration form (click &ldquo;NEXT&rdquo; to fill up the form) to enjoy exclusive member benefits.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: Can I register again if I am already a member?<br /> A: This programme is reserved for new users ONLY.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: Can I apply for the programme if I am not a Malaysian citizen?<br /> A: Yes, all moms and dads are welcomed to join the programme.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How much is the New Mom Program fee?<br /> A: Our New Mom gift set is FREE (excluding shipping fee of RM5.50).</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How do I redeem the free gift(s)?<br /> A: A step-by-step instruction will appear on the page after you have filled up your details accordingly.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How long does it take to deliver my gift(s)?<br /> A: About 3&ndash;7 working days upon verification.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: What are the benefits of having a New Mom member card?<br /> A: Learn more about our New Mom member card benefits here: www.motherhood.com.my/membersprivilege</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: When will my New Mom member card expire?<br /> A: The expiration date for an inactive New Mom member card is TWO (2) months upon activation.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How do I renew my New Mom member card?<br /> A: Spend a min. of RM100 on Motherhood.com.my and your card will be auto-converted to a 1-year membership.</p>
+</div>
+<div class="col-md-6" style="text-align: left;">
+<p style="font-size: 2em; font-weight: bold;">Terms &amp; Conditions</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- For Enfamama A+ sample request, I agree that Mead Johnson Nutrition (Malaysia) Sdn Bhd (&ldquo;MJN&rdquo;), Reckitt Benckiser (Malaysia) Sdn Bhd and/or its affiliates (collectively, &ldquo;RB&rdquo;) and/or any third party under contract with MJN or RB, may contact me from time to time, by telephone, mail, or other electronic <span id="seeMore1" style="font-weight: bold;"> see more </span> <span id="seeMoreContent1" style="display: none;"> means to market/promote/sell MJN and/or RB products and services and/or information related to Enfamama A+ Club (collectively referred to as &ldquo;Purpose&rdquo;). I agree the collection and use of my information by MJN and/or RB is in accordance with the Privacy Policy that I have read and understood. I have the option to withdraw at any time from receiving calls, SMS, mail, or other electronic communications about information related to the Purpose.</span></p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Only pregnant moms are eligible to receive Enfamama A+ samples.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Each registered family is entitled to receive ONE (1) New Mom gift set (includes RM20 cash voucher, New Mom member card, limited-edition flashcards, special VIP invites). Multiple registrations from the same family will be disqualified.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Gifts may vary depend on the availability.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Motherhood.com.my will not be responsible nor liable for unsuccessful registrations due to interruptions in internet connectivity.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Motherhood.com.my reserves the right to alter, cancel, terminate, or suspend an application and/or any part thereof without any liability and prior notice at any time upon its sole and absolute discretion.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Registrations will only be accepted with the FULL postal address provided.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Incomplete registration forms will not be accepted.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Only pregnant moms are eligible for the Lucky Draw. Participants who successfully sign up, complete the purchase of the new mom gift set and pay the associated shipping fee at the checkout page.will be automatically eligible for the Lucky Draw. Kindly visit <a href="https://bit.ly/3sEWTj5" target="_blank" rel="noopener"> https://bit.ly/3sEWTj5 </a> for full T&amp;Cs.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- By registering, I agree that Motherhood.com.my and its sponsors may collect, obtain, store and process my personal data that I provide in this form for the purpose of receiving updates,news, promotional and marketing mails or materials.</p>
+</div>
+</div>
+<div class="col-hidden-xs col-hidden-sm col-md-2 col-lg-2"></div>
+</div>
+<!-- Extra Cord Blood question Pregnant page 3-->
+<div class="row step3v1" style="display: none; padding-top: 20px; padding-bottom: 20px;">
+<div class="row">
+<div class="col-hidden-xs col-hidden-sm col-md-2 col-lg-2"></div>
+<div class="col-md-8 text-left" style="margin-top: 50px;">
+<div class="row" style="margin-bottom: 15px;">
+<p class="question-font">Have you&nbsp;considered&nbsp;banking your baby's precious cord blood?&nbsp;Are you interested to learn more about cord blood banking?</p>
+<div class="col-md-6"><label class="label-custom lblcordblood"> <input type="radio" name="subscriber_question12" class="cordblood maincordblood" value="Yes" required="" />Yes </label></div>
+<div class="col-md-6"><label class="label-custom lblcordblood"> <input type="radio" name="subscriber_question12" class="cordblood" value="No" />No </label></div>
+<small class="cord-msg" style="padding-left: 15px; display: none;">By selecting "yes", you acknowledge and provide your consent to Cyrocord to contact you via phone call regarding to cord blood banking.</small></div>
+<div class="row">
+<p class="question-font">Are you planning to deliver at a private or government hospital?</p>
+<div class="col-md-6"><label class="label-custom lblhospquest"> <input type="radio" name="subscriber_question13" class="hospitalquestion mainhospitalquestion" value="PRIVATE" required="" />Private </label></div>
+<div class="col-md-6"><label class="label-custom lblhospquest"> <input type="radio" name="subscriber_question13" class="hospitalquestion" value="GOVERNMENT" />Government </label></div>
+</div>
+<div class="clearfix"></div>
+</div>
+<div class="col-hidden-xs col-hidden-sm col-md-2 col-lg-2"></div>
+</div>
+<div class="row">
+<div class="col-md-12 text-center" style="padding-top: 20px;"><button type="button" id="step3btn" class="btn btn-default btn-step1 step3btn"> Next </button></div>
+</div>
+</div>
+<!-- Step 2 version 2 new mom option-->
+<div class="row step2v2" style="display: none; padding-top: 20px; padding-bottom: 20px;">
+<div class="col-hidden-xs col-hidden-sm col-md-2 col-lg-2"></div>
+<div class="col-md-12" style="margin-top: 20px;" align="center">
+<p style="font-weight: bold;" class="main-title-color motherhood-title">Motherhood New Mom Privilege</p>
+<div class="row">
+<div class="col-md-3 col-xs-3">
+<div class="benefit-div"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/b4.png" width="100%" alt="flashcard" />
+<p style="font-weight: bold; padding-top: 10px; padding-bottom: 0px; line-height: 1; min-height: 50px;" class="main-title-color benefit-title">Parentcraft Online Class</p>
+<p style="font-weight: normal; padding-top: 0px; padding-bottom: 0px; line-height: 1;" class="tnc-word-color benefit-desc">Get 50% off to prepare for your pregnancy journey</p>
+</div>
+</div>
+<div class="col-md-3 col-xs-3">
+<div class="benefit-div"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/September/sept.png" width="100%" alt="newmomcardandgiftcard" />
+<p style="font-weight: bold; padding-top: 10px; padding-bottom: 0px; line-height: 1; min-height: 50px;" class="main-title-color benefit-title">Free Gift &amp; Exclusive Rewards^</p>
+<p style="font-weight: normal; padding-top: 0; padding-bottom: 0px; line-height: 1; min-height: 10px;" class="tnc-word-color benefit-desc">RM20 voucher, add. 5% off every time you shop, free welcome gift. (T&amp;C apply)</p>
+</div>
+</div>
+<!--
                <div class="col-md-3 col-xs-3">
                   <div class="benefit-div">
                      <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/b2.png" width="80%" alt="flashcard" />
@@ -348,228 +344,199 @@
                   <p style="font-size: 13px; font-weight: normal; padding-top: 0; padding-bottom: 0px; line-height: 1;" class="tnc-word-color">1 lucky new mum will be selected monthly to win attractive prizes!</p>
                   </div>
                   </div>
-                  -->
-         </div>
-      </div>
-      <div class="col-hidden-xs col-hidden-sm col-md-2 col-lg-2"></div>
-      <div class="col-md-12 text-center" style="padding-top: 20px;"><button type="button" class="btn btn-default btn-step1 step2btn"> Next </button></div>
-      <div class="clearfix"></div>
-      <div class="tnc-word-color" style="margin-top: 30px; padding: 70px 20px 20px 20px; display: inline-block; background: white; background-size: cover; background-position: top center; background-repeat: no-repeat;">
-         <div class="col-md-6" style="text-align: left;">
-            <p style="font-size: 2em; font-weight: bold;">FAQs</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How do I apply for a New Mom member card?<br /> A: Complete our online registration form (click &ldquo;NEXT&rdquo; to fill up the form) to enjoy exclusive member benefits.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: Can I register again if I am already a member?<br /> A: This programme is reserved for new users ONLY.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: Can I apply for the programme if I am not a Malaysian citizen?<br /> A: Yes, all moms and dads are welcomed to join the programme.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How much is the New Mom Program fee?<br /> A: Our New Mom gift set is FREE (excluding shipping fee of RM5.50).</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How do I redeem the free gift(s)?<br /> A: A step-by-step instruction will appear on the page after you have filled up your details accordingly.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How long does it take to deliver my gift(s)?<br /> A: About 3&ndash;7 working days upon verification.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: What are the benefits of having a New Mom member card?<br /> A: Learn more about our New Mom member card benefits here: www.motherhood.com.my/membersprivilege</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: When will my New Mom member card expire?<br /> A: The expiration date for an inactive New Mom member card is TWO (2) months upon activation.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How do I renew my New Mom member card?<br /> A: Spend a min. of RM100 on Motherhood.com.my and your card will be auto-converted to a 1-year membership.</p>
-         </div>
-         <div class="col-md-6" style="text-align: left;">
-            <p style="font-size: 2em; font-weight: bold;">Terms &amp; Conditions</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Each registered family is entitled to receive ONE (1) New Mom gift set (includes RM20 cash voucher, New Mom member card, limited-edition flashcards, special VIP invites). Multiple registrations from the same family will be disqualified.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Gifts may vary depend on the availability.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Motherhood.com.my will not be responsible nor liable for unsuccessful registrations due to interruptions in internet connectivity.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Motherhood.com.my reserves the right to alter, cancel, terminate, or suspend an application and/or any part thereof without any liability and prior notice at any time upon its sole and absolute discretion.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Registrations will only be accepted with the FULL postal address provided.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Incomplete registration forms will not be accepted.</p>
-            <p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Only pregnant moms are eligible to receive the Babybox. To qualify for the Babybox, you are required to complete the purchase of the new mom gift set and pay the associated shipping fee at the checkout page. 50 new moms will be selected at random every month. Kindly expect some delay in the delivery due to the MCO.</p>
-         </div>
-      </div>
-      <div class="col-hidden-xs col-hidden-sm col-md-2 col-lg-2"></div>
-   </div>
-   <!-- page 3 v2 Newmom -->
-   <div class="row step3v2" style="display: none; padding-top: 20px; padding-bottom: 20px;">
-      <div class="row">
-         <div class="col-hidden-xs col-hidden-sm col-md-2 col-lg-2"></div>
-         <div class="col-md-8" style="margin-top: 50px;" align="center">
-            <h1 style="padding: 0 20px; font-weight: bold; margin-top: 75px;" class="question-font">New baby's Date of Birth</h1>
-            <div class="col-md-4" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px;">
-               <select id="babyYear" style="width: 100%; font-size: 1.1em; box-shadow: none!IMPORTANT; border: 1px solid #d6d4d4; color: #512f2e;">
-                  <option value="" disabled="disabled" selected="selected">Year</option>
-               </select>
-               <small class="error-msg"></small>
-            </div>
-            <div class="col-md-4" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px;">
-               <select id="babyMonth" disabled="disabled" style="width: 100%; font-size: 1.1em; box-shadow: none!IMPORTANT; border: 1px solid #d6d4d4; ; color: #512f2e;">
-                  <option value="" disabled="disabled" selected="selected">Month</option>
-                  <option value="1">January</option>
-                  <option value="2">February</option>
-                  <option value="3">March</option>
-                  <option value="4">April</option>
-                  <option value="5">May</option>
-                  <option value="6">June</option>
-                  <option value="7">July</option>
-                  <option value="8">August</option>
-                  <option value="9">September</option>
-                  <option value="10">October</option>
-                  <option value="11">November</option>
-                  <option value="12">December</option>
-               </select>
-               <small class="error-msg"></small>
-            </div>
-            <div class="col-md-4" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px;">
-               <select id="babyDay" disabled="disabled" style="width: 100%; font-size: 1.1em; box-shadow: none!IMPORTANT; border: 1px solid #d6d4d4; ; color: #512f2e;">
-                  <option value="" disabled="disabled" selected="selected">Day</option>
-               </select>
-               <input type="hidden" name="subscriber_question3" id="subscriber_question3" /> <small class="error-msg"></small>
-            </div>
-            <div class="clearfix"></div>
-         </div>
-         <div class="col-hidden-xs col-hidden-sm col-md-2 col-lg-2"></div>
-      </div>
-      <div class="row">
-         <div class="col-md-12 text-center" style="padding-top: 20px;">
-            <p>If you have children above 1 year old, please redeem your free Activity Box by joining <a href="../../../events/motherhood-superkids">Motherhood Superkids Club</a></p>
-            <button type="button" class="btn btn-default btn-step1 step3v2btn"> Next </button>
-         </div>
-      </div>
-   </div>
-   <!-- Step 3 -->
-   <div class="row step3" style="display: none; padding-top: 20px; padding-bottom: 20px;">
-      <div class="col-md-10 col-md-offset-1" style="background: rgba(255, 255, 255, 0.8); background-size: cover; padding-top: 20px; padding-bottom: 20px; border-radius: 10px;">
-         <p style="font-size: 3em; color: #005b9c; font-weight: bold; padding-top: 20px; padding-bottom: 20px; line-height: 1;">It&rsquo;s time to receive your welcome kit!</p>
-         <div class="col-md-6 text-left question-welcomekit"><label>Email</label> <input type="email" id="emailNew" name="newEmail" class="form-control" placeholder="Email" required="required" style="background-color: white;" /> <small class="error-msg"></small></div>
-         <div class="col-md-6 text-left question-welcomekit"><label>Password</label> <input type="password" id="newPassword" name="newPassword" class="form-control" minlength="6/" placeholder="Password" required="required" /> <small class="error-msg"></small></div>
-         <div class="clearfix"></div>
-         <div class="col-md-6 text-left question-welcomekit"><label>First Name</label> <input type="text" id="newFirstName" name="newFirstName" class="form-control" placeholder="First Name" required="required" /> <small class="error-msg"></small></div>
-         <div class="col-md-6 text-left question-welcomekit"><label>Last Name</label> <input type="text" id="newLastName" name="newLastName" class="form-control" placeholder="Last Name" required="required" /> <small class="error-msg"></small></div>
-         <div class="clearfix"></div>
-         <div class="col-md-7 text-left question-welcomekit">
-            <label>Mobile Number</label>
-            <p style="width: 10%; font-size: 16px; background: white; float: left; padding-top: 10px; padding-bottom: 8px; border: 1px solid #ccc; margin-top: 4px; border-right: none; box-shadow: inset 0 1px 3px #ddd;">+6</p>
-            <input type="number" id="subscriber_question1" name="subscriber_question1" style="width: 90%; font-size: 14px; padding-top: 10px; padding-bottom: 10px; ;display: inline-block; border: 1px solid #ccc; box-shadow: inset 0 1px 3px #ddd; border-radius: 4px; vertical-align: middle; box-sizing: border-box; border-top-left-radius: 0px; border-bottom-left-radius: 0px;" title="xxx xxxxx" placeholder="Mobile Number" pattern=".{10,}" onkeydown="javascript: return event.keyCode == 69 ? false : true" required="required" /> <small class="error-msg"></small>
-         </div>
-         <div class="clearfix"></div>
-         <div class="col-md-12 text-left question-welcomekit"><label>Full Address</label> <input type="text" name="subscriber_question8" id="subscriber_question8" size="80" required="required" placeholder="Full Address" class="form-control" /> <small class="error-msg"></small></div>
-         <div class="clearfix"></div>
-         <div class="col-md-4 text-left question-welcomekit"><label>Postcode</label> <input type="number" name="subscriber_question9" id="subscriber_question9" class="form-control" size="10" required="required" onkeydown="javascript: return event.keyCode == 69 ? false : true" placeholder="Postcode" /> <small class="error-msg"></small></div>
-         <div class="col-md-4 text-left question-welcomekit"><label>City</label> <input name="subscriber_question10" id="subscriber_question10" type="text" size="60" required="required" placeholder="City" class="form-control" /> <small class="error-msg"></small></div>
-         <div class="col-md-4 text-left question-welcomekit" style="padding-top: 0px;">
-            <label>State</label>
-            <select name="subscriber_question11" id="subscriber_question11" type="text" style="width: 100%; font-size: 16px; padding-top: 10px; padding-bottom: 8px; display: inline-block; border: 1px solid #ccc; box-shadow: inset 0 1px 3px #ddd; border-radius: 4px; vertical-align: middle; box-sizing: border-box;" required="required">
-               <option value="">State</option>
-               <option value="Johor">Johor</option>
-               <option value="Kedah">Kedah</option>
-               <option value="Kelantan">Kelantan</option>
-               <option value="Kuala Lumpur">Kuala Lumpur</option>
-               <option value="Labuan">Labuan</option>
-               <option value="Melaka">Melaka</option>
-               <option value="Negeri Sembilan">Negeri Sembilan</option>
-               <option value="Pahang">Pahang</option>
-               <option value="Perak">Perak</option>
-               <option value="Perlis">Perlis</option>
-               <option value="Pulau Pinang">Pulau Pinang</option>
-               <option value="Putrajaya">Putrajaya</option>
-               <option value="Sabah">Sabah</option>
-               <option value="Sarawak">Sarawak</option>
-               <option value="Selangor">Selangor</option>
-               <option value="Terengganu">Terengganu</option>
-            </select>
-            <small class="error-msg"></small>
-         </div>
-         <div class="clearfix"></div>
-         <div class="col-md-4 text-left question-welcomekit">
-			<label>Your Date of Birth</label> 
-			<input name="subscriber_question14" type="text" id="dobParent" required="required" placeholder="DOB" class="form-control dob-parent" /> 
-			<small class="error-msg"></small>
-		</div>
-		<div class="clearfix"></div>
-		<div class="col-md-12 text-left question-welcomekit row-mommymilk" style="display:none">
-			<label>What brand of milk does mommy like or is currently consuming?</label> 
-			<select class="selection-mommymilk" name="subscriber_question18" type="text" style="width: 100%; font-size: 16px; padding-top: 10px; padding-bottom: 8px; display: inline-block; border: 1px solid #ccc; box-shadow: inset 0 1px 3px #ddd; border-radius: 4px; vertical-align: middle; box-sizing: border-box;" >
-				<option value="">State</option>
-				<option disabled="disabled" selected="selected" value="">Choose one</option>
-				<option value="a2 Nutrition for Mothers">a2 Nutrition for Mothers</option>
-				<option value="Anmum Lacta">Anmum Lacta</option>
-				<option value="Anmum Materna">Anmum Materna</option>
-				<option value="Aptamom">Aptamom</option>
-				<option value="Bellamy’s Organic Pregnancy Formula">Bellamy’s Organic Pregnancy Formula</option>
-				<option value="Dumex Mamil® Mama">Dumex Mamil® Mama</option>
-				<option value="Enfamama A+">Enfamama A+</option>
-				<option value="Fresh Goat Milk">Fresh Goat Milk</option>
-				<option value="Fresh Milk">Fresh Milk</option>
-				<option value="Frisomum Gold">Frisomum Gold</option>
-				<option value="MOMMA Evermom Non-GMO Soy">MOMMA Evermom Non-GMO Soy</option>
-				<option value="MOMMA Pregolact">MOMMA Pregolact</option>
-				<option value="Natrel Milk">Natrel Milk</option>
-				<option value="NatureOne Dairy Pregnancy Formula">NatureOne Dairy Pregnancy Formula</option>
-				<option value="Nestlé MOM">Nestlé MOM</option>
-				<option value="Similac Mom">Similac Mom</option>
-				<option value="Snow Maternity">Snow Maternity</option>
-				<option value="Susu Efferty Ikhtiar Hamil">Susu Efferty Ikhtiar Hamil</option>
-				<option value="WILDAN Mama Premium">WILDAN Mama Premium</option>
-				<option value="Wyeth Promama">Wyeth Promama</option>
-				<option value="Others">Others</option>
-				<option value="Not consuming any milk">Not consuming any milk</option>
-            </select>
-			<small class="error-msg"></small>
-		</div>
-		<div class="clearfix"></div>
-		<div class="col-md-12 text-left question-welcomekit row-kidmilk" style="display:none">
-			<label>What milk brand is your kid currently consuming?</label> 
-			<select class="selection-kidmilk" name="subscriber_question19" type="text" style="width: 100%; font-size: 16px; padding-top: 10px; padding-bottom: 8px; display: inline-block; border: 1px solid #ccc; box-shadow: inset 0 1px 3px #ddd; border-radius: 4px; vertical-align: middle; box-sizing: border-box;">
-				<option disabled="disabled" selected="selected" value="">Choose one</option>
-				<option value="4m">4m</option>
-				<option value="Abbott">Abbott</option>
-				<option value="Anmum">Anmum</option>
-				<option value="Appeton">Appeton</option>
-				<option value="AptaGro">AptaGro</option>
-				<option value="Aptamil">Aptamil</option>
-				<option value="Awarua">Awarua</option>
-				<option value="Baby Bio">Baby Bio</option>
-				<option value="Baby Steps">Baby Steps</option>
-				<option value="Bellamy's">Bellamy's</option>
-				<option value="Colostrum">Colostrum</option>
-				<option value="Dugro">Dugro</option>
-				<option value="Dumex">Dumex</option>
-				<option value="Dupro">Dupro</option>
-				<option value="Dutch Baby">Dutch Baby</option>
-				<option value="Dutch Lady">Dutch Lady</option>
-				<option value="Enfagrow">Enfagrow</option>
-				<option value="Enfalac">Enfalac</option>
-				<option value="Enfamil">Enfamil</option>
-				<option value="Farmers">Farmers</option>
-				<option value="Fernleaf">Fernleaf</option>
-				<option value="Friso">Friso</option>
-				<option value="Frisolac">Frisolac</option>
-				<option value="G-Star">G-Star</option>
-				<option value="Glucerna">Glucerna</option>
-				<option value="Habib">Habib</option>
-				<option value="Isomil">Isomil</option>
-				<option value="Karihome">Karihome</option>
-				<option value="Lactogen">Lactogen</option>
-				<option value="Lactogrow">Lactogrow</option>
-				<option value="Lazz">Lazz</option>
-				<option value="Mamex">Mamex</option>
-				<option value="Mamil">Mamil</option>
-				<option value="Merry Nation">Merry Nation</option>
-				<option value="Miwako">Miwako</option>
-				<option value="Morinaga Milk">Morinaga Milk</option>
-				<option value="Nana">Nana</option>
-				<option value="Nankid">Nankid</option>
-				<option value="Nestle">Nestle</option>
-				<option value="Novalac">Novalac</option>
-				<option value="Pediasure">Pediasure</option>
-				<option value="S26">S26</option>
-				<option value="Similac">Similac</option>
-				<option value="Snow">Snow</option>
-				<option value="Suffy">Suffy</option>
-				<option value="Sustagen">Sustagen</option>
-				<option value="Wildan">Wildan</option>
-				<option value="Wyeth">Wyeth</option>
-				<option value="Others">Others</option>
-				<option value="Not consuming any milk">Not consuming any milk</option>
-            </select>
-			<small class="error-msg"></small>
-		</div>
-         <div class="clearfix"></div>
-         <div class="col-md-4 col-md-offset-4" style="padding-top: 20px;"><button type="submit" name="submit" id="btn-submit-form1" class="btn btn-default btn-step1 "> Submit </button></div>
-      </div>
-   </div>
-   <!-- huggies row --> <!--
+                  --></div>
+</div>
+<div class="col-hidden-xs col-hidden-sm col-md-2 col-lg-2"></div>
+<div class="col-md-12 text-center" style="padding-top: 20px;"><button type="button" class="btn btn-default btn-step1 step2btn"> Next </button></div>
+<div class="clearfix"></div>
+<div class="tnc-word-color" style="margin-top: 30px; padding: 70px 20px 20px 20px; display: inline-block; background: white; background-size: cover; background-position: top center; background-repeat: no-repeat;">
+<div class="col-md-6" style="text-align: left;">
+<p style="font-size: 2em; font-weight: bold;">FAQs</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How do I apply for a New Mom member card?<br /> A: Complete our online registration form (click &ldquo;NEXT&rdquo; to fill up the form) to enjoy exclusive member benefits.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: Can I register again if I am already a member?<br /> A: This programme is reserved for new users ONLY.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: Can I apply for the programme if I am not a Malaysian citizen?<br /> A: Yes, all moms and dads are welcomed to join the programme.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How much is the New Mom Program fee?<br /> A: Our New Mom gift set is FREE (excluding shipping fee of RM5.50).</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How do I redeem the free gift(s)?<br /> A: A step-by-step instruction will appear on the page after you have filled up your details accordingly.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How long does it take to deliver my gift(s)?<br /> A: About 3&ndash;7 working days upon verification.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: What are the benefits of having a New Mom member card?<br /> A: Learn more about our New Mom member card benefits here: www.motherhood.com.my/membersprivilege</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: When will my New Mom member card expire?<br /> A: The expiration date for an inactive New Mom member card is TWO (2) months upon activation.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">Q: How do I renew my New Mom member card?<br /> A: Spend a min. of RM100 on Motherhood.com.my and your card will be auto-converted to a 1-year membership.</p>
+</div>
+<div class="col-md-6" style="text-align: left;">
+<p style="font-size: 2em; font-weight: bold;">Terms &amp; Conditions</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Each registered family is entitled to receive ONE (1) New Mom gift set (includes RM20 cash voucher, New Mom member card, limited-edition flashcards, special VIP invites). Multiple registrations from the same family will be disqualified.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Gifts may vary depend on the availability.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Motherhood.com.my will not be responsible nor liable for unsuccessful registrations due to interruptions in internet connectivity.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Motherhood.com.my reserves the right to alter, cancel, terminate, or suspend an application and/or any part thereof without any liability and prior notice at any time upon its sole and absolute discretion.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Registrations will only be accepted with the FULL postal address provided.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Incomplete registration forms will not be accepted.</p>
+<p class="text-left" style="font-size: 1em; line-height: 1.2; padding: 10px 10px 0px 10px;">- Only pregnant moms are eligible to receive the Babybox. To qualify for the Babybox, you are required to complete the purchase of the new mom gift set and pay the associated shipping fee at the checkout page. 50 new moms will be selected at random every month. Kindly expect some delay in the delivery due to the MCO.</p>
+</div>
+</div>
+<div class="col-hidden-xs col-hidden-sm col-md-2 col-lg-2"></div>
+</div>
+<!-- page 3 v2 Newmom -->
+<div class="row step3v2" style="display: none; padding-top: 20px; padding-bottom: 20px;">
+<div class="row">
+<div class="col-hidden-xs col-hidden-sm col-md-2 col-lg-2"></div>
+<div class="col-md-8" style="margin-top: 50px;" align="center">
+<h1 style="padding: 0 20px; font-weight: bold; margin-top: 75px;" class="question-font">New baby's Date of Birth</h1>
+<div class="col-md-4" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px;"><select id="babyYear" style="width: 100%; font-size: 1.1em; box-shadow: none!IMPORTANT; border: 1px solid #d6d4d4; color: #512f2e;">
+<option value="" disabled="disabled" selected="selected">Year</option>
+</select><small class="error-msg"></small></div>
+<div class="col-md-4" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px;"><select id="babyMonth" disabled="disabled" style="width: 100%; font-size: 1.1em; box-shadow: none!IMPORTANT; border: 1px solid #d6d4d4; ; color: #512f2e;">
+<option value="" disabled="disabled" selected="selected">Month</option>
+<option value="1">January</option>
+<option value="2">February</option>
+<option value="3">March</option>
+<option value="4">April</option>
+<option value="5">May</option>
+<option value="6">June</option>
+<option value="7">July</option>
+<option value="8">August</option>
+<option value="9">September</option>
+<option value="10">October</option>
+<option value="11">November</option>
+<option value="12">December</option>
+</select><small class="error-msg"></small></div>
+<div class="col-md-4" style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px;"><select id="babyDay" disabled="disabled" style="width: 100%; font-size: 1.1em; box-shadow: none!IMPORTANT; border: 1px solid #d6d4d4; ; color: #512f2e;">
+<option value="" disabled="disabled" selected="selected">Day</option>
+</select><input type="hidden" name="subscriber_question3" id="subscriber_question3" /> <small class="error-msg"></small></div>
+<div class="clearfix"></div>
+</div>
+<div class="col-hidden-xs col-hidden-sm col-md-2 col-lg-2"></div>
+</div>
+<div class="row">
+<div class="col-md-12 text-center" style="padding-top: 20px;">
+<p>If you have children above 1 year old, please redeem your free Activity Box by joining <a href="../../../events/motherhood-superkids">Motherhood Superkids Club</a></p>
+<button type="button" class="btn btn-default btn-step1 step3v2btn"> Next </button></div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="row step3" style="display: none; padding-top: 20px; padding-bottom: 20px;">
+<div class="col-md-10 col-md-offset-1" style="background: rgba(255, 255, 255, 0.8); background-size: cover; padding-top: 20px; padding-bottom: 20px; border-radius: 10px;">
+<p style="font-size: 3em; color: #005b9c; font-weight: bold; padding-top: 20px; padding-bottom: 20px; line-height: 1;">It&rsquo;s time to receive your welcome kit!</p>
+<div class="col-md-6 text-left question-welcomekit"><label>Email</label> <input type="email" id="emailNew" name="newEmail" class="form-control" placeholder="Email" required="required" style="background-color: white;" /> <small class="error-msg"></small></div>
+<div class="col-md-6 text-left question-welcomekit"><label>Password</label> <input type="password" id="newPassword" name="newPassword" class="form-control" minlength="6/" placeholder="Password" required="required" /> <small class="error-msg"></small></div>
+<div class="clearfix"></div>
+<div class="col-md-6 text-left question-welcomekit"><label>First Name</label> <input type="text" id="newFirstName" name="newFirstName" class="form-control" placeholder="First Name" required="required" /> <small class="error-msg"></small></div>
+<div class="col-md-6 text-left question-welcomekit"><label>Last Name</label> <input type="text" id="newLastName" name="newLastName" class="form-control" placeholder="Last Name" required="required" /> <small class="error-msg"></small></div>
+<div class="clearfix"></div>
+<div class="col-md-7 text-left question-welcomekit"><label>Mobile Number</label>
+<p style="width: 10%; font-size: 16px; background: white; float: left; padding-top: 10px; padding-bottom: 8px; border: 1px solid #ccc; margin-top: 4px; border-right: none; box-shadow: inset 0 1px 3px #ddd;">+6</p>
+<input type="number" id="subscriber_question1" name="subscriber_question1" style="width: 90%; font-size: 14px; padding-top: 10px; padding-bottom: 10px; ;display: inline-block; border: 1px solid #ccc; box-shadow: inset 0 1px 3px #ddd; border-radius: 4px; vertical-align: middle; box-sizing: border-box; border-top-left-radius: 0px; border-bottom-left-radius: 0px;" title="xxx xxxxx" placeholder="Mobile Number" pattern=".{10,}" onkeydown="javascript: return event.keyCode == 69 ? false : true" required="required" /> <small class="error-msg"></small></div>
+<div class="clearfix"></div>
+<div class="col-md-12 text-left question-welcomekit"><label>Full Address</label> <input type="text" name="subscriber_question8" id="subscriber_question8" size="80" required="required" placeholder="Full Address" class="form-control" /> <small class="error-msg"></small></div>
+<div class="clearfix"></div>
+<div class="col-md-4 text-left question-welcomekit"><label>Postcode</label> <input type="number" name="subscriber_question9" id="subscriber_question9" class="form-control" size="10" required="required" onkeydown="javascript: return event.keyCode == 69 ? false : true" placeholder="Postcode" /> <small class="error-msg"></small></div>
+<div class="col-md-4 text-left question-welcomekit"><label>City</label> <input name="subscriber_question10" id="subscriber_question10" type="text" size="60" required="required" placeholder="City" class="form-control" /> <small class="error-msg"></small></div>
+<div class="col-md-4 text-left question-welcomekit" style="padding-top: 0px;"><label>State</label><select name="subscriber_question11" id="subscriber_question11" type="text" style="width: 100%; font-size: 16px; padding-top: 10px; padding-bottom: 8px; display: inline-block; border: 1px solid #ccc; box-shadow: inset 0 1px 3px #ddd; border-radius: 4px; vertical-align: middle; box-sizing: border-box;" required="required">
+<option value="">State</option>
+<option value="Johor">Johor</option>
+<option value="Kedah">Kedah</option>
+<option value="Kelantan">Kelantan</option>
+<option value="Kuala Lumpur">Kuala Lumpur</option>
+<option value="Labuan">Labuan</option>
+<option value="Melaka">Melaka</option>
+<option value="Negeri Sembilan">Negeri Sembilan</option>
+<option value="Pahang">Pahang</option>
+<option value="Perak">Perak</option>
+<option value="Perlis">Perlis</option>
+<option value="Pulau Pinang">Pulau Pinang</option>
+<option value="Putrajaya">Putrajaya</option>
+<option value="Sabah">Sabah</option>
+<option value="Sarawak">Sarawak</option>
+<option value="Selangor">Selangor</option>
+<option value="Terengganu">Terengganu</option>
+</select><small class="error-msg"></small></div>
+<div class="clearfix"></div>
+<div class="col-md-4 text-left question-welcomekit"><label>Your Date of Birth</label> <input name="subscriber_question14" type="date" id="dobParent" required="required" placeholder="DOB" class="form-control" style="min-width: 95%; font-size: 11px;" /> <small class="error-msg"></small></div>
+<div class="clearfix"></div>
+<div class="col-md-12 text-left question-welcomekit row-mommymilk" style="display: none;"><label>What brand of milk does mommy like or is currently consuming?</label><select class="selection-mommymilk" name="subscriber_question18" type="text" style="width: 100%; font-size: 16px; padding-top: 10px; padding-bottom: 8px; display: inline-block; border: 1px solid #ccc; box-shadow: inset 0 1px 3px #ddd; border-radius: 4px; vertical-align: middle; box-sizing: border-box;">
+<option value="">State</option>
+<option disabled="disabled" selected="selected" value="">Choose one</option>
+<option value="a2 Nutrition for Mothers">a2 Nutrition for Mothers</option>
+<option value="Anmum Lacta">Anmum Lacta</option>
+<option value="Anmum Materna">Anmum Materna</option>
+<option value="Aptamom">Aptamom</option>
+<option value="Bellamy&rsquo;s Organic Pregnancy Formula">Bellamy&rsquo;s Organic Pregnancy Formula</option>
+<option value="Dumex Mamil&reg; Mama">Dumex Mamil&reg; Mama</option>
+<option value="Enfamama A+">Enfamama A+</option>
+<option value="Fresh Goat Milk">Fresh Goat Milk</option>
+<option value="Fresh Milk">Fresh Milk</option>
+<option value="Frisomum Gold">Frisomum Gold</option>
+<option value="MOMMA Evermom Non-GMO Soy">MOMMA Evermom Non-GMO Soy</option>
+<option value="MOMMA Pregolact">MOMMA Pregolact</option>
+<option value="Natrel Milk">Natrel Milk</option>
+<option value="NatureOne Dairy Pregnancy Formula">NatureOne Dairy Pregnancy Formula</option>
+<option value="Nestl&eacute; MOM">Nestl&eacute; MOM</option>
+<option value="Similac Mom">Similac Mom</option>
+<option value="Snow Maternity">Snow Maternity</option>
+<option value="Susu Efferty Ikhtiar Hamil">Susu Efferty Ikhtiar Hamil</option>
+<option value="WILDAN Mama Premium">WILDAN Mama Premium</option>
+<option value="Wyeth Promama">Wyeth Promama</option>
+<option value="Others">Others</option>
+<option value="Not consuming any milk">Not consuming any milk</option>
+</select><small class="error-msg"></small></div>
+<div class="clearfix"></div>
+<div class="col-md-12 text-left question-welcomekit row-kidmilk" style="display: none;"><label>What milk brand is your kid currently consuming?</label><select class="selection-kidmilk" name="subscriber_question19" type="text" style="width: 100%; font-size: 16px; padding-top: 10px; padding-bottom: 8px; display: inline-block; border: 1px solid #ccc; box-shadow: inset 0 1px 3px #ddd; border-radius: 4px; vertical-align: middle; box-sizing: border-box;">
+<option disabled="disabled" selected="selected" value="">Choose one</option>
+<option value="4m">4m</option>
+<option value="Abbott">Abbott</option>
+<option value="Anmum">Anmum</option>
+<option value="Appeton">Appeton</option>
+<option value="AptaGro">AptaGro</option>
+<option value="Aptamil">Aptamil</option>
+<option value="Awarua">Awarua</option>
+<option value="Baby Bio">Baby Bio</option>
+<option value="Baby Steps">Baby Steps</option>
+<option value="Bellamy's">Bellamy's</option>
+<option value="Colostrum">Colostrum</option>
+<option value="Dugro">Dugro</option>
+<option value="Dumex">Dumex</option>
+<option value="Dupro">Dupro</option>
+<option value="Dutch Baby">Dutch Baby</option>
+<option value="Dutch Lady">Dutch Lady</option>
+<option value="Enfagrow">Enfagrow</option>
+<option value="Enfalac">Enfalac</option>
+<option value="Enfamil">Enfamil</option>
+<option value="Farmers">Farmers</option>
+<option value="Fernleaf">Fernleaf</option>
+<option value="Friso">Friso</option>
+<option value="Frisolac">Frisolac</option>
+<option value="G-Star">G-Star</option>
+<option value="Glucerna">Glucerna</option>
+<option value="Habib">Habib</option>
+<option value="Isomil">Isomil</option>
+<option value="Karihome">Karihome</option>
+<option value="Lactogen">Lactogen</option>
+<option value="Lactogrow">Lactogrow</option>
+<option value="Lazz">Lazz</option>
+<option value="Mamex">Mamex</option>
+<option value="Mamil">Mamil</option>
+<option value="Merry Nation">Merry Nation</option>
+<option value="Miwako">Miwako</option>
+<option value="Morinaga Milk">Morinaga Milk</option>
+<option value="Nana">Nana</option>
+<option value="Nankid">Nankid</option>
+<option value="Nestle">Nestle</option>
+<option value="Novalac">Novalac</option>
+<option value="Pediasure">Pediasure</option>
+<option value="S26">S26</option>
+<option value="Similac">Similac</option>
+<option value="Snow">Snow</option>
+<option value="Suffy">Suffy</option>
+<option value="Sustagen">Sustagen</option>
+<option value="Wildan">Wildan</option>
+<option value="Wyeth">Wyeth</option>
+<option value="Others">Others</option>
+<option value="Not consuming any milk">Not consuming any milk</option>
+</select><small class="error-msg"></small></div>
+<div class="clearfix"></div>
+<div class="col-md-4 col-md-offset-4" style="padding-top: 20px;"><button type="submit" name="submit" id="btn-submit-form1" class="btn btn-default btn-step1 "> Submit </button></div>
+</div>
+</div>
+<!-- huggies row --> <!--
       <div class="row huggies-row" style="display: none; padding-top: 20px; padding-bottom: 20px;">
          <div class="col-md-10 col-md-offset-1" style="background: rgba(255, 255, 255, 0.8); background-size: cover; padding-top: 20px; padding-bottom: 20px; border-radius: 10px;">
             <p style="font-size: 3em; color: #005b9c; font-weight: bold; padding-top: 20px; padding-bottom: 20px; line-height: 1;">Redeem FREE Huggies Natural Soft Diaper Samples</p>
@@ -623,14 +590,12 @@
             </div>
          </div>
       </div>
-      -->
-</div>
-<div style="display: none;">
-	<a id="tncpopupimg" href="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/Privacy_Policy_Huggies.pdf"> </a>
-</div>
+      --></div>
+<div style="display: none;"><a id="tncpopupimg" href="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Newmom/Privacy_Policy_Huggies.pdf"> </a></div>
 <p>
-   <script>// <![CDATA[
-      /** if other function that need to use same input for validation, we can just use this selector  **/
+<script>// <![CDATA[
+ 
+/** if other function that need to use same input for validation, we can just use this selector  **/
 		var emailSelector 	 	= $('body').find('#emailNew');
 		var passSelector  	 	= $('body').find('#newPassword');
 		var fnameSelector    	= $('body').find('#newFirstName');
@@ -1363,7 +1328,6 @@ Inputmask('datetime',{
 	
 			
 		});
-       
-      // ]]>
-   </script>
+ 
+// ]]></script>
 </p>

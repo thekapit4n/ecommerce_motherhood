@@ -108,6 +108,22 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 		$this->context->smarty->assign(array('meta_description' => $event_meta_description));
 		$this->context->smarty->assign(array('meta_keywords' => $event_meta_keyword));
 		$this->context->smarty->assign(array('event_id' => $event_id));
+
+		if($event_id == 100){
+			if($_REQUEST['utm_source'] == 'InvolveAsia'){
+				$utmsource = $_REQUEST['utm_source'];
+				$affiliateCookie = new Cookie("aff_utmSource");
+				$affiliateCookie->aiclickid = $_REQUEST['click_id'];
+				$affiliateCookie->lead_id = $_REQUEST['subscriber_id'];
+				$affiliateCookie->event_name = 'new_mom';
+				$this->context->cookie->write();
+				// print_r($affiliateCookie);
+			}
+		}
+		if($event_id == 215){
+			$affiliateCookie = new Cookie("aff_utmSource");
+			print_r($affiliateCookie);
+		}
     }
 
     public function initContent()
@@ -115,14 +131,13 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
         parent::initContent();
 		$this->context->controller->addJS('themes/default-bootstrap/dashboard-assets/form-wizard-5/js/jquery.steps.js');
 		$this->context->controller->addJS('themes/default-bootstrap/dashboard-assets/select2/dist/js/select2.min.js');
-		
+	
         $sql = '
 			SELECT *, if(event_end_date >= current_date,"ok","end") AS has_ended
 			FROM
 			`'._DB_PREFIX_.'events` 
 			WHERE event_slug="'.pSQL(Tools::getValue('event_name')).'" AND event_active = 1';
         $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
-		
 		
 		if (empty($result[0])){
 			$sql = '
@@ -668,6 +683,34 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 			';
 			$currentResult = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($currentSQL); 
 			
+			$productListStr2 ='<div class="multiple-product-slider" style="display: none;">'; // open div slider
+					
+			#list products have been added using admin backend, and need to redirect to product page
+			$arr_productbackend[48396]=array(
+				"href" =>"https://www.motherhood.com.my/ultifresh/health-safety/family-health/baby-first-aid/ultifresh-reusable-mask-kids-little-sheeps.html",
+				"redeemStr" =>"Grab It Now!"
+			);
+			
+			$arr_productbackend[48397]=array(
+				"href" =>"https://www.motherhood.com.my/ultifresh/health-safety/family-health/baby-first-aid/ultifresh-reusable-mask-kids-animal-world.html",
+				"redeemStr" =>"Grab It Now!"
+			);
+			
+			$arr_productbackend[48398]=array(
+				"href" =>"https://www.motherhood.com.my/ultifresh/health-safety/family-health/baby-first-aid/ultifresh-reusable-mask-kids-unicorn-fantasy.html",
+				"redeemStr" =>"Grab It Now!"
+			);
+			
+			$arr_productbackend[48399]=array(
+				"href" =>"https://www.motherhood.com.my/ultifresh/health-safety/family-health/baby-first-aid/ultifresh-reusable-mask-kids-dino-world.html",
+				"redeemStr" =>"Grab It Now!"
+			);
+			
+			$arr_productbackend[48472]=array(
+				"href" =>" https://www.motherhood.com.my/ultifresh/health-safety/family-health/baby-first-aid/ultifresh-filter-sheets-package-kids.html",
+				"redeemStr" =>"Grab It Now!"
+			);
+			
 			foreach($currentResult as $oneResult){
 				
 				//$thisProduct=new Product($oneResult['id_product']);
@@ -706,54 +749,139 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					$redeemStr='Sign Up Below';
 				}
 				
+				if($oneResult['id_product'] == 47894)
+				{
+					$href ="https://www.motherhood.com.my/aimsity/education/kids-activities/edutainment/aimsity-online-coding-workshop-beginners.html?search_query=coding+for+beginner&results=1";
+					$clickStr='';
+					$redeemStr='Book Your Class Here';
+					$oneResult['name'] = "Coding With Minecraft (Beginners)";
+				}
+				
+				
+				
 				if($event_id == 99999)
 				{
-					$productListStr.='
-						<div class="col-md-4">
-							<div class="card dealsBox freeitem dealsBoxCat668" '. $clickStr .'>
-								<img src="' . $getImageLink . '" class="card-img-top" alt="superkid-box-item">
-								<div class="card-body" style="padding-bottom:5px;">
-									<h5 class="card-title" style="color:black">' . $oneResult['name'] . '</h5>
-									<div class="text-center">
-										<button type="button" class="btn btn-primary btn-signup-box button-medium">' . $redeemStr . '</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					';
+					if($oneResult['id_product'] == 47894)
+					{
+						$productListStr2 .= '<div class="row product-item">
+											<div class="col-md-12">
+												<div class="card dealsBox freeitem dealsBoxCat668"' . $clickStr . '>
+													<div  class="p-3">
+														<img src="' . $getImageLink . '" class="card-img-top" alt="superkidbox">
+													</div>
+													<div class="card-body">
+														<h5 class="card-title" style="min-height: 38px;">' . $oneResult['name'] . '</h5>
+														<div class="text-center">
+															<a href="' . $href . '" target="_blank" class="btn btn-primary btn-signup-box button-medium">' . $redeemStr . '</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>';
+					}
+					else
+					{
+						$productListStr2 .= '<div class="row product-item">
+											<div class="col-md-12">
+												<div class="card dealsBox freeitem dealsBoxCat668"' . $clickStr . '">
+													<div  class="p-3">
+														<img src="' . $getImageLink . '" class="card-img-top" alt="superkidbox">
+													</div>
+													<div class="card-body">
+														<h5 class="card-title" style="min-height: 38px;">' . $oneResult['name'] . '</h5>
+														<div class="text-center">
+															<button type="button" class="btn btn-primary btn-signup-box button-medium">' . $redeemStr . '</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>';
+					}
 				}
 				else
 				{
-					#old design
-					// $productListStr.='
-					// <div class="col-lg-4 col-xs-6 dealsBox freeitem dealsBoxCat668" '.$clickStr.'>
-						// <div class="col-md-12 dealsImageBox">
-						// <a><img style="img-responsive dealsImage" src="'.$getImageLink.'" alt="" width="100%" /></a>
-						// </div>
-						// <div class="col-md-12 dealsBoxContent" style="text-align:center">
-							// <h4 class="dealsName" style="margin-bottom:0px">'.$oneResult['name'].'</h4>
-							// <button type="button" class="btn btn-default button button-medium pull-center" style="padding:8px;width:90%;font-size:smaller">'.$redeemStr.'</button>
-						// </div>
-						
-					// </div>
-					// ';
 					
-					$productListStr.='
-						<div class="col-md-4">
-							<div class="card dealsBox freeitem dealsBoxCat668" '. $clickStr .'>
-								<img src="' . $getImageLink . '" class="card-img-top" alt="superkid-box-item">
-								<div class="card-body" style="padding-bottom:5px;">
-									<h5 class="card-title" style="color:black">' . $oneResult['name'] . '</h5>
-									<div class="text-center">
-										<button type="button" class="btn btn-primary btn-signup-box button-medium">' . $redeemStr . '</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					';
+					if(isset($arr_productbackend[$oneResult['id_product']]) && is_array($arr_productbackend[$oneResult['id_product']]) 
+						&& sizeof($arr_productbackend[$oneResult['id_product']]) > 0)
+					{
+						$productListStr2 .= '<div class="row product-item">
+											<div class="col-md-12">
+												<div class="card dealsBox freeitem dealsBoxCat668">
+													<div  class="p-3">
+														<img src="' . $getImageLink . '" class="card-img-top" alt="superkidbox">
+													</div>
+													<div class="card-body">
+														<h5 class="card-title" style="min-height: 38px;">' . $oneResult['name'] . '</h5>
+														<div class="text-center">
+															<a href="' . $arr_productbackend[$oneResult['id_product']]['href'] . '" target="_blank" class="btn btn-primary btn-signup-box button-medium">' . $arr_productbackend[$oneResult['id_product']]['redeemStr'] . '</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>';
+					}
+					else if($oneResult['id_product'] == 47894)
+					{
+						$productListStr2 .= '<div class="row product-item">
+											<div class="col-md-12">
+												<div class="card dealsBox freeitem dealsBoxCat668"' . $clickStr . '>
+													<div  class="p-3">
+														<img src="' . $getImageLink . '" class="card-img-top" alt="superkidbox">
+													</div>
+													<div class="card-body">
+														<h5 class="card-title" style="min-height: 38px;">' . $oneResult['name'] . '</h5>
+														<div class="text-center">
+															<a href="' . $href . '" target="_blank" class="btn btn-primary btn-signup-box button-medium">' . $redeemStr . '</a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>';
+					}
+					else
+					{
+						$productListStr2 .= '<div class="row product-item">
+											<div class="col-md-12">
+												<div class="card dealsBox freeitem dealsBoxCat668"' . $clickStr . '">
+													<div  class="p-3">
+														<img src="' . $getImageLink . '" class="card-img-top" alt="superkidbox">
+													</div>
+													<div class="card-body">
+														<h5 class="card-title" style="min-height: 38px;">' . $oneResult['name'] . '</h5>
+														<div class="text-center">
+															<button type="button" class="btn btn-primary btn-signup-box button-medium">' . $redeemStr . '</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>';
+					}
 				}
 			}
-				$productListStr.='<div class="row"></div>';
+		
+			$href    = 'https://www.motherhood.com.my/brands/novakid';
+			$clickStr='';
+			$redeemStr='Book Your Class Here';
+			$oneResult['name'] = "Novakids Class";
+				
+			$productListStr2 .= '<div class="row product-item">
+								<div class="col-md-12">
+									<div class="card dealsBox freeitem dealsBoxCat668"' . $clickStr . '>
+										<div  class="p-3">
+											<img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/August/Superkids/novakid-kids-online-english-class-trial-subscription.jpg" class="card-img-top" alt="superkidbox">
+										</div>
+										<div class="card-body">
+											<h5 class="card-title" style="min-height: 38px;">' . $oneResult['name'] . '</h5>
+											<div class="text-center">
+												<a href="' . $href . '" target="_blank" class="btn btn-primary btn-signup-box button-medium">' . $redeemStr .'</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>';
+			$productListStr2.='</div>'; // close div slider
+			
+			$productListStr = $productListStr2;
 			
 			$result[0]['event_description'] =str_ireplace('{{productlist}}',$productListStr,$result[0]['event_description']);
 			
@@ -1161,9 +1289,37 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 				"Similac",
 				"Snow",
 				"Sustagen",
-				"Others ",
-				"Not consuming any milk ",
+				"Appeton",
+				"AptaGro",
+				"Aptamil",
+				"Awarua",
+				"Baby Bio",
+				"Baby Steps",
+				"Bellamy's",
+				"Colostrum",
+				"Dumex Dupro",
+				"Dumex Mamex",
+				"Enfalac",
+				"Enfamil",
+				"Enfinitas",
+				"Farmers",
+				"Frisolac",
+				"G-Star",
+				"Glucerna",
+				"Habib",
+				"Karihome",
+				"Lactogrow",
+				"Lazz",
+				"Merry Nation",
+				"Miwako",
+				"Nana",
+				"Novamil",
+				"Suffy",
+				"Wildan",
 			);
+			sort($arr_listmilk);
+			$arr_listmilk[] = "Others";
+			$arr_listmilk[] = "Not consuming any milk";
 			
 			$htmlOptlistMilk = "";
 			foreach($arr_listmilk as $valKMilk)
@@ -1201,7 +1357,611 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 				$result[0]['event_description'] = str_ireplace('{{row-password-display}}', "", $result[0]['event_description']);
 			}
 		}
-	
+		
+		if($event_id == 107){ 
+			# 107 - dugro asli sample 
+			$arr_listmilk = array(
+				"Anmum",
+				"Appeton",
+				"AptaGro",
+				"Aptamil",
+				"Awarua",
+				"Baby Bio",
+				"Baby Steps",
+				"Bellamy’s",
+				"Colostrum",
+				"Dumex Dugro",
+				"Dumex Dupro",
+				"Dumex Mamex",
+				"Dumex Mamil",
+				"Dutch Lady",
+				"Enfagrow",
+				"Enfalac",
+				"Enfamil",
+				"Enfinitas",
+				"Everyday",
+				"Farmers",
+				"Fernleaf",
+				"Friso",
+				"Frisolac",
+				"G-Star",
+				"Glucerna",
+				"Habib",
+				"Isomil",
+				"Karihome",
+				"Lactogen",
+				"Lactogrow",
+				"Lazz",
+				"Merry Nation",
+				"Milo",
+				"Miwako",
+				"Morinaga Milk",
+				"Nana",
+				"Nankid",
+				"Nespray",
+				"Novalac",
+				"Novamil",
+				"Pediasure",
+				"S26",
+				"Similac",
+				"Snow",
+				"Suffy",
+				"Sustagen",
+				"Wildan",
+			);
+			sort($arr_listmilk);
+			$arr_listmilk[] = "Others";
+			$arr_listmilk[] = "Not consuming any milk";
+			
+			$htmlOptlistMilk = "";
+			foreach($arr_listmilk as $valKMilk)
+			{
+				$htmlOptlistMilk .= '<option value="' . $valKMilk . '">' . $valKMilk . "</option>";
+			}
+			
+			$result[0]['event_description'] = str_ireplace('{{option-listmilk}}', $htmlOptlistMilk, $result[0]['event_description']);
+
+			if($this->context->customer->email != '' && $this->context->customer->id > 0)
+			{	
+				$result[0]['event_description'] = str_ireplace('{{predefine-email}}', $this->context->customer->email, $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{predefine-user}}', $this->context->customer->id, $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{row-password-display}}', "flex", $result[0]['event_description']);
+			}
+			else
+			{
+				$result[0]['event_description'] = str_ireplace('{{predefine-email}}', "", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{predefine-user}}', "", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{row-password-display}}', "", $result[0]['event_description']);
+			}
+		}
+		
+		if($event_id == 141){
+			# 141 - newmom welcome gift-walk in
+			$arr_listmilk = array(
+				"a2 Nutrition for Mothers",
+				"Anmum Lacta",
+				"Anmum Materna",
+				"Aptamom",
+				"Bellamy’s Organic Pregnancy Formula",
+				"Dumex Mamil® Mama",
+				"Enfamama A+",
+				"Fresh Goat Milk",
+				"Fresh Milk",
+				"Frisomum Gold",
+				"MOMMA Evermom Non-GMO Soy",
+				"MOMMA Pregolact",
+				"Natrel Milk",
+				"NatureOne Dairy Pregnancy Formula",
+				"Nestlé MOM",
+				"Similac Mom",
+				"Snow Maternity",
+				"Susu Efferty Ikhtiar Hamil",
+				"WILDAN Mama Premium",
+				"Wyeth Promama",
+			);
+			sort($arr_listmilk);
+			$arr_listmilk[] = "Others";
+			$arr_listmilk[] = "Not consuming any milk";
+			
+			$htmlOptlistMilk = "";
+			foreach($arr_listmilk as $valKMilk)
+			{
+				$htmlOptlistMilk .= '<option value="' . $valKMilk . '">' . $valKMilk . "</option>";
+			}
+			
+			$result[0]['event_description'] = str_ireplace('{{option-listmilk}}', $htmlOptlistMilk, $result[0]['event_description']);
+
+			if($this->context->customer->email != '' && $this->context->customer->id > 0)
+			{	
+				$result[0]['event_description'] = str_ireplace('{{predefine-email}}', $this->context->customer->email, $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{predefine-user}}', $this->context->customer->id, $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{row-password-display}}', "none", $result[0]['event_description']);
+			}
+			else
+			{
+				$result[0]['event_description'] = str_ireplace('{{predefine-email}}', "", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{predefine-user}}', "", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{row-password-display}}', "", $result[0]['event_description']);
+			}
+		}
+		if($event_id == 142){
+			/* 
+			* to retrieve previous event data so we can link data between event.
+			* DESC order because we want to latest info 
+			*/
+			
+			if(isset($_GET['id']) && $_GET['id'] != '')
+			{
+				$decrpt = base64_decode($_GET['id']);
+				$arrEncrypt = explode('###', $decrpt);
+				if(is_array($arrEncrypt) && sizeof($arrEncrypt) > 0)
+				{
+					$eventId 	  = $arrEncrypt[0];
+					$subscriberid = $arrEncrypt[1];
+					
+					$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `subscriber_event_id` = '" . trim($eventId) . "'";
+					$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `subscriber_id` = '" . trim($subscriberid) . "'";
+					
+					$sql 		 = "SELECT * FROM `ps_events_subscriber`" . $whereSql . " ORDER BY `subscriber_id` DESC LIMIT 1";
+					$queryResult = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+				
+					#if customer already register
+					if(is_array($queryResult[0]) && sizeof($queryResult[0]) > 0)
+					{
+						$firstname    = isset($queryResult[0]['newFirstName']) ? $queryResult[0]['newFirstName'] : '';
+						$lastname     = isset($queryResult[0]['newLastName']) ? $queryResult[0]['newLastName'] : '';
+						$email        = isset($queryResult[0]['newEmail']) ? $queryResult[0]['newEmail'] : '';
+						$mobile       = isset($queryResult[0]['subscriber_question1']) ? $queryResult[0]['subscriber_question1'] : '';
+						$dobParent    = isset($queryResult[0]['subscriber_question2']) ? $queryResult[0]['subscriber_question2'] : '';
+						$address1	  = isset($queryResult[0]['subscriber_question3']) ? $queryResult[0]['subscriber_question3'] : '';
+						$address2	  = isset($queryResult[0]['subscriber_question8']) ? $queryResult[0]['subscriber_question8'] : '';
+						$postcode     = isset($queryResult[0]['subscriber_question4']) ? $queryResult[0]['subscriber_question4'] : '';
+						$city 		  = isset($queryResult[0]['subscriber_question5']) ? $queryResult[0]['subscriber_question5'] : '';
+						$state 		  = isset($queryResult[0]['subscriber_question7']) ? $queryResult[0]['subscriber_question7'] : '';
+						$country 	  = isset($queryResult[0]['subscriber_question10']) ? $queryResult[0]['subscriber_question10'] : '';
+						$milkbrand 	  = isset($queryResult[0]['subscriber_question9']) ? $queryResult[0]['subscriber_question9'] : '';
+						$otherbrand   = isset($queryResult[0]['subscriber_question11']) ? $queryResult[0]['subscriber_question11'] : '';
+						$prenancymonth= isset($queryResult[0]['subscriber_question12']) ? $queryResult[0]['subscriber_question12'] : '';
+						$locationredeem  = isset($queryResult[0]['subscriber_question14']) ? $queryResult[0]['subscriber_question14'] : '';
+						$subscriber_id = isset($queryResult[0]['subscriber_id']) ? $queryResult[0]['subscriber_id'] : '';
+						$redeemed 	   = isset($queryResult[0]['subscriber_question28']) ? $queryResult[0]['subscriber_question28'] : '';
+						$redeemeddate  = isset($queryResult[0]['subscriber_question29']) ? $queryResult[0]['subscriber_question29'] : '';
+						
+						if($redeemed == 'redeem' && $redeemeddate != '')
+						{
+							$redeemeddate = date('d-m-Y H:i:s', strtotime($redeemeddate));
+							
+							$result[0]['event_description'] = str_ireplace('{{register-from-title}}', "You have successfully redeemed", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{registered-redeem}}', "redeem", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{registered-redeemdate}}', $redeemeddate, $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{row-redeem-info}}', "flex", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{btn-redeem}}', 'none', $result[0]['event_description']);
+						}
+						else
+						{
+							$result[0]['event_description'] = str_ireplace('{{register-from-title}}', "Show this page to the counter to redeem your gift!", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{registered-redeem}}', "", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{registered-redeemdate}}', "", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{row-redeem-info}}', "none", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{btn-redeem}}', 'block', $result[0]['event_description']);
+						}
+						
+						$name  = $firstname . " " . $lastname;
+						$full_address = "";
+						$full_address .= ($full_address == '' ? : ', ') . $address1;
+						$full_address .= ($full_address == '' ? : ', ') . $address2;
+						$statefull = ", " . $postcode . " " . $city . " " . $state . " " . $country;
+						$full_address .= $statefull;
+						
+						
+						$result[0]['event_description'] = str_ireplace('{{registered-name}}', $name, $result[0]['event_description']);
+						$result[0]['event_description'] = str_ireplace('{{registered-email}}', $email, $result[0]['event_description']);
+						$result[0]['event_description'] = str_ireplace('{{registered-mobileno}}', $mobile, $result[0]['event_description']);
+						$result[0]['event_description'] = str_ireplace('{{registered-address}}', $full_address, $result[0]['event_description']);
+						$result[0]['event_description'] = str_ireplace('{{registered-locationredeem}}', $locationredeem, $result[0]['event_description']);
+						$result[0]['event_description'] = str_ireplace('{{subscriberid}}', $subscriber_id, $result[0]['event_description']);
+						
+					}
+					else
+					{
+						// $sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = 141 LIMIT 1"; # page that handle result survey question
+						// $querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
+						// $event_slug  = $querySlug[0]['event_slug'];
+						// $redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug . "?id=" . $encryptedID;
+						// echo "<script type='text/javascript'>alert('An error to retrieve your info. You will redirect to redemptionform');</script>";
+						// echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
+						// exit;
+					}
+				}
+				else
+				{
+					// $sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = 141 LIMIT 1"; # page that handle result survey question
+					// $querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
+					// $event_slug  = $querySlug[0]['event_slug'];
+					// $redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug . "?id=" . $encryptedID;
+					// echo "<script type='text/javascript'>alert('An error to retrieve your info. You will redirect to redemptionform');</script>";
+					// echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
+					// exit;
+				}
+				
+			
+			}
+		}
+		if($event_id == 143){
+			# 143 - superkids -walk in
+			$arr_listmilk = array(
+				"Anmum",
+				"Appeton",
+				"AptaGro",
+				"Aptamil",
+				"Awarua",
+				"Baby Bio",
+				"Baby Steps",
+				"Bellamy's",
+				"Colostrum",
+				"Dumex Dugro",
+				"Dumex Dupro",
+				"Dumex Mamil",
+				"Dumex Mamex",
+				"Dutch Lady",
+				"Enfagrow",
+				"Enfalac",
+				"Enfamil",
+				"Enfinitas",
+				"Farmers",
+				"Fernleaf",
+				"Friso",
+				"Frisolac",
+				"G-Star",
+			);
+			sort($arr_listmilk);
+			$arr_listmilk[] = "Others";
+			$arr_listmilk[] = "Not consuming any milk";
+			
+			$htmlOptlistMilk = "";
+			foreach($arr_listmilk as $valKMilk)
+			{
+				$htmlOptlistMilk .= '<option value="' . $valKMilk . '">' . $valKMilk . "</option>";
+			}
+			
+			$result[0]['event_description'] = str_ireplace('{{option-listmilk}}', $htmlOptlistMilk, $result[0]['event_description']);
+
+			if($this->context->customer->email != '' && $this->context->customer->id > 0)
+			{	
+				$result[0]['event_description'] = str_ireplace('{{predefine-email}}', $this->context->customer->email, $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{predefine-user}}', $this->context->customer->id, $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{row-password-display}}', "none", $result[0]['event_description']);
+			}
+			else
+			{
+				$result[0]['event_description'] = str_ireplace('{{predefine-email}}', "", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{predefine-user}}', "", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{row-password-display}}', "", $result[0]['event_description']);
+			}
+		}
+		if($event_id == 144){
+			/* 
+			* to retrieve previous event data so we can link data between event.
+			* DESC order because we want to latest info 
+			*/
+			
+			if(isset($_GET['id']) && $_GET['id'] != '')
+			{
+				$decrpt = base64_decode($_GET['id']);
+				$arrEncrypt = explode('###', $decrpt);
+				if(is_array($arrEncrypt) && sizeof($arrEncrypt) > 0)
+				{
+					$eventId 	  = $arrEncrypt[0];
+					$subscriberid = $arrEncrypt[1];
+					
+					$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `subscriber_event_id` = '" . trim($eventId) . "'";
+					$whereSql .= ($whereSql == "" ? ' WHERE ' : ' AND ') . " `subscriber_id` = '" . trim($subscriberid) . "'";
+					
+					$sql 		 = "SELECT * FROM `ps_events_subscriber`" . $whereSql . " ORDER BY `subscriber_id` DESC LIMIT 1";
+					$queryResult = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+				
+					#if customer already register
+					if(is_array($queryResult[0]) && sizeof($queryResult[0]) > 0)
+					{
+						$firstname       = isset($queryResult[0]['newFirstName']) ? $queryResult[0]['newFirstName'] : '';
+						$lastname        = isset($queryResult[0]['newLastName']) ? $queryResult[0]['newLastName'] : '';
+						$email           = isset($queryResult[0]['newEmail']) ? $queryResult[0]['newEmail'] : '';
+						$mobile          = isset($queryResult[0]['subscriber_question1']) ? $queryResult[0]['subscriber_question1'] : '';
+						$dobParent       = isset($queryResult[0]['subscriber_question2']) ? $queryResult[0]['subscriber_question2'] : '';
+						$address1	     = isset($queryResult[0]['subscriber_question4']) ? $queryResult[0]['subscriber_question4'] : '';
+						$address2	     = isset($queryResult[0]['subscriber_question5']) ? $queryResult[0]['subscriber_question5'] : '';
+						$postcode        = isset($queryResult[0]['subscriber_question7']) ? $queryResult[0]['subscriber_question7'] : '';
+						$city 		     = isset($queryResult[0]['subscriber_question8']) ? $queryResult[0]['subscriber_question8'] : '';
+						$state 		     = isset($queryResult[0]['subscriber_question9']) ? $queryResult[0]['subscriber_question9'] : '';
+						$country 	     = isset($queryResult[0]['subscriber_question10']) ? $queryResult[0]['subscriber_question10'] : '';
+						$firstChildname  = isset($queryResult[0]['subscriber_question12']) ? $queryResult[0]['subscriber_question12'] : '';
+						$firstChildDOB   = isset($queryResult[0]['subscriber_question14']) ? $queryResult[0]['subscriber_question14'] : '';
+						$secondChildname = isset($queryResult[0]['subscriber_question18']) ? $queryResult[0]['subscriber_question18'] : '';
+						$secondChildDOB  = isset($queryResult[0]['subscriber_question20']) ? $queryResult[0]['subscriber_question20'] : '';
+						$thirdChildname  = isset($queryResult[0]['subscriber_question24']) ? $queryResult[0]['subscriber_question24'] : '';
+						$thirdChildDOB   = isset($queryResult[0]['subscriber_question26']) ? $queryResult[0]['subscriber_question26'] : '';
+						$locationredeem  = isset($queryResult[0]['subscriber_question30']) ? $queryResult[0]['subscriber_question30'] : '';
+						$subscriber_id   = isset($queryResult[0]['subscriber_id']) ? $queryResult[0]['subscriber_id'] : '';
+						$redeemed 	     = isset($queryResult[0]['subscriber_question31']) ? $queryResult[0]['subscriber_question31'] : '';
+						$redeemeddate    = isset($queryResult[0]['subscriber_question32']) ? $queryResult[0]['subscriber_question32'] : '';
+						
+						if($redeemed == 'redeem' && $redeemeddate != '')
+						{
+							$redeemeddate = date('d-m-Y H:i:s', strtotime($redeemeddate));
+							
+							$result[0]['event_description'] = str_ireplace('{{register-from-title}}', "You have successfully redeemed", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{registered-redeem}}', "redeem", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{registered-redeemdate}}', $redeemeddate, $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{row-redeem-info}}', "flex", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{btn-redeem}}', 'none', $result[0]['event_description']);
+						}
+						else
+						{
+							$result[0]['event_description'] = str_ireplace('{{register-from-title}}', "Show this page to the counter to redeem your gift!", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{registered-redeem}}', "", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{registered-redeemdate}}', "", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{row-redeem-info}}', "none", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{btn-redeem}}', 'block', $result[0]['event_description']);
+						}
+						
+						if($firstChildDOB != '')
+						{
+							$firstChildDOB = date('d-m-Y', strtotime($firstChildDOB));
+						}
+						
+						if($secondChildDOB != '')
+						{
+							$secondChildDOB = date('d-m-Y', strtotime($secondChildDOB));
+						}
+						
+						if($thirdChildDOB != '')
+						{
+							$thirdChildDOB = date('d-m-Y', strtotime($thirdChildDOB));
+						}
+						
+						if($firstChildname != '')
+						{
+							$result[0]['event_description'] = str_ireplace('{{div-child1-info}}', "block", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{registered-child1-name}}', $firstChildname, $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{registered-child1-dob}}', $firstChildDOB , $result[0]['event_description']);
+						}
+						else
+						{
+							$result[0]['event_description'] = str_ireplace('{{div-child1-info}}', "none", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{registered-child1-name}}', "", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{registered-child1-dob}}', "" , $result[0]['event_description']);
+						}
+						
+						if($secondChildname != '')
+						{
+							$result[0]['event_description'] = str_ireplace('{{div-child2-info}}', "block", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{registered-child2-name}}', $secondChildname, $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{registered-child2-dob}}', $secondChildDOB , $result[0]['event_description']);
+						}
+						else
+						{
+							$result[0]['event_description'] = str_ireplace('{{div-child2-info}}', "none", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{registered-child2-name}}', "", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{registered-child2-dob}}', "" , $result[0]['event_description']);
+						}
+						
+						if($thirdChildname != '')
+						{
+							$result[0]['event_description'] = str_ireplace('{{div-child3-info}}', "block", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{registered-child3-name}}', $thirdChildname, $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{registered-child3-dob}}', $thirdChildDOB , $result[0]['event_description']);
+						}
+						else
+						{
+							$result[0]['event_description'] = str_ireplace('{{div-child3-info}}', "none", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{registered-child3-name}}', "", $result[0]['event_description']);
+							$result[0]['event_description'] = str_ireplace('{{registered-child3-dob}}', "" , $result[0]['event_description']);
+						}
+						
+						$name  = $firstname . " " . $lastname;
+						$full_address = "";
+						$full_address .= ($full_address == '' ? : ', ') . $address1;
+						$full_address .= ($full_address == '' ? : ', ') . $address2;
+						$statefull = ", " . $postcode . " " . $city . " " . $state . " " . $country;
+						$full_address .= $statefull;
+						
+						
+						$result[0]['event_description'] = str_ireplace('{{registered-name}}', $name, $result[0]['event_description']);
+						$result[0]['event_description'] = str_ireplace('{{registered-email}}', $email, $result[0]['event_description']);
+						$result[0]['event_description'] = str_ireplace('{{registered-mobileno}}', $mobile, $result[0]['event_description']);
+						$result[0]['event_description'] = str_ireplace('{{registered-address}}', $full_address, $result[0]['event_description']);
+						$result[0]['event_description'] = str_ireplace('{{registered-locationredeem}}', $locationredeem, $result[0]['event_description']);
+						$result[0]['event_description'] = str_ireplace('{{subscriberid}}', $subscriber_id, $result[0]['event_description']);
+						
+					}
+					else
+					{
+						// $sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = 141 LIMIT 1"; # page that handle result survey question
+						// $querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
+						// $event_slug  = $querySlug[0]['event_slug'];
+						// $redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug . "?id=" . $encryptedID;
+						// echo "<script type='text/javascript'>alert('An error to retrieve your info. You will redirect to redemptionform');</script>";
+						// echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
+						// exit;
+					}
+				}
+				else
+				{
+					// $sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = 141 LIMIT 1"; # page that handle result survey question
+					// $querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
+					// $event_slug  = $querySlug[0]['event_slug'];
+					// $redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug . "?id=" . $encryptedID;
+					// echo "<script type='text/javascript'>alert('An error to retrieve your info. You will redirect to redemptionform');</script>";
+					// echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
+					// exit;
+				}
+				
+			
+			}
+		}
+		if($event_id == 145){
+			# 145 - mom to be surprise box
+			$arr_listmilk = array(
+				"a2 Nutrition for Mothers",
+				"Anmum Lacta",
+				"Anmum Materna",
+				"Aptamom",
+				"Bellamy’s Organic Pregnancy Formula",
+				"Dumex Mamil® Mama",
+				"Enfamama A+",
+				"Fresh Goat Milk",
+				"Fresh Milk",
+				"Frisomum Gold",
+				"MOMMA Evermom Non-GMO Soy",
+				"MOMMA Pregolact",
+				"Natrel Milk",
+				"NatureOne Dairy Pregnancy Formula",
+				"Nestlé MOM",
+				"Similac Mom",
+				"Snow Maternity",
+				"Susu Efferty Ikhtiar Hamil",
+				"WILDAN Mama Premium",
+				"Wyeth Promama",
+			);
+			sort($arr_listmilk);
+			$arr_listmilk[] = "Others";
+			$arr_listmilk[] = "Not consuming any milk";
+			
+			$htmlOptlistMilk = "";
+			foreach($arr_listmilk as $valKMilk)
+			{
+				$htmlOptlistMilk .= '<option value="' . $valKMilk . '">' . $valKMilk . "</option>";
+			}
+			
+			$result[0]['event_description'] = str_ireplace('{{option-listmilk}}', $htmlOptlistMilk, $result[0]['event_description']);
+
+			if($this->context->customer->email != '' && $this->context->customer->id > 0)
+			{	
+				$result[0]['event_description'] = str_ireplace('{{predefine-email}}', $this->context->customer->email, $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{predefine-user}}', $this->context->customer->id, $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{row-password-display}}', "none", $result[0]['event_description']);
+			}
+			else
+			{
+				$result[0]['event_description'] = str_ireplace('{{predefine-email}}', "", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{predefine-user}}', "", $result[0]['event_description']);
+				$result[0]['event_description'] = str_ireplace('{{row-password-display}}', "", $result[0]['event_description']);
+			}
+		}
+		
+		
+		if($event_id == 700){ 
+			
+			$context = new Context();
+			$arremail = array(
+				
+			);
+			
+			if(sizeof($arremail) > 0)
+			{
+				foreach($arremail as $vemail)
+				{
+					$password = trim('');
+					$public_key = _SSO_PUBLIC_KEY_;
+					$nonce =  Tools::generateRandomNonce();
+					$signature =  Tools::generateSignature($nonce);
+
+				// ********** create sso user ********************
+
+					$email2 = $vemail;
+					$post_data = array(
+								'email' => $email2,
+								'password' => $password,
+								'public_key' => $public_key,
+								'nonce' =>  $nonce,
+								'signature' => $signature
+						);
+					$post_result = Tools::post_data(_SSO_API_LOGIN_ACCOUNT_, $post_data);
+					$post_result = json_decode($post_result, true);
+					
+					echo "<pre>";
+					print_r($post_result);
+					echo "</pre>";
+					
+					if(isset($post_result['succeeded']) && $post_result['succeeded'])
+					{
+						$sql='SELECT id_customer FROM ps_customer WHERE email="'. $email2 .'" LIMIT 1';
+						$resultCustomer = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+						
+						$customer = new Customer($resultCustomer[0]['id_customer']);
+						# ===== code to auto sign in ====
+						$context							 = $this->context;
+						$context->cookie->id_compare  		 = isset($context->cookie->id_compare) ? $context->cookie->id_compare: CompareProduct::getIdCompareByIdCustomer($customer->id);
+						$context->cookie->id_customer 		 = (int)($customer->id);
+						$context->cookie->customer_lastname  = $customer->lastname;
+						$context->cookie->customer_firstname = $customer->firstname;
+						$context->cookie->logged 			 = 1;
+						$customer->logged 					 = 1;
+						$context->cookie->is_guest 			 = $customer->isGuest();
+						$context->cookie->passwd 			 = $customer->passwd;
+						$context->cookie->email 			 = $customer->email;
+						$context->customer 					 = $customer;	#Add customer to the context
+					
+						echo "<pre>";
+						print_r(Configuration::get('PS_CART_FOLLOWING'));
+						echo "</pre>";
+						var_dump(Configuration::get('PS_CART_FOLLOWING'));
+						echo "id cart :" . $context->cookie->id_cart . " is empty : " . empty($context->cookie->id_cart) . "NBproducts : " . Cart::getNbProducts($context->cookie->id_cart);
+						echo "<br>";
+						echo "lasttnoneorder" . $id_cart = (int)Cart::lastNoneOrderedCart($context->customer->id);
+						echo "id cart : " . $id_cart;
+						echo "<br>";
+						
+						$context->cart = new Cart($id_cart);
+						$context->cart->id_customer = (int)$context->customer->id;
+						$context->cart->secure_key  = $context->customer->id->secure_key;
+						
+						if($context->cart->id > 0)
+						{
+							$context->cookie->id_cart   = $context->cart->id; # need to save this in cookies so system can get cart id and display item in the cart.
+							$isClaimed = false;
+							#to check if customer has claimed before this, 
+							# limit 1 because we only need to get one data as indicator this customer has claimed
+							$sqlOrdered    = "SELECT COUNT(a.id_order) as totalorder FROM ps_orders a 
+												LEFT JOIN ps_order_detail b ON a.id_order = b.id_order
+												WHERE b.product_id = 46857 AND id_customer = " . trim($context->customer->id) . " LIMIT 1";
+							$resultOrdered = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlOrdered);
+							$totalOrdered  = $resultOrdered[0]['totalorder'];
+							
+							echo "Email : " . $email . "<br>";
+							echo "customerid : " . $context->customer->id . "<br>";
+							echo "id_cart : " . $id_cart . "<br>";
+							
+							if($totalOrdered == 0)
+							{
+								#to check item ID already exist or not in the cart
+								$sqlCheck 	 = "SELECT COUNT(id_cart) as total FROM `ps_cart_product` WHERE `id_product` = 46857 AND `id_cart` = " . trim($context->cart->id) . " LIMIT 1";
+								$resultCheck = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlCheck);
+								$total 		 = $resultCheck[0]['total'];
+								echo $sqlCheck . "----- total : " .  $total . " <br>";
+								
+								if($total == 0) # item not exist in this cart id, we add
+								{
+									$context->cart->updateQty(1,46857);# item id newmom essential nestle
+									echo "NEW item add in for Email : " . $email . " Customer ID :" . $context->customer->id . " CART id : " . $context->cart->id  . " <br>";
+								}
+								
+							}
+							else
+							{
+								echo "EXIST item for Email : " . $email . " Customer ID :" . $context->customer->id . " CART id : " . $context->cart->id  . " - claim <br>";
+								$isClaimed = true;
+							}
+						} 
+					}
+					else
+					{
+						echo "this email we cannot access using auto sign in : " . $email2 . "<br>";
+					}
+				}
+			}
+			exit("tech edit");
+		}
 		
 		$result[0]['event_description'] = str_ireplace('/s3.amazonaws.com/motherhood.com.my/',"/cdn.motherhood.com.my/",$result[0]['event_description']);
 		
@@ -1215,7 +1975,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 		
 		require_once($_SERVER['DOCUMENT_ROOT'].'/modules/enlineasectionslider/enlineasectionslider.php');
 		$enlineasectionslider = new enlineasectionslider();
-		
+
         $sql = '
 			SELECT event_mini_banner, event_slug, event_title
 			FROM
@@ -1224,11 +1984,13 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 			AND NOT event_slug = "'.$except_slug.'"
 			LIMIT 4';
         $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
-		
+		//Get Utm source and put into hidden field 
+		$utm_source = $_REQUEST['utm_source'];
         $this->context->smarty->assign(array(
             'event_minibanner' => $result,
 			'has_ended'=>$has_ended,
             'displayProductListFooter' => Hook::exec('displayProductListFooter',array("displayPage"=>"category","id"=>"2")),
+			'utmsource'=>$utm_source,
         ));
 		
 		$this->setTemplate('enlineaevents.tpl');
@@ -1292,6 +2054,12 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 			$event_submit_msg=$result[0]['event_submit_msg'];
 			$event_email_subject=$result[0]['event_email_subject'];
 			
+			// $utmsource = $_REQUEST['utm_source'];
+			$utmsource = pSQL(Tools::getValue('utmsource'));
+			// if($utmsource == 'InvolveAsia'){
+			// 	print_r('InvolveAsia');
+			// 	return;
+			// }
 			
 			/* friso says no need validation anymore
 			if ($event_id==101){
@@ -1517,6 +2285,11 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 				$subscriber_question28= pSQL(Tools::getValue('subscriber_question28'));
 				$subscriber_question29= pSQL(Tools::getValue('subscriber_question29'));
 				$subscriber_question30= pSQL(Tools::getValue('subscriber_question30'));
+				$subscriber_question31= pSQL(Tools::getValue('subscriber_question31'));
+				$subscriber_question32= pSQL(Tools::getValue('subscriber_question32'));
+				$subscriber_question33= pSQL(Tools::getValue('subscriber_question33'));
+				$subscriber_question34= pSQL(Tools::getValue('subscriber_question34'));
+				$subscriber_question35= pSQL(Tools::getValue('subscriber_question35'));
 					
 				$newEmail=pSQL(strtolower(Tools::getValue('newEmail')));
 				$newFirstName=pSQL(Tools::getValue('newFirstName'));
@@ -1552,9 +2325,14 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 				* 97- #apta moms with kids
 				* 102, 106- ##newmom-essential-nestle
 				* 104- #mamypoko
+				* 105- #aptamom pregnant
+				* 107- #dugro sample asli
+				* 141- #newmom gift walk in hospital
+				* 143- #superkids offline
+				* 145- #newmom mystery box
 				**/
 				
-				if(in_array($event_id, array(97, 102,104,106,))){
+				if(in_array($event_id, array(97, 102,104,105,106, 107, 141,143, 145))){
 					if($subscriber_question1 != '')
 					{
 						$firstDigit = (int)$subscriber_question1[0];
@@ -1583,61 +2361,80 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 						} 
 					}
 				}
-				
-				
-				
-				$sql = '
-					INSERT INTO
-					`'._DB_PREFIX_.'events_subscriber` (subscriber_customer_id, subscriber_event_id, subscriber_question1,
-					subscriber_question2,subscriber_question3,subscriber_question4,subscriber_question5,subscriber_question6,subscriber_question7,subscriber_question8
-					,subscriber_question9,subscriber_question10,subscriber_question11,subscriber_question12,subscriber_question13,subscriber_question14,subscriber_question15,subscriber_question16
-					,subscriber_question17,subscriber_question18,subscriber_question19,subscriber_question20
-					,subscriber_question21,subscriber_question22,subscriber_question23,subscriber_question24,subscriber_question25
-					,subscriber_question26,subscriber_question27,subscriber_question28,subscriber_question29,subscriber_question30
-					,subscriber_created_at,subscriber_updated_at,newEmail,newFirstName,newLastName
-					)  VALUES(
-					'.$customer_id.',
-					'.$event_id.',
-					"'.$subscriber_question1.'",
-					"'.$subscriber_question2.'",
-					"'.$subscriber_question3.'",
-					"'.$subscriber_question4.'",
-					"'.$subscriber_question5.'",
-					"'.$subscriber_question6.'",
-					"'.$subscriber_question7.'",
-					"'.$subscriber_question8.'",
-					"'.$subscriber_question9.'",
-					"'.$subscriber_question10.'",
-					"'.$subscriber_question11.'",
-					"'.$subscriber_question12.'",
-					"'.$subscriber_question13.'",
-					"'.$subscriber_question14.'",
-					"'.$subscriber_question15.'",
-					"'.$subscriber_question16.'",
-					"'.$subscriber_question17.'",
-					"'.$subscriber_question18.'",
-					"'.$subscriber_question19.'",
-					"'.$subscriber_question20.'",
-					"'.$subscriber_question21.'",
-					"'.$subscriber_question22.'",
-					"'.$subscriber_question23.'",
-					"'.$subscriber_question24.'",
-					"'.$subscriber_question25.'",
-					"'.$subscriber_question26.'",
-					"'.$subscriber_question27.'",
-					"'.$subscriber_question28.'",
-					"'.$subscriber_question29.'",
-					"'.$subscriber_question30.'",
-					current_timestamp,
-					current_timestamp,
-					"'.$newEmail.'",
-					"'.$newFirstName.'",
-					"'.$newLastName.'"
-					
-					);';
-				Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
-				$lastInsertid = (int)Db::getInstance()->Insert_ID();
-				$encryptedID  = trim(base64_encode($lastInsertid), '=.');
+
+				#to handle edd page separate from newmom form, so its legacy page before this -  haiqal - 10/9/2021
+				if($event_id == 98 && $subscriber_question30 > 0)
+				{
+					$sql_update = "UPDATE motherhood_presta.ps_events_subscriber
+									SET subscriber_question18 = '" . $subscriber_question18 . "', subscriber_question19= '" . $subscriber_question19 . "', subscriber_question20 = '" . $subscriber_question2 . "'
+									WHERE subscriber_id =" . $subscriber_question30 . " AND subscriber_event_id = 100 LIMIT 1" ;
+					Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql_update);
+					$lastInsertid = $subscriber_question30;
+					$encryptedID  = trim(base64_encode($lastInsertid), '=.');
+					$encryptEventId_subid = trim(base64_encode($event_id . "###" . $lastInsertid), "=.");
+				}
+				else
+				{
+					$sql = '
+						INSERT INTO
+						`'._DB_PREFIX_.'events_subscriber` (subscriber_customer_id, subscriber_event_id, subscriber_question1,
+						subscriber_question2,subscriber_question3,subscriber_question4,subscriber_question5,subscriber_question6,subscriber_question7,subscriber_question8
+						,subscriber_question9,subscriber_question10,subscriber_question11,subscriber_question12,subscriber_question13,subscriber_question14,subscriber_question15,subscriber_question16
+						,subscriber_question17,subscriber_question18,subscriber_question19,subscriber_question20
+						,subscriber_question21,subscriber_question22,subscriber_question23,subscriber_question24,subscriber_question25
+						,subscriber_question26,subscriber_question27,subscriber_question28,subscriber_question29,subscriber_question30
+						,subscriber_question31,subscriber_question32,subscriber_question33,subscriber_question34,subscriber_question35
+						,subscriber_created_at,subscriber_updated_at,newEmail,newFirstName,newLastName
+						)  VALUES(
+						'.$customer_id.',
+						'.$event_id.',
+						"'.$subscriber_question1.'",
+						"'.$subscriber_question2.'",
+						"'.$subscriber_question3.'",
+						"'.$subscriber_question4.'",
+						"'.$subscriber_question5.'",
+						"'.$subscriber_question6.'",
+						"'.$subscriber_question7.'",
+						"'.$subscriber_question8.'",
+						"'.$subscriber_question9.'",
+						"'.$subscriber_question10.'",
+						"'.$subscriber_question11.'",
+						"'.$subscriber_question12.'",
+						"'.$subscriber_question13.'",
+						"'.$subscriber_question14.'",
+						"'.$subscriber_question15.'",
+						"'.$subscriber_question16.'",
+						"'.$subscriber_question17.'",
+						"'.$subscriber_question18.'",
+						"'.$subscriber_question19.'",
+						"'.$subscriber_question20.'",
+						"'.$subscriber_question21.'",
+						"'.$subscriber_question22.'",
+						"'.$subscriber_question23.'",
+						"'.$subscriber_question24.'",
+						"'.$subscriber_question25.'",
+						"'.$subscriber_question26.'",
+						"'.$subscriber_question27.'",
+						"'.$subscriber_question28.'",
+						"'.$subscriber_question29.'",
+						"'.$subscriber_question30.'",
+						"'.$subscriber_question31.'",
+						"'.$subscriber_question32.'",
+						"'.$subscriber_question33.'",
+						"'.$subscriber_question34.'",
+						"'.$subscriber_question35.'",
+						current_timestamp,
+						current_timestamp,
+						"'.$newEmail.'",
+						"'.$newFirstName.'",
+						"'.$newLastName.'"
+						
+						);';
+					Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+					$lastInsertid = (int)Db::getInstance()->Insert_ID();
+					$encryptedID  = trim(base64_encode($lastInsertid), '=.');
+					$encryptEventId_subid = trim(base64_encode($event_id . "###" . $lastInsertid), "=.");
+				}
 			
 			if($event_email_template){
 				
@@ -1790,22 +2587,15 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 				echo "<script type='text/javascript'>window.location.href=' https://www.biotherm.com.my/whats-new/life-plankton-clear-essence/'</script>";
 			}
 
-			if($event_id == 134){
-				// <option value="24apr2021"></option>
-				// <option value="24july2021">(Free) July 24, 2021- Myths and Facts On Delivery And What To Expect in 2021</option>
-				// <option value="23oct2021"></option>
-				if($subscriber_question7 == '24apr2021'){
-					$topic = '(Free) June 05, 2021 - Vaccination for Pregnant Women';
-				}else if($subscriber_question7 == '24july2021'){
-					$topic = '(Free) July 24, 2021- Myths and Facts On Delivery And What To Expect in 2021';
-				}else if($subscriber_question7 == '23oct2021'){
-					$topic = '(Free) October 23, 2021- Important Tips To Know When Going Through Delivery';
+			if($event_id == 134 || $event_id == 225 || $event_id == 227){
+				$topic = $subscriber_question5;
+				if($event_id = 227){
+					$topic = $subscriber_question7;
 				}
 				$firstname = $subscriber_question2;
-				// $topic = $subscriber_question7;
 				$email = $subscriber_question4;
 			 	echo "<script type='text/javascript'>alert('".$event_submit_msg."');</script>";
-				$this->sendZoomLiveClassDate($firstname,$email, $topic);
+				$this->sendZoomLiveClassDate($firstname,$email, $topic, $event_id);
 				echo "<script type='text/javascript'>window.location.href='https://www.motherhood.com.my/campaign-nurengroup/education/baby-learning/baby-enrichment-classes/parentcraft-class-online.html'</script>";
 			}
 
@@ -2564,6 +3354,14 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 							//Generate ParentCraft 50% voucher End
 							$this->context->smarty->assign("newmomsuccess","2");
 
+							//Involve Asia
+							// $utm_source = $_REQUEST['utm_source'];
+							if($utmsource == 'InvolveAsia'){
+								$affiliateCookie = new Cookie("aff_utmSource");
+								$affiliateCookie->lead_id = $lastInsertid;
+								$this->context->cookie->write();
+							}
+
 							$this->sendParentCraftEmail($lastname,$firstname,$email,$pccode, $pcexdate);
 
 							/* Send New mom parent RM20 by email */	
@@ -2619,7 +3417,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 							//	$id_lang = Language::getIdByIso('en');
 							//	return Mail::Send(1, $template, $subject, $data, $mail, $name, Configuration::get('PS_SHOP_EMAIL'), Configuration::get('PS_SHOP_NAME'), NULL, NULL, dirname(__FILE__).'/mails/', NULL);
 							//}
-							
+						
 							
 								echo "<script type='text/javascript'>
 								alert('Congratulations. You are awarded RM20 voucher and please continue to redeem your Mom to be Free Gift');
@@ -2958,57 +3756,127 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 							echo "<script type='text/javascript'>window.location='/quick-order';</script>";
 							exit;
 						}
+						elseif($event_id==106)#promama --> if email not exist in motherhood database-->system create info on sso-->autologin
+						{
+							$sql='SELECT id_customer FROM ps_customer WHERE email="'.$newEmail.'" LIMIT 1';
+							$resultCustomer = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+							if ($newEmail && $resultCustomer[0]['id_customer']){
+								
+								$hasAddress=false;
+								if ($resultCustomer[0]['id_customer']){
+									$sql='
+										SELECT id_address FROM ps_address
+										WHERE id_customer="'.$resultCustomer[0]['id_customer'].'"
+									';
+									$resultAddress = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+									if ($resultAddress[0]){
+										$hasAddress = true;
+									}
+								}
+								
+								#if does not have address in our database then we create
+								if (!$hasAddress){
+									$address  = new Address();
+									$id_state = 0;
+									switch(Tools::getValue('subscriber_question7')){
+										case 'Kuala Lumpur':$id_state=313;break;
+										case 'Labuan':$id_state=314;break;
+										case 'Putrajaya':$id_state=315;break;
+										case 'Johor':$id_state=316;break;
+										case 'Kedah':$id_state=317;break;
+										case 'Kelantan':$id_state=318;break;
+										case 'Melaka':$id_state=319;break;
+										case 'Negeri Sembilan':$id_state=320;break;
+										case 'Pahang':$id_state=321;break;
+										case 'Perak':$id_state=322;break;
+										case 'Perlis':$id_state=323;break;
+										case 'Pulau Pinang':$id_state=324;break;
+										case 'Sabah':$id_state=325;break;
+										case 'Sarawak':$id_state=326;break;
+										case 'Selangor':$id_state=327;break;
+										case 'Terengganu':$id_state=328;break;
+										case 'Langkawi':$id_state=329;break;
+									}
+									
+									
+									$address->id_country  = 136;
+									$address->id_state    = $id_state;;
+									$address->postcode    = trim(Tools::getValue('subscriber_question4'));
+									$address->phone		  = trim(Tools::getValue('subscriber_question1'));
+									$address->alias		  = "home";
+									$address->firstname	  = trim(Tools::getValue('newFirstName'));
+									$address->lastname    = trim(Tools::getValue('newLastName'));
+									$address->id_customer = $resultCustomer[0]['id_customer'];
+									$address->address1	  = trim(Tools::getValue('subscriber_question3'));
+									$address->address2    = "";
+									$address->city		  = trim(Tools::getValue('subscriber_question5'));
+									
+									$address->save();
+								}
+								
+								// Add customer to the context
+								$context->customer = $customer;
+								
+								#cart logic
+								if (Configuration::get('PS_CART_FOLLOWING') && (empty($context->cookie->id_cart) || Cart::getNbProducts($context->cookie->id_cart) == 0) && $id_cart = (int)Cart::lastNoneOrderedCart($context->customer->id))
+									$context->cart = new Cart($id_cart);
+								else
+								{
+									$id_carrier = (int)$context->cart->id_carrier;
+									$context->cart->id_carrier = 0;
+									$context->cart->setDeliveryOption(null);
+									$context->cart->id_address_delivery = (int)Address::getFirstCustomerAddressId((int)($customer->id));
+									$context->cart->id_address_invoice = (int)Address::getFirstCustomerAddressId((int)($customer->id));
+								}
+									
+								$context->cart->id_customer = (int)$customer->id;
+								$context->cart->secure_key = $customer->secure_key;
+								
+								if($context->cart->id > 0)
+								{
+									$isClaimed = false;
+									#to check if customer has claimed before this, 
+									# limit 1 because we only need to get one data as indicator this customer has claimed
+									$sqlOrdered    = "SELECT COUNT(a.id_order) as totalorder FROM ps_orders a 
+														LEFT JOIN ps_order_detail b ON a.id_order = b.id_order
+														WHERE b.product_id = 46857 AND id_customer = " . trim($customer->id) . " LIMIT 1";
+									$resultOrdered = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlOrdered);
+									$totalOrdered  = $resultOrdered[0]['totalorder'];
+									
+									if($totalOrdered == 0)
+									{
+										#to check item ID already exist or not in the cart
+										$sqlCheck 	 = "SELECT COUNT(id_cart) as total FROM `ps_cart_product` WHERE `id_product` = 46857 AND `id_cart` = " . trim($context->cart->id) . " LIMIT 1";
+										$resultCheck = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlCheck);
+										$total 		 = $resultCheck[0]['total'];
+										
+										if($total == 0) # item not exist in this cart id, we add
+										{
+											$context->cart->updateQty(1,46857);# item id newmom essential nestle
+										}
+									}
+									else
+									{
+										$isClaimed = true;
+									}
+								}
+							}
+							
+							echo "<script type='text/javascript'>alert('Thank you for your submission, your PROMAMA® Sample Pack is now in the shopping cart.');</script>";
+							echo "<script type='text/javascript'>window.location='/quick-order';</script>";
+							exit;
+						}
 						elseif($event_id == 95)#clear blue survey page submit process
 						{
-							$code = NULL;
-							do $code = 'CBLUESV'.Tools::passwdGen(6);
-							while (CartRule::cartRuleExists($code));
-							/* Voucher creation and affectation to the customer */
-
-							$cartRule = new CartRule();
-							$cartRule->id_customer = $this->context->customer->id;
-							$cartRule->date_from = '2021-06-01 00:00:00';
-							$cartRule->date_to = '2021-08-31 23:59:59';
-							$cartRule->description = "Clearblue - Survey Reward Voucher (RM5 no min spend)";
-							$cartRule->quantity = 1;
-							$cartRule->quantity_per_user = 1;
-							$cartRule->priority = 1;
-							$cartRule->highlight = 0;
-							$cartRule->partial_use = 0;
-							$cartRule->code = $code;
-							$cartRule->active = 1;
-							$cartRule->reduction_amount = 5;
-							$cartRule->reduction_product = 0;
-							$cartRule->reduction_tax = 1;
-							$cartRule->reduction_currency = 1;
-							$cartRule->minimum_amount = 0;
-							$cartRule->minimum_amount_tax = 1;
-							$cartRule->minimum_amount_currency = 1;
-							$cartRule->minimum_amount_shipping = 0;
-							$cartRule->cart_rule_restriction = 0;
-							$cartRule->product_restriction = 0;
-							$cartRule->is_seller_create = 0;
-							$cartRule->is_seller_discount = 0;
-							$languages = Language::getLanguages(true);
-							foreach ($languages AS $language)
-							{
-								$cartRule->name[(int)($language['id_lang'])] = "Clearblue - Survey Reward Voucher (RM5 no min spend)";
-							}
-							$cartRule->add();	
-							
-							$sql = 'DELETE FROM ps_cart_rule_product_rule_group WHERE id_cart_rule = '.$cartRule->id;
-							Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
-							
-							
 							$sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = 96 LIMIT 1"; # page that handle result survey question
 							$querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
 							$event_slug  = $querySlug[0]['event_slug'];
 							$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug . "?id=" . $encryptedID;
-							echo "<script type='text/javascript'>alert('Thank You for your participation!');</script>";
+							echo "<script type='text/javascript'>alert('Thank you for your participation and we hope you know that you are not alone in this conceiving journey. We will send an email with the voucher code of RM5 latest by 31st July.');</script>";
 							echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
 							exit;
 						}
-						elseif($event_id==97)#apta moms with kids --> if email not exist in motherhood database-->system create info on sso-->autologin
+						elseif($event_id==97 || $event_id==105)#apta moms with kids/apta moms pregnant --> if email not exist in motherhood database-->system create info on sso-->autologin
 						{
 							$sql='SELECT id_customer FROM ps_customer WHERE email="'.$newEmail.'" LIMIT 1';
 							$resultCustomer = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
@@ -3067,8 +3935,316 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 								}
 							}
 							
-							echo "<script type='text/javascript'>alert('Thank you for your submission,');</script>";
+							echo "<script type='text/javascript'>alert('Thank you for signing up to AptaAdvantage Club! Your submission is successful. Your perks will be sent to you within the coming weeks via email.');</script>";
 							echo "<script type='text/javascript'>window.location='';</script>";
+							exit;
+						}
+						elseif($event_id==107)#dugro sample asli --> if email not exist in motherhood database-->system create info on sso-->autologin
+						{
+							$sql='SELECT id_customer FROM ps_customer WHERE email="'.$newEmail.'" LIMIT 1';
+							$resultCustomer = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+							if ($newEmail && $resultCustomer[0]['id_customer']){
+								
+								$hasAddress=false;
+								if ($resultCustomer[0]['id_customer']){
+									$sql='
+										SELECT id_address FROM ps_address
+										WHERE id_customer="'.$resultCustomer[0]['id_customer'].'"
+									';
+									$resultAddress = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+									if ($resultAddress[0]){
+										$hasAddress = true;
+									}
+								}
+								
+								#if does not have address in our database then we create
+								if (!$hasAddress){
+									$address  = new Address();
+									$id_state = 0;
+									switch(Tools::getValue('subscriber_question7')){
+										case 'Kuala Lumpur':$id_state=313;break;
+										case 'Labuan':$id_state=314;break;
+										case 'Putrajaya':$id_state=315;break;
+										case 'Johor':$id_state=316;break;
+										case 'Kedah':$id_state=317;break;
+										case 'Kelantan':$id_state=318;break;
+										case 'Melaka':$id_state=319;break;
+										case 'Negeri Sembilan':$id_state=320;break;
+										case 'Pahang':$id_state=321;break;
+										case 'Perak':$id_state=322;break;
+										case 'Perlis':$id_state=323;break;
+										case 'Pulau Pinang':$id_state=324;break;
+										case 'Sabah':$id_state=325;break;
+										case 'Sarawak':$id_state=326;break;
+										case 'Selangor':$id_state=327;break;
+										case 'Terengganu':$id_state=328;break;
+										case 'Langkawi':$id_state=329;break;
+									}
+									
+									
+									$address->id_country  = 136; #malaysia
+									$address->id_state    = $id_state;;
+									$address->postcode    = trim(Tools::getValue('subscriber_question4'));
+									$address->phone		  = trim(Tools::getValue('subscriber_question1'));
+									$address->alias		  = "home";
+									$address->firstname	  = trim(Tools::getValue('newFirstName'));
+									$address->lastname    = trim(Tools::getValue('newLastName'));
+									$address->id_customer = $resultCustomer[0]['id_customer'];
+									$address->address1	  = trim(Tools::getValue('subscriber_question3'));
+									$address->address2    = trim(Tools::getValue('subscriber_question11'));
+									$address->city		  = trim(Tools::getValue('subscriber_question5'));
+									
+									$address->save();
+								}
+							}
+							
+							echo "<script type='text/javascript'>alert('Tahniah! Permohonan anda telah diterima.');</script>";
+							echo "<script type='text/javascript'>window.location='';</script>";
+							exit;
+						}
+						elseif($event_id==141)#newmom welcome gift --> if email not exist in motherhood database-->system create info on sso-->autologin
+						{
+							$sql='SELECT id_customer FROM ps_customer WHERE email="'.$newEmail.'" LIMIT 1';
+							$resultCustomer = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+							if ($newEmail && $resultCustomer[0]['id_customer']){
+								
+								$hasAddress=false;
+								if ($resultCustomer[0]['id_customer']){
+									$sql='
+										SELECT id_address FROM ps_address
+										WHERE id_customer="'.$resultCustomer[0]['id_customer'].'"
+									';
+									$resultAddress = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+									if ($resultAddress[0]){
+										$hasAddress = true;
+									}
+								}
+								
+								#if does not have address in our database then we create
+								if (!$hasAddress){
+									$address  = new Address();
+									$id_state = 0;
+									switch(Tools::getValue('subscriber_question7')){
+										case 'Kuala Lumpur':$id_state=313;break;
+										case 'Labuan':$id_state=314;break;
+										case 'Putrajaya':$id_state=315;break;
+										case 'Johor':$id_state=316;break;
+										case 'Kedah':$id_state=317;break;
+										case 'Kelantan':$id_state=318;break;
+										case 'Melaka':$id_state=319;break;
+										case 'Negeri Sembilan':$id_state=320;break;
+										case 'Pahang':$id_state=321;break;
+										case 'Perak':$id_state=322;break;
+										case 'Perlis':$id_state=323;break;
+										case 'Pulau Pinang':$id_state=324;break;
+										case 'Sabah':$id_state=325;break;
+										case 'Sarawak':$id_state=326;break;
+										case 'Selangor':$id_state=327;break;
+										case 'Terengganu':$id_state=328;break;
+										case 'Langkawi':$id_state=329;break;
+									}
+									
+									
+									$address->id_country  = 136; #malaysia
+									$address->id_state    = $id_state;;
+									$address->postcode    = trim(Tools::getValue('subscriber_question4'));
+									$address->phone		  = trim(Tools::getValue('subscriber_question1'));
+									$address->alias		  = "home";
+									$address->firstname	  = trim(Tools::getValue('newFirstName'));
+									$address->lastname    = trim(Tools::getValue('newLastName'));
+									$address->id_customer = $resultCustomer[0]['id_customer'];
+									$address->address1	  = trim(Tools::getValue('subscriber_question3'));
+									$address->address2    = trim(Tools::getValue('subscriber_question8'));
+									$address->city		  = trim(Tools::getValue('subscriber_question5'));
+									
+									$address->save();
+								}
+							}
+							
+							$sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = 142 LIMIT 1"; # page that handle result survey question
+							$querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
+							$event_slug  = $querySlug[0]['event_slug'];
+							$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug . "?id=" . $encryptEventId_subid;
+							echo "<script type='text/javascript'>alert('Thank you for signing up! Your submission is successful. You will be redirect to the redemption page');</script>";
+							echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
+							
+							exit;
+						}
+						elseif($event_id==143)#superkids walk --> if email not exist in motherhood database-->system create info on sso-->autologin
+						{
+							$sql='SELECT id_customer FROM ps_customer WHERE email="'.$newEmail.'" LIMIT 1';
+							$resultCustomer = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+							if ($newEmail && $resultCustomer[0]['id_customer']){
+								
+								$hasAddress=false;
+								if ($resultCustomer[0]['id_customer']){
+									$sql='
+										SELECT id_address FROM ps_address
+										WHERE id_customer="'.$resultCustomer[0]['id_customer'].'"
+									';
+									$resultAddress = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+									if ($resultAddress[0]){
+										$hasAddress = true;
+									}
+								}
+								
+								#if does not have address in our database then we create
+								if (!$hasAddress){
+									$address  = new Address();
+									$id_state = 0;
+									switch(Tools::getValue('subscriber_question9')){
+										case 'Kuala Lumpur':$id_state=313;break;
+										case 'Labuan':$id_state=314;break;
+										case 'Putrajaya':$id_state=315;break;
+										case 'Johor':$id_state=316;break;
+										case 'Kedah':$id_state=317;break;
+										case 'Kelantan':$id_state=318;break;
+										case 'Melaka':$id_state=319;break;
+										case 'Negeri Sembilan':$id_state=320;break;
+										case 'Pahang':$id_state=321;break;
+										case 'Perak':$id_state=322;break;
+										case 'Perlis':$id_state=323;break;
+										case 'Pulau Pinang':$id_state=324;break;
+										case 'Sabah':$id_state=325;break;
+										case 'Sarawak':$id_state=326;break;
+										case 'Selangor':$id_state=327;break;
+										case 'Terengganu':$id_state=328;break;
+										case 'Langkawi':$id_state=329;break;
+									}
+									
+									
+									$address->id_country  = 136; #malaysia
+									$address->id_state    = $id_state;;
+									$address->postcode    = trim(Tools::getValue('subscriber_question7'));
+									$address->phone		  = trim(Tools::getValue('subscriber_question1'));
+									$address->alias		  = "home";
+									$address->firstname	  = trim(Tools::getValue('newFirstName'));
+									$address->lastname    = trim(Tools::getValue('newLastName'));
+									$address->id_customer = $resultCustomer[0]['id_customer'];
+									$address->address1	  = trim(Tools::getValue('subscriber_question4'));
+									$address->address2    = trim(Tools::getValue('subscriber_question5'));
+									$address->city		  = trim(Tools::getValue('subscriber_question8'));
+									
+									$address->save();
+								}
+							}
+							
+							$sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = 144 LIMIT 1"; # page that handle result survey question
+							$querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
+							$event_slug  = $querySlug[0]['event_slug'];
+							$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug . "?id=" . $encryptEventId_subid;
+							echo "<script type='text/javascript'>alert('Thank you for signing up! Your submission is successful. You will be redirect to the redemption page');</script>";
+							echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
+							
+							exit;
+						}
+						elseif($event_id==145)#Mystery Mom-To-Be Care Kit --> if email not exist in motherhood database-->system create info on sso-->autologin
+						{
+							$sql='SELECT id_customer FROM ps_customer WHERE email="'.$newEmail.'" LIMIT 1';
+							$resultCustomer = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+							if ($newEmail && $resultCustomer[0]['id_customer']){
+								
+								$hasAddress=false;
+								if ($resultCustomer[0]['id_customer']){
+									$sql='
+										SELECT id_address FROM ps_address
+										WHERE id_customer="'.$resultCustomer[0]['id_customer'].'"
+									';
+									$resultAddress = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+									if ($resultAddress[0]){
+										$hasAddress = true;
+									}
+								}
+								
+								#if does not have address in our database then we create
+								if (!$hasAddress){
+									$address  = new Address();
+									$id_state = 0;
+									switch(Tools::getValue('subscriber_question7')){
+										case 'Kuala Lumpur':$id_state=313;break;
+										case 'Labuan':$id_state=314;break;
+										case 'Putrajaya':$id_state=315;break;
+										case 'Johor':$id_state=316;break;
+										case 'Kedah':$id_state=317;break;
+										case 'Kelantan':$id_state=318;break;
+										case 'Melaka':$id_state=319;break;
+										case 'Negeri Sembilan':$id_state=320;break;
+										case 'Pahang':$id_state=321;break;
+										case 'Perak':$id_state=322;break;
+										case 'Perlis':$id_state=323;break;
+										case 'Pulau Pinang':$id_state=324;break;
+										case 'Sabah':$id_state=325;break;
+										case 'Sarawak':$id_state=326;break;
+										case 'Selangor':$id_state=327;break;
+										case 'Terengganu':$id_state=328;break;
+										case 'Langkawi':$id_state=329;break;
+									}
+									
+									
+									$address->id_country  = 136; #malaysia
+									$address->id_state    = $id_state;;
+									$address->postcode    = trim(Tools::getValue('subscriber_question4'));
+									$address->phone		  = trim(Tools::getValue('subscriber_question1'));
+									$address->alias		  = "home";
+									$address->firstname	  = trim(Tools::getValue('newFirstName'));
+									$address->lastname    = trim(Tools::getValue('newLastName'));
+									$address->id_customer = $resultCustomer[0]['id_customer'];
+									$address->address1	  = trim(Tools::getValue('subscriber_question3'));
+									$address->city		  = trim(Tools::getValue('subscriber_question5'));
+									
+									$address->save();
+								}
+								
+								// Add customer to the context
+								$context->customer = $customer;
+								
+								#cart logic
+								if (Configuration::get('PS_CART_FOLLOWING') && (empty($context->cookie->id_cart) || Cart::getNbProducts($context->cookie->id_cart) == 0) && $id_cart = (int)Cart::lastNoneOrderedCart($context->customer->id))
+									$context->cart = new Cart($id_cart);
+								else
+								{
+									$id_carrier = (int)$context->cart->id_carrier;
+									$context->cart->id_carrier = 0;
+									$context->cart->setDeliveryOption(null);
+									$context->cart->id_address_delivery = (int)Address::getFirstCustomerAddressId((int)($customer->id));
+									$context->cart->id_address_invoice = (int)Address::getFirstCustomerAddressId((int)($customer->id));
+								}
+									
+								$context->cart->id_customer = (int)$customer->id;
+								$context->cart->secure_key = $customer->secure_key;
+								
+								if($context->cart->id > 0)
+								{
+									$isClaimed = false;
+									#to check if customer has claimed before this, 
+									// # limit 1 because we only need to get one data as indicator this customer has claimed
+									$sqlOrdered    = "SELECT COUNT(a.id_order) as totalorder FROM ps_orders a 
+														LEFT JOIN ps_order_detail b ON a.id_order = b.id_order
+														WHERE b.product_id = 48452 AND id_customer = " . trim($customer->id) . " LIMIT 1";
+									$resultOrdered = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlOrdered);
+									$totalOrdered  = $resultOrdered[0]['totalorder'];
+									
+									if($totalOrdered == 0)
+									{
+										#to check item ID already exist or not in the cart
+										$sqlCheck 	 = "SELECT COUNT(id_cart) as total FROM `ps_cart_product` WHERE `id_product` = 48452 AND `id_cart` = " . trim($context->cart->id) . " LIMIT 1";
+										$resultCheck = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlCheck);
+										$total 		 = $resultCheck[0]['total'];
+										
+										if($total == 0) # item not exist in this cart id, we add
+										{
+											$context->cart->updateQty(1,48452);# item id newmom essential nestle
+										}
+									}
+									else
+									{
+										$isClaimed = true;
+									}
+								}
+							}
+							
+							echo "<script type='text/javascript'>alert('Thank you for your submission, your gift is now in the shopping cart.');</script>";
+							echo "<script type='text/javascript'>window.location='/quick-order';</script>";
 							exit;
 						}
 						else{
@@ -3140,10 +4316,11 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 						$this->context->smarty->assign("check","0");
 						$this->context->smarty->assign("showErrors",'Thank You for registering to Motherhood.com.my. Please visit Motherhood.com.my for the latest promotions for your kids!');
 						
-					}else if($event_id==93){
+					}
+					else if($event_id==93){
 						echo"
 						  <script type='text/javascript'>
-							alert('Thank you for registering! Due to FMCO, we will temporarily stop delivering our SuperKid box. We will inform you by email once our product is available again. Stay tuned!');
+							alert('Welcome to Motherhood Super Kids Club! You may proceed to redeem your Superkid activity box now.');
 						  </script>
 						";
 						
@@ -3258,6 +4435,12 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 				}
 				else if($event_id == 100 || $event_id == 212){
 					
+					if($utmsource == 'InvolveAsia'){
+						$affiliateCookie = new Cookie("aff_utmSource");
+						$affiliateCookie->lead_id = $lastInsertid;
+						$this->context->cookie->write();
+					}
+
 					//Check if this is a newmom registration in 2020
 					// event_id LIVE = 100
 					// event_id UAT = 212
@@ -3607,6 +4790,7 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 						//Generate ParentCraft 50% voucher End
 						$this->context->smarty->assign("newmomsuccess","2");
 
+		
 						$this->sendParentCraftEmail($lastname,$firstname,$email,$pccode, $pcexdate);
 
 						/* Send New mom parent RM20 by email */	
@@ -3634,11 +4818,18 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 							$id_lang = Language::getIdByIso('en');
 							return Mail::Send(1, $template, $subject, $data, $mail, $name, Configuration::get('PS_SHOP_EMAIL'), Configuration::get('PS_SHOP_NAME'), NULL, NULL, dirname(__FILE__).'/mails/', NULL);
 						}
-						
-						echo "<script type='text/javascript'>
-						alert('Congratulations. You are awarded RM20 voucher and please continue to redeem your Mom to be Free Gift');
-						window.location='/quick-order';
-						</script>";
+
+						//Involve Asia
+						// $utm_source = $_REQUEST['utm_source'];
+						if($utm_source == 'InvolveAsia'){
+							$affiliateCookie = new Cookie("aff_utmSource");
+							$affiliateCookie->lead_id = $lastInsertid;
+							$this->context->cookie->write();
+						}
+							echo "<script type='text/javascript'>
+							alert('Congratulations. You are awarded RM20 voucher and please continue to redeem your Mom to be Free Gift');
+							window.location='/quick-order';
+							</script>";
 					}
 				}
 				else if( $event_id==93){
@@ -3718,6 +4909,12 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 							$context->cookie->write();
 							// auto sign in code end --------------------------]]
 							
+							echo"
+							<script type='text/javascript'>
+							  alert('Welcome to Motherhood Super Kids Club! You may proceed to redeem your Superkid activity box now.');
+							</script>
+						  ";
+
 							$this->sendSuperkidEmail($last_name,$firstname,$email);
 					}
 					else{
@@ -4008,61 +5205,176 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 					echo "<script type='text/javascript'>window.location='/quick-order';</script>";
 					exit;
 				}
+				elseif($event_id == 106)#promama --> email already exist in motherhood database, then we need to do autologin after user submit details
+				{
+					#if customer already login and signup events
+					if($this->context->customer->email != '' && $this->context->customer->id > 0)
+					{
+						// Add customer to the context
+						$context->customer = $this->context->customer;
+						
+						#cart logic
+						if (Configuration::get('PS_CART_FOLLOWING') && (empty($context->cookie->id_cart) || Cart::getNbProducts($context->cookie->id_cart) == 0) && $id_cart = (int)Cart::lastNoneOrderedCart($context->customer->id)){
+							$context->cart = new Cart($id_cart);
+						}
+						else
+						{
+							$id_carrier = (int)$context->cart->id_carrier;
+							$context->cart->id_carrier = 0;
+							$context->cart->setDeliveryOption(null);
+							$context->cart->id_address_delivery = (int)Address::getFirstCustomerAddressId((int)($customer->id));
+							$context->cart->id_address_invoice = (int)Address::getFirstCustomerAddressId((int)($customer->id));
+						}
+							
+						$context->cart->id_customer = (int)$customer->id;
+						$context->cart->secure_key = $customer->secure_key;
+					
+						if($context->cart->id > 0)
+						{
+							$isClaimed = false;
+							#to check if customer has claimed before this, 
+							# limit 1 because we only need to get one data as indicator this customer has claimed
+							$sqlOrdered    = "SELECT COUNT(a.id_order) as totalorder FROM ps_orders a 
+												LEFT JOIN ps_order_detail b ON a.id_order = b.id_order
+												WHERE b.product_id = 46857 AND id_customer = " . trim($customer->id) . " LIMIT 1";
+							$resultOrdered = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlOrdered);
+							$totalOrdered  = $resultOrdered[0]['totalorder'];
+							
+							if($totalOrdered == 0)
+							{
+								#to check item ID already exist or not in the cart
+								$sqlCheck 	 = "SELECT COUNT(id_cart) as total FROM `ps_cart_product` WHERE `id_product` = 46857 AND `id_cart` = " . trim($context->cart->id) . " LIMIT 1";
+								$resultCheck = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlCheck);
+								$total 		 = $resultCheck[0]['total'];
+								
+								if($total == 0) # item not exist in this cart id, we add
+								{
+									$context->cart->updateQty(1,46857);# item id newmom essential nestle
+								}
+							}
+							else
+							{
+								$isClaimed = true;
+							}
+						}
+					}
+					else
+					{
+						#customer not login but email already exist in db motherhood
+						$password  = trim($newPassword);
+						$firstname = trim($newFirstName);
+						$last_name = trim($newLastName);
+						if($last_name == ""){
+							$last_name = ".";
+						}
+						
+						$public_key = _SSO_PUBLIC_KEY_;
+						$nonce 		=  Tools::generateRandomNonce();
+						$signature  =  Tools::generateSignature($nonce);
+
+					// ********** create sso user ********************
+
+						$post_data = array(
+									'email' => $email,
+									'password' => $password,
+									'public_key' => $public_key,
+									'nonce' =>  $nonce,
+									'signature' => $signature
+							);
+						$post_result = Tools::post_data(_SSO_API_LOGIN_ACCOUNT_, $post_data);
+						$post_result = json_decode($post_result, true);
+						
+						if ($post_result['succeeded']==1){
+							
+							$sql='SELECT id_customer FROM ps_customer WHERE email="'.$email.'" LIMIT 1';
+							$resultCustomer = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+							
+							$customer = new Customer($resultCustomer[0]['id_customer']);
+							
+							# ===== code to auto sign in ====
+							$context							 = $this->context;
+							$context->cookie->id_compare  		 = isset($context->cookie->id_compare) ? $context->cookie->id_compare: CompareProduct::getIdCompareByIdCustomer($customer->id);
+							$context->cookie->id_customer 		 = (int)($customer->id);
+							$context->cookie->customer_lastname  = $customer->lastname;
+							$context->cookie->customer_firstname = $customer->firstname;
+							$context->cookie->logged 			 = 1;
+							$customer->logged 					 = 1;
+							$context->cookie->is_guest 			 = $customer->isGuest();
+							$context->cookie->passwd 			 = $customer->passwd;
+							$context->cookie->email 			 = $customer->email;
+							$context->customer 					 = $customer;	#Add customer to the context
+						
+							#cart logic
+							if (Configuration::get('PS_CART_FOLLOWING') && (empty($context->cookie->id_cart) || Cart::getNbProducts($context->cookie->id_cart) == 0) && $id_cart = (int)Cart::lastNoneOrderedCart($context->customer->id))
+								$context->cart = new Cart($id_cart);
+							else
+							{
+								$id_carrier = (int)$context->cart->id_carrier;
+								$context->cart->id_carrier = 0;
+								$context->cart->setDeliveryOption(null);
+								$context->cart->id_address_delivery = (int)Address::getFirstCustomerAddressId((int)($context->customer->id));
+								$context->cart->id_address_invoice = (int)Address::getFirstCustomerAddressId((int)($context->customer->id));
+							}
+								
+							$context->cart->id_customer = (int)$context->customer->id;
+							$context->cart->secure_key  = $context->customer->id->secure_key;
+							
+							if($context->cart->id > 0)
+							{
+								$context->cookie->id_cart   = $context->cart->id; # need to save this in cookies so system can get cart id and display item in the cart.
+								$isClaimed = false;
+								#to check if customer has claimed before this, 
+								# limit 1 because we only need to get one data as indicator this customer has claimed
+								$sqlOrdered    = "SELECT COUNT(a.id_order) as totalorder FROM ps_orders a 
+													LEFT JOIN ps_order_detail b ON a.id_order = b.id_order
+													WHERE b.product_id = 46857 AND id_customer = " . trim($context->customer->id) . " LIMIT 1";
+								$resultOrdered = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlOrdered);
+								$totalOrdered  = $resultOrdered[0]['totalorder'];
+								
+								if($totalOrdered == 0)
+								{
+									#to check item ID already exist or not in the cart
+									$sqlCheck 	 = "SELECT COUNT(id_cart) as total FROM `ps_cart_product` WHERE `id_product` = 46857 AND `id_cart` = " . trim($context->cart->id) . " LIMIT 1";
+									$resultCheck = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlCheck);
+									$total 		 = $resultCheck[0]['total'];
+									
+									if($total == 0) # item not exist in this cart id, we add
+									{
+										$context->cart->updateQty(1,46857);# item id newmom essential nestle
+									}
+								}
+								else
+								{
+									$isClaimed = true;
+								}
+							}
+							
+							$ssocookie 			= Tools::getSSOCookie();
+							$ssocookie->ssoUser = $context->customer->email;
+							$context->cookie->__set("customerEmail", $context->customer->email);
+							$context->cart->autosetProductAddress();
+							
+							$context->cookie->write();
+							# ======= end of code ========
+						}
+						
+					}
+					
+					echo "<script type='text/javascript'>alert('Thank you for your submission, your PROMAMA® Sample Pack is now in the shopping cart.');</script>";
+					echo "<script type='text/javascript'>window.location='/quick-order';</script>";
+					exit;
+				}
 				elseif($event_id == 95)#clear blue survey page submit process
 				{
-					$sql			='SELECT id_customer FROM ps_customer WHERE email="'.$email.'" LIMIT 1';
-					$resultCustomer = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
-					$customer = new Customer($resultCustomer[0]['id_customer']);
-					
-					$code = NULL;
-					do $code = 'CBLUESV'.Tools::passwdGen(6);
-					while (CartRule::cartRuleExists($code));
-					/* Voucher creation and affectation to the customer */
-
-					$cartRule = new CartRule();
-					$cartRule->id_customer = (int)($customer->id);
-					$cartRule->date_from = '2021-06-01 00:00:00';
-					$cartRule->date_to = '2021-08-31 23:59:59';
-					$cartRule->description = "Clearblue - Survey Reward Voucher (RM5 no min spend)";
-					$cartRule->quantity = 1;
-					$cartRule->quantity_per_user = 1;
-					$cartRule->priority = 1;
-					$cartRule->highlight = 0;
-					$cartRule->partial_use = 0;
-					$cartRule->code = $code;
-					$cartRule->active = 1;
-					$cartRule->reduction_amount = 5;
-					$cartRule->reduction_product = 0;
-					$cartRule->reduction_tax = 1;
-					$cartRule->reduction_currency = 1;
-					$cartRule->minimum_amount = 0;
-					$cartRule->minimum_amount_tax = 1;
-					$cartRule->minimum_amount_currency = 1;
-					$cartRule->minimum_amount_shipping = 0;
-					$cartRule->cart_rule_restriction = 0;
-					$cartRule->product_restriction = 0;
-					$cartRule->is_seller_create = 0;
-					$cartRule->is_seller_discount = 0;
-					$languages = Language::getLanguages(true);
-					foreach ($languages AS $language)
-					{
-						$cartRule->name[(int)($language['id_lang'])] = "Clearblue - Survey Reward Voucher (RM5 no min spend)";
-					}
-					$cartRule->add();	
-					
-					$sql = 'DELETE FROM ps_cart_rule_product_rule_group WHERE id_cart_rule = '.$cartRule->id;
-					Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
-					
-					
 					$sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = 96 LIMIT 1"; # page that handle result survey question
 					$querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
 					$event_slug  = $querySlug[0]['event_slug'];
 					$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug . "?id=" . $encryptedID;
-					echo "<script type='text/javascript'>alert('Thank You for your participation!');</script>";
+					echo "<script type='text/javascript'>alert('Thank you for your participation and we hope you know that you are not alone in this conceiving journey. We will send an email with the voucher code of RM5 latest by 31st July.');</script>";
 					echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
 					exit;
 				}
-				elseif($event_id == 97)#apta moms with kids --> email already exist in motherhood database, then we need to do autologin after user submit details
+				elseif($event_id == 97 || $event_id == 105)#apta moms with kids/apta pregnant mom --> email already exist in motherhood database, then we need to do autologin after user submit details
 				{
 					#if customer already login and signup events
 					if($this->context->customer->email != '' && strtolower($this->context->customer->email) == strtolower($newEmail)  && $this->context->customer->id > 0)
@@ -4126,13 +5438,200 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 						
 					}
 					
-					echo "<script type='text/javascript'>alert('Thank you for your submission');</script>";
+					echo "<script type='text/javascript'>alert('Thank you for signing up to AptaAdvantage Club! Your submission is successful. Your perks will be sent to you within the coming weeks via email.');</script>";
 					echo "<script type='text/javascript'>window.location='';</script>";
 					exit;
 				}
 				elseif($event_id == 104){
 					echo "<script type='text/javascript'>alert('Thank You for your participation. You will receive selected redeem voucher via mail 3 to 7 days!');</script>";
 					$this->email_external_vouchercode($lastInsertid, $event_id);
+				}
+				elseif($event_id == 107)#dugro sample asli --> email already exist in motherhood database, then we need to do autologin after user submit details
+				{
+					echo "<script type='text/javascript'>alert('Tahniah! Permohonan anda telah diterima.');</script>";
+					echo "<script type='text/javascript'>window.location='';</script>";
+					exit;
+				}
+				elseif($event_id==141)#newmom welcome gift --> if email not exist in motherhood database-->system create info on sso-->autologin
+				{
+					$sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = 142 LIMIT 1"; # page that handle redemption
+					$querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
+					$event_slug  = $querySlug[0]['event_slug'];
+					$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug . "?id=" . $encryptEventId_subid;
+					echo "<script type='text/javascript'>alert('Thank you for signing up! Your submission is successful. You will be redirect to the redemption page.');</script>";
+					echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
+					
+					exit;
+				}
+				elseif($event_id==143)#superkids walkin form --> if email not exist in motherhood database-->system create info on sso-->autologin
+				{
+					$sqlGetSlug  = "SELECT * FROM ps_events WHERE `event_id` = 144 LIMIT 1"; # page that handle redemption
+					$querySlug   = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlGetSlug);
+					$event_slug  = $querySlug[0]['event_slug'];
+					$redirectUrl = "https://". $_SERVER['HTTP_HOST'] . '/events/' . $event_slug . "?id=" . $encryptEventId_subid;
+					echo "<script type='text/javascript'>alert('Thank you for signing up! Your submission is successful. You will be redirect to the redemption page.');</script>";
+					echo "<script type='text/javascript'>window.location.href='" . $redirectUrl . "'</script>";
+					
+					exit;
+				}
+				elseif($event_id == 145)#Mystery Mom-To-Be Care Kit --> email already exist in motherhood database, then we need to do autologin after user submit details
+				{
+					#if customer already login and signup events
+					if($this->context->customer->email != '' && $this->context->customer->id > 0)
+					{
+						// Add customer to the context
+						$context->customer = $this->context->customer;
+						
+						#cart logic
+						if (Configuration::get('PS_CART_FOLLOWING') && (empty($context->cookie->id_cart) || Cart::getNbProducts($context->cookie->id_cart) == 0) && $id_cart = (int)Cart::lastNoneOrderedCart($context->customer->id)){
+							$context->cart = new Cart($id_cart);
+						}
+						else
+						{
+							$id_carrier = (int)$context->cart->id_carrier;
+							$context->cart->id_carrier = 0;
+							$context->cart->setDeliveryOption(null);
+							$context->cart->id_address_delivery = (int)Address::getFirstCustomerAddressId((int)($customer->id));
+							$context->cart->id_address_invoice = (int)Address::getFirstCustomerAddressId((int)($customer->id));
+						}
+							
+						$context->cart->id_customer = (int)$customer->id;
+						$context->cart->secure_key = $customer->secure_key;
+					
+						if($context->cart->id > 0)
+						{
+							$isClaimed = false;
+							#to check if customer has claimed before this, 
+							# limit 1 because we only need to get one data as indicator this customer has claimed
+							$sqlOrdered    = "SELECT COUNT(a.id_order) as totalorder FROM ps_orders a 
+												LEFT JOIN ps_order_detail b ON a.id_order = b.id_order
+												WHERE b.product_id = 48452 AND id_customer = " . trim($customer->id) . " LIMIT 1";
+							$resultOrdered = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlOrdered);
+							$totalOrdered  = $resultOrdered[0]['totalorder'];
+							
+							if($totalOrdered == 0)
+							{
+								#to check item ID already exist or not in the cart
+								$sqlCheck 	 = "SELECT COUNT(id_cart) as total FROM `ps_cart_product` WHERE `id_product` = 48452 AND `id_cart` = " . trim($context->cart->id) . " LIMIT 1";
+								$resultCheck = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlCheck);
+								$total 		 = $resultCheck[0]['total'];
+								
+								if($total == 0) # item not exist in this cart id, we add
+								{
+									$context->cart->updateQty(1,48452);# item id newmom essential nestle
+								}
+							}
+							else
+							{
+								$isClaimed = true;
+							}
+						}
+					}
+					else
+					{
+						#customer not login but email already exist in db motherhood
+						$password  = trim($newPassword);
+						$firstname = trim($newFirstName);
+						$last_name = trim($newLastName);
+						if($last_name == ""){
+							$last_name = ".";
+						}
+						
+						$public_key = _SSO_PUBLIC_KEY_;
+						$nonce 		=  Tools::generateRandomNonce();
+						$signature  =  Tools::generateSignature($nonce);
+
+					// ********** create sso user ********************
+
+						$post_data = array(
+									'email' => $email,
+									'password' => $password,
+									'public_key' => $public_key,
+									'nonce' =>  $nonce,
+									'signature' => $signature
+							);
+						$post_result = Tools::post_data(_SSO_API_LOGIN_ACCOUNT_, $post_data);
+						$post_result = json_decode($post_result, true);
+						
+						if ($post_result['succeeded']==1){
+							
+							$sql='SELECT id_customer FROM ps_customer WHERE email="'.$email.'" LIMIT 1';
+							$resultCustomer = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
+							
+							$customer = new Customer($resultCustomer[0]['id_customer']);
+							
+							# ===== code to auto sign in ====
+							$context							 = $this->context;
+							$context->cookie->id_compare  		 = isset($context->cookie->id_compare) ? $context->cookie->id_compare: CompareProduct::getIdCompareByIdCustomer($customer->id);
+							$context->cookie->id_customer 		 = (int)($customer->id);
+							$context->cookie->customer_lastname  = $customer->lastname;
+							$context->cookie->customer_firstname = $customer->firstname;
+							$context->cookie->logged 			 = 1;
+							$customer->logged 					 = 1;
+							$context->cookie->is_guest 			 = $customer->isGuest();
+							$context->cookie->passwd 			 = $customer->passwd;
+							$context->cookie->email 			 = $customer->email;
+							$context->customer 					 = $customer;	#Add customer to the context
+						
+							#cart logic
+							if (Configuration::get('PS_CART_FOLLOWING') && (empty($context->cookie->id_cart) || Cart::getNbProducts($context->cookie->id_cart) == 0) && $id_cart = (int)Cart::lastNoneOrderedCart($context->customer->id))
+								$context->cart = new Cart($id_cart);
+							else
+							{
+								$id_carrier = (int)$context->cart->id_carrier;
+								$context->cart->id_carrier = 0;
+								$context->cart->setDeliveryOption(null);
+								$context->cart->id_address_delivery = (int)Address::getFirstCustomerAddressId((int)($context->customer->id));
+								$context->cart->id_address_invoice = (int)Address::getFirstCustomerAddressId((int)($context->customer->id));
+							}
+								
+							$context->cart->id_customer = (int)$context->customer->id;
+							$context->cart->secure_key  = $context->customer->id->secure_key;
+							
+							if($context->cart->id > 0)
+							{
+								$context->cookie->id_cart   = $context->cart->id; # need to save this in cookies so system can get cart id and display item in the cart.
+								$isClaimed = false;
+								#to check if customer has claimed before this, 
+								# limit 1 because we only need to get one data as indicator this customer has claimed
+								// $sqlOrdered    = "SELECT COUNT(a.id_order) as totalorder FROM ps_orders a 
+													// LEFT JOIN ps_order_detail b ON a.id_order = b.id_order
+													// WHERE b.product_id = 46857 AND id_customer = " . trim($context->customer->id) . " LIMIT 1";
+								// $resultOrdered = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlOrdered);
+								// $totalOrdered  = $resultOrdered[0]['totalorder'];
+								
+								// if($totalOrdered == 0)
+								// {
+									// #to check item ID already exist or not in the cart
+									// $sqlCheck 	 = "SELECT COUNT(id_cart) as total FROM `ps_cart_product` WHERE `id_product` = 46857 AND `id_cart` = " . trim($context->cart->id) . " LIMIT 1";
+									// $resultCheck = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sqlCheck);
+									// $total 		 = $resultCheck[0]['total'];
+									
+									// if($total == 0) # item not exist in this cart id, we add
+									// {
+										// $context->cart->updateQty(1,46857);# item id newmom essential nestle
+									// }
+								// }
+								// else
+								// {
+									// $isClaimed = true;
+								// }
+							}
+							
+							$ssocookie 			= Tools::getSSOCookie();
+							$ssocookie->ssoUser = $context->customer->email;
+							$context->cookie->__set("customerEmail", $context->customer->email);
+							$context->cart->autosetProductAddress();
+							
+							$context->cookie->write();
+							# ======= end of code ========
+						}
+						
+					}
+					
+					echo "<script type='text/javascript'>alert('Thank you for your submission, your gft® Sample Pack is now in the shopping cart.');</script>";
+					echo "<script type='text/javascript'>window.location='/quick-order';</script>";
+					exit;
 				}
 				else{
 
@@ -4242,9 +5741,13 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 		}	
 	}
 	
-	public function sendZoomLiveClassDate($name,$email,$topic)
+	public function sendZoomLiveClassDate($name,$email,$topic,$event_id)
 	{
 		// $customer = $lastname . " " . $firstname;
+		if($event_id = 227){
+			$topic = "<br>&#9679; ".$topic;
+			$topic  = str_replace("/","<br> &#9679; ",$topic);
+		}
 		$id_lang = 1;
 		$data = array(
 			'{customer_name}' => $name,
@@ -4252,11 +5755,21 @@ class enlineamixmodenlineaeventsModuleFrontController extends ModuleFrontControl
 		);
 		$mail= $email;
 		$name = $name;
-		$template = "ZoomLiveClassConfirmation";
+		if($event_id == 134 ){
+			$template = "ZoomLiveClassConfirmation";
+		}else if($event_id == 225){
+			$template = "ZoomLiveClassConfirmationSponsor";
+		}else if($event_id == 227){
+			$template = "ZoomLiveClassConfirmationSponsoraia";
+		}
+
 		$iso = "en";
 		$shopemail = 'hi@motherhood.com.my';
 		$shopname = 'motherhood.com.my';
 		$subject = " Motherhood Parentcraft – ".$topic ;
+		if($event_id = 227){
+			$subject = "Thank you for registering Motherhood Online Parentcraft Class Webinar - brought to you by AIA Malaysia";
+		}
 
 		if (file_exists(_PS_MODULE_DIR_.'/enlineamixmod/mails/'.$iso.'/'.$template.'.txt') && file_exists(_PS_MODULE_DIR_.'/enlineamixmod/mails/'.$iso.'/'.$template.'.html')) {
 			$this->context->smarty->assign("check","0");

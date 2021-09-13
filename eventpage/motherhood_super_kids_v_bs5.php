@@ -1,327 +1,333 @@
 <style>
    <!--
-      .nbs-flexisel-container{
-      				   border:0px;
-      				}
-      				
-      				#scroll_content_top{
-      					display:none;
-      				}
-      				
-      				input[type="checkbox"]{
-      					outline:none !important;
-      				}
-      				
-      					
-      				.div-item-calendar{
-      					margin-bottom:10px; 
-      					padding-left:10px; 
-      					padding-top:10px; 
-      					padding-right:10px;
-      				}
-      					
-      				.speakerBox-calendar{
-      					background-color:#f7f7f8;
-      				}
-      					
-      				.title-webinar{
-      					font-weight: 700; 
-      					font-size:17px;
-      					min-height:74px;
-      					line-height: 18px;
-      				}
-      					
-      				.div-web-desc{
-      					color:#4c4c4d;
-      					padding-left: 15px !important;
-      				}
-      					
-      				.desc-time, .desc-by, .desc-info{
-      					font-size:14px;
-      				}
-      					
-      				.product-box item
-      				{
-      					backgound
-      				}
-      				
-      				.btn-submit-superkid{
-      					background-color:#6abd45;
-      					color:white;
-      					width:30%;
-      					padding-top: 10px;
-      					padding-bottom: 10px;
-      					font-size: 15px;
-      					font-weight: 600;
-      					border-radius: 4px;
-      					outline:unset;
-      				}
-      				
-      				.btn-submit-superkid:hover, .btn-submit-superkid:focus, .btn-submit-superkid:active{
-      					background-color:#56a546;
-      					color:white;
-      					outline:unset;
-      				}
-      				
-      				.btn-ig:hover, .btn-ig:active, .btn-ig:focus, .btn-fb:hover, .btn-fb:active, .btn-fb:focus{
-      					color:white;
-      				}
-      				
-      				.btn-add-child, .btn-add-child:focus, .btn-add-child:active, .btn-add-child:hover{
-      					line-height: 21px;
-      					color: #fff;
-      					font-weight: bold;
-      					border: 1px solid #2fa7ad;
-      					background: #2fa7ad;
-      					border-radius: 3px;
-      					outline:none;
-      				}
-      				
-      				.box-overlay-display {
-      					background-color: #eeeeeebd;      
-      					position: absolute;
-      					left: 0;
-      					right: 0;
-      					top: 0;
-      					bottom: 0;
-      					z-index:2;
-      					display:block !important;
-      				}
-      			  
-      				.text-overlay{
-      					position: relative;
-      					top: 50%;
-      					left: 50%;
-      					font-size: 20px;
-      					color: #4f4f4f;
-      					transform: translate(-50%,-50%);
-      					-ms-transform: translate(-50%,-50%);
-      				}
-      				
-      				.form-check-input {
-      					width: 1.3em;
-      					height: 1.3em;
-      				}
-      				
-      				.form-check-input:focus {
-      					box-shadow:unset;
-      				}
-      				
-      				.btn-signup-box, .btn-signup-box:active, .btn-signup-box:focus, .btn-signup-box:hover{
-      					font-weight: bold;
-      					border: 1px solid #2fa7ad;
-      					background: #2fa7ad;
-      					outline:none;
-      					width:100%;
-      					padding-top:10px;
-      					padding-bottom:10px;
-      					margin-top:5px;
-      				}
-      				
-      				.btn-view-event, .btn-view-event:active, .btn-view-event:focus, .btn-view-event:hover{
-      					width: 100%; 
-      					background-color: #69bd45; 
-      					color: white;
-      					border-radius:0px
-      				}
-      				
-      				.pop-out-img, .pop-out-img:hover, .pop-out-img:focus, .pop-out-img:active, .pop-out-img:focus-visible{
-      					outline:none;
-      					color: unset;
-      					text-decoration: unset;
-      				}
-      				
-      				/** review slider css start **/
-      				.ratings .star.-full.star.-full {
-      					color: #f9c614;
-      				}
-      		
-      				.customer-img-review{
-      					width: 100%; 
-      				}
-      				
-      				.review-item-panel{
-      					width:100%;
-      				}
-      				
-      				.p-comment{
-      					line-height:18px;
-      					min-height: 90px;
-      					color:#4c4c4d;
-      				}
-      				
-      				.customer-name-comment{
-      					font-weight:700;
-      					margin-top:3%;
-      					margin-bottom:3%;
-      					color:#4c4c4d;
-      				}
-      				
-      				.div-img-review{
-      					padding-top:10px;
-      				}
-      				
-      				.slick-slider{
-      					background:unset;
-      				}
-      				
-      				.slick-slider:before{
-      					content:unset;
-      				}
-      				
-      				.review-item-slick-slide .customer-img-review{
-      					margin: unset;
-      				}
-      				
-      				.review-item-slick-slide .star{
-      					width: 14px;
-      					overflow: inherit;
-      				}
-      				
-      				.slick-dots li button:before{
-      					font-size:12px;
-      				}
-      				
-      				.review-item-slick-slide .slick-initialized .slick-slide{
-      					font-size:15px;
-      				}
-      				
-      				.mmy-superkid-slick-slide .product-image-container{
-      					padding:7px;
-      				}
-      				
-      				.mmy-webinar-date .reviewBox-calendar{
-      					padding:15px;
-      					position:relative;
-      				}
-      				
-      				
-      				.row-star{
-      					margin-bottom: 5%;
-      					margin-left: 0px;
-      				}
-      				
-      				.slick-next:before {
-      					content: '→';
-      				}
-      				
-      				.slick-prev:before {
-      					content: '←';
-      				}
-      				
-      				.slick-prev:before, .slick-next:before {
-      					font-family: 'slick';
-      					font-size: 25px;
-      					line-height: 1;
-      					opacity: .75;
-      					color: black;
-      					-webkit-font-smoothing: antialiased;
-      					-moz-osx-font-smoothing: grayscale;
-      				}
-      				
-      				.slick-prev, .slick-next{
-      					top:45%;
-      				}
-      				
-      				.review-item-slick-slide .slick-prev {
-      					left: -20px;
-      				}
-      				
-      				.review-item-slick-slide .slick-next {
-      					right: -14px;
-      				}
-      				
-      				.mmy-superkid-slick-slide .slick-prev {
-      					left: -25px;
-      				}
-      				
-      				.mmy-superkid-slick-slide .slick-next {
-      					right: -20px;
-      				}
-      				
-      				.mmy-webinar-date  .slick-prev {
-      					left: -25px;
-      				}
-      				
-      				.mmy-webinar-date  .slick-next {
-      					right: -20px;
-      				}
-      				
-      				.multiple-product-slider  .slick-prev {
-      					left: -25px;
-      				}
-      				
-      				.multiple-product-slider  .slick-next {
-      					right: -20px;
-      				}
-      				
-      				/** review slider css end **/
-      				
-      				
-      				@media only screen and (max-width: 600px) 
-      				{
-      					.img-calendar{
-      						width:90%;
-      					}
-      					
-      					.title-webinar{
-      						padding-top:15px;
-      						min-height:75px;
-      						line-height: 22px;
-      					}
-      					
-      					.desc-info{
-      						min-height: 36px;
-      			  
-      					}
-      					
-      					.swipe-text{
-      						display:block !important;
-      					}
-      					
-      					.btn-submit-superkid{
-      						width:100%;
-      					}
-      					
-      					.main_banner_margin{
-      						margin-left: -20px;
-      						margin-right: -20px;
-      					}
-      					
-      					.div-row-calendar-slider{
-      						 margin-left: -20px;
-      						margin-right: -20px;
-      					}
-      					
-      					/** review slider css start **/
-      					.customer-img-review{
-      						width: 50%; 
-      						left: 25px;
-      					}
-      					
-      					.div-img-review{
-      						padding-top:10px;
-      						text-align: -webkit-center;
-      					}
-      					
-      					.section_slidethekapitan1{
-      						left:unset !important;
-      					}
-      					
-      					.review-item-panel{
-      						width: 90%;
-      					}
-      					
-      					.slick-initialized .slick-slide{
-      						border-top:unset;
-      					}
-      					
-      					.slick-slider {
-      						padding-top: 1px
-      					}
-      					/** review slider css end **/
-      				}
-      -->
+   .nbs-flexisel-container{
+      border:0px;
+   }
+   
+   #scroll_content_top{
+      display:none;
+   }
+   
+   .btn.disabled, .btn:disabled, btn-default[disabled]:hover{
+      cursor: not-allowed;
+      /* opacity: .65; */
+      background-color: #939597;
+   }
+
+   input[type="checkbox"]{
+      outline:none !important;
+   }
+   
+      
+   .div-item-calendar{
+      margin-bottom:10px; 
+      padding-left:10px; 
+      padding-top:10px; 
+      padding-right:10px;
+   }
+      
+   .speakerBox-calendar{
+      background-color:#f7f7f8;
+   }
+      
+   .title-webinar{
+      font-weight: 700; 
+      font-size:17px;
+      min-height:74px;
+      line-height: 18px;
+   }
+      
+   .div-web-desc{
+      color:#4c4c4d;
+      padding-left: 15px !important;
+   }
+      
+   .desc-time, .desc-by, .desc-info{
+      font-size:14px;
+   }
+      
+   .product-box item
+   {
+      backgound
+   }
+   
+   .btn-submit-superkid{
+      background-color:#6abd45;
+      color:white;
+      width:30%;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 4px;
+      outline:unset;
+   }
+   
+   .btn-submit-superkid:hover, .btn-submit-superkid:focus, .btn-submit-superkid:active{
+      background-color:#56a546;
+      color:white;
+      outline:unset;
+   }
+   
+   .btn-ig:hover, .btn-ig:active, .btn-ig:focus, .btn-fb:hover, .btn-fb:active, .btn-fb:focus{
+      color:white;
+   }
+   
+   .btn-add-child, .btn-add-child:focus, .btn-add-child:active, .btn-add-child:hover{
+      line-height: 21px;
+      color: #fff;
+      font-weight: bold;
+      border: 1px solid #2fa7ad;
+      background: #2fa7ad;
+      border-radius: 3px;
+      outline:none;
+   }
+   
+   .box-overlay-display {
+      background-color: #eeeeeebd;      
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index:2;
+      display:block !important;
+   }
+   
+   .text-overlay{
+      position: relative;
+      top: 50%;
+      left: 50%;
+      font-size: 20px;
+      color: #4f4f4f;
+      transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+   }
+   
+   .form-check-input {
+      width: 1.3em;
+      height: 1.3em;
+   }
+   
+   .form-check-input:focus {
+      box-shadow:unset;
+   }
+   
+   .btn-signup-box, .btn-signup-box:active, .btn-signup-box:focus, .btn-signup-box:hover{
+      font-weight: bold;
+      border: 1px solid #2fa7ad;
+      background: #2fa7ad;
+      outline:none;
+      width:100%;
+      padding-top:10px;
+      padding-bottom:10px;
+      margin-top:5px;
+   }
+   
+   .btn-view-event, .btn-view-event:active, .btn-view-event:focus, .btn-view-event:hover{
+      width: 100%; 
+      background-color: #69bd45; 
+      color: white;
+      border-radius:0px
+   }
+   
+   .pop-out-img, .pop-out-img:hover, .pop-out-img:focus, .pop-out-img:active, .pop-out-img:focus-visible{
+      outline:none;
+      color: unset;
+      text-decoration: unset;
+   }
+   
+   /** review slider css start **/
+   .ratings .star.-full.star.-full {
+      color: #f9c614;
+   }
+
+   .customer-img-review{
+      width: 100%; 
+   }
+   
+   .review-item-panel{
+      width:100%;
+   }
+   
+   .p-comment{
+      line-height:18px;
+      min-height: 90px;
+      color:#4c4c4d;
+   }
+   
+   .customer-name-comment{
+      font-weight:700;
+      margin-top:3%;
+      margin-bottom:3%;
+      color:#4c4c4d;
+   }
+   
+   .div-img-review{
+      padding-top:10px;
+   }
+   
+   .slick-slider{
+      background:unset;
+   }
+   
+   .slick-slider:before{
+      content:unset;
+   }
+   
+   .review-item-slick-slide .customer-img-review{
+      margin: unset;
+   }
+   
+   .review-item-slick-slide .star{
+      width: 14px;
+      overflow: inherit;
+   }
+   
+   .slick-dots li button:before{
+      font-size:12px;
+   }
+   
+   .review-item-slick-slide .slick-initialized .slick-slide{
+      font-size:15px;
+   }
+   
+   .mmy-superkid-slick-slide .product-image-container{
+      padding:7px;
+   }
+   
+   .mmy-webinar-date .reviewBox-calendar{
+      padding:15px;
+      position:relative;
+   }
+   
+   
+   .row-star{
+      margin-bottom: 5%;
+      margin-left: 0px;
+   }
+   
+   .slick-next:before {
+      content: '→';
+   }
+   
+   .slick-prev:before {
+      content: '←';
+   }
+   
+   .slick-prev:before, .slick-next:before {
+      font-family: 'slick';
+      font-size: 25px;
+      line-height: 1;
+      opacity: .75;
+      color: black;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+   }
+   
+   .slick-prev, .slick-next{
+      top:45%;
+   }
+   
+   .review-item-slick-slide .slick-prev {
+      left: -20px;
+   }
+   
+   .review-item-slick-slide .slick-next {
+      right: -14px;
+   }
+   
+   .mmy-superkid-slick-slide .slick-prev {
+      left: -25px;
+   }
+   
+   .mmy-superkid-slick-slide .slick-next {
+      right: -20px;
+   }
+   
+   .mmy-webinar-date  .slick-prev {
+      left: -25px;
+   }
+   
+   .mmy-webinar-date  .slick-next {
+      right: -20px;
+   }
+   
+   .multiple-product-slider  .slick-prev {
+      left: -25px;
+   }
+   
+   .multiple-product-slider  .slick-next {
+      right: -20px;
+   }
+   
+   /** review slider css end **/
+   
+   
+   @media only screen and (max-width: 600px) 
+   {
+      .img-calendar{
+         width:90%;
+      }
+      
+      .title-webinar{
+         padding-top:15px;
+         min-height:75px;
+         line-height: 22px;
+      }
+      
+      .desc-info{
+         min-height: 36px;
+   
+      }
+      
+      .swipe-text{
+         display:block !important;
+      }
+      
+      .btn-submit-superkid{
+         width:100%;
+      }
+      
+      .main_banner_margin{
+         margin-left: -20px;
+         margin-right: -20px;
+      }
+      
+      .div-row-calendar-slider{
+            margin-left: -20px;
+         margin-right: -20px;
+      }
+      
+      /** review slider css start **/
+      .customer-img-review{
+         width: 50%; 
+         left: 25px;
+      }
+      
+      .div-img-review{
+         padding-top:10px;
+         text-align: -webkit-center;
+      }
+      
+      .section_slidethekapitan1{
+         left:unset !important;
+      }
+      
+      .review-item-panel{
+         width: 90%;
+      }
+      
+      .slick-initialized .slick-slide{
+         border-top:unset;
+      }
+      
+      .slick-slider {
+         padding-top: 1px
+      }
+      /** review slider css end **/
+   }
+-->
 </style>
 <div class="col-lg-12 main_banner_margin" style="padding-left: 0px; padding-right: 0px;"><a href="../../../events/motherhood-superkids" target="_blank" rel="noopener"> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Online+Sale/page/super-kids-1.png" alt="" width="100%" /></a></div>
 <div class="col-lg-12 main_banner_margin" style="padding-left: 0px; padding-right: 0px;"><a href="../../../events/motherhood-superkids" target="_blank" rel="noopener"> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Online+Sale/page/2.png" alt="" width="100%" /></a></div>
@@ -404,10 +410,18 @@
          <hr style="border: 2px solid; margin-top: 2px;" />
          <div class="row mx-0 my-2 my-md-3">
             <div class="col-md-6 px-2 div-email">
-               <div class="form-floating"><input type="email" class="form-control input-email" id="newEmail" name="newEmail" value="{{currentEmail}}" placeholder="email address" required="" /> <label for="newEmailInput">Email address</label> <small class="error-msg"></small></div>
+               <div class="form-floating">
+                  <input type="email" class="form-control input-email" id="newEmail" name="newEmail" value="{{currentEmail}}" placeholder="email address" required="" /> 
+                  <label for="newEmailInput">Email address</label> 
+                     <small class="error-msg email-msg"></small>
+                  </div>
             </div>
             <div class="col-md-6 px-2 div-password">
-               <div class="form-floating"><input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="password" minlength="6/" /> <label for="newPassword">Create Account Password</label> <small>Please assign a password for your Motherhood account.</small></div>
+               <div class="form-floating">
+                  <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="password" minlength="6/" /> 
+                  <label for="newPassword">Account Password</label> 
+                  <small>Please assign a password for your Motherhood account.</small>
+                  </div>
             </div>
          </div>
          <div class="row mx-0 my-2 my-md-3">
@@ -420,13 +434,18 @@
          </div>
          <div class="row mx-0 my-2 my-md-3">
             <div class="col-md-6 px-2">
-               <div class="form-floating"><input type="number" class="form-control mobile-input" id="subscriber_question1" name="subscriber_question1" value="{{phone}}" placeholder="mobile number" pattern=".{10,}" onkeydown="javascript: return event.keyCode == 69 ? false : true" required="required" /> <label for="subscriber_question1">Mobile no</label></div>
-               <small id="phoneNoError" style="color: red; display: none;">Invalid phone number format. Correct format(XXX XXXXXXXX), e.g. 012 3334444 / 019-8887777</small> <small id="phoneNoPrefixError" style="color: red; display: none;">Invalid phone number prefix. Correct Prefix (010,011,012,013,014,015,016,017,018,019)</small> <small id="phoneNoErrorSg" style="color: red; display: none;">Invalid Singapore phone number format. Correct Format(5 XXXX XXXX), e.g. 5 66667777</small>
+               <div class="form-floating">
+               <input type="number" class="form-control mobile-input" id="subscriber_question1" name="subscriber_question1" value="{{phone}}" placeholder="mobile number" pattern=".{10,}" onkeydown="javascript: return event.keyCode == 69 ? false : true" required="required" /> 
+               <label for="subscriber_question1">Mobile no</label></div>
+               <small id="phoneNoError" style="color: red; display: none;">Invalid phone number format. Correct format(XXX XXXXXXXX), e.g. 012 3334444 / 019-8887777</small> 
+               <small id="phoneNoPrefixError" style="color: red; display: none;">Invalid phone number prefix. Correct Prefix (010,011,012,013,014,015,016,017,018,019)</small>
+                <small id="phoneNoErrorSg" style="color: red; display: none;">Invalid Singapore phone number format. Correct Format(5 XXXX XXXX), e.g. 5 66667777</small>
             </div>
          </div>
          <div class="row mx-0 my-2 my-md-3">
             <div class="col-md-12 px-2">
-               <div class="form-floating"><input type="text" class="form-control full-address" id="subscriber_question7" name="subscriber_question7" value="{{address1}}" placeholder="Full address" required="" /> <label for="subscriber_question7">Full address</label></div>
+               <div class="form-floating">
+               <input type="text" class="form-control full-address" id="subscriber_question7" name="subscriber_question7" value="{{address1}}" placeholder="Full address" required="" /> <label for="subscriber_question7">Full address</label></div>
             </div>
          </div>
          <div class="row mx-0 my-md-3">
@@ -487,7 +506,7 @@
          </div>
          <div class="row mx-0 my-2 my-md-3">
             <div class="col-md-6 px-2">
-               <div class="form-floating"><input type="date" class="form-control child-input child_dob1" id="subscriber_question13" name="subscriber_question13" value="" placeholder="DD/MM/YYYY" required="required" /> <label for="subscriber_question13">Child DOB</label></div>
+               <div class="form-floating"><input type="text" class="form-control child-input child_dob1" id="subscriber_question13" name="subscriber_question13" value="" placeholder="DD/MM/YYYY" required="required" /> <label for="subscriber_question13">Child DOB</label></div>
             </div>
             <div class="col-md-6 px-2">
                <div class="form-floating"><input type="text" class="form-control child-input child_contact1" id="subscriber_question14" name="subscriber_question14" placeholder="Child Contact (Optional)" /> <label for="subscriber_question14">Child Contact (Optional)</label></div>
@@ -533,7 +552,7 @@
          </div>
          <div class="row mx-0 my-2 my-md-3">
             <div class="col-md-6 px-2">
-               <div class="form-floating"><input type="date" class="form-control child-input child_dob2" id="subscriber_question18" name="subscriber_question18" value="" placeholder="DD/MM/YYYY" /> <label for="subscriber_question18">Child DOB</label></div>
+               <div class="form-floating"><input type="text" class="form-control child-input child_dob2" id="subscriber_question18" name="subscriber_question18" value="" placeholder="DD/MM/YYYY" /> <label for="subscriber_question18">Child DOB</label></div>
             </div>
             <div class="col-md-6 px-2">
                <div class="form-floating"><input type="text" class="form-control child-input child_contact2" id="subscriber_question19" name="subscriber_question19" placeholder="Child Contact (Optional)" /> <label for="subscriber_question19">Child Contact (Optional)</label></div>
@@ -579,7 +598,7 @@
          </div>
          <div class="row mx-0 my-2 my-md-3">
             <div class="col-md-6 px-2">
-               <div class="form-floating"><input type="date" class="form-control child-input child_dob3" id="subscriber_question23" name="subscriber_question23" value="" placeholder="DD/MM/YYYY" /> <label for="subscriber_question23">Child DOB</label></div>
+               <div class="form-floating"><input type="text" class="form-control child-input child_dob3" id="subscriber_question23" name="subscriber_question23" value="" placeholder="DD/MM/YYYY" /> <label for="subscriber_question23">Child DOB</label></div>
             </div>
             <div class="col-md-6 px-2">
                <div class="form-floating"><input type="text" class="form-control child-input child_contact3" id="subscriber_question24" name="subscriber_question24" placeholder="Child Contact (Optional)" /> <label for="subscriber_question24">Child Contact (Optional)</label></div>
@@ -616,7 +635,7 @@
    <div class="row my-3">
 		<div class="col-md-12 text-center">
 			<button type="button" class="btn btn-default btn-submit-superkid"> SIGN UP NOW </button>
-			<button type="submit" name="submit" id="btnsubmit" style="display: none;">dummy</button>
+			<button type="submit" name="submit" id="btnsubmit" style="display:none"> SIGN UP NOW </button>
 		</div>
    </div>
 </div>
@@ -1639,8 +1658,8 @@
 		var validateEmail = function(autorun){
 			var eventID  = 93;
 			var email 	 = emailSelector.val();
-			var password = passSelector.val();
-			
+			var password = $('body').find('#newPassword').val();
+			console.log(password);
 			emailSelector.closest('.div-email').find(errorSelector).html("");
 			emailSelector.removeClass('is-invalid');
 			emailSelector.removeClass('is-valid');
@@ -1649,6 +1668,7 @@
 			$('body').find('.btn-submit-superkid').show('fast');
 			$('body').find('.btn-add-child').show('fast');
 			$('body').find('.div-password').show('fast');
+         $('body').find('.btn-submit-superkid').attr('disabled', false);
 			
 			if(email != '' && email != undefined && email != null)
 			{
@@ -1662,7 +1682,7 @@
 					async	 : true,
 					success	 : function(result){
 						
-						emailSelector.closest('.div-email').find(errorSelector).html('');
+						emailSelector.closest('.div-email').find('.email-msg').html('');
 						$('body').find('.child-input').val("");
 						$('body').find('#childDiv2').hide('fast');
 						$('body').find('#childDiv3').hide('fast');
@@ -1687,41 +1707,44 @@
 							{
 								var userid 		= $('body').find('.user-id').val();
 								var loginemail  = $('body').find('.login-input-email').val();
-								emailSelector.closest('.row').find(errorSelector).html("Your email has been found in our system.");
+								emailSelector.closest('.row').find('.email-msg').html("Your email has been found in our system.");
 								
 								/** if customer already login we hide password input **/
-								passSelector.closest('.row').find(errorSelector).html("Kindly enter your account password");
+								passSelector.closest('.row').find('.email-msg').html("Kindly enter your account password");
 								emailSelector.addClass('is-invalid');
 								passSelector.addClass('is-invalid');
 								
 							}
 							else if(result.status_code == 'exist_customer_motherhood_password_invalid')
 							{
-								emailSelector.closest('.row').find(errorSelector).html("Your email has been found in our system.");
-								passSelector.closest('.row').find(errorSelector).html(result.msg);
+								emailSelector.closest('.row').find('.email-msg').html(result.msg);
 								emailSelector.addClass('is-invalid');
 								passSelector.addClass('is-invalid');
+                        $('body').find('.btn-submit-superkid').attr('disabled', true);
 								
 							}
 							
 						}
 						else
 						{
-							emailSelector.closest('.row').find(errorSelector).html("");
-							passSelector.closest('.row').find(errorSelector).html("");
+							emailSelector.closest('.row').find('.email-msg').html("");
+							passSelector.closest('.row').find('.email-msg').html("");
 							emailSelector.removeClass('is-invalid');
 							passSelector.removeClass('is-invalid');
 								
 							if(result.status_code == 'new_customer_event')
 							{
 								$('body').find('.div-confirm-password').show('fast');
+                        $('body').find('.btn-submit-superkid').attr('disabled', false);
 							}
 							else if(result.status_code == 'exist_customer_motherhood_password_valid')
 							{
 								$('body').find('.div-confirm-password').hide('fast');
+                        $('body').find('.btn-submit-superkid').attr('disabled', false);
 							}
 							else if(result.status_code == 'exist_customer_event')
 							{
+                        $('body').find('.btn-submit-superkid').attr('disabled', true);
 								$('body').find('.title-form').html("You Have Registered Motherhood Super Kids")
 								$('body').find('.btn-submit-superkid').hide('fast');
 								$('body').find('.btn-add-child').hide('fast');
@@ -1849,7 +1872,7 @@
 				{
 					msg = "Please insert email";
 					emailSelector.addClass('is-invalid');
-					emailSelector.closest('.div-email').find(errorSelector).html(msg);
+					emailSelector.closest('.div-email').find('.email-msg').html(msg);
 				}
 			}
 		}
@@ -1866,206 +1889,234 @@
 			$('body').find('.other-milk-brand-input').val(optionselected);
 		}
       		 
-      	$(function(){
-		$('body').find('.btn-submit-superkid').attr('disbaled', false);
+   $(function(){
+		$('body').find('.btn-submit-superkid').attr('disabled', false);
 		
-			$('body').find('.multiple-webinardate-slider').slick({
-				infinite: true,
-				slidesToShow: 3,
-				slidesToScroll: 3,
-				dots: true,
-				adaptiveHeight:true,
-				autoplay: true,
-				responsive: [
-				{
-					breakpoint: 600,
-					settings: {
-						slidesToShow: 1,
-						slidesToScroll: 1,
-						dots: true,
-						adaptiveHeight:true,
-						arrows:false,
-						autoplay: false,
-					}
-				}]
-			});
-			$('body').find('.multiple-webinardate-slider').show();
+      $('body').find('.multiple-webinardate-slider').slick({
+         infinite: true,
+         slidesToShow: 3,
+         slidesToScroll: 3,
+         dots: true,
+         adaptiveHeight:true,
+         autoplay: true,
+         responsive: [
+         {
+            breakpoint: 600,
+            settings: {
+               slidesToShow: 1,
+               slidesToScroll: 1,
+               dots: true,
+               adaptiveHeight:true,
+               arrows:false,
+               autoplay: false,
+            }
+         }]
+      });
+      
+      $('body').find('.multiple-webinardate-slider').show();
 			
-			$('body').find('.multiple-reviews-slider').slick({
-				infinite: true,
-				slidesToShow: 2,
-				slidesToScroll: 2,
-				dots: true,
-				adaptiveHeight:true,
-				responsive: [
-				{
-					breakpoint: 600,
-					settings: {
-						slidesToShow: 1,
-						slidesToScroll: 1,
-						dots: true,
-						adaptiveHeight:true,
-						arrows:false,
-					}
-				}]
-			});
-			$('body').find('.multiple-reviews-slider').show();
+      $('body').find('.multiple-reviews-slider').slick({
+         infinite: true,
+         slidesToShow: 2,
+         slidesToScroll: 2,
+         dots: true,
+         adaptiveHeight:true,
+         responsive: [
+         {
+            breakpoint: 600,
+            settings: {
+               slidesToShow: 1,
+               slidesToScroll: 1,
+               dots: true,
+               adaptiveHeight:true,
+               arrows:false,
+            }
+         }]
+      });
+      $('body').find('.multiple-reviews-slider').show();
 			
-			$('body').find('.multiple-img-slider').slick({
-				infinite: true,
-				slidesToShow: 4,
-				slidesToScroll: 4,
-				dots: true,
-				adaptiveHeight:true,
-				responsive: [
-				{
-					breakpoint: 600,
-					settings: {
-						slidesToShow: 2,
-						slidesToScroll: 2,
-						dots: true,
-						adaptiveHeight:true,
-						arrows:false,
-					}
-				}]
-			});
-			$('body').find('.multiple-img-slider').show();
+      $('body').find('.multiple-img-slider').slick({
+         infinite: true,
+         slidesToShow: 4,
+         slidesToScroll: 4,
+         dots: true,
+         adaptiveHeight:true,
+         responsive: [
+         {
+            breakpoint: 600,
+            settings: {
+               slidesToShow: 2,
+               slidesToScroll: 2,
+               dots: true,
+               adaptiveHeight:true,
+               arrows:false,
+            }
+         }]
+      });
+      $('body').find('.multiple-img-slider').show();
 			
-			$('body').find('.multiple-product-slider').slick({
-				infinite: true,
-				slidesToShow: 3,
-				slidesToScroll:3,
-				dots: true,
-				adaptiveHeight:true,
-				responsive: [
-				{
-					breakpoint: 600,
-					settings: {
-						slidesToShow: 1,
-						slidesToScroll: 1,
-						dots: true,
-						adaptiveHeight:true,
-						arrows:false,
-					}
-				}]
-			});
-			$('body').find('.multiple-product-slider').show();
+      $('body').find('.multiple-product-slider').slick({
+         infinite: true,
+         slidesToShow: 3,
+         slidesToScroll:3,
+         dots: true,
+         adaptiveHeight:true,
+         responsive: [
+         {
+            breakpoint: 600,
+            settings: {
+               slidesToShow: 1,
+               slidesToScroll: 1,
+               dots: true,
+               adaptiveHeight:true,
+               arrows:false,
+            }
+         }]
+      });
+      $('body').find('.multiple-product-slider').show();
 			
 		
-			$('#subscriber_question1').on('change',function(event){
-				var phonenumber = $('#subscriber_question1').val();
-				var phonenumber = phonenumber.replace(/-/g, ' ');
-				var phonenumber = phonenumber.trim();
-				if ($.trim(phonenumber) != "") {
-					var prefix = phonenumber.substring(0,3);
-					var firstNo = phonenumber.substring(0,1);
-					var phoneLength = phonenumber.length;
-					if(firstNo !== 0 || firstNo !== 5){
-						$('#phoneNoError').show();
-						$("#subscriber_question1").css('background-color', 'red');
-						$("#submitBtn").attr("disabled", true);
-					}
-					if(firstNo == '0'){
-						if(prefix == '010' || prefix == '011' || prefix == '012' || prefix == '013' || prefix == '014' || prefix == '015' || prefix == '016' || prefix == '017' || prefix == '018' || prefix == '019'){
-							$('#phoneNoPrefixError').hide();
-							$("#subscriber_question1").css('background-color', 'white'); 
-							$("#submitBtn").attr("disabled", false);
-								if(prefix == '011'){
-									if(phoneLength < 10 || phoneLength > 11){
-										$('#phoneNoError').show();
-										$("#subscriber_question1").css('background-color', 'red');
-										$("#submitBtn").attr("disabled", true);
-									}else{
-										$('#phoneNoError').hide();
-										$('#phoneNoErrorSg').hide();
-										$("#subscriber_question1").css('background-color', 'white');
-										$("#submitBtn").attr("disabled", false);
-									}
-								}else{
-									if(phoneLength < 10 || phoneLength > 10){
-										$('#phoneNoError').show();
-										$("#subscriber_question1").css('background-color', 'red');
-										$("#submitBtn").attr("disabled", true);
-									}else{
-										$('#phoneNoError').hide();
-										$('#phoneNoErrorSg').hide();
-										$("#subscriber_question1").css('background-color', 'white');
-										$("#submitBtn").attr("disabled", false);
-									}
-								}  
-							}else{
-							$('#phoneNoPrefixError').show();
-							$("#subscriber_question1").css('background-color', 'red');
-							$("#submitBtn").attr("disabled", true);
-						} 
-					}else if(firstNo == '5'){
-							$('#phoneNoErrorSg').hide();
-							$('#phoneNoError').hide();
-							$("#subscriber_question1").css('background-color', 'white'); 
-							$("#submitBtn").attr("disabled", false);
-						if(phoneLength < 9 || phoneLength > 9){
-							$('#phoneNoErrorSg').show();
-							$("#subscriber_question1").css('background-color', 'red');
-							$("#submitBtn").attr("disabled", true);
-						}else{
-							$('#phoneNoErrorSg').hide();
-							$('#phoneNoError').hide();
-							$("#subscriber_question1").css('background-color', 'white');
-							$("#submitBtn").attr("disabled", false);
-						}
-					}else{
-						$('#phoneNoPrefixError').show();
-						$("#subscriber_question1").css('background-color', 'red');
-						$("#submitBtn").attr("disabled", true);
-					}
-				}
-			});
+      $('#subscriber_question1').on('change',function(event){
+         var phonenumber = $('#subscriber_question1').val();
+         var phonenumber = phonenumber.replace(/-/g, ' ');
+         var phonenumber = phonenumber.trim();
+         if ($.trim(phonenumber) != "") {
+            var prefix = phonenumber.substring(0,3);
+            var firstNo = phonenumber.substring(0,1);
+            var phoneLength = phonenumber.length;
+            if(firstNo !== 0 || firstNo !== 5){
+               $('#phoneNoError').show();
+               $("#subscriber_question1").css('background-color', 'red');
+               $("#submitBtn").attr("disabled", true);
+            }
+            if(firstNo == '0'){
+               if(prefix == '010' || prefix == '011' || prefix == '012' || prefix == '013' || prefix == '014' || prefix == '015' || prefix == '016' || prefix == '017' || prefix == '018' || prefix == '019'){
+                  $('#phoneNoPrefixError').hide();
+                  $("#subscriber_question1").css('background-color', 'white'); 
+                  $("#submitBtn").attr("disabled", false);
+                     if(prefix == '011'){
+                        if(phoneLength < 10 || phoneLength > 11){
+                           $('#phoneNoError').show();
+                           $("#subscriber_question1").css('background-color', 'red');
+                           $("#submitBtn").attr("disabled", true);
+                        }else{
+                           $('#phoneNoError').hide();
+                           $('#phoneNoErrorSg').hide();
+                           $("#subscriber_question1").css('background-color', 'white');
+                           $("#submitBtn").attr("disabled", false);
+                        }
+                     }else{
+                        if(phoneLength < 10 || phoneLength > 10){
+                           $('#phoneNoError').show();
+                           $("#subscriber_question1").css('background-color', 'red');
+                           $("#submitBtn").attr("disabled", true);
+                        }else{
+                           $('#phoneNoError').hide();
+                           $('#phoneNoErrorSg').hide();
+                           $("#subscriber_question1").css('background-color', 'white');
+                           $("#submitBtn").attr("disabled", false);
+                        }
+                     }  
+                  }else{
+                  $('#phoneNoPrefixError').show();
+                  $("#subscriber_question1").css('background-color', 'red');
+                  $("#submitBtn").attr("disabled", true);
+               } 
+            }else if(firstNo == '5'){
+                  $('#phoneNoErrorSg').hide();
+                  $('#phoneNoError').hide();
+                  $("#subscriber_question1").css('background-color', 'white'); 
+                  $("#submitBtn").attr("disabled", false);
+               if(phoneLength < 9 || phoneLength > 9){
+                  $('#phoneNoErrorSg').show();
+                  $("#subscriber_question1").css('background-color', 'red');
+                  $("#submitBtn").attr("disabled", true);
+               }else{
+                  $('#phoneNoErrorSg').hide();
+                  $('#phoneNoError').hide();
+                  $("#subscriber_question1").css('background-color', 'white');
+                  $("#submitBtn").attr("disabled", false);
+               }
+            }else{
+               $('#phoneNoPrefixError').show();
+               $("#subscriber_question1").css('background-color', 'red');
+               $("#submitBtn").attr("disabled", true);
+            }
+         }
+      });
 			
-			$('body').on('submit', '#eventform', function(){
-				$('body').find('.btn-submit-superkid').attr('disbaled', true);
-				$('body').find('.btn-submit-superkid').html('<i class="fas fa-spinner fa-pulse"></i> Processing...');
-			});
+      $('body').on('submit', '#eventform', function(){
+         $('body').find('.btn-submit-superkid').attr('disabled', true);
+         $('body').find('.btn-submit-superkid').html('<i class="fas fa-spinner fa-pulse"></i> Processing...');
+
+      });  
+      
+      $('body').on('click', '.btn-submit-superkid', function(){
+        $('#btnsubmit').trigger('click');
+      });
 			
-			$('body').on('click', '.btn-submit-superkid', function(){
-				$(this).html('<i class="fas fa-spinner fa-pulse"></i> Processing...')
-				$('body').find('#btnsubmit').trigger('click');
-			}
-			
-			$(window).load(function() {
-				$.uniform.restore(".noUniform");
-			});
-			 
-			$('body').on('blur', '.addr-postcode', function(){
-				validatePostcode();
-			});
-			
-			validateEmail(true);
-			$('body').on('blur', '.input-email', function(){
-				validateEmail();
-			});
+      $(window).load(function() {
+         $.uniform.restore(".noUniform");
+      });
+         
+      $('body').on('blur', '.addr-postcode', function(){
+         validatePostcode();
+      });
+      
+      validateEmail(true);
+      $('body').on('blur', '.input-email, #newPassword', function(){
+         validateEmail();
+      });
 		
 		$('body').on('change', '.option-other-milkbrand', function(){
 			optionOthermilk();
 		});
 			
-			$('body').find(".pop-out-img").magnificPopup({
-				type: "image",
-				closeOnContentClick: true,
-				fixedContentPos: true,
-				mainClass: "mfp-no-margins", // class to remove default margin from left and right side
-				overflowY: 'scroll',
-				image: {
-					verticalFit: false,
-				},
-				zoom: {
-					enabled: false,
-					duration: 100, // don't foget to change the duration also in CSS
-				},
-				callbacks: {
-					close: function () {},
-				},
-			});
-		});
+      $('body').find(".pop-out-img").magnificPopup({
+         type: "image",
+         closeOnContentClick: true,
+         fixedContentPos: true,
+         mainClass: "mfp-no-margins", // class to remove default margin from left and right side
+         overflowY: 'scroll',
+         image: {
+            verticalFit: false,
+         },
+         zoom: {
+            enabled: false,
+            duration: 100, // don't foget to change the duration also in CSS
+         },
+         callbacks: {
+            close: function () {},
+         },
+      });
+
+      var selectorchildDOb1 = document.getElementById('subscriber_question13');
+      Inputmask('datetime',{
+         alias 		 :'datetime',
+         inputFormat  : "dd/mm/yyyy", 
+         outputFormat : "dd/mm/yyyy",
+         separator: '/',
+         leapday: "29/02/",
+      }).mask(selectorchildDOb1); 
+      
+      var selectorchildDOb2 = document.getElementById('subscriber_question18');
+      Inputmask('datetime',{
+         alias 		 :'datetime',
+         inputFormat  : "dd/mm/yyyy", 
+         outputFormat : "dd/mm/yyyy",
+         separator: '/',
+         leapday: "29/02/",
+      }).mask(selectorchildDOb2); 
+      
+      var selectorchildDOb3 = document.getElementById('subscriber_question23');
+      Inputmask('datetime',{
+         alias 		 :'datetime',
+         inputFormat  : "dd/mm/yyyy", 
+         outputFormat : "dd/mm/yyyy",
+         separator: '/',
+         leapday: "29/02/",
+      }).mask(selectorchildDOb3);
+	});
        
       // ]]>
    </script>

@@ -7,13 +7,16 @@
 		if(isset($_GET['statusfilter'])){
 			$statusfilter = " AND event_active = '".$_GET['statusfilter']."'";
 		}
-	}else if(isset($_GET['statusfilter'])){
+	}
+	
+	if(isset($_GET['statusfilter'])){
 		if($_GET['statusfilter'] == ''){
 			$statusfilter = '';
 		}else{
 			$statusfilter = "AND event_active = ".$_GET['statusfilter']."";
 		}
 	}
+	
 	if(isset($_GET['sort'])){
 		if($_GET['sort'] == "name"){
 			$orderby = 'ORDER BY event_name';
@@ -23,12 +26,20 @@
 		
 	if(isset($_GET['fromDate']) && $_GET['fromDate']){
 		$dateArr = explode('/',$_GET['fromDate']);
-		$filterFromDate = ' AND event_start_date>= "'.$_GET['fromDate'].'" ';
+		$day  = $dateArr[0];
+		$month = $dateArr[1];
+		$year   = $dateArr[2];
+		$datesql = $year . "-" . $month . "-" . $day;
+		$filterFromDate = ' AND event_start_date>= "'.$datesql.'" ';
 	}
 		
 	if(isset($_GET['toDate']) && $_GET['toDate']){
 		$dateArr = explode('/',$_GET['toDate']);
-		$filterToDate = ' AND event_end_date>= "'.$_GET['toDate'].'" ';
+		$day  = $dateArr[0];
+		$month = $dateArr[1];
+		$year   = $dateArr[2];
+		$datesql = $year . "-" . $month . "-" . $day;
+		$filterToDate = ' AND event_start_date<= "'.$datesql.'" ';
 	}
 ?>
 	<main role="main" class="container-fluid">
@@ -60,12 +71,12 @@
 							<?php 
 								if(isset($_GET['fromDate']) && $_GET['fromDate'] != '')
 								{
-									$arrDay = explode('-', $_GET['fromDate']);
+									$arrDay = explode('/', $_GET['fromDate']);
 									if(is_array($arrDay) && sizeof($arrDay) == 3)
 									{
-										$year  = $arrDay[0];
+										$day  = $arrDay[0];
 										$month = $arrDay[1];
-										$day   = $arrDay[2];
+										$year  = $arrDay[2];
 										
 										$fromdate = $day . "/" . $month . "/" . $year;
 									}
@@ -73,22 +84,22 @@
 								
 								if(isset($_GET['toDate']) && $_GET['toDate'] != '')
 								{
-									$arrDay = explode('-', $_GET['toDate']);
+									$arrDay = explode('/', $_GET['toDate']);
 									if(is_array($arrDay) && sizeof($arrDay) == 3)
 									{
-										$year  = $arrDay[0];
+										$day  = $arrDay[0];
 										$month = $arrDay[1];
-										$day   = $arrDay[2];
+										$year   = $arrDay[2];
 										
 										$todate = $day . "/" . $month . "/" . $year;
 									}
 								}
 							?>
-							<input type="text" class="form-control eventdatepicker" name="fromDate" placeholder="start event date" value='<?php echo (isset($fromdate) && $fromdate != '') ? $fromdate : '' ?>'>
+							<input type="text" class="form-control eventdatepicker" autocomplete="off" name="fromDate" placeholder="start event date" value='<?php echo (isset($fromdate) && $fromdate != '') ? $fromdate : '' ?>'>
 							<div class="input-group-prepend">
 								<span class="input-group-text" id="basic-addon1">To</span>
 							</div>
-							<input type="text" class="form-control eventdatepicker-end" name="toDate" placeholder="end event date" value='<?php echo (isset($todate) && $todate != '') ? $todate : '' ?>' disabled>
+							<input type="text" class="form-control eventdatepicker-end" autocomplete="off" name="toDate" placeholder="end event date" value='<?php echo (isset($todate) && $todate != '') ? $todate : '' ?>' disabled>
 							<div class="input-group-append">
 								<button class="btn btn-primary btnsearchdate" type="submit" disabled><i class="fas fa-search"></i> Search</button>
 							</div>
@@ -117,38 +128,48 @@
 						// $res1= $conn->query($SQL);
 						// $count = mysqli_num_rows($res1);
 					?>
-					<table class="table table-bordered table-sm">
-						<thead>
-							<tr>
-								<th>ID</th>
-								<th>Name</th>
-								<th>Title</th>
-								<th>Slug</th>
-								<th>Status</th>
-								<th>Operations</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php
-								$sql_query = "SELECT * FROM ps_events WHERE 1=1 $STRWHERE $statusfilter  $filterFromDate $filterToDate  $orderby";
-								$result_set= $conn -> query ($sql_query);
-								foreach($result_set as $r){
-							  ?>
-									<tr>
-										<td><?php echo $r['event_id']; ?></td>
-										<td><?php echo $r['event_name']; ?></td>
-										<td><?php echo $r['event_title']; ?></td>
-										<td><?php echo $r['event_slug']; ?></td>
-										<td><?php echo $r['event_active'] == 1 ? '<span class="badge badge-success">Active</span>' : '<span class="badge badge-danger">Inactive</span>'?></td>
-										<td align="center">
-											<button type="button" class="btn btn-outline-info btn-sm" onclick="edt_id(<?php echo $r['event_id'] ?>)"> <i class="fas fa-pencil-alt"></i> &nbsp;Edit</button>
-										</td>         
-									</tr>
-								<?php 
-								}
+					<div class="table-responsive">
+						<table class="table table-bordered table-sm">
+							<thead>
+								<tr>
+									<th style="min-width:45px">ID</th>
+									<th style="min-width:200px">Name</th>
+									<th style="min-width:95px">Start Date</th>
+									<th style="min-width:95px">End Date</th>
+									<th style="min-width:200px">Title</th>
+									<th style="min-width:200px">Slug</th>
+									<th style="min-width:85">Status</th>
+									<th style="min-width:256px">Operations</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php
+									$sql_query = "SELECT * FROM ps_events WHERE 1=1 $STRWHERE $statusfilter  $filterFromDate $filterToDate  $orderby";
+									$result_set= $conn -> query ($sql_query);
+									foreach($result_set as $r){
 								?>
-						</tbody>
-					</table>
+										<tr>
+											<td><?php echo $r['event_id']; ?></td>
+											<td><?php echo $r['event_name']; ?></td>
+											<td><?php echo date('d-m-Y', strtotime($r['event_start_date'])) ?></td>
+											<td><?php echo date('d-m-Y', strtotime($r['event_end_date'])) ?></td>
+											<td><?php echo $r['event_title']; ?></td>
+											<td><?php echo $r['event_slug']; ?></td>
+											<td><?php echo $r['event_active'] == 1 ? '<span class="badge badge-success">Active</span>' : '<span class="badge badge-danger">Inactive</span>'?></td>
+											<td align="left">
+												<button type="button" class="btn btn-outline-info btn-sm" onclick="edt_id(<?php echo $r['event_id'] ?>)"> <i class="fas fa-pencil-alt"></i> &nbsp;Edit</button>
+												<a href="https://www.motherhood.com.my/admin2635/dashboard/newEvents/event_report.php?event_type=<?php echo $r['event_id'] ?>" target="_blank" class="btn btn-outline-warning btn-sm"> <i class="far fa-file-excel"></i>&nbsp;Report</a>
+												<a href="https://www.motherhood.com.my/events/<?php echo $r['event_slug'] ?>" target="_blank" class="btn btn-outline-primary btn-sm"> <i class="fab fa-html5"></i>&nbsp;View page</a>
+												<br/>
+												<button type="button" class="btn btn-outline-info btn-sm" onclick="map_id(<?php echo $r['event_id'] ?>)" style="margin-top:10px;"> <i class="fas fa-pencil-alt"></i> &nbsp;Map</button>
+											</td>
+										</tr>
+									<?php 
+									}
+									?>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -161,6 +182,10 @@
 	var edt_id = function(id)
 	{
 		window.location.href='https://www.motherhood.com.my/admin2635/dashboard/newEvents/events_add_data.php?edit_id='+id;
+	}
+	var map_id = function(id)
+	{
+		window.location.href='https://www.motherhood.com.my/admin2635/dashboard/newEvents/events_mapping_list.php?event_id='+id;
 	}
 	
 	var initEnddatepicker = function(){
