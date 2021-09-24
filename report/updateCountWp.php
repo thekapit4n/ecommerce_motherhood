@@ -11,10 +11,10 @@ $conn2 = mysqli_connect($host, $user, $pass,$dbname);
 include '../admin2635/dashboard/events/events_db_config.php';
 
 $sql = "INSERT INTO `com.my.story.Motherhood`.wp_cn_track_post  ( post_id, created_at, create_date ) VALUES 
-(" . 51702 . ",'" . time() . "','" . date('Y-m-d')."')";
+(" . 51754 . ",'" . time() . "','" . date('Y-m-d')."')";
 
 echo "date start : " . date('Y-m-d H:i:s') . "<br/>";
-for($i = 0; $i < 3800; $i++)
+for($i = 0; $i < 600; $i++)
 {
 	// $result = $conn2->query($sql);
 }

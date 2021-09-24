@@ -1,333 +1,340 @@
 <style>
    <!--
-   .nbs-flexisel-container{
-      border:0px;
-   }
-   
-   #scroll_content_top{
-      display:none;
-   }
-   
-   .btn.disabled, .btn:disabled, btn-default[disabled]:hover{
-      cursor: not-allowed;
-      /* opacity: .65; */
-      background-color: #939597;
-   }
+      .nbs-flexisel-container{
+            border:0px;
+         }
+         
+         #scroll_content_top{
+            display:none;
+         }
+         
+         .btn.disabled, .btn:disabled, btn-default[disabled]:hover{
+            cursor: not-allowed;
+            /* opacity: .65; */
+            background-color: #939597;
+         }
+      
+         input[type="checkbox"]{
+            outline:none !important;
+         }
+         
+            
+         .div-item-calendar{
+            margin-bottom:10px; 
+            padding-left:10px; 
+            padding-top:10px; 
+            padding-right:10px;
+         }
+            
+         .speakerBox-calendar{
+            background-color:#f7f7f8;
+         }
+            
+         .title-webinar{
+            font-weight: 700; 
+            font-size:17px;
+            min-height:74px;
+            line-height: 18px;
+         }
+            
+         .div-web-desc{
+            color:#4c4c4d;
+            padding-left: 15px !important;
+         }
+            
+         .desc-time, .desc-by, .desc-info{
+            font-size:14px;
+         }
+            
+         .product-box item
+         {
+            backgound
+         }
+         
+         .btn-submit-superkid{
+            background-color:#6abd45;
+            color:white;
+            width:30%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 4px;
+            outline:unset;
+         }
+         
+         .btn-submit-superkid:hover, .btn-submit-superkid:focus, .btn-submit-superkid:active{
+            background-color:#56a546;
+            color:white;
+            outline:unset;
+         }
+         
+         .btn-ig:hover, .btn-ig:active, .btn-ig:focus, .btn-fb:hover, .btn-fb:active, .btn-fb:focus{
+            color:white;
+         }
+         
+         .btn-add-child, .btn-add-child:focus, .btn-add-child:active, .btn-add-child:hover{
+            line-height: 21px;
+            color: #fff;
+            font-weight: bold;
+            border: 1px solid #2fa7ad;
+            background: #2fa7ad;
+            border-radius: 3px;
+            outline:none;
+         }
+         
+         .box-overlay-display {
+            background-color: #eeeeeebd;      
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index:2;
+            display:block !important;
+         }
+         
+         .text-overlay{
+            position: relative;
+            top: 50%;
+            left: 50%;
+            font-size: 20px;
+            color: #4f4f4f;
+            transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+         }
+         
+         .form-check-input {
+            width: 1.3em;
+            height: 1.3em;
+         }
+         
+         .form-check-input:focus {
+            box-shadow:unset;
+         }
+         
+         .btn-signup-box, .btn-signup-box:active, .btn-signup-box:focus, .btn-signup-box:hover{
+            font-weight: bold;
+            border: 1px solid #2fa7ad;
+            background: #2fa7ad;
+            outline:none;
+            width:100%;
+            padding-top:10px;
+            padding-bottom:10px;
+            margin-top:5px;
+         }
+         
+         .btn-view-event, .btn-view-event:active, .btn-view-event:focus, .btn-view-event:hover{
+            width: 100%; 
+            background-color: #69bd45; 
+            color: white;
+            border-radius:0px
+         }
+         
+         .pop-out-img, .pop-out-img:hover, .pop-out-img:focus, .pop-out-img:active, .pop-out-img:focus-visible{
+            outline:none;
+            color: unset;
+            text-decoration: unset;
+         }
+         
+         /** review slider css start **/
+         .ratings .star.-full.star.-full {
+            color: #f9c614;
+         }
+      
+         .customer-img-review{
+            width: 100%; 
+         }
+         
+         .review-item-panel{
+            width:100%;
+         }
+         
+         .p-comment{
+            line-height:18px;
+            min-height: 90px;
+            color:#4c4c4d;
+         }
+         
+         .customer-name-comment{
+            font-weight:700;
+            margin-top:3%;
+            margin-bottom:3%;
+            color:#4c4c4d;
+         }
+         
+         .div-img-review{
+            padding-top:10px;
+         }
 
-   input[type="checkbox"]{
-      outline:none !important;
-   }
-   
-      
-   .div-item-calendar{
-      margin-bottom:10px; 
-      padding-left:10px; 
-      padding-top:10px; 
-      padding-right:10px;
-   }
-      
-   .speakerBox-calendar{
-      background-color:#f7f7f8;
-   }
-      
-   .title-webinar{
-      font-weight: 700; 
-      font-size:17px;
-      min-height:74px;
-      line-height: 18px;
-   }
-      
-   .div-web-desc{
-      color:#4c4c4d;
-      padding-left: 15px !important;
-   }
-      
-   .desc-time, .desc-by, .desc-info{
-      font-size:14px;
-   }
-      
-   .product-box item
-   {
-      backgound
-   }
-   
-   .btn-submit-superkid{
-      background-color:#6abd45;
-      color:white;
-      width:30%;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      font-size: 15px;
-      font-weight: 600;
-      border-radius: 4px;
-      outline:unset;
-   }
-   
-   .btn-submit-superkid:hover, .btn-submit-superkid:focus, .btn-submit-superkid:active{
-      background-color:#56a546;
-      color:white;
-      outline:unset;
-   }
-   
-   .btn-ig:hover, .btn-ig:active, .btn-ig:focus, .btn-fb:hover, .btn-fb:active, .btn-fb:focus{
-      color:white;
-   }
-   
-   .btn-add-child, .btn-add-child:focus, .btn-add-child:active, .btn-add-child:hover{
-      line-height: 21px;
-      color: #fff;
-      font-weight: bold;
-      border: 1px solid #2fa7ad;
-      background: #2fa7ad;
-      border-radius: 3px;
-      outline:none;
-   }
-   
-   .box-overlay-display {
-      background-color: #eeeeeebd;      
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      z-index:2;
-      display:block !important;
-   }
-   
-   .text-overlay{
-      position: relative;
-      top: 50%;
-      left: 50%;
-      font-size: 20px;
-      color: #4f4f4f;
-      transform: translate(-50%,-50%);
-      -ms-transform: translate(-50%,-50%);
-   }
-   
-   .form-check-input {
-      width: 1.3em;
-      height: 1.3em;
-   }
-   
-   .form-check-input:focus {
-      box-shadow:unset;
-   }
-   
-   .btn-signup-box, .btn-signup-box:active, .btn-signup-box:focus, .btn-signup-box:hover{
-      font-weight: bold;
-      border: 1px solid #2fa7ad;
-      background: #2fa7ad;
-      outline:none;
-      width:100%;
-      padding-top:10px;
-      padding-bottom:10px;
-      margin-top:5px;
-   }
-   
-   .btn-view-event, .btn-view-event:active, .btn-view-event:focus, .btn-view-event:hover{
-      width: 100%; 
-      background-color: #69bd45; 
-      color: white;
-      border-radius:0px
-   }
-   
-   .pop-out-img, .pop-out-img:hover, .pop-out-img:focus, .pop-out-img:active, .pop-out-img:focus-visible{
-      outline:none;
-      color: unset;
-      text-decoration: unset;
-   }
-   
-   /** review slider css start **/
-   .ratings .star.-full.star.-full {
-      color: #f9c614;
-   }
-
-   .customer-img-review{
-      width: 100%; 
-   }
-   
-   .review-item-panel{
-      width:100%;
-   }
-   
-   .p-comment{
-      line-height:18px;
-      min-height: 90px;
-      color:#4c4c4d;
-   }
-   
-   .customer-name-comment{
-      font-weight:700;
-      margin-top:3%;
-      margin-bottom:3%;
-      color:#4c4c4d;
-   }
-   
-   .div-img-review{
-      padding-top:10px;
-   }
-   
-   .slick-slider{
-      background:unset;
-   }
-   
-   .slick-slider:before{
-      content:unset;
-   }
-   
-   .review-item-slick-slide .customer-img-review{
-      margin: unset;
-   }
-   
-   .review-item-slick-slide .star{
-      width: 14px;
-      overflow: inherit;
-   }
-   
-   .slick-dots li button:before{
-      font-size:12px;
-   }
-   
-   .review-item-slick-slide .slick-initialized .slick-slide{
-      font-size:15px;
-   }
-   
-   .mmy-superkid-slick-slide .product-image-container{
-      padding:7px;
-   }
-   
-   .mmy-webinar-date .reviewBox-calendar{
-      padding:15px;
-      position:relative;
-   }
-   
-   
-   .row-star{
-      margin-bottom: 5%;
-      margin-left: 0px;
-   }
-   
-   .slick-next:before {
-      content: '→';
-   }
-   
-   .slick-prev:before {
-      content: '←';
-   }
-   
-   .slick-prev:before, .slick-next:before {
-      font-family: 'slick';
-      font-size: 25px;
-      line-height: 1;
-      opacity: .75;
-      color: black;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-   }
-   
-   .slick-prev, .slick-next{
-      top:45%;
-   }
-   
-   .review-item-slick-slide .slick-prev {
-      left: -20px;
-   }
-   
-   .review-item-slick-slide .slick-next {
-      right: -14px;
-   }
-   
-   .mmy-superkid-slick-slide .slick-prev {
-      left: -25px;
-   }
-   
-   .mmy-superkid-slick-slide .slick-next {
-      right: -20px;
-   }
-   
-   .mmy-webinar-date  .slick-prev {
-      left: -25px;
-   }
-   
-   .mmy-webinar-date  .slick-next {
-      right: -20px;
-   }
-   
-   .multiple-product-slider  .slick-prev {
-      left: -25px;
-   }
-   
-   .multiple-product-slider  .slick-next {
-      right: -20px;
-   }
-   
-   /** review slider css end **/
-   
-   
-   @media only screen and (max-width: 600px) 
-   {
-      .img-calendar{
-         width:90%;
-      }
-      
-      .title-webinar{
-         padding-top:15px;
-         min-height:75px;
-         line-height: 22px;
-      }
-      
-      .desc-info{
-         min-height: 36px;
-   
-      }
-      
-      .swipe-text{
-         display:block !important;
-      }
-      
-      .btn-submit-superkid{
-         width:100%;
-      }
-      
-      .main_banner_margin{
-         margin-left: -20px;
-         margin-right: -20px;
-      }
-      
-      .div-row-calendar-slider{
-            margin-left: -20px;
-         margin-right: -20px;
-      }
-      
-      /** review slider css start **/
-      .customer-img-review{
-         width: 50%; 
-         left: 25px;
-      }
-      
-      .div-img-review{
-         padding-top:10px;
-         text-align: -webkit-center;
-      }
-      
-      .section_slidethekapitan1{
-         left:unset !important;
-      }
-      
-      .review-item-panel{
-         width: 90%;
-      }
-      
-      .slick-initialized .slick-slide{
-         border-top:unset;
-      }
-      
-      .slick-slider {
-         padding-top: 1px
-      }
-      /** review slider css end **/
-   }
--->
+         .div-sponsor{
+          /*  border: 1px solid #eaebeb;
+           border-radius: 4px;
+           margin-left: 5px;
+           margin-right: 5px; */
+         }
+         
+         .slick-slider{
+            background:unset;
+         }
+         
+         .slick-slider:before{
+            content:unset;
+         }
+         
+         .review-item-slick-slide .customer-img-review{
+            margin: unset;
+         }
+         
+         .review-item-slick-slide .star{
+            width: 14px;
+            overflow: inherit;
+         }
+         
+         .slick-dots li button:before{
+            font-size:12px;
+         }
+         
+         .review-item-slick-slide .slick-initialized .slick-slide{
+            font-size:15px;
+         }
+         
+         .mmy-superkid-slick-slide .product-image-container{
+            padding:7px;
+         }
+         
+         .mmy-webinar-date .reviewBox-calendar{
+            padding:15px;
+            position:relative;
+         }
+         
+         
+         .row-star{
+            margin-bottom: 5%;
+            margin-left: 0px;
+         }
+         
+         .slick-next:before {
+            content: '→';
+         }
+         
+         .slick-prev:before {
+            content: '←';
+         }
+         
+         .slick-prev:before, .slick-next:before {
+            font-family: 'slick';
+            font-size: 25px;
+            line-height: 1;
+            opacity: .75;
+            color: black;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+         }
+         
+         .slick-prev, .slick-next{
+            top:45%;
+         }
+         
+         .review-item-slick-slide .slick-prev {
+            left: -20px;
+         }
+         
+         .review-item-slick-slide .slick-next {
+            right: -14px;
+         }
+         
+         .mmy-superkid-slick-slide .slick-prev {
+            left: -25px;
+         }
+         
+         .mmy-superkid-slick-slide .slick-next {
+            right: -20px;
+         }
+         
+         .mmy-webinar-date  .slick-prev {
+            left: -25px;
+         }
+         
+         .mmy-webinar-date  .slick-next {
+            right: -20px;
+         }
+         
+         .multiple-product-slider  .slick-prev {
+            left: -25px;
+         }
+         
+         .multiple-product-slider  .slick-next {
+            right: -20px;
+         }
+         
+         /** review slider css end **/
+         
+         
+         @media only screen and (max-width: 600px) 
+         {
+            .img-calendar{
+               width:90%;
+            }
+            
+            .title-webinar{
+               padding-top:15px;
+               min-height:75px;
+               line-height: 22px;
+            }
+            
+            .desc-info{
+               min-height: 36px;
+         
+            }
+            
+            .swipe-text{
+               display:block !important;
+            }
+            
+            .btn-submit-superkid{
+               width:100%;
+            }
+            
+            .main_banner_margin{
+               margin-left: -20px;
+               margin-right: -20px;
+            }
+            
+            .div-row-calendar-slider{
+                  margin-left: -20px;
+               margin-right: -20px;
+            }
+            
+            /** review slider css start **/
+            .customer-img-review{
+               width: 50%; 
+               left: 25px;
+            }
+            
+            .div-img-review{
+               padding-top:10px;
+               text-align: -webkit-center;
+            }
+            
+            .section_slidethekapitan1{
+               left:unset !important;
+            }
+            
+            .review-item-panel{
+               width: 90%;
+            }
+            
+            .slick-initialized .slick-slide{
+               border-top:unset;
+            }
+            
+            .slick-slider {
+               padding-top: 1px
+            }
+            /** review slider css end **/
+         }
+      -->
 </style>
 <div class="col-lg-12 main_banner_margin" style="padding-left: 0px; padding-right: 0px;"><a href="../../../events/motherhood-superkids" target="_blank" rel="noopener"> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Online+Sale/page/super-kids-1.png" alt="" width="100%" /></a></div>
 <div class="col-lg-12 main_banner_margin" style="padding-left: 0px; padding-right: 0px;"><a href="../../../events/motherhood-superkids" target="_blank" rel="noopener"> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/November/Online+Sale/page/2.png" alt="" width="100%" /></a></div>
@@ -410,18 +417,10 @@
          <hr style="border: 2px solid; margin-top: 2px;" />
          <div class="row mx-0 my-2 my-md-3">
             <div class="col-md-6 px-2 div-email">
-               <div class="form-floating">
-                  <input type="email" class="form-control input-email" id="newEmail" name="newEmail" value="{{currentEmail}}" placeholder="email address" required="" /> 
-                  <label for="newEmailInput">Email address</label> 
-                     <small class="error-msg email-msg"></small>
-                  </div>
+               <div class="form-floating"><input type="email" class="form-control input-email" id="newEmail" name="newEmail" value="{{currentEmail}}" placeholder="email address" required="" /> <label for="newEmailInput">Email address</label> <small class="error-msg email-msg"></small></div>
             </div>
             <div class="col-md-6 px-2 div-password">
-               <div class="form-floating">
-                  <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="password" minlength="6/" /> 
-                  <label for="newPassword">Account Password</label> 
-                  <small>Please assign a password for your Motherhood account.</small>
-                  </div>
+               <div class="form-floating"><input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="password" minlength="6/" /> <label for="newPassword">Account Password</label> <small>Please assign a password for your Motherhood account.</small></div>
             </div>
          </div>
          <div class="row mx-0 my-2 my-md-3">
@@ -434,18 +433,13 @@
          </div>
          <div class="row mx-0 my-2 my-md-3">
             <div class="col-md-6 px-2">
-               <div class="form-floating">
-               <input type="number" class="form-control mobile-input" id="subscriber_question1" name="subscriber_question1" value="{{phone}}" placeholder="mobile number" pattern=".{10,}" onkeydown="javascript: return event.keyCode == 69 ? false : true" required="required" /> 
-               <label for="subscriber_question1">Mobile no</label></div>
-               <small id="phoneNoError" style="color: red; display: none;">Invalid phone number format. Correct format(XXX XXXXXXXX), e.g. 012 3334444 / 019-8887777</small> 
-               <small id="phoneNoPrefixError" style="color: red; display: none;">Invalid phone number prefix. Correct Prefix (010,011,012,013,014,015,016,017,018,019)</small>
-                <small id="phoneNoErrorSg" style="color: red; display: none;">Invalid Singapore phone number format. Correct Format(5 XXXX XXXX), e.g. 5 66667777</small>
+               <div class="form-floating"><input type="number" class="form-control mobile-input" id="subscriber_question1" name="subscriber_question1" value="{{phone}}" placeholder="mobile number" pattern=".{10,}" onkeydown="javascript: return event.keyCode == 69 ? false : true" required="required" /> <label for="subscriber_question1">Mobile no</label></div>
+               <small id="phoneNoError" style="color: red; display: none;">Invalid phone number format. Correct format(XXX XXXXXXXX), e.g. 012 3334444 / 019-8887777</small> <small id="phoneNoPrefixError" style="color: red; display: none;">Invalid phone number prefix. Correct Prefix (010,011,012,013,014,015,016,017,018,019)</small> <small id="phoneNoErrorSg" style="color: red; display: none;">Invalid Singapore phone number format. Correct Format(5 XXXX XXXX), e.g. 5 66667777</small>
             </div>
          </div>
          <div class="row mx-0 my-2 my-md-3">
             <div class="col-md-12 px-2">
-               <div class="form-floating">
-               <input type="text" class="form-control full-address" id="subscriber_question7" name="subscriber_question7" value="{{address1}}" placeholder="Full address" required="" /> <label for="subscriber_question7">Full address</label></div>
+               <div class="form-floating"><input type="text" class="form-control full-address" id="subscriber_question7" name="subscriber_question7" value="{{address1}}" placeholder="Full address" required="" /> <label for="subscriber_question7">Full address</label></div>
             </div>
          </div>
          <div class="row mx-0 my-md-3">
@@ -633,10 +627,29 @@
       </div>
    </div>
    <div class="row my-3">
-		<div class="col-md-12 text-center">
-			<button type="button" class="btn btn-default btn-submit-superkid"> SIGN UP NOW </button>
-			<button type="submit" name="submit" id="btnsubmit" style="display:none"> SIGN UP NOW </button>
-		</div>
+      <div class="col-md-12 text-center"><button type="button" class="btn btn-default btn-submit-superkid"> SIGN UP NOW </button> <button type="submit" name="submit" id="btnsubmit" style="display: none;"> SIGN UP NOW </button></div>
+   </div>
+</div>
+<div class="clearfix"></div>
+<div class="row mt-5">
+   <div class="col-md-12 text-center">
+      <p style="font-size: 24px; color: #4c4c4d; font-weight: bold; line-height: 1;">Sponsored By</p>
+   </div>
+</div>
+<div class="row mmy-superkid-slick-slide" style="padding-left: 10px; padding-right: 10px;">
+   <div class="sponsor-slider" style="display: none;">
+      <div class="div-sponsor">
+         <img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/September/Superkids/1.png" alt="sponsor1" title="sponsor1" />
+      </div>
+      <div class="div-sponsor">
+        <img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/September/Superkids/2.png" alt="sponsor2" title="sponsor2" />
+      </div>
+      <div class="div-sponsor">
+         <img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/September/Superkids/3.png" alt="sponsor3" title="sponsor3" />
+      </div>
+      <div class="div-sponsor">
+         <img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/September/Superkids/comingsoon.png" alt="sponsor4" title="sponsor4" />
+      </div>
    </div>
 </div>
 <!-- ================ Slider ========== -->
@@ -1597,526 +1610,546 @@
 </div>
 <p>
    <script>// <![CDATA[
-		var postcodeSelector = $('body').find('.addr-postcode');
-		var emailSelector	 = $('body').find('.input-email');
-		var passSelector	 = $('body').find('.inputpassword');
-		var errorSelector  	= $('body').find('.error-msg');
+      var postcodeSelector = $('body').find('.addr-postcode');
+      		var emailSelector	 = $('body').find('.input-email');
+      		var passSelector	 = $('body').find('.inputpassword');
+      		var errorSelector  	= $('body').find('.error-msg');
+            			
+            	var validatePostcode = function(_this){
+      			var postcode = postcodeSelector.val();
       			
-      	var validatePostcode = function(_this){
-			var postcode = postcodeSelector.val();
-			
-			postcodeSelector.removeClass('is-invalid');
-			postcodeSelector.closest('.div-postcode').find('.error-msg').html('');
-			if(postcode == '' || postcode == undefined || postcode == null)
-			{
-				postcodeSelector.addClass('is-invalid');
-				postcodeSelector.closest('.div-postcode').find('.error-msg').html('Please insert postcode');
-				
-				return false;
-			}
-			else if(isNaN(postcode))
-			{
-				postcodeSelector.addClass('is-invalid');
-				postcodeSelector.closest('.div-postcode').find('.error-msg').html('Postcode must be in numeric value');
-				
-				return false;
-			}
-			else if(postcode.length != 5)
-			{
-				postcodeSelector.addClass('is-invalid');
-				postcodeSelector.closest('.div-postcode').find('.error-msg').html('Postcode contain 5 digits only');
-				
-				return false;
-			}
-			else
-			{
-				$.ajax({
-					url		 : '../modules/enlineamixmod/enlineamixmod-postcode-ajax.php', 
-					data	 :{'postcode': postcode},
-					dataType :'json',
-					method 	 : 'post',
-					success	 : function(result){
-						if(result.status == true)
-						{
-							if(result.data.city != undefined && result.data.city != '')
-							{
-								postcodeSelector.closest('.row').find('.addr-city').val(result.data.city);
-							}
-							
-							if(result.data.state_name != undefined && result.data.state_name != '')
-							{
-								postcodeSelector.closest('.row').find('.addr-state').val(result.data.state_name);
-							}
-						}
-					}
-				});
-				
-				return true;
-			}
-		}
+      			postcodeSelector.removeClass('is-invalid');
+      			postcodeSelector.closest('.div-postcode').find('.error-msg').html('');
+      			if(postcode == '' || postcode == undefined || postcode == null)
+      			{
+      				postcodeSelector.addClass('is-invalid');
+      				postcodeSelector.closest('.div-postcode').find('.error-msg').html('Please insert postcode');
+      				
+      				return false;
+      			}
+      			else if(isNaN(postcode))
+      			{
+      				postcodeSelector.addClass('is-invalid');
+      				postcodeSelector.closest('.div-postcode').find('.error-msg').html('Postcode must be in numeric value');
+      				
+      				return false;
+      			}
+      			else if(postcode.length != 5)
+      			{
+      				postcodeSelector.addClass('is-invalid');
+      				postcodeSelector.closest('.div-postcode').find('.error-msg').html('Postcode contain 5 digits only');
+      				
+      				return false;
+      			}
+      			else
+      			{
+      				$.ajax({
+      					url		 : '../modules/enlineamixmod/enlineamixmod-postcode-ajax.php', 
+      					data	 :{'postcode': postcode},
+      					dataType :'json',
+      					method 	 : 'post',
+      					success	 : function(result){
+      						if(result.status == true)
+      						{
+      							if(result.data.city != undefined && result.data.city != '')
+      							{
+      								postcodeSelector.closest('.row').find('.addr-city').val(result.data.city);
+      							}
+      							
+      							if(result.data.state_name != undefined && result.data.state_name != '')
+      							{
+      								postcodeSelector.closest('.row').find('.addr-state').val(result.data.state_name);
+      							}
+      						}
+      					}
+      				});
+      				
+      				return true;
+      			}
+      		}
+            			
+      		var validateEmail = function(autorun){
+      			var eventID  = 93;
+      			var email 	 = emailSelector.val();
+      			var password = $('body').find('#newPassword').val();
+      			console.log(password);
+      			emailSelector.closest('.div-email').find(errorSelector).html("");
+      			emailSelector.removeClass('is-invalid');
+      			emailSelector.removeClass('is-valid');
+      			passSelector.addClass('is-invalid');
+      			$('body').find('.title-form').html("Ready to be a Motherhood Super Kid?");
+      			$('body').find('.btn-submit-superkid').show('fast');
+      			$('body').find('.btn-add-child').show('fast');
+      			$('body').find('.div-password').show('fast');
+               $('body').find('.btn-submit-superkid').attr('disabled', false);
       			
-		var validateEmail = function(autorun){
-			var eventID  = 93;
-			var email 	 = emailSelector.val();
-			var password = $('body').find('#newPassword').val();
-			console.log(password);
-			emailSelector.closest('.div-email').find(errorSelector).html("");
-			emailSelector.removeClass('is-invalid');
-			emailSelector.removeClass('is-valid');
-			passSelector.addClass('is-invalid');
-			$('body').find('.title-form').html("Ready to be a Motherhood Super Kid?");
-			$('body').find('.btn-submit-superkid').show('fast');
-			$('body').find('.btn-add-child').show('fast');
-			$('body').find('.div-password').show('fast');
-         $('body').find('.btn-submit-superkid').attr('disabled', false);
-			
-			if(email != '' && email != undefined && email != null)
-			{
-				emailSelector.closest('.div-email').find(errorSelector).html('<i class="fas fa-spinner fa-spin text-info"></i>');
-				
-				$.ajax({
-					url		 : '../modules/enlineamixmod/enlineamixmod-checkcustemailevent-ajax.php', 
-					data	 :{'checkemail': email, 'eventid': eventID, 'password' : password},
-					dataType :'json',
-					method 	 : 'post',
-					async	 : true,
-					success	 : function(result){
-						
-						emailSelector.closest('.div-email').find('.email-msg').html('');
-						$('body').find('.child-input').val("");
-						$('body').find('#childDiv2').hide('fast');
-						$('body').find('#childDiv3').hide('fast');
-						
-						console.log(result);
-						if(result.data != undefined && result.data != null)
-						{
-							if(result.data.firstname != '' && result.data.firstname != undefined && result.data.firstname != null)
-							{
-								$('body').find('#newFirstName').val(result.data.firstname);
-							}
-							
-							if(result.data.lastname != '' && result.data.lastname != undefined && result.data.lastname != null)
-							{
-								$('body').find('#newLastName').val(result.data.lastname);
-							}
-						}
-						
-						if(result.status == false)
-						{
-							if(result.status_code == 'exist_customer_motherhood_password_empty')
-							{
-								var userid 		= $('body').find('.user-id').val();
-								var loginemail  = $('body').find('.login-input-email').val();
-								emailSelector.closest('.row').find('.email-msg').html("Your email has been found in our system.");
-								
-								/** if customer already login we hide password input **/
-								passSelector.closest('.row').find('.email-msg').html("Kindly enter your account password");
-								emailSelector.addClass('is-invalid');
-								passSelector.addClass('is-invalid');
-								
-							}
-							else if(result.status_code == 'exist_customer_motherhood_password_invalid')
-							{
-								emailSelector.closest('.row').find('.email-msg').html(result.msg);
-								emailSelector.addClass('is-invalid');
-								passSelector.addClass('is-invalid');
-                        $('body').find('.btn-submit-superkid').attr('disabled', true);
-								
-							}
-							
-						}
-						else
-						{
-							emailSelector.closest('.row').find('.email-msg').html("");
-							passSelector.closest('.row').find('.email-msg').html("");
-							emailSelector.removeClass('is-invalid');
-							passSelector.removeClass('is-invalid');
-								
-							if(result.status_code == 'new_customer_event')
-							{
-								$('body').find('.div-confirm-password').show('fast');
-                        $('body').find('.btn-submit-superkid').attr('disabled', false);
-							}
-							else if(result.status_code == 'exist_customer_motherhood_password_valid')
-							{
-								$('body').find('.div-confirm-password').hide('fast');
-                        $('body').find('.btn-submit-superkid').attr('disabled', false);
-							}
-							else if(result.status_code == 'exist_customer_event')
-							{
-                        $('body').find('.btn-submit-superkid').attr('disabled', true);
-								$('body').find('.title-form').html("You Have Registered Motherhood Super Kids")
-								$('body').find('.btn-submit-superkid').hide('fast');
-								$('body').find('.btn-add-child').hide('fast');
-								$('body').find('.div-password').hide('fast');
-								
-								if(result.data.email != undefined && result.data.email != '')
-								{
-									$('body').find('.input-email').val(result.data.email);
-								}
-								
-								if(result.data.firstname != undefined && result.data.firstname != '')
-								{
-									$('body').find('#newFirstName').val(result.data.firstname);
-								}
-								
-								if(result.data.lastname != undefined && result.data.lastname != '')
-								{
-									$('body').find('#newLastName').val(result.data.lastname);
-								}
-								
-								if(result.data.mobile != undefined && result.data.mobile != '')
-								{
-									$('body').find('.mobile-input').val(result.data.mobile);
-								}
-								
-								if(result.data.fulladdress != undefined && result.data.fulladdress != '')
-								{
-									$('body').find('.full-address').val(result.data.fulladdress);
-								}
-								
-								if(result.data.postcode != undefined && result.data.postcode != '')
-								{
-									$('body').find('.addr-postcode').val(result.data.postcode);
-								}
-								
-								if(result.data.city != undefined && result.data.city != '')
-								{
-									$('body').find('.addr-city').val(result.data.city);
-								}
-								
-								if(result.data.state != undefined && result.data.state != '')
-								{
-									$('body').find('.addr-state').val(result.data.state);
-								}
-								
-								if(result.data.tnc_agree != undefined && result.data.tnc_agree == 'agreeTNC')
-								{
-									console.log('tnc checked');
-									$('body').find('#tnccheckbox').attr('checked');
-								}
-								
-								if(result.data.listchilds != undefined && result.data.listchilds != '')
-								{
-									/* for references : https://www.youtube.com/watch?v=v2tJ3nzXh8I&ab_channel=WebDevSimplified */
-									var listChilds   	=  result.data.listchilds;
-								
-									/** child 1 info **/
-									var childename1  	=  listChilds.child1.childname ?? "";
-									var childdob1    	=  listChilds.child1.childdob ?? "";
-									var childic1     	=  listChilds.child1.childic ?? "";
-									var childmilkbrand1 =  listChilds.child1.childmilkbrand ?? "";
-									var childgender1 	=  listChilds.child1.childgender ?? "";
-									var childmobileno1 	=  listChilds.child1.childmobileno ?? "";
-									$('body').find('.child_name1').val(childename1);
-									$('body').find('.child_dob1').val(childdob1);
-									$('body').find('.child_mykid1').val(childic1);
-									$('body').find('.child_milkbrand1').val(childmilkbrand1);
-									$('body').find('.child_gender1').val(childgender1);
-									$('body').find('.child_contact1').val(childmobileno1);
-									
-									/** child 2 info **/
-									var childename2  	=  listChilds.child2.childname ?? "";
-									var childdob2	  	=  listChilds.child2.childdob ?? "";
-									var childic2     	=  listChilds.child2.childic ?? "";
-									var childmilkbrand2 =  listChilds.child2.childmilkbrand ?? "";
-									var childgender2 	=  listChilds.child2.childgender ?? "";
-									var childmobileno2 	=  listChilds.child2.childmobileno ?? "";
-									
-									if(childename2 != '' && childename2 != undefined)
-									{
-										$('body').find('#childDiv2').show('fast');
-										$('body').find('.child_name2').val(childename2);
-										$('body').find('.child_dob2').val(childdob2);
-										$('body').find('.child_mykid2').val(childic2);
-										$('body').find('.child_milkbrand2').val(childmilkbrand2);
-										$('body').find('.child_gender2').val(childgender2);
-										$('body').find('.child_contact2').val(childmobileno2);
-									}
-									
-									/** child 3 info **/
-									var childename3  	=  listChilds.child3.childname ?? "";
-									var childdob3	  	=  listChilds.child3.childdob ?? "";
-									var childic3     	=  listChilds.child3.childic ?? "";
-									var childmilkbrand3 =  listChilds.child3.childmilkbrand ?? "";
-									var childgender3 	=  listChilds.child3.childgender ?? "";
-									var childmobileno3 	=  listChilds.child3.childmobileno ?? "";
-									if(childename3 != '' && childename3 != undefined)
-									{
-										$('body').find('#childDiv3').show('fast');
-										$('body').find('.child_name3').val(childename3);
-										$('body').find('.child_dob3').val(childdob3);
-										$('body').find('.child_mykid3').val(childic3);
-										$('body').find('.child_milkbrand3').val(childmilkbrand3);
-										$('body').find('.child_gender3').val(childgender3);
-										$('body').find('.child_contact3').val(childmobileno3);
-									}
-									
-								}
-							}
-							else if(result.status_code == 'exist_customer_other_event')
-							{
-								$('body').find('.btn-submit-display').css('display', 'none');
-								
-								alert("You have registered before. This redemption is open for new Motherhood users only.")							
-							}
-							
-						}
-						
-					}
-				});
-			}
-			else
-			{
-				if(autorun != true)
-				{
-					msg = "Please insert email";
-					emailSelector.addClass('is-invalid');
-					emailSelector.closest('.div-email').find('.email-msg').html(msg);
-				}
-			}
-		}
+      			if(email != '' && email != undefined && email != null)
+      			{
+      				emailSelector.closest('.div-email').find(errorSelector).html('<i class="fas fa-spinner fa-spin text-info"></i>');
+      				
+      				$.ajax({
+      					url		 : '../modules/enlineamixmod/enlineamixmod-checkcustemailevent-ajax.php', 
+      					data	 :{'checkemail': email, 'eventid': eventID, 'password' : password},
+      					dataType :'json',
+      					method 	 : 'post',
+      					async	 : true,
+      					success	 : function(result){
+      						
+      						emailSelector.closest('.div-email').find('.email-msg').html('');
+      						$('body').find('.child-input').val("");
+      						$('body').find('#childDiv2').hide('fast');
+      						$('body').find('#childDiv3').hide('fast');
+      						
+      						console.log(result);
+      						if(result.data != undefined && result.data != null)
+      						{
+      							if(result.data.firstname != '' && result.data.firstname != undefined && result.data.firstname != null)
+      							{
+      								$('body').find('#newFirstName').val(result.data.firstname);
+      							}
+      							
+      							if(result.data.lastname != '' && result.data.lastname != undefined && result.data.lastname != null)
+      							{
+      								$('body').find('#newLastName').val(result.data.lastname);
+      							}
+      						}
+      						
+      						if(result.status == false)
+      						{
+      							if(result.status_code == 'exist_customer_motherhood_password_empty')
+      							{
+      								var userid 		= $('body').find('.user-id').val();
+      								var loginemail  = $('body').find('.login-input-email').val();
+      								emailSelector.closest('.row').find('.email-msg').html("Your email has been found in our system.");
+      								
+      								/** if customer already login we hide password input **/
+      								passSelector.closest('.row').find('.email-msg').html("Kindly enter your account password");
+      								emailSelector.addClass('is-invalid');
+      								passSelector.addClass('is-invalid');
+      								
+      							}
+      							else if(result.status_code == 'exist_customer_motherhood_password_invalid')
+      							{
+      								emailSelector.closest('.row').find('.email-msg').html(result.msg);
+      								emailSelector.addClass('is-invalid');
+      								passSelector.addClass('is-invalid');
+                              $('body').find('.btn-submit-superkid').attr('disabled', true);
+      								
+      							}
+      							
+      						}
+      						else
+      						{
+      							emailSelector.closest('.row').find('.email-msg').html("");
+      							passSelector.closest('.row').find('.email-msg').html("");
+      							emailSelector.removeClass('is-invalid');
+      							passSelector.removeClass('is-invalid');
+      								
+      							if(result.status_code == 'new_customer_event')
+      							{
+      								$('body').find('.div-confirm-password').show('fast');
+                              $('body').find('.btn-submit-superkid').attr('disabled', false);
+      							}
+      							else if(result.status_code == 'exist_customer_motherhood_password_valid')
+      							{
+      								$('body').find('.div-confirm-password').hide('fast');
+                              $('body').find('.btn-submit-superkid').attr('disabled', false);
+      							}
+      							else if(result.status_code == 'exist_customer_event')
+      							{
+                              $('body').find('.btn-submit-superkid').attr('disabled', true);
+      								$('body').find('.title-form').html("You Have Registered Motherhood Super Kids")
+      								$('body').find('.btn-submit-superkid').hide('fast');
+      								$('body').find('.btn-add-child').hide('fast');
+      								$('body').find('.div-password').hide('fast');
+      								
+      								if(result.data.email != undefined && result.data.email != '')
+      								{
+      									$('body').find('.input-email').val(result.data.email);
+      								}
+      								
+      								if(result.data.firstname != undefined && result.data.firstname != '')
+      								{
+      									$('body').find('#newFirstName').val(result.data.firstname);
+      								}
+      								
+      								if(result.data.lastname != undefined && result.data.lastname != '')
+      								{
+      									$('body').find('#newLastName').val(result.data.lastname);
+      								}
+      								
+      								if(result.data.mobile != undefined && result.data.mobile != '')
+      								{
+      									$('body').find('.mobile-input').val(result.data.mobile);
+      								}
+      								
+      								if(result.data.fulladdress != undefined && result.data.fulladdress != '')
+      								{
+      									$('body').find('.full-address').val(result.data.fulladdress);
+      								}
+      								
+      								if(result.data.postcode != undefined && result.data.postcode != '')
+      								{
+      									$('body').find('.addr-postcode').val(result.data.postcode);
+      								}
+      								
+      								if(result.data.city != undefined && result.data.city != '')
+      								{
+      									$('body').find('.addr-city').val(result.data.city);
+      								}
+      								
+      								if(result.data.state != undefined && result.data.state != '')
+      								{
+      									$('body').find('.addr-state').val(result.data.state);
+      								}
+      								
+      								if(result.data.tnc_agree != undefined && result.data.tnc_agree == 'agreeTNC')
+      								{
+      									console.log('tnc checked');
+      									$('body').find('#tnccheckbox').attr('checked');
+      								}
+      								
+      								if(result.data.listchilds != undefined && result.data.listchilds != '')
+      								{
+      									/* for references : https://www.youtube.com/watch?v=v2tJ3nzXh8I&ab_channel=WebDevSimplified */
+      									var listChilds   	=  result.data.listchilds;
+      								
+      									/** child 1 info **/
+      									var childename1  	=  listChilds.child1.childname ?? "";
+      									var childdob1    	=  listChilds.child1.childdob ?? "";
+      									var childic1     	=  listChilds.child1.childic ?? "";
+      									var childmilkbrand1 =  listChilds.child1.childmilkbrand ?? "";
+      									var childgender1 	=  listChilds.child1.childgender ?? "";
+      									var childmobileno1 	=  listChilds.child1.childmobileno ?? "";
+      									$('body').find('.child_name1').val(childename1);
+      									$('body').find('.child_dob1').val(childdob1);
+      									$('body').find('.child_mykid1').val(childic1);
+      									$('body').find('.child_milkbrand1').val(childmilkbrand1);
+      									$('body').find('.child_gender1').val(childgender1);
+      									$('body').find('.child_contact1').val(childmobileno1);
+      									
+      									/** child 2 info **/
+      									var childename2  	=  listChilds.child2.childname ?? "";
+      									var childdob2	  	=  listChilds.child2.childdob ?? "";
+      									var childic2     	=  listChilds.child2.childic ?? "";
+      									var childmilkbrand2 =  listChilds.child2.childmilkbrand ?? "";
+      									var childgender2 	=  listChilds.child2.childgender ?? "";
+      									var childmobileno2 	=  listChilds.child2.childmobileno ?? "";
+      									
+      									if(childename2 != '' && childename2 != undefined)
+      									{
+      										$('body').find('#childDiv2').show('fast');
+      										$('body').find('.child_name2').val(childename2);
+      										$('body').find('.child_dob2').val(childdob2);
+      										$('body').find('.child_mykid2').val(childic2);
+      										$('body').find('.child_milkbrand2').val(childmilkbrand2);
+      										$('body').find('.child_gender2').val(childgender2);
+      										$('body').find('.child_contact2').val(childmobileno2);
+      									}
+      									
+      									/** child 3 info **/
+      									var childename3  	=  listChilds.child3.childname ?? "";
+      									var childdob3	  	=  listChilds.child3.childdob ?? "";
+      									var childic3     	=  listChilds.child3.childic ?? "";
+      									var childmilkbrand3 =  listChilds.child3.childmilkbrand ?? "";
+      									var childgender3 	=  listChilds.child3.childgender ?? "";
+      									var childmobileno3 	=  listChilds.child3.childmobileno ?? "";
+      									if(childename3 != '' && childename3 != undefined)
+      									{
+      										$('body').find('#childDiv3').show('fast');
+      										$('body').find('.child_name3').val(childename3);
+      										$('body').find('.child_dob3').val(childdob3);
+      										$('body').find('.child_mykid3').val(childic3);
+      										$('body').find('.child_milkbrand3').val(childmilkbrand3);
+      										$('body').find('.child_gender3').val(childgender3);
+      										$('body').find('.child_contact3').val(childmobileno3);
+      									}
+      									
+      								}
+      							}
+      							else if(result.status_code == 'exist_customer_other_event')
+      							{
+      								$('body').find('.btn-submit-display').css('display', 'none');
+      								
+      								alert("You have registered before. This redemption is open for new Motherhood users only.")							
+      							}
+      							
+      						}
+      						
+      					}
+      				});
+      			}
+      			else
+      			{
+      				if(autorun != true)
+      				{
+      					msg = "Please insert email";
+      					emailSelector.addClass('is-invalid');
+      					emailSelector.closest('.div-email').find('.email-msg').html(msg);
+      				}
+      			}
+      		}
+            		
+      		var optionOthermilk = function(){
+      			var optionselected = "";
+      			$('.option-other-milkbrand').each(function(indx, ele){
+      				if($(ele).is(":checked"))
+      				{
+      					optionselected += (optionselected != "" ? "," : "") + $(ele).val();
+      				}
+      			});
+      			
+      			$('body').find('.other-milk-brand-input').val(optionselected);
+      		}
+            		 
+         $(function(){
+      		$('body').find('.btn-submit-superkid').attr('disabled', false);
       		
-		var optionOthermilk = function(){
-			var optionselected = "";
-			$('.option-other-milkbrand').each(function(indx, ele){
-				if($(ele).is(":checked"))
-				{
-					optionselected += (optionselected != "" ? "," : "") + $(ele).val();
-				}
-			});
-			
-			$('body').find('.other-milk-brand-input').val(optionselected);
-		}
-      		 
-   $(function(){
-		$('body').find('.btn-submit-superkid').attr('disabled', false);
-		
-      $('body').find('.multiple-webinardate-slider').slick({
-         infinite: true,
-         slidesToShow: 3,
-         slidesToScroll: 3,
-         dots: true,
-         adaptiveHeight:true,
-         autoplay: true,
-         responsive: [
-         {
-            breakpoint: 600,
-            settings: {
-               slidesToShow: 1,
-               slidesToScroll: 1,
+            $('body').find('.multiple-webinardate-slider').slick({
+               infinite: true,
+               slidesToShow: 3,
+               slidesToScroll: 3,
                dots: true,
                adaptiveHeight:true,
-               arrows:false,
-               autoplay: false,
-            }
-         }]
-      });
-      
-      $('body').find('.multiple-webinardate-slider').show();
-			
-      $('body').find('.multiple-reviews-slider').slick({
-         infinite: true,
-         slidesToShow: 2,
-         slidesToScroll: 2,
-         dots: true,
-         adaptiveHeight:true,
-         responsive: [
-         {
-            breakpoint: 600,
-            settings: {
-               slidesToShow: 1,
-               slidesToScroll: 1,
-               dots: true,
-               adaptiveHeight:true,
-               arrows:false,
-            }
-         }]
-      });
-      $('body').find('.multiple-reviews-slider').show();
-			
-      $('body').find('.multiple-img-slider').slick({
-         infinite: true,
-         slidesToShow: 4,
-         slidesToScroll: 4,
-         dots: true,
-         adaptiveHeight:true,
-         responsive: [
-         {
-            breakpoint: 600,
-            settings: {
+               autoplay: true,
+               responsive: [
+               {
+                  breakpoint: 600,
+                  settings: {
+                     slidesToShow: 1,
+                     slidesToScroll: 1,
+                     dots: true,
+                     adaptiveHeight:true,
+                     arrows:false,
+                     autoplay: false,
+                  }
+               }]
+            });
+            
+            $('body').find('.multiple-webinardate-slider').show();
+      			
+            $('body').find('.multiple-reviews-slider').slick({
+               infinite: true,
                slidesToShow: 2,
                slidesToScroll: 2,
                dots: true,
                adaptiveHeight:true,
-               arrows:false,
-            }
-         }]
-      });
-      $('body').find('.multiple-img-slider').show();
-			
-      $('body').find('.multiple-product-slider').slick({
-         infinite: true,
-         slidesToShow: 3,
-         slidesToScroll:3,
-         dots: true,
-         adaptiveHeight:true,
-         responsive: [
-         {
-            breakpoint: 600,
-            settings: {
-               slidesToShow: 1,
-               slidesToScroll: 1,
+               responsive: [
+               {
+                  breakpoint: 600,
+                  settings: {
+                     slidesToShow: 1,
+                     slidesToScroll: 1,
+                     dots: true,
+                     adaptiveHeight:true,
+                     arrows:false,
+                  }
+               }]
+            });
+            $('body').find('.multiple-reviews-slider').show();
+      			
+            $('body').find('.multiple-img-slider').slick({
+               infinite: true,
+               slidesToShow: 4,
+               slidesToScroll: 4,
                dots: true,
                adaptiveHeight:true,
-               arrows:false,
-            }
-         }]
-      });
-      $('body').find('.multiple-product-slider').show();
-			
-		
-      $('#subscriber_question1').on('change',function(event){
-         var phonenumber = $('#subscriber_question1').val();
-         var phonenumber = phonenumber.replace(/-/g, ' ');
-         var phonenumber = phonenumber.trim();
-         if ($.trim(phonenumber) != "") {
-            var prefix = phonenumber.substring(0,3);
-            var firstNo = phonenumber.substring(0,1);
-            var phoneLength = phonenumber.length;
-            if(firstNo !== 0 || firstNo !== 5){
-               $('#phoneNoError').show();
-               $("#subscriber_question1").css('background-color', 'red');
-               $("#submitBtn").attr("disabled", true);
-            }
-            if(firstNo == '0'){
-               if(prefix == '010' || prefix == '011' || prefix == '012' || prefix == '013' || prefix == '014' || prefix == '015' || prefix == '016' || prefix == '017' || prefix == '018' || prefix == '019'){
-                  $('#phoneNoPrefixError').hide();
-                  $("#subscriber_question1").css('background-color', 'white'); 
-                  $("#submitBtn").attr("disabled", false);
-                     if(prefix == '011'){
-                        if(phoneLength < 10 || phoneLength > 11){
-                           $('#phoneNoError').show();
-                           $("#subscriber_question1").css('background-color', 'red');
-                           $("#submitBtn").attr("disabled", true);
+               responsive: [
+               {
+                  breakpoint: 600,
+                  settings: {
+                     slidesToShow: 2,
+                     slidesToScroll: 2,
+                     dots: true,
+                     adaptiveHeight:true,
+                     arrows:false,
+                  }
+               }]
+            });
+            $('body').find('.multiple-img-slider').show();
+      			
+            $('body').find('.multiple-product-slider').slick({
+               infinite: true,
+               slidesToShow: 3,
+               slidesToScroll:3,
+               dots: true,
+               adaptiveHeight:true,
+               responsive: [
+               {
+                  breakpoint: 600,
+                  settings: {
+                     slidesToShow: 1,
+                     slidesToScroll: 1,
+                     dots: true,
+                     adaptiveHeight:true,
+                     arrows:false,
+                  }
+               }]
+            });
+            $('body').find('.multiple-product-slider').show(); 
+            
+            $('body').find('.sponsor-slider').slick({
+               infinite: true,
+               slidesToShow: 4,
+               slidesToScroll:4,
+               dots: true,
+               adaptiveHeight:true,
+               responsive: [
+               {
+                  breakpoint: 600,
+                  settings: {
+                     slidesToShow: 2,
+                     slidesToScroll: 2,
+                     dots: true,
+                     adaptiveHeight:true,
+                     arrows:false,
+                  }
+               }]
+            });
+            $('body').find('.sponsor-slider').show();
+      			
+      		
+            $('#subscriber_question1').on('change',function(event){
+               var phonenumber = $('#subscriber_question1').val();
+               var phonenumber = phonenumber.replace(/-/g, ' ');
+               var phonenumber = phonenumber.trim();
+               if ($.trim(phonenumber) != "") {
+                  var prefix = phonenumber.substring(0,3);
+                  var firstNo = phonenumber.substring(0,1);
+                  var phoneLength = phonenumber.length;
+                  if(firstNo !== 0 || firstNo !== 5){
+                     $('#phoneNoError').show();
+                     $("#subscriber_question1").css('background-color', 'red');
+                     $("#submitBtn").attr("disabled", true);
+                  }
+                  if(firstNo == '0'){
+                     if(prefix == '010' || prefix == '011' || prefix == '012' || prefix == '013' || prefix == '014' || prefix == '015' || prefix == '016' || prefix == '017' || prefix == '018' || prefix == '019'){
+                        $('#phoneNoPrefixError').hide();
+                        $("#subscriber_question1").css('background-color', 'white'); 
+                        $("#submitBtn").attr("disabled", false);
+                           if(prefix == '011'){
+                              if(phoneLength < 10 || phoneLength > 11){
+                                 $('#phoneNoError').show();
+                                 $("#subscriber_question1").css('background-color', 'red');
+                                 $("#submitBtn").attr("disabled", true);
+                              }else{
+                                 $('#phoneNoError').hide();
+                                 $('#phoneNoErrorSg').hide();
+                                 $("#subscriber_question1").css('background-color', 'white');
+                                 $("#submitBtn").attr("disabled", false);
+                              }
+                           }else{
+                              if(phoneLength < 10 || phoneLength > 10){
+                                 $('#phoneNoError').show();
+                                 $("#subscriber_question1").css('background-color', 'red');
+                                 $("#submitBtn").attr("disabled", true);
+                              }else{
+                                 $('#phoneNoError').hide();
+                                 $('#phoneNoErrorSg').hide();
+                                 $("#subscriber_question1").css('background-color', 'white');
+                                 $("#submitBtn").attr("disabled", false);
+                              }
+                           }  
                         }else{
-                           $('#phoneNoError').hide();
-                           $('#phoneNoErrorSg').hide();
-                           $("#subscriber_question1").css('background-color', 'white');
-                           $("#submitBtn").attr("disabled", false);
-                        }
+                        $('#phoneNoPrefixError').show();
+                        $("#subscriber_question1").css('background-color', 'red');
+                        $("#submitBtn").attr("disabled", true);
+                     } 
+                  }else if(firstNo == '5'){
+                        $('#phoneNoErrorSg').hide();
+                        $('#phoneNoError').hide();
+                        $("#subscriber_question1").css('background-color', 'white'); 
+                        $("#submitBtn").attr("disabled", false);
+                     if(phoneLength < 9 || phoneLength > 9){
+                        $('#phoneNoErrorSg').show();
+                        $("#subscriber_question1").css('background-color', 'red');
+                        $("#submitBtn").attr("disabled", true);
                      }else{
-                        if(phoneLength < 10 || phoneLength > 10){
-                           $('#phoneNoError').show();
-                           $("#subscriber_question1").css('background-color', 'red');
-                           $("#submitBtn").attr("disabled", true);
-                        }else{
-                           $('#phoneNoError').hide();
-                           $('#phoneNoErrorSg').hide();
-                           $("#subscriber_question1").css('background-color', 'white');
-                           $("#submitBtn").attr("disabled", false);
-                        }
-                     }  
+                        $('#phoneNoErrorSg').hide();
+                        $('#phoneNoError').hide();
+                        $("#subscriber_question1").css('background-color', 'white');
+                        $("#submitBtn").attr("disabled", false);
+                     }
                   }else{
-                  $('#phoneNoPrefixError').show();
-                  $("#subscriber_question1").css('background-color', 'red');
-                  $("#submitBtn").attr("disabled", true);
-               } 
-            }else if(firstNo == '5'){
-                  $('#phoneNoErrorSg').hide();
-                  $('#phoneNoError').hide();
-                  $("#subscriber_question1").css('background-color', 'white'); 
-                  $("#submitBtn").attr("disabled", false);
-               if(phoneLength < 9 || phoneLength > 9){
-                  $('#phoneNoErrorSg').show();
-                  $("#subscriber_question1").css('background-color', 'red');
-                  $("#submitBtn").attr("disabled", true);
-               }else{
-                  $('#phoneNoErrorSg').hide();
-                  $('#phoneNoError').hide();
-                  $("#subscriber_question1").css('background-color', 'white');
-                  $("#submitBtn").attr("disabled", false);
+                     $('#phoneNoPrefixError').show();
+                     $("#subscriber_question1").css('background-color', 'red');
+                     $("#submitBtn").attr("disabled", true);
+                  }
                }
-            }else{
-               $('#phoneNoPrefixError').show();
-               $("#subscriber_question1").css('background-color', 'red');
-               $("#submitBtn").attr("disabled", true);
-            }
-         }
-      });
-			
-      $('body').on('submit', '#eventform', function(){
-         $('body').find('.btn-submit-superkid').attr('disabled', true);
-         $('body').find('.btn-submit-superkid').html('<i class="fas fa-spinner fa-pulse"></i> Processing...');
-
-      });  
+            });
+      			
+            $('body').on('submit', '#eventform', function(){
+               $('body').find('.btn-submit-superkid').attr('disabled', true);
+               $('body').find('.btn-submit-superkid').html('<i class="fas fa-spinner fa-pulse"></i> Processing...');
       
-      $('body').on('click', '.btn-submit-superkid', function(){
-        $('#btnsubmit').trigger('click');
-      });
-			
-      $(window).load(function() {
-         $.uniform.restore(".noUniform");
-      });
-         
-      $('body').on('blur', '.addr-postcode', function(){
-         validatePostcode();
-      });
+            });  
+            
+            $('body').on('click', '.btn-submit-superkid', function(){
+              $('#btnsubmit').trigger('click');
+            });
+      			
+            $(window).load(function() {
+               $.uniform.restore(".noUniform");
+            });
+               
+            $('body').on('blur', '.addr-postcode', function(){
+               validatePostcode();
+            });
+            
+            validateEmail(true);
+            $('body').on('blur', '.input-email, #newPassword', function(){
+               validateEmail();
+            });
+      		
+      		$('body').on('change', '.option-other-milkbrand', function(){
+      			optionOthermilk();
+      		});
+      			
+            $('body').find(".pop-out-img").magnificPopup({
+               type: "image",
+               closeOnContentClick: true,
+               fixedContentPos: true,
+               mainClass: "mfp-no-margins", // class to remove default margin from left and right side
+               overflowY: 'scroll',
+               image: {
+                  verticalFit: false,
+               },
+               zoom: {
+                  enabled: false,
+                  duration: 100, // don't foget to change the duration also in CSS
+               },
+               callbacks: {
+                  close: function () {},
+               },
+            });
       
-      validateEmail(true);
-      $('body').on('blur', '.input-email, #newPassword', function(){
-         validateEmail();
-      });
-		
-		$('body').on('change', '.option-other-milkbrand', function(){
-			optionOthermilk();
-		});
-			
-      $('body').find(".pop-out-img").magnificPopup({
-         type: "image",
-         closeOnContentClick: true,
-         fixedContentPos: true,
-         mainClass: "mfp-no-margins", // class to remove default margin from left and right side
-         overflowY: 'scroll',
-         image: {
-            verticalFit: false,
-         },
-         zoom: {
-            enabled: false,
-            duration: 100, // don't foget to change the duration also in CSS
-         },
-         callbacks: {
-            close: function () {},
-         },
-      });
-
-      var selectorchildDOb1 = document.getElementById('subscriber_question13');
-      Inputmask('datetime',{
-         alias 		 :'datetime',
-         inputFormat  : "dd/mm/yyyy", 
-         outputFormat : "dd/mm/yyyy",
-         separator: '/',
-         leapday: "29/02/",
-      }).mask(selectorchildDOb1); 
-      
-      var selectorchildDOb2 = document.getElementById('subscriber_question18');
-      Inputmask('datetime',{
-         alias 		 :'datetime',
-         inputFormat  : "dd/mm/yyyy", 
-         outputFormat : "dd/mm/yyyy",
-         separator: '/',
-         leapday: "29/02/",
-      }).mask(selectorchildDOb2); 
-      
-      var selectorchildDOb3 = document.getElementById('subscriber_question23');
-      Inputmask('datetime',{
-         alias 		 :'datetime',
-         inputFormat  : "dd/mm/yyyy", 
-         outputFormat : "dd/mm/yyyy",
-         separator: '/',
-         leapday: "29/02/",
-      }).mask(selectorchildDOb3);
-	});
+            var selectorchildDOb1 = document.getElementById('subscriber_question13');
+            Inputmask('datetime',{
+               alias 		 :'datetime',
+               inputFormat  : "dd/mm/yyyy", 
+               outputFormat : "dd/mm/yyyy",
+               separator: '/',
+               leapday: "29/02/",
+            }).mask(selectorchildDOb1); 
+            
+            var selectorchildDOb2 = document.getElementById('subscriber_question18');
+            Inputmask('datetime',{
+               alias 		 :'datetime',
+               inputFormat  : "dd/mm/yyyy", 
+               outputFormat : "dd/mm/yyyy",
+               separator: '/',
+               leapday: "29/02/",
+            }).mask(selectorchildDOb2); 
+            
+            var selectorchildDOb3 = document.getElementById('subscriber_question23');
+            Inputmask('datetime',{
+               alias 		 :'datetime',
+               inputFormat  : "dd/mm/yyyy", 
+               outputFormat : "dd/mm/yyyy",
+               separator: '/',
+               leapday: "29/02/",
+            }).mask(selectorchildDOb3);
+      	});
        
       // ]]>
    </script>
