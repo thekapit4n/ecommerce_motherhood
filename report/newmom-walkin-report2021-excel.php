@@ -30,7 +30,7 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 		$searchStart ="";
 		$searchEnd 	 ="";
 		$wheresql  	 = "";
-		$limitsql    = " LIMIT 2353";
+		$limitsql    = " LIMIT 5000";
 		$strDateMsg  = "";
 		
 		$arrChangeBrandToOthers = array(
@@ -68,7 +68,9 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 		}
 		
 	
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "evnt.subscriber_event_id = 105";
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "evnt.subscriber_event_id = 141";
+		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "evnt.subscriber_question28 = 'redeem'";
+
 		if($searchStart != '')
 		{
 			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " subscriber_created_at >= '" . trim($searchStart . " 00:00:00") . "'";
@@ -79,65 +81,24 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " subscriber_created_at <= '" . trim($searchEnd . " 23:59:59") . "'";
 		}
 		
-		if($searchStart == '' && $searchEnd == '')
-		{
-			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at >= '2021-06-04 00:00:00'";
-		}
-
-		$arr_skip_email = array(
-			"susantuharynn88@gmail.com",
-			"ezlynmoss86@gmail.com",
-			"natelie0214@gmail.com",
-			"bryanseewp@gmail.com",
-			"syarifahzainab1994@gmail.com",
-			"syahiran164@gmail.com",
-			"raisaiman2412@gmail.com",
-			"syifaajamal93@gmail.com",
-			"lejoo1998@gmail.com",
-			"deirdre1406@yahoo.com",
-			"chooiling87@gmail.com",
-			"serenaling.888@gmail.com",
-			"9807vv@gmail.com",
-			"mohdsobri.khamis26@gmail.com",
-			"serenachin89@gmail.com",
-			"hannagem0306@gmail.com",
-			"hannayanna90@gmail.co",
-			"sunnycheong89@gmail.com",
-			"koksiang7125@gmail.com",
-			"muhling@hotmail.com",
-			"el_farafellyz87@yahoo.com",
-			"diyana_sam@yahoo.com",
-			"yanahana79@gmail.com",
-			"haniza_nuraini@yahoo.com",
-			"shlim8687@gmail.com",
-			"hannadanie287@gmail.com",
-		);
-		
-		if(isset($arr_skip_email) && is_array($arr_skip_email) && sizeof($arr_skip_email) > 0)
-		{
-			foreach($arr_skip_email as $email)
-			{
-				$skipemail2[] =  trim("'" . htmlentities($email) . "'");
-			}
-			
-			$string_email = implode(",", $skipemail2);
-			$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.newEmail NOT IN (" . $string_email . ")";
-		}
+		// if($searchStart == '' && $searchEnd == '')
+		// {
+		// 	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at >= '2021-08-01 00:00:00'";
+		// }
 		
 		$sql = "SELECT
-				evnt.newEmail as Email, RTRIM(LTRIM(CONCAT(evnt.newFirstName , ' ' , evnt.newLastName))) AS Name,  evnt.subscriber_question1 as Mobile, 
-				evnt.subscriber_question3 as 'Address 1', evnt.subscriber_question11 as 'Address 2', evnt.subscriber_question4 as Postcode, evnt.subscriber_question5 as City, evnt.subscriber_question7 as State, evnt.subscriber_question13 as Country, 
-				evnt.subscriber_created_at as DateSubmit
-				FROM ps_events_subscriber evnt " . $wheresql . " GROUP BY newEmail	ORDER BY evnt.subscriber_created_at ASC " . $limitsql;    
-		$result = $conn->query($sql);
-		
+				evnt.newEmail as Email, RTRIM(LTRIM(CONCAT(evnt.newFirstName , ' ' , evnt.newLastName))) AS Name,  evnt.subscriber_question1 as 'Mobile No.', evnt.subscriber_question2 as 'Date of birth',evnt.subscriber_question9 as 'Maternal Milk Brand',evnt.subscriber_question12 as 'EDD',
+				RTRIM(LTRIM(CONCAT(evnt.subscriber_question3 , ', ' , evnt.subscriber_question8))) AS 'Address', evnt.subscriber_question4 as 'Postcode', evnt.subscriber_question5 as 'City', evnt.subscriber_question7 as 'State', evnt.subscriber_question10 as 'Country', 
+				evnt.subscriber_question14 as 'Redeem Location',  evnt.subscriber_question29 AS 'Redeem Date', evnt.subscriber_created_at as 'Date Registered'
+				FROM ps_events_subscriber evnt " . $wheresql . $groupBy . " ORDER BY evnt.subscriber_created_at ASC " . $limitsql;
+  		 $result = $conn->query($sql);
 		if(is_object($result)){
 			
 			// Create new PHPExcel object
 			$objPHPExcel = new PHPExcel();
 
 			// Add some data
-			$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A2', 'Apta Pregnant Mom 2021 Report | Motherhood.com.my Malaysia');
+			$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A2', 'Newmom Redeem Gift (Walk-in) 2021 | Motherhood.com.my Malaysia');
 			$objPHPExcel->getActiveSheet()->getStyle("A2:C2")->getFont()->setSize(18);
 			$objPHPExcel->getActiveSheet()->getRowDimension("2")->setRowHeight(20);
 			$objPHPExcel->getActiveSheet()->mergeCells('A2:C2');
@@ -154,22 +115,16 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 			$noFields = mysqli_num_fields($result);
 			
 			$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A5', 'NO');
-			$objPHPExcel->setActiveSheetIndex(0)->setCellValue('K5', 'Status');
 			$objPHPExcel->getActiveSheet()->getColumnDimension('A')->setWidth(5);
 			$headerColumn = 'B';
 			for ($i = 0; $i < $noFields; $i++) {
 				$field 	= mysqli_field_name($result, $i);
 				
-				if($headerColumn == 'K')
-				{
-					$objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(50);
-					$headerColumn++;
-				}
 				$objPHPExcel->setActiveSheetIndex(0)->setCellValue($headerColumn. '5', $field);
 				$objPHPExcel->getActiveSheet()->getStyle($headerColumn. '5')->getFont()->setBold( true );
 				// $objPHPExcel->getActiveSheet()->getColumnDimensionByColumn($headerColumn)->setAutoSize(false);
 				
-				if(in_array($headerColumn, array("A", "D", "M", "J")))
+				if(in_array($headerColumn, array("A", "D", "M")))
 				{
 					$objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(20);
 				}
@@ -177,11 +132,11 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 				// {
 					// $objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(15);
 				// }
-				elseif(in_array($headerColumn, array("G", "H", "I")))
+				elseif(in_array($headerColumn, array("G")))
 				{
 					$objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(30);
 				}
-				elseif(in_array($headerColumn, array("E", "F")))
+				elseif(in_array($headerColumn, array("H")))
 				{
 					$objPHPExcel->getActiveSheet()->getColumnDimension($headerColumn)->setWidth(100);
 				}
@@ -195,30 +150,29 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 				$headerColumn++;
 			}
 			
+			$arrChangeBrandToOthers = array(
+			
+			);
+			
 			$rowData = 6;
 			$ccount  = 0;
 			while ($r = mysqli_fetch_row($result)) {
 				$colData = 'B';
 				$objPHPExcel->setActiveSheetIndex(0)->setCellValue('A' . $rowData , ++$ccount);
-				$objPHPExcel->setActiveSheetIndex(0)->setCellValue('K' . $rowData , 'I am Pregnant');
 				foreach ($r as $indx => $kolonne) {
-					
-					if($colData == 'K')
+					if($indx == 3)
 					{
-						++$colData;
-					}
-					
-					if($indx == 1) #name
-					{
-						$name = substr($kolonne,0,21);
-						$name = ucfirst(strtolower($name));
-						$objPHPExcel->setActiveSheetIndex(0)->setCellValue($colData . $rowData , $name);
+						$dob = $kolonne;
+						$arr_dob = explode('-', $dob);
+
+						if(is_array($arr_dob) && sizeof($arr_dob) == 3)
+						{
+							$dob = $arr_dob[2] . "/" . $arr_dob[1] . "/" . $arr_dob[0];
+						}
+						$objPHPExcel->setActiveSheetIndex(0)->setCellValue($colData . $rowData , $dob);
 					}
 					else
-					{
 						$objPHPExcel->setActiveSheetIndex(0)->setCellValue($colData . $rowData , $kolonne);
-					}
-					
 					
 					if($colData == 'D'|| $colData == "G"){
 						$objPHPExcel->getActiveSheet()->getStyle($colData . $rowData)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_TEXT);
@@ -251,7 +205,7 @@ require_once dirname(__FILE__) . '/../admin2635/dashboard/events/events_db_confi
 
 			// Redirect output to a client’s web browser (Excel2007)
 			header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-			header('Content-Disposition: attachment;filename="apta-mom-pregnant2021-report.xlsx"');
+			header('Content-Disposition: attachment;filename="newmom-walkin-report2021.xlsx"');
 			header('Cache-Control: max-age=0');
 			header ('Cache-Control: cache, must-revalidate'); // HTTP/1.1
 			header ('Pragma: public'); // HTTP/1.0

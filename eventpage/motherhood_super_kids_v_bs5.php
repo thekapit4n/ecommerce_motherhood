@@ -356,40 +356,40 @@
 </div>
 <div class="row mmy-webinar-date my-3">
    <div class="multiple-webinardate-slider" style="display: none;">
-      <!--=========12sept=========-->
+      <!--=========23october=========-->
       <div class="product-box item">
          <div class="reviewBox-calendar">
             <div class="speakerBox-calendar">
                <div class="row div-item-calendar">
-                  <div class="col-md-5 col-6 py-3 py-md-0"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/August/Superkids/12sept.png" class="img-calendar" width="100%" alt="12sept2021" /></div>
+                  <div class="col-md-5 col-6 py-3 py-md-0"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/September/Superkids/23oct.png" class="img-calendar" width="100%" alt="23oct2021" /></div>
                   <div class="col-md-7 col-6 div-web-desc text-left">
-                     <p class="title-webinar">Coding for Kids - Make the bird fly!</p>
+                     <p class="title-webinar">Halloween Hat Paper Craft</p>
                      <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00 a.m.</p>
-                     <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Aimsity</p>
-                     <p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 10 years old</p>
+                     <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Gogokids</p>
+                     <p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 3 years old</p>
                   </div>
                </div>
                <div class="row mx-0">
-                  <div class="col-md-12"><a class="btn btn-default btn-view-event" href="https://forms.gle/YE5QL6tDNkZBwv4KA" style="width: 100%; background-color: #69bd45; color: white;" target="_blank" rel="noopener"> VIEW EVENT </a></div>
+                  <div class="col-md-12"><a class="btn btn-default btn-view-event" href="https://forms.gle/Hn6WNgdN6sLu2MKJ9" style="width: 100%; background-color: #69bd45; color: white;" target="_blank" rel="noopener"> VIEW EVENT </a></div>
                </div>
             </div>
          </div>
       </div>
-      <!--=========25sept=========-->
+      <!--=========27nov=========-->
       <div class="product-box item">
          <div class="reviewBox-calendar">
             <div class="speakerBox-calendar">
                <div class="row div-item-calendar">
-                  <div class="col-md-5 col-6 py-3 py-md-0"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/August/Superkids/25sept.png" class="img-calendar" width="100%" alt="25sept2021" /></div>
+                  <div class="col-md-5 col-6 py-3 py-md-0"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/September/Superkids/27nov.png" class="img-calendar" width="100%" alt="27nov2021" /></div>
                   <div class="col-md-7 col-6 div-web-desc text-left">
-                     <p class="title-webinar">Rainbow Paper Spinner Toy</p>
-                     <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;10.00 a.m.</p>
+                     <p class="title-webinar">Creative Animation</p>
+                     <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;5.00 p.m.</p>
                      <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Gogokids</p>
-                     <p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 4 years old</p>
+                     <p class="desc-info"><i class="fas fa-info-circle"></i> &nbsp; Above 7 years old</p>
                   </div>
                </div>
                <div class="row mx-0">
-                  <div class="col-md-12"><a class="btn btn-default btn-view-event" href="https://forms.gle/bjGhL86SQjMePqcu6" style="width: 100%; background-color: #69bd45; color: white;" target="_blank" rel="noopener"> VIEW EVENT </a></div>
+                  <div class="col-md-12"><a class="btn btn-default btn-view-event" href="https://forms.gle/q3J2mbnn8HnTFHqY7" style="width: 100%; background-color: #69bd45; color: white;" target="_blank" rel="noopener"> VIEW EVENT </a></div>
                </div>
             </div>
          </div>

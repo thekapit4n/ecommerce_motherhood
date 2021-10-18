@@ -5,24 +5,24 @@ session_start();
 
 if(isset($_GET['islogout']) && $_GET['islogout'] == true)
 {
-	unset($_SESSION["aptamom"]);
-	header('Location: http://www.motherhood.com.my/external/apta-pregnant-mom2021-report.php');
+	unset($_SESSION["mmyLogin"]);
+	header('Location: http://www.motherhood.com.my/external/newmom-walkin-report2021.php');
 }
 
 $arr_allowUser = array(
 	'tech',
 	'megan',
 	'hooishan',
-	'aptamom',
+	'motherhood',
 	'haiqal',
 	'ivy',
 );
 
-if ((in_array($_POST['login'], $arr_allowUser)) && $_POST['password'] == 'aptamom123'){
-	$_SESSION['aptamom'] = true;
+if ((in_array($_POST['login'], $arr_allowUser)) && $_POST['password'] == 'motherhood123'){
+	$_SESSION['mmyLogin'] = true;
 }
 
-if ($_SESSION['aptamom'] == true){
+if ($_SESSION['mmyLogin'] == true){
 
 }
 else
@@ -40,7 +40,7 @@ else
     <link rel="stylesheet" href="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/report-login/css/bootstrap.min.css">
     <!-- Style -->
     <link rel="stylesheet" href="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/report-login/css/style.css">
-    <title>Apta Pregnantmom Report | Motherhood.com.my Malaysia</title>
+    <title>Newmom Redeem Gift (Walk-in) 2021 | Motherhood.com.my Malaysia</title>
 	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico"/>
 	<style>
 		body{
@@ -80,9 +80,9 @@ else
 							<div class="form-block" style="padding-top:20px;padding-bottom:20px;">
 								<div class="mb-12">
 									<h3>Login to <strong>leads report</strong></h3>
-									<p class="mb-4">Apta Pregnant Mom Report 2021 | Motherhood.com.my Malaysia</p>
+									<p class="mb-4">Newmom Redeem Gift (Walk-in) 2021 | Motherhood.com.my Malaysia</p>
 								</div>
-								<form action='apta-pregnant-mom2021-report.php' method='post' method="post">
+								<form action='newmom-walkin-report2021.php' method='post' method="post">
 									<div class="form-group first">
 										<label for="username">Login</label>
 										<input type="text" class="form-control" id="username"  name='login'>
@@ -142,7 +142,7 @@ $productList=array();
 	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/Inputmask-5.x/dist/jquery.inputmask.js" type="text/javascript"></script>
 	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/twbs-pagination/jquery.twbsPagination.min.js" type="text/javascript"></script>
 	<script src="https://www.motherhood.com.my/themes/default-bootstrap/dashboard-assets/simplePagination/jquery.simplePagination.js" type="text/javascript"></script>
-	<title>Apta mom pregnant 2021 | Motherhood.com.my Malaysia</title>
+	<title>Newmom Redeem Gift (Walk-in) 2021 | Motherhood.com.my Malaysia</title>
 <style>
 body{
 	font-family: 'Poppins', sans-serif;
@@ -171,7 +171,7 @@ body{
 	$searchEnd 	 	="";
 	$wheresql  	 	= "";
 	$limitsql    	= "";
-	$currentLimit 	= " LIMIT 2353 ";
+	$currentLimit 	= " LIMIT 5000";
 	
 	if (isset($_GET['pageno'])) {
 		$pageno = $_GET['pageno'];
@@ -179,7 +179,7 @@ body{
 		$pageno = 1;
 	}
 	
-	$no_of_records_per_page = 2353;
+	$no_of_records_per_page = 500;
 	
 	if(isset($_POST['searchDateStart']) && $_POST['searchDateStart'] != '')
 	{
@@ -206,32 +206,7 @@ body{
 	}
 	
 	$arr_skip_email = array(
-		"susantuharynn88@gmail.com",
-		"ezlynmoss86@gmail.com",
-		"natelie0214@gmail.com",
-		"bryanseewp@gmail.com",
-		"syarifahzainab1994@gmail.com",
-		"syahiran164@gmail.com",
-		"raisaiman2412@gmail.com",
-		"syifaajamal93@gmail.com",
-		"lejoo1998@gmail.com",
-		"deirdre1406@yahoo.com",
-		"chooiling87@gmail.com",
-		"serenaling.888@gmail.com",
-		"9807vv@gmail.com",
-		"mohdsobri.khamis26@gmail.com",
-		"serenachin89@gmail.com",
-		"hannagem0306@gmail.com",
-		"hannayanna90@gmail.co",
-		"sunnycheong89@gmail.com",
-		"koksiang7125@gmail.com",
-		"muhling@hotmail.com",
-		"el_farafellyz87@yahoo.com",
-		"diyana_sam@yahoo.com",
-		"yanahana79@gmail.com",
-		"haniza_nuraini@yahoo.com",
-		"shlim8687@gmail.com",
-		"hannadanie287@gmail.com",
+		
 	);
 	
 	if(isset($arr_skip_email) && is_array($arr_skip_email) && sizeof($arr_skip_email) > 0)
@@ -245,8 +220,8 @@ body{
 		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.newEmail NOT IN (" . $string_email . ")";
 	}
 	
-	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "evnt.subscriber_event_id = 105";
-
+	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "evnt.subscriber_event_id = 141";
+	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . "evnt.subscriber_question28 = 'redeem'";
 	
 	$groupBy = " GROUP BY evnt.newEmail ";
 					
@@ -260,10 +235,10 @@ body{
 		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at <= '" . trim($searchEnd . " 23:59:59") . "'";
 	}
 	
-	if($searchStart == '' && $searchEnd == '')
-	{
-		$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at >= '2021-06-04 00:00:00'";
-	}
+	// if($searchStart == '' && $searchEnd == '')
+	// {
+	// 	$wheresql .= (($wheresql == '') ? " WHERE " : " AND " ) . " evnt.subscriber_created_at >= '2021-08-01 00:00:00'";
+	// }
 	
 	
 	
@@ -293,11 +268,11 @@ body{
 	}
 			
 	$sql = "SELECT
-		evnt.newEmail as Email, RTRIM(LTRIM(CONCAT(evnt.newFirstName , ' ' , evnt.newLastName))) AS Name,  evnt.subscriber_question1 as Mobile, 
-		evnt.subscriber_question3 as 'Address 1', evnt.subscriber_question11 as 'Address 2', evnt.subscriber_question4 as Postcode, evnt.subscriber_question5 as City, evnt.subscriber_question7 as State, evnt.subscriber_question13 as Country, 
-		evnt.subscriber_created_at as DateSubmit
+		evnt.newEmail as Email, RTRIM(LTRIM(CONCAT(evnt.newFirstName , ' ' , evnt.newLastName))) AS Name,  evnt.subscriber_question1 as 'Mobile No.', evnt.subscriber_question2 as 'Date of birth',evnt.subscriber_question9 as 'Maternal Milk Brand',evnt.subscriber_question12 as 'EDD',
+		RTRIM(LTRIM(CONCAT(evnt.subscriber_question3 , ', ' , evnt.subscriber_question8))) AS 'Address', evnt.subscriber_question4 as 'Postcode', evnt.subscriber_question5 as 'City', evnt.subscriber_question7 as 'State', evnt.subscriber_question10 as 'Country', 
+		evnt.subscriber_question14 as 'Redeem Location',  evnt.subscriber_question29 AS 'Redeem Date', evnt.subscriber_created_at as 'Date Registered'
 		FROM ps_events_subscriber evnt " . $wheresql . $groupBy . " ORDER BY evnt.subscriber_created_at ASC " . $limitsql;
-    $result = $conn->query($sql);
+   $result = $conn->query($sql);
 	if(is_object($result)){
 		$tableReportView =  mysql_result_all_html($result, $offset);
 		$result->close();
@@ -319,10 +294,9 @@ body{
 			if($i == 8)
 			{
 				$table .= "<th>" . $field . "</th>";
-				$table .= "<th>Status</th>";
 			}
 			else
-				$table .= "<th>" . $field . "</th>";
+				$table .= "<th style='min-width:300px'>" . $field . "</th>";
 			
 		}
 		$table .= "</tr>";
@@ -335,21 +309,27 @@ body{
 			$ccount = 0;
 		}
 		
+		
+		$arrChangeBrandToOthers = array(
+		);
+		
 		while ($r = mysqli_fetch_row($result)) {
 			$ccount++;
 			$table .= "<tr><td>" . $ccount . "</td>";
 			foreach ($r as $indx => $kolonne) {
-					if($indx == 1)
+				if($indx == 3)
+				{
+					$dob = $kolonne;
+					$arr_dob = explode('-', $dob);
+
+					if(is_array($arr_dob) && sizeof($arr_dob) == 3)
 					{
-						$kolonne = ucfirst(strtolower($kolonne));
-						$table .= "<td>" . substr($kolonne,0,21). "</td>";
-					}elseif($indx == 8)
-					{
-						$table .= "<td>" . $kolonne . "</td>";
-						$table .= "<td>I am Pregnant</td>";
+						$dob = $arr_dob[2] . "/" . $arr_dob[1] . "/" . $arr_dob[0];
 					}
-					else
-						$table .= "<td>" . $kolonne . "</td>";
+					$table .= "<td>" . $dob . "</td>";
+				}
+				else
+					$table .= "<td>" . $kolonne . "</td>";
 			}
 			$table .= "</tr>";
 		}
@@ -374,15 +354,12 @@ body{
 	  <!-- Links -->
 		<ul class="navbar-nav">
 			<li class="nav-item <?php echo (isset($current_reportname) && strtolower($current_reportname) == 'apta-pregnant-mom2021-report.php') ? 'active' : '' ?>" style="height:45px;">
-				<a class="nav-link " href="http://www.motherhood.com.my/external/apta-pregnant-mom2021-report.php">Apta pregnant mom 2021 report</a>
-			</li>
-			<li class="nav-item <?php echo (isset($current_reportname) && strtolower($current_reportname) == 'apta-mom-with-kids2021-report.php') ? 'active' : '' ?>" style="height:45px;">
-				<a class="nav-link " href="http://www.motherhood.com.my/external/apta-mom-with-kids2021-report.php">Apta mom with kid 2021 report</a>
+				<a class="nav-link " href="http://www.motherhood.com.my/external/newmom-walkin-report2021.php">Newmom Redeem Gift (Walk-in) 2021 </a>
 			</li>
 		</ul>
 		<ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
 			<li class="nav-item">
-				<a href="apta-pregnant-mom2021-report.php?islogout=true" class="nav-link p-2" href="" target="_blank" rel="noopener" aria-label="GitHub">
+				<a href="newmom-walkin-report2021.php?islogout=true" class="nav-link p-2" href="" target="_blank" rel="noopener" aria-label="GitHub">
 					<i class="fas fa-sign-out-alt"></i> Logout
 				</a>
 			</li>
@@ -393,11 +370,11 @@ body{
 			<div class="row row-motherhood" style="margin-top:40px;">
 				<div class="col-md-8">
 					<div class="page-header">
-						<h3>Apta Pregnant Mom 2021 | Motherhood.com.my Malaysia</h3>
+						<h3>Newmom Redeem Gift (Walk-in) 2021 | Motherhood.com.my Malaysia</h3>
 					</div>
 				</div>
 			</div>
-			<form id="form-request" method='post' action="dutch-lady-report2021.php">
+			<form id="form-request" method='post' action="newmom-walkin-report2021.php">
 				<div class="row row-motherhood">
 					<div class="col-md-5">
 						<div class="row">
@@ -531,11 +508,11 @@ body{
 			
 			if(isExport)
 			{
-				$('body').find('#form-request').attr('action', 'apta-pregnant-mom2021-excel.php');
+				$('body').find('#form-request').attr('action', 'newmom-walkin-report2021-excel.php');
 			}
 			else
 			{
-				$('body').find('#form-request').attr('action', 'apta-pregnant-mom2021-report.php');
+				$('body').find('#form-request').attr('action', 'newmom-walkin-report2021.php');
 			}
 			
 			$('body').find('#form-request').submit();
