@@ -36,8 +36,8 @@ $(function(){
     $('body').on('click', '.btn-info-previous', function(){
         var currentstep    = $(this).data('nextstep');
         currentstep        = parseInt(currentstep);
-        var previousStep   = currentstep + 1; // this refer step before this
-        var newNextStep    = currentstep - 1 ;// this refer to next page when click previous button
+        var previousStep   = currentstep + 1; /* this refer step before this*/
+        var newNextStep    = currentstep - 1 ;/* this refer to next page when click previous button*/
       
         $('body').find('.info-superkids-' + previousStep).hide('fast');
         $('body').find('.step-' + previousStep).removeClass('step-info-active');
@@ -63,4 +63,14 @@ $(function(){
     $('body').on('click', '.btn-icon-close', function(){
        location.href='/community';
     });
+
+    $('body').on('click', '.btn-start-journey', function(){
+        $(this).closest('.div-mobile-main').hide('fast');
+        $('body').find('.content-2').show('fast');
+    });
+
+    $('body').on('click', '.btn-join-superkids', function(){
+        $(this).closest('.div-mobile-main').hide('fast');
+        $('body').find('.content-3').show('fast');
+    })
 })
