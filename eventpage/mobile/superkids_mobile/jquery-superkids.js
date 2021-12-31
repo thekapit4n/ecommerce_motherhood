@@ -1,3 +1,27 @@
+var calcDivChild = function(){
+    var numDivChild = $('body').find('.div-child-detail').length;
+
+    console.log("dalam function " + numDivChild);
+    if(numDivChild == 1)
+    {
+        $('body').find('.remove-child-div').css('display', 'none');
+    }
+    else
+    {
+        $('body').find('.remove-child-div').css('display', 'block');
+    }
+
+    if(numDivChild >= 3)
+    {
+        $('body').find('.add-more-child').css('display', 'none');
+    }
+    else{
+        $('body').find('.add-more-child').css('display', 'block');
+    }
+
+    return numDivChild;
+};
+
 $(function(){
     $('body').on('click', '.btn-info-next', function(){
         var currentstep = $(this).data('nextstep');
@@ -72,5 +96,30 @@ $(function(){
     $('body').on('click', '.btn-join-superkids', function(){
         $(this).closest('.div-mobile-main').hide('fast');
         $('body').find('.content-3').show('fast');
-    })
+    });
+
+    calcDivChild();
+    $('body').on('click', '.add-more-child', function(evnt){
+        evnt.preventDefault();
+        
+        var numChild = calcDivChild();
+        var titleChildno = numChild+1;
+        
+        var medivchild = $(this).closest('.div-child-detail').clone();
+        medivchild.find('input:text').val("");
+        medivchild.find('.child-gender-input').val("");
+        medivchild.find('.child-currentmilkbrand-input').val("");
+        medivchild.find('.child-dob-input').val("");
+        medivchild.find('.title-child').html('Child#' + titleChildno);
+
+        $('body').find('.div-child').append(medivchild);
+
+        calcDivChild();
+    });
+
+    $('body').on('click', '.remove-child-div', function(evnt){
+        evnt.preventDefault();
+        $(this).closest('.div-child-detail').remove();
+        calcDivChild();
+    });
 })

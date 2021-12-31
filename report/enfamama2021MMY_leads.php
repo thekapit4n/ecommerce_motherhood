@@ -2270,7 +2270,7 @@ AND (subscriber_created_at >= '2021-01-01 00:00:00' AND subscriber_created_at <=
 GROUP BY newEmail
 ORDER BY subscriber_created_at ASC " . $limit . ") B WHERE 1=1 $searchStart $searchEnd  "; 
 
-// echo $sql;exit;
+echo $sql;exit;
 // B WHERE 1=1 AND Subscribed_Date <= '".$datetoday." 23:59:59' $searchStart $searchEnd 
 //AND subscriber_created_at <= '2020-07-16 23:03:21' OR subscriber_created_at > '2020-07-31 23:59:59'
 	

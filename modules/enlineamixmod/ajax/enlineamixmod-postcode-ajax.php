@@ -33,7 +33,6 @@ if($postcode != '')
 			$datapostcode['postcode'] 	= $val['postcode'];
 			$datapostcode['area'] 	  	= $val['area'];
 			$datapostcode['city'] 	  	= $val['post_office'];
-			$datapostcode['city'] 	  	= $val['post_office'];
 			$datapostcode['state_code'] = $val['state_code'];
 			
 			if(strtolower($val['state_name']) == 'wilayah persekutuan kuala lumpur')
