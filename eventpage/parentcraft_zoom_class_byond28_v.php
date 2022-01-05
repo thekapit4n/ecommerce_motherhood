@@ -61,9 +61,9 @@
 <h1 style="color: #265e70; text-align: left; margin-bottom: 0px;">1. Zoom Live Class Date</h1>
 <div class="col-md-8 col-lg-8 col-xs-12" style="text-align: left; padding-right: 0;">
    <div style="width: 4%; display: inline-block;">
-   <input type="checkbox" name="subscriber_question77" class="subscriber_question77" value="January 22, 2022 (Saturday), 11am - Ask a Nutritionist: How to Eat Right During Confinement?" /></div>
+   <input type="checkbox" name="subscriber_question77" class="subscriber_question77" value="January 22, 2022 (Saturday), 11am - Ask a Nutritionist: What to Eat During Pregnancy & Confinement?" /></div>
    <div style="width: 95%; display: inline-block;">
-      <h2 style="text-align: left;">January 22, 2022 (Saturday), 11am - Ask a Nutritionist: How to Eat Right During Confinement?</h2>
+      <h2 style="text-align: left;">January 22, 2022 (Saturday), 11am - Ask a Nutritionist: What to Eat During Pregnancy & Confinement?</h2>
    </div>
    <div style="width: 4%; display: inline-block;">
         <input type="checkbox" name="subscriber_question77" class="subscriber_question77" value=">March 12, 2022 (Saturday), 11am - How To Navigate A Safe, Healthy Pregnancy and Childbirth" /></div>
@@ -111,7 +111,7 @@
 <h2 style="font-size: 15px;">Upon registration, a confirmation email will be sent with the Zoom link to join this webinar 1 DAY BEFORE the event date. If you have registered but did not receive the webinar link, please WhatsApp +60 12-425 0304 for assistance.</h2>
 <div class="clearfix"></div>
 <div class="col-md-12" style="padding-top: 20px; padding-bottom: 20px;">
-   <p style="text-align: left;">PDPA Consent Clause<br /> By Submitting this Form, I hereby agree that Enlinea Sdn Bhd (Motherhood.com.my) and AIA MALAYSIA may collect, obtain, store and process your personal data that you provide in this form for the purpose of receiving updates, news, promotional and marketing updates, news, promotional and marketing mails or materials.</p>
+   <p style="text-align: left;">PDPA Consent Clause<br /> By Submitting this Form, I hereby agree that Enlinea Sdn Bhd (Motherhood.com.my) and Byond28 Confinement Care may collect, obtain, store and process your personal data that you provide in this form for the purpose of receiving updates, news, promotional and marketing updates, news, promotional and marketing mails or materials.</p>
    <div style="width: 4%; display: inline-block;"><input type="checkbox" name="agree" required="required" /></div>
    <div style="width: 90%; display: inline-block; text-align: left;">I agree to the above PDPA Consent Clause.</div>
 </div>
