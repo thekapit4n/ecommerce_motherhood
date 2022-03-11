@@ -1,375 +1,375 @@
 <style>
    <!--
       h1, h2, h3, h4, h5,  p, button, input {
-                            			font-family: GothamRounded-medium;
-                            		  }
-            
-                            	.btn-typeof-course{
-                            		width: 100%;
-                            		font-size: 35px;
-                            		border-radius: 5px;
-                            		padding-top: 1px;
-                            		padding-bottom: 1px;
-                            	}
-            
-                            	.btn-online-course, .btn-online-course:hover, .btn-online-course:active, .btn-online-course:focus{
-                            		background-color: #fae2e7;
-                            		border: 3px solid #fae2e7;
-                            		color: #265e70;
-                            		outline: transparent;
-                            	}
-            
-                            	.btn-offline-course, .btn-offline-course:hover, .btn-offline-course:active, .btn-offline-course:focus{
-                            		background-color: #265e70;
-                            		border: 3px solid #265e70;
-                            		color: #fae2e7;
-                            		outline: transparent;
-                            	}
-            
-                            	.row-btn-typecouse{
-                            			margin-bottom:30px;
-                            			margin-top:20px;
-                            	}
-            
-            
-            
-                      	  .speakerName {
-                      		border-bottom: 5px solid #265e70;
-                      		color: #5d5d5d;
-                      		margin-left: 50px;
-                      		margin-right: 50px;
-                      		padding-bottom: 5px;
-                      	  }
-                      	  .speakerDescription {
-                      		color: #5d5d5d;
-                      		color: #5d5d5d;
-                      		margin-left: 30px;
-                      		margin-right: 30px;
-                      	  }
-                      	  .speakerBox {
-                      		padding-left: 0px;
-                      		padding-right: 0px;
-                      		-moz-box-shadow: inset 0 0 10px #000000;
-                      		-webkit-box-shadow: inset 5px 5px 10px lightgrey;
-                      		box-shadow: 5px 5px 10px lightgrey;
-                      		padding-bottom: 10px;
-                      		min-height: 355px;
-                      		margin-bottom: 20px;
-                      		background-color: white;
-                      	  }
-                      	  .checklistText {
-                      		text-align: left;
-                      		color: white;
-                      		font-weight: 100;
-                      		background-color: #265e70;
-                      		padding: 20px 15px;
-                      		font-family: GothamRounded-medium;
-                      	  }
-            
-                            	  .reviewBox {
-                            		background: #ffe1e7;
-                            		color: #265e70;
-                            		padding: 30px;
-                            		text-align: left;
-                            		font-size: 15px;
-                            		line-height: 1.2;
+                                  			font-family: GothamRounded-medium;
+                                  		  }
+                  
+                                  	.btn-typeof-course{
+                                  		width: 100%;
+                                  		font-size: 35px;
+                                  		border-radius: 5px;
+                                  		padding-top: 1px;
+                                  		padding-bottom: 1px;
+                                  	}
+                  
+                                  	.btn-online-course, .btn-online-course:hover, .btn-online-course:active, .btn-online-course:focus{
+                                  		background-color: #fae2e7;
+                                  		border: 3px solid #fae2e7;
+                                  		color: #265e70;
+                                  		outline: transparent;
+                                  	}
+                  
+                                  	.btn-offline-course, .btn-offline-course:hover, .btn-offline-course:active, .btn-offline-course:focus{
+                                  		background-color: #265e70;
+                                  		border: 3px solid #265e70;
+                                  		color: #fae2e7;
+                                  		outline: transparent;
+                                  	}
+                  
+                                  	.row-btn-typecouse{
+                                  			margin-bottom:30px;
+                                  			margin-top:20px;
+                                  	}
+                  
+                  
+                  
+                            	  .speakerName {
+                            		border-bottom: 5px solid #265e70;
+                            		color: #5d5d5d;
+                            		margin-left: 50px;
+                            		margin-right: 50px;
+                            		padding-bottom: 5px;
+                            	  }
+                            	  .speakerDescription {
+                            		color: #5d5d5d;
+                            		color: #5d5d5d;
+                            		margin-left: 30px;
+                            		margin-right: 30px;
+                            	  }
+                            	  .speakerBox {
+                            		padding-left: 0px;
+                            		padding-right: 0px;
                             		-moz-box-shadow: inset 0 0 10px #000000;
                             		-webkit-box-shadow: inset 5px 5px 10px lightgrey;
                             		box-shadow: 5px 5px 10px lightgrey;
-                            		min-height: 598px;
+                            		padding-bottom: 10px;
+                            		min-height: 355px;
+                            		margin-bottom: 20px;
+                            		background-color: white;
                             	  }
-                            	  .reviewStars {
-                            		font-size: 40px;
-                            		font-weight: bold;
-                            	  }
-                            	  .offlineItineraryRow {
-                            		border-bottom: 2px solid #edd0ce;
-                            		font-family: GothamRounded-medium;
-                            		font-size: 20px;
-                            	  }
-                            	  .ItinerarytimeDate {
-                            		font-family: GothamRounded-medium;
-                            		font-size: 20px;
-                            		color: white;
-                            	  }
-                            	  .ItineraryTitle {
-                            		font-family: GothamRounded-medium;
-                            		font-size: 20px;
-                            		color: white;
-                            		line-height: 1;
-                            	  }
-                            	  .offlineItineraryTimeBox {
-                            		width: 49%;
-                            		display: inline-block;
-                            		padding-top: 20px;
-                            		padding-bottom: 20px;
-                            		vertical-align: middle;
-                            	  }
-                            	  .offlineItineraryTitleBox {
-                            		width: 50%;
-                            		display: inline-block;
-                            		padding-top: 20px;
-                            		padding-bottom: 20px;
+                            	  .checklistText {
                             		text-align: left;
-                            		padding-left: 60px;
-                            		min-height: 93px;
-                            		vertical-align: middle;
-                            	  }
-                            	  .ItineraryTitle-small {
+                            		color: white;
                             		font-weight: 100;
-                            		color: white;
-                            		font-size: 15px;
-                            		font-family: sans-serif;
-                            	  }
-            
-                            	  .parentcraftDescription {
-                            		 line-height: 1.3;
-                            		color: #444444;
-                            		font-size: 15px;
-                            		font-family: GothamRounded-medium;
-                            		text-align: justify;
-                            		padding-left: 20px;
-                            		padding-right: 20px;
-                            	  }
-                            	  .parentcraftTitle {
-                            		color: #ff8282;
-                            		display: inline-block;
-                            		font-weight: bold;
-                            		font-size: 32px;
+                            		background-color: #265e70;
+                            		padding: 20px 15px;
                             		font-family: GothamRounded-medium;
                             	  }
-            
-                            	  .sliderTextTitle{
-                            		font-size: 30px;
-                            		padding-bottom: 20px;
-                            	  }
-            
-                            	.sliderTextPoints{
-                            	   font-size: 18px;
-                            		text-align: left;
-                            	}
-            
-                            	.epTitle{
-                            		color: #265e70;
-                            		font-weight: bold;
-                            		padding-left: 10px;
-                            	}
-            
-                      		.epDesc{
-                      			font-size: 15px;
-                      			line-height: 1.5;
-                      			padding: 5px 0px 20px 10px;
-                      		}
-            
-                      		 #topBtn {
-                            		display: none;
-                            		position: fixed;
-                            		bottom: 20px;
-                            		left: 30px;
-                            		z-index: 9999;
-                            		font-size: 18px;
-                            		border: none;
-                            		outline: none;
-                            		background-color: #ff7fae;
-                            		color: white;
-                            		cursor: pointer;
-                            		padding: 15px;
-                            		border-radius: 4px;
-                            	}
-            
-                            	.desc-webinar
-                            	{
-                            		min-height: 53px;
-                            	}
-            
-                            	.speaker-webinar
-                            	{
-                            		min-height: 37px;
-                            	}
-            
-                            	.btn-view-event, .btn-view-event:hover{
-                            		background-color:#265e70;
-                            		color: white;
-                            	}
-            
-                            	.div-row-pastwebinarpic{
-                            		margin-bottom: 22px;
-                            	}
-            
-                            	.div-row-calendar-slider
-                            	{
-                            		margin-bottom:25px
-                            	}
-            
-                               .nbs-flexisel-container{
-                            		border:0px;
-                            	}
-            
-                            	.schedule-div{
-                            		min-height:193px
-                            	}
-            
-                            	.div-web-desc{
-                            		color: #444444;
-                            	}
-            
-                      		.speakerBox-calendar {
-                      			background-color: #ffffff;
-                      		}
-            
-                      		.div-item-calendar{
-                      			margin-bottom:10px;
-                      			padding-left:10px;
-                      			padding-top:10px;
-                      			padding-right:10px;
-                      		}
-            
-                      		.title-webinar{
-                      			min-height:52px;
-                      		}
-            
-                            	@media only screen and (max-width: 600px)
-                            	{
-                            		#topBtn {
-                            		  bottom: 70px;
-                            		  left: 8px;
-                            		  font-size: 12px;
-                            		  padding: 12px;
-                            		}
-            
-                            		.ItineraryTitle {
-                            		  font-size:14px;
-                            		}
-            
-                            		.ItineraryTitle-small{
-                            		  font-size:12px;
-                            		}
-            
-                            		.offlineItineraryTitleBox {
-                            		  width: 64%;
-                            		  padding-left: 10px;
-                            		}
-                            		.offlineItineraryTimeBox {
-                            		  width: 32%;
-                            		}
-                            		.ItinerarytimeDate {
-                            		  font-size:14px;
-                            		}
-            
-                            		#homepage-sliderforth{
-                            			padding-top:0;
-                            		}
-            
-                            		.love-image{
-                            			width: 24px!important;
-                            			margin-top: -10px!important;
-                            			right: 0;
-                            			position: absolute;
-                            		}
-            
-                            		.love-image-small{
-                            			width: 24px!important;
-                            			margin-top: -10px!important;
-                            			position: absolute;
-                            		}
-            
-                            		.bx-wrapper{
-                            			max-width:1183px!important;
-                            		}
-            
-                            		.epTitle{
-                            			font-size:19px;
-                            		}
+                  
+                                  	  .reviewBox {
+                                  		background: #ffe1e7;
+                                  		color: #265e70;
+                                  		padding: 30px;
+                                  		text-align: left;
+                                  		font-size: 15px;
+                                  		line-height: 1.2;
+                                  		-moz-box-shadow: inset 0 0 10px #000000;
+                                  		-webkit-box-shadow: inset 5px 5px 10px lightgrey;
+                                  		box-shadow: 5px 5px 10px lightgrey;
+                                  		min-height: 598px;
+                                  	  }
+                                  	  .reviewStars {
+                                  		font-size: 40px;
+                                  		font-weight: bold;
+                                  	  }
+                                  	  .offlineItineraryRow {
+                                  		border-bottom: 2px solid #edd0ce;
+                                  		font-family: GothamRounded-medium;
+                                  		font-size: 20px;
+                                  	  }
+                                  	  .ItinerarytimeDate {
+                                  		font-family: GothamRounded-medium;
+                                  		font-size: 20px;
+                                  		color: white;
+                                  	  }
+                                  	  .ItineraryTitle {
+                                  		font-family: GothamRounded-medium;
+                                  		font-size: 20px;
+                                  		color: white;
+                                  		line-height: 1;
+                                  	  }
+                                  	  .offlineItineraryTimeBox {
+                                  		width: 49%;
+                                  		display: inline-block;
+                                  		padding-top: 20px;
+                                  		padding-bottom: 20px;
+                                  		vertical-align: middle;
+                                  	  }
+                                  	  .offlineItineraryTitleBox {
+                                  		width: 50%;
+                                  		display: inline-block;
+                                  		padding-top: 20px;
+                                  		padding-bottom: 20px;
+                                  		text-align: left;
+                                  		padding-left: 60px;
+                                  		min-height: 93px;
+                                  		vertical-align: middle;
+                                  	  }
+                                  	  .ItineraryTitle-small {
+                                  		font-weight: 100;
+                                  		color: white;
+                                  		font-size: 15px;
+                                  		font-family: sans-serif;
+                                  	  }
+                  
+                                  	  .parentcraftDescription {
+                                  		 line-height: 1.3;
+                                  		color: #444444;
+                                  		font-size: 15px;
+                                  		font-family: GothamRounded-medium;
+                                  		text-align: justify;
+                                  		padding-left: 20px;
+                                  		padding-right: 20px;
+                                  	  }
+                                  	  .parentcraftTitle {
+                                  		color: #ff8282;
+                                  		display: inline-block;
+                                  		font-weight: bold;
+                                  		font-size: 32px;
+                                  		font-family: GothamRounded-medium;
+                                  	  }
+                  
+                                  	  .sliderTextTitle{
+                                  		font-size: 30px;
+                                  		padding-bottom: 20px;
+                                  	  }
+                  
+                                  	.sliderTextPoints{
+                                  	   font-size: 18px;
+                                  		text-align: left;
+                                  	}
+                  
+                                  	.epTitle{
+                                  		color: #265e70;
+                                  		font-weight: bold;
+                                  		padding-left: 10px;
+                                  	}
+                  
                             		.epDesc{
-                            			font-size: 16px;
+                            			font-size: 15px;
+                            			line-height: 1.5;
+                            			padding: 5px 0px 20px 10px;
                             		}
-                            		.sliderTextTitle{
-                            			font-size: 19px;
+                  
+                            		 #topBtn {
+                                  		display: none;
+                                  		position: fixed;
+                                  		bottom: 20px;
+                                  		left: 30px;
+                                  		z-index: 9999;
+                                  		font-size: 18px;
+                                  		border: none;
+                                  		outline: none;
+                                  		background-color: #ff7fae;
+                                  		color: white;
+                                  		cursor: pointer;
+                                  		padding: 15px;
+                                  		border-radius: 4px;
+                                  	}
+                  
+                                  	.desc-webinar
+                                  	{
+                                  		min-height: 53px;
+                                  	}
+                  
+                                  	.speaker-webinar
+                                  	{
+                                  		min-height: 37px;
+                                  	}
+                  
+                                  	.btn-view-event, .btn-view-event:hover{
+                                  		background-color:#265e70;
+                                  		color: white;
+                                  	}
+                  
+                                  	.div-row-pastwebinarpic{
+                                  		margin-bottom: 22px;
+                                  	}
+                  
+                                  	.div-row-calendar-slider
+                                  	{
+                                  		margin-bottom:25px
+                                  	}
+                  
+                                     .nbs-flexisel-container{
+                                  		border:0px;
+                                  	}
+                  
+                                  	.schedule-div{
+                                  		min-height:193px
+                                  	}
+                  
+                                  	.div-web-desc{
+                                  		color: #444444;
+                                  	}
+                  
+                            		.speakerBox-calendar {
+                            			background-color: #ffffff;
                             		}
-                            		.sliderTextPoints{
-                            			font-size: 16px;
+                  
+                            		.div-item-calendar{
+                            			margin-bottom:10px;
+                            			padding-left:10px;
+                            			padding-top:10px;
+                            			padding-right:10px;
                             		}
-                            		.parentcraftDescription {
-                            		  font-size: 15px;
-                            		  text-align: left;
-                            		  line-height: 1.5;
+                  
+                            		.title-webinar{
+                            			min-height:52px;
                             		}
-                            		.parentcraftTitle {
-                            		  font-size: 18px;
-                            		}
-                            		.reviewStars {
-                            		  font-size: 20px;
-                            		}
-            
-                            		.reviewBox {
-                            		  font-size: 13px;
-                            		}
-                            		.onofflinebutton {
-                            		  font-size: 2.5em;
-                            		}
-                            		.speakerName {
-                            		  margin-left: 10px;
-                            		  margin-right: 10px;
-                            		}
-                            		.speakerDescription {
-                            		  margin-left: 8px;
-                            		  margin-right: 8px;
-                            		  font-size: 13px;
-                            		  line-height: 1.1;
-                            		}
-                            		.speakerBox {
-                            		  min-height: 293px;
-                            		  padding-bottom: 5px;
-                            		}
-            
-                            		.div-web-desc{
-                            			margin-top: 15px;
-                            		}
-            
-                            		.div-row-pastwebinarpic{
-                            			margin-bottom: 10px;
-                            		}
-            
-                            		.div-row-calendar-slider
-                            		{
-                            			min-height: 394px;
-                            		}
-            
-                            		.desc-webinar
-                            		{
-                            			min-height: 95px;
-                            		}
-            
-                            		.date-webinar
-                            		{
-                            			min-height: 34px;
-                            		}
-            
-                            		.schedule-div{
-                            			min-height:120px
-                            		}
-            
-                            		.btn-typeof-course{
-                            			width: 100%;
-                            			font-size: 25px;
-                            			border-radius: 5px;
-                            		}
-            
-                            		.row-btn-typecouse{
-                            			margin-bottom:1px;
-                            			margin-top:15px;
-                            		}
-            
-                            		.ytp-cued-thumbnail-overlay-image{
-                            			height: 122%;
-                            		}
-            
-                      			.title-webinar{
-                      				font-weight: 700;
-                      				font-size:13px;
-                      				min-height:72px;
-                      			}
-                            	}
+                  
+                                  	@media only screen and (max-width: 600px)
+                                  	{
+                                  		#topBtn {
+                                  		  bottom: 70px;
+                                  		  left: 8px;
+                                  		  font-size: 12px;
+                                  		  padding: 12px;
+                                  		}
+                  
+                                  		.ItineraryTitle {
+                                  		  font-size:14px;
+                                  		}
+                  
+                                  		.ItineraryTitle-small{
+                                  		  font-size:12px;
+                                  		}
+                  
+                                  		.offlineItineraryTitleBox {
+                                  		  width: 64%;
+                                  		  padding-left: 10px;
+                                  		}
+                                  		.offlineItineraryTimeBox {
+                                  		  width: 32%;
+                                  		}
+                                  		.ItinerarytimeDate {
+                                  		  font-size:14px;
+                                  		}
+                  
+                                  		#homepage-sliderforth{
+                                  			padding-top:0;
+                                  		}
+                  
+                                  		.love-image{
+                                  			width: 24px!important;
+                                  			margin-top: -10px!important;
+                                  			right: 0;
+                                  			position: absolute;
+                                  		}
+                  
+                                  		.love-image-small{
+                                  			width: 24px!important;
+                                  			margin-top: -10px!important;
+                                  			position: absolute;
+                                  		}
+                  
+                                  		.bx-wrapper{
+                                  			max-width:1183px!important;
+                                  		}
+                  
+                                  		.epTitle{
+                                  			font-size:19px;
+                                  		}
+                                  		.epDesc{
+                                  			font-size: 16px;
+                                  		}
+                                  		.sliderTextTitle{
+                                  			font-size: 19px;
+                                  		}
+                                  		.sliderTextPoints{
+                                  			font-size: 16px;
+                                  		}
+                                  		.parentcraftDescription {
+                                  		  font-size: 15px;
+                                  		  text-align: left;
+                                  		  line-height: 1.5;
+                                  		}
+                                  		.parentcraftTitle {
+                                  		  font-size: 18px;
+                                  		}
+                                  		.reviewStars {
+                                  		  font-size: 20px;
+                                  		}
+                  
+                                  		.reviewBox {
+                                  		  font-size: 13px;
+                                  		}
+                                  		.onofflinebutton {
+                                  		  font-size: 2.5em;
+                                  		}
+                                  		.speakerName {
+                                  		  margin-left: 10px;
+                                  		  margin-right: 10px;
+                                  		}
+                                  		.speakerDescription {
+                                  		  margin-left: 8px;
+                                  		  margin-right: 8px;
+                                  		  font-size: 13px;
+                                  		  line-height: 1.1;
+                                  		}
+                                  		.speakerBox {
+                                  		  min-height: 293px;
+                                  		  padding-bottom: 5px;
+                                  		}
+                  
+                                  		.div-web-desc{
+                                  			margin-top: 15px;
+                                  		}
+                  
+                                  		.div-row-pastwebinarpic{
+                                  			margin-bottom: 10px;
+                                  		}
+                  
+                                  		.div-row-calendar-slider
+                                  		{
+                                  			min-height: 394px;
+                                  		}
+                  
+                                  		.desc-webinar
+                                  		{
+                                  			min-height: 95px;
+                                  		}
+                  
+                                  		.date-webinar
+                                  		{
+                                  			min-height: 34px;
+                                  		}
+                  
+                                  		.schedule-div{
+                                  			min-height:120px
+                                  		}
+                  
+                                  		.btn-typeof-course{
+                                  			width: 100%;
+                                  			font-size: 25px;
+                                  			border-radius: 5px;
+                                  		}
+                  
+                                  		.row-btn-typecouse{
+                                  			margin-bottom:1px;
+                                  			margin-top:15px;
+                                  		}
+                  
+                                  		.ytp-cued-thumbnail-overlay-image{
+                                  			height: 122%;
+                                  		}
+                  
+                            			.title-webinar{
+                            				font-weight: 700;
+                            				font-size:13px;
+                            				min-height:72px;
+                            			}
+                                  	}
       -->
 </style>
 <!-- Online Offline button-->
@@ -454,16 +454,106 @@
                      <div class="reviewBox-calendar">
                         <div class="speakerBox-calendar">
                            <div class="row div-item-calendar">
-                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/updateddate/date-dec11.png" width="100%" alt="january" /></div>
+                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2022/date/15thjan.png" width="100%" alt="january" /></div>
                               <div class="col-md-7 div-web-desc text-left">
-                                 <p class="title-webinar">Tips Persediaan Bagi Proses Bersalin Normal</p>
+                                 <p class="title-webinar">Pregnancy &amp; Childbirth: Ensuring a Safe Journey to Motherhood</p>
                                  <p class="desc-day"><i class="fas fa-calendar-day"></i> &nbsp;Saturday</p>
-                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;3.00pm-4.00pm</p>
+                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00am-12.00pm</p>
                                  <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Dr Azrai</p>
                               </div>
                            </div>
                            <div class="row">
-                              <div class="col-md-12"><a href="https://forms.gle/aKLTRuV1UYiaY93N9" class="btn btn-default btn-view-event" style="width: 100%;"> VIEW EVENT </a></div>
+                              <div class="col-md-12"><a href="../../../events/zoom-live-registration-form-zurich-insurance-malaysia" class="btn btn-default btn-view-event" style="width: 100%;"> VIEW EVENT </a></div>
+                           </div>
+                        </div>
+                     </div>
+                  </li>
+                  <li class="product-box item" style="min-width: 150px;">
+                     <div class="reviewBox-calendar">
+                        <div class="speakerBox-calendar">
+                           <div class="row div-item-calendar">
+                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2022/date/22thjan.png" width="100%" alt="january" /></div>
+                              <div class="col-md-7 div-web-desc text-left">
+                                 <p class="title-webinar">Ask a Nutritionist: What to Eat During Pregnancy &amp; Confinement?</p>
+                                 <p class="desc-day"><i class="fas fa-calendar-day"></i> &nbsp;Saturday</p>
+                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00am-12.00pm</p>
+                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Jayden</p>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-md-12"><a href="../../../events/zoom-live-registration-form-byond28-confinement-care" class="btn btn-default btn-view-event" style="width: 100%;"> VIEW EVENT </a></div>
+                           </div>
+                        </div>
+                     </div>
+                  </li>
+                  <li class="product-box item" style="min-width: 150px;">
+                     <div class="reviewBox-calendar">
+                        <div class="speakerBox-calendar">
+                           <div class="row div-item-calendar">
+                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2022/date/12thfeb.png" width="100%" alt="january" /></div>
+                              <div class="col-md-7 div-web-desc text-left">
+                                 <p class="title-webinar">Safety First: Staying Safe While Expecting &amp; Giving Birth</p>
+                                 <p class="desc-day"><i class="fas fa-calendar-day"></i> &nbsp;Saturday</p>
+                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00am-12.00pm</p>
+                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Dr Cheah</p>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-md-12"><a href="../../../events/zoom-live-registration-form?fbclid=IwAR3o9Hk2T8TWoYB3VEauxGTyLzXwQ7w7QgkF2fB2UN2gzXTkf9a2AXKA9Fc" class="btn btn-default btn-view-event" style="width: 100%;"> VIEW EVENT </a></div>
+                           </div>
+                        </div>
+                     </div>
+                  </li>
+                  <li class="product-box item" style="min-width: 150px;">
+                     <div class="reviewBox-calendar">
+                        <div class="speakerBox-calendar">
+                           <div class="row div-item-calendar">
+                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2022/date/26thfeb.png" width="100%" alt="january" /></div>
+                              <div class="col-md-7 div-web-desc text-left">
+                                 <p class="title-webinar">The New Mum Guide: How To Eat Right During Pregnancy</p>
+                                 <p class="desc-day"><i class="fas fa-calendar-day"></i> &nbsp;Saturday</p>
+                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00am-12.00pm</p>
+                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Jayden</p>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-md-12"><a href="../../../events/zoom-live-registration-form-zurich-insurance-malaysia" class="btn btn-default btn-view-event" style="width: 100%;"> VIEW EVENT </a></div>
+                           </div>
+                        </div>
+                     </div>
+                  </li>
+                  <li class="product-box item" style="min-width: 150px;">
+                     <div class="reviewBox-calendar">
+                        <div class="speakerBox-calendar">
+                           <div class="row div-item-calendar">
+                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2022/date/12thmac.png" width="100%" alt="january" /></div>
+                              <div class="col-md-7 div-web-desc text-left">
+                                 <p class="title-webinar">How To Navigate A Safe, Healthy Pregnancy and Childbirth</p>
+                                 <p class="desc-day"><i class="fas fa-calendar-day"></i> &nbsp;Saturday</p>
+                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00am-12.00pm</p>
+                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Dr Azrai</p>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-md-12"><a href="../../../events/zoom-live-registration-form-byond28-confinement-care" class="btn btn-default btn-view-event" style="width: 100%;"> VIEW EVENT </a></div>
+                           </div>
+                        </div>
+                     </div>
+                  </li>
+                  <li class="product-box item" style="min-width: 150px;">
+                     <div class="reviewBox-calendar">
+                        <div class="speakerBox-calendar">
+                           <div class="row div-item-calendar">
+                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2022/date/14thmay.png" width="100%" alt="january" /></div>
+                              <div class="col-md-7 div-web-desc text-left">
+                                 <p class="title-webinar">Your Body During &amp; After Pregnancy: Changes, FAQs &amp; Care Tips</p>
+                                 <p class="desc-day"><i class="fas fa-calendar-day"></i> &nbsp;Saturday</p>
+                                 <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;11.00am-12.00pm</p>
+                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Ms Lavinia</p>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-md-12"><a href="../../../events/zoom-live-registration-form-byond28-confinement-care" class="btn btn-default btn-view-event" style="width: 100%;"> VIEW EVENT </a></div>
                            </div>
                         </div>
                      </div>
@@ -484,16 +574,16 @@
                      <div class="reviewBox-calendar">
                         <div class="speakerBox-calendar">
                            <div class="row div-item-calendar">
-                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/webinarupcomingdates/updateddate/date-dec18.png" width="100%" alt="january" /></div>
+                              <div class="col-md-5"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2022/date/22thjan.png" width="100%" alt="january" /></div>
                               <div class="col-md-7 div-web-desc text-left">
-                                 <p class="title-webinar">How to Handle the baby with care</p>
+                                 <p class="title-webinar">Prepare Yourself Mentally, Emotionally &amp; Physically For Breastfeeding</p>
                                  <p class="desc-day"><i class="fas fa-calendar-day"></i> &nbsp;Saturday</p>
                                  <p class="desc-time"><i class="fas fa-clock"></i> &nbsp;3.00pm-4.00pm</p>
-                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Ms Dolly</p>
+                                 <p class="desc-by"><i class="fas fa-user-circle"></i> &nbsp; Ms Elpeni</p>
                               </div>
                            </div>
                            <div class="row">
-                              <div class="col-md-12"><a class="btn btn-default btn-view-event" style="width: 100%;"> Exclusive for Members Only </a></div>
+                              <div class="col-md-12"><a href="../../../events/zoom-live-registration-form?fbclid=IwAR3o9Hk2T8TWoYB3VEauxGTyLzXwQ7w7QgkF2fB2UN2gzXTkf9a2AXKA9Fc" class="btn btn-default btn-view-event" style="width: 100%;"> Exclusive for Members Only </a></div>
                            </div>
                         </div>
                      </div>
@@ -778,12 +868,12 @@
             <p class="speakerName">DR AZRAI</p>
             <p class="speakerDescription">Consultant in Obstetric, Gynecology and Reproductive UKM Medical Centre.</p>
          </div>
-      </div> 
+      </div>
       <div class="col-md-3 col-lg-3 col-xs-6">
          <div class="speakerBox">
             <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/PARENTCRAFT+CLASS/2020/landing+page/online+class/speaker+bg/speaker-msdolly.png" width="100%" alt="msdolly" />
             <p class="speakerName">MS. DOLLY</p>
-            <p class="speakerDescription">Founder of <a href="https://www.dollypedia.com/ ">Dollypedia</a> PLT. Certified Lactation Counselor</p>
+            <p class="speakerDescription">Founder of <a href="https://www.dollypedia.com/">Dollypedia</a> PLT. Certified Lactation Counselor</p>
          </div>
       </div>
       <!-- Speakers END-->
@@ -1370,67 +1460,67 @@
 <p>
    <script>// <![CDATA[
       $(window).load(function () {
-                $(".offline-content").addClass("visuallyhidden");
-              });
-            
-              function scrollFunction() {
-                var mybutton = document.getElementById("topBtn");
-                if (
-                  document.body.scrollTop > 20 ||
-                  document.documentElement.scrollTop > 20
-                ) {
-                  mybutton.style.display = "block";
-                } else {
-                  mybutton.style.display = "none";
-                }
-              }
-            
-              // When the user clicks on the button, scroll to the top of the document
-              function topFunction() {
-                document.body.scrollTop = 0;
-                document.documentElement.scrollTop = 0;
-              }
-            
-              $(document).ready(function () {
-                // When the user scrolls down 20px from the top of the document, show the button
-                window.onscroll = function () {
-                  scrollFunction();
-                };
-            
-                $(".onlineBtn").on("click", function () {
-                  //$('.online-content').show();
-                  //$('.offline-content').hide();
-                  $(".offline-content").addClass("visuallyhidden");
-                  $(".online-content").removeClass("visuallyhidden");
-                  $(window).resize();
-                  $("img").trigger("unveil");
-                  $("body").find(".nbs-flexisel-inner").addClass("bg-color-change");
-                  $("body").find(".bg-color-change").css("background-color", "#fae2e7");
-                });
-            
-                $(".offlineBtn").on("click", function () {
-                  //$('.offline-content').show();
-                  //$('.online-content').hide();
-                  $(".online-content").addClass("visuallyhidden");
-                  $(".offline-content").removeClass("visuallyhidden");
-                  $(window).resize();
-                  $("img").trigger("unveil");
-                  $("body").find(".nbs-flexisel-inner").addClass("bg-color-change");
-                  $("body").find(".bg-color-change").css("background-color", "#265e70");
-                });
-            
-                $("body").find(".section_slidethekapitan").flexisel({
-                  visibleItems: 5,
-                  flipPage: true,
-                  animationSpeed: 500,
-                  animationLoop: true,
-                  clone: false,
-                  autoPlay: false,
-                });
-            
-                $("body").find(".nbs-flexisel-inner").addClass("bg-color-change");
-                $("body").find(".bg-color-change").css("background-color", "#fae2e7");
-              });
+                      $(".offline-content").addClass("visuallyhidden");
+                    });
+                  
+                    function scrollFunction() {
+                      var mybutton = document.getElementById("topBtn");
+                      if (
+                        document.body.scrollTop > 20 ||
+                        document.documentElement.scrollTop > 20
+                      ) {
+                        mybutton.style.display = "block";
+                      } else {
+                        mybutton.style.display = "none";
+                      }
+                    }
+                  
+                    // When the user clicks on the button, scroll to the top of the document
+                    function topFunction() {
+                      document.body.scrollTop = 0;
+                      document.documentElement.scrollTop = 0;
+                    }
+                  
+                    $(document).ready(function () {
+                      // When the user scrolls down 20px from the top of the document, show the button
+                      window.onscroll = function () {
+                        scrollFunction();
+                      };
+                  
+                      $(".onlineBtn").on("click", function () {
+                        //$('.online-content').show();
+                        //$('.offline-content').hide();
+                        $(".offline-content").addClass("visuallyhidden");
+                        $(".online-content").removeClass("visuallyhidden");
+                        $(window).resize();
+                        $("img").trigger("unveil");
+                        $("body").find(".nbs-flexisel-inner").addClass("bg-color-change");
+                        $("body").find(".bg-color-change").css("background-color", "#fae2e7");
+                      });
+                  
+                      $(".offlineBtn").on("click", function () {
+                        //$('.offline-content').show();
+                        //$('.online-content').hide();
+                        $(".online-content").addClass("visuallyhidden");
+                        $(".offline-content").removeClass("visuallyhidden");
+                        $(window).resize();
+                        $("img").trigger("unveil");
+                        $("body").find(".nbs-flexisel-inner").addClass("bg-color-change");
+                        $("body").find(".bg-color-change").css("background-color", "#265e70");
+                      });
+                  
+                      $("body").find(".section_slidethekapitan").flexisel({
+                        visibleItems: 5,
+                        flipPage: true,
+                        animationSpeed: 500,
+                        animationLoop: true,
+                        clone: false,
+                        autoPlay: false,
+                      });
+                  
+                      $("body").find(".nbs-flexisel-inner").addClass("bg-color-change");
+                      $("body").find(".bg-color-change").css("background-color", "#fae2e7");
+                    });
        
       // ]]>
    </script>

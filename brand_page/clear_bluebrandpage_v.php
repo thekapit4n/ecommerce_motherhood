@@ -2,40 +2,37 @@
 <p></p>
 <!-- Menu -->
 <div class="row" style="padding-bottom: 10px;">
-   <div class="col-md-12"><button class="cat WyethBrandPageCatBtn" style="background: #38a7ac; border: #38a7ac;" data-value="home">Homepage</button> <button class="cat WyethBrandPageCatBtn" data-value="profile" style="background: #b4b3b4; border: #b4b3b4;">Profile</button></div>
+<div class="col-md-12"><button class="cat WyethBrandPageCatBtn" style="background: #38a7ac; border: #38a7ac;" data-value="home">Homepage</button> <button class="cat WyethBrandPageCatBtn" data-value="profile" style="background: #b4b3b4; border: #b4b3b4;">Profile</button></div>
 </div>
 <div class="div-homepage">
-   <div class="row">
-      <!--======================== PROMOTION  =======================-->
-      <div class="clearfix">&nbsp;</div>
-      <div class="col-lg-12 col-md-12" style="padding-left: 30px; padding-right: 30px;"><a href="#shop_current" target="_blank" rel="noopener"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Clearblue/clearbluebanner.gif" alt="" width="100%" /></a></div>
-   </div>
-   <!--=================== ABOUT CLEARBLUE  ===================-->
-   <div class="clearfix"></div>
-   <div class="row" style="margin: 0 0; font-family: 'Quicksand', sans-serif; color: grey; text-align: center;">
-      <div class="col-md-12" style="padding: 30px 0px;">
-         <h1><span style="color: #397299; font-weight: bold;">About Clearblue</span></h1>
-         <h3>At Clearblue we put women at the heart of everything we do &ndash; from education and technological development through to design, research, clinical studies, field trials and testing. Our mission is to transform the way women manage their reproductive health.</h3>
-         <!--======================== SPONSORED BY  =======================-->
-         <div class="clearfix">&nbsp;</div>
-      </div>
-   </div>
-   <div class="clearfix"></div>
-   <div class="row" style="margin-bottom: 20px;">
-      <div class="col-md-6">
-         <center>
-            <h3 style="font-weight: bold; font-family: 'Quicksand', sans-serif; border: solid 0px #203764; background: #203764; color: #e1f1fc; padding-top: 8px; padding-bottom: 8px; border-radius: 10px;">Mama Cuba Try</h3>
-         </center>
-         <div style="border: 1px solid #4d4c4d;"><a href="https://www.motherhood.com.my/mamacubatry/main" target="_blank" rel="noopener"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Mamacubatry/550-x-496-.png" alt="mama cuba try" style="width: 100%;" /></a></div>
-      </div>
-      <div class="col-md-6">
-         <center>
-            <h3 style="font-weight: bold; font-family: 'Quicksand', sans-serif; border: solid 0px #203764; background: #203764; color: #e1f1fc; padding-top: 8px; padding-bottom: 8px; border-radius: 10px;">Survey</h3>
-         </center>
-         <div style="border: 1px solid #4d4c4d;"><a href="https://www.motherhood.com.my/events/clearblue-survey" target="_blank" rel="noopener"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/June/Clearblue/trying-to-conceive.png" alt="image holder" style="width: 100%;" /></a></div>
-      </div>
-   </div>
-   <!--
+<div class="row"><!--======================== PROMOTION  =======================-->
+<div class="clearfix">&nbsp;</div>
+<div class="col-lg-12 col-md-12" style="padding-left: 30px; padding-right: 30px;"><a href="#shop_current" target="_blank" rel="noopener"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/Jan/Clearblue/clearbluebanner.gif" alt="" width="100%" /></a></div>
+</div>
+<!--=================== ABOUT CLEARBLUE  ===================-->
+<div class="clearfix"></div>
+<div class="row" style="margin: 0 0; font-family: 'Quicksand', sans-serif; color: grey; text-align: center;">
+<div class="col-md-12" style="padding: 30px 0px;">
+<h1><span style="color: #397299; font-weight: bold;">About Clearblue</span></h1>
+<h3>At Clearblue we put women at the heart of everything we do &ndash; from education and technological development through to design, research, clinical studies, field trials and testing. Our mission is to transform the way women manage their reproductive health.</h3>
+<!--======================== SPONSORED BY  =======================-->
+<div class="clearfix">&nbsp;</div>
+</div>
+</div>
+<div class="clearfix"></div>
+<div class="row" style="margin-bottom: 20px;">
+<div class="col-md-6"><center>
+<h3 style="font-weight: bold; font-family: 'Quicksand', sans-serif; border: solid 0px #203764; background: #203764; color: #e1f1fc; padding-top: 8px; padding-bottom: 8px; border-radius: 10px;">Mama Cuba Try</h3>
+</center>
+<div style="border: 1px solid #4d4c4d;"><a href="https://www.motherhood.com.my/mamacubatry/main" target="_blank" rel="noopener"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Mamacubatry/550-x-496-.png" alt="mama cuba try" style="width: 100%;" /></a></div>
+</div>
+<div class="col-md-6"><center>
+<h3 style="font-weight: bold; font-family: 'Quicksand', sans-serif; border: solid 0px #203764; background: #203764; color: #e1f1fc; padding-top: 8px; padding-bottom: 8px; border-radius: 10px;">Survey</h3>
+</center>
+<div style="border: 1px solid #4d4c4d;"><a href="https://www.motherhood.com.my/events/clearblue-survey" target="_blank" rel="noopener"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/June/Clearblue/trying-to-conceive.png" alt="image holder" style="width: 100%;" /></a></div>
+</div>
+</div>
+<!--
       <div class="row" style="margin: 0 0; font-family: 'Quicksand', sans-serif; color: grey; text-align: center;">
          
          <div class="videoGoogle col-md-6 col-xs-6 col-lg-6"><iframe src="https://www.youtube.com/embed/1HJ-rcXBfXI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" width="100%" height="315" frameborder="0">
@@ -43,186 +40,134 @@
          </div>
       </div>
       --> <!--=============== WHY START YOUR JOURNEY HERE?  ==================-->
-   <div class="row" style="background-color: #e1f1fc; border-radius: 12px; text-align: center;">
-      <h1 style="color: #397299; font-weight: bold;">Why Start Your Journey Here?</h1>
-      <div class="col-lg-4 col-md-4" style="padding-left: 0px; padding-right: 0px;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2019/november/Family+Planning/Landing+Page/Journey/Free-Conception-Kit.gif" alt="" width="100%" /></div>
-      <div class="col-lg-4 col-md-4" style="padding-left: 0px; padding-right: 0px;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2019/november/Family+Planning/Landing+Page/Journey/Get-Monthly-Article.gif" alt="" width="100%" /></div>
-      <div class="col-lg-4 col-md-4" style="padding-left: 0px; padding-right: 0px;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2019/november/Family+Planning/Landing+Page/Journey/Get-a-Free-Babybox.gif" alt="" width="100%" /></div>
-   </div>
-   <!--======================== CONTEST  =======================-->
-   <div class="row" style="margin: 0 0; font-family: 'Quicksand', sans-serif; color: grey; text-align: center;">
-      <div class="col-md-12" style="padding: 30px 0px;">
-         <!--======================== SPONSORED BY  =======================-->
-         <div class="clearfix">&nbsp;</div>
-         <div class="col-lg-12 col-md-12" style="padding-left: 30px; padding-right: 30px;"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/Feb/Clearblue/supported-by-clearblue.png" alt="" width="80%" /></div>
-      </div>
-   </div>
+<div class="row" style="background-color: #e1f1fc; border-radius: 12px; text-align: center;">
+<h1 style="color: #397299; font-weight: bold;">Why Start Your Journey Here?</h1>
+<div class="col-lg-4 col-md-4" style="padding-left: 0px; padding-right: 0px;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2019/november/Family+Planning/Landing+Page/Journey/Free-Conception-Kit.gif" alt="" width="100%" /></div>
+<div class="col-lg-4 col-md-4" style="padding-left: 0px; padding-right: 0px;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2019/november/Family+Planning/Landing+Page/Journey/Get-Monthly-Article.gif" alt="" width="100%" /></div>
+<div class="col-lg-4 col-md-4" style="padding-left: 0px; padding-right: 0px;"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2019/november/Family+Planning/Landing+Page/Journey/Get-a-Free-Babybox.gif" alt="" width="100%" /></div>
+</div>
+<!--======================== CONTEST  =======================-->
+<div class="row" style="margin: 0 0; font-family: 'Quicksand', sans-serif; color: grey; text-align: center;">
+<div class="col-md-12" style="padding: 30px 0px;"><!--======================== SPONSORED BY  =======================-->
+<div class="clearfix">&nbsp;</div>
+<div class="col-lg-12 col-md-12" style="padding-left: 30px; padding-right: 30px;"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/Feb/Clearblue/supported-by-clearblue.png" alt="" width="80%" /></div>
+</div>
+</div>
 </div>
 <div class="div-profile">
-   <div class="clearfix"></div>
-   <div class="col-md-12" style="margin-bottom: 10px;">
-      <div class="row mmy-brandbanner-slick-slide">
-         <div class="brandbanner" style="padding-left: 15px; padding-right: 15px;">
-            <div>
-               <div class="videoGoogle col-md-12 col-xs-12 col-lg-12">
-                  <iframe src="https://www.youtube.com/embed/9Vmb1FMNYGo" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" width="100%" height="315" frameborder="0">
-                  </iframe>
-               </div>
-            </div>
-            <div>
-               <div class="videoGoogle col-md-12 col-xs-12 col-lg-12">
-                  <iframe src="https://www.youtube.com/embed/4BHCMTlRCu8" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" width="100%" height="315" frameborder="0">
-                  </iframe>
-               </div>
-            </div>
-            <div>
-               <div class="videoGoogle col-md-12 col-xs-12 col-lg-12">
-                  <iframe src="https://www.youtube.com/embed/8BSXYymNGpI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" width="100%" height="315" frameborder="0">
-                  </iframe>
-               </div>
-            </div>
-            <div>
-                <div class="videoGoogle col-md-12 col-xs-12 col-lg-12">
-                  <iframe src="https://www.youtube.com/embed/Knf4vSgMXSU?modestbranding=1&rel=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" width="100%" height="315" frameborder="0">
-                  </iframe>
-               </div>
-            </div>
-            <div>
-              <div class="videoGoogle col-md-12 col-xs-12 col-lg-12">
-                 <iframe src="https://www.youtube.com/embed/1HJ-rcXBfXI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" width="100%" height="315" frameborder="0">
-                  </iframe>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="clearfix"></div>
-   <!--========================== ARTICLE  ============================-->
-   <div class="row">
-      <div class="col-md-12" style="text-align: center;">
-         <h1 style="font-size: 30px; padding-top: 10px; font-weight: bold; font-family: 'Quicksand', sans-serif;"><span style="color: #397299;">Article<br /></span></h1>
-      </div>
-   </div>
-   <!--========================== ARTICLES 1  ==========================-->
-   <div class="row" style="border-radius: 0px; border: 0px solid #174976; padding: 15px; text-align: center;">
-      <div class="col-md-12 enlinea_slider">
-         <div class="slider_container">
-            <ul id="nestlekol_list_car">
-               <!--====================ARTICLE 1====================-->
-               <li class="product-box item" style="min-width: 178px;">
-                  <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/5-Old-Wives-Tales-About-Pregnancy-Should-You-Believe-Them.png" alt="article2" width="100%" />
-                  <p class="parent-article-title-cb">5 Old Wives&rsquo; Tales About Pregnancy: Should You Believe Them?</p>
-                  <a href="https://story.motherhood.com.my/blog/old-wives-tales-about-pregnancy-believe-them/" target="_blank" rel="noopener" class="btn btn-primary btn-readmore-cb"> Read More </a>
-               </li>
-               <!--====================ARTICLE 2====================-->
-               <li class="product-box item" style="min-width: 178px;">
-                  <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/jan/clearblue/make-baby-hubby-prep-parenthood-clearblue.png" alt="article2" width="100%" />
-                  <p class="parent-article-title-cb">Trying To Make A Baby? Here&rsquo;s What You & Hubby Should Do To Prep For Parenthood</p>
-                  <a href="https://story.motherhood.com.my/blog/make-baby-hubby-prep-parenthood-clearblue/" target="_blank" rel="noopener" class="btn btn-primary btn-readmore-cb"> Read More </a>
-               </li>
-               <!--====================ARTICLE 3====================-->
-               <li class="product-box item" style="min-width: 178px;">
-                  <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/jan/clearblue/pregnant-fast-crucial-things-must-know.png" alt="article2" width="100%" />
-                  <p class="parent-article-title-cb">How To Get Pregnant Fast: 4 Crucial Things You Must Know Apart From Just Having Sex</p>
-                  <a href="https://story.motherhood.com.my/blog/pregnant-fast-crucial-things-must-know/" target="_blank" rel="noopener" class="btn btn-primary btn-readmore-cb"> Read More </a>
-               </li>
-               <!--====================ARTICLE 4====================-->
-               <li class="product-box item" style="min-width: 178px;">
-                  <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/jan/clearblue/8-tell-tale-signs-of-early-pregnancy-%26-how-you-can-find-out-for-sure.png" alt="article2" width="100%" />
-                  <p class="parent-article-title-cb">8 Tell Tale Signs Of Early Pregnancy & How You Can Find Out For Sure</p>
-                  <a href="https://story.motherhood.com.my/blog/tale-signs-early-pregnancy/" target="_blank" rel="noopener" class="btn btn-primary btn-readmore-cb"> Read More </a>
-               </li>
-               <!--====================ARTICLE 5====================-->
-               <li class="product-box item" style="min-width: 178px;">
-                  <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/May/Clearblue/Oh-I-Didnt-Know!-9-Conception%26Fertility-Myths-Debunked.png" alt="article2" width="100%" />
-                  <p class="parent-article-title-cb">Prepare To Say: Oh I Didn&rsquo;t Know! 9 Conception & Fertility Myths Debunked</p>
-                  <a href="https://story.motherhood.com.my/blog/prepare-to-say-oh-i-didnt-know-9-conception-fertility-myths-debunked/" target="_blank" rel="noopener" class="btn btn-primary btn-readmore-cb"> Read More </a>
-               </li>
-               <!--====================ARTICLE 6====================-->
-               <li class="product-box item" style="min-width: 178px;">
-                  <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/May/Clearblue/Should-You-Try-To-Conceive-In-This-Time-Of-A-Global-Pandemic.png" alt="article2" width="100%" />
-                  <p class="parent-article-title-cb">Should You Try To Conceive In This Time Of A Global Pandemic?</p>
-                  <a href="https://story.motherhood.com.my/blog/should-you-try-to-conceive-in-this-time-of-a-global-pandemic/" target="_blank" rel="noopener" class="btn btn-primary btn-readmore-cb"> Read More </a>
-               </li>
-               <!--====================ARTICLE 7====================-->
-               <li class="product-box item" style="min-width: 178px;">
-                  <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/June/Clearblue/The-Complete-Guide-To-Doing-A-Home-Pregnancy-Test.png" alt="article2" width="100%" />
-                  <p class="parent-article-title-cb">The Complete Guide To Doing A Home Pregnancy Test</p>
-                  <a href="https://story.motherhood.com.my/blog/pregnancy-test-complete-guide/" target="_blank" rel="noopener" class="btn btn-primary btn-readmore-cb"> Read More </a>
-               </li>
-               <!--====================ARTICLE 8====================-->
-               <li class="product-box item" style="min-width: 178px;">
-                  <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/September/Clearblue/How-To-Have-That-Lets-Have-A-Baby-Conversation-With-Your-Husband-Tactfully.png" alt="article2" width="100%" />
-                  <p class="parent-article-title-cb">How To Have That &lsquo;Let&rsquo;s Have A Baby&rsquo; Conversation With Your Husband Tactfully</p>
-                  <a href="https://story.motherhood.com.my/blog/how-to-baby-conversation-with-husband-tactfully/" target="_blank" rel="noopener" class="btn btn-primary btn-readmore-cb"> Read More </a>
-               </li>
-               <!--====================ARTICLE 9====================-->
-               <li class="product-box item" style="min-width: 178px;">
-                  <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/September/Clearblue/Thinking-Of-Having-A-Baby-Time-To-Decide-If-You-Want-To-Work-Or-Stay-Home-After-Giving-Birth.png" alt="article2" width="100%" />
-                  <p class="parent-article-title-cb">Thinking Of Having A Baby? Time To Decide If You Want To Work Or Stay Home After Giving Birth</p>
-                  <a href="https://story.motherhood.com.my/blog/decide-work-or-stay-home-after-giving-birth/" target="_blank" rel="noopener" class="btn btn-primary btn-readmore-cb"> Read More </a>
-               </li>
-               <!--====================ARTICLE 10====================-->
-               <li class="product-box item" style="min-width: 178px;">
-                  <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/September/Clearblue/Youre-Not-Alone-When-Baby-Making-Heres-How-To-Keep-Hubbys-Swimmers-Swimming.png" alt="article2" width="100%" />
-                  <p class="parent-article-title-cb">You&rsquo;re Not Alone When Baby Making: Here&rsquo;s How To Keep Hubby&rsquo;s &ldquo;Swimmers&rdquo; Swimming</p>
-                  <a href="https://story.motherhood.com.my/blog/how-to-keep-hubbys-swimmers-swimming/" target="_blank" rel="noopener" class="btn btn-primary btn-readmore-cb"> Read More </a>
-               </li>
-            </ul>
-         </div>
-      </div>
-   </div>
-   <div class="row">
-      <div class="col-md-12" style="text-align: center;">
-         <h1 style="font-size: 30px; padding-top: 10px; font-weight: bold; font-family: 'Quicksand', sans-serif;"><span style="color: #397299;">Mom Share<br /></span></h1>
-      </div>
-   </div>
-   <!-- KOL slider -->
-      <div class="col-md-12 enlinea_slider">
-         <div class="row mmy-brandbanner-slick-slide">
-            <div class="kol_clearblue" style="padding-left: 15px; padding-right: 15px;display:none">
-               <div>
-                  <div style="padding-left:10px;padding-right:10px;">
-                     <a href="https://www.instagram.com/p/CSq1_OoHMYb/" target="_blank">
-                        <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/September/Clearblue/anumlashes.png" alt="influencer1" width="100%" /> 
-                     </a>
-                   </div>
-               </div>
-               <div>
-                  <div style="padding-left:10px;padding-right:10px;">
-                     <a href="https://www.instagram.com/p/CStxpZTl9Oq/" target="_blank">
-                        <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/September/Clearblue/fathie.png" alt="influencer2" width="100%" /> 
-                     </a>
-                   </div>
-               </div>
-               <div>
-                  <div style="padding-left:10px;padding-right:10px;">
-                     <a href="https://www.instagram.com/p/CSoaKuUHQUB/" target="_blank">
-                        <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/September/Clearblue/pueykwan.png" alt="influencer3" width="100%" /> 
-                     </a>
-                  </div>
-               </div> 
-               <div>
-                  <div style="padding-left:10px;padding-right:10px;">
-                     <a href="https://www.instagram.com/p/CSmDhzMlS9Z/" target="_blank">
-                        <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/September/Clearblue/tyrarussli.png" alt="influencer4" width="100%" /> 
-                     </a>
-                  </div>
-               </div>
-               <div>
-                  <div style="padding-left:10px;padding-right:10px;">
-                     <a href="https://www.instagram.com/p/CSj2_24JU2a/" target="_blank">
-                        <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/September/Clearblue/vienb.png" alt="influencer5" width="100%" /> 
-                     </a>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
+<div class="clearfix"></div>
+<div class="col-md-12" style="margin-bottom: 10px;">
+<div class="row mmy-brandbanner-slick-slide">
+<div class="brandbanner" style="padding-left: 15px; padding-right: 15px;">
+<div>
+<div class="videoGoogle col-md-12 col-xs-12 col-lg-12"><iframe src="https://www.youtube.com/embed/9Vmb1FMNYGo" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" width="100%" height="315" frameborder="0">
+                  </iframe></div>
+</div>
+<div>
+<div class="videoGoogle col-md-12 col-xs-12 col-lg-12"><iframe src="https://www.youtube.com/embed/4BHCMTlRCu8" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" width="100%" height="315" frameborder="0">
+                  </iframe></div>
+</div>
+<div>
+<div class="videoGoogle col-md-12 col-xs-12 col-lg-12"><iframe src="https://www.youtube.com/embed/8BSXYymNGpI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" width="100%" height="315" frameborder="0">
+                  </iframe></div>
+</div>
+<div>
+<div class="videoGoogle col-md-12 col-xs-12 col-lg-12"><iframe src="https://www.youtube.com/embed/Knf4vSgMXSU?modestbranding=1&rel=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" width="100%" height="315" frameborder="0">
+                  </iframe></div>
+</div>
+<div>
+<div class="videoGoogle col-md-12 col-xs-12 col-lg-12"><iframe src="https://www.youtube.com/embed/1HJ-rcXBfXI" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" width="100%" height="315" frameborder="0">
+                  </iframe></div>
+</div>
+</div>
+</div>
+</div>
+<div class="clearfix"></div>
+<!--========================== ARTICLE  ============================-->
+<div class="row">
+<div class="col-md-12" style="text-align: center;">
+<h1 style="font-size: 30px; padding-top: 10px; font-weight: bold; font-family: 'Quicksand', sans-serif;"><span style="color: #397299;">Article<br /></span></h1>
+</div>
+</div>
+<!--========================== ARTICLES 1  ==========================-->
+<div class="row" style="border-radius: 0px; border: 0px solid #174976; padding: 15px; text-align: center;">
+<div class="col-md-12 enlinea_slider">
+<div class="slider_container">
+<ul id="nestlekol_list_car"><!--====================ARTICLE 1====================-->
+<li class="product-box item" style="min-width: 178px;"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/March/Clearblue/5-Old-Wives-Tales-About-Pregnancy-Should-You-Believe-Them.png" alt="article2" width="100%" />
+<p class="parent-article-title-cb">5 Old Wives&rsquo; Tales About Pregnancy: Should You Believe Them?</p>
+<a href="https://story.motherhood.com.my/blog/old-wives-tales-about-pregnancy-believe-them/" target="_blank" rel="noopener" class="btn btn-primary btn-readmore-cb"> Read More </a></li>
+<!--====================ARTICLE 2====================-->
+<li class="product-box item" style="min-width: 178px;"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/jan/clearblue/make-baby-hubby-prep-parenthood-clearblue.png" alt="article2" width="100%" />
+<p class="parent-article-title-cb">Trying To Make A Baby? Here&rsquo;s What You & Hubby Should Do To Prep For Parenthood</p>
+<a href="https://story.motherhood.com.my/blog/make-baby-hubby-prep-parenthood-clearblue/" target="_blank" rel="noopener" class="btn btn-primary btn-readmore-cb"> Read More </a></li>
+<!--====================ARTICLE 3====================-->
+<li class="product-box item" style="min-width: 178px;"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/jan/clearblue/pregnant-fast-crucial-things-must-know.png" alt="article2" width="100%" />
+<p class="parent-article-title-cb">How To Get Pregnant Fast: 4 Crucial Things You Must Know Apart From Just Having Sex</p>
+<a href="https://story.motherhood.com.my/blog/pregnant-fast-crucial-things-must-know/" target="_blank" rel="noopener" class="btn btn-primary btn-readmore-cb"> Read More </a></li>
+<!--====================ARTICLE 4====================-->
+<li class="product-box item" style="min-width: 178px;"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/jan/clearblue/8-tell-tale-signs-of-early-pregnancy-%26-how-you-can-find-out-for-sure.png" alt="article2" width="100%" />
+<p class="parent-article-title-cb">8 Tell Tale Signs Of Early Pregnancy & How You Can Find Out For Sure</p>
+<a href="https://story.motherhood.com.my/blog/tale-signs-early-pregnancy/" target="_blank" rel="noopener" class="btn btn-primary btn-readmore-cb"> Read More </a></li>
+<!--====================ARTICLE 5====================-->
+<li class="product-box item" style="min-width: 178px;"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/May/Clearblue/Oh-I-Didnt-Know!-9-Conception%26Fertility-Myths-Debunked.png" alt="article2" width="100%" />
+<p class="parent-article-title-cb">Prepare To Say: Oh I Didn&rsquo;t Know! 9 Conception & Fertility Myths Debunked</p>
+<a href="https://story.motherhood.com.my/blog/prepare-to-say-oh-i-didnt-know-9-conception-fertility-myths-debunked/" target="_blank" rel="noopener" class="btn btn-primary btn-readmore-cb"> Read More </a></li>
+<!--====================ARTICLE 6====================-->
+<li class="product-box item" style="min-width: 178px;"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/May/Clearblue/Should-You-Try-To-Conceive-In-This-Time-Of-A-Global-Pandemic.png" alt="article2" width="100%" />
+<p class="parent-article-title-cb">Should You Try To Conceive In This Time Of A Global Pandemic?</p>
+<a href="https://story.motherhood.com.my/blog/should-you-try-to-conceive-in-this-time-of-a-global-pandemic/" target="_blank" rel="noopener" class="btn btn-primary btn-readmore-cb"> Read More </a></li>
+<!--====================ARTICLE 7====================-->
+<li class="product-box item" style="min-width: 178px;"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/June/Clearblue/The-Complete-Guide-To-Doing-A-Home-Pregnancy-Test.png" alt="article2" width="100%" />
+<p class="parent-article-title-cb">The Complete Guide To Doing A Home Pregnancy Test</p>
+<a href="https://story.motherhood.com.my/blog/pregnancy-test-complete-guide/" target="_blank" rel="noopener" class="btn btn-primary btn-readmore-cb"> Read More </a></li>
+<!--====================ARTICLE 8====================-->
+<li class="product-box item" style="min-width: 178px;"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/September/Clearblue/How-To-Have-That-Lets-Have-A-Baby-Conversation-With-Your-Husband-Tactfully.png" alt="article2" width="100%" />
+<p class="parent-article-title-cb">How To Have That &lsquo;Let&rsquo;s Have A Baby&rsquo; Conversation With Your Husband Tactfully</p>
+<a href="https://story.motherhood.com.my/blog/how-to-baby-conversation-with-husband-tactfully/" target="_blank" rel="noopener" class="btn btn-primary btn-readmore-cb"> Read More </a></li>
+<!--====================ARTICLE 9====================-->
+<li class="product-box item" style="min-width: 178px;"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/September/Clearblue/Thinking-Of-Having-A-Baby-Time-To-Decide-If-You-Want-To-Work-Or-Stay-Home-After-Giving-Birth.png" alt="article2" width="100%" />
+<p class="parent-article-title-cb">Thinking Of Having A Baby? Time To Decide If You Want To Work Or Stay Home After Giving Birth</p>
+<a href="https://story.motherhood.com.my/blog/decide-work-or-stay-home-after-giving-birth/" target="_blank" rel="noopener" class="btn btn-primary btn-readmore-cb"> Read More </a></li>
+<!--====================ARTICLE 10====================-->
+<li class="product-box item" style="min-width: 178px;"><img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2020/September/Clearblue/Youre-Not-Alone-When-Baby-Making-Heres-How-To-Keep-Hubbys-Swimmers-Swimming.png" alt="article2" width="100%" />
+<p class="parent-article-title-cb">You&rsquo;re Not Alone When Baby Making: Here&rsquo;s How To Keep Hubby&rsquo;s &ldquo;Swimmers&rdquo; Swimming</p>
+<a href="https://story.motherhood.com.my/blog/how-to-keep-hubbys-swimmers-swimming/" target="_blank" rel="noopener" class="btn btn-primary btn-readmore-cb"> Read More </a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12" style="text-align: center;">
+<h1 style="font-size: 30px; padding-top: 10px; font-weight: bold; font-family: 'Quicksand', sans-serif;"><span style="color: #397299;">Mom Share<br /></span></h1>
+</div>
+</div>
+<!-- KOL slider -->
+<div class="col-md-12 enlinea_slider">
+<div class="row mmy-brandbanner-slick-slide">
+<div class="kol_clearblue" style="padding-left: 15px; padding-right: 15px; display: none;">
+<div>
+<div style="padding-left: 10px; padding-right: 10px;"><a href="https://www.instagram.com/p/CSq1_OoHMYb/" target="_blank"> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/September/Clearblue/anumlashes.png" alt="influencer1" width="100%" /> </a></div>
+</div>
+<div>
+<div style="padding-left: 10px; padding-right: 10px;"><a href="https://www.instagram.com/p/CStxpZTl9Oq/" target="_blank"> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/September/Clearblue/fathie.png" alt="influencer2" width="100%" /> </a></div>
+</div>
+<div>
+<div style="padding-left: 10px; padding-right: 10px;"><a href="https://www.instagram.com/p/CSoaKuUHQUB/" target="_blank"> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/September/Clearblue/pueykwan.png" alt="influencer3" width="100%" /> </a></div>
+</div>
+<div>
+<div style="padding-left: 10px; padding-right: 10px;"><a href="https://www.instagram.com/p/CSmDhzMlS9Z/" target="_blank"> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/September/Clearblue/tyrarussli.png" alt="influencer4" width="100%" /> </a></div>
+</div>
+<div>
+<div style="padding-left: 10px; padding-right: 10px;"><a href="https://www.instagram.com/p/CSj2_24JU2a/" target="_blank"> <img src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/September/Clearblue/vienb.png" alt="influencer5" width="100%" /> </a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p>
-   <script>// <![CDATA[
-      var submitButtonStyle = function(_this) {
+<script>// <![CDATA[
+var submitButtonStyle = function(_this) {
                         $("#nestlekol_list_car li button").css({"background-color": "#1d71b8", "border-color": "#1d71b8"});
                         $(_this).css({"background-color": "#ebba1b", "border-color": "#ebba1b"});
                     }
@@ -489,6 +434,5 @@
       
       
    });
-      // ]]>
-   </script>
+// ]]></script>
 </p>

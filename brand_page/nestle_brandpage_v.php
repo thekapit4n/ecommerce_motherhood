@@ -8,6 +8,7 @@
 <div class="container  pages homepage">
    <div class="row mmy-brandbanner-slick-slide">
       <div class="brandbanner" style="padding-left: 15px; padding-right: 15px;">
+         <div><a href="https://www.motherhood.com.my/buy-6-free-1" rel="noopener"> <img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2022/March/nestle/image_2022_03_04T07_40_04_701Z.png" width="100%" /> </a></div>
          <div><a href="https://www.motherhood.com.my/buy-6-free-1" rel="noopener"> <img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/September/Nestle/buy6free1.png" width="100%" /> </a></div>
          <div><a href="https://www.motherhood.com.my/nestlesubscriptionplan" rel="noopener"><img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/August/NestleStartWell/subscribe-now-save-up-to-30%25offf.png" alt="banner" width="100%" /> </a></div>
          <div><a href="#shop_current" rel="noopener"> <img class="img-responsive" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2021/August/NestleStartWell/free-shippingg.png" alt="banner" width="100%" /> </a></div>

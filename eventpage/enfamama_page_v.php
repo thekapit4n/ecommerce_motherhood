@@ -69,7 +69,9 @@
 </style>
 <div class="container">
    <div class="row mb-2" style="margin-left: 0px; margin-right: 0px; margin-bottom: -15px !important;">
-      <div class="col-lg-12 col-md-12" style="padding-left: 0px; padding-right: 0px;"><img class="background" id="background" src="https://via.placeholder.com/1170x480.png?text=bannerhere" width="100%" /></div>
+      	<div class="col-lg-12 col-md-12" style="padding-left: 0px; padding-right: 0px;">
+	  		<img class="background" id="background" src="https://s3.amazonaws.com/motherhood.com.my/assets/images/uploads/2022/Jan/EnfamamaA%2B/1170.png" width="100%" />
+		</div>
    </div>
    <div style="background-color: #f7f7f7; padding-top: 40px;">
       <div class="row mb-2 px-md-5 mx-md-5">
@@ -103,7 +105,7 @@
                 <small class="error-msg"></small>
             </div>
             <div class="col-md-6 px-2">
-                <label for="userdob" class="form-label required">Date of birthday</label>
+                <label for="userdob" class="form-label required">Mum Date of Birth</label>
                 <input type="text" class="form-control user-dob" id="userdob" name="subscriber_question2" required="" /> 
                 <small class="error-msg"></small>
             </div>
@@ -119,17 +121,16 @@
                 <small class="error-msg"></small>
             </div>
             <div class="col-md-6 px-2">
-                <label for="currentbrand" class="form-label required">What brand do you currently use?</label>
+                <label for="currentbrand" class="form-label required">Which brand do you currently use</label>
                 <select class="form-select" name="subscriber_question9" id="currentbrand" aria-label="" style="height: 37px;" required="">
                     <option value="">Please select</option>
-                    <option value="Anmum Materna">Anmum Materna</option>
-                    <option value="Enfamama A+">Enfamama A+</option>
-                    <option value="Friso Mum Gold">Friso Mum Gold</option>
-                    <option value="Nestle Mom">Nestle Mom</option>
+                    <option value="Anmum Materna">Anmum Materna</option>	
+                    <option value="Frisomum Gold">Frisomum Gold</option>
+                    <option value="Nestlé MOM">Nestlé MOM</option>
                     <option value="Similac Mom">Similac Mom</option>
                     <option value="Wyeth Promama">Wyeth Promama</option>
                     <option value="Others">Others</option>
-                    <option value="No, I do not">No, I do not</option>
+                    <option value="I do not use any"> I do not use any</option>
                 </select>
                 <small class="error-msg"></small>
             </div>
@@ -184,7 +185,11 @@
             <div class="form-check">
                 <input class="form-check-input noUniform" type="checkbox" value="yes" id="tnccheckbox" name="subscriber_question10" required="" /> 
                 <label class="form-check-label noUniform px-3" for="tnccheckbox"> 
-                    By submitting this form, I agree that Mead Johnson Nutrition (Malaysia) Sdn Bhd (“MJN”), Reckitt Benckiser (Malaysia) Sdn Bhd and/or its affiliates (collectively, “RB”) and/or any third party under contract with MJN or RB may contact me from time to time, by telephone, letter or other electronic means to market/to promote/sell MJN and/or RB products and services and/or information related to Enfamama A+ Club (collectively referred to as “Purpose” ). I consent to all use of my information by MJN and/or RB in accordance with the Privacy Policy which I have read and understood. I have the option of not cooperating at any time from receiving calls, SMS, letters or other electronic communications to provide information related to the Purpose. Contact us for more information.
+                    By submitting this form, I agree that Mead Johnson Nutrition (Malaysia) Sdn Bhd (“MJN”), Reckitt Benckiser (Malaysia) Sdn Bhd and/or its affiliates (collectively, “RB”) and/or any third party under contract with MJN or 
+					RB may contact me from time to time, by telephone, letter or other electronic means to market/to promote/sell MJN 
+					and/or RB products and services and/or information related to Enfamama A+ Club (collectively referred to as “Purpose” ). 
+					I consent to all use of my information by MJN and/or RB in accordance with the <a href="https://www.enfagrow.com.my/privacy-policy-mead-johnson-nutrition" target="_blank">Privacy Policy</a> which I have read and understood. I have the option of not cooperating at any 
+					time from receiving calls, SMS, letters or other electronic communications to provide information related to the Purpose. Contact us for more information.
                 </label>
             </div>
          </div>
@@ -197,12 +202,13 @@
             <div class="col-md-12 px-2 py-4" style="color: white;">
                <h6>Terms &amp; Conditions</h6>
                <ol style="list-style: decimal; padding-left: 20px;" start="1">
-                  <li class="text-left tnc_li">Samples cannot be redeemed if have been redeemed between June - December 2021</li>
-                  <li class="text-left tnc_li"> Enfamama samples will only be given to pregnant mothers.</li>
-                  <li class="text-left tnc_li">Kelabmama and Motherhood.com.my will not be responsible for any unsuccessful registrations due to internet interruptions</li>
-                  <li class="text-left tnc_li">Kelabmama and Motherhood.com.my reserve the right to vary, cancel, discontinue, or suspend registration or any part, or any part of the applicable terms and conditions, from time to time, with or without any prior notice.</li>
-                  <li class="text-left tnc_li">Registration will only be accepted if the ADDRESS and other details are filled in completely and correctly.</li>
-                  <li class="text-left tnc_li">Incomplete registration forms will not be accepted</li>
+                  <li class="text-left tnc_li">This sample redemption is only open for first-time Enfamama A+ users who have not redeemed in the last 6 months.</li>
+                  <li class="text-left tnc_li">Enfamama A+ is for pregnant & lactating mums.</li>
+                  <li class="text-left tnc_li">Enfamama A+ samples will be provided based on availability of flavours and will only be given to pregnant mothers. </li>
+                  <li class="text-left tnc_li">KelabMama  and Motherhood.com.my will not be responsible for any unsuccessful registrations due to internet interruptions.</li>
+                  <li class="text-left tnc_li">KelabMama  and Motherhood.com.my reserve the right to vary, cancel, discontinue, or suspend registration or any part, or any part of the applicable terms and conditions, from time to time, with or without any prior notice.</li>
+                  <li class="text-left tnc_li">Registration will only be accepted if the ADDRESS and other details are filled in completely and correct.</li>
+                  <li class="text-left tnc_li">Incomplete registration forms will not be accepted.</li>
                </ol>
             </div>
          </div>
@@ -356,7 +362,7 @@
                         {
                             if(result.status_code == 'exist_customer_event_newmom')
       						{
-      							emailSelector.closest('.row').find(errorSelector).html("This email has been registered with new mom program within june - december 2021");
+      							emailSelector.closest('.row').find(errorSelector).html("This email has been registered with new mom program 6 months ago");
                                 $('body').find('.btn-submit').hide('fast');
       							$('body').find('.btn-submit-display').hide('fast');
                             }
@@ -485,7 +491,8 @@
       			var emailInputStatus = $('body').find('.status-input-email').val();
       			var emailCodeStatus  = $('body').find('.status-code-email').val();
       			var tncCheck         = $('body').find('#tnccheckbox').is(':checked');
-      
+				var parentdob 		 = $('body').find('#userdob').val();
+
       			fnameSelector.removeClass('is-invalid');
       			fnameSelector.closest('div').find(errorSelector).html("");
       			
@@ -510,6 +517,22 @@
       				console.log("error 2");
       				flagCheck = mobileValidate;
       			}
+
+				var arryDate = parentdob.split("/");
+		
+				if(arryDate.length == 3)
+				{
+					if(isNaN(arryDate[0]) || isNaN(arryDate[1]) || isNaN(arryDate[2]))
+					{
+						Swal.fire({
+							icon: 'error',
+							title: 'Error',
+							text: 'Please enter mum date of birth in correct format',
+						});
+
+						return false;
+					}
+				}
       			
       			if(tncCheck == false)
       			{
