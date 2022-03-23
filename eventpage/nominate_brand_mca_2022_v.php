@@ -107,6 +107,15 @@
 		min-width: 300px;
 		box-shadow:unset;
 	}
+	
+	.btn-mca-main-page, .btn-mca-main-page:hover, .btn-mca-main-page:active, .btn-mca-main-page:focus{
+		background-color: #30a7ad;
+		border-color: #30a7ad;
+		color: #ffffff;
+		font-size: 18px;
+		width:100%;
+		box-shadow:unset;
+	}
 
 	.accordion-button:not(.collapsed) {
 		color: #000000;
@@ -140,6 +149,10 @@
 		padding-left: 15px;
 	}
 
+	.brand-card{
+		text-align: -webkit-right;
+	}
+
 	@media only screen and (max-width: 600px) {
 		.card-title{
 			font-size:25px;
@@ -148,6 +161,10 @@
 		.step-usertype{
 			position: relative;
     		left: -10px;
+		}
+
+		.brand-card{
+			text-align: initial;
 		}
 
 	}
@@ -176,7 +193,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-6 mb-3">
+		<div class="col-sm-6 mb-3 brand-card">
 			<div class="card mb-3 card-clickable" data-usertype="brand" style="max-width: 500px;">
 				<div class="row g-0">
 					<div class="col-md-4 col-4 text-center card-img-bg-brand">
@@ -190,6 +207,11 @@
 			</div>
 		</div>
 		<input type="hidden" name="subscriber_question4" id="subscriber_question4" style="margin-bottom: 10px;" /><!-- input for type of preganancy -->
+	</div>
+	<div class="row mt-3">
+		<div class="col-md-12 text-center">
+			<a href="https://www.motherhood.com.my/motherhood-award" class="btn btn-primary btn-mca-main-page">Motherhood Award</a>
+		</div>
 	</div>
 </div>
 <div class="row step-form" style="display:none;">
@@ -298,7 +320,7 @@
 		<div class="col-md-6 px-2 brand-question">
 		 	<label for="" class="form-label award-title-label">Award Title</label> 
 			 <input type="text" class="form-control" id="award-title" name="subscriber_question13"/> 
-			 <small class="error-msg"></small>
+			 <small class="">If there is no suitable category for your product/service, please state your preferred award title.</small>
 		</div>
     </div>
 	 

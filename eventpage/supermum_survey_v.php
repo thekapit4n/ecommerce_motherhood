@@ -286,12 +286,12 @@
 </style>
 <div class="row text-center">
     <div class="col-lg-12" style="padding-top: 8%;padding-bottom: 8%;background-color:#00989F">
-       <p class="supermum-div1-title1">SUPERMUMS <br/> SURVEY 2021</p>
+       <p class="supermum-div1-title1">SUPERMUMS <br/> SURVEY 2022</p>
        <div class="supermum-div-digital">
             <p class="supermum-digital-text">The Digital Mum Edition</p>
        </div>
        <div class="supermum-div-digital-subtext">
-         <p class="supermom-font supermum-digital-subtext">The who, what, when, and why of Malaysia's digital mums</p>
+         <p class="supermom-font supermum-digital-subtext">What Malaysian mums want you to know!</p>
        </div>
     </div>
 </div>
@@ -302,7 +302,7 @@
             </div>
         </div>
         <div class="col-md-8 col-12 div-supermum-text-icon">
-            <p class="text-supermum-icon-1">Insight gathered from Motherhood.com.my</p>
+            <p class="text-supermum-icon-1">Learn what mums want with Motherhood.com.my</p>
             <p class="text-supermum-icon-2">SUPERMUMS</p>
             <p class="text-supermum-icon-3">
                 We've gathered intel from far and wide, using the best
@@ -352,7 +352,7 @@
         <div class="row text-center">
             <div class="col-md-4">
                 <span id="count1" class="counter-number"></span>
-                <p class="statistics-desc">Spend less than 5 hours on social media every day</p>
+                <p class="statistics-desc">Spend between 1–5 hours on social media every day</p>
             </div>
             <div class="col-md-4">
                 <span id="count2" class="counter-number"></span>
@@ -369,7 +369,7 @@
 <div class="col-md-10 col-md-offset-1" style="background: rgba(255, 255, 255, 0.8); background-size: cover; padding-top: 20px; padding-bottom: 20px; border-radius: 10px;">
    <div class="row mt-4">
       <div class="col-md-12 text-center">
-         <h3 style="font-size: 24px; color: #4c4c4d; font-weight: bold;" class="title-form">Marketing To Mums? Submit details to get full report</h3>
+         <h3 style="font-size: 24px; color: #4c4c4d; font-weight: bold;" class="title-form">Marketing To Mums? Submit your details to get full report!</h3>
       </div>
    </div>
     <div class="row mx-0 my-2 my-md-3">
@@ -379,7 +379,7 @@
         </div>
     </div>
     <div class="row mx-0 my-2 my-md-3">
-        <label for="contactno" class="col-md-2 col-form-label">Contact no.</label>
+        <label for="contactno" class="col-md-2 col-form-label">Contact No.</label>
         <div class="col-md-10">
             <input type="text" class="form-control" id="contactno" name="subscriber_question1" value="" required>
         </div>
@@ -457,7 +457,7 @@ $(function(){
     });
 
     counter("count1", 0, 62, 2500);
-    counter("count2", 0, 59, 2500);
+    counter("count2", 0, 62, 2500);
     counter("count3", 0, 72, 2500);
 
     $('body').on('click', '.btn-submit-display', function(){

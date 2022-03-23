@@ -69,7 +69,7 @@
                   padding-bottom: 10px;
                   margin-bottom: 20px;
                   background-color: #fff;
-                  min-height: 630px;
+                  min-height: 509px;
               }
           
               h1,
@@ -153,6 +153,7 @@
                   .locationText{
                      width: 85%;
                      text-align:left;
+                     line-height: 16px;
                   }
                   .categoryRow{
                       margin-bottom: 10px;
@@ -207,7 +208,7 @@
                  
           
                   .speakerBox {
-                      min-height: 480px;
+                      min-height: 518px;
                   }
           
                   .speakerTitle {
@@ -725,6 +726,7 @@
             </div>
          </div>
       </div>
+      <!--
       <div class="col-md-3 col-lg-3 col-xs-6 outerSpeakerBox">
          <div class="speakerBox">
             <h2 class="speakerTitle">Obstetrician & Gynaecologist</h2>
@@ -739,6 +741,7 @@
             </div>
          </div>
       </div>
+      -->
    </div>
    <div class="forfamily category">
       <div style="text-align: left;">
