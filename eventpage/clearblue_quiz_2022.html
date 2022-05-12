@@ -1,0 +1,674 @@
+<style>
+   <!--
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+      	
+      	.noUniform:focus{
+      		outline: unset !important;
+       		outline-offset: unset !important;
+      		box-shadow: unset !important;
+      	}
+      
+      	.font-clearblue{
+      		font-family: 'Montserrat', sans-serif;
+      	}
+      
+      	.font-header{
+      		color: #00457c;
+      		font-weight: 600.5px;
+      		font-size: 29px;
+      	}
+      
+      	.font-subheader{
+      		font-size: 16.5px;
+      		font-weight: 350;
+      		color: #626262;
+      	}
+      
+      	.font-cardtitle{
+      		color: #00b0eb;
+      		font-weight: 700;
+      		font-size: 16px;
+      	}
+      
+      	.font-final-cardtitle{
+      		color: #00b0eb;
+      		font-weight: 600;
+      		font-size: 23px;
+      	}
+      
+      	.font-checkbox-label{
+      		color: #626262;
+      		font-weight: 400;
+      		font-size: 16.5px;
+      	}
+      
+      	.font-link{
+      		color: #00457c;
+      		font-weight: 650;
+      		font-size: 16.5px;
+      	}
+      
+      	.font-question{
+      		font-weight: 700;
+      		font-size: 24px;
+      		color: #00457c;
+      	}
+      
+      	.img-center-size{
+      		display: block;
+      		margin-left: auto;
+      		margin-right: auto;
+      		height: 200px;
+      		width: 1100px;
+      	}
+      
+      	.div-qnum{
+      		font-size: 15px;
+      		color: #00b0eb; 
+      		font-weight: 600;
+      	}
+      
+      	.progress-container{
+      		height: 2rem; 
+      		background-color: #e0e7f1; 
+      		border-radius: 175px;
+      		padding-top: 3px;
+      		padding-left: 3px;
+      		padding-right: 3px;
+      	}
+      
+      	.progress-bar {
+      		border-radius: 175px;
+          	transition: all .25s ease-out;
+          	background-color: #00457c;
+          	background-image: linear-gradient(to right,#00457c 0,#00b0eb 100%);
+      		width: 12.5%; 
+      		height: 20px;
+      	}
+      
+      	.btn-color, .btn-color:hover, .btn-color:active, .btn-focus {
+      		background-color: #00457c;
+      		border-color: #00457c;
+      		color: white;
+      	}
+      
+      	.big-checkbox{
+      		width: 20px; height: 20px;
+      	}
+      
+      	.btn-format{
+      		border-radius:4px; 
+      		font-weight:200; 
+      		background-color: #00457c; 
+      		border-color: #00457c; 
+      		padding: 10px 20px; 
+      		font-size: 14px;
+      	}
+      
+      	.btn-start-quiz{
+      		font-weight: 700 !important;
+      		font-size: 24px;
+      		padding: 10px 29px;
+      		line-height: 2.6rem;
+      		border-radius: 4px;
+      	}
+      
+      	.margin-lt{
+      		margin-left: 10px;
+      		margin-top: 4.5px;
+      	}
+      
+      	.card-tips, .temp-hide{
+      		display:none;
+      	}
+      
+      	.card{
+      		border-radius: 10px;
+      		border-color: #e0f2fe;
+      		background-color: #e0f2fe;
+      		padding: 1rem 0.75rem;
+      		margin-top: 1.5rem;
+      	}
+      
+      	.card-format-result{
+      		text-align:center;
+      		padding:1rem;
+      	}
+      
+      	.q-answers {
+      		display: block;
+      		background: #f7f7f7;
+      		border-radius: 10px;
+      		padding: 0.75rem;
+      		cursor: pointer;
+      		margin-bottom: .5rem;
+      		transition: all .15s ease;
+      	}
+      
+      	#bottom {
+              position: absolute;
+      		display: inline-block;
+      		vertical-align: middle;
+              bottom: 0;
+              width: 100%;
+              color: #626262;
+              background-color: white;
+              padding: 10px 0;
+      		padding-left: 0.75rem;
+      		max-width: calc(100% - 28px);
+          }
+      -->
+</style>
+<div class="container-fluid p-5 bg-white text-center font-clearblue"><label class="font-header">Am I Pregnant? - Quiz</label></div>
+<div class="background"><img class="img-center-size" alt="Woman testing for pregnancy" src="https://www.clearblue.com/sites/default/files/wysiwyg/pages/images/pages/category-pregnancy-tests-new.jpg" /></div>
+<div class="row my-5 font-clearblue">
+   <div class="col-md-12 text-center"><button type="button" class="btn btn-color btn-start-quiz">Start Quiz</button></div>
+</div>
+<div class="card border-0 font-clearblue font-subheader" id="quiz">
+   <div class="card-body">
+      <p class="card-text font-checkbox-label">One way to check if you are pregnant is to do a pregnancy test. You don&rsquo;t even need to wait until you miss your period before testing as the <a class="font-link" href="#">Clearblue&reg; Early Detection Pregnancy Test</a> can be used up to 6 days before you miss your period. Some women might notice one or two <a class="font-link" href="#">symptoms in the earliest stages of pregnancy.</a> Try our fun &ldquo;Am I pregnant?&rdquo; quiz to see if your symptoms might be an early clue.</p>
+   </div>
+</div>
+<div class="container mt-5 font-clearblue" style="margin-top: 10px;">
+   <div class="row">
+      <div class="col-md-9">
+         <div class="progress progress-container">
+            <div class="progress-bar" role="progress-bar" data-animation="true" data-pbar="12.5"></div>
+         </div>
+      </div>
+      <div class="col-md-3 text-right div-qnum">Question 1/8</div>
+   </div>
+   <div class="row text-center font-question">
+      <div class="col-md-12 main-question-1">
+         <p>What method of birth control are you using?</p>
+      </div>
+      <div class="col-md-12 main-question-2 temp-hide">
+         <p>When is your next period due?</p>
+      </div>
+      <div class="col-md-12 main-question-3 temp-hide">
+         <p>Have you noticed any changes to your breasts?</p>
+      </div>
+      <div class="col-md-12 main-question-4 temp-hide">
+         <p>Have you been feeling sick recently?</p>
+      </div>
+      <div class="col-md-12 main-question-5 temp-hide">
+         <p>How are your energy levels?</p>
+      </div>
+      <div class="col-md-12 main-question-6 temp-hide">
+         <p>Have you been going to the bathroom to urinate more often than normal?</p>
+      </div>
+      <div class="col-md-12 main-question-7 temp-hide">
+         <p>How is your general mood?</p>
+      </div>
+      <div class="col-md-12 main-question-8 temp-hide">
+         <p>Have you noticed any changes to your appetite?</p>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-md-12">
+         <div class="div-question-1 ">
+            <div class="row my-3">
+               <div class="col-md-12">
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="1" data-option="a" value="Contraceptive implant (Nexplanon), Intrauterine system (IUS), or Intrauterine device (IUD)" /> <label class="form-check-label margin-lt font-checkbox-label" for="check1">Contraceptive implant (Nexplanon), Intrauterine system (IUS), or Intrauterine device (IUD)</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="1" data-option="b" value="Birth control pill" /> <label class="form-check-label margin-lt font-checkbox-label" for="check2">Birth control pill</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="1" data-option="c" value="Barrier method e.g. condoms" /> <label class="form-check-label margin-lt font-checkbox-label" for="check3">Barrier method e.g. condoms</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="1" data-option="d" value="Other" /> <label class="form-check-label margin-lt font-checkbox-label" for="check4">Other</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="1" data-option="e" value="None" /> <label class="form-check-label margin-lt font-checkbox-label" for="check5">None</label></div>
+               </div>
+            </div>
+            <div class="row my-3">
+               <div class="col-md-12">
+                  <div class="card card-tips question_1_a">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">Contraceptive implant (Nexplanon), Intrauterine system (IUS), or Intrauterine device (IUD) :</h4>
+                        <p class="card-text font-checkbox-label">You are using a highly effective form of birth control and the chance of pregnancy is very low.</p>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_1_b">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">Birth control pill :</h4>
+                        <p class="card-text font-checkbox-label">No form of birth control is 100% effective at preventing pregnancy, so even if you&rsquo;ve been using a method, you could still get pregnant.</p>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_1_c">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">Barrier methods e.g. condoms :</h4>
+                        <p class="card-text font-checkbox-label">No form of birth control is 100% effective at preventing pregnancy, so even if you&rsquo;ve been using a method, you could still get pregnant.</p>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_1_d">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">Other :</h4>
+                        <p class="card-text font-checkbox-label">No form of birth control is 100% effective at preventing pregnancy, so even if you&rsquo;ve been using a method, you could still get pregnant.</p>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_1_e">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">None :</h4>
+                        <p class="card-text font-checkbox-label">Just over one-third of healthy couples will get pregnant in the first month of trying.</p>
+                        <p class="card-text font-checkbox-label">Take a test as soon as possible to find out for sure.</p>
+                        <a href="#" class="card-link font-link">Buy now</a> <a href="#" class="card-link font-link">Clearblue Pregnancy Tests</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="div-question-2 temp-hide">
+            <div class="row my-3">
+               <div class="col-md-12">
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="2" data-option="a" value="In 2 weeks or more" /> <label class="form-check-label margin-lt font-checkbox-label" for="check1">In 2 weeks or more</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="2" data-option="b" value="In a few days" /> <label class="form-check-label margin-lt font-checkbox-label" for="check2">In a few days</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="2" data-option="c" value="I'm a few days late" /> <label class="form-check-label margin-lt font-checkbox-label" for="check3">I'm a few days late</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="2" data-option="d" value="I'm more than a week" /> <label class="form-check-label margin-lt font-checkbox-label" for="check4">I'm more than a week late</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="2" data-option="e" value="I don't know/I don't have regular periods" /> <label class="form-check-label margin-lt font-checkbox-label" for="check2">I don't know/I don't have regular periods</label></div>
+               </div>
+            </div>
+            <div class="row my-3">
+               <div class="col-md-12">
+                  <div class="card card-tips question_2_a">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">In 2 weeks or more :</h4>
+                        <p class="card-text font-checkbox-label">Find out when you can take a pregnancy test</p>
+                        <a href="#" class="card-link font-link">When can I take a pregnancy test?</a>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_2_b">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">In a few days :</h4>
+                        <p class="card-text font-checkbox-label">You don&rsquo;t need to wait for your missed period before you do a pregnancy test. The Clearblue&reg; Early Detection Pregnancy Test can be used up to 6 days before your missed period.</p>
+                        <a href="#" class="card-link font-link">Clearblue&reg; Early Detection Pregnancy Test</a> <a href="#" class="card-link font-link">When can I take a pregnancy test?</a>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_2_c">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">I'm a few days late :</h4>
+                        <p class="card-text font-checkbox-label">For many women, a late period is often the earliest physical sign of pregnancy. Find the right test for you.</p>
+                        <a href="#" class="card-link font-link">Clearblue Pregnancy Tests</a> <a href="#" class="card-link font-link">Early pregnancy symptoms</a>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_2_d">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">I'm more than a week late :</h4>
+                        <p class="card-text font-checkbox-label">For many women, a late period is often the earliest physical sign of pregnancy. Find the right test for you.</p>
+                        <a href="#" class="card-link font-link">Clearblue Pregnancy Tests</a> <a href="#" class="card-link font-link">Early pregnancy symptoms</a>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_2_e">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">I don't know/I don't have regular periods :</h4>
+                        <p class="card-text font-checkbox-label ">Find out when you can take a pregnancy test</p>
+                        <a href="#" class="card-link font-link">When can I take a pregnancy test?</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="div-question-3 temp-hide">
+            <div class="row my-3">
+               <div class="col-md-12">
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="3" data-option="a" value="No, everything seems normal" /> <label class="form-check-label margin-lt font-checkbox-label" for="check1">No, everything seems normal</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="3" data-option="b" value="They are a little sensitive" /> <label class="form-check-label margin-lt font-checkbox-label" for="check2">They are a little sensitive</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="3" data-option="c" value="They feel really tender/sore" /> <label class="form-check-label margin-lt font-checkbox-label" for="check3">They feel really tender/sore</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="3" data-option="d" value="My nipples do look a bit darker than normal" /> <label class="form-check-label margin-lt font-checkbox-label" for="check4">My nipples do look a bit darker than normal</label></div>
+               </div>
+            </div>
+            <div class="row my-3">
+               <div class="col-md-12">
+                  <div class="card card-tips question_3_a">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">No, everything seems normal :</h4>
+                        <p class="card-text font-checkbox-label">During early pregnancy your breasts might feel fuller or more tender than usual, and some women may notice that the area around the nipples (the areola) may get darker. Breast tenderness is one of the more common <a href="#" class="font-link">early pregnancy symptoms</a>, but may be intermittent.</p>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_3_b">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">They are a little sensitive :</h4>
+                        <p class="card-text font-checkbox-label">During early pregnancy your breasts might feel fuller or more tender than usual, and some women may notice that the area around the nipples (the areola) may get darker. Breast tenderness is one of the more common <a href="#" class="font-link">early pregnancy symptoms</a>, but may be intermittent.</p>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_3_c">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">They feel really tender/sore :</h4>
+                        <p class="card-text font-checkbox-label">During early pregnancy your breasts might feel fuller or more tender than usual, and some women may notice that the area around the nipples (the areola) may get darker. Breast tenderness is one of the more common <a href="#" class="font-link">early pregnancy symptoms</a>, but may be intermittent.</p>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_3_d">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">My nipples do look a bit darker than normal :</h4>
+                        <p class="card-text font-checkbox-label">During early pregnancy your breasts might feel fuller or more tender than usual, and some women may notice that the area around the nipples (the areola) may get darker. Breast tenderness is one of the more common <a href="#" class="font-link">early pregnancy symptoms</a>, but may be intermittent.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="div-question-4 temp-hide">
+            <div class="row my-3">
+               <div class="col-md-12">
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="4" data-option="a" value="No" /> <label class="form-check-label margin-lt font-checkbox-label" for="check1">No</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="4" data-option="b" value="A little queasy sometimes" /> <label class="form-check-label margin-lt font-checkbox-label" for="check2">A little queasy sometimes</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="4" data-option="c" value="I feel sick sometimes when I'm hungry" /> <label class="form-check-label margin-lt font-checkbox-label" for="check3">I feel sick sometimes when I'm hungry</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="4" data-option="d" value="I feel sick a lot!" /> <label class="form-check-label margin-lt font-checkbox-label" for="check4">I feel sick a lot!</label></div>
+               </div>
+            </div>
+            <div class="row my-3">
+               <div class="col-md-12">
+                  <div class="card card-tips question_4_a">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">No :</h4>
+                        <p class="card-text font-checkbox-label">You could start feeling sick, and even vomit, between the 2nd to the 8th week of pregnancy. This usually passes by the 16th week. Although this is often called <a href="#" class="font-link">'morning sickness'</a> it can happen at any time of the day or night &ndash; and can even affect you all the time.</p>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_4_b">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">A little queasy sometimes :</h4>
+                        <p class="card-text font-checkbox-label">You could start feeling sick, and even vomit, between the 2nd to the 8th week of pregnancy. This usually passes by the 16th week. Although this is often called <a href="#" class="font-link">'morning sickness'</a> it can happen at any time of the day or night &ndash; and can even affect you all the time.</p>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_4_c">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">I feel sick sometimes when I'm hungry :</h4>
+                        <p class="card-text font-checkbox-label">You could start feeling sick, and even vomit, between the 2nd to the 8th week of pregnancy. This usually passes by the 16th week. Although this is often called <a href="#" class="font-link">'morning sickness'</a> it can happen at any time of the day or night &ndash; and can even affect you all the time.</p>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_4_d">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">I feel sick a lot! :</h4>
+                        <p class="card-text font-checkbox-label">During early pregnancy your breasts might feel fuller or more tender than usual, and some women may notice that the area around the nipples (the areola) may get darker. Breast tenderness is one of the more common <a href="#" class="font-link">early pregnancy symptoms</a>, but may be intermittent.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="div-question-5 temp-hide">
+            <div class="row my-3">
+               <div class="col-md-12">
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="5" data-option="a" value="I feel relatively normal" /> <label class="form-check-label margin-lt font-checkbox-label" for="check1">I feel relatively normal</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="5" data-option="b" value="I'm a bit sleepy" /> <label class="form-check-label margin-lt font-checkbox-label" for="check2">I'm a bit sleepy</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="5" data-option="c" value="I'm feeling really tired most afternoons and evenings" /> <label class="form-check-label margin-lt font-checkbox-label" for="check3">I'm feeling really tired most afternoons and evenings</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="5" data-option="d" value="I'm exhausted all the time. Is it bed time yet?" /> <label class="form-check-label margin-lt font-checkbox-label" for="check4">I'm exhausted all the time. Is it bed time yet?</label></div>
+               </div>
+            </div>
+            <div class="row my-3">
+               <div class="col-md-12">
+                  <div class="card card-tips question_5_a">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">I feel relatively normal :</h4>
+                        <p class="card-text font-checkbox-label">You are likely to feel unusually tired in the first few weeks of pregnancy. This could be due to the rising levels of progesterone in your body as it maintains the lining of your womb to help support the pregnancy.</p>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_5_b">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">I'm a bit sleepy :</h4>
+                        <p class="card-text font-checkbox-label">You are likely to feel unusually tired in the first few weeks of pregnancy. This could be due to the rising levels of progesterone in your body as it maintains the lining of your womb to help support the pregnancy.</p>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_5_c">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">I'm feeling really tired most afternoons and evenings :</h4>
+                        <p class="card-text font-checkbox-label">You are likely to feel unusually tired in the first few weeks of pregnancy. This could be due to the rising levels of progesterone in your body as it maintains the lining of your womb to help support the pregnancy.</p>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_5_d">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">I'm exhausted all the time. Is it bed time yet? :</h4>
+                        <p class="card-text font-checkbox-label">You are likely to feel unusually tired in the first few weeks of pregnancy. This could be due to the rising levels of progesterone in your body as it maintains the lining of your womb to help support the pregnancy.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="div-question-6 temp-hide">
+            <div class="row my-3">
+               <div class="col-md-12">
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="6" data-option="a" value="Not that I've noticed" /> <label class="form-check-label margin-lt font-checkbox-label" for="check1">Not that I've noticed</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="6" data-option="b" value="Yes, a bit more than normal" /> <label class="form-check-label margin-lt font-checkbox-label" for="check2">Yes, a bit more than normal</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="6" data-option="c" value="I have to go to the bathroom frequently throughout the day and night" /> <label class="form-check-label margin-lt font-checkbox-label" for="check3">I have to go to the bathroom frequently throughout the day and night</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="6" data-option="d" value="My bladder is constantly full!" /> <label class="form-check-label margin-lt font-checkbox-label" for="check4">My bladder is constantly full!</label></div>
+               </div>
+            </div>
+            <div class="row my-3">
+               <div class="col-md-12">
+                  <div class="card card-tips question_6_a">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">Not that I've noticed :</h4>
+                        <p class="card-text font-checkbox-label">More frequent urination can be an <a href="#" class="font-link">early pregnancy sign</a>, but it can also be due to other reasons such as a urinary tract infection. You should see your Doctor if you&rsquo;re experiencing increased urinary frequency.</p>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_6_b">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">Yes, a bit more than normal :</h4>
+                        <p class="card-text font-checkbox-label">More frequent urination can be an <a href="#" class="font-link">early pregnancy sign</a>, but it can also be due to other reasons such as a urinary tract infection. You should see your Doctor if you&rsquo;re experiencing increased urinary frequency.</p>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_6_c">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">I have to go to the bathroom frequently throughout the day and night :</h4>
+                        <p class="card-text font-checkbox-label">More frequent urination can be an <a href="#" class="font-link">early pregnancy sign</a>, but it can also be due to other reasons such as a urinary tract infection. You should see your Doctor if you&rsquo;re experiencing increased urinary frequency.</p>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_6_d">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">My bladder is constantly full! :</h4>
+                        <p class="card-text font-checkbox-label">More frequent urination can be an <a href="#" class="font-link">early pregnancy sign</a>, but it can also be due to other reasons such as a urinary tract infection. You should see your Doctor if you&rsquo;re experiencing increased urinary frequency.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="div-question-7 temp-hide">
+            <div class="row my-3">
+               <div class="col-md-12">
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="7" data-option="a" value="I'm my normal self" /> <label class="form-check-label margin-lt font-checkbox-label" for="check1">I'm my normal self</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="7" data-option="b" value="I've been a bit moody but nothing major" /> <label class="form-check-label margin-lt font-checkbox-label" for="check2">I've been a bit moody but nothing major</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="7" data-option="c" value="I'm pretty grumpy with everyone and everything at the moment" /> <label class="form-check-label margin-lt font-checkbox-label" for="check3">I'm pretty grumpy with everyone and everything at the moment</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="7" data-option="d" value="I'm an emotional rollercoaster!" /> <label class="form-check-label margin-lt font-checkbox-label" for="check4">I'm an emotional rollercoaster!</label></div>
+               </div>
+            </div>
+            <div class="row my-3">
+               <div class="col-md-12">
+                  <div class="card card-tips question_7_a">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">I'm my normal self :</h4>
+                        <p class="card-text font-checkbox-label">Your changing hormones may cause some <a href="#" class="font-link">mood swings</a> in the early stages of pregnancy &ndash; you could even find yourself crying without really knowing why. <br /> Mood changes might also be due to PMS (pre-menstrual syndrome). <br /> One way to be sure is to take a pregnancy test.</p>
+                        <a href="#" class="font-link">Clearblue Pregnancy Tests</a>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_7_b">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">I've been a bit moody but nothing major :</h4>
+                        <p class="card-text font-checkbox-label">Your changing hormones may cause some <a href="#" class="font-link">mood swings</a> in the early stages of pregnancy &ndash; you could even find yourself crying without really knowing why. <br /> Mood changes might also be due to PMS (pre-menstrual syndrome). <br /> One way to be sure is to take a pregnancy test.</p>
+                        <a href="#" class="font-link">Clearblue Pregnancy Tests</a>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_7_c">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">I'm pretty grumpy with everyone and everything at the moment :</h4>
+                        <p class="card-text font-checkbox-label">Your changing hormones may cause some <a href="#" class="font-link">mood swings</a> in the early stages of pregnancy &ndash; you could even find yourself crying without really knowing why. <br /> Mood changes might also be due to PMS (pre-menstrual syndrome). <br /> One way to be sure is to take a pregnancy test.</p>
+                        <a href="#" class="font-link">Clearblue Pregnancy Tests</a>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_7_d">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">I'm an emotional rollercoaster! :</h4>
+                        <p class="card-text font-checkbox-label">Your changing hormones may cause some <a href="#" class="font-link">mood swings</a> in the early stages of pregnancy &ndash; you could even find yourself crying without really knowing why. <br /> Mood changes might also be due to PMS (pre-menstrual syndrome). <br /> One way to be sure is to take a pregnancy test.</p>
+                        <a href="#" class="font-link">Clearblue Pregnancy Tests</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="div-question-8 temp-hide">
+            <div class="row my-3">
+               <div class="col-md-12">
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="8" data-option="a" value="No, everything seems normal" /> <label class="form-check-label margin-lt font-checkbox-label" for="check1">No, everything seems normal</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="8" data-option="b" value="" i="" ve="" stopped="" eating="" drinking="" some="" things="" that="" used="" to="" enjoy="" e="" g="" tea="" coffee="" strong="" flavors="" /> <label class="form-check-label margin-lt font-checkbox-label" for="check2">I&rsquo;ve stopped eating/drinking some things that I used to enjoy (e.g. tea, coffee, strong flavors</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="8" data-option="c" value="I&rsquo;m eating everything in sight" /> <label class="form-check-label margin-lt font-checkbox-label" for="check3">I&rsquo;m eating everything in sight</label></div>
+                  <div class="form-check q-answers"><input type="checkbox" class="form-check-input noUniform big-checkbox check-option" data-question="8" data-option="d" value="The smell of some foods is making me feel really queasy" /> <label class="form-check-label margin-lt font-checkbox-label" for="check4">The smell of some foods is making me feel really queasy</label></div>
+               </div>
+            </div>
+            <div class="row my-3">
+               <div class="col-md-12">
+                  <div class="card card-tips question_8_a">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">No, everything seems normal :</h4>
+                        <p class="card-text font-checkbox-label">You may stop eating or drinking certain things like tea, coffee or fatty food, and might start to crave things you don't normally like. <br /> You might even feel queasy when you smell certain things too &ndash; like coffee, meat or alcohol.</p>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_8_b">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">I&rsquo;ve stopped eating/drinking some things that I used to enjoy (e.g. tea, coffee, strong flavors) :</h4>
+                        <p class="card-text font-checkbox-label">You may stop eating or drinking certain things like tea, coffee or fatty food, and might start to crave things you don't normally like. <br /> You might even feel queasy when you smell certain things too &ndash; like coffee, meat or alcohol.</p>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_8_c">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">I&rsquo;m eating everything in sight :</h4>
+                        <p class="card-text font-checkbox-label">You may stop eating or drinking certain things like tea, coffee or fatty food, and might start to crave things you don't normally like. <br /> You might even feel queasy when you smell certain things too &ndash; like coffee, meat or alcohol.</p>
+                     </div>
+                  </div>
+                  <div class="card card-tips question_8_d">
+                     <div class="card-body">
+                        <h4 class="card-title font-cardtitle">The smell of some foods is making me feel really queasy :</h4>
+                        <p class="card-text font-checkbox-label">You may stop eating or drinking certain things like tea, coffee or fatty food, and might start to crave things you don't normally like. <br /> You might even feel queasy when you smell certain things too &ndash; like coffee, meat or alcohol.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="card div-result card-format-result temp-hide">
+            <h4 class="card-title mt-5 font-final-cardtitle">Find out your results</h4>
+            <div class="row my-3">
+               <div class="col-md-12">
+                  <div class="card card-tips category_1">
+                     <div class="card-body">
+                        <p class="card-text font-checkbox-label">Based on your answers, it is unlikely, but not impossible, that you are pregnant this cycle. Not all women will suffer from pregnancy symptoms though, and all pregnancies are different so do not worry. One way you can be certain is to take a pregnancy test.</p>
+                        <br /> <br /> <a href="#" class="font-link">Buy now</a> <br /> <br /> <a href="#" class="font-link">Clearblue Pregnancy Tests</a> <br /> <br /> <a href="#" class="font-link">Early pregnancy symptoms</a>
+                     </div>
+                  </div>
+                  <div class="card card-tips category_2">
+                     <div class="card-body">
+                        <p class="card-text font-checkbox-label">Based on your answers, there is a chance you might be pregnant. Find out for sure by taking a Clearblue&reg; Pregnancy Test as soon as possible. Some symptoms might be for reasons other than pregnancy &ndash; if you are concerned, speak to your doctor. <br /> <br /> If you&rsquo;re trying to get pregnant, but testing indicates you are not, using an ovulation test to identify your fertile days will help you maximize your chances of getting pregnant.</p>
+                        <br /> <br /> <a href="#" class="font-link">Buy now</a> <br /> <br /> <a href="#" class="font-link">Clearblue Pregnancy Tests</a> <br /> <br /> <a href="#" class="font-link">When can I take a pregnancy test?</a> <br /> <br /> <a href="#" class="font-link">Trying to get pregnant? Maximize your chances</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="row my-3">
+            <div class="col-md-12 text-center"><button type="button" class="btn btn-color noUniform mt-2 btn-nxt-question btn-format" data-qnum="1" style="display: none;">Next question</button> <button type="button" class="btn btn-color noUniform mt-2 btn-view-results btn-format" data-result="0" style="display: none;">Find out your results</button></div>
+         </div>
+         /*
+         <div class="row my-3 font-checkbox-label" id="bottom">Sourced By Clearblue&reg; | <a href="https://www.clearblue.com/am-i-pregnant/quiz" class="font-link">Am I Pregnant? Quiz</a></div>
+         */
+      </div>
+   </div>
+</div>
+
+   <script>
+      $(function(){
+      	$(window).load(function() {
+      		$.uniform.restore(".noUniform");
+      	});
+      
+      	$('.btn-nxt-question').on('click', function(){
+      		var question = $(this).attr('data-qnum');
+      		var prev_question = $(this).attr('data-qnum');
+      		var progressbar = $('.progress-bar').attr('data-pbar');
+      		var no_checked = $(".check-option:checked").length;
+      		var div_txt = 'div-question-';
+      		var main_q_txt = 'main-question-';
+      		
+      		if (question < 8 && no_checked > 0) {
+      			question++;
+      			$(this).attr('data-qnum', question);
+      			$('.div-qnum').html('Question ' + question + '/8');
+      			progressbar = parseFloat(progressbar);
+      			progressbar = progressbar + 12.5;
+      			$('.progress-bar').attr('data-pbar', progressbar);
+      			$('.progress-bar').css('width', progressbar + '%');
+      
+      			$('body').find('.' + div_txt + prev_question).hide();
+      			$('body').find('.' + div_txt + question).show();
+      
+      			$('body').find('.' + main_q_txt + prev_question).hide();
+      			$('body').find('.' + main_q_txt + question).show();
+      
+      			$(this).hide(); /* hides the button after clicking */
+      		}
+      
+      	});
+      
+      	$('.btn-view-results').on('click', function(){
+      		var resultCounter = $(this).attr('data-result');
+      		var div_result_txt = 'div-result';
+      		var category_txt = 'category_';
+      		var div_txt = 'div-question-';
+      		var main_q_txt = 'main-question-';
+      
+      		$('body').find('.' + div_txt + 8).hide();
+      		$('body').find('.' + main_q_txt + 8).hide();
+      
+      		$('body').find('.' + div_result_txt).show();
+      
+      		if (resultCounter >= 4) {
+      			$('body').find('.' + category_txt + 1).show(); /* Two categories of result cards - majority "a" = 1, else = 2 */
+      		} else {
+      			$('body').find('.' + category_txt + 2).show();
+      		} 
+      
+      		$(this).hide();
+      	}); 
+      
+      	$('.btn-start-quiz').click(function() {
+          	$('html,body').animate({
+              	scrollTop: $("#quiz").offset().top},'slow');
+      	}); /* kinda buggy and weird */
+      
+      	$('body').on('click', '.check-option', function(){
+      		$('body').find('.card-tips').hide();
+      		var no_checked = $(".check-option:checked").length;
+      		console.log("number of checked" + no_checked);
+      
+      		if(no_checked > 0)
+      		{
+      			$('.check-option').not(this).prop('checked', false);
+      		}
+      		else
+      		{
+      			$(this).prop('checked', true); /* for current click check box to check, coz we dont want to allow user uncheck all */
+      		}
+      		
+      		var ischecked = $(this).is(":checked");
+      		var resultCounter = $('body').find('.btn-view-results').attr('data-result'); /* if the quest_option = 'a' then +1 to this variable */
+      		var answer = $(this).val();
+      		var quest_option = $(this).data('option'); // method 1 how to get data attribute;
+      		var quest_num = $(this).attr('data-question'); // method 2 how to get data attribute;
+      
+      		/* https://stackoverflow.com/questions/17785010/jquery-uncheck-other-checkbox-on-one-checked */
+      
+      		if (ischecked == true && quest_num == 8) 
+      		{
+      			$('body').find('.btn-view-results').show();
+      		} 
+      		else if (ischecked == true) 
+      		{ 
+      			$('body').find('.btn-nxt-question').show();
+      		}
+      
+      		if (quest_option == "a") {
+      			resultCounter++;
+      			$('body').find('.btn-view-results').attr('data-result', resultCounter);
+      		}
+      					
+      		console.log("answer :" + answer);
+      		console.log("question no :" + quest_num);
+      		console.log("quest_option :" + quest_option);
+      		console.log("Result Counter:" + resultCounter);
+      
+      		var showclass = 'question_' + quest_num + '_' + quest_option;
+      		console.log("card to show :" + showclass);
+      
+      		$('body').find('.' + showclass).show();
+      	})
+      });
+   </script>
